@@ -2,6 +2,7 @@
 .DS_Store
 .publish/
 **/ignore*
+backend/drupal/sites/default/files/
 node_modules/
 npm-debug.log
 patternlab-node/config.json
