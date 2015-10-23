@@ -9,7 +9,6 @@ namespace Drupal\system\Tests\Common;
 
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Unicode;
-use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Asset\AttachedAssets;
 use Drupal\simpletest\KernelTestBase;
 
@@ -288,7 +287,7 @@ class AttachedAssetsTest extends KernelTestBase {
     $js_render_array = \Drupal::service('asset.js.collection_renderer')->render($js);
 
     $rendered_js = $this->renderer->renderPlain($js_render_array);
-    $this->assertTrue(strpos($rendered_js, 'core/assets/vendor/backbone/backbone-min.js?v=1.2.1') > 0 && strpos($rendered_js, 'core/assets/vendor/domready/ready.min.js?v=1.0.8') > 0 , 'JavaScript version identifiers correctly appended to URLs');
+    $this->assertTrue(strpos($rendered_js, 'core/assets/vendor/backbone/backbone-min.js?v=1.2.3') > 0 && strpos($rendered_js, 'core/assets/vendor/domready/ready.min.js?v=1.0.8') > 0 , 'JavaScript version identifiers correctly appended to URLs');
   }
 
   /**

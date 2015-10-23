@@ -14,9 +14,6 @@
 
 namespace Drupal\Core\Template;
 
-use Drupal\Component\Utility\Unicode;
-use Drupal\Core\Site\Settings;
-
 /**
  * A class that defines the Twig 'trans' tag for Drupal.
  */
@@ -136,9 +133,6 @@ class TwigNodeTrans extends \Twig_Node {
           $argPrefix = '@';
           while ($args instanceof \Twig_Node_Expression_Filter) {
             switch ($args->getNode('filter')->getAttribute('value')) {
-              case 'passthrough':
-                $argPrefix = '!';
-                break;
               case 'placeholder':
                 $argPrefix = '%';
                 break;

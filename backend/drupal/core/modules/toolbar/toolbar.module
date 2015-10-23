@@ -5,13 +5,11 @@
  * Administration toolbar for quick access to top level administration items.
  */
 
-use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Menu\MenuTreeParameters;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Template\Attribute;
-use Drupal\Component\Datetime\DateTimePlus;
 use Drupal\Component\Utility\Crypt;
 use Drupal\Core\Url;
 
@@ -22,7 +20,7 @@ function toolbar_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     case 'help.page.toolbar':
       $output = '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('The Toolbar module provides a toolbar for site administrators, which displays tabs and trays provided by the Toolbar module itself and other modules. For more information, see the <a href="!toolbar_docs">online documentation for the Toolbar module</a>.', array('!toolbar_docs' => 'https://www.drupal.org/documentation/modules/toolbar')) . '</p>';
+      $output .= '<p>' . t('The Toolbar module provides a toolbar for site administrators, which displays tabs and trays provided by the Toolbar module itself and other modules. For more information, see the <a href=":toolbar_docs">online documentation for the Toolbar module</a>.', array(':toolbar_docs' => 'https://www.drupal.org/documentation/modules/toolbar')) . '</p>';
       $output .= '<h4>' . t('Terminology') . '</h4>';
       $output .= '<dl>';
       $output .= '<dt>' . t('Tabs') . '</dt>';

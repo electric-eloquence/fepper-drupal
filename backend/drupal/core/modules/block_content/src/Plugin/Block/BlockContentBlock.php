@@ -13,7 +13,6 @@ use Drupal\Core\Block\BlockManagerInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Routing\UrlGeneratorInterface;
 use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -115,7 +114,10 @@ class BlockContentBlock extends BlockBase implements ContainerFactoryPluginInter
    * Adds body and description fields to the block configuration form.
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $options = $this->entityManager->getViewModeOptions('block_content');
+    $uuid = $this->getDerivativeId();
+    $block = $this->entityManager->loadEntityByUuid('block_content', $uuid);
+    $options = $this->entityManager->getViewModeOptionsByBundle('block_content', $block->bundle());
+
     $form['view_mode'] = array(
       '#type' => 'select',
       '#options' => $options,
@@ -156,9 +158,9 @@ class BlockContentBlock extends BlockBase implements ContainerFactoryPluginInter
     }
     else {
       return array(
-        '#markup' => $this->t('Block with uuid %uuid does not exist. <a href="!url">Add custom block</a>.', array(
+        '#markup' => $this->t('Block with uuid %uuid does not exist. <a href=":url">Add custom block</a>.', array(
           '%uuid' => $this->getDerivativeId(),
-          '!url' => $this->urlGenerator->generate('block_content.add_page')
+          ':url' => $this->urlGenerator->generate('block_content.add_page')
         )),
         '#access' => $this->account->hasPermission('administer blocks')
       );

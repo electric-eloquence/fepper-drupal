@@ -7,12 +7,12 @@
 
 namespace Drupal\views\Plugin\views\argument_default;
 
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Cache\CacheableDependencyInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Path\AliasManagerInterface;
 use Drupal\Core\Path\CurrentPathStack;
-use Drupal\views\Plugin\CacheablePluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Default argument plugin to use the raw value from the URL.
@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Request;
  *   title = @Translation("Raw value from URL")
  * )
  */
-class Raw extends ArgumentDefaultPluginBase implements CacheablePluginInterface {
+class Raw extends ArgumentDefaultPluginBase implements CacheableDependencyInterface {
 
   /**
    * The alias manager.
@@ -116,8 +116,8 @@ class Raw extends ArgumentDefaultPluginBase implements CacheablePluginInterface 
   /**
    * {@inheritdoc}
    */
-  public function isCacheable() {
-    return TRUE;
+  public function getCacheMaxAge() {
+    return Cache::PERMANENT;
   }
 
   /**

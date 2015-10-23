@@ -57,25 +57,19 @@ trait StringTranslationTrait {
   }
 
   /**
-   * Formats a translated string containing a count of items.
-   *
-   * See the
-   * \Drupal\Core\StringTranslation\TranslationInterface::formatPluralTranslated()
-   * documentation for details.
-   */
-  protected function formatPluralTranslated($count, $translated, array $args = array(), array $options = array()) {
-    return $this->getStringTranslation()->formatPluralTranslated($count, $translated, $args, $options);
-  }
-
-  /**
    * Returns the number of plurals supported by a given language.
    *
-   * See the
-   * \Drupal\Core\StringTranslation\TranslationInterface::getNumberOfPlurals()
+   * See the \Drupal\locale\PluralFormulaInterface::getNumberOfPlurals()
    * documentation for details.
+   *
+   * @see \Drupal\locale\PluralFormulaInterface::getNumberOfPlurals()
    */
   protected function getNumberOfPlurals($langcode = NULL) {
-    return $this->getStringTranslation()->getNumberOfPlurals($langcode);
+    if (\Drupal::hasService('locale.plural.formula')) {
+      return \Drupal::service('locale.plural.formula')->getNumberOfPlurals($langcode);
+    }
+    // We assume 2 plurals if Locale's services are not available.
+    return 2;
   }
 
   /**

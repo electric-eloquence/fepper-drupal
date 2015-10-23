@@ -7,17 +7,16 @@
 
 namespace Drupal\taxonomy\Plugin\views\argument_default;
 
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Cache\CacheableDependencyInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\taxonomy\TermInterface;
-use Drupal\views\Plugin\CacheablePluginInterface;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
 use Drupal\views\Plugin\views\argument_default\ArgumentDefaultPluginBase;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\taxonomy\VocabularyStorageInterface;
 
 /**
@@ -28,7 +27,7 @@ use Drupal\taxonomy\VocabularyStorageInterface;
  *   title = @Translation("Taxonomy term ID from URL")
  * )
  */
-class Tid extends ArgumentDefaultPluginBase implements CacheablePluginInterface {
+class Tid extends ArgumentDefaultPluginBase implements CacheableDependencyInterface {
 
   /**
    * The route match.
@@ -216,8 +215,8 @@ class Tid extends ArgumentDefaultPluginBase implements CacheablePluginInterface 
   /**
    * {@inheritdoc}
    */
-  public function isCacheable() {
-    return TRUE;
+  public function getCacheMaxAge() {
+    return Cache::PERMANENT;
   }
 
   /**

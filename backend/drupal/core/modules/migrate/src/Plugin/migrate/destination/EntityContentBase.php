@@ -43,8 +43,6 @@ class EntityContentBase extends Entity {
    *   The storage for this entity type.
    * @param array $bundles
    *   The list of bundles this entity type has.
-   * @param \Drupal\migrate\Plugin\MigratePluginManager $plugin_manager
-   *   The plugin manager.
    * @param \Drupal\Core\Entity\EntityManagerInterface $entity_manager
    *   The entity manager service.
    */
@@ -111,6 +109,17 @@ class EntityContentBase extends Entity {
    *   The row object to update from.
    */
   protected function updateEntity(EntityInterface $entity, Row $row) {
+    // If the migration has specified a list of properties to be overwritten,
+    // clone the row with an empty set of destination values, and re-add only
+    // the specified properties.
+    if (isset($this->configuration['overwrite_properties'])) {
+      $clone = $row->cloneWithoutDestination();
+      foreach ($this->configuration['overwrite_properties'] as $property) {
+        $clone->setDestinationProperty($property, $row->getDestinationProperty($property));
+      }
+      $row = $clone;
+    }
+
     foreach ($row->getDestination() as $field_name => $values) {
       $field = $entity->$field_name;
       if ($field instanceof TypedDataInterface) {

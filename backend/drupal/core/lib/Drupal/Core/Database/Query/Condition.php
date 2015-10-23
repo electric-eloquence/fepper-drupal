@@ -188,6 +188,25 @@ class Condition implements ConditionInterface, \Countable {
               'operator' => $condition['operator'],
               'use_value' => TRUE,
             );
+            // Remove potentially dangerous characters.
+            // If something passed in an invalid character stop early, so we
+            // don't rely on a broken SQL statement when we would just replace
+            // those characters.
+            if (stripos($condition['operator'], 'UNION') !== FALSE || strpbrk($condition['operator'], '[-\'"();') !== FALSE) {
+              $this->changed = TRUE;
+              $this->arguments = [];
+              // Provide a string which will result into an empty query result.
+              $this->stringVersion = '( AND 1 = 0 )';
+
+              // Conceptually throwing an exception caused by user input is bad
+              // as you result into a WSOD, which depending on your webserver
+              // configuration can result into the assumption that your site is
+              // broken.
+              // On top of that the database API relies on __toString() which
+              // does not allow to throw exceptions.
+              trigger_error('Invalid characters in query operator: ' . $condition['operator'], E_USER_ERROR);
+              return;
+            }
             $operator = $connection->mapConditionOperator($condition['operator']);
             if (!isset($operator)) {
               $operator = $this->mapConditionOperator($condition['operator']);
@@ -258,10 +277,10 @@ class Condition implements ConditionInterface, \Countable {
     $this->changed = TRUE;
     foreach ($this->conditions as $key => $condition) {
       if ($key !== '#conjunction') {
-        if ($condition['field'] instanceOf ConditionInterface) {
+        if ($condition['field'] instanceof ConditionInterface) {
           $this->conditions[$key]['field'] = clone($condition['field']);
         }
-        if ($condition['value'] instanceOf SelectInterface) {
+        if ($condition['value'] instanceof SelectInterface) {
           $this->conditions[$key]['value'] = clone($condition['value']);
         }
       }

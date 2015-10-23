@@ -8,7 +8,6 @@
 namespace Drupal\tour\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
-use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\tour\TipsPluginCollection;
 use Drupal\tour\TourInterface;
 
@@ -183,7 +182,7 @@ class Tour extends ConfigEntityBase implements TourInterface {
     }
 
     $this->addDependency('module', $this->module);
-    return $this->dependencies;
+    return $this;
   }
 
 }

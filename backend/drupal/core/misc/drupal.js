@@ -52,7 +52,7 @@ if (window.jQuery) {
 // wrapping it in an anonymous closure.
 (function (domready, Drupal, drupalSettings, drupalTranslations) {
 
-  "use strict";
+  'use strict';
 
   /**
    * Helper to rethrow errors asynchronously.
@@ -235,23 +235,6 @@ if (window.jQuery) {
         }
       }
     }
-  };
-
-  /**
-   * Tests the document width for mobile configurations.
-   *
-   * @param {number} [width=640]
-   *   Value of the width to check for.
-   *
-   * @return {bool}
-   *   true if the document's `clientWidth` is bigger than `width`, returns
-   *   false otherwise.
-   *
-   * @deprecated Temporary solution for the mobile initiative.
-   */
-  Drupal.checkWidthBreakpoint = function (width) {
-    width = width || drupalSettings.widthBreakpoint || 640;
-    return (document.documentElement.clientWidth > width);
   };
 
   /**

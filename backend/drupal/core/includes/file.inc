@@ -5,14 +5,12 @@
  * API for handling file uploads and server file management.
  */
 
-use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Component\PhpStorage\FileStorage;
 use Drupal\Component\Utility\Bytes;
 use Drupal\Core\File\FileSystem;
 use Drupal\Core\StreamWrapper\PublicStream;
-use Drupal\Core\StreamWrapper\StreamWrapperInterface;
 use Drupal\Core\StreamWrapper\PrivateStream;
 
 /**
@@ -335,8 +333,7 @@ function file_ensure_htaccess() {
     file_save_htaccess('private://', TRUE);
   }
   file_save_htaccess('temporary://', TRUE);
-  file_save_htaccess(config_get_config_directory(), TRUE);
-  file_save_htaccess(config_get_config_directory(CONFIG_STAGING_DIRECTORY), TRUE);
+  file_save_htaccess(config_get_config_directory(CONFIG_SYNC_DIRECTORY), TRUE);
 }
 
 /**
@@ -371,8 +368,8 @@ function file_save_htaccess($directory, $private = TRUE, $force_overwrite = FALS
     return drupal_chmod($htaccess_path, 0444);
   }
   else {
-    $variables = array('%directory' => $directory, '!htaccess' => '<br />' . nl2br(Html::escape($htaccess_lines)));
-    \Drupal::logger('security')->error("Security warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <code>!htaccess</code>", $variables);
+    $variables = array('%directory' => $directory, '@htaccess' => $htaccess_lines);
+    \Drupal::logger('security')->error("Security warning: Couldn't write .htaccess file. Please create a .htaccess file in your %directory directory which contains the following lines: <pre><code>@htaccess</code></pre>", $variables);
     return FALSE;
   }
 }
