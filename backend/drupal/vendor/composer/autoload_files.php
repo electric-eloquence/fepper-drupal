@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    $vendorDir . '/symfony/var-dumper/Resources/functions/dump.php',
     $vendorDir . '/guzzlehttp/promises/src/functions_include.php',
     $vendorDir . '/guzzlehttp/psr7/src/functions_include.php',
     $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
+    $vendorDir . '/nikic/php-parser/lib/bootstrap.php',
+    $vendorDir . '/psy/psysh/src/Psy/functions.php',
     $baseDir . '/core/lib/Drupal.php',
 );

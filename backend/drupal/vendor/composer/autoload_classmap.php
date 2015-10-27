@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Console_Table' => $vendorDir . '/pear/console_table/Table.php',
     'Drupal\\Component\\Utility\\Timer' => $baseDir . '/core/lib/Drupal/Component/Utility/Timer.php',
     'Drupal\\Component\\Utility\\Unicode' => $baseDir . '/core/lib/Drupal/Component/Utility/Unicode.php',
     'Drupal\\Core\\Database\\Database' => $baseDir . '/core/lib/Drupal/Core/Database/Database.php',
