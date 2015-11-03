@@ -1,0 +1,24 @@
+<!-- Begin node -->
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+  <h2{{ title_attributes }}>
+    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+  </h2>
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer>
+      <div{{ author_attributes }}>
+        {% trans %}By {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+    {{ content }}
+  </div>
+
+</article>
+<!-- End node -->

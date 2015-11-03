@@ -1,0 +1,4 @@
+<?php
+function fepper_preprocess_comment(&$variables) {
+//dd($variables['elements']);
+}
