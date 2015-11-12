@@ -5,7 +5,7 @@
 <div id="page" class="page">
 
   <header class="header cf" role="banner">
-    {{> 03-templates/region('templates-block--header?': true, content_block_attributes: ' id="block-fepper-branding"') }}
+    {{> 03-templates/region('templates-block--header?': true) }}
   </header>
 
   {{ page.primary_menu }}
@@ -21,7 +21,7 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="l-two-col">
-      {{> 03-templates/region('templates-block--main?': true, content_block_attributes: ' id="block-fepper-content"') }}
+      {{> 03-templates/region('templates-block--main?': true) }}
     </div>
 
     {{# sidebar_first? }}

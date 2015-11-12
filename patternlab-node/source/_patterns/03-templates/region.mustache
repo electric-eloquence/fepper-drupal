@@ -5,10 +5,10 @@
       {{{ fpo_template_content }}}
     {{/ templates-region? }}
     {{# templates-block--header? }}
-      {{> 03-templates/block('organisms-header?': true) }}
+      {{> 03-templates/block('organisms-header?': true, content_block_attributes: ' id="block-fepper-branding" class="contextual-region"') }}
     {{/ templates-block--header? }}
     {{# templates-block--main? }}
-      {{> 03-templates/block('templates-node--article?': true) }}
+      {{> 03-templates/block('templates-node--article?': true, content_block_attributes: ' id="block-fepper-content"') }}
     {{/ templates-block--main? }}
   </div>
 {{/ content? }}
