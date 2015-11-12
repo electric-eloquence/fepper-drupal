@@ -1,0 +1,20 @@
+<!-- Begin block -->
+<div{{{ content_block_attributes }}}>
+  {{ title_prefix }}
+  {{# label? }}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {{/ label? }}
+  {{ title_suffix }}
+  {{# content? }}
+    {{# templates-block? }}
+      {{{ fpo_template_content }}}
+    {{/ templates-block? }}
+    {{# organisms-header? }}
+      {{> 02-organisms/00-global/00-header }}
+    {{/ organisms-header? }}
+    {{# templates-node--article? }}
+      {{> 03-templates/node('organisms-article?': true) }}
+    {{/ templates-node--article? }}
+  {{/ content? }}
+</div>
+<!-- End block -->

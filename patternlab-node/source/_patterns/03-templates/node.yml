@@ -1,0 +1,18 @@
+"# templates-node\\?": |
+   
+"{ fpo_template_content }": |
+   
+"{/ templates-node\\?": |
+   
+"{ article_attributes }": |
+  {{ attributes }}
+"{ article_title }": |
+  {{ label }}
+"# content\\?": |
+  {% if display_submitted %}
+"{ author_attributes }": |
+  {{ author_attributes }}
+"/ content\\?": |
+  {% endif %}
+"> 02-organisms/01-article/01-article": |
+  {{ content }}

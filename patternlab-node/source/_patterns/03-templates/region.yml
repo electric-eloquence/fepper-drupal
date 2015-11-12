@@ -1,0 +1,22 @@
+"# content\\?": |
+  {% if content %}
+"# templates-region\\?": |
+  
+"{ fpo_template_content }": |
+  {{ content }}
+"/ templates-region\\?": |
+  
+"# header\\?": |
+
+"> 03-templates/block\\('organisms-header\\?': true\\)": |
+  
+"/ header\\?": |
+
+"# main\\?": |
+
+"> 03-templates/block\\('organisms-article\\?': true\\)": |
+
+"/ main\\?": |
+  
+"/ content\\?": |
+  {% endif %}

@@ -1,0 +1,15 @@
+<!-- Begin region -->
+{{# content? }}
+  <div{{ attributes }}>
+    {{# templates-region? }}
+      {{{ fpo_template_content }}}
+    {{/ templates-region? }}
+    {{# templates-block--header? }}
+      {{> 03-templates/block('organisms-header?': true) }}
+    {{/ templates-block--header? }}
+    {{# templates-block--main? }}
+      {{> 03-templates/block('templates-node--article?': true) }}
+    {{/ templates-block--main? }}
+  </div>
+{{/ content? }}
+<!-- End region -->

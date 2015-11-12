@@ -1,0 +1,48 @@
+{{# templates-page? }}
+  {{{ fpo_template_content }}}
+{{/ templates-page? }}
+<!-- Begin page -->
+<div id="page" class="page">
+
+  <header class="header cf" role="banner">
+    {{> 03-templates/region('templates-block--header?': true) }}
+  </header>
+
+  {{ page.primary_menu }}
+  {{ page.secondary_menu }}
+
+  {{ page.breadcrumb }}
+
+  {{ page.highlighted }}
+
+  {{ page.help }}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+
+    <div class="l-two-col">
+      {{> 03-templates/region('templates-block--main?': true) }}
+    </div>
+
+    {{# sidebar_first? }}
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {{/ sidebar_first? }}
+
+    {{# sidebar_second? }}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {{/ sidebar_second? }}
+
+  </main>
+
+  {{# footer? }}
+    <footer role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {{/ footer? }}
+
+</div>
+<!-- End page -->

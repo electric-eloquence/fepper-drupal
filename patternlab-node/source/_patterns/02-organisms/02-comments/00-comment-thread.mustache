@@ -1,0 +1,10 @@
+<section rel="schema:comment">
+  <h2>Comments</h2>
+  <ul class="comment-list">
+    {{# listItems.five }}
+      {{> 03-templates/node('molecules-single-comment?': true) }}
+      {{! 03-templates/node('organisms-article?': false, 'molecules-single-comment?': true) }}
+    {{/ listItems.five }}
+  </ul>
+  {{> 01-molecules/04-forms/01-comment-form }}
+</section>

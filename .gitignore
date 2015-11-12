@@ -12,5 +12,4 @@ patternlab-node/config.json
 patternlab-node/public/*
 !patternlab-node/public/data/annotations.js
 !patternlab-node/public/styleguide
-patternlab-node/source/
 Thumbs.db

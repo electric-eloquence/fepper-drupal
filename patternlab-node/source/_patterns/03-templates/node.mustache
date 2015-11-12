@@ -1,0 +1,32 @@
+{{# templates-node? }}
+  {{{ fpo_template_content }}}
+{{/ templates-node? }}
+<!-- Begin node -->
+<article{{{ article_attributes }}}>
+
+  {{ title_prefix }}
+  <h2{{ title_attributes }}>
+    <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
+  </h2>
+  {{ title_suffix }}
+
+  {{# content? }}
+    <footer>
+      <div{{{ author_attributes }}}>
+        By {{ author_name }} on {{ date }}
+        {{ metadata }}
+      </div>
+    </footer>
+  {{/ content? }}
+
+  <div{{ content_attributes }}>
+    {{# organisms-article? }}
+      {{> 02-organisms/01-article/01-article }}
+    {{/ organisms-article? }}
+    {{# molecules-single-comment? }}
+      {{> 01-molecules/06-components/02-single-comment }}
+    {{/ molecules-single-comment? }}
+  </div>
+
+</article>
+<!-- End node -->
