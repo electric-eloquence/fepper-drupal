@@ -703,12 +703,12 @@ td {
   }
 }
 
-.search-form {
+#search-block-form {
   overflow: hidden;
   max-height: 0;
 }
 @media all and (min-width: 46.8em) {
-  .search-form {
+  #search-block-form {
     float: right;
     max-height: none;
     margin: 0.65em 0.5em 0 0;

@@ -1,11 +1,9 @@
-<form action="#" method="post" class="inline-form search-form">
-  <fieldset>
-    <legend class="is-vishidden">Search</legend>
-    <label for="search-field" class="is-vishidden">Search</label>
-    <input type="search" placeholder="Search" id="search-field" class="search-field" />
-    <button class="search-submit">
-      <span class="icon-search" aria-hidden="true"></span>
-      <span class="is-vishidden">Search</span>
-    </button>
-  </fieldset>
+<form action="#" method="get" id="search-block-form" accept-charset="UTF-8">
+  <div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+    <label for="edit-keys" class="visually-hidden">Search</label>
+    <input title="Enter the terms you wish to search for." placeholder="Search" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search" />
+  </div>
+  <div class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+    <input type="submit" id="edit-submit" name="" value="Search" class="button js-form-submit form-submit" />
+  </div>
 </form>

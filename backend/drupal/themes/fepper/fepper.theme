@@ -1,4 +1,4 @@
 <?php
-function fepper_preprocess_comment(&$variables) {
-//dd($variables['elements']);
+function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['keys']['#attributes']['placeholder'] = 'Search';
 }
