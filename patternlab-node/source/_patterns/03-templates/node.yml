@@ -6,8 +6,12 @@
    
 "{ article_attributes }": |
   {{ attributes }}
+"^ view_mode_full?": |
+  {% if not page %}
 "{ article_title }": |
   {{ label }}
+"/ view_mode_full?": |
+  {% endif %}
 "# content\\?": |
   {% if display_submitted %}
 "{ author_attributes }": |

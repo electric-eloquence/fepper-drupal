@@ -5,9 +5,11 @@
 <article{{{ article_attributes }}}>
 
   {{ title_prefix }}
-  <h2{{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
-  </h2>
+  {{^ view_mode_full? }}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
+    </h2>
+  {{/ view_mode_full? }}
   {{ title_suffix }}
 
   {{# content? }}
@@ -24,6 +26,7 @@
       {{> 02-organisms/01-article/01-article }}
     {{/ organisms-article? }}
     {{# molecules-single-comment? }}
+<h1>BUH</h1>
       {{> 01-molecules/06-components/02-single-comment }}
     {{/ molecules-single-comment? }}
   </div>
