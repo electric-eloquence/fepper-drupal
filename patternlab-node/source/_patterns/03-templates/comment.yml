@@ -1,0 +1,18 @@
+"{ comment_attributes }": |
+  {{ attributes.addClass('js-comment') }}
+"> 00-atoms/03-images/04-avatar": |
+  {{ user_picture }}
+"> 01-molecules/00-text/07-byline-commenter": |
+  {{ submitted }}
+"# parent?": |
+  {% if parent %}
+"/ parent?": |
+  {% endif %}
+"# content?": |
+  {% if title %}
+"content_title_attributes": |
+  {{ title_attributes }}
+"content_title": |
+  {{ title }}
+"/ content?": |
+  {% endif %}
