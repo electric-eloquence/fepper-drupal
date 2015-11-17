@@ -14,6 +14,8 @@
   {% endif %}
 "# sidebar_second\\?": |
   {% if page.sidebar_second %}
+"> 03-templates/region\\('templates-block--sidebar\\?': true\\)": |
+  {{ page.sidebar_second }}
 "/ sidebar_second\\?": |
   {% endif %}
 "# footer\\?": |

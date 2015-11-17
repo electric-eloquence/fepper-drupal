@@ -15,6 +15,10 @@
     {{# templates-node--article? }}
       {{> 03-templates/node('organisms-article?': true) }}
     {{/ templates-node--article? }}
+    {{# organisms-sidebar2? }}
+      {{> 02-organisms/04-sections/02-related-posts }}
+      {{> 02-organisms/04-sections/01-recent-tweets }}
+    {{/ organisms-sidebar2? }}
   {{/ content? }}
 </div>
 <!-- End block -->
