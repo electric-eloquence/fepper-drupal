@@ -1,13 +1,13 @@
 {{# templates-comment? }}
   {{{ fpo_template_content }}}
 {{/ templates-comment? }}
-<article{{{ comment_attributes }}}>
+<article{{ attributes.addClass('js-comment') }}>
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
-    {{> 00-atoms/03-images/04-avatar }}
+    {{ user_picture }}
     <p>
-      {{> 01-molecules/00-text/07-byline-commenter }}
+      {{ submitted }}
     </p>
 
     {{# parent? }}
@@ -20,7 +20,7 @@
   <div{{ content_attributes }}>
     {{# title? }}
       {{ title_prefix }}
-      <h3{{ title_attributes }}>{{ comment_title }}</h3>
+      <h3{{ title_attributes }}>{{ title }}</h3>
       {{ title_suffix }}
     {{/ title? }}
     {{> 01-molecules/06-components/02-single-comment }}

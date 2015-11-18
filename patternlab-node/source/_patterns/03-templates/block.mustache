@@ -9,9 +9,12 @@
     {{# templates-block? }}
       {{{ fpo_template_content }}}
     {{/ templates-block? }}
-    {{# organisms-header? }}
-      {{> 02-organisms/00-global/00-header }}
-    {{/ organisms-header? }}
+    {{# atoms-logo? }}
+      {{> 00-atoms/03-images/00-logo }}
+    {{/ atoms-logo? }}
+    {{# molecules-search? }}
+      {{> 01-molecules/04-forms/00-search }}
+    {{/ molecules-search? }}
     {{# templates-node--article? }}
       {{> 03-templates/node('organisms-article?': true) }}
     {{/ templates-node--article? }}

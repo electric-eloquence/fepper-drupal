@@ -6,8 +6,16 @@
     {{/ templates-region? }}
     {{# templates-block--header? }}
       {{> 03-templates/block(
-        'organisms-header?': true,
+        'atoms-logo?': true,
         content_block_attributes: ' id="block-fepper-branding" class="contextual-region"'
+      ) }}
+      {{> 03-templates/block--system-menu-block(
+        'molecules-primary-nav?': true,
+        content_block_attributes: ' id="block-mainnavigation" class="contextual-region"'
+      ) }}
+      {{> 03-templates/block(
+        'molecules-search?': true,
+        content_block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"'
       ) }}
     {{/ templates-block--header? }}
     {{# templates-block--main? }}

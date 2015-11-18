@@ -1,23 +1,30 @@
+
+  
+{{/ templates-node? }}
 <!-- Begin node -->
 <article{{ attributes }}>
 
   {{ title_prefix }}
-  <h2{{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-  </h2>
+  {{^ view_mode_full? }}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
+    </h2>
+  {{/ view_mode_full? }}
   {{ title_suffix }}
 
   {% if display_submitted %}
     <footer>
       <div{{ author_attributes }}>
-        {% trans %}By {{ author_name }} on {{ date }}{% endtrans %}
+        By {{ author_name }} on {{ date }}
         {{ metadata }}
       </div>
     </footer>
   {% endif %}
 
   <div{{ content_attributes }}>
-    {{ content }}
+    {{# organisms-article? }}
+      {{ content }}
+    {{/ organisms-article? }}
   </div>
 
 </article>

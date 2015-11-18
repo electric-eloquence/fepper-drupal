@@ -8,11 +8,9 @@
   {% if parent %}
 "/ parent?": |
   {% endif %}
-"# content?": |
+"# title?": |
   {% if title %}
-"content_title_attributes": |
-  {{ title_attributes }}
-"content_title": |
+"comment_title": |
   {{ title }}
-"/ content?": |
+"/ title?": |
   {% endif %}

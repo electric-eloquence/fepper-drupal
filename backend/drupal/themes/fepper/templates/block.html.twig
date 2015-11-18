@@ -6,13 +6,25 @@
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    {{ content }}
     
-      
+      {{ content }}
     
-    
-      
-    
+    {{# atoms-logo? }}
+      {{> 00-atoms/03-images/00-logo }}
+    {{/ atoms-logo? }}
+    {{# molecules-search? }}
+      {{> 01-molecules/04-forms/00-search }}
+    {{/ molecules-search? }}
+    {{# templates-node--article? }}
+      {{> 03-templates/node('organisms-article?': true) }}
+    {{/ templates-node--article? }}
+    {{# organisms-sidebar2? }}
+      {{> 02-organisms/04-sections/02-related-posts }}
+      {{> 02-organisms/04-sections/01-recent-tweets }}
+    {{/ organisms-sidebar2? }}
+    {{# organisms-footer? }}
+      {{> 02-organisms/00-global/01-footer }}
+    {{/ organisms-footer? }}
   {% endblock %}
 </div>
 <!-- End block -->

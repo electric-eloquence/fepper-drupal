@@ -1,13 +1,41 @@
 <!-- Begin region -->
 {% if content %}
   <div{{ attributes }}>
-    {{ content }}
     
-      
+      {{ content }}
     
-    
-      
-    
+    {{# templates-block--header? }}
+      {{> 03-templates/block(
+        'atoms-logo?': true,
+        content_block_attributes: ' id="block-fepper-branding" class="contextual-region"'
+      ) }}
+      {{> 03-templates/block--system-menu-block(
+        'molecules-primary-nav?': true,
+        content_block_attributes: ' id="block-mainnavigation" class="contextual-region"'
+      ) }}
+      {{> 03-templates/block(
+        'molecules-search?': true,
+        content_block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"'
+      ) }}
+    {{/ templates-block--header? }}
+    {{# templates-block--main? }}
+      {{> 03-templates/block(
+        'templates-node--article?': true,
+        content_block_attributes: ' id="block-fepper-content"'
+      ) }}
+    {{/ templates-block--main? }}
+    {{# templates-block--sidebar2? }}
+      {{> 03-templates/block(
+        'organisms-sidebar2?': true,
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"'
+      ) }}
+    {{/ templates-block--sidebar2? }}
+    {{# templates-block--footer? }}
+      {{> 03-templates/block(
+        'organisms-footer?': true,
+        content_block_attributes: ' id="block-fepperfooter" class="contextual-region"'
+      ) }}
+    {{/ templates-block--footer? }}
   </div>
 {% endif %}
 <!-- End region -->
