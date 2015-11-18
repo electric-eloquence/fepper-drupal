@@ -20,5 +20,7 @@
   {% endif %}
 "# footer\\?": |
   {% if page.footer %}
+"> 03-templates/region\\('templates-block--footer\\?': true\\)": |
+  {{ page.footer }}
 "/ footer\\?": |
   {% endif %}

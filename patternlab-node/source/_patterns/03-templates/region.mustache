@@ -22,6 +22,12 @@
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"'
       ) }}
     {{/ templates-block--sidebar2? }}
+    {{# templates-block--footer? }}
+      {{> 03-templates/block(
+        'organisms-footer?': true,
+        content_block_attributes: ' id="block-fepperfooter" class="contextual-region"'
+      ) }}
+    {{/ templates-block--footer? }}
   </div>
 {{/ content? }}
 <!-- End region -->
