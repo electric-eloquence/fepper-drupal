@@ -2,8 +2,8 @@
   \{\{ attributes \}\}
 "title_prefix": |
   \{\{ title_prefix \}\}
-"\\^ view_mode_full\\?": |
-  {% if not page %}
+"# view_mode_full\\?": |
+  {% if page %}
 "{ title_attributes }": |
   \{\{ title_attributes \}\}
 "url": |

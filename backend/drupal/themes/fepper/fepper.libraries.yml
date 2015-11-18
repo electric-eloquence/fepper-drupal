@@ -1,5 +1,5 @@
 global-styling:
   version: VERSION
   css:
-    base:
+    theme:
       styles/style.css: {}

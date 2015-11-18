@@ -16,12 +16,17 @@
       {{> 01-molecules/04-forms/00-search }}
     {{/ molecules-search? }}
     {{# templates-node--article? }}
-      {{> 03-templates/node('organisms-article?': true) }}
+      {{> 03-templates/node(
+        'organisms-article?': true,
+        'view_mode_full?': true
+      ) }}
     {{/ templates-node--article? }}
-    {{# organisms-sidebar2? }}
+    {{# organisms-related-posts? }}
       {{> 02-organisms/04-sections/02-related-posts }}
+    {{/ organisms-related-posts? }}
+    {{# organisms-recent-tweets? }}
       {{> 02-organisms/04-sections/01-recent-tweets }}
-    {{/ organisms-sidebar2? }}
+    {{/ organisms-recent-tweets? }}
     {{# organisms-footer? }}
       {{> 02-organisms/00-global/01-footer }}
     {{/ organisms-footer? }}

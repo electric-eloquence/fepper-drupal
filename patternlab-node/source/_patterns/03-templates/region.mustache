@@ -9,7 +9,7 @@
         'atoms-logo?': true,
         content_block_attributes: ' id="block-fepper-branding" class="contextual-region"'
       ) }}
-      {{> 03-templates/block--system-menu-block(
+      {{> 03-templates/_block--system-menu-block(
         'molecules-primary-nav?': true,
         content_block_attributes: ' id="block-mainnavigation" class="contextual-region"'
       ) }}
@@ -26,7 +26,11 @@
     {{/ templates-block--main? }}
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
-        'organisms-sidebar2?': true,
+        'organisms-related-posts?': true,
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"'
+      ) }}
+      {{> 03-templates/block(
+        'organisms-recent-tweets?': true,
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"'
       ) }}
     {{/ templates-block--sidebar2? }}

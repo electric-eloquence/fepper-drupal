@@ -1,0 +1,24 @@
+"# content\\?": |
+  {% set heading_id = attributes.id ~ '-menu'|clean_id %}
+"heading_id": |
+  \{\{ heading_id \}\}
+"{ content_block_attributes }": |
+  \{\{ attributes|without('role', 'aria-labelledby') \}\}
+"# no_label\\?": |
+  {% if not configuration.label_display %}
+"/ no_label\\?": |
+  {% endif %}
+"title_prefix": |
+  \{\{ title_prefix \}\}
+"{ title_attributes }": |
+  \{\{ title_attributes \}\}
+"configuration.label": |
+  \{\{ configuration.label \}\}
+"title_suffix": |
+  \{\{ title_suffix \}\}
+"# templates-block\\?": |
+  {% block content %}
+"content": |
+  \{\{ content \}\}
+"/ templates-block\\?": |
+  {% endblock %}

@@ -5,7 +5,7 @@
 <article{{{ article_attributes }}}>
 
   {{ title_prefix }}
-  {{^ view_mode_full? }}
+  {{# view_mode_full? }}
     <h2{{{ title_attributes }}}>
       <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h2>

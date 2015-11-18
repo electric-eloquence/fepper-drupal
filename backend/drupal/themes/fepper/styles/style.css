@@ -703,12 +703,12 @@ td {
   }
 }
 
-.search-form {
+#search-block-form {
   overflow: hidden;
   max-height: 0;
 }
 @media all and (min-width: 46.8em) {
-  .search-form {
+  #search-block-form {
     float: right;
     max-height: none;
     margin: 0.65em 0.5em 0 0;
@@ -718,29 +718,29 @@ td {
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
-.nav {
+#block-mainnavigation {
   clear: both;
   overflow: hidden;
   max-height: 0;
 }
-.nav a {
+#block-mainnavigation a {
   display: block;
   padding: 1rem;
   border-top: 1px solid #eeeeee;
 }
-.nav.active {
+#block-mainnavigation.active {
   max-height: 40em;
 }
 @media all and (min-width: 46.8em) {
-  .nav {
+  #block-mainnavigation {
     max-height: none;
     float: right;
     clear: none;
   }
-  .nav li {
+  #block-mainnavigation li {
     float: left;
   }
-  .nav a {
+  #block-mainnavigation a {
     border: 0;
   }
 }

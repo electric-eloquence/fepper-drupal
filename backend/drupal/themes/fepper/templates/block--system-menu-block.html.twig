@@ -1,18 +1,14 @@
-{{# content? }}
-{{/ content? }}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{{ content_block_attributes }}}>
-  {{# no_label? }}
+{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
+  {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
-  {{/ no_label? }}
+  {% endif %}
 
   {{ title_prefix }}
   <h2{{ title_attributes }}>{{ configuration.label }}</h2>
   {{ title_suffix }}
 
-  {{# templates-block? }}
+  {% block content %}
     {{ content }}
-  {{/ templates-block? }}
-  {{# molecules-primary-nav? }}
-    {{> 01-molecules/05-navigation/00-primary-nav }}
-  {{/ molecules-primary-nav? }}
-</nav>
+  {% endblock %}
+  </nav>
