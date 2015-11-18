@@ -86,7 +86,7 @@ header, footer, nav, section, article, hgroup, figure {
 }
 
 /* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
+.visually-hidden {
   position: absolute !important;
   overflow: hidden;
   width: 1px;
@@ -335,7 +335,7 @@ input[type="search"]::-webkit-search-decoration {
 .inline-form fieldset, .inline-form .inline-container {
   position: relative;
 }
-.inline-form input[type=submit], .inline-form button, .inline-form .btn {
+.inline-form input[type=submit], .inline-form button, .inline-form .btn, #edit-actions {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
   background: #333333;
@@ -344,6 +344,15 @@ input[type="search"]::-webkit-search-decoration {
   right: 0;
   z-index: 1;
   width: auto;
+}
+#edit-actions {
+  background: transparent;
+  padding: 0;
+}
+#edit-actions.icon-search::before {
+  position: absolute;
+  right: 0;
+  z-index: 0;
 }
 .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
   background: gray;
@@ -386,12 +395,15 @@ input[type="search"]::-webkit-search-decoration {
   padding-right: 3em;
 }
 
-.inline-form .search-submit {
+#edit-submit {
   background: none;
   padding: 0.78em 1em;
   border: 0;
   border-left: 1px solid gray;
-  color: gray;
+  color: transparent;
+/*  font-size: 0;*/
+  position: relative;
+  z-index: 1;
 }
 
 /*------------------------------------*\
@@ -678,13 +690,13 @@ td {
   border-bottom: 1px solid #dbdbdb;
 }
 
-.logo {
+#block-fepper-branding img {
   float: left;
   max-width: 8rem;
   margin: 0.4rem;
 }
 @media all and (min-width: 46.8em) {
-  .logo {
+  #block-fepper-branding img {
     max-width: 9rem;
   }
 }
@@ -705,6 +717,7 @@ td {
 
 #search-block-form {
   overflow: hidden;
+  position: relative;
   max-height: 0;
 }
 @media all and (min-width: 46.8em) {

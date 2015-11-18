@@ -14,6 +14,8 @@ function fepper_form_comment_form_alter(&$form, \Drupal\Core\Form\FormStateInter
  */
 function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $form['keys']['#attributes']['placeholder'] = 'Search';
+  $form['keys']['#attributes']['size'] = '';
+  $form['actions']['#attributes']['class'][] = 'icon-search';
 }
 
 /**
