@@ -1,26 +1,32 @@
-"# templates-page\\?": |
-  
-"{ fpo_template_content }": |
-  
-"/ templates-page\\?": |
-  
 "> 03-templates/region\\('templates-block--header\\?': true\\)": |
-  {{ page.header }}
+  \{\{ page.header \}\}
+"page.primary_menu": |
+  \{\{ page.primary_menu \}\}
+"page.secondary_menu": |
+  \{\{ page.secondary_menu \}\}
+"page.breadcrumb": |
+  \{\{ page.breadcrumb \}\}
+"page.highlighted": |
+  \{\{ page.highlighted \}\}
+"page.help": |
+  \{\{ page.help \}\}
 "> 03-templates/region\\('templates-block--main\\?': true\\)": |
-  {{ page.content }}
+  \{\{ page.content \}\}
 "# sidebar_first\\?": |
   {% if page.sidebar_first %}
+"page.sidebar_first": |
+  \{\{ page.sidebar_first \}\}
 "/ sidebar_first\\?": |
   {% endif %}
 "# sidebar_second\\?": |
   {% if page.sidebar_second %}
-"> 03-templates/region\\('templates-block--sidebar\\?': true\\)": |
-  {{ page.sidebar_second }}
+"> 03-templates/region\\('templates-block--sidebar2\\?': true\\)": |
+  \{\{ page.sidebar_second \}\}
 "/ sidebar_second\\?": |
   {% endif %}
 "# footer\\?": |
   {% if page.footer %}
 "> 03-templates/region\\('templates-block--footer\\?': true\\)": |
-  {{ page.footer }}
+  \{\{ page.footer \}\}
 "/ footer\\?": |
   {% endif %}

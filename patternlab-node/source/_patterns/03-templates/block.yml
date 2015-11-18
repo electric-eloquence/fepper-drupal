@@ -1,28 +1,18 @@
 "{ content_block_attributes }": |
-  {{ attributes }}
+  \{\{ attributes \}\}
+"title_prefix": |
+  \{\{ title_prefix \}\}
 "# label\\?": |
   {% if label %}
+"{ title_attributes }": |
+  \{\{ title_attributes \}\}
+"label": |
+  \{\{ label \}\}
 "/ label\\?": |
   {% endif %}
 "# content\\?": |
   {% block content %}
-"# templates-block\\?": |
-  
 "{ fpo_template_content }": |
-  {{ content }}
-"/ templates-block\\?": |
-  
-"# organisms-header\\?": |
-  
-"> 02-organisms/00-global/00-header": |
-  
-"/ organisms-header\\?": |
-  
-"# organisms-article\\?": |
-  
-"> 03-templates/node": |
-  
-"/ organisms-article\\?": |
-  
+  \{\{ content \}\}
 "/ content\\?": |
   {% endblock %}

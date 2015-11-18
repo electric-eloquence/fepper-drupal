@@ -1,22 +1,32 @@
-"# templates-node\\?": |
-   
-"{ fpo_template_content }": |
-   
-"{/ templates-node\\?": |
-   
 "{ article_attributes }": |
-  {{ attributes }}
-"^ view_mode_full?": |
+  \{\{ attributes \}\}
+"title_prefix": |
+  \{\{ title_prefix \}\}
+"\\^ view_mode_full\\?": |
   {% if not page %}
+"{ title_attributes }": |
+  \{\{ title_attributes \}\}
+"url": |
+  \{\{ url \}\}
 "{ article_title }": |
-  {{ label }}
-"/ view_mode_full?": |
+  \{\{ label \}\}
+"/ view_mode_full\\?": |
   {% endif %}
+"title_suffix": |
+  \{\{ title_suffix \}\}
 "# content\\?": |
   {% if display_submitted %}
 "{ author_attributes }": |
-  {{ author_attributes }}
+  \{\{ author_attributes \}\}
+"author_name": |
+  \{\{ author_name \}\}
+"date": |
+  \{\{ date \}\}
+"metadata": |
+  \{\{ metadata \}\}
 "/ content\\?": |
   {% endif %}
+"{ content_attributes }": |
+  \{\{ content_attributes \}\}
 "> 02-organisms/01-article/01-article": |
-  {{ content }}
+  \{\{ content \}\}

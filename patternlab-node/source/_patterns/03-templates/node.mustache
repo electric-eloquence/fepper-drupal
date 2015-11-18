@@ -6,8 +6,8 @@
 
   {{ title_prefix }}
   {{^ view_mode_full? }}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
+    <h2{{{ title_attributes }}}>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h2>
   {{/ view_mode_full? }}
   {{ title_suffix }}
@@ -21,7 +21,7 @@
     </footer>
   {{/ content? }}
 
-  <div{{ content_attributes }}>
+  <div{{{ content_attributes }}}>
     {{# organisms-article? }}
       {{> 02-organisms/01-article/01-article }}
     {{/ organisms-article? }}

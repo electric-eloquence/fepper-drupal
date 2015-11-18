@@ -1,15 +1,12 @@
-
-  
-{{/ templates-node? }}
 <!-- Begin node -->
 <article{{ attributes }}>
 
   {{ title_prefix }}
-  {{^ view_mode_full? }}
+  {% if not page %}
     <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ article_title }}</a>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
-  {{/ view_mode_full? }}
+  {% endif %}
   {{ title_suffix }}
 
   {% if display_submitted %}
@@ -22,10 +19,8 @@
   {% endif %}
 
   <div{{ content_attributes }}>
-    {{# organisms-article? }}
-      {{ content }}
-    {{/ organisms-article? }}
-  </div>
+    {{ content }}
+    </div>
 
 </article>
 <!-- End node -->

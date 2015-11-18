@@ -1,6 +1,3 @@
-
-  
-
 <!-- Begin page -->
 <div id="page" class="page">
 
@@ -32,7 +29,7 @@
 
     {% if page.sidebar_second %}
       <aside class="layout-sidebar-second" role="complementary">
-        {{> 03-templates/region('templates-block--sidebar2?': true) }}
+        {{ page.sidebar_second }}
       </aside>
     {% endif %}
 
