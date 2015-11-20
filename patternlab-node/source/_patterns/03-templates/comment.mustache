@@ -6,7 +6,9 @@
 
   <footer>
     {{> 00-atoms/03-images/04-avatar }}
-    <p>{{> 01-molecules/00-text/07-byline-commenter }}</p>
+    <p>
+      <span rel="schema:author">{{> 01-molecules/00-text/07-byline-commenter }}</span>
+    </p>
 
     {{# parent? }}
       <p class="visually-hidden">{{ parent }}</p>

@@ -178,11 +178,12 @@ a:hover, a:focus {
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
-  line-height: 1.2;
+  font-size: 2.5em;
 }
 
 h2, .beta {
   line-height: 1.2;
+  margin: 0.667em 0;
 }
 
 h3, .gamma {
@@ -335,7 +336,7 @@ input[type="search"]::-webkit-search-decoration {
 .inline-form fieldset, .inline-form .inline-container {
   position: relative;
 }
-.inline-form input[type=submit], .inline-form button, .inline-form .btn, #edit-actions {
+.inline-form input[type=submit], .inline-form button, .inline-form .btn {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
   background: #333333;
@@ -347,11 +348,18 @@ input[type="search"]::-webkit-search-decoration {
 }
 #edit-actions {
   background: transparent;
+  color: gray;
   padding: 0;
+  position: relative;
+}
+#edit-actions:hover {
+  background: gray;
+  color: white;
 }
 #edit-actions.icon-search::before {
   position: absolute;
-  right: 0;
+  top: 0.5em;
+  right: 1em;
   z-index: 0;
 }
 .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
@@ -397,11 +405,11 @@ input[type="search"]::-webkit-search-decoration {
 
 #edit-submit {
   background: none;
-  padding: 0.78em 1em;
-  border: 0;
-  border-left: 1px solid gray;
+  padding: 0.7em 0;
+  border: 1px solid gray;
+  border-left: 0;
   color: transparent;
-/*  font-size: 0;*/
+  font-size: 0.8em;
   position: relative;
   z-index: 1;
 }
@@ -726,6 +734,11 @@ td {
     max-height: none;
     margin: 0.65em 0.5em 0 0;
   }
+}
+#search-block-form > div {
+  float: left;
+  font-size: 1em;
+  height: 2.1875em;
 }
 
 /*------------------------------------*\
@@ -1351,10 +1364,6 @@ td {
   margin-bottom: 0.5rem;
 }
 
-.article-header h1 {
-  font-size: 2.5em;
-}
-
 .byline {
   font-size: 0.875em;
   font-style: italic;
@@ -1393,30 +1402,32 @@ td {
   background: gray;
 }
 
-.comments li {
-  margin-bottom: 1rem;
+section[rel="schema:comment"] {
+  border-top: 1px solid #dddddd;
+  margin-top: 2em;
 }
 
-.comment-container {
+article[typeof="schema:Comment"] {
+  margin-bottom: 1rem;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
 
-.comment-meta {
+article[typeof="schema:Comment"] > footer {
   float: left;
   width: 6.5em;
 }
-.comment-meta img {
+article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eeeeee;
   margin-bottom: 0.5rem;
 }
 
-.comment-name {
+span[rel="schema:author"] {
   font-size: 0.75em;
+  font-weight: bold;
 }
 
-.comment-text {
+div[property="schema:text"] {
   margin-left: 9em;
 }
 
