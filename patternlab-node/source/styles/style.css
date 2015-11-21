@@ -184,6 +184,7 @@ h1, .alpha {
 
 h2, .beta {
   line-height: 1.2;
+  margin-top: 0.5em;
 }
 
 h3, .gamma {
@@ -356,7 +357,7 @@ input[type="search"]::-webkit-search-decoration {
   background: gray;
   color: white;
 }
-#edit-actions.icon-search::before {
+#edit-actions.icon-search:before {
   position: absolute;
   top: 0.5em;
   right: 1em;
@@ -405,7 +406,7 @@ input[type="search"]::-webkit-search-decoration {
 
 #edit-submit {
   background: none;
-  padding: 0.7em 0;
+  padding: 1.3em 0;
   border: 1px solid gray;
   border-left: 0;
   color: transparent;
@@ -738,8 +739,11 @@ td {
 #search-block-form > div {
   float: left;
   font-size: 1em;
-  height: 2.1875em;
+  height: 2.25em;
   margin-bottom: 0;
+}
+#search-block-form input {
+  height: 2.25em;
 }
 
 /*------------------------------------*\
@@ -1347,7 +1351,6 @@ footer[role="contentinfo"] a {
 
 .layout-sidebar-second h2 {
   border-bottom: 1px solid #dddddd;
-  margin-top: 0.5em;
   padding: 0.5rem 0;
 }
 .layout-sidebar-second li {
@@ -1421,14 +1424,14 @@ article[typeof="schema:Comment"] p {
 span[rel="schema:author"] {
   font-size: 0.75em;
 }
-span[property="schema:name"]::before {
+span[property="schema:name"]:before {
   content: "\A";
   white-space: pre;
 }
 span[property="schema:name"] {
   font-weight: bold;
 }
-span[property="schema:name"]::after {
+span[property="schema:name"]:after {
   content: "\A";
   white-space: pre;
 }
