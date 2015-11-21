@@ -4,7 +4,6 @@
 **/ignore*
 backend/drupal/modules/devel/
 backend/drupal/sites/default/files/
-conf.yml
 install.log
 node_modules/
 npm-debug.log
