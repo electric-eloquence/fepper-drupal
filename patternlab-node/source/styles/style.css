@@ -179,11 +179,11 @@ a:hover, a:focus {
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
   font-size: 2.5em;
+  line-height: 1.2;
 }
 
 h2, .beta {
   line-height: 1.2;
-  margin: 0.667em 0;
 }
 
 h3, .gamma {
@@ -461,7 +461,7 @@ td {
     $LAYOUT
 \*------------------------------------*/
 /* Layout Container */
-.lc, .header, [role=main] {
+.header, [role="main"], #block-fepperfooter {
   max-width: 72rem;
   margin: 0 auto;
   padding: 0.5rem;
@@ -472,19 +472,19 @@ td {
 \*------------------------------------*/
 /* Two Column Layout */
 @media all and (min-width: 50em) {
-  .l-two-col .l-main {
+  .l-two-col {
     float: left;
     width: 70%;
     padding-right: 1rem;
   }
 }
 @media all and (max-width: 50em) {
-  .l-two-col .l-sidebar {
+  .l-two-col {
     clear: both;
   }
 }
 @media all and (min-width: 50em) {
-  .l-two-col .l-sidebar {
+  .layout-sidebar-second {
     float: left;
     width: 30%;
     padding: 0 0 0 1rem;
@@ -739,6 +739,7 @@ td {
   float: left;
   font-size: 1em;
   height: 2.1875em;
+  margin-bottom: 0;
 }
 
 /*------------------------------------*\
@@ -796,18 +797,23 @@ td {
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
-.footer {
+footer[role="contentinfo"] {
   clear: both;
   overflow: hidden;
   background: #131313;
   color: white;
   line-height: 1.2;
 }
-.footer .lc, .footer .header, .footer [role=main] {
+footer[role="contentinfo"] a {
+  color: #f9f9f9;
+}
+#block-fepperfooter {
   padding: 1rem 1rem 0;
 }
-.footer a {
-  color: #f9f9f9;
+@media all and (min-width: 46.8em) {
+  #block-fepperfooter p {
+    float: right;
+  }
 }
 
 .nav-footer {
@@ -825,12 +831,6 @@ td {
 .nav-footer a {
   display: block;
   padding: 1rem;
-}
-
-@media all and (min-width: 46.8em) {
-  .copyright {
-    float: right;
-  }
 }
 
 /*------------------------------------*\
@@ -1218,21 +1218,6 @@ td {
   font-size: 1.6em;
 }
 
-/* Headline List */
-.headline-list {
-  margin-bottom: 1rem;
-}
-.headline-list.flush {
-  margin: 0;
-}
-.headline-list h4 {
-  font-weight: normal;
-}
-.headline-list li {
-  padding: 0.25rem 0;
-  border-top: 1px solid #dddddd;
-}
-
 /* Post List */
 .post-list li {
   margin-bottom: 1rem;
@@ -1360,8 +1345,14 @@ td {
   margin: 0 0 1rem;
 }
 
-.section-title {
-  margin-bottom: 0.5rem;
+.layout-sidebar-second h2 {
+  border-bottom: 1px solid #dddddd;
+  margin-top: 0.5em;
+  padding: 0.5rem 0;
+}
+.layout-sidebar-second li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #dddddd;
 }
 
 .byline {
@@ -1406,6 +1397,9 @@ section[rel="schema:comment"] {
   border-top: 1px solid #dddddd;
   margin-top: 2em;
 }
+section[rel="schema:comment"] h2 {
+  margin: 0.667em 0;
+}
 article[typeof="schema:Comment"] {
   padding-bottom: 1rem;
   overflow: hidden;
@@ -1437,9 +1431,6 @@ span[property="schema:name"] {
 span[property="schema:name"]::after {
   content: "\A";
   white-space: pre;
-}
-div[property="schema:text"] {
-  margin-left: 9em;
 }
 section[rel="schema:comment"] > article:last-of-type {
   border-bottom: 1px solid #dddddd;
