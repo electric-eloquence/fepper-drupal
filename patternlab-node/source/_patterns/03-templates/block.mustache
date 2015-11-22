@@ -9,12 +9,33 @@
     {{# templates-block? }}
       {{{ fpo_template_content }}}
     {{/ templates-block? }}
+
+
+    {{! BEGIN HEADER }}
+
     {{# atoms-logo? }}
       {{> 00-atoms/03-images/00-logo }}
     {{/ atoms-logo? }}
     {{# molecules-search? }}
       {{> 01-molecules/04-forms/00-search }}
     {{/ molecules-search? }}
+
+    {{! END HEADER }}
+
+
+    {{! BEGIN BLOG }}
+
+    {{# templates-views-element-container? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--blog?': true
+      ) }}
+    {{/ templates-views-element-container? }}
+
+    {{! END BLOG }}
+
+
+    {{! BEGIN ARTICLE }}
+
     {{# templates-node--article? }}
       {{> 03-templates/node(
         'organisms-article?': true,
@@ -27,9 +48,19 @@
     {{# organisms-recent-tweets? }}
       {{> 02-organisms/04-sections/01-recent-tweets }}
     {{/ organisms-recent-tweets? }}
+
+    {{! END ARTICLE }}
+
+
+    {{! BEGIN FOOTER }}
+
     {{# organisms-footer? }}
       {{> 02-organisms/00-global/01-footer }}
     {{/ organisms-footer? }}
+
+    {{! END FOOTER }}
+
+
   {{/ content? }}
 </div>
 <!-- End block -->

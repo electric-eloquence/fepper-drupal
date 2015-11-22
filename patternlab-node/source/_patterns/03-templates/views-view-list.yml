@@ -1,0 +1,24 @@
+"# views_view_list_attributes": |
+  {% if attributes -%}
+"{ views_view_list_attributes }": |
+  \{\{ attributes \}\}
+"/ views_view_list_attributes": |
+  {% endif %}
+"# views_view_list_title": |
+  {% if title %}
+"{ views_view_list_title }": |
+  \{\{ title \}\}
+"/ views_view_list_title": |
+  {% endif %}
+"list_type": |
+  \{\{ list.type \}\}
+"list_attributes": |
+  \{\{ list.attributes \}\}
+"row_attributes": |
+  \{\{ row.attributes \}\}
+"# templates-views-view?": |
+  {% for row in rows %}
+"{ fpo_template_content }": |
+  <li\{\{ row.attributes \}\}>\{\{ row.content \}\}</li>
+"/ templates-views-view?": |
+  {% endfor %}

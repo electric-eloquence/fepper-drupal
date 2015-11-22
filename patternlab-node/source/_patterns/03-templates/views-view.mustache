@@ -1,0 +1,50 @@
+{{# content? }}
+{{/ content? }}
+<!-- Begin views-view -->
+<div{{{ views_view_attributes }}}>
+  {{ title_prefix }}
+  {{# title }}
+    <h1>{{ title }}</h1>
+  {{/ title }}
+  {{ title_suffix }}
+
+  {{# header }}
+    <header>
+      {{ header }}
+    </header>
+  {{/ header }}
+
+  {{ exposed }}
+  {{ attachment_before }}
+
+
+  {{! BEGIN VIEWS ROWS }}
+
+  {{# templates-views-view? }}
+    {{{ fpo_template_content }}}
+  {{/ templates-views-view? }}
+  {{# templates-views-view-list--blog? }}
+    {{> 03-templates/views-view-list(
+      views_view_list_attributes: ' class=\"item-list\"',
+      list_type: 'ul'
+    ) }}
+  {{/ templates-views-view-list--blog? }}
+
+  {{! END VIEWS ROWS }}
+
+
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {{# footer }}
+    <footer>
+      {{ footer }}
+    </footer>
+  {{/ footer }}
+
+  {{ feed_icons }}
+</div>
+<!-- End views-view -->

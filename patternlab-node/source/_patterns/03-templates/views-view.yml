@@ -1,0 +1,46 @@
+"# content\\?": |
+  {%
+    set classes = [
+      dom_id ? 'js-view-dom-id-' ~ dom_id,
+    ]
+  %}
+"{ views_view_attributes }": |
+  \{\{ attributes.addClass(classes) \}\}
+"title_prefix": |
+  \{\{ title_prefix \}\}
+"# title": |
+  {% if title %}
+"title": |
+  \{\{ title \}\}
+"/ title": |
+  {% endif %}
+"title_suffix": |
+  \{\{ title_suffix \}\}
+"# header": |
+  {% if header %}
+"header": |
+  \{\{ header \}\}
+"/header": |
+  {% endif %}
+"exposed": |
+  \{\{ exposed \}\}
+"attachment_before": |
+  \{\{ attachment_before \}\}
+"{ fpo_template_content }": |
+  \{\{ rows \}\}
+"empty": |
+  \{\{ empty \}\}
+"pager": |
+  \{\{ pager \}\}
+"attachment_after": |
+  \{\{ attachment_after \}\}
+"more": |
+  \{\{ more \}\}
+"# footer": |
+  {% if footer %}
+"footer": |
+  \{\{ footer \}\}
+"/footer": |
+  {% endif %}
+"feed_icons": |
+  \{\{ feed_icons \}\}

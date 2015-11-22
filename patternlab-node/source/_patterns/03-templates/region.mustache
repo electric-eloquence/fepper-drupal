@@ -19,12 +19,26 @@
         content_block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"'
       ) }}
     {{/ templates-block--header? }}
-    {{# templates-block--main? }}
+
+
+    {{! BEGIN MAIN CONTENT }}
+
+    {{# templates-block--main--blog? }}
+      {{> 03-templates/block(
+        'templates-views-element-container?': true,
+        content_block_attributes: ' id="block-fepper-content"'
+      ) }}
+    {{/ templates-block--main--blog? }}
+    {{# templates-block--main--article? }}
       {{> 03-templates/block(
         'templates-node--article?': true,
         content_block_attributes: ' id="block-fepper-content"'
       ) }}
-    {{/ templates-block--main? }}
+    {{/ templates-block--main--article? }}
+
+    {{! END MAIN CONTENT }}
+
+
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
         'organisms-related-posts?': true,

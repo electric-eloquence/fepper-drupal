@@ -21,7 +21,12 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
-      {{> 03-templates/region('templates-block--main?': true) }}
+      {{# templates-region--blog? }}
+        {{> 03-templates/region('templates-block--main--blog?': true) }}
+      {{/ templates-region--blog? }}
+      {{# templates-region--article? }}
+        {{> 03-templates/region('templates-block--main--article?': true) }}
+      {{/ templates-region--article? }}
     </div>
 
     {{# sidebar_first? }}
