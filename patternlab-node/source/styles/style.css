@@ -64,18 +64,18 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf, .l-two-col, [role=main] {
+.cf, .layout-content, [role=main] {
   *zoom: 1;
 }
 
-.cf:before, .l-two-col:before, [role=main]:before, .cf:after, .l-two-col:after, [role=main]:after {
+.cf:before, .layout-content:before, [role=main]:before, .cf:after, .layout-content:after, [role=main]:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */
 }
 
-.cf:after, .l-two-col:after, [role=main]:after {
+.cf:after, .layout-content:after, [role=main]:after {
   clear: both;
 }
 
@@ -216,7 +216,7 @@ hr {
   border: 0;
   height: 2px;
   background: #eeeeee;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
 }
 
 abbr {
@@ -473,14 +473,14 @@ td {
 \*------------------------------------*/
 /* Two Column Layout */
 @media all and (min-width: 50em) {
-  .l-two-col {
+  .layout-content {
     float: left;
     width: 70%;
     padding-right: 1rem;
   }
 }
 @media all and (max-width: 50em) {
-  .l-two-col {
+  .layout-content {
     clear: both;
   }
 }
@@ -1357,6 +1357,9 @@ footer[role="contentinfo"] a {
   padding: 0.25rem 0;
   border-bottom: 1px solid #dddddd;
 }
+.layout-sidebar-second li > * {
+  display: block;
+}
 
 .byline {
   font-size: 0.875em;
@@ -1403,35 +1406,35 @@ section[rel="schema:comment"] {
 section[rel="schema:comment"] h2 {
   margin: 0.667em 0;
 }
-article[typeof="schema:Comment"] {
+section[rel="schema:comment"] article[typeof="schema:Comment"] {
   padding-bottom: 1rem;
   overflow: hidden;
 }
-article[typeof="schema:Comment"] > footer {
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
   float: left;
   min-height: 9em;
   width: 12em;
 }
-article[typeof="schema:Person"] img {
+section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eeeeee;
   margin-bottom: 0.5rem;
 }
-article[typeof="schema:Comment"] p {
+section[rel="schema:comment"] article[typeof="schema:Comment"] p {
   line-height: 1;
   margin: 0;
 }
-span[rel="schema:author"] {
+section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
 }
-span[property="schema:name"]:before {
+section[rel="schema:comment"] span[property="schema:name"]:before {
   content: "\A";
   white-space: pre;
 }
-span[property="schema:name"] {
+section[rel="schema:comment"] span[property="schema:name"] {
   font-weight: bold;
 }
-span[property="schema:name"]:after {
+section[rel="schema:comment"] span[property="schema:name"]:after {
   content: "\A";
   white-space: pre;
 }

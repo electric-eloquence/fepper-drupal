@@ -10,6 +10,8 @@
   \{\{ label \}\}
 "/ label\\?": |
   {% endif %}
+"title_suffix": |
+  \{\{ title_suffix \}\}
 "# content\\?": |
   {% block content %}
 "{ fpo_template_content }": |

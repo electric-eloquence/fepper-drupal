@@ -2,7 +2,7 @@
   {{{ fpo_template_content }}}
 {{/ templates-page? }}
 <!-- Begin page -->
-<div id="page" class="page">
+<div class="layout-container">
 
   <header class="header cf" role="banner">
     {{> 03-templates/region('templates-block--header?': true) }}
@@ -20,7 +20,7 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>
 
-    <div class="l-two-col">
+    <div class="layout-content">
       {{> 03-templates/region('templates-block--main?': true) }}
     </div>
 

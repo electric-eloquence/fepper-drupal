@@ -10,16 +10,21 @@
       <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h1>
   {{/ view_mode_full? }}
+  {{^ view_mode_full? }}
+    <h3{{{ title_attributes }}}>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
+    </h3>
+  {{/ view_mode_full? }}
   {{ title_suffix }}
 
-  {{# content? }}
+  {{# view_mode_full? }}
     <footer>
       <div{{{ author_attributes }}}>
         By {{ author_name }} on {{ date }}
         {{ metadata }}
       </div>
     </footer>
-  {{/ content? }}
+  {{/ view_mode_full? }}
 
   <div{{{ content_attributes }}}>
     {{# organisms-article? }}

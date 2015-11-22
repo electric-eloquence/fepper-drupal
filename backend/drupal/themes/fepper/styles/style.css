@@ -64,18 +64,18 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf, .l-two-col, [role=main] {
+.cf, .layout-content, [role=main] {
   *zoom: 1;
 }
 
-.cf:before, .l-two-col:before, [role=main]:before, .cf:after, .l-two-col:after, [role=main]:after {
+.cf:before, .layout-content:before, [role=main]:before, .cf:after, .layout-content:after, [role=main]:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */
 }
 
-.cf:after, .l-two-col:after, [role=main]:after {
+.cf:after, .layout-content:after, [role=main]:after {
   clear: both;
 }
 
@@ -86,7 +86,7 @@ header, footer, nav, section, article, hgroup, figure {
 }
 
 /* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden {
+.visually-hidden {
   position: absolute !important;
   overflow: hidden;
   width: 1px;
@@ -178,11 +178,13 @@ a:hover, a:focus {
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
+  font-size: 2.5em;
   line-height: 1.2;
 }
 
 h2, .beta {
   line-height: 1.2;
+  margin-top: 0.5em;
 }
 
 h3, .gamma {
@@ -214,7 +216,7 @@ hr {
   border: 0;
   height: 2px;
   background: #eeeeee;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem;
 }
 
 abbr {
@@ -345,6 +347,22 @@ input[type="search"]::-webkit-search-decoration {
   z-index: 1;
   width: auto;
 }
+#edit-actions {
+  background: transparent;
+  color: gray;
+  padding: 0;
+  position: relative;
+}
+#edit-actions:hover {
+  background: gray;
+  color: white;
+}
+#edit-actions.icon-search:before {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  z-index: 0;
+}
 .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
   background: gray;
   color: white;
@@ -386,12 +404,15 @@ input[type="search"]::-webkit-search-decoration {
   padding-right: 3em;
 }
 
-.inline-form .search-submit {
+#edit-submit {
   background: none;
-  padding: 0.78em 1em;
-  border: 0;
-  border-left: 1px solid gray;
-  color: gray;
+  padding: 1.3em 0;
+  border: 1px solid gray;
+  border-left: 0;
+  color: transparent;
+  font-size: 0.8em;
+  position: relative;
+  z-index: 1;
 }
 
 /*------------------------------------*\
@@ -441,7 +462,7 @@ td {
     $LAYOUT
 \*------------------------------------*/
 /* Layout Container */
-.lc, .header, [role=main] {
+.header, [role="main"], #block-fepperfooter {
   max-width: 72rem;
   margin: 0 auto;
   padding: 0.5rem;
@@ -452,19 +473,19 @@ td {
 \*------------------------------------*/
 /* Two Column Layout */
 @media all and (min-width: 50em) {
-  .l-two-col .l-main {
+  .layout-content {
     float: left;
     width: 70%;
     padding-right: 1rem;
   }
 }
 @media all and (max-width: 50em) {
-  .l-two-col .l-sidebar {
+  .layout-content {
     clear: both;
   }
 }
 @media all and (min-width: 50em) {
-  .l-two-col .l-sidebar {
+  .layout-sidebar-second {
     float: left;
     width: 30%;
     padding: 0 0 0 1rem;
@@ -678,13 +699,13 @@ td {
   border-bottom: 1px solid #dbdbdb;
 }
 
-.logo {
+#block-fepper-branding img {
   float: left;
   max-width: 8rem;
   margin: 0.4rem;
 }
 @media all and (min-width: 46.8em) {
-  .logo {
+  #block-fepper-branding img {
     max-width: 9rem;
   }
 }
@@ -705,6 +726,7 @@ td {
 
 #search-block-form {
   overflow: hidden;
+  position: relative;
   max-height: 0;
 }
 @media all and (min-width: 46.8em) {
@@ -713,6 +735,15 @@ td {
     max-height: none;
     margin: 0.65em 0.5em 0 0;
   }
+}
+#search-block-form > div {
+  float: left;
+  font-size: 1em;
+  height: 2.25em;
+  margin-bottom: 0;
+}
+#search-block-form input {
+  height: 2.25em;
 }
 
 /*------------------------------------*\
@@ -770,18 +801,23 @@ td {
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
-.footer {
+footer[role="contentinfo"] {
   clear: both;
   overflow: hidden;
   background: #131313;
   color: white;
   line-height: 1.2;
 }
-.footer .lc, .footer .header, .footer [role=main] {
+footer[role="contentinfo"] a {
+  color: #f9f9f9;
+}
+#block-fepperfooter {
   padding: 1rem 1rem 0;
 }
-.footer a {
-  color: #f9f9f9;
+@media all and (min-width: 46.8em) {
+  #block-fepperfooter p {
+    float: right;
+  }
 }
 
 .nav-footer {
@@ -799,12 +835,6 @@ td {
 .nav-footer a {
   display: block;
   padding: 1rem;
-}
-
-@media all and (min-width: 46.8em) {
-  .copyright {
-    float: right;
-  }
 }
 
 /*------------------------------------*\
@@ -1192,21 +1222,6 @@ td {
   font-size: 1.6em;
 }
 
-/* Headline List */
-.headline-list {
-  margin-bottom: 1rem;
-}
-.headline-list.flush {
-  margin: 0;
-}
-.headline-list h4 {
-  font-weight: normal;
-}
-.headline-list li {
-  padding: 0.25rem 0;
-  border-top: 1px solid #dddddd;
-}
-
 /* Post List */
 .post-list li {
   margin-bottom: 1rem;
@@ -1334,12 +1349,16 @@ td {
   margin: 0 0 1rem;
 }
 
-.section-title {
-  margin-bottom: 0.5rem;
+.layout-sidebar-second h2 {
+  border-bottom: 1px solid #dddddd;
+  padding: 0.5rem 0;
 }
-
-.article-header h1 {
-  font-size: 2.5em;
+.layout-sidebar-second li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #dddddd;
+}
+.layout-sidebar-second li > * {
+  display: block;
 }
 
 .byline {
@@ -1380,31 +1399,47 @@ td {
   background: gray;
 }
 
-.comments li {
-  margin-bottom: 1rem;
+section[rel="schema:comment"] {
+  border-top: 1px solid #dddddd;
+  margin-top: 2em;
 }
-
-.comment-container {
+section[rel="schema:comment"] h2 {
+  margin: 0.667em 0;
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] {
+  padding-bottom: 1rem;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
-
-.comment-meta {
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
   float: left;
-  width: 6.5em;
+  min-height: 9em;
+  width: 12em;
 }
-.comment-meta img {
+section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eeeeee;
   margin-bottom: 0.5rem;
 }
-
-.comment-name {
+section[rel="schema:comment"] article[typeof="schema:Comment"] p {
+  line-height: 1;
+  margin: 0;
+}
+section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
 }
-
-.comment-text {
-  margin-left: 9em;
+section[rel="schema:comment"] span[property="schema:name"]:before {
+  content: "\A";
+  white-space: pre;
+}
+section[rel="schema:comment"] span[property="schema:name"] {
+  font-weight: bold;
+}
+section[rel="schema:comment"] span[property="schema:name"]:after {
+  content: "\A";
+  white-space: pre;
+}
+section[rel="schema:comment"] > article:last-of-type {
+  border-bottom: 1px solid #dddddd;
 }
 
 .alert {

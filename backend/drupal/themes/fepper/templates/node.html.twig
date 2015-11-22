@@ -3,13 +3,18 @@
 
   {{ title_prefix }}
   {% if page %}
-    <h2{{ title_attributes }}>
+    <h1{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
+    </h1>
+  {% endif %}
+  {% if not page %}
+    <h3{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h3>
   {% endif %}
   {{ title_suffix }}
 
-  {% if display_submitted %}
+  {% if page %}
     <footer>
       <div{{ author_attributes }}>
         By {{ author_name }} on {{ date }}
