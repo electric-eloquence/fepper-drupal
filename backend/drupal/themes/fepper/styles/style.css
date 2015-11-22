@@ -406,11 +406,7 @@ input[type="search"]::-webkit-search-decoration {
     $SPECIFIC FORMS
 \*------------------------------------*/
 /* Search Form */
-.search-field {
-  padding-right: 3em;
-}
-
-#edit-submit {
+#search-block-form #edit-submit {
   background: none;
   padding: 1.3em 0;
   border: 1px solid gray;
