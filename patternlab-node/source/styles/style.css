@@ -191,6 +191,12 @@ h3, .gamma {
   line-height: 1.2;
 }
 
+h4 {
+  font-size: 1.0625em;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 /* Subheadings */
 .subheading {
   font-family: Georgia, Times, "Times New Roman", serif;
@@ -845,30 +851,24 @@ footer[role="contentinfo"] a {
   font-family: Georgia, Times, "Times New Roman", serif;
 }
 
-.intro {
-  font-size: 1.0625em;
-  font-weight: bold;
-}
-
-.pullquote {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 1.4375em;
-}
-
 .text a {
   text-decoration: underline;
 }
+article[role="article"] ul,
 .text ul {
   list-style: disc;
   margin: 0 0 1rem 1.2em;
 }
+article[role="article"] ul ul,
 .text ul ul {
   margin-bottom: 0;
 }
+article[role="article"] ol,
 .text ol {
   list-style: decimal;
   margin: 0 0 1rem 1.2em;
 }
+article[role="article"] ol ol,
 .text ol ol {
   margin-bottom: 0;
 }
@@ -1361,7 +1361,7 @@ footer[role="contentinfo"] a {
   display: block;
 }
 
-.byline {
+article[role="article"] > footer {
   font-size: 0.875em;
   font-style: italic;
   margin-bottom: 0.5rem;
