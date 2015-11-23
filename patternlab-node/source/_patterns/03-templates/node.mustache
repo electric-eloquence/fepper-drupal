@@ -27,9 +27,18 @@
   {{/ view_mode_full? }}
 
   <div{{{ content_attributes }}}>
+
+    {{! BEGIN NODE CONTENT }}
+
+    {{# molecules-media-block? }}
+      {{> 01-molecules/02-blocks/00-media-block }}
+    {{/ molecules-media-block? }}
     {{# organisms-article? }}
       {{> 02-organisms/01-article/01-article }}
     {{/ organisms-article? }}
+
+    {{! END NODE CONTENT }}
+
   </div>
 
 </article>

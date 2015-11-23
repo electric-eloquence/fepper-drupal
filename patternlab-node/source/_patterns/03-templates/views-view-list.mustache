@@ -12,9 +12,11 @@
       {{# templates-views-view? }}
         {{{ fpo_template_content }}}
       {{/ templates-views-view? }}
-      {{# latest-posts }}
-        {{> 01-molecules/02-blocks/00-media-block }}
-      {{/ latest-posts }}
+      {{# templates-node--blog? }}
+        {{# latest-posts }}
+          {{> 03-templates/node('molecules-media-block?': true) }}
+        {{/ latest-posts }}
+      {{/ templates-node--blog? }}
 
     </li>
   </{{ list_type }}>
