@@ -1202,22 +1202,25 @@ article[role="article"] > footer {
   margin-bottom: 0.5rem;
 }
 @media all and (min-width: 29.75em) {
-  .views-element-container .item-list {
+  #block-fepper-content .views-element-container .item-list {
     margin-top: 0.5em;
   }
-  .views-element-container .item-list li {
+  #block-fepper-content .views-element-container .item-list li {
     clear: both;
+    float: left;
+    margin-bottom: 1em;
   }
-  .views-element-container article[role="article"] > h2,
-  .views-element-container article[role="article"] div[property="schema:text"] {
+  #block-fepper-content .views-element-container article[role="article"] > h2,
+  #block-fepper-content .views-element-container article[role="article"] div[property="schema:text"] {
     float: right;
     margin-top: 0;
-    width: 68%;
+    padding: 0 1rem;
+    width: 70%;
   }
-  .views-element-container article[role="article"] img {
+  #block-fepper-content .views-element-container article[role="article"] img {
     float: left;
     height: auto;
-    max-width: 10em;
+    width: 30%;
   }
 }
 
