@@ -6,17 +6,17 @@
     {{/ templates-region? }}
     {{# templates-block--header? }}
       {{> 03-templates/block(
-        'atoms-logo?': true,
-        content_block_attributes: ' id="block-fepper-branding" class="contextual-region"'
+        content_block_attributes: ' id="block-fepper-branding" class="contextual-region"',
+        'atoms-logo?': true
       ) }}
       {{> 03-templates/_block--system-menu-block(
-        'molecules-primary-nav?': true,
         content_block_attributes: ' id="block-mainnavigation" class="contextual-region"',
-        title_attributes: ' class="visually-hidden"'
+        title_attributes: ' class="visually-hidden"',
+        'molecules-primary-nav?': true
       ) }}
       {{> 03-templates/block(
-        'molecules-search?': true,
-        content_block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"'
+        content_block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"',
+        'molecules-search?': true
       ) }}
     {{/ templates-block--header? }}
 
@@ -25,14 +25,14 @@
 
     {{# templates-block--main--blog? }}
       {{> 03-templates/block(
-        'templates-views-element-container?': true,
-        content_block_attributes: ' id="block-fepper-content"'
+        content_block_attributes: ' id="block-fepper-content"',
+        'templates-views-element-container?': true
       ) }}
     {{/ templates-block--main--blog? }}
     {{# templates-block--main--article? }}
       {{> 03-templates/block(
-        'templates-node--article?': true,
-        content_block_attributes: ' id="block-fepper-content"'
+        content_block_attributes: ' id="block-fepper-content"',
+        'templates-node--article?': true
       ) }}
     {{/ templates-block--main--article? }}
 
@@ -41,18 +41,18 @@
 
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
-        'organisms-related-posts?': true,
-        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"'
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"',
+        'organisms-related-posts?': true
       ) }}
       {{> 03-templates/block(
-        'organisms-recent-tweets?': true,
-        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"'
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"',
+        'organisms-recent-tweets?': true
       ) }}
     {{/ templates-block--sidebar2? }}
     {{# templates-block--footer? }}
       {{> 03-templates/block(
-        'organisms-footer?': true,
-        content_block_attributes: ' id="block-fepperfooter" class="contextual-region"'
+        content_block_attributes: ' id="block-fepperfooter" class="contextual-region"',
+        'organisms-footer?': true
       ) }}
     {{/ templates-block--footer? }}
   </div>

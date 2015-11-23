@@ -178,7 +178,6 @@ a:hover, a:focus {
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
-  font-size: 2.5em;
   line-height: 1.2;
 }
 
@@ -1140,19 +1139,6 @@ article[role="article"] ol ol,
   overflow: hidden;
 }
 @media all and (min-width: 29.75em) {
-  .block-thumb .b-thumb {
-    display: table-cell;
-    vertical-align: top;
-    width: 30%;
-    max-width: 10em;
-  }
-  .block-thumb .b-thumb img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-}
-@media all and (min-width: 29.75em) {
   .block-thumb .b-text {
     display: table-cell;
     width: 70%;
@@ -1206,6 +1192,36 @@ article[role="article"] ol ol,
   padding: 0.5rem;
 }
 
+/* Main Content Article */
+#block-fepper-content > article[role="article"] > h1 {
+  font-size: 2.5em;
+}
+article[role="article"] > footer {
+  font-size: 0.875em;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+@media all and (min-width: 29.75em) {
+  .views-element-container .item-list {
+    margin-top: 0.5em;
+  }
+  .views-element-container .item-list li {
+    clear: both;
+  }
+  .views-element-container article[role="article"] > h2,
+  .views-element-container article[role="article"] div[property="schema:text"] {
+    float: right;
+    margin-top: 0;
+    width: 68%;
+  }
+  .views-element-container article[role="article"] img {
+    float: left;
+    height: auto;
+    max-width: 10em;
+  }
+}
+
+/* Inline List */
 .inline-list li {
   display: inline-block;
 }
@@ -1355,12 +1371,6 @@ article[role="article"] ol ol,
 }
 .layout-sidebar-second li > * {
   display: block;
-}
-
-article[role="article"] > footer {
-  font-size: 0.875em;
-  font-style: italic;
-  margin-bottom: 0.5rem;
 }
 
 /* Wordpress Caption */

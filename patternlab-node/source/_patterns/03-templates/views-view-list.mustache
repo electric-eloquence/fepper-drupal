@@ -7,18 +7,21 @@
   {{/ views_view_list_title }}
 
   <{{ list_type }}{{ list_attributes }}>
-    <li{{{ row_attributes }}}>
 
       {{# templates-views-view? }}
         {{{ fpo_template_content }}}
       {{/ templates-views-view? }}
       {{# templates-node--blog? }}
         {{# latest-posts }}
-          {{> 03-templates/node('molecules-media-block?': true) }}
+          <li{{{ row_attributes }}}>
+            {{> 03-templates/node(
+              article_attributes: ' role="article" class="contextual-region" typeof="schema:Article"',
+              'molecules-media-block?': true
+            ) }}
+          </li>
         {{/ latest-posts }}
       {{/ templates-node--blog? }}
 
-    </li>
   </{{ list_type }}>
 
 {{# views_view_list_attributes }}
