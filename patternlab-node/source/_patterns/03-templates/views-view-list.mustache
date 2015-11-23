@@ -8,9 +8,19 @@
 
   <{{ list_type }}{{ list_attributes }}>
 
-      {{# templates-views-view? }}
+      {{# templates-views-view-list? }}
         {{{ fpo_template_content }}}
-      {{/ templates-views-view? }}
+      {{/ templates-views-view-list? }}
+      {{# templates-node--homepage--blog? }}
+        {{# latest-posts }}
+          <li{{{ row_attributes }}}>
+            {{> 03-templates/node(
+              article_attributes: ' role="article" class="contextual-region" typeof="schema:Article"',
+              'molecules-media-block?': true
+            ) }}
+          </li>
+        {{/ latest-posts }}
+      {{/ templates-node--homepage--blog? }}
       {{# templates-node--blog? }}
         {{# latest-posts }}
           <li{{{ row_attributes }}}>

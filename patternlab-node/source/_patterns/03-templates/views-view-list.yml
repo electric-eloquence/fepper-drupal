@@ -16,9 +16,9 @@
   \{\{ list.attributes \}\}
 "row_attributes": |
   \{\{ row.attributes \}\}
-"# templates-views-view?": |
+"# templates-views-view-list?": |
   {% for row in rows %}
 "{ fpo_template_content }": |
   <li\{\{ row.attributes \}\}>\{\{ row.content \}\}</li>
-"/ templates-views-view?": |
+"/ templates-views-view-list?": |
   {% endfor %}

@@ -23,6 +23,23 @@
   {{# templates-views-view? }}
     {{{ fpo_template_content }}}
   {{/ templates-views-view? }}
+  {{# templates-views-view-unformatted--homepage--hero? }}
+    {{> 03-templates/views-view-unformatted(
+      'templates-node--homepage--hero?': true
+    ) }}
+  {{/ templates-views-view-unformatted--homepage--hero? }}
+  {{# templates-views-view-unformatted--homepage--touts? }}
+    {{> 03-templates/views-view-unformatted(
+      'templates-node--homepage--touts?': true
+    ) }}
+  {{/ templates-views-view-unformatted--homepage--touts? }}
+  {{# templates-views-view-list--homepage--blog? }}
+    {{> 03-templates/views-view-list(
+      views_view_list_attributes: ' class=\"item-list\"',
+      list_type: 'ul',
+      'templates-node--homepage--blog?': true
+    ) }}
+  {{/ templates-views-view-list--homepage--blog? }}
   {{# templates-views-view-list--blog? }}
     {{> 03-templates/views-view-list(
       views_view_list_attributes: ' class=\"item-list\"',

@@ -23,10 +23,24 @@
 
     {{! BEGIN MAIN CONTENT }}
 
+    {{# templates-block--main--homepage? }}
+      {{> 03-templates/block(
+        content_block_attributes: ' id="block-fepper-content"',
+        'templates-views-element-container--homepage--hero?': true
+      ) }}
+      {{> 03-templates/block(
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-2"',
+        'templates-views-element-container--homepage--touts?': true
+      ) }}
+      {{> 03-templates/block(
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-3"',
+        'templates-views-element-container--homepage--blog?': true
+      ) }}
+    {{/ templates-block--main--homepage? }}
     {{# templates-block--main--blog? }}
       {{> 03-templates/block(
         content_block_attributes: ' id="block-fepper-content"',
-        'templates-views-element-container?': true
+        'templates-views-element-container--blog?': true
       ) }}
     {{/ templates-block--main--blog? }}
     {{# templates-block--main--article? }}

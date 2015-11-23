@@ -23,13 +23,34 @@
     {{! END HEADER }}
 
 
+    {{! BEGIN HOMEPAGE }}
+
+    {{# templates-views-element-container--homepage--hero? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--hero?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--hero? }}
+    {{# templates-views-element-container--homepage--touts? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--touts?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--touts? }}
+    {{# templates-views-element-container--homepage--blog? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--blog?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--blog? }}
+
+    {{! END HOMEPAGE }}
+
+
     {{! BEGIN BLOG }}
 
-    {{# templates-views-element-container? }}
+    {{# templates-views-element-container--blog? }}
       {{> 03-templates/__views-element-container(
         'templates-views-view--blog?': true
       ) }}
-    {{/ templates-views-element-container? }}
+    {{/ templates-views-element-container--blog? }}
 
     {{! END BLOG }}
 

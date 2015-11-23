@@ -10,7 +10,6 @@
   "fpo_template_content": "<p>To reuse this template, wrap partial inclusion tags in conditionals which namespace by pattern type-name--variant.</p>",
   "homepage": "04-pages-00-homepage",
   "sidebar_second?": true,
-  "title" : "Fepper",
   "url" : "#",
   "img": {
     "landscape_4x3": {

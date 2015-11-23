@@ -1,0 +1,23 @@
+<!-- Begin views-view-unformatted -->
+{{# title }}
+  <h3>{{ title }}</h3>
+{{/ title }}
+
+{{# templates-views-view-unformatted? }}
+  {{{ fpo_template_content }}}
+{{/ templates-views-view-unformatted? }}
+{{# templates-node--homepage--hero? }}
+  {{# hero }}
+    <div class="views-row">
+      {{> 01-molecules/02-blocks/02-block-hero }}
+    </div>
+  {{/ hero }}
+{{/ templates-node--homepage--hero? }}
+{{# templates-node--homepage--touts? }}
+  {{# touts }}
+    <div class="views-row">
+      {{> 01-molecules/02-blocks/05-inset-block }}
+    </div>
+  {{/ touts }}
+{{/ templates-node--homepage--touts? }}
+<!-- End views-view-unformatted -->

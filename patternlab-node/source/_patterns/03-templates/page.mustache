@@ -21,6 +21,9 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
+      {{# templates-region--homepage? }}
+        {{> 03-templates/region('templates-block--main--homepage?': true) }}
+      {{/ templates-region--homepage? }}
       {{# templates-region--blog? }}
         {{> 03-templates/region('templates-block--main--blog?': true) }}
       {{/ templates-region--blog? }}
