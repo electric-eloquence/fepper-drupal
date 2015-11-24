@@ -1,8 +1,5 @@
-{{# templates-page? }}
-  {{{ fpo_template_content }}}
-{{/ templates-page? }}
 <!-- Begin page -->
-<div class="layout-container">
+<div{{{ page_attributes }}}>
 
   <header class="header cf" role="banner">
     {{> 03-templates/region('templates-block--header?': true) }}
@@ -21,6 +18,9 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
+      {{# templates-page? }}
+        {{{ fpo_template_content }}}
+      {{/ templates-page? }}
       {{# templates-region--homepage? }}
         {{> 03-templates/region('templates-block--main--homepage?': true) }}
       {{/ templates-region--homepage? }}
@@ -40,6 +40,9 @@
 
     {{# sidebar_second? }}
       <aside class="layout-sidebar-second" role="complementary">
+        {{# templates-region--article? }}
+          {{> 03-templates/region('templates-block--sidebar2--article?': true) }}
+        {{/ templates-region--article? }}
         {{> 03-templates/region('templates-block--sidebar2?': true) }}
       </aside>
     {{/ sidebar_second? }}

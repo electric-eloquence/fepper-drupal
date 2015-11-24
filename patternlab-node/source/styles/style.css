@@ -479,6 +479,9 @@ td {
     width: 70%;
     padding-right: 1rem;
   }
+  .front .layout-content {
+    width: auto;
+  }
 }
 @media all and (max-width: 50em) {
   .layout-content {

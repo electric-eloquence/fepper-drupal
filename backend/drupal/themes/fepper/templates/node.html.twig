@@ -8,9 +8,9 @@
     </h1>
   {% endif %}
   {% if not page %}
-    <h3{{ title_attributes }}>
+    <h2{{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h3>
+    </h2>
   {% endif %}
   {{ title_suffix }}
 
@@ -24,6 +24,7 @@
   {% endif %}
 
   <div{{ content_attributes }}>
+
     {{ content }}
     </div>
 

@@ -53,11 +53,13 @@
     {{! END MAIN CONTENT }}
 
 
-    {{# templates-block--sidebar2? }}
+    {{# templates-block--sidebar2--article? }}
       {{> 03-templates/block(
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"',
         'organisms-related-posts?': true
       ) }}
+    {{/ templates-block--sidebar2--article? }}
+    {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"',
         'organisms-recent-tweets?': true

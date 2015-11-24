@@ -4,20 +4,20 @@
 {{/ title }}
 
 {{# templates-views-view-unformatted? }}
-  {{{ fpo_template_content }}}
+  <div{{ row_attributes }}>
+    {{{ fpo_template_content }}}
+  </div>
 {{/ templates-views-view-unformatted? }}
-{{# templates-node--homepage--hero? }}
-  {{# hero }}
-    <div class="views-row">
-      {{> 01-molecules/02-blocks/02-block-hero }}
-    </div>
-  {{/ hero }}
-{{/ templates-node--homepage--hero? }}
-{{# templates-node--homepage--touts? }}
-  {{# touts }}
-    <div class="views-row">
-      {{> 01-molecules/02-blocks/05-inset-block }}
-    </div>
-  {{/ touts }}
-{{/ templates-node--homepage--touts? }}
+{{# templates-views-view-rows--homepage--hero? }}
+  {{> 03-templates/__views-view-rows(
+    row_attributes: '  class="views-row"',
+    'templates-node--homepage--hero?': true
+  ) }}
+{{/ templates-views-view-rows--homepage--hero? }}
+{{# templates-views-view-rows--homepage--touts? }}
+  {{> 03-templates/__views-view-rows(
+    row_attributes: '  class="views-row"',
+    'templates-node--homepage--touts?': true
+  ) }}
+{{/ templates-views-view-rows--homepage--touts? }}
 <!-- End views-view-unformatted -->

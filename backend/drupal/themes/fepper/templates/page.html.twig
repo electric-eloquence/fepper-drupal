@@ -1,5 +1,5 @@
 <!-- Begin page -->
-<div class="layout-container">
+<div{{ page_attributes }}>
 
   <header class="header cf" role="banner">
     {{ page.header }}
@@ -19,7 +19,7 @@
 
     <div class="layout-content">
       {{ page.content }}
-    </div>
+      </div>
 
     {% if page.sidebar_first %}
       <aside class="layout-sidebar-first" role="complementary">

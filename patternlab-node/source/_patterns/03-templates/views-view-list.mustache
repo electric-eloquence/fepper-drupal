@@ -9,28 +9,16 @@
   <{{ list_type }}{{ list_attributes }}>
 
       {{# templates-views-view-list? }}
-        {{{ fpo_template_content }}}
+        <li{{ row_attributes }}>
+          {{{ fpo_template_content }}}
+        </li>
       {{/ templates-views-view-list? }}
-      {{# templates-node--homepage--blog? }}
-        {{# latest-posts }}
-          <li{{{ row_attributes }}}>
-            {{> 03-templates/node(
-              article_attributes: ' role="article" class="contextual-region" typeof="schema:Article"',
-              'molecules-media-block?': true
-            ) }}
-          </li>
-        {{/ latest-posts }}
-      {{/ templates-node--homepage--blog? }}
-      {{# templates-node--blog? }}
-        {{# latest-posts }}
-          <li{{{ row_attributes }}}>
-            {{> 03-templates/node(
-              article_attributes: ' role="article" class="contextual-region" typeof="schema:Article"',
-              'molecules-media-block?': true
-            ) }}
-          </li>
-        {{/ latest-posts }}
-      {{/ templates-node--blog? }}
+      {{# templates-views-view-rows--homepage--blog? }}
+        {{> 03-templates/__views-view-rows('templates-node--homepage--blog?': true) }}
+      {{/ templates-views-view-rows--homepage--blog? }}
+      {{# templates-views-view-rows--blog? }}
+        {{> 03-templates/__views-view-rows('templates-node--blog?': true) }}
+      {{/ templates-views-view-rows--blog? }}
 
   </{{ list_type }}>
 

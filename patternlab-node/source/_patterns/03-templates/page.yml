@@ -1,3 +1,5 @@
+"{ page_attributes }": |
+  \{\{ page_attributes \}\}
 "> 03-templates/region\\('templates-block--header\\?': true\\)": |
   \{\{ page.header \}\}
 "page.primary_menu": |
@@ -10,6 +12,8 @@
   \{\{ page.highlighted \}\}
 "page.help": |
   \{\{ page.help \}\}
+"{ fpo_template_content }": |
+  \{\{ page.content \}\}
 "> 03-templates/region\\('templates-block--main\\?': true\\)": |
   \{\{ page.content \}\}
 "# sidebar_first\\?": |

@@ -20,7 +20,7 @@
   {% if header %}
 "header": |
   \{\{ header \}\}
-"/header": |
+"/ header": |
   {% endif %}
 "exposed": |
   \{\{ exposed \}\}
@@ -40,7 +40,7 @@
   {% if footer %}
 "footer": |
   \{\{ footer \}\}
-"/footer": |
+"/ footer": |
   {% endif %}
 "feed_icons": |
   \{\{ feed_icons \}\}

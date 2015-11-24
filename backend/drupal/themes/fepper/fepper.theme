@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @file
+ * Functions to support theming in the Fepper theme.
+ */
+
+use Drupal\Core\Template\Attribute;
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */
@@ -24,6 +32,16 @@ function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormState
 function fepper_preprocess_comment(&$variables) {
   $variables['title'] = '';
   $variables['permalink'] = '';
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function fepper_preprocess_page(&$variables) {
+  $variables['page_attributes'] = new Attribute(array('class' => array('layout-container')));
+  if ($variables['is_front']) {
+    $variables['page_attributes']['class'][] = 'front';
+  }
 }
 
 /**
