@@ -1,6 +1,6 @@
 {{# content? }}
 {{/ content? }}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{{ content_block_attributes }}}>
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{{ block_attributes }}}>
   {{# no_label? }}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {{/ no_label? }}

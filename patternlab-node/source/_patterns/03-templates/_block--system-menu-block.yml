@@ -2,7 +2,7 @@
   {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 "heading_id": |
   \{\{ heading_id \}\}
-"{ content_block_attributes }": |
+"{ block_attributes }": |
   \{\{ attributes|without('role', 'aria-labelledby') \}\}
 "# no_label\\?": |
   {% if not configuration.label_display %}

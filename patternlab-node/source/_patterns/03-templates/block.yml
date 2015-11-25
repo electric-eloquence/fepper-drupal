@@ -1,4 +1,4 @@
-"{ content_block_attributes }": |
+"{ block_attributes }": |
   \{\{ attributes \}\}
 "title_prefix": |
   \{\{ title_prefix \}\}

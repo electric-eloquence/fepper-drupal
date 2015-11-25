@@ -27,6 +27,26 @@ function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormState
 }
 
 /**
+ * Implements template_preprocess_block().
+ */
+function fepper_preprocess_block(&$variables) {
+  // Move views-element-container class to more appropriate div.
+  $container_class = 'views-element-container';
+  if (is_array($variables['attributes']['class'])) {
+    foreach ($variables['attributes']['class'] as $key => $value) {
+      if ($value == $container_class) {
+        unset($variables['attributes']['class'][$key]);
+        $variables['content'] = array();
+        $variables['content']['#cache'] = $variables['elements']['content']['#cache'];
+        $variables['content']['#markup'] = render($variables['elements']['content']);
+        $variables['content']['#markup'] = preg_replace('/^(\s*<div)(>)/', '$1 class="' . $container_class . '"$2', $variables['content']['#markup']);
+        break;
+      }
+    }
+  }
+}
+
+/**
  * Implements template_preprocess_comment().
  */
 function fepper_preprocess_comment(&$variables) {
