@@ -358,16 +358,6 @@ input[type="search"]::-webkit-search-decoration {
   padding: 0;
   position: relative;
 }
-#edit-actions:hover {
-  background: gray;
-  color: white;
-}
-#edit-actions.icon-search:before {
-  position: absolute;
-  top: 0.5em;
-  right: 1em;
-  z-index: 0;
-}
 .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
   background: gray;
   color: white;
@@ -399,21 +389,6 @@ input[type="search"]::-webkit-search-decoration {
 
 .is-valid {
   border-color: #089e00;
-}
-
-/*------------------------------------*\
-    $SPECIFIC FORMS
-\*------------------------------------*/
-/* Search Form */
-#search-block-form #edit-submit {
-  background: none;
-  padding: 1.3em 0;
-  border: 1px solid gray;
-  border-left: 0;
-  color: transparent;
-  font-size: 0.8em;
-  position: relative;
-  z-index: 1;
 }
 
 /*------------------------------------*\
@@ -711,6 +686,7 @@ td {
   }
 }
 
+/* Search Form */
 #search-block-form {
   overflow: hidden;
   position: relative;
@@ -732,6 +708,27 @@ td {
 #search-block-form input {
   height: 2.25em;
 }
+#search-block-form #edit-actions:hover {
+  background: gray;
+  color: white;
+}
+#search-block-form #edit-actions.icon-search:before {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  z-index: 0;
+}
+#search-block-form #edit-submit {
+  background: none;
+  padding: 1.3em 0;
+  border: 1px solid gray;
+  border-left: 0;
+  color: transparent;
+  font-size: 0.8em;
+  position: relative;
+  z-index: 1;
+}
+
 
 /*------------------------------------*\
     $NAVIGATION
@@ -763,17 +760,18 @@ td {
   }
 }
 
-.pagination {
-  overflow: hidden;
+.pager {
+  clear: both;
+  padding-top: 1em;
 }
-.pagination li {
+.pager li {
   float: left;
   border-right: 1px solid #eeeeee;
 }
-.pagination li:last-child {
+.pager li:last-child {
   border: 0;
 }
-.pagination a {
+.pager a {
   padding: 1rem;
 }
 
@@ -1066,7 +1064,7 @@ article[role="article"] ol ol,
   font-weight: normal;
 }
 
-.text-btn {
+.more-link {
   font-style: italic;
 }
 
