@@ -30,9 +30,12 @@
 
     {{! BEGIN NODE CONTENT }}
 
-    {{# molecules-media-block? }}
-      {{> 01-molecules/02-blocks/00-media-block }}
-    {{/ molecules-media-block? }}
+    {{# molecules-media-block--homepage-blog? }}
+      {{> 01-molecules/02-blocks/00-media-block(media_block_attributes: ' property="text"') }}
+    {{/ molecules-media-block--homepage-blog? }}
+    {{# molecules-media-block--blog? }}
+      {{> 01-molecules/02-blocks/00-media-block(media_block_attributes: ' property="schema:text"') }}
+    {{/ molecules-media-block--blog? }}
     {{# organisms-article? }}
       {{> 02-organisms/01-article/01-article }}
     {{/ organisms-article? }}
