@@ -1,5 +1,6 @@
 {
   "page_attributes": " class=\"layout-container front\"",
+  "sidebar_first?": true,
   "hero" : [
     {
       "url": "../04-pages-02-articles-00-article/04-pages-02-articles-00-article.html",

@@ -4,6 +4,10 @@
     {{# templates-region? }}
       {{{ fpo_template_content }}}
     {{/ templates-region? }}
+
+
+    {{! BEGIN HEADER CONTENT }}
+
     {{# templates-block--header? }}
       {{> 03-templates/block(
         content_block_attributes: ' id="block-fepper-branding" class="contextual-region"',
@@ -20,6 +24,8 @@
       ) }}
     {{/ templates-block--header? }}
 
+    {{! END HEADER CONTENT }}
+
 
     {{! BEGIN MAIN CONTENT }}
 
@@ -31,10 +37,6 @@
       {{> 03-templates/block(
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-2"',
         'templates-views-element-container--homepage--touts?': true
-      ) }}
-      {{> 03-templates/block(
-        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-3"',
-        'templates-views-element-container--homepage--blog?': true
       ) }}
     {{/ templates-block--main--homepage? }}
     {{# templates-block--main--blog? }}
@@ -53,6 +55,20 @@
     {{! END MAIN CONTENT }}
 
 
+    {{! BEGIN SIDEBAR1 CONTENT }}
+
+    {{# templates-block--sidebar1--homepage? }}
+      {{> 03-templates/block(
+        content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-3"',
+        'templates-views-element-container--homepage--blog?': true
+      ) }}
+    {{/ templates-block--sidebar1--homepage? }}
+
+    {{! END SIDEBAR1 CONTENT }}
+
+
+    {{! BEGIN SIDEBAR2 CONTENT }}
+
     {{# templates-block--sidebar2--article? }}
       {{> 03-templates/block(
         content_block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"',
@@ -65,12 +81,22 @@
         'organisms-recent-tweets?': true
       ) }}
     {{/ templates-block--sidebar2? }}
+
+    {{! END SIDEBAR2 CONTENT }}
+
+
+    {{! BEGIN FOOTER CONTENT }}
+
     {{# templates-block--footer? }}
       {{> 03-templates/block(
         content_block_attributes: ' id="block-fepperfooter" class="contextual-region"',
         'organisms-footer?': true
       ) }}
     {{/ templates-block--footer? }}
+
+    {{! END FOOTER CONTENT }}
+
+
   </div>
 {{/ content? }}
 <!-- End region -->

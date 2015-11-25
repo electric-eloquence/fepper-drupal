@@ -1,9 +1,5 @@
 "# content\\?": |
-  {%
-    set classes = [
-      dom_id ? 'js-view-dom-id-' ~ dom_id,
-    ]
-  %}
+  {% set classes = [dom_id ? 'js-view-dom-id-' ~ dom_id,] %}
 "{ views_view_attributes }": |
   \{\{ attributes.addClass(classes) \}\}
 "title_prefix": |

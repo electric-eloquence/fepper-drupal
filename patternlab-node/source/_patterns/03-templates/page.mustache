@@ -34,7 +34,9 @@
 
     {{# sidebar_first? }}
       <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
+        {{# templates-region--homepage? }}
+          {{> 03-templates/region('templates-block--sidebar1--homepage?': true) }}
+        {{/ templates-region--homepage? }}
       </aside>
     {{/ sidebar_first? }}
 
