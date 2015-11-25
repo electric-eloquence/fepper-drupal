@@ -503,25 +503,6 @@ td {
 /*------------------------------------*\
     $GRIDS
 \*------------------------------------*/
-/* Grid Container */
-.g {
-  overflow: hidden;
-  margin: 0 -0.5rem;
-}
-
-/* Grid Item */
-.gi {
-  padding: 0.5rem;
-}
-.gi img {
-  display: block;
-}
-@media all and (min-width: 46.8em) {
-  .gi {
-    float: left;
-  }
-}
-
 /* Grid 1up */
 .g-1up .gi {
   width: 100%;
@@ -548,23 +529,30 @@ td {
 }
 
 /* Grid 3up */
+#block-views-block-content-recent-block-2 {
+  overflow: hidden;
+  margin: 0 -0.5rem;
+}
+#block-views-block-content-recent-block-2 .views-row {
+  padding: 0.5rem;
+}
 @media all and (min-width: 46.8em) {
-  .g-3up > .gi {
+  #block-views-block-content-recent-block-2 .views-row {
     float: left;
     width: 50%;
   }
-  .g-3up > .gi:nth-of-type(2n+1) {
+  #block-views-block-content-recent-block-2 .views-row:nth-of-type(2n+1) {
     clear: left;
   }
 }
 @media all and (min-width: 50em) {
-  .g-3up > .gi {
+  #block-views-block-content-recent-block-2 .views-row {
     width: 33.3333333%;
   }
-  .g-3up > .gi:nth-of-type(2n+1) {
+  #block-views-block-content-recent-block-2 .views-row:nth-of-type(2n+1) {
     clear: none;
   }
-  .g-3up > .gi:nth-of-type(3n+1) {
+  #block-views-block-content-recent-block-2 .views-row:nth-of-type(3n+1) {
     clear: left;
   }
 }
