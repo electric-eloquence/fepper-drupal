@@ -8,7 +8,7 @@
   \{\{ page.secondary_menu \}\}
 "page.breadcrumb": |
   \{\{ page.breadcrumb \}\}
-"page.highlighted": |
+"> 01-molecules/07-messaging/00-alert": |
   \{\{ page.highlighted \}\}
 "page.help": |
   \{\{ page.help \}\}

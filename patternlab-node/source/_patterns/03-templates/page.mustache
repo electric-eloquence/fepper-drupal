@@ -10,7 +10,9 @@
 
   {{ page.breadcrumb }}
 
-  {{ page.highlighted }}
+  {{# emergency }}
+    {{> 01-molecules/07-messaging/00-alert }}
+  {{/ emergency }}
 
   {{ page.help }}
 
