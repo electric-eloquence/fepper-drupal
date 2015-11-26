@@ -777,6 +777,14 @@ td {
 .pager a {
   padding: 1rem 0.9em;
 }
+@media all and (max-width: 33.125em) {
+  .pager li.pager__item--previous {
+    float: none;
+  }
+  .pager li.pager__item--next {
+    clear: left;
+  }
+}
 
 /*------------------------------------*\
     $MAIN CONTENT AREA
