@@ -660,8 +660,9 @@ td {
 \*------------------------------------*/
 .header {
   background: white;
-  padding: 0;
   border-bottom: 1px solid #dbdbdb;
+  padding: 0;
+  position: relative;
 }
 
 #block-fepper-branding img {
@@ -690,12 +691,24 @@ td {
 }
 
 /* Search Form */
+#block-searchform {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.375em;
+  height: 3em;
+}
 #search-block-form {
   overflow: hidden;
   position: relative;
   max-height: 0;
 }
 @media all and (min-width: 46.8em) {
+  #block-searchform {
+    position: static;
+    width: auto;
+    height: auto;
+  }
   #search-block-form {
     float: right;
     max-height: none;
@@ -737,8 +750,11 @@ td {
     $NAVIGATION
 \*------------------------------------*/
 #block-mainnavigation {
-  clear: both;
+  float: right;
+  height: 3em;
   overflow: hidden;
+}
+#block-mainnavigation ul {
   max-height: 0;
 }
 #block-mainnavigation a {
@@ -751,9 +767,12 @@ td {
 }
 @media all and (min-width: 46.8em) {
   #block-mainnavigation {
-    max-height: none;
-    float: right;
     clear: none;
+    float: right;
+    height: auto;
+  }
+  #block-mainnavigation ul {
+    max-height: none;
   }
   #block-mainnavigation li {
     float: left;
@@ -919,6 +938,8 @@ article[role="article"] ol ol,
   -webkit-font-smoothing: antialiased;
 }
 
+#block-mainnavigation:before,
+#block-searchform:before,
 .icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
   font-family: 'icons';
   speak: none;
@@ -928,6 +949,11 @@ article[role="article"] ol ol,
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+}
+@media all and (min-width: 46.8em) {
+  #block-mainnavigation:before {
+    display: none;
+  }
 }
 
 .icon-twitter:before {
@@ -950,6 +976,7 @@ article[role="article"] ol ol,
   content: "\67";
 }
 
+#block-searchform:before,
 .icon-search:before {
   content: "\73";
 }
@@ -958,6 +985,7 @@ article[role="article"] ol ol,
   content: "\61";
 }
 
+#block-mainnavigation:before,
 .icon-menu:before {
   content: "\21";
 }
