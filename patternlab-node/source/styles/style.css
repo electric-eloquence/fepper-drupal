@@ -665,6 +665,10 @@ td {
   position: relative;
 }
 
+#block-fepper-branding {
+  position: relative;
+  z-index: 1;
+}
 #block-fepper-branding img {
   float: left;
   max-width: 8rem;
@@ -692,16 +696,25 @@ td {
 
 /* Search Form */
 #block-searchform {
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
-  width: 3.375em;
+  width: 3.2em;
   height: 3em;
 }
+#block-searchform:before {
+  border-left: 1px solid #d8d8d8;
+  cursor: pointer;
+  float: right;
+  font-size: 1.3em;
+  padding: 0.7em;
+}
 #search-block-form {
+  background-color: white;
+  clear: both;
   overflow: hidden;
   position: relative;
-  max-height: 0;
 }
 @media all and (min-width: 46.8em) {
   #block-searchform {
@@ -709,9 +722,11 @@ td {
     width: auto;
     height: auto;
   }
+  #block-searchform:before {
+    display: none;
+  }
   #search-block-form {
     float: right;
-    max-height: none;
     margin: 0.65em 0.5em 0 0;
   }
 }
@@ -736,11 +751,11 @@ td {
 }
 #search-block-form #edit-submit {
   background: none;
-  padding: 1.3em 0;
+  padding: 1.0625rem 0 1.0625rem;
   border: 1px solid gray;
   border-left: 0;
   color: transparent;
-  font-size: 0.8em;
+  font-size: 0.8125em;
   position: relative;
   z-index: 1;
 }
@@ -750,12 +765,26 @@ td {
     $NAVIGATION
 \*------------------------------------*/
 #block-mainnavigation {
-  float: right;
   height: 3em;
   overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+#block-mainnavigation:before {
+  border-left: 1px solid #d8d8d8;
+  cursor: pointer;
+  float: right;
+  font-size: 1.3em;
+  padding: 0.7em;
+  position: relative;
+  right: 2.6em;
+  top: 0;
 }
 #block-mainnavigation ul {
-  max-height: 0;
+  background-color: white;
+  clear: both;
 }
 #block-mainnavigation a {
   display: block;
@@ -767,18 +796,23 @@ td {
 }
 @media all and (min-width: 46.8em) {
   #block-mainnavigation {
+    border-left: 0;
     clear: none;
     float: right;
+    padding-right: 0;
+    position: static;
+    width: auto;
     height: auto;
   }
-  #block-mainnavigation ul {
-    max-height: none;
+  #block-mainnavigation:before {
+    display: none;
   }
   #block-mainnavigation li {
     float: left;
   }
   #block-mainnavigation a {
     border: 0;
+    padding: 1rem;
   }
 }
 
@@ -949,11 +983,6 @@ article[role="article"] ol ol,
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-}
-@media all and (min-width: 46.8em) {
-  #block-mainnavigation:before {
-    display: none;
-  }
 }
 
 .icon-twitter:before {
