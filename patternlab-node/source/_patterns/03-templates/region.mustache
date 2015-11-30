@@ -15,12 +15,14 @@
       ) }}
       {{> 03-templates/_block--system-menu-block(
         block_attributes: ' id="block-mainnavigation" class="contextual-region"',
-        block_label: '!',
+        title_attributes: ' class="icon-menu"',
+        block_label: 'Main navigation',
         'molecules-primary-nav?': true
       ) }}
       {{> 03-templates/block(
         block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"',
-        block_label: 's',
+        title_attributes: ' class="icon-search"',
+        block_label: 'Search form',
         'molecules-search?': true
       ) }}
     {{/ templates-block--header? }}

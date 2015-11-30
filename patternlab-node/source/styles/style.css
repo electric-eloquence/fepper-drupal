@@ -696,19 +696,27 @@ td {
 
 /* Search Form */
 #block-searchform {
+  height: 3em;
   overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;
   width: 3.2em;
-  height: 3em;
 }
 #block-searchform h2 {
   border-left: 1px solid #d8d8d8;
+  color: transparent;
   cursor: pointer;
+  font-size: 1em;
+  margin: 0;
+  overflow: hidden;
+  width: 3.2em;
+  height: 3em;
+}
+#block-searchform h2:before {
+  color: #333333;
   float: right;
   font-size: 1.3em;
-  margin: 0;
   padding: 0.7em;
 }
 #search-block-form {
@@ -781,14 +789,19 @@ td {
 }
 #block-mainnavigation h2 {
   border-left: 1px solid #d8d8d8;
+  color: transparent;
   cursor: pointer;
   float: right;
-  font-size: 1.3em;
+  height: 3em;
   margin: 0;
   padding: 0.7em;
   position: relative;
   right: 2.6em;
   top: 0;
+}
+#block-mainnavigation h2:before {
+  color: #333333;
+  font-size: 1.3em;
 }
 #block-mainnavigation ul {
   background-color: white;
@@ -985,8 +998,6 @@ article[role="article"] ol ol,
   -webkit-font-smoothing: antialiased;
 }
 
-#block-mainnavigation h2,
-#block-searchform h2,
 .icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
   font-family: 'icons';
   speak: none;

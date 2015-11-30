@@ -35,10 +35,10 @@ function fepper_preprocess_block(&$variables) {
   if (!empty($variables['elements']['#id'])) {
     switch ($variables['elements']['#id']) {
       case 'mainnavigation':
-        $variables['configuration']['label'] = '!';
+        $variables['title_attributes']['class'][] = 'icon-menu';
         break;
       case 'searchform':
-        $variables['label'] = 's';
+        $variables['title_attributes']['class'][] = 'icon-search';
         break;
     }
   }
