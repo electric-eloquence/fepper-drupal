@@ -126,13 +126,13 @@ header, footer, nav, section, article, hgroup, figure {
 }
 
 /* Display Classes */
-@media all and (max-width: 46.8em) {
+@media all and (max-width: 46.75em) {
   .hide-small {
     display: none;
   }
 }
 
-@media all and (min-width: 46.8em) and (max-width: 49.9375em) {
+@media all and (min-width: 46.8125em) and (max-width: 49.9375em) {
   .hide-med {
     display: none;
   }
@@ -366,7 +366,7 @@ input[type="search"]::-webkit-search-decoration {
 .inline-search-results-form {
   width: 100%;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .inline-search-results-form {
     width: 82%;
   }
@@ -484,7 +484,7 @@ td {
 }
 
 /* Grid 2up */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .g-2up > .gi {
     float: left;
     width: 50%;
@@ -510,7 +510,7 @@ td {
 #block-views-block-content-recent-block-2 .views-row {
   padding: 0.5rem;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   #block-views-block-content-recent-block-2 .views-row {
     float: left;
     width: 50%;
@@ -527,7 +527,7 @@ td {
 }
 
 /* Grid 4up */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .g-4up > .gi {
     float: left;
     width: 50%;
@@ -608,7 +608,7 @@ td {
     clear: left;
   }
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .g-max5 > .gi {
     width: 25%;
   }
@@ -632,14 +632,14 @@ td {
 }
 
 /* Grid 2/3 */
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .gi-2-3 {
     float: left;
     width: 66.666666%;
   }
 }
 
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .gi-1-3 {
     float: left;
     width: 33.333333%;
@@ -660,16 +660,21 @@ td {
 \*------------------------------------*/
 .header {
   background: white;
-  padding: 0;
   border-bottom: 1px solid #dbdbdb;
+  padding: 0;
+  position: relative;
 }
 
+#block-fepper-branding {
+  position: relative;
+  z-index: 1;
+}
 #block-fepper-branding img {
   float: left;
   max-width: 8rem;
   margin: 0.4rem;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   #block-fepper-branding img {
     max-width: 9rem;
   }
@@ -683,22 +688,52 @@ td {
   line-height: 1;
   border-left: 1px solid #dbdbdb;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .nav-toggle {
     display: none;
   }
 }
 
 /* Search Form */
+#block-searchform {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.2em;
+  height: 3em;
+}
+#block-searchform h2 {
+  border-left: 1px solid #d8d8d8;
+  cursor: pointer;
+  float: right;
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0.7em;
+}
 #search-block-form {
+  background-color: white;
+  clear: both;
   overflow: hidden;
   position: relative;
-  max-height: 0;
 }
-@media all and (min-width: 46.8em) {
+@media all and (max-width: 46.75em) {
+  #block-searchform.open {
+    width: auto;
+    height: auto;
+  }
+}
+@media all and (min-width: 46.8125em) {
+  #block-searchform {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  #block-searchform h2 {
+    display: none;
+  }
   #search-block-form {
     float: right;
-    max-height: none;
     margin: 0.65em 0.5em 0 0;
   }
 }
@@ -723,11 +758,11 @@ td {
 }
 #search-block-form #edit-submit {
   background: none;
-  padding: 1.3em 0;
+  padding: 1.0625rem 0 1.0625rem;
   border: 1px solid gray;
   border-left: 0;
   color: transparent;
-  font-size: 0.8em;
+  font-size: 0.8125em;
   position: relative;
   z-index: 1;
 }
@@ -737,9 +772,27 @@ td {
     $NAVIGATION
 \*------------------------------------*/
 #block-mainnavigation {
-  clear: both;
+  height: 3em;
   overflow: hidden;
-  max-height: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+#block-mainnavigation h2 {
+  border-left: 1px solid #d8d8d8;
+  cursor: pointer;
+  float: right;
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0.7em;
+  position: relative;
+  right: 2.6em;
+  top: 0;
+}
+#block-mainnavigation ul {
+  background-color: white;
+  clear: both;
 }
 #block-mainnavigation a {
   display: block;
@@ -749,17 +802,30 @@ td {
 #block-mainnavigation.active {
   max-height: 40em;
 }
-@media all and (min-width: 46.8em) {
+@media all and (max-width: 46.75em) {
+  #block-mainnavigation.open {
+    height: auto;
+  }
+}
+@media all and (min-width: 46.8125em) {
   #block-mainnavigation {
-    max-height: none;
-    float: right;
+    border-left: 0;
     clear: none;
+    float: right;
+    padding-right: 0;
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  #block-mainnavigation h2 {
+    display: none;
   }
   #block-mainnavigation li {
     float: left;
   }
   #block-mainnavigation a {
     border: 0;
+    padding: 1rem;
   }
 }
 
@@ -810,7 +876,7 @@ footer[role="contentinfo"] a {
 #block-fepperfooter {
   padding: 1rem 1rem 0;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   #block-fepperfooter p {
     float: right;
   }
@@ -822,7 +888,7 @@ footer[role="contentinfo"] a {
 .nav-footer li {
   border-bottom: 1px solid #333333;
 }
-@media all and (min-width: 46.8em) {
+@media all and (min-width: 46.8125em) {
   .nav-footer li {
     border: 0;
     float: left;
@@ -919,6 +985,8 @@ article[role="article"] ol ol,
   -webkit-font-smoothing: antialiased;
 }
 
+#block-mainnavigation h2,
+#block-searchform h2,
 .icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
   font-family: 'icons';
   speak: none;
@@ -1185,7 +1253,7 @@ article[role="article"] ol ol,
   font-size: 1.1em;
   font-weight: bold;
 }
-@media all and (min-width: 46.8em) and (max-width: 49.9375em) {
+@media all and (min-width: 46.8125em) and (max-width: 49.9375em) {
   .front #block-views-block-content-recent-block-2 {
     margin-right: -0.5em;
     margin-left: -0.5em;

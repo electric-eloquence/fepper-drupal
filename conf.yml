@@ -75,6 +75,8 @@ backend:
     #- docroot/css
     #- docroot/img
     #- docroot/js
+    - drupal/core/assets/vendor/domready
+    - drupal/core/misc
 
 templater:
   # By default, the Templater will not retain untranslated Mustache tags when

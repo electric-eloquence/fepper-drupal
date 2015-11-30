@@ -6,7 +6,9 @@
   {{/ no_label? }}
 
   {{ title_prefix }}
-  <h2{{{ title_attributes }}}>{{ configuration.label }}</h2>
+  {{# block_label }}
+    <h2{{{ title_attributes }}}>{{ block_label }}</h2>
+  {{/ block_label }}
   {{ title_suffix }}
 
   {{# templates-block? }}

@@ -30,6 +30,19 @@ function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormState
  * Implements template_preprocess_block().
  */
 function fepper_preprocess_block(&$variables) {
+  // Change main navigation and search form block titles to unicodes for
+  // appropriate font icons.
+  if (!empty($variables['elements']['#id'])) {
+    switch ($variables['elements']['#id']) {
+      case 'mainnavigation':
+        $variables['configuration']['label'] = '!';
+        break;
+      case 'searchform':
+        $variables['label'] = 's';
+        break;
+    }
+  }
+
   // Move views-element-container class to more appropriate div.
   $container_class = 'views-element-container';
   if (is_array($variables['attributes']['class'])) {
