@@ -707,6 +707,7 @@ td {
   border-left: 1px solid #d8d8d8;
   color: transparent;
   cursor: pointer;
+  float: right;
   font-size: 1em;
   margin: 0;
   overflow: hidden;
@@ -792,16 +793,19 @@ td {
   color: transparent;
   cursor: pointer;
   float: right;
-  height: 3em;
+  font-size: 1em;
   margin: 0;
-  padding: 0.7em;
   position: relative;
-  right: 2.6em;
+  right: 3.25em;
   top: 0;
+  width: 3.2em;
+  height: 3em;
 }
 #block-mainnavigation h2:before {
   color: #333333;
+  float: right;
   font-size: 1.3em;
+  padding: 0.7em;
 }
 #block-mainnavigation ul {
   background-color: white;
