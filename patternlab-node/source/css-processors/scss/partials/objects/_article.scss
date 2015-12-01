@@ -1,52 +1,42 @@
-//Article
-.article-header {
-  h1 {
+/* Main Content Article */
+article[role="article"] > footer {
+  font-size: 0.875em;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+#block-fepper-content,
+#block-views-block-content-recent-block-3 {
+  > article[role="article"] > h1 {
     font-size: 2.5em;
   }
-}
 
-.byline {
-  font-size: $font-size-slightly-smaller;
-  font-style: italic;
-  margin-bottom: $space-half;
-}
+  @media all and (min-width: 29.75em) {
+    .views-element-container .item-list {
+      margin-top: 0.5em;
+    }
 
-/* Wordpress Caption */
-.wp-caption-text {
-  font-style: italic;
-}
+    .views-element-container .item-list li {
+      clear: both;
+      float: left;
+      margin-bottom: 1em;
+    }
 
-// Review Summary
-.review-summary {
-  .grade {
-    width: 4.5em;
-    float: left;
-    margin: 0 $space-half 0 0;
-  }
+    .views-element-container article[role="article"] {
+      > h2,
+      div[property="schema:text"],
+      div[property="text"] {
+        float: right;
+        margin-top: 0;
+        padding: 0 1rem;
+        width: 70%;
+      }
 
-  .summary-text {
-    margin-left: 5em;
-  }
-}
-
-//Social Share
-.social-share {
-  overflow: hidden;
-  margin-bottom: $space;
-
-  li {
-    float: left;
-    margin-right: $space-quarter;
-  }
-
-  a {
-    background: $gray-dark;
-    color: $white;
-    display: block;
-    padding: $pad-half;
-
-    &:hover {
-      background: $gray;
+      img {
+        float: left;
+        height: auto;
+        width: 30%;
+      }
     }
   }
 }

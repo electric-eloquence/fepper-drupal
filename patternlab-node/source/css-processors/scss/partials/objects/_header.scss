@@ -1,17 +1,23 @@
 .header {
   background: $white;
-  padding: 0;
   border-bottom: 1px solid #dbdbdb;
+  padding: 0;
+  position: relative;
   @extend .lc;
 }
 
-.logo {
-  float: left;
-  max-width: 8rem;
-  margin: 0.4rem;
+#block-fepper-branding {
+  position: relative;
+  z-index: 1;
 
-  @media all and (min-width: $bp-med) {
-    max-width: 9rem;
+  img {
+    float: left;
+    max-width: 8rem;
+    margin: 0.4rem;
+
+    @media all and (min-width: 46.8125em) {
+      max-width: 9rem;
+    }
   }
 }
 
@@ -23,18 +29,95 @@
   line-height: 1;
   border-left: 1px solid #dbdbdb;
 
-  @media all and (min-width: $bp-med) {
+  @media all and (min-width: $bp-med-begin) {
     display: none;
   }
 }
 
-.search-form {
+/* Search Form */
+#block-searchform {
+  height: 3em;
   overflow: hidden;
-  max-height: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.2em;
 
-  @media all and (min-width: $bp-med) {
+  h2 {
+    border-left: 1px solid #d8d8d8;
+    color: transparent;
+    cursor: pointer;
     float: right;
-    max-height: none;
+    font-size: 1em;
+    margin: 0;
+    overflow: hidden;
+    width: 3.2em;
+    height: 3em;
+
+    &:before {
+      color: #333333;
+      float: right;
+      font-size: 1.3em;
+      padding: 0.7em;
+    }
+  }
+}
+
+#search-block-form {
+  background-color: white;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+
+  > div {
+    float: left;
+    font-size: 1em;
+    height: 2.25em;
+    margin-bottom: 0;
+  }
+  input {
+    height: 2.25em;
+  }
+  #edit-actions:hover {
+    background: gray;
+    color: white;
+  }
+  #edit-actions.icon-search:before {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    z-index: 0;
+  }
+  #edit-submit {
+    background: none;
+    padding: 1.0625rem 0 1.0625rem;
+    border: 1px solid gray;
+    border-left: 0;
+    color: transparent;
+    font-size: 0.8125em;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media all and (max-width: 46.75em) {
+  #block-searchform.open {
+    width: auto;
+    height: auto;
+  }
+}
+@media all and (min-width: 46.8125em) {
+  #block-searchform {
+    position: static;
+    width: auto;
+    height: auto;
+
+    h2 {
+      display: none;
+    }
+  }
+
+  #search-block-form {
+    float: right;
     margin: 0.65em 0.5em 0 0;
   }
 }

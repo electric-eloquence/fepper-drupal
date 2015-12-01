@@ -89,25 +89,11 @@ input[type="search"]::-webkit-search-decoration {
   }
 }
 
-// PK to clean this up
-.inline-search-results-form {
-  width: 100%;
-  @media all and (min-width: $bp-med) {
-    width: 82%;
-
-  } 
-  
-  fieldset, .inline-container {
-    position: relative;
-  }
-  
-  input[type=submit], button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    width: auto;
-  }
+#edit-actions {
+  background: transparent;
+  color: $gray;
+  padding: 0;
+  position: relative;
 }
 
 /* Validation */
@@ -116,23 +102,4 @@ input[type="search"]::-webkit-search-decoration {
 }
 .is-valid {
   border-color: $valid;
-}
-
-
-
-
-/*------------------------------------*\
-    $SPECIFIC FORMS
-\*------------------------------------*/
-
-/* Search Form */
-.search-field {
-  padding-right: 3em;
-}
-.inline-form .search-submit {
-  background: none;
-  padding: 0.78em 1em;
-  border: 0;
-  border-left: 1px solid $gray;
-  color: $gray;
 }

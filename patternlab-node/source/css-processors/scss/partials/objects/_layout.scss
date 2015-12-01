@@ -13,28 +13,45 @@
     $TEMPLATES
 \*------------------------------------*/
 
-/* Two Column Layout */
-.l-two-col {
-  @extend .cf;
+.front .layout-content {
+  border-bottom: 2px solid #eeeeee;
+  margin-bottom: 1em;
+  padding: 0 0 2em;
+  width: 100%;
+}
+.layout-sidebar-second {
+  h2 {
+    border-bottom: 1px solid #dddddd;
+    padding: 0.5rem 0;
+  }
+  li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #dddddd;
 
-  .l-main {
-    @media all and (min-width: $bp-large) {
-      float: left;
-      width: 70%;
-      padding-right: $pad;
+    > * {
+      display: block;
     }
   }
-  
-  .l-sidebar {
-    @media all and (max-width: $bp-large) {
-      clear: both;
-    }
-
-    @media all and (min-width: $bp-large) {
-      float: left;
-      width: 30%;
-      padding: 0 0 0 $pad;
-    }
+}
+.layout-content {
+  @extend .cf;
+}
+@media all and (max-width: 49.9375em) {
+  .layout-content {
+    clear: both;
+  }
+}
+@media all and (min-width: 50em) {
+  .layout-content,
+  .layout-sidebar-first {
+    float: left;
+    width: 70%;
+    padding-right: 1rem;
+  }
+  .layout-sidebar-second {
+    float: left;
+    width: 30%;
+    padding: 0 0 0 1rem;
   }
 }
 
@@ -42,25 +59,6 @@
 /*------------------------------------*\
     $GRIDS
 \*------------------------------------*/
-
-/* Grid Container */
-.g {
-  overflow: hidden;
-  margin: 0 (-$pad-half);
-}
-
-/* Grid Item */
-.gi {
-  padding: $pad-half;
-  
-  img {
-    display: block;
-  }
-
-  @media all and (min-width: $bp-med) {
-    float: left;
-  }
-}
 
 /* Grid 1up */
 .g-1up {
@@ -71,7 +69,7 @@
 
 /* Grid 2up */
 .g-2up {
-  @media all and (min-width: $bp-med) {
+  @media all and (min-width: $bp-med-begin) {
     > .gi {
       float: left;
       width: 50%;
@@ -83,49 +81,33 @@
   }
 }
 
-/* Grid Half (Always displayed side by side) */
-.g-half {
-  > .gi {
-    float: left;
-    width: 50%;
-    
-    &:nth-of-type(odd) {
-      clear: left;
-    }
+#block-views-block-content-recent-block-2 {
+  overflow: hidden;
+
+  .views-row {
+    padding: 0.5rem;
   }
 }
-
-/* Grid 3up */
-.g-3up {
-  @media all and (min-width: $bp-med) {
-    > .gi {
-      float: left;
-      width: 50%;
-      
-      &:nth-of-type(2n+1) {
-        clear: left;
-      }
-    }
+@media all and (min-width: 46.8125em) {
+  #block-views-block-content-recent-block-2 .views-row {
+    float: left;
+    width: 50%;
   }
-  
-  @media all and (min-width: $bp-large) {
-    > .gi {
+}
+@media all and (min-width: 50em) {
+  #block-views-block-content-recent-block-2 {
+    margin: 0 -0.5rem;
+
+    .views-row {
+      float: left;
       width: 33.3333333%;
-      
-      &:nth-of-type(2n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(3n+1) {
-        clear: left;
-      }
     }
   }
 }
 
 /* Grid 4up */
 .g-4up {
-  @media all and (min-width: $bp-med) {
+  @media all and (min-width: $bp-med-begin) {
     >.gi {
       float: left;
       width: 50%;
@@ -147,142 +129,6 @@
       &:nth-of-type(4n+1) {
         clear: left;
       }
-    }
-  }
-}
-
-/* Grid Quarter (Always displayed side by side) */
-.g-quarter {
-  > .gi {
-    float: left;
-    width: 24%;
-    
-    &:nth-of-type(4n+1) {
-      clear: left;
-    }
-  }
-}
-
-.g-max4 {
-
-  @media all and (min-width: $bp-small-2) {
-    >.gi {
-      float: left;
-      width: 50%;
-      
-      &:nth-of-type(2n+1) {
-        clear: both;
-      }
-    }
-  }
-
-  @media all and (min-width: $bp-small-3) {
-    >.gi {
-      width: 33.3333333%;
-      
-      &:nth-of-type(2n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(3n+1) {
-        clear: left;
-      }
-    }
-  }
-  
-  @media all and (min-width: $bp-large) {
-    >.gi {
-      width: 25%;
-      
-      &:nth-of-type(3n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(4n+1) {
-        clear: left;
-      }
-    }
-  }
-}
-
-/* Grid 5up */
-.g-max5 {
-
-  >.gi {
-    float: left;
-    width: 50%;
-    
-    &:nth-of-type(2n+1) {
-      clear: both;
-    }
-  }
-
-  @media all and (min-width: $bp-small-3) {
-    >.gi {
-      width: 33.3333333%;
-      
-      &:nth-of-type(2n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(3n+1) {
-        clear: left;
-      }
-    }
-  }
-  
-  @media all and (min-width: $bp-med) {
-    >.gi {
-      width: 25%;
-      
-      &:nth-of-type(3n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(4n+1) {
-        clear: left;
-      }
-    }
-  }
-
-  @media all and (min-width: $bp-med-2) {
-    >.gi {
-      width: 20%;
-      
-      &:nth-of-type(4n+1) {
-        clear: none;
-      }
-      
-      &:nth-of-type(5n+1) {
-        clear: left;
-      }
-    }
-  }
-}
-
-/* Grid 2/3 */
-.gi-2-3 {
-  @media all and (min-width: $bp-med) {
-    float: left;
-    width: 66.666666%;
-  }
-}
-
-.gi-1-3 {
-  @media all and (min-width: $bp-med) {
-    float: left;
-    width: 33.333333%;
-  }
-}
-
-/* Grid 4up block */
-.g-opposites {
-  .gi {
-    float: left;
-    
-    &:last-child {
-      float: right;
-      text-align: right;
     }
   }
 }

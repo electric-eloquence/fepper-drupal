@@ -1,29 +1,53 @@
-.comments {
-  li {
-    margin-bottom: $space;
+/* Comments Section */
+section[rel="schema:comment"] {
+  border-top: 1px solid #dddddd;
+  margin-top: 2em;
+
+  h2 {
+    margin: 0.667em 0;
   }
-}
 
-.comment-container {
-  overflow: hidden;
-  margin-bottom: $space;
-}
+  article[typeof="schema:Comment"] {
+    padding-bottom: 1rem;
+    overflow: hidden;
 
-.comment-meta {
-  float: left;
-  width: 6.5em;
+    > footer {
+      float: left;
+      min-height: 9em;
+      width: 12em;
+    }
 
-  img {
+    p {
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  article[typeof="schema:Person"] img {
     display: block;
-    border: 1px solid $gray-light-2;
-    margin-bottom: $space-half;
+    border: 1px solid #eeeeee;
+    margin-bottom: 0.5rem;
   }
-}
 
-.comment-name {
-  font-size: $font-size-sm;
-}
+  span[rel="schema:author"] {
+    font-size: 0.75em;
+  }
 
-.comment-text {
-  margin-left: 9em;
+  span[property="schema:name"] {
+    font-weight: bold;
+
+    &:before {
+      content: "\A";
+      white-space: pre;
+    }
+
+    &:after {
+      content: "\A";
+      white-space: pre;
+    }
+  }
+
+  > article:last-of-type {
+    border-bottom: 1px solid #dddddd;
+  }
 }

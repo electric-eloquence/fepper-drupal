@@ -1,24 +1,28 @@
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
-.footer {
+footer[role="contentinfo"] {
   clear: both;
   overflow: hidden;
   background: $gray-dark-2;
   color: $white;
   line-height: 1.2;
 
-  .lc {
-    padding: $pad $pad 0;
-  }
-
-
   a {
     color: $gray-light;
   }
-
-  
 }
+  
+#block-fepperfooter {
+  padding: $pad $pad 0;
+  @extend .lc;
+}
+@media all and (min-width: $bp-med-begin) {
+  #block-fepperfooter p {
+    float: right;
+  }
+}
+
 
 //Footer Nav
 .nav-footer {
@@ -27,7 +31,7 @@
   li {
     border-bottom: 1px solid $gray-dark;
 
-    @media all and (min-width: $bp-med) {
+    @media all and (min-width: $bp-med-begin) {
       border: 0;
       float: left;
     }
@@ -37,10 +41,4 @@
     display: block;
     padding: $pad;
   }
-}
-
-.copyright {
-  @media all and (min-width: $bp-med) {
-      float: right;
-    }
 }
