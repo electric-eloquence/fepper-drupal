@@ -14,19 +14,19 @@
 \*------------------------------------*/
 
 .front .layout-content {
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid $gray-light-2;
   margin-bottom: 1em;
   padding: 0 0 2em;
   width: 100%;
 }
 .layout-sidebar-second {
   h2 {
-    border-bottom: 1px solid #dddddd;
-    padding: 0.5rem 0;
+    border-bottom: 1px solid $gray-light-3;
+    padding: 0.5em 0;
   }
   li {
-    padding: 0.25rem 0;
-    border-bottom: 1px solid #dddddd;
+    padding: 0.25em 0;
+    border-bottom: 1px solid $gray-light-3;
 
     > * {
       display: block;
@@ -36,22 +36,22 @@
 .layout-content {
   @extend .cf;
 }
-@media all and (max-width: 49.9375em) {
+@media all and (max-width: $bp-med-end) {
   .layout-content {
     clear: both;
   }
 }
-@media all and (min-width: 50em) {
+@media all and (min-width: $bp-large) {
   .layout-content,
   .layout-sidebar-first {
     float: left;
     width: 70%;
-    padding-right: 1rem;
+    padding-right: 1em;
   }
   .layout-sidebar-second {
     float: left;
     width: 30%;
-    padding: 0 0 0 1rem;
+    padding: 0 0 0 1em;
   }
 }
 
@@ -85,18 +85,18 @@
   overflow: hidden;
 
   .views-row {
-    padding: 0.5rem;
+    padding: 0.5em;
   }
 }
-@media all and (min-width: 46.8125em) {
+@media all and (min-width: $bp-med-begin) {
   #block-views-block-content-recent-block-2 .views-row {
     float: left;
     width: 50%;
   }
 }
-@media all and (min-width: 50em) {
+@media all and (min-width: $bp-large) {
   #block-views-block-content-recent-block-2 {
-    margin: 0 -0.5rem;
+    margin: 0 -0.5em;
 
     .views-row {
       float: left;
@@ -108,7 +108,7 @@
 /* Grid 4up */
 .g-4up {
   @media all and (min-width: $bp-med-begin) {
-    >.gi {
+    > .gi {
       float: left;
       width: 50%;
       
@@ -119,7 +119,7 @@
   }
   
   @media all and (min-width: $bp-large) {
-    >.gi {
+    > .gi {
       width: 25%;
       
       &:nth-of-type(2n+1) {

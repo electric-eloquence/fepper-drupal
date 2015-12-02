@@ -12,11 +12,11 @@
 
   img {
     float: left;
-    max-width: 8rem;
-    margin: 0.4rem;
+    max-width: 8em;
+    margin: 0.4em;
 
-    @media all and (min-width: 46.8125em) {
-      max-width: 9rem;
+    @media all and (min-width: $bp-med-begin) {
+      max-width: 9em;
     }
   }
 }
@@ -55,7 +55,7 @@
     height: 3em;
 
     &:before {
-      color: #333333;
+      color: $gray-dark;
       float: right;
       font-size: 1.3em;
       padding: 0.7em;
@@ -64,7 +64,7 @@
 }
 
 #search-block-form {
-  background-color: white;
+  background-color: $white;
   clear: both;
   overflow: hidden;
   position: relative;
@@ -79,8 +79,8 @@
     height: 2.25em;
   }
   #edit-actions:hover {
-    background: gray;
-    color: white;
+    background: $gray;
+    color: $white;
   }
   #edit-actions.icon-search:before {
     position: absolute;
@@ -91,7 +91,7 @@
   #edit-submit {
     background: none;
     padding: 1.0625rem 0 1.0625rem;
-    border: 1px solid gray;
+    border: 1px solid $gray;
     border-left: 0;
     color: transparent;
     font-size: 0.8125em;
@@ -99,13 +99,13 @@
     z-index: 1;
   }
 }
-@media all and (max-width: 46.75em) {
+@media all and (max-width: $bp-small-end) {
   #block-searchform.open {
     width: auto;
     height: auto;
   }
 }
-@media all and (min-width: 46.8125em) {
+@media all and (min-width: $bp-med-begin) {
   #block-searchform {
     position: static;
     width: auto;

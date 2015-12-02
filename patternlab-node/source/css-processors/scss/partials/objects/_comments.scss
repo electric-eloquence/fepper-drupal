@@ -1,6 +1,6 @@
 /* Comments Section */
 section[rel="schema:comment"] {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid $gray-light-3;
   margin-top: 2em;
 
   h2 {
@@ -8,7 +8,7 @@ section[rel="schema:comment"] {
   }
 
   article[typeof="schema:Comment"] {
-    padding-bottom: 1rem;
+    padding-bottom: 1em;
     overflow: hidden;
 
     > footer {
@@ -25,8 +25,8 @@ section[rel="schema:comment"] {
 
   article[typeof="schema:Person"] img {
     display: block;
-    border: 1px solid #eeeeee;
-    margin-bottom: 0.5rem;
+    border: 1px solid $gray-light-2;
+    margin-bottom: 0.5em;
   }
 
   span[rel="schema:author"] {
@@ -48,6 +48,6 @@ section[rel="schema:comment"] {
   }
 
   > article:last-of-type {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid $gray-light-3;
   }
 }

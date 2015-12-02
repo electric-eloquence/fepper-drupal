@@ -16,7 +16,7 @@
   display: none !important
   visibility: hidden !important
 /* Completely remove from the flow but leave available to screen readers. */
-.is-vishidden
+.visually-hidden
   position: absolute !important
   overflow: hidden
   width: 1px
@@ -43,10 +43,10 @@
   text-align: left
 /* Display Classes */
 .hide-small
-  @media all and (max-width: $bp-med)
+  @media all and (max-width: $bp-small-end)
     display: none
 .hide-med
-  @media all and (min-width: $bp-med) and (max-width: $bp-large)
+  @media all and (min-width: $bp-med-begin) and (max-width: $bp-large)
     display: none
 .hide-large
   @media all and (min-width: $bp-large)
