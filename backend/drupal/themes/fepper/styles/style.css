@@ -437,10 +437,10 @@ td {
 }
 .layout-sidebar-second h2 {
   border-bottom: 1px solid #dddddd;
-  padding: 0.5rem 0;
+  padding: 0.5em 0;
 }
 .layout-sidebar-second li {
-  padding: 0.25rem 0;
+  padding: 0.25em 0;
   border-bottom: 1px solid #dddddd;
 }
 .layout-sidebar-second li > * {
@@ -456,12 +456,12 @@ td {
   .layout-sidebar-first {
     float: left;
     width: 70%;
-    padding-right: 1rem;
+    padding-right: 1em;
   }
   .layout-sidebar-second {
     float: left;
     width: 30%;
-    padding: 0 0 0 1rem;
+    padding: 0 0 0 1em;
   }
 }
 
@@ -488,7 +488,7 @@ td {
   overflow: hidden;
 }
 #block-views-block-content-recent-block-2 .views-row {
-  padding: 0.5rem;
+  padding: 0.5em;
 }
 @media all and (min-width: 46.8125em) {
   #block-views-block-content-recent-block-2 .views-row {
@@ -498,7 +498,7 @@ td {
 }
 @media all and (min-width: 50em) {
   #block-views-block-content-recent-block-2 {
-    margin: 0 -0.5rem;
+    margin: 0 -0.5em;
   }
   #block-views-block-content-recent-block-2 .views-row {
     float: left;
@@ -544,12 +544,12 @@ td {
 }
 #block-fepper-branding img {
   float: left;
-  max-width: 8rem;
-  margin: 0.4rem;
+  max-width: 8em;
+  margin: 0.4em;
 }
 @media all and (min-width: 46.8125em) {
   #block-fepper-branding img {
-    max-width: 9rem;
+    max-width: 9em;
   }
 }
 
@@ -685,7 +685,7 @@ td {
 }
 #block-mainnavigation a {
   display: block;
-  padding: 1rem;
+  padding: 1em;
   border-top: 1px solid #eeeeee;
 }
 #block-mainnavigation.active {
@@ -714,7 +714,7 @@ td {
   }
   #block-mainnavigation a {
     border: 0;
-    padding: 1rem;
+    padding: 1em;
   }
 }
 
@@ -730,9 +730,9 @@ td {
   border: 0;
 }
 .pager a {
-  padding: 1rem 0.9em;
+  padding: 1em 0.9em;
 }
-@media all and (max-width: 33.125em) {
+@media all and (max-width: 29.75em) {
   .pager li.pager__item--previous {
     float: none;
   }
@@ -806,7 +806,7 @@ footer[role="contentinfo"] a {
 article[role="article"] ul,
 .text ul {
   list-style: disc;
-  margin: 0 0 1rem 1.2em;
+  margin: 0 0 1rem 1.2rem;
 }
 article[role="article"] ul ul,
 .text ul ul {
@@ -815,7 +815,7 @@ article[role="article"] ul ul,
 article[role="article"] ol,
 .text ol {
   list-style: decimal;
-  margin: 0 0 1rem 1.2em;
+  margin: 0 0 1rem 1.2rem;
 }
 article[role="article"] ol ol,
 .text ol ol {
@@ -998,7 +998,7 @@ article[role="article"] ol ol,
 
 /* Hero Block */
 .front #block-fepper-content {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 .front #block-fepper-content img {
   display: block;
@@ -1024,7 +1024,7 @@ article[role="article"] ol ol,
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
+    padding: 1.5em;
   }
   .front #block-fepper-content .views-field-title a {
     color: white;
@@ -1045,7 +1045,7 @@ article[role="article"] ol ol,
 
 /* Touts Block */
 .front #block-views-block-content-recent-block-2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
   position: relative;
 }
 .front #block-views-block-content-recent-block-2 .views-row {
@@ -1070,7 +1070,7 @@ article[role="article"] ol ol,
 .front #block-views-block-content-recent-block-2 .views-field-title .field-content {
   background: rgba(0, 0, 0, 0.5);
   display: block;
-  padding: 0.5rem;
+  padding: 0.5em;
 }
 .front #block-views-block-content-recent-block-2 .views-field-title .field-content a {
   color: white;
@@ -1189,7 +1189,7 @@ article[role="article"] ol ol,
 article[role="article"] > footer {
   font-size: 0.875em;
   font-style: italic;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 #block-fepper-content > article[role="article"] > h1,
 #block-views-block-content-recent-block-3 > article[role="article"] > h1 {
@@ -1207,10 +1207,10 @@ article[role="article"] > footer {
     margin-bottom: 1em;
   }
   #block-fepper-content .views-element-container article[role="article"] > h2,
-  #block-views-block-content-recent-block-3 .views-element-container article[role="article"] > h2,
   #block-fepper-content .views-element-container article[role="article"] div[property="schema:text"],
-  #block-views-block-content-recent-block-3 .views-element-container article[role="article"] div[property="schema:text"],
   #block-fepper-content .views-element-container article[role="article"] div[property="text"],
+  #block-views-block-content-recent-block-3 .views-element-container article[role="article"] > h2,
+  #block-views-block-content-recent-block-3 .views-element-container article[role="article"] div[property="schema:text"],
   #block-views-block-content-recent-block-3 .views-element-container article[role="article"] div[property="text"] {
     float: right;
     margin-top: 0;
@@ -1234,7 +1234,7 @@ section[rel="schema:comment"] h2 {
   margin: 0.667em 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
-  padding-bottom: 1rem;
+  padding-bottom: 1em;
   overflow: hidden;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
@@ -1249,7 +1249,7 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] p {
 section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eeeeee;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
 }
 section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
