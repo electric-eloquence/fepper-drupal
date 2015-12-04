@@ -10,17 +10,17 @@
 
     {{# templates-block--header? }}
       {{> 03-templates/block(
-        block_attributes: ' id="block-fepper-branding" class="contextual-region"',
+        block_attributes: ' id="block-fepper-branding"',
         'atoms-logo?': true
       ) }}
       {{> 03-templates/_block--system-menu-block(
-        block_attributes: ' id="block-mainnavigation" class="contextual-region"',
+        block_attributes: ' id="block-mainnavigation"',
         title_attributes: ' class="icon-menu"',
         block_label: 'Main navigation',
         'molecules-primary-nav?': true
       ) }}
       {{> 03-templates/block(
-        block_attributes: ' class="search-block-form contextual-region" id="block-searchform" role="search"',
+        block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
         title_attributes: ' class="icon-search"',
         block_label: 'Search form',
         'molecules-search?': true
@@ -38,7 +38,7 @@
         'templates-views-element-container--homepage--hero?': true
       ) }}
       {{> 03-templates/block(
-        block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-2"',
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-2"',
         'templates-views-element-container--homepage--touts?': true
       ) }}
     {{/ templates-block--main--homepage? }}
@@ -62,7 +62,7 @@
 
     {{# templates-block--sidebar1--homepage? }}
       {{> 03-templates/block(
-        block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-3"',
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-3"',
         block_label: 'Latest posts',
         'templates-views-element-container--homepage--blog?': true
       ) }}
@@ -75,14 +75,14 @@
 
     {{# templates-block--sidebar2--article? }}
       {{> 03-templates/block(
-        block_attributes: ' class="views-element-container contextual-region" id="block-views-block-content-recent-block-1"',
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-1"',
         'organisms-related-posts?': true
       ) }}
     {{/ templates-block--sidebar2--article? }}
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
-        block_attributes: ' class="views-element-container contextual-region" id="block-views-block-comments-recent-block-1"',
-        'organisms-recent-tweets?': true
+        block_attributes: ' class="views-element-container" id="block-views-block-comments-recent-block-1"',
+        'organisms-recent-comments?': true
       ) }}
     {{/ templates-block--sidebar2? }}
 
@@ -93,7 +93,7 @@
 
     {{# templates-block--footer? }}
       {{> 03-templates/block(
-        block_attributes: ' id="block-fepperfooter" class="contextual-region"',
+        block_attributes: ' id="block-fepperfooter"',
         'organisms-footer?': true
       ) }}
     {{/ templates-block--footer? }}
