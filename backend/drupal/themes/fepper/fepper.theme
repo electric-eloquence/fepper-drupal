@@ -7,6 +7,14 @@
 
 use Drupal\Core\Template\Attribute;
 
+global $config;
+
+// Parse variables.styl for breakpoints. Add them to the global $config array.
+$bp_ini = \Drupal::theme()->getActiveTheme()->getPath() . '/scripts/src/variables.styl';
+if (file_exists($bp_ini)) {
+  $config['breakpoints'] = parse_ini_file($bp_ini);
+}
+
 /**
  * Implements hook_form_FORM_ID_alter().
  */
