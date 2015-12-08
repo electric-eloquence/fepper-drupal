@@ -1,4 +1,4 @@
-(function ($, Drupal) {
+(function ($) {
   'use strict';
 
   Drupal.behaviors.openToggle = {
@@ -11,4 +11,4 @@
       );
     }
   };
-})(jQuery, Drupal);
+})(jQuery);
