@@ -7,3 +7,4 @@ version: VERSION
 core: 8.x
 libraries:
   - fepper/global-styling
+  - fepper/global-scripts
