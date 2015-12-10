@@ -7,21 +7,18 @@
 
 use Drupal\Core\Template\Attribute;
 
-/**
- * Parse variables.styl for breakpoints. Add them to the global $config array.
- * Do this in the global scope so any and all functions can access these
- * breakpoint configurations, even module functions.
- * Out of the box, they will be:
- *   $config['breakpoints']['bp_lg_max'] = -1;
- *   $config['breakpoints']['bp_lg_min'] = 1024;
- *   $config['breakpoints']['bp_md_min'] = 768;
- *   $config['breakpoints']['bp_sm_min'] = 480;
- *   $config['breakpoints']['bp_xs_min'] = 0;
- */
+// Parse variables.styl for breakpoints. Add them to the global $config array.
+// Do this in the global scope so any and all functions can access these
+// breakpoint configurations, even module functions.
+// Out of the box, they will be:
+// $config['breakpoints']['bp_lg_max'] = -1;
+// $config['breakpoints']['bp_lg_min'] = 1024;
+// $config['breakpoints']['bp_md_min'] = 768;
+// $config['breakpoints']['bp_sm_min'] = 480;
+// $config['breakpoints']['bp_xs_min'] = 0;
 $bp_ini = drupal_get_path('theme', 'fepper') . '/scripts/src/variables.styl';
 if (file_exists($bp_ini)) {
-  global $config;
-  $config['breakpoints'] = parse_ini_file($bp_ini);
+  $GLOBALS['config']['breakpoints'] = parse_ini_file($bp_ini);
 }
 
 /**
@@ -54,9 +51,11 @@ function fepper_preprocess_block(&$variables) {
       case 'mainnavigation':
         $variables['title_attributes']['class'][] = 'icon-menu';
         break;
+
       case 'searchform':
         $variables['title_attributes']['class'][] = 'icon-search';
         break;
+
     }
   }
 

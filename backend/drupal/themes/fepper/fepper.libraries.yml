@@ -6,7 +6,9 @@ global-styling:
 
 global-scripts:
   js:
-    scripts/min/behaviors.min.js: {}
+    scripts/src/variables.styl: {}
+    scripts/src/fepper-obj.js: {}
+    scripts/src/behaviors.js: {}
   dependencies:
     - core/jquery
     - core/drupal
