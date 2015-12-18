@@ -29,6 +29,11 @@
       font-size: 1.3em;
       padding: 0.7em;
     }
+
+    &:hover:before,
+    &:focus:before {
+      color: $gray;
+    }
   }
   ul {
     background-color: $white;

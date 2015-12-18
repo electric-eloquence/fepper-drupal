@@ -660,6 +660,10 @@ td {
   font-size: 1.3em;
   padding: 0.7em;
 }
+#block-searchform h2:hover:before,
+#block-searchform h2:focus:before {
+  color: gray;
+}
 #search-block-form {
   background-color: white;
   clear: both;
@@ -745,6 +749,10 @@ td {
   float: right;
   font-size: 1.3em;
   padding: 0.7em;
+}
+#block-mainnavigation h2:hover:before,
+#block-mainnavigation h2:focus:before {
+  color: gray;
 }
 #block-mainnavigation ul {
   background-color: white;
