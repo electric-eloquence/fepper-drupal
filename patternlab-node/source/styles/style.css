@@ -660,8 +660,7 @@ td {
   font-size: 1.3em;
   padding: 0.7em;
 }
-#block-searchform h2:hover:before,
-#block-searchform h2:focus:before {
+#block-searchform h2:hover:before {
   color: gray;
 }
 #search-block-form {
@@ -750,8 +749,7 @@ td {
   font-size: 1.3em;
   padding: 0.7em;
 }
-#block-mainnavigation h2:hover:before,
-#block-mainnavigation h2:focus:before {
+#block-mainnavigation h2:hover:before {
   color: gray;
 }
 #block-mainnavigation ul {

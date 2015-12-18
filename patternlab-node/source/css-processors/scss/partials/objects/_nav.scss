@@ -30,8 +30,7 @@
       padding: 0.7em;
     }
 
-    &:hover:before,
-    &:focus:before {
+    &:hover:before {
       color: $gray;
     }
   }
