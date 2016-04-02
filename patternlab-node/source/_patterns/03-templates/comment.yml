@@ -2,7 +2,7 @@
   \{\{ attributes.addClass('js-comment') \}\}
 "new_indicator_timestamp": |
   \{\{ new_indicator_timestamp \}\}
-"> 00-atoms/03-images/04-avatar": |
+"> 00-atoms/04-images/04-avatar": |
   \{\{ user_picture \}\}
 "> 01-molecules/00-text/07-byline-commenter": |
   \{\{ submitted \}\}
