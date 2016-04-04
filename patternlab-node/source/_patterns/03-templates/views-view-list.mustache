@@ -6,7 +6,9 @@
     <h3>{{{ views_view_list_title }}}</h3>
   {{/ views_view_list_title }}
 
-  <{{ list_type }}{{ list_attributes }}>
+  {{# list_type }}
+    <{{ list_type }}{{ list_attributes }}>
+  {{/ list_type }}
 
       {{# templates-views-view-list? }}
         <li{{ row_attributes }}>
@@ -20,7 +22,9 @@
         {{> 03-templates/__views-view-rows('templates-node--blog?': true) }}
       {{/ templates-views-view-rows--blog? }}
 
-  </{{ list_type }}>
+  {{# list_type }}
+    </{{ list_type }}>
+  {{/ list_type }}
 
 {{# views_view_list_attributes }}
   </div>
