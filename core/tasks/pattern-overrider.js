@@ -11,10 +11,7 @@
   var fs = require('fs-extra');
   var path = require('path');
 
-  var utils = require('../lib/utils');
-
   exports.main = function (workDir, conf) {
-    var dataJson = utils.data(workDir, conf);
     var defaultPort = 35729;
     var dest = workDir + '/' + conf.pub + '/scripts/pattern-overrider.js';
 
@@ -48,20 +45,9 @@ if (codeFill) {
 }
 
 `;
-
     // Initialize destination file.
     fs.mkdirsSync(path.dirname(dest));
     fs.writeFileSync(dest, output);
-
-    if (typeof dataJson.homepage === 'string') {
-      // Backticked multi-line string.
-      output = `// Redirect away from all-patterns page on launch.
-if (window.location.pathname.indexOf('/styleguide/html/styleguide.html') > -1 && window.location.search === '') {
-  window.location = '../../patterns/${dataJson.homepage}/${dataJson.homepage}.html';
-}
-
-`;
-    }
 
     // Write out the homepage redirector.
     fs.appendFileSync(dest, output);
@@ -78,7 +64,6 @@ if (window.location.port === '${conf.express_port}') {
   //]]>
 }
 `;
-
     // Write out the LiveReloader.
     fs.appendFileSync(dest, output);
   };
