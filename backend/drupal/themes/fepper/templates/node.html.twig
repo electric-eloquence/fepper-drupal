@@ -1,0 +1,32 @@
+<!-- Begin node -->
+<article{{ attributes }}>
+
+  {{ title_prefix }}
+  {% if page %}
+    <h1{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h1>
+  {% endif %}
+  {% if not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if page %}
+    <footer>
+      <div{{ author_attributes }}>
+        By {{ author_name }} on {{ date }}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+  <div{{ content_attributes }}>
+
+    {{ content }}
+    </div>
+
+</article>
+<!-- End node -->

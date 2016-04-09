@@ -1,0 +1,72 @@
+{{# content? }}
+{{/ content? }}
+<!-- Begin views-view -->
+<div{{{ views_view_attributes }}}>
+  {{ title_prefix }}
+  {{# title }}
+    <h1>{{ title }}</h1>
+  {{/ title }}
+  {{ title_suffix }}
+
+  {{# header }}
+    <header>
+      {{ header }}
+    </header>
+  {{/ header }}
+
+  {{ exposed }}
+  {{ attachment_before }}
+
+
+  {{! BEGIN VIEWS ROWS }}
+
+  {{# templates-views-view? }}
+    {{{ fpo_template_content }}}
+  {{/ templates-views-view? }}
+  {{# templates-views-view-unformatted--homepage--hero? }}
+    {{> 03-templates/views-view-unformatted(
+      'templates-views-view-rows--homepage--hero?': true
+    ) }}
+  {{/ templates-views-view-unformatted--homepage--hero? }}
+  {{# templates-views-view-unformatted--homepage--touts? }}
+    {{> 03-templates/views-view-unformatted(
+      'templates-views-view-rows--homepage--touts?': true
+    ) }}
+  {{/ templates-views-view-unformatted--homepage--touts? }}
+  {{# templates-views-view-list--homepage--blog? }}
+    {{> 03-templates/views-view-list(
+      views_view_list_attributes: ' class="item-list"',
+      list_type: 'ul',
+      'templates-views-view-rows--homepage--blog?': true
+    ) }}
+  {{/ templates-views-view-list--homepage--blog? }}
+  {{# templates-views-view-list--blog? }}
+    {{> 03-templates/views-view-list(
+      views_view_list_attributes: ' class="item-list"',
+      list_type: 'ul',
+      'templates-views-view-rows--blog?': true
+    ) }}
+  {{/ templates-views-view-list--blog? }}
+
+  {{! END VIEWS ROWS }}
+
+
+  {{ empty }}
+  {{# templates-views-view-list--blog? }}
+    {{> 01-molecules/05-navigation/03-pagination }}
+  {{/ templates-views-view-list--blog? }}
+
+  {{ attachment_after }}
+  {{# templates-views-view-list--homepage--blog? }}
+    {{> 02-organisms/04-sections/03-more-link }}
+  {{/ templates-views-view-list--homepage--blog? }}
+
+  {{# footer }}
+    <footer>
+      {{ footer }}
+    </footer>
+  {{/ footer }}
+
+  {{ feed_icons }}
+</div>
+<!-- End views-view -->

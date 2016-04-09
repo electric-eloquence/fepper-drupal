@@ -1,0 +1,87 @@
+<!-- Begin block -->
+<div{{{ block_attributes }}}>
+  {{ title_prefix }}
+  {{# block_label }}
+    <h2{{{ title_attributes }}}>{{ block_label }}</h2>
+  {{/ block_label }}
+  {{ title_suffix }}
+  {{# content? }}
+    {{# templates-block? }}
+      {{{ fpo_template_content }}}
+    {{/ templates-block? }}
+
+
+    {{! BEGIN HEADER }}
+
+    {{# atoms-logo? }}
+      {{> 00-atoms/04-images/00-logo }}
+    {{/ atoms-logo? }}
+    {{# molecules-search? }}
+      {{> 01-molecules/04-forms/00-search }}
+    {{/ molecules-search? }}
+
+    {{! END HEADER }}
+
+
+    {{! BEGIN HOMEPAGE }}
+
+    {{# templates-views-element-container--homepage--hero? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--hero?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--hero? }}
+    {{# templates-views-element-container--homepage--touts? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--touts?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--touts? }}
+    {{# templates-views-element-container--homepage--blog? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--homepage--blog?': true
+      ) }}
+    {{/ templates-views-element-container--homepage--blog? }}
+
+    {{! END HOMEPAGE }}
+
+
+    {{! BEGIN BLOG }}
+
+    {{# templates-views-element-container--blog? }}
+      {{> 03-templates/__views-element-container(
+        'templates-views-view--blog?': true
+      ) }}
+    {{/ templates-views-element-container--blog? }}
+
+    {{! END BLOG }}
+
+
+    {{! BEGIN ARTICLE }}
+
+    {{# templates-node--article? }}
+      {{> 03-templates/node(
+        'view_mode_full?': true,
+        'organisms-article?': true
+      ) }}
+    {{/ templates-node--article? }}
+    {{# organisms-related-posts? }}
+      {{> 02-organisms/04-sections/02-related-posts }}
+    {{/ organisms-related-posts? }}
+    {{# organisms-recent-comments? }}
+      {{> 02-organisms/04-sections/01-recent-comments }}
+    {{/ organisms-recent-comments? }}
+
+    {{! END ARTICLE }}
+
+
+    {{! BEGIN FOOTER }}
+
+    {{# organisms-footer? }}
+      {{> 02-organisms/00-global/01-footer }}
+    {{/ organisms-footer? }}
+
+    {{! END FOOTER }}
+
+
+  {{/ content? }}
+</div>
+<!-- End block -->

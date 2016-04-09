@@ -1,0 +1,32 @@
+"{ comment_attributes }": |
+  \{\{ attributes.addClass('js-comment') \}\}
+"new_indicator_timestamp": |
+  \{\{ new_indicator_timestamp \}\}
+"> 00-atoms/04-images/04-avatar": |
+  \{\{ user_picture \}\}
+"> 01-molecules/00-text/07-byline-commenter": |
+  \{\{ submitted \}\}
+"# parent\\?": |
+  {% if parent %}
+"parent": |
+  \{\{ parent \}\}
+"/ parent\\?": |
+  {% endif %}
+"permalink": |
+  \{\{ permalink \}\}
+"{ content_attributes }": |
+  \{\{ content_attributes \}\}
+"# title\\?": |
+  {% if title %}
+"title_prefix": |
+  \{\{ title_prefix \}\}
+"{ title_attributes }": |
+  \{\{ title_attributes \}\}
+"comment_title": |
+  \{\{ title \}\}
+"title_suffix": |
+  \{\{ title_suffix \}\}
+"/ title\\?": |
+  {% endif %}
+"> 01-molecules/06-components/02-single-comment": |
+  \{\{ content \}\}

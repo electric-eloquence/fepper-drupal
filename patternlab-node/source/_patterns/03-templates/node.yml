@@ -1,0 +1,32 @@
+"{ article_attributes }": |
+  \{\{ attributes \}\}
+"title_prefix": |
+  \{\{ title_prefix \}\}
+"# view_mode_full\\?": |
+  {% if page %}
+"{ title_attributes }": |
+  \{\{ title_attributes \}\}
+"url": |
+  \{\{ url \}\}
+"{ article_title }": |
+  \{\{ label \}\}
+"\\^ view_mode_full\\?": |
+  {% if not page %}
+"/ view_mode_full\\?": |
+  {% endif %}
+"title_suffix": |
+  \{\{ title_suffix \}\}
+"author_picture": |
+  \{\{ author_picture \}\}
+"{ author_attributes }": |
+  \{\{ author_attributes \}\}
+"author_name": |
+  \{\{ author_name \}\}
+"date": |
+  \{\{ date \}\}
+"metadata": |
+  \{\{ metadata \}\}
+"{ content_attributes }": |
+  \{\{ content_attributes \}\}
+"> 02-organisms/01-article/01-article": |
+  \{\{ content \}\}
