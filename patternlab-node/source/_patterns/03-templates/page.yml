@@ -1,0 +1,36 @@
+"{ page_attributes }": |
+  \{\{ page_attributes \}\}
+"> 03-templates/region\\('templates-block--header\\?': true\\)": |
+  \{\{ page.header \}\}
+"page.primary_menu": |
+  \{\{ page.primary_menu \}\}
+"page.secondary_menu": |
+  \{\{ page.secondary_menu \}\}
+"page.breadcrumb": |
+  \{\{ page.breadcrumb \}\}
+"> 01-molecules/07-messaging/00-alert": |
+  \{\{ page.highlighted \}\}
+"page.help": |
+  \{\{ page.help \}\}
+"{ fpo_template_content }": |
+  \{\{ page.content \}\}
+"> 03-templates/region\\('templates-block--main\\?': true\\)": |
+  \{\{ page.content \}\}
+"# sidebar_first\\?": |
+  {% if page.sidebar_first %}
+"> 03-templates/region\\('templates-block--sidebar1--homepage\\?': true\\)": |
+  \{\{ page.sidebar_first \}\}
+"/ sidebar_first\\?": |
+  {% endif %}
+"# sidebar_second\\?": |
+  {% if page.sidebar_second %}
+"> 03-templates/region\\('templates-block--sidebar2\\?': true\\)": |
+  \{\{ page.sidebar_second \}\}
+"/ sidebar_second\\?": |
+  {% endif %}
+"# footer\\?": |
+  {% if page.footer %}
+"> 03-templates/region\\('templates-block--footer\\?': true\\)": |
+  \{\{ page.footer \}\}
+"/ footer\\?": |
+  {% endif %}

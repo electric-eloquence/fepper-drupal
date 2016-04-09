@@ -1,0 +1,14 @@
+<div class="views-element-container">
+  {{# templates-views-view--homepage--hero? }}
+    {{> 03-templates/views-view('templates-views-view-unformatted--homepage--hero?': true) }}
+  {{/ templates-views-view--homepage--hero? }}
+  {{# templates-views-view--homepage--touts? }}
+    {{> 03-templates/views-view('templates-views-view-unformatted--homepage--touts?': true) }}
+  {{/ templates-views-view--homepage--touts? }}
+  {{# templates-views-view--homepage--blog? }}
+    {{> 03-templates/views-view('templates-views-view-list--homepage--blog?': true) }}
+  {{/ templates-views-view--homepage--blog? }}
+  {{# templates-views-view--blog? }}
+    {{> 03-templates/views-view('templates-views-view-list--blog?': true) }}
+  {{/ templates-views-view--blog? }}
+</div>
