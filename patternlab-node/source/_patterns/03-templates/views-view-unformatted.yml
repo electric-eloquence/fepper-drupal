@@ -1,0 +1,15 @@
+"# title": |
+  {% if title %}
+"title": |
+  \{\{ title \}\}
+"/ title": |
+  {% endif %}
+"# templates-views-view-unformatted\\?": |
+  {% for row in rows %}
+    {% set row_classes = [default_row_class ? 'views-row',] %}
+"row_attributes": |
+  \{\{ row.attributes.addClass(row_classes) \}\}
+"{ fpo_template_content }": |
+  \{\{ row.content \}\}
+"/ templates-views-view-unformatted\\?": |
+  {% endfor %}

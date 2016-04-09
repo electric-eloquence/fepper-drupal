@@ -1,0 +1,14 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      styles/style.css: {}
+
+global-scripts:
+  js:
+    scripts/src/variables.styl: {}
+    scripts/src/fepper-obj.js: {}
+    scripts/src/behaviors.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
