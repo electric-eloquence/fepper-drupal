@@ -1,0 +1,106 @@
+<!-- Begin region -->
+{{# content? }}
+  <div{{{ attributes }}}>
+    {{# templates-region? }}
+      {{{ fpo_template_content }}}
+    {{/ templates-region? }}
+
+
+    {{! BEGIN HEADER CONTENT }}
+
+    {{# templates-block--header? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-branding"',
+        'atoms-logo?': true
+      ) }}
+      {{> 03-templates/_block--system-menu-block(
+        block_attributes: ' id="block-mainnavigation"',
+        title_attributes: ' class="icon-menu"',
+        block_label: 'Main navigation',
+        'molecules-primary-nav?': true
+      ) }}
+      {{> 03-templates/block(
+        block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
+        title_attributes: ' class="icon-search"',
+        block_label: 'Search form',
+        'molecules-search?': true
+      ) }}
+    {{/ templates-block--header? }}
+
+    {{! END HEADER CONTENT }}
+
+
+    {{! BEGIN MAIN CONTENT }}
+
+    {{# templates-block--main--homepage? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-content"',
+        'templates-views-element-container--homepage--hero?': true
+      ) }}
+      {{> 03-templates/block(
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-2"',
+        'templates-views-element-container--homepage--touts?': true
+      ) }}
+    {{/ templates-block--main--homepage? }}
+    {{# templates-block--main--blog? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-content"',
+        'templates-views-element-container--blog?': true
+      ) }}
+    {{/ templates-block--main--blog? }}
+    {{# templates-block--main--article? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-content"',
+        'templates-node--article?': true
+      ) }}
+    {{/ templates-block--main--article? }}
+
+    {{! END MAIN CONTENT }}
+
+
+    {{! BEGIN SIDEBAR1 CONTENT }}
+
+    {{# templates-block--sidebar1--homepage? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-3"',
+        block_label: 'Latest posts',
+        'templates-views-element-container--homepage--blog?': true
+      ) }}
+    {{/ templates-block--sidebar1--homepage? }}
+
+    {{! END SIDEBAR1 CONTENT }}
+
+
+    {{! BEGIN SIDEBAR2 CONTENT }}
+
+    {{# templates-block--sidebar2--article? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-1"',
+        'organisms-related-posts?': true
+      ) }}
+    {{/ templates-block--sidebar2--article? }}
+    {{# templates-block--sidebar2? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="views-element-container" id="block-views-block-comments-recent-block-1"',
+        'organisms-recent-comments?': true
+      ) }}
+    {{/ templates-block--sidebar2? }}
+
+    {{! END SIDEBAR2 CONTENT }}
+
+
+    {{! BEGIN FOOTER CONTENT }}
+
+    {{# templates-block--footer? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepperfooter"',
+        'organisms-footer?': true
+      ) }}
+    {{/ templates-block--footer? }}
+
+    {{! END FOOTER CONTENT }}
+
+
+  </div>
+{{/ content? }}
+<!-- End region -->

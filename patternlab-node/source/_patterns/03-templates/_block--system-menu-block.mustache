@@ -1,0 +1,20 @@
+{{# content? }}
+{{/ content? }}
+<nav role="navigation" aria-labelledby="{{ heading_id }}"{{{ block_attributes }}}>
+  {{# no_label? }}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {{/ no_label? }}
+
+  {{ title_prefix }}
+  {{# block_label }}
+    <h2{{{ title_attributes }}}>{{ block_label }}</h2>
+  {{/ block_label }}
+  {{ title_suffix }}
+
+  {{# templates-block? }}
+    {{ content }}
+  {{/ templates-block? }}
+  {{# molecules-primary-nav? }}
+    {{> 01-molecules/05-navigation/00-primary-nav }}
+  {{/ molecules-primary-nav? }}
+</nav>
