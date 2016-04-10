@@ -5,7 +5,6 @@
 backend/drupal/modules/devel/
 backend/drupal/sites/default/files/
 conf.yml
-extend
 install.log
 node_modules/
 npm-debug.log
