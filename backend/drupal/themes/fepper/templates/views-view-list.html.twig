@@ -7,15 +7,13 @@
   {% endif %}
 
   <{{ list.type }}{{ list.attributes }}>
-
-      {% for row in rows %}
+  {% for row in rows %}
         <li{{ row.attributes }}>
           {{ row.content }}
         </li>
       {% endfor %}
       </{{ list.type }}>
-
-{% if attributes -%}
+  {% if attributes -%}
   </div>
 {% endif %}
 <!-- End views-view-list -->
