@@ -1,5 +1,26 @@
 #Fepper Changelog
 
+##v0.3.0
+* Replacing abandoned gulp-livereload with supported gulp-refresh
+* Scraper refinements
+* Better scraper success msg
+* templates\_dir override and unit tests
+
+##v0.2.4
+* Updating multisite Pattern Lab
+
+##v0.2.3
+* Fixing multisite install
+
+##v0.2.2
+* Updating extend dir to use pref.yml
+
+##v0.2.1
+* Pattern lab update fixing inclusion of local listitem files
+
+##v0.2.0
+* Split conf.yml into conf.yml and pref.yml
+
 ##v0.1.1
 * README update
 
