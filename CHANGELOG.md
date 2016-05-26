@@ -1,5 +1,13 @@
 #Fepper Changelog
 
+##v0.4.1
+* HTML scraper excepts for malformed HTML
+
+##v0.4.0
+* Using minimal multisite subsite
+* Replacing xml2js and xmldom with html2json and js-beautify
+* Updating to gulp-eslint ^2.0.0
+
 ##v0.3.0
 * Replacing abandoned gulp-livereload with supported gulp-refresh
 * Scraper refinements
