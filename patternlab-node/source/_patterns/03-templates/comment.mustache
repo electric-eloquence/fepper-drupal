@@ -5,8 +5,8 @@
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
-    {{> 00-atoms/04-images/04-avatar }}
-    <p>{{> 01-molecules/00-text/07-byline-commenter }}</p>
+    {{> 00-elements/04-images/04-avatar }}
+    <p>{{> 01-compounds/00-text/07-byline-commenter }}</p>
 
     {{# parent? }}
       <p class="visually-hidden">{{ parent }}</p>
@@ -21,6 +21,6 @@
       <h3{{{ title_attributes }}}>{{ comment_title }}</h3>
       {{ title_suffix }}
     {{/ title? }}
-    {{> 01-molecules/06-components/02-single-comment }}
+    {{> 01-compounds/06-components/02-single-comment }}
   </div>
 </article>
