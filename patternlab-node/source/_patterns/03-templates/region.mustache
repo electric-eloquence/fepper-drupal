@@ -11,19 +11,19 @@
     {{# templates-block--header? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-branding"',
-        'atoms-logo?': true
+        'elements-logo?': true
       ) }}
       {{> 03-templates/_block--system-menu-block(
         block_attributes: ' id="block-mainnavigation"',
         title_attributes: ' class="icon-menu"',
         block_label: 'Main navigation',
-        'molecules-primary-nav?': true
+        'compounds-primary-nav?': true
       ) }}
       {{> 03-templates/block(
         block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
         title_attributes: ' class="icon-search"',
         block_label: 'Search form',
-        'molecules-search?': true
+        'compounds-search?': true
       ) }}
     {{/ templates-block--header? }}
 
@@ -76,13 +76,13 @@
     {{# templates-block--sidebar2--article? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-1"',
-        'organisms-related-posts?': true
+        'components-related-posts?': true
       ) }}
     {{/ templates-block--sidebar2--article? }}
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-comments-recent-block-1"',
-        'organisms-recent-comments?': true
+        'components-recent-comments?': true
       ) }}
     {{/ templates-block--sidebar2? }}
 
@@ -94,7 +94,7 @@
     {{# templates-block--footer? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepperfooter"',
-        'organisms-footer?': true
+        'components-footer?': true
       ) }}
     {{/ templates-block--footer? }}
 

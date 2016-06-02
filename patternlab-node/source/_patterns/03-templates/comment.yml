@@ -2,9 +2,9 @@
   \{\{ attributes.addClass('js-comment') \}\}
 "new_indicator_timestamp": |
   \{\{ new_indicator_timestamp \}\}
-"> 00-atoms/04-images/04-avatar": |
+"> 00-elements/04-images/04-avatar": |
   \{\{ user_picture \}\}
-"> 01-molecules/00-text/07-byline-commenter": |
+"> 01-compounds/00-text/07-byline-commenter": |
   \{\{ submitted \}\}
 "# parent\\?": |
   {% if parent %}
@@ -28,5 +28,5 @@
   \{\{ title_suffix \}\}
 "/ title\\?": |
   {% endif %}
-"> 01-molecules/06-components/02-single-comment": |
+"> 01-compounds/06-components/02-single-comment": |
   \{\{ content \}\}
