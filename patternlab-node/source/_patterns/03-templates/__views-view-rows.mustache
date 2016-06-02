@@ -1,14 +1,14 @@
 {{# templates-node--homepage--hero? }}
   {{# hero }}
     <div{{{ row_attributes }}}>
-      {{> 01-molecules/02-blocks/02-block-hero }}
+      {{> 01-compounds/02-blocks/02-block-hero }}
     </div>
   {{/ hero }}
 {{/ templates-node--homepage--hero? }}
 {{# templates-node--homepage--touts? }}
   {{# touts }}
     <div{{{ row_attributes }}}>
-      {{> 01-molecules/02-blocks/05-inset-block }}
+      {{> 01-compounds/02-blocks/05-inset-block }}
     </div>
   {{/ touts }}
 {{/ templates-node--homepage--touts? }}
@@ -17,7 +17,7 @@
     <li{{{ row_attributes }}}>
       {{> 03-templates/node(
         article_attributes: ' role="article" typeof="schema:Article"',
-        'molecules-media-block--homepage-blog?': true
+        'compounds-media-block--homepage-blog?': true
       ) }}
     </li>
   {{/ latest-posts }}
@@ -27,7 +27,7 @@
     <li{{{ row_attributes }}}>
       {{> 03-templates/node(
         article_attributes: ' role="article" typeof="schema:Article"',
-        'molecules-media-block--blog?': true
+        'compounds-media-block--blog?': true
       ) }}
     </li>
   {{/ latest-posts }}

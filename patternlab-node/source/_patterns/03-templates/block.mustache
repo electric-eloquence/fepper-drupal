@@ -13,12 +13,12 @@
 
     {{! BEGIN HEADER }}
 
-    {{# atoms-logo? }}
-      {{> 00-atoms/04-images/00-logo }}
-    {{/ atoms-logo? }}
-    {{# molecules-search? }}
-      {{> 01-molecules/04-forms/00-search }}
-    {{/ molecules-search? }}
+    {{# elements-logo? }}
+      {{> 00-elements/04-images/00-logo }}
+    {{/ elements-logo? }}
+    {{# compounds-search? }}
+      {{> 01-compounds/04-forms/00-search }}
+    {{/ compounds-search? }}
 
     {{! END HEADER }}
 
@@ -60,24 +60,24 @@
     {{# templates-node--article? }}
       {{> 03-templates/node(
         'view_mode_full?': true,
-        'organisms-article?': true
+        'components-article?': true
       ) }}
     {{/ templates-node--article? }}
-    {{# organisms-related-posts? }}
-      {{> 02-organisms/04-sections/02-related-posts }}
-    {{/ organisms-related-posts? }}
-    {{# organisms-recent-comments? }}
-      {{> 02-organisms/04-sections/01-recent-comments }}
-    {{/ organisms-recent-comments? }}
+    {{# components-related-posts? }}
+      {{> 02-components/04-sections/02-related-posts }}
+    {{/ components-related-posts? }}
+    {{# components-recent-comments? }}
+      {{> 02-components/04-sections/01-recent-comments }}
+    {{/ components-recent-comments? }}
 
     {{! END ARTICLE }}
 
 
     {{! BEGIN FOOTER }}
 
-    {{# organisms-footer? }}
-      {{> 02-organisms/00-global/01-footer }}
-    {{/ organisms-footer? }}
+    {{# components-footer? }}
+      {{> 02-components/00-global/01-footer }}
+    {{/ components-footer? }}
 
     {{! END FOOTER }}
 
