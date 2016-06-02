@@ -30,15 +30,15 @@
 
     {{! BEGIN NODE CONTENT }}
 
-    {{# molecules-media-block--homepage-blog? }}
-      {{> 01-molecules/02-blocks/00-media-block(media_block_attributes: ' property="text"') }}
-    {{/ molecules-media-block--homepage-blog? }}
-    {{# molecules-media-block--blog? }}
-      {{> 01-molecules/02-blocks/00-media-block(media_block_attributes: ' property="schema:text"') }}
-    {{/ molecules-media-block--blog? }}
-    {{# organisms-article? }}
-      {{> 02-organisms/01-article/01-article }}
-    {{/ organisms-article? }}
+    {{# compounds-media-block--homepage-blog? }}
+      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: ' property="text"') }}
+    {{/ compounds-media-block--homepage-blog? }}
+    {{# compounds-media-block--blog? }}
+      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: ' property="schema:text"') }}
+    {{/ compounds-media-block--blog? }}
+    {{# components-article? }}
+      {{> 02-components/01-article/01-article }}
+    {{/ components-article? }}
 
     {{! END NODE CONTENT }}
 

@@ -26,11 +26,11 @@
   \{\{ rows \}\}
 "empty": |
   \{\{ empty \}\}
-"> 01-molecules/05-navigation/03-pagination": |
+"> 01-compounds/05-navigation/03-pagination": |
   \{\{ pager \}\}
 "attachment_after": |
   \{\{ attachment_after \}\}
-"> 02-organisms/04-sections/03-more-link": |
+"> 02-components/04-sections/03-more-link": |
   \{\{ more \}\}
 "# footer": |
   {% if footer %}
