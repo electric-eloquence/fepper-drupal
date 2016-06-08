@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.6.2
+* Fixing frontend-copier for minified js
+
 ##v0.6.1
 * Updating ESLint configs
 
