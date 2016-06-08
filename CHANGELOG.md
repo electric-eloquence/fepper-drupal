@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.6.0
+* Configurable frontend-copy
+
 ##v0.5.0
 * New nomenclature
 
