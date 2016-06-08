@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.6.1
+* Updating ESLint configs
+
 ##v0.6.0
 * Configurable frontend-copy
 
