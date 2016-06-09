@@ -1,7 +1,7 @@
 #Fepper Changelog
 
 ##v0.6.3
-* Linting excludes/extends
+* Linting excludes/extend
 
 ##v0.6.2
 * Fixing frontend-copier for minified js
