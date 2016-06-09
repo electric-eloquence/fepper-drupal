@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.6.4
+* Adding missing multisite files
+
 ##v0.6.3
 * Linting excludes/extend
 
