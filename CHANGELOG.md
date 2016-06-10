@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.7.1
+* Adding missing extend files
+
 ##v0.7.0
 * Contributed extensions managed by NPM
 
