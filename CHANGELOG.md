@@ -1,5 +1,8 @@
 #Fepper Changelog
 
+##v0.7.0
+* Contributed extensions managed by NPM
+
 ##v0.6.4
 * Adding missing multisite files
 
