@@ -6,7 +6,7 @@
 /node_modules/
 /npm-debug.log
 Thumbs.db
-ignore*
+ignore
 patternlab-node/public/*
 !patternlab-node/public/data/annotations.js
 !patternlab-node/public/styleguide
