@@ -1,8 +1,8 @@
-"# content\\?": |
+"# content\\?": |2
   {% if content %}
-"{ attributes }": |
+"{ attributes }": |2
   \{\{ attributes \}\}
-"{ fpo_template_content }": |
+"{ fpo_template_content }": |2
   \{\{ content \}\}
-"/ content\\?": |
+"/ content\\?": |2
   {% endif %}

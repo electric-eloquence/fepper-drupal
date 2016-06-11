@@ -1,42 +1,42 @@
-"# content\\?": |
+"# content\\?": |2
   {% set classes = [dom_id ? 'js-view-dom-id-' ~ dom_id,] %}
-"{ views_view_attributes }": |
+"{ views_view_attributes }": |2
   \{\{ attributes.addClass(classes) \}\}
-"title_prefix": |
+"title_prefix": |2
   \{\{ title_prefix \}\}
-"# title": |
+"# title": |2
   {% if title %}
-"title": |
+"title": |2
   \{\{ title \}\}
-"/ title": |
+"/ title": |2
   {% endif %}
-"title_suffix": |
+"title_suffix": |2
   \{\{ title_suffix \}\}
-"# header": |
+"# header": |2
   {% if header %}
-"header": |
+"header": |2
   \{\{ header \}\}
-"/ header": |
+"/ header": |2
   {% endif %}
-"exposed": |
+"exposed": |2
   \{\{ exposed \}\}
-"attachment_before": |
+"attachment_before": |2
   \{\{ attachment_before \}\}
-"{ fpo_template_content }": |
+"{ fpo_template_content }": |2
   \{\{ rows \}\}
-"empty": |
+"empty": |2
   \{\{ empty \}\}
-"> 01-compounds/05-navigation/03-pagination": |
+"> 01-compounds/05-navigation/03-pagination": |2
   \{\{ pager \}\}
-"attachment_after": |
+"attachment_after": |2
   \{\{ attachment_after \}\}
-"> 02-components/04-sections/03-more-link": |
+"> 02-components/04-sections/03-more-link": |2
   \{\{ more \}\}
-"# footer": |
+"# footer": |2
   {% if footer %}
-"footer": |
+"footer": |2
   \{\{ footer \}\}
-"/ footer": |
+"/ footer": |2
   {% endif %}
-"feed_icons": |
+"feed_icons": |2
   \{\{ feed_icons \}\}
