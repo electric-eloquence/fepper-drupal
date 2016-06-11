@@ -1,24 +1,24 @@
-"# views_view_list_attributes": |2-
+"# views_view_list_attributes": |2
   {% if attributes -%}
-"{ views_view_list_attributes }": |2-
+"{ views_view_list_attributes }": |2
   \{\{ attributes \}\}
-"/ views_view_list_attributes": |2-
+"/ views_view_list_attributes": |2
   {% endif %}
-"# views_view_list_title": |2-
+"# views_view_list_title": |2
   {% if title %}
-"{ views_view_list_title }": |2-
+"{ views_view_list_title }": |2
   \{\{ title \}\}
-"/ views_view_list_title": |2-
+"/ views_view_list_title": |2
   {% endif %}
-"list_type": |2-
+"list_type": |2
   \{\{ list.type \}\}
-"list_attributes": |2-
+"list_attributes": |2
   \{\{ list.attributes \}\}
-"# templates-views-view-list\\?": |2-
+"# templates-views-view-list\\?": |2
   {% for row in rows %}
-"row_attributes": |2-
+"row_attributes": |2
   \{\{ row.attributes \}\}
-"{ fpo_template_content }": |2-
+"{ fpo_template_content }": |2
   \{\{ row.content \}\}
-"/ templates-views-view-list\\?": |2-
+"/ templates-views-view-list\\?": |2
   {% endfor %}
