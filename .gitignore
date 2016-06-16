@@ -4,13 +4,13 @@
 /backend/drupal/modules/devel/
 /backend/drupal/sites/default/files/
 /conf.yml
-!/excludes/extend/node_modules/
 /extend/
 /install.log
 /npm-debug.log
 Thumbs.db
 ignore/
 node_modules/
+!/excludes/extend/node_modules/
 patternlab-node/patternlab-config.json
 patternlab-node/public/*
 !patternlab-node/public/data/annotations.js
