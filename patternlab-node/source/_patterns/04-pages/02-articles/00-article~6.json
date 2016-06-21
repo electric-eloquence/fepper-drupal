@@ -2,7 +2,7 @@
   "article_title" : "<span property=\"schema:name\">How to detect and avoid poison ivy</span>",
   "img": {
     "landscape_16x9": {
-      "src": "../../assets/sample/thumb-square-ivy.jpg",
+      "src": "../../_assets/sample/thumb-square-ivy.jpg",
       "alt": "Ivy"
     }
   }
