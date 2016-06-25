@@ -1,32 +1,32 @@
-"{ article_attributes }": |2
+'article_attributes': |2
   \{\{ attributes \}\}
-"title_prefix": |2
+'title_prefix': |2
   \{\{ title_prefix \}\}
-"# view_mode_full\\?": |2
+'# view_mode_full\?': |2
   {% if page %}
-"{ title_attributes }": |2
+'title_attributes': |2
   \{\{ title_attributes \}\}
-"url": |2
+'url': |2
   \{\{ url \}\}
-"{ article_title }": |2
+'article_title': |2
   \{\{ label \}\}
-"\\^ view_mode_full\\?": |2
+'\^ view_mode_full\?': |2
   {% if not page %}
-"/ view_mode_full\\?": |2
+'/ view_mode_full\?': |2
   {% endif %}
-"title_suffix": |2
+'title_suffix': |2
   \{\{ title_suffix \}\}
-"author_picture": |2
+'author_picture': |2
   \{\{ author_picture \}\}
-"{ author_attributes }": |2
+'author_attributes': |2
   \{\{ author_attributes \}\}
-"author_name": |2
+'author_name': |2
   \{\{ author_name \}\}
-"date": |2
+'date': |2
   \{\{ date \}\}
-"metadata": |2
+'metadata': |2
   \{\{ metadata \}\}
-"{ content_attributes }": |2
+'content_attributes': |2
   \{\{ content_attributes \}\}
-"> 02-components/01-article/01-article": |2
+'> 02-components/01-article/01-article': |2
   \{\{ content \}\}
