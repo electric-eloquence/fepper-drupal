@@ -1,32 +1,32 @@
-"{ comment_attributes }": |2
+'comment_attributes': |2
   \{\{ attributes.addClass('js-comment') \}\}
-"new_indicator_timestamp": |2
+'new_indicator_timestamp': |2
   \{\{ new_indicator_timestamp \}\}
-"> 00-elements/04-images/04-avatar": |2
+'> 00-elements/04-images/04-avatar': |2
   \{\{ user_picture \}\}
-"> 01-compounds/00-text/07-byline-commenter": |2
+'> 01-compounds/00-text/07-byline-commenter': |2
   \{\{ submitted \}\}
-"# parent\\?": |2
+'# parent\?': |2
   {% if parent %}
-"parent": |2
+'parent': |2
   \{\{ parent \}\}
-"/ parent\\?": |2
+'/ parent\?': |2
   {% endif %}
-"permalink": |2
+'permalink': |2
   \{\{ permalink \}\}
-"{ content_attributes }": |2
+'content_attributes': |2
   \{\{ content_attributes \}\}
-"# title\\?": |2
+'# title\?': |2
   {% if title %}
-"title_prefix": |2
+'title_prefix': |2
   \{\{ title_prefix \}\}
-"{ title_attributes }": |2
+'title_attributes': |2
   \{\{ title_attributes \}\}
-"comment_title": |2
+'comment_title': |2
   \{\{ title \}\}
-"title_suffix": |2
+'title_suffix': |2
   \{\{ title_suffix \}\}
-"/ title\\?": |2
+'/ title\?': |2
   {% endif %}
-"> 01-compounds/06-components/02-single-comment": |2
+'> 01-compounds/06-components/02-single-comment': |2
   \{\{ content \}\}
