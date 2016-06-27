@@ -2,7 +2,7 @@
 <div{{{ page_attributes }}}>
 
   <header class="header cf" role="banner">
-    {{> 03-templates/region('templates-block--header?': true) }}
+    {{> 03-templates/region("templates-block--header?": true) }}
   </header>
 
   {{ page.primary_menu }}
@@ -27,10 +27,10 @@
         {{> 03-templates/region('templates-block--main--homepage?': true) }}
       {{/ templates-region--homepage? }}
       {{# templates-region--blog? }}
-        {{> 03-templates/region('templates-block--main--blog?': true) }}
+        {{> 03-templates/region("templates-block--main--blog?": true) }}
       {{/ templates-region--blog? }}
       {{# templates-region--article? }}
-        {{> 03-templates/region('templates-block--main--article?': true) }}
+        {{> 03-templates/region("templates-block--main--article?": true) }}
       {{/ templates-region--article? }}
     </div>
 
@@ -45,9 +45,9 @@
     {{# sidebar_second? }}
       <aside class="layout-sidebar-second" role="complementary">
         {{# templates-region--article? }}
-          {{> 03-templates/region('templates-block--sidebar2--article?': true) }}
+          {{> 03-templates/region("templates-block--sidebar2--article?": true) }}
         {{/ templates-region--article? }}
-        {{> 03-templates/region('templates-block--sidebar2?': true) }}
+        {{> 03-templates/region("templates-block--sidebar2?": true) }}
       </aside>
     {{/ sidebar_second? }}
 
