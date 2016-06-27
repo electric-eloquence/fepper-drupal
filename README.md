@@ -22,6 +22,7 @@
 * [Mustache Browser](#mustache-browser)
 * [HTML Scraper](#html-scraper)
 * [variables.styl](#variables.styl)
+* [Extensions](#extensions)
 * [More Documentation](#more-documentation)
 * [Contributing](#contributing)
 
@@ -39,7 +40,7 @@
   * On a Mac: `brew install node`
   * If already installed, be sure the version is up to date: `node -v`
   * Update if necessary: `brew update && brew upgrade node`
-  * If not on a Mac, and not using Homebrew: [https&colon;&sol;&sol;nodejs.org&sol;en&sol;download&sol;package-manager&sol;](https://nodejs.org/en/download/package-manager/)
+  * If not on a Mac, and not using Homebrew: https://nodejs.org/en/download/package-manager/
   * After installing Node, `npm install -g fepper-cli`
 * On Mac OS X:
   * Double-click `fepper.command`
@@ -48,7 +49,7 @@
 * After successful installation:
   * Double-click `fepper.command` again
   * Or enter `fp` on the command line.
-* Open [http&colon;&sol;&sol;localhost&colon;3000](http://localhost:3000) in a browser if it doesn't open automatically.
+* Open http://localhost:3000 in a browser if it doesn't open automatically.
 * Consult the [Pattern Lab docs](http://patternlab.io/docs/index.html) for instructions on using Pattern Lab.
 * Start editing files in `patternlab-node/source`. Changes should automatically appear in the browser.
   * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).  
@@ -60,7 +61,7 @@ Electric Eloquence Fepper repository at your project's onset, and pulling from
 the master branch of the main upstream repository when updates are released.
 
 All updates must pull from 
-[https&colon;&sol;&sol;github.com&sol;electric-eloquence&sol;fepper](https://github.com/electric-eloquence/fepper) 
+https://github.com/electric-eloquence/fepper 
 even if your original installation was forked from a child project. Pulling 
 from a child project's repository may overwrite custom code specific to your 
 project so don't do it.
@@ -119,7 +120,7 @@ will be picked up by all patterns.
 ### <a id="static-site-generation"></a>Static Site Generation
 Running `fp static` will generate a complete static site based on the files 
 in `patternlab-node/source/_patterns/04-pages`. The site will be viewable at
-[http&colon;&sol;&sol;localhost&colon;3000&sol;static&sol;](http://localhost:3000/static/). An `index.html` 
+http://localhost:3000/static/. An `index.html` 
 will be generated based on `04-pages-00-homepage` or whatever is defined as the 
 homepage in `_data.json`. If the links are relative and they work correctly in 
 the Pattern Lab UI, they will work correctly in the static site even if the 
@@ -248,12 +249,24 @@ must import them with `parse_ini_file()`. Fepper tries to be agnostic about CSS
 processors and tries to keep the amount of NPMs to download to a minimum, so it 
 does not ship with Stylus (or any other CSS pre/post-processor) configured. 
 However, since Stylus allows for this easy sharing of variables, Fepper does 
-ship with a `patternlab-node/source/css-processors/stylus` directory which can 
-be compiled into the stock Pattern Lab CSS by configuring 
-`extend/custom/css-process/css-process~extend.js`. The Stylus files are written 
-in the terse, Python-like, indentation-based syntax; however, the more verbose, 
-CSS-like syntax (with curly braces, colons, and semi-colons) is perfectly valid 
-as well.
+ship with a `patternlab-node/source/css-processors/stylus` directory. In order 
+to compile its Stylus into the stock Pattern Lab CSS, run `npm install` in the 
+`extend` directory. Then, uncomment the `css-process` tasks in 
+`extend/custom.js`. The Stylus files are written in the terse, Python-like, 
+indentation-based syntax; however, the more verbose, CSS-like syntax (with curly 
+braces, colons, and semi-colons) is perfectly valid as well.
+
+### <a id="extensions"></a>Extensions
+Contributed extensions
+
+* Install and update contributed extensions with NPM.
+* Add the tasks to `contrib.js` (and `auxiliary/auxiliary_contrib.js` if necessary) in order for Fepper to run them.
+
+Custom extensions
+
+* Write custom extensions within an appropriately named directory just under the `custom` directory.
+* They must include a file ending in "~extend.js" in order for Fepper to recognize their tasks.
+* Add the tasks to `custom.js` (and `auxiliary/auxiliary_custom.js` if necessary) in order for Fepper to run them.
 
 ### <a id="more-documentation"></a>More Documentation
 * [default.pref.yml](https://github.com/electric-eloquence/fepper/blob/master/excludes/default.pref.yml)
