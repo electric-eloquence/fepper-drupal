@@ -23,43 +23,43 @@
   {{# templates-views-view? }}
     {{{ fpo_template_content }}}
   {{/ templates-views-view? }}
-  {{# templates-views-view-unformatted--homepage--hero? }}
+  {{# templates-views-view-unformatted--pages-homepage__hero? }}
     {{> 03-templates/views-view-unformatted(
-      'templates-views-view-rows--homepage--hero?': true
+      'templates-views-view-rows--pages-homepage__hero?': true
     ) }}
-  {{/ templates-views-view-unformatted--homepage--hero? }}
-  {{# templates-views-view-unformatted--homepage--touts? }}
+  {{/ templates-views-view-unformatted--pages-homepage__hero? }}
+  {{# templates-views-view-unformatted--pages-homepage__touts? }}
     {{> 03-templates/views-view-unformatted(
-      'templates-views-view-rows--homepage--touts?': true
+      'templates-views-view-rows--pages-homepage__touts?': true
     ) }}
-  {{/ templates-views-view-unformatted--homepage--touts? }}
-  {{# templates-views-view-list--homepage--blog? }}
+  {{/ templates-views-view-unformatted--pages-homepage__touts? }}
+  {{# templates-views-view-list--pages-homepage__blog? }}
     {{> 03-templates/views-view-list(
       views_view_list_attributes: ' class="item-list"',
       list_type: 'ul',
-      'templates-views-view-rows--homepage--blog?': true
+      'templates-views-view-rows--pages-homepage__blog?': true
     ) }}
-  {{/ templates-views-view-list--homepage--blog? }}
-  {{# templates-views-view-list--blog? }}
+  {{/ templates-views-view-list--pages-homepage__blog? }}
+  {{# templates-views-view-list--pages-blog? }}
     {{> 03-templates/views-view-list(
       views_view_list_attributes: ' class="item-list"',
       list_type: 'ul',
-      'templates-views-view-rows--blog?': true
+      'templates-views-view-rows--pages-blog?': true
     ) }}
-  {{/ templates-views-view-list--blog? }}
+  {{/ templates-views-view-list--pages-blog? }}
 
   {{! END VIEWS ROWS }}
 
 
   {{ empty }}
-  {{# templates-views-view-list--blog? }}
+  {{# templates-views-view-list--pages-blog? }}
     {{> 01-compounds/05-navigation/03-pagination }}
-  {{/ templates-views-view-list--blog? }}
+  {{/ templates-views-view-list--pages-blog? }}
 
   {{ attachment_after }}
-  {{# templates-views-view-list--homepage--blog? }}
+  {{# templates-views-view-list--pages-homepage__blog? }}
     {{> 02-components/04-sections/03-more-link }}
-  {{/ templates-views-view-list--homepage--blog? }}
+  {{/ templates-views-view-list--pages-homepage__blog? }}
 
   {{# footer }}
     <footer>

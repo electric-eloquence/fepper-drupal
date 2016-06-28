@@ -16,7 +16,7 @@
   \{\{ page.content \}\}
 '# sidebar_first\?': |2
   {% if page.sidebar_first %}
-'> 03-templates/region\(''templates-block--sidebar1--homepage\?'': true\)': |2
+'> 03-templates/region\(''templates-block--sidebar1--pages-homepage\?'': true\)': |2
   \{\{ page.sidebar_first \}\}
 '/ sidebar_first\?': |2
   {% endif %}
