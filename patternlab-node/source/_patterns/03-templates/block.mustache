@@ -25,44 +25,44 @@
 
     {{! BEGIN HOMEPAGE }}
 
-    {{# templates-views-element-container--homepage--hero? }}
+    {{# templates-views-element-container--pages-homepage__hero? }}
       {{> 03-templates/__views-element-container(
-        'templates-views-view--homepage--hero?': true
+        'templates-views-view--pages-homepage__hero?': true
       ) }}
-    {{/ templates-views-element-container--homepage--hero? }}
-    {{# templates-views-element-container--homepage--touts? }}
+    {{/ templates-views-element-container--pages-homepage__hero? }}
+    {{# templates-views-element-container--pages-homepage__touts? }}
       {{> 03-templates/__views-element-container(
-        'templates-views-view--homepage--touts?': true
+        'templates-views-view--pages-homepage__touts?': true
       ) }}
-    {{/ templates-views-element-container--homepage--touts? }}
-    {{# templates-views-element-container--homepage--blog? }}
+    {{/ templates-views-element-container--pages-homepage__touts? }}
+    {{# templates-views-element-container--pages-homepage__blog? }}
       {{> 03-templates/__views-element-container(
-        'templates-views-view--homepage--blog?': true
+        'templates-views-view--pages-homepage__blog?': true
       ) }}
-    {{/ templates-views-element-container--homepage--blog? }}
+    {{/ templates-views-element-container--pages-homepage__blog? }}
 
     {{! END HOMEPAGE }}
 
 
     {{! BEGIN BLOG }}
 
-    {{# templates-views-element-container--blog? }}
+    {{# templates-views-element-container--pages-blog? }}
       {{> 03-templates/__views-element-container(
-        'templates-views-view--blog?': true
+        'templates-views-view--pages-blog?': true
       ) }}
-    {{/ templates-views-element-container--blog? }}
+    {{/ templates-views-element-container--pages-blog? }}
 
     {{! END BLOG }}
 
 
     {{! BEGIN ARTICLE }}
 
-    {{# templates-node--article? }}
+    {{# templates-node--pages-article? }}
       {{> 03-templates/node(
         'view_mode_full?': true,
         'components-article?': true
       ) }}
-    {{/ templates-node--article? }}
+    {{/ templates-node--pages-article? }}
     {{# components-related-posts? }}
       {{> 02-components/04-sections/02-related-posts }}
     {{/ components-related-posts? }}
