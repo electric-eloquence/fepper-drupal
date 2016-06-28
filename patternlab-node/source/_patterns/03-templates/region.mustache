@@ -32,53 +32,53 @@
 
     {{! BEGIN MAIN CONTENT }}
 
-    {{# templates-block--main--homepage? }}
+    {{# templates-block--main--pages-homepage? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-content"',
-        'templates-views-element-container--homepage--hero?': true
+        'templates-views-element-container--pages-homepage__hero?': true
       ) }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-2"',
-        'templates-views-element-container--homepage--touts?': true
+        'templates-views-element-container--pages-homepage__touts?': true
       ) }}
-    {{/ templates-block--main--homepage? }}
-    {{# templates-block--main--blog? }}
+    {{/ templates-block--main--pages-homepage? }}
+    {{# templates-block--main--pages-blog? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-content"',
-        'templates-views-element-container--blog?': true
+        'templates-views-element-container--pages-blog?': true
       ) }}
-    {{/ templates-block--main--blog? }}
-    {{# templates-block--main--article? }}
+    {{/ templates-block--main--pages-blog? }}
+    {{# templates-block--main--pages-article? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-content"',
-        'templates-node--article?': true
+        'templates-node--pages-article?': true
       ) }}
-    {{/ templates-block--main--article? }}
+    {{/ templates-block--main--pages-article? }}
 
     {{! END MAIN CONTENT }}
 
 
     {{! BEGIN SIDEBAR1 CONTENT }}
 
-    {{# templates-block--sidebar1--homepage? }}
+    {{# templates-block--sidebar1--pages-homepage? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-3"',
         block_label: 'Latest posts',
-        'templates-views-element-container--homepage--blog?': true
+        'templates-views-element-container--pages-homepage__blog?': true
       ) }}
-    {{/ templates-block--sidebar1--homepage? }}
+    {{/ templates-block--sidebar1--pages-homepage? }}
 
     {{! END SIDEBAR1 CONTENT }}
 
 
     {{! BEGIN SIDEBAR2 CONTENT }}
 
-    {{# templates-block--sidebar2--article? }}
+    {{# templates-block--sidebar2--pages-article? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-1"',
         'components-related-posts?': true
       ) }}
-    {{/ templates-block--sidebar2--article? }}
+    {{/ templates-block--sidebar2--pages-article? }}
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-comments-recent-block-1"',
