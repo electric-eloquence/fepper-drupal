@@ -24,7 +24,7 @@
         {{{ fpo_template_content }}}
       {{/ templates-page? }}
       {{# templates-region--pages-homepage? }}
-        {{> 03-templates/region('templates-block--main--pages-homepage?': true) }}
+        {{> 03-templates/region("templates-block--main--pages-homepage?": true) }}
       {{/ templates-region--pages-homepage? }}
       {{# templates-region--pages-blog? }}
         {{> 03-templates/region("templates-block--main--pages-blog?": true) }}
@@ -55,6 +55,8 @@
 
   {{# footer? }}
     <footer role="contentinfo">
+      {{! Using single-quoted parameter purely to show how to escape 
+          single-quotes in page.yml }}
       {{> 03-templates/region('templates-block--footer?': true) }}
     </footer>
   {{/ footer? }}
