@@ -28,8 +28,7 @@
   {% endif %}
 '# footer\?': |2
   {% if page.footer %}
-# Using single-quoted parameter purely to show how to escape single-quotes.
-'> 03-templates/region\(''templates-block--footer\?'': true\)': |2
+'> 03-templates/region\("templates-block--footer\?": true\)': |2
   \{\{ page.footer \}\}
 '/ footer\?': |2
   {% endif %}
