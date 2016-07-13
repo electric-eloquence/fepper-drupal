@@ -10,8 +10,6 @@
 Thumbs.db
 ignore/
 node_modules/
-!/excludes/extend/node_modules/
 patternlab-node/patternlab-config.json
 patternlab-node/public/*
-!patternlab-node/public/data/annotations.js
 !patternlab-node/public/styleguide/

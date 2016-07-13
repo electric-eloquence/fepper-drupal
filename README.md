@@ -56,8 +56,9 @@ when constructing parameter keys for further template reuse:
   * After installing Node, `npm install -g fepper-cli`
 * On Mac OS X:
   * Double-click `fepper.command`
-* On other OSs (or if you prefer the command line):
-  * `npm install`
+* On other OSs (or if you prefer the command line or want a Base install):
+  * `npm install` for a Main install - OR -
+  * `npm run install-base` for a Base install
 * After successful installation:
   * Double-click `fepper.command` again
   * Or enter `fp` on the command line.
