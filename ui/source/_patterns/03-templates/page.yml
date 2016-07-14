@@ -1,0 +1,34 @@
+'page_attributes': |2
+  \{\{ page_attributes \}\}
+'> 03-templates/region\("templates-block--header\?": true\)': |2
+  \{\{ page.header \}\}
+'page.primary_menu': |2
+  \{\{ page.primary_menu \}\}
+'page.secondary_menu': |2
+  \{\{ page.secondary_menu \}\}
+'page.breadcrumb': |2
+  \{\{ page.breadcrumb \}\}
+'> 01-compounds/07-messaging/00-alert': |2
+  \{\{ page.highlighted \}\}
+'page.help': |2
+  \{\{ page.help \}\}
+'fpo_template_content': |2
+  \{\{ page.content \}\}
+'# sidebar_first\?': |2
+  {% if page.sidebar_first %}
+'> 03-templates/region\("templates-block--sidebar1--pages-homepage\?": true\)': |2
+  \{\{ page.sidebar_first \}\}
+'/ sidebar_first\?': |2
+  {% endif %}
+'# sidebar_second\?': |2
+  {% if page.sidebar_second %}
+'> 03-templates/region\("templates-block--sidebar2\?": true\)': |2
+  \{\{ page.sidebar_second \}\}
+'/ sidebar_second\?': |2
+  {% endif %}
+'# footer\?': |2
+  {% if page.footer %}
+'> 03-templates/region\("templates-block--footer\?": true\)': |2
+  \{\{ page.footer \}\}
+'/ footer\?': |2
+  {% endif %}

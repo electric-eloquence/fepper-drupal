@@ -1,0 +1,21 @@
+<h2>Add new comment</h2>
+<form class="comment-comment-form comment-form" id="comment-form">
+  <div class="js-form-item form-item js-form-type-textfield form-item-name js-form-item-name">
+    <label for="edit-name">Your name</label>
+    <input id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text" type="text">
+  </div>
+  <div class="field--type-text-long field--name-comment-body field--widget-text-textarea js-form-wrapper form-wrapper" id="edit-comment-body-wrapper">
+    <div class="js-form-item form-item js-form-type-textarea form-item-comment-body-0 js-form-item-comment-body-0">
+      <label for="edit-comment-body-0" class="js-form-required form-required">Comment</label>
+      <div>
+        <textarea class="js-text-full text-full form-textarea required" id="edit-comment-body-0" name="comment_body[0]" rows="5" cols="60" placeholder="" required="required"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="field--type-language field--name-langcode field--widget-language-select js-form-wrapper form-wrapper" id="edit-langcode-wrapper">      
+  </div>
+  <div class="form-actions js-form-wrapper form-wrapper" id="edit-actions--2">
+    <input id="edit-submit--2" name="op" value="Save" class="button button--primary js-form-submit form-submit" type="submit">
+    <input id="edit-preview" name="op" value="Preview" class="button js-form-submit form-submit" type="submit">
+  </div>
+</form>

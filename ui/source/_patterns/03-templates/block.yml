@@ -1,0 +1,20 @@
+'block_attributes': |2
+  \{\{ attributes \}\}
+'title_prefix': |2
+  \{\{ title_prefix \}\}
+'# block_label': |2
+  {% if label %}
+'title_attributes': |2
+  \{\{ title_attributes \}\}
+'block_label': |2
+  \{\{ label \}\}
+'/ block_label': |2
+  {% endif %}
+'title_suffix': |2
+  \{\{ title_suffix \}\}
+'# content\?': |2
+  {% block content %}
+'fpo_template_content': |2
+  \{\{ content \}\}
+'/ content\?': |2
+  {% endblock %}
