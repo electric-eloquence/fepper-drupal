@@ -7,5 +7,5 @@
 Thumbs.db
 ignore/
 node_modules/
-patternlab-node/public/*
-!patternlab-node/public/styleguide/
+ui/public/*
+!ui/public/styleguide/
