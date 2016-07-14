@@ -1,0 +1,123 @@
+.header {
+  background: $white;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0;
+  position: relative;
+  @extend .lc;
+}
+
+#block-fepper-branding {
+  position: relative;
+  z-index: 1;
+
+  img {
+    float: left;
+    max-width: 8em;
+    margin: 0.4em;
+
+    @media all and (min-width: $bp-med-begin) {
+      max-width: 9em;
+    }
+  }
+}
+
+.nav-toggle {
+  float: right;
+  display: block;
+  padding: 0.9rem 1rem 0.7rem;
+  font-size: 1.3rem;
+  line-height: 1;
+  border-left: 1px solid #dbdbdb;
+
+  @media all and (min-width: $bp-med-begin) {
+    display: none;
+  }
+}
+
+/* Search Form */
+#block-searchform {
+  height: 3em;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.2em;
+
+  h2 {
+    border-left: 1px solid #d8d8d8;
+    color: transparent;
+    cursor: pointer;
+    float: right;
+    font-size: 1em;
+    margin: 0;
+    overflow: hidden;
+    width: 3.2em;
+    height: 3em;
+
+    &:before {
+      color: $gray-dark;
+      float: right;
+      font-size: 1.3em;
+      padding: 0.7em;
+    }
+  }
+}
+
+#search-block-form {
+  background-color: $white;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+
+  > div {
+    float: left;
+    font-size: 1em;
+    height: 2.25em;
+    margin-bottom: 0;
+  }
+  input {
+    height: 2.25em;
+  }
+  #edit-actions:hover {
+    background: $gray;
+    color: $white;
+  }
+  #edit-actions.icon-search:before {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    z-index: 0;
+  }
+  #edit-submit {
+    background: none;
+    padding: 1.0625rem 0 1.0625rem;
+    border: 1px solid $gray;
+    border-left: 0;
+    color: transparent;
+    font-size: 0.8125em;
+    position: relative;
+    z-index: 1;
+  }
+}
+@media all and (max-width: $bp-small-end) {
+  #block-searchform.open {
+    width: auto;
+    height: auto;
+  }
+}
+@media all and (min-width: $bp-med-begin) {
+  #block-searchform {
+    position: static;
+    width: auto;
+    height: auto;
+
+    h2 {
+      display: none;
+    }
+  }
+
+  #search-block-form {
+    float: right;
+    margin: 0.65em 0.5em 0 0;
+  }
+}

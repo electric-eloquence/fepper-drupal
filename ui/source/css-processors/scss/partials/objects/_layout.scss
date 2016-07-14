@@ -1,0 +1,134 @@
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+/* Layout Container */
+.lc {
+  max-width: $max-width;  
+  margin: 0 auto;
+  padding: $pad-half;
+}
+
+/*------------------------------------*\
+    $TEMPLATES
+\*------------------------------------*/
+
+.front .layout-content {
+  border-bottom: 2px solid $gray-light-2;
+  margin-bottom: 1em;
+  padding: 0 0 2em;
+  width: 100%;
+}
+.layout-sidebar-second {
+  h2 {
+    border-bottom: 1px solid $gray-light-3;
+    padding: 0.5em 0;
+  }
+  li {
+    padding: 0.25em 0;
+    border-bottom: 1px solid $gray-light-3;
+
+    > * {
+      display: block;
+    }
+  }
+}
+.layout-content {
+  @extend .cf;
+}
+@media all and (max-width: $bp-med-end) {
+  .layout-content {
+    clear: both;
+  }
+}
+@media all and (min-width: $bp-large) {
+  .layout-content,
+  .layout-sidebar-first {
+    float: left;
+    width: 70%;
+    padding-right: 1em;
+  }
+  .layout-sidebar-second {
+    float: left;
+    width: 30%;
+    padding: 0 0 0 1em;
+  }
+}
+
+
+/*------------------------------------*\
+    $GRIDS
+\*------------------------------------*/
+
+/* Grid 1up */
+.g-1up {
+  .gi {
+    width: 100%;
+  }
+}
+
+/* Grid 2up */
+.g-2up {
+  @media all and (min-width: $bp-med-begin) {
+    > .gi {
+      float: left;
+      width: 50%;
+      
+      &:nth-of-type(odd) {
+        clear: left;
+      }
+    }
+  }
+}
+
+#block-views-block-content-recent-block-2 {
+  overflow: hidden;
+
+  .views-row {
+    padding: 0.5em;
+  }
+}
+@media all and (min-width: $bp-med-begin) {
+  #block-views-block-content-recent-block-2 .views-row {
+    float: left;
+    width: 50%;
+  }
+}
+@media all and (min-width: $bp-large) {
+  #block-views-block-content-recent-block-2 {
+    margin: 0 -0.5em;
+
+    .views-row {
+      float: left;
+      width: 33.3333333%;
+    }
+  }
+}
+
+/* Grid 4up */
+.g-4up {
+  @media all and (min-width: $bp-med-begin) {
+    > .gi {
+      float: left;
+      width: 50%;
+      
+      &:nth-of-type(2n+1) {
+        clear: both;
+      }
+    }
+  }
+  
+  @media all and (min-width: $bp-large) {
+    > .gi {
+      width: 25%;
+      
+      &:nth-of-type(2n+1) {
+        clear: none;
+      }
+      
+      &:nth-of-type(4n+1) {
+        clear: left;
+      }
+    }
+  }
+}
