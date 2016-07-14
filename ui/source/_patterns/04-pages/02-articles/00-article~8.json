@@ -1,0 +1,9 @@
+{
+  "article_title" : "<span property=\"schema:name\">Pick the right camping gear</span>",
+  "img": {
+    "landscape_16x9": {
+      "src": "../../_assets/sample/thumb-square-gear.jpg",
+      "alt": "Camping Gear"
+    }
+  }
+}

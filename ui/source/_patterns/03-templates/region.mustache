@@ -1,0 +1,106 @@
+<!-- Begin region -->
+{{# content? }}
+  <div{{{ attributes }}}>
+    {{# templates-region? }}
+      {{{ fpo_template_content }}}
+    {{/ templates-region? }}
+
+
+    {{! BEGIN HEADER CONTENT }}
+
+    {{# templates-block--header? }}
+      {{> 03-templates/block(
+        "block_attributes": " id=\"block-fepper-branding\"",
+        "elements-logo?": true
+      ) }}
+      {{> 03-templates/_block--system-menu-block(
+        "block_attributes": " id=\"block-mainnavigation\"",
+        "title_attributes": " class=\"icon-menu\"",
+        "block_label": "Main navigation",
+        "compounds-primary-nav?": true
+      ) }}
+      {{> 03-templates/block(
+        "block_attributes": " class=\"search-block-form\" id=\"block-searchform\" role=\"search\"",
+        "title_attributes": " class=\"icon-search\"",
+        "block_label": "Search form",
+        "compounds-search?": true
+      ) }}
+    {{/ templates-block--header? }}
+
+    {{! END HEADER CONTENT }}
+
+
+    {{! BEGIN MAIN CONTENT }}
+
+    {{# templates-block--main--pages-homepage? }}
+      {{> 03-templates/block(
+        "block_attributes": " id=\"block-fepper-content\"",
+        "templates-views-element-container--pages-homepage__hero?": true
+      ) }}
+      {{> 03-templates/block(
+        "block_attributes": " class=\"views-element-container\" id=\"block-views-block-content-recent-block-2\"",
+        "templates-views-element-container--pages-homepage__touts?": true
+      ) }}
+    {{/ templates-block--main--pages-homepage? }}
+    {{# templates-block--main--pages-blog? }}
+      {{> 03-templates/block(
+        "block_attributes": " id=\"block-fepper-content\"",
+        "templates-views-element-container--pages-blog?": true
+      ) }}
+    {{/ templates-block--main--pages-blog? }}
+    {{# templates-block--main--pages-article? }}
+      {{> 03-templates/block(
+        "block_attributes": " id=\"block-fepper-content\"",
+        "templates-node--pages-article?": true
+      ) }}
+    {{/ templates-block--main--pages-article? }}
+
+    {{! END MAIN CONTENT }}
+
+
+    {{! BEGIN SIDEBAR1 CONTENT }}
+
+    {{# templates-block--sidebar1--pages-homepage? }}
+      {{> 03-templates/block(
+        "block_attributes": " class=\"views-element-container\" id=\"block-views-block-content-recent-block-3\"",
+        "block_label": "Latest posts",
+        "templates-views-element-container--pages-homepage__blog?": true
+      ) }}
+    {{/ templates-block--sidebar1--pages-homepage? }}
+
+    {{! END SIDEBAR1 CONTENT }}
+
+
+    {{! BEGIN SIDEBAR2 CONTENT }}
+
+    {{# templates-block--sidebar2--pages-article? }}
+      {{> 03-templates/block(
+        "block_attributes": " class=\"views-element-container\" id=\"block-views-block-content-recent-block-1\"",
+        "components-related-posts?": true
+      ) }}
+    {{/ templates-block--sidebar2--pages-article? }}
+    {{# templates-block--sidebar2? }}
+      {{> 03-templates/block(
+        "block_attributes": " class=\"views-element-container\" id=\"block-views-block-comments-recent-block-1\"",
+        "components-recent-comments?": true
+      ) }}
+    {{/ templates-block--sidebar2? }}
+
+    {{! END SIDEBAR2 CONTENT }}
+
+
+    {{! BEGIN FOOTER CONTENT }}
+
+    {{# templates-block--footer? }}
+      {{> 03-templates/block(
+        "block_attributes": " id=\"block-fepperfooter\"",
+        "components-footer?": true
+      ) }}
+    {{/ templates-block--footer? }}
+
+    {{! END FOOTER CONTENT }}
+
+
+  </div>
+{{/ content? }}
+<!-- End region -->
