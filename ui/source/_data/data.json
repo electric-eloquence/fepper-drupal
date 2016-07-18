@@ -47,14 +47,6 @@
     "short" : "Lorem ipsum dolor sit (37 characters)",
     "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
   },
-  "name" : {
-    "first": "Lacy",
-    "firsti": "L",
-    "middle": "Tommie",
-    "middlei": "T",
-    "last": "Way",
-    "lasti": "W"
-  },
   "bp_lg_max": -1,
   "bp_lg_min": 1024,
   "bp_md_min": 768,
