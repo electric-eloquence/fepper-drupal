@@ -1,0 +1,48 @@
+{{# templates-node? }}
+  {{{ fpo_template_content }}}
+{{/ templates-node? }}
+&lt;!-- Begin node --&gt;
+&lt;article{{{ article_attributes }}}&gt;
+
+  {{ title_prefix }}
+  {{# view_mode_full? }}
+    &lt;h1{{{ title_attributes }}}&gt;
+      &lt;a href=&quot;{{ url }}&quot; rel=&quot;bookmark&quot;&gt;{{{ article_title }}}&lt;/a&gt;
+    &lt;/h1&gt;
+  {{/ view_mode_full? }}
+  {{^ view_mode_full? }}
+    &lt;h2{{{ title_attributes }}}&gt;
+      &lt;a href=&quot;{{ url }}&quot; rel=&quot;bookmark&quot;&gt;{{{ article_title }}}&lt;/a&gt;
+    &lt;/h2&gt;
+  {{/ view_mode_full? }}
+  {{ title_suffix }}
+
+  {{# view_mode_full? }}
+    &lt;footer&gt;
+      &lt;div{{{ author_attributes }}}&gt;
+        By {{ author_name }} on {{ date }}
+        {{ metadata }}
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  {{/ view_mode_full? }}
+
+  &lt;div{{{ content_attributes }}}&gt;
+
+    {{! BEGIN NODE CONTENT }}
+
+    {{# compounds-media-block--pages-homepage__blog? }}
+      {{&gt; 01-compounds/02-blocks/00-media-block(media_block_attributes: &quot; property=\&quot;text\&quot;&quot;) }}
+    {{/ compounds-media-block--pages-homepage__blog? }}
+    {{# compounds-media-block--pages-blog? }}
+      {{&gt; 01-compounds/02-blocks/00-media-block(media_block_attributes: &quot; property=\&quot;schema:text\&quot;&quot;) }}
+    {{/ compounds-media-block--pages-blog? }}
+    {{# components-article? }}
+      {{&gt; 02-components/01-article/01-article }}
+    {{/ components-article? }}
+
+    {{! END NODE CONTENT }}
+
+  &lt;/div&gt;
+
+&lt;/article&gt;
+&lt;!-- End node --&gt;
