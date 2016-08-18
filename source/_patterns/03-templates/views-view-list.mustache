@@ -1,0 +1,32 @@
+<!-- Begin views-view-list -->
+{{# views_view_list_attributes }}
+  <div{{{ views_view_list_attributes }}}>
+{{/ views_view_list_attributes }}
+  {{# views_view_list_title }}
+    <h3>{{{ views_view_list_title }}}</h3>
+  {{/ views_view_list_title }}
+
+  {{# list_type }}
+    <{{ list_type }}{{ list_attributes }}>
+  {{/ list_type }}
+
+      {{# templates-views-view-list? }}
+        <li{{ row_attributes }}>
+          {{{ fpo_template_content }}}
+        </li>
+      {{/ templates-views-view-list? }}
+      {{# templates-views-view-rows--pages-homepage__blog? }}
+        {{> 03-templates/__views-view-rows("templates-node--pages-homepage__blog?": true) }}
+      {{/ templates-views-view-rows--pages-homepage__blog? }}
+      {{# templates-views-view-rows--pages-blog? }}
+        {{> 03-templates/__views-view-rows("templates-node--pages-blog?": true) }}
+      {{/ templates-views-view-rows--pages-blog? }}
+
+  {{# list_type }}
+    </{{ list_type }}>
+  {{/ list_type }}
+
+{{# views_view_list_attributes }}
+  </div>
+{{/ views_view_list_attributes }}
+<!-- End views-view-list -->

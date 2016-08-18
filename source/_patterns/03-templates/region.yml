@@ -1,0 +1,8 @@
+'# content\?': |2
+  {% if content %}
+'attributes': |2
+  \{\{ attributes \}\}
+'fpo_template_content': |2
+  \{\{ content \}\}
+'/ content\?': |2
+  {% endif %}
