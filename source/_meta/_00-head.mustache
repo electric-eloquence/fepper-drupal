@@ -5,7 +5,11 @@
       pattern and crushes browsers in large projects.) Do this before
       downloading significant amounts of the page's data. }}
   <script type="text/javascript">
-  if (window.location.pathname.indexOf('/styleguide/html/styleguide.html') > -1 && window.location.search === '' && '{{ homepage }}'.length) {
+  if (
+    window.location.pathname === '/styleguide/html/styleguide.html' &&
+    document.referrer === window.location.protocol + '//' + window.location.host + '/' &&
+    '{{ homepage }}'.length
+  ) {
     window.location = '../../patterns/{{ homepage }}/{{ homepage }}.html';
   }
   </script>
@@ -23,7 +27,7 @@
   <meta http-equiv="pragma" content="no-cache" />
 
   <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
-  {% pattern-lab-head %}
+  {{{ patternLabHead }}}
   <!-- End Pattern Lab -->
 
   <link rel="stylesheet" href="../../_styles/style.css?{{ cacheBuster }}" media="all" />
