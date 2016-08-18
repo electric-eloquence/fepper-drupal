@@ -1,0 +1,26 @@
+{{# templates-comment? }}
+  {{{ fpo_template_content }}}
+{{/ templates-comment? }}
+&lt;article{{{ comment_attributes }}}&gt;
+  &lt;mark class=&quot;hidden&quot; data-comment-timestamp=&quot;{{ new_indicator_timestamp }}&quot;&gt;&lt;/mark&gt;
+
+  &lt;footer&gt;
+    {{&gt; 00-elements/04-images/04-avatar }}
+    &lt;p&gt;{{&gt; 01-compounds/00-text/07-byline-commenter }}&lt;/p&gt;
+
+    {{# parent? }}
+      &lt;p class=&quot;visually-hidden&quot;&gt;{{ parent }}&lt;/p&gt;
+    {{/ parent? }}
+
+    {{ permalink }}
+  &lt;/footer&gt;
+
+  &lt;div{{{ content_attributes }}}&gt;
+    {{# title? }}
+      {{ title_prefix }}
+      &lt;h3{{{ title_attributes }}}&gt;{{ comment_title }}&lt;/h3&gt;
+      {{ title_suffix }}
+    {{/ title? }}
+    {{&gt; 01-compounds/02-blocks/06-single-comment }}
+  &lt;/div&gt;
+&lt;/article&gt;

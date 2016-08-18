@@ -1,0 +1,32 @@
+&lt;!-- Begin views-view-list --&gt;
+{{# views_view_list_attributes }}
+  &lt;div{{{ views_view_list_attributes }}}&gt;
+{{/ views_view_list_attributes }}
+  {{# views_view_list_title }}
+    &lt;h3&gt;{{{ views_view_list_title }}}&lt;/h3&gt;
+  {{/ views_view_list_title }}
+
+  {{# list_type }}
+    &lt;{{ list_type }}{{ list_attributes }}&gt;
+  {{/ list_type }}
+
+      {{# templates-views-view-list? }}
+        &lt;li{{ row_attributes }}&gt;
+          {{{ fpo_template_content }}}
+        &lt;/li&gt;
+      {{/ templates-views-view-list? }}
+      {{# templates-views-view-rows--pages-homepage__blog? }}
+        {{&gt; 03-templates/__views-view-rows(&quot;templates-node--pages-homepage__blog?&quot;: true) }}
+      {{/ templates-views-view-rows--pages-homepage__blog? }}
+      {{# templates-views-view-rows--pages-blog? }}
+        {{&gt; 03-templates/__views-view-rows(&quot;templates-node--pages-blog?&quot;: true) }}
+      {{/ templates-views-view-rows--pages-blog? }}
+
+  {{# list_type }}
+    &lt;/{{ list_type }}&gt;
+  {{/ list_type }}
+
+{{# views_view_list_attributes }}
+  &lt;/div&gt;
+{{/ views_view_list_attributes }}
+&lt;!-- End views-view-list --&gt;
