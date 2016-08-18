@@ -1,0 +1,48 @@
+{{# templates-node? }}
+  {{{ fpo_template_content }}}
+{{/ templates-node? }}
+<!-- Begin node -->
+<article{{{ article_attributes }}}>
+
+  {{ title_prefix }}
+  {{# view_mode_full? }}
+    <h1{{{ title_attributes }}}>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
+    </h1>
+  {{/ view_mode_full? }}
+  {{^ view_mode_full? }}
+    <h2{{{ title_attributes }}}>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
+    </h2>
+  {{/ view_mode_full? }}
+  {{ title_suffix }}
+
+  {{# view_mode_full? }}
+    <footer>
+      <div{{{ author_attributes }}}>
+        By {{ author_name }} on {{ date }}
+        {{ metadata }}
+      </div>
+    </footer>
+  {{/ view_mode_full? }}
+
+  <div{{{ content_attributes }}}>
+
+    {{! BEGIN NODE CONTENT }}
+
+    {{# compounds-media-block--pages-homepage__blog? }}
+      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: " property=\"text\"") }}
+    {{/ compounds-media-block--pages-homepage__blog? }}
+    {{# compounds-media-block--pages-blog? }}
+      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: " property=\"schema:text\"") }}
+    {{/ compounds-media-block--pages-blog? }}
+    {{# components-article? }}
+      {{> 02-components/01-article/01-article }}
+    {{/ components-article? }}
+
+    {{! END NODE CONTENT }}
+
+  </div>
+
+</article>
+<!-- End node -->

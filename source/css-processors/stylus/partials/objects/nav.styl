@@ -1,0 +1,75 @@
+/*------------------------------------*
+    $NAVIGATION
+*------------------------------------*/
+#block-mainnavigation
+  height: 3em
+  overflow: hidden
+  position: absolute
+  right: 0
+  top: 0
+  width: 100%
+  h2
+    border-left: 1px solid #d8d8d8
+    color: transparent
+    cursor: pointer
+    float: right
+    font-size: 1em
+    margin: 0
+    position: relative
+    right: 3.25em
+    top: 0
+    width: 3.2em
+    height: 3em
+    &:before
+      color: $gray-dark
+      float: right
+      font-size: 1.3em
+      padding: 0.7em
+    &:hover:before
+      color: $gray
+  ul
+    background-color: $white
+    clear: both
+  a
+    display: block
+    padding: 1em
+    border-top: 1px solid $gray-light-2
+  &.active
+    max-height: 40em
+@media all and (max-width: $bp-small-end)
+  #block-mainnavigation.open
+    height: auto
+@media all and (min-width: $bp-med-begin)
+  #block-mainnavigation
+    border-left: 0
+    clear: none
+    float: right
+    padding-right: 0
+    position: static
+    width: auto
+    height: auto
+    h2
+      display: none
+    li
+      float: left
+    a
+      border: 0
+      padding: 1em
+.pager
+  clear: both
+  padding-top: 1em
+  li
+    float: left
+    border-right: 1px solid $gray-light-2
+    &:last-child
+      border: 0
+  a
+    padding: 1em 0.9em
+@media all and (max-width: $bp-small-2)
+  .pager li
+    &.pager__item--previous
+      float: none
+    &.pager__item--next
+      clear: left
+.more-link
+  font-style: italic
