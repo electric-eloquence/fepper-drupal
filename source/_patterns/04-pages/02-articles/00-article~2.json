@@ -1,0 +1,9 @@
+{
+  "article_title" : "<span property=\"schema:name\">Stream hiking</span>",
+  "img": {
+    "landscape_16x9": {
+      "src": "../../_assets/sample/tout-4x3-stream.jpg",
+      "alt": "Stream hiking"
+    }
+  }
+}

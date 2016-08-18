@@ -1,0 +1,34 @@
+{{# templates-node--pages-homepage__hero? }}
+  {{# hero }}
+    <div{{{ row_attributes }}}>
+      {{> 01-compounds/02-blocks/02-block-hero }}
+    </div>
+  {{/ hero }}
+{{/ templates-node--pages-homepage__hero? }}
+{{# templates-node--pages-homepage__touts? }}
+  {{# touts }}
+    <div{{{ row_attributes }}}>
+      {{> 01-compounds/02-blocks/05-inset-block }}
+    </div>
+  {{/ touts }}
+{{/ templates-node--pages-homepage__touts? }}
+{{# templates-node--pages-homepage__blog? }}
+  {{# latest-posts }}
+    <li{{{ row_attributes }}}>
+      {{> 03-templates/node(
+        "article_attributes": " role=\"article\" typeof=\"schema:Article\"",
+        "compounds-media-block--pages-homepage__blog?": true
+      ) }}
+    </li>
+  {{/ latest-posts }}
+{{/ templates-node--pages-homepage__blog? }}
+{{# templates-node--pages-blog? }}
+  {{# latest-posts }}
+    <li{{{ row_attributes }}}>
+      {{> 03-templates/node(
+        "article_attributes": " role=\"article\" typeof=\"schema:Article\"",
+        "compounds-media-block--pages-blog?": true
+      ) }}
+    </li>
+  {{/ latest-posts }}
+{{/ templates-node--pages-blog? }}
