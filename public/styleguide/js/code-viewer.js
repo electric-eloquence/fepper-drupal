@@ -202,9 +202,12 @@ var codeViewer = {
 	* if the encoded tab is the current active tab it adds the content to the default code container
 	*/
 	saveEncoded: function() {
-		codeViewer.encoded = this.responseText;
+		var encoded = this.responseText;
+		encoded = html_beautify(encoded, { indent_size: 2 });
+		encoded = he.encode(encoded);
+		codeViewer.encoded = encoded;
 		if (codeViewer.tabActive == "e") {
-			codeViewer.activateDefaultTab("e",this.responseText);
+			codeViewer.activateDefaultTab("e",encoded);
 		}
 	},
 	
@@ -213,7 +216,9 @@ var codeViewer = {
 	* if the mustache tab is the current active tab it adds the content to the default code container
 	*/
 	saveMustache: function() {
-		codeViewer.mustache = this.responseText;
+		var encoded = this.responseText;
+		encoded = he.encode(encoded);
+		codeViewer.mustache = encoded;
 		if (codeViewer.tabActive == "m") {
 			codeViewer.activateDefaultTab("m",this.responseText);
 		}
@@ -318,7 +323,7 @@ var codeViewer = {
 		// request the encoded markup version of the pattern
 		var e = new XMLHttpRequest();
 		e.onload = this.saveEncoded;
-		e.open("GET", fileName.replace(/\.html/,".escaped.html") + "?" + (new Date()).getTime(), true);
+		e.open("GET", fileName.replace(/\.html/,".markup-only.html") + "?" + (new Date()).getTime(), true);
 		e.send();
 		
 		// request the mustache markup version of the pattern
