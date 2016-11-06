@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\DependencyInjection\Compiler\TaggedHandlersPass.
- */
-
 namespace Drupal\Core\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -99,10 +94,10 @@ class TaggedHandlersPass implements CompilerPassInterface {
           if ($param->getClass()) {
             $interface = $param->getClass();
           }
-          else if ($param->getName() === 'id') {
+          elseif ($param->getName() === 'id') {
             $id_pos = $pos;
           }
-          else if ($param->getName() === 'priority') {
+          elseif ($param->getName() === 'priority') {
             $priority_pos = $pos;
           }
           else {

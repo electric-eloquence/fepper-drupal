@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\Database\Driver\pgsql\Schema.
- */
-
 namespace Drupal\Core\Database\Driver\pgsql;
 
 use Drupal\Component\Utility\Unicode;
@@ -25,10 +20,10 @@ class Schema extends DatabaseSchema {
   /**
    * A cache of information about blob columns and sequences of tables.
    *
-   * This is collected by DatabaseConnection_pgsql->queryTableInformation(),
-   * by introspecting the database.
+   * This is collected by Schema::queryTableInformation(), by introspecting the
+   * database.
    *
-   * @see DatabaseConnection_pgsql->queryTableInformation()
+   * @see \Drupal\Core\Database\Driver\pgsql\Schema::queryTableInformation()
    * @var array
    */
   protected $tableInformation = array();
@@ -39,7 +34,7 @@ class Schema extends DatabaseSchema {
    * Value will usually be set to a 63 chars limit but PostgreSQL allows
    * to higher this value before compiling, so we need to check for that.
    *
-   * @var integer
+   * @var int
    */
   protected $maxIdentifierLength;
 
@@ -536,6 +531,11 @@ class Schema extends DatabaseSchema {
         ->fields(array($field => $spec['initial']))
         ->execute();
     }
+    if (isset($spec['initial_from_field'])) {
+      $this->connection->update($table)
+        ->expression($field, $spec['initial_from_field'])
+        ->execute();
+    }
     if ($fixnull) {
       $this->connection->query("ALTER TABLE {" . $table . "} ALTER $field SET NOT NULL");
     }
@@ -849,6 +849,7 @@ class Schema extends DatabaseSchema {
     // Modify the hash so it's safe to use in PostgreSQL identifiers.
     return strtr($hash, array('+' => '_', '/' => '_', '=' => ''));
   }
+
 }
 
 /**

@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\StringTranslation\TranslatableMarkup.
- */
-
 namespace Drupal\Core\StringTranslation;
 
 use Drupal\Component\Render\FormattableMarkup;
@@ -184,7 +179,7 @@ class TranslatableMarkup extends FormattableMarkup {
   }
 
   /**
-   * Gets all argments from this translated string.
+   * Gets all arguments from this translated string.
    *
    * @return mixed[]
    *   The array of arguments.

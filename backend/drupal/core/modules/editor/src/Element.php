@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\editor\Element.
- */
-
 namespace Drupal\editor;
 
 use Drupal\editor\Entity\Editor;
@@ -18,7 +13,7 @@ use Drupal\Core\Render\BubbleableMetadata;
 class Element {
 
   /**
-   * The Text Editor plugin manager manager service.
+   * The Text Editor plugin manager service.
    *
    * @var \Drupal\Component\Plugin\PluginManagerInterface
    */

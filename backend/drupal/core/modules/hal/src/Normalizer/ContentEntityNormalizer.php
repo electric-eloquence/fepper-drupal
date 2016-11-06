@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\hal\Normalizer\ContentEntityNormalizer.
- */
-
 namespace Drupal\hal\Normalizer;
 
 use Drupal\Component\Utility\NestedArray;
@@ -83,7 +78,6 @@ class ContentEntityNormalizer extends NormalizerBase {
     );
 
     // If the fields to use were specified, only output those field values.
-    // Otherwise, output all field values except internal ID.
     if (isset($context['included_fields'])) {
       $fields = array();
       foreach ($context['included_fields'] as $field_name) {
@@ -93,12 +87,9 @@ class ContentEntityNormalizer extends NormalizerBase {
     else {
       $fields = $entity->getFields();
     }
-    // Ignore the entity ID and revision ID.
-    $exclude = array($entity->getEntityType()->getKey('id'), $entity->getEntityType()->getKey('revision'));
     foreach ($fields as $field) {
-      // Continue if this is an excluded field or the current user does not have
-      // access to view it.
-      if (in_array($field->getFieldDefinition()->getName(), $exclude) || !$field->access('view', $context['account'])) {
+      // Continue if the current user does not have access to view this field.
+      if (!$field->access('view', $context['account'])) {
         continue;
       }
 
@@ -124,6 +115,9 @@ class ContentEntityNormalizer extends NormalizerBase {
    *     all default values for entity fields before applying $data to the
    *     entity.
    *
+   * @return \Drupal\Core\Entity\EntityInterface
+   *   An unserialized entity object containing the data in $data.
+   *
    * @throws \Symfony\Component\Serializer\Exception\UnexpectedValueException
    */
   public function denormalize($data, $class, $format = NULL, array $context = array()) {
@@ -135,14 +129,22 @@ class ContentEntityNormalizer extends NormalizerBase {
     // Create the entity.
     $typed_data_ids = $this->getTypedDataIds($data['_links']['type'], $context);
     $entity_type = $this->entityManager->getDefinition($typed_data_ids['entity_type']);
+    $default_langcode_key = $entity_type->getKey('default_langcode');
     $langcode_key = $entity_type->getKey('langcode');
     $values = array();
 
     // Figure out the language to use.
-    if (isset($data[$langcode_key])) {
-      $values[$langcode_key] = $data[$langcode_key][0]['value'];
-      // Remove the langcode so it does not get iterated over below.
-      unset($data[$langcode_key]);
+    if (isset($data[$default_langcode_key])) {
+      // Find the field item for which the default_lancode value is set to 1 and
+      // set the langcode the right default language.
+      foreach ($data[$default_langcode_key] as $item) {
+        if (!empty($item['value']) && isset($item['lang'])) {
+          $values[$langcode_key] = $item['lang'];
+          break;
+        }
+      }
+      // Remove the default langcode so it does not get iterated over below.
+      unset($data[$default_langcode_key]);
     }
 
     if ($entity_type->hasKey('bundle')) {
@@ -196,7 +198,7 @@ class ContentEntityNormalizer extends NormalizerBase {
   /**
    * Constructs the entity URI.
    *
-   * @param \Drupal\Core\Entity\EntityInterface
+   * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The entity.
    * @return string
    *   The entity URI.
@@ -221,7 +223,6 @@ class ContentEntityNormalizer extends NormalizerBase {
    *
    * @return array
    *   The typed data IDs.
-   *
    */
   protected function getTypedDataIds($types, $context = array()) {
     // The 'type' can potentially contain an array of type objects. By default,
@@ -251,4 +252,5 @@ class ContentEntityNormalizer extends NormalizerBase {
 
     return $typed_data_ids;
   }
+
 }

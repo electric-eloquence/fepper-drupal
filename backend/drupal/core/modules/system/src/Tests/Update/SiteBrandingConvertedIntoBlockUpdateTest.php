@@ -1,16 +1,9 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\system\Tests\Update\SiteBrandingConvertedIntoBlockUpdateTest.
- */
-
 namespace Drupal\system\Tests\Update;
 
 /**
- * Tests the upgrade path for local actions/tasks being converted into blocks.
- *
- * @see https://www.drupal.org/node/507488
+ * Tests the upgrade path for page site variables being converted into a block.
  *
  * @group system
  */
@@ -52,7 +45,7 @@ class SiteBrandingConvertedIntoBlockUpdateTest extends UpdatePathTestBase {
     // after updates in https://www.drupal.org/node/2435135.
     \Drupal::state()->set('system.maintenance_mode', FALSE);
 
-    // We finished updating so we can login the user now.
+    // We finished updating so we can log in the user now.
     $this->drupalLogin($this->rootUser);
 
     // Site branding is visible on the home page.
