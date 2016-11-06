@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Component\Utility\Xss.
- */
-
 namespace Drupal\Component\Utility;
 
 /**
@@ -121,7 +116,6 @@ class Xss {
    * @ingroup sanitization
    *
    * @see \Drupal\Component\Utility\Xss::getAdminTagList()
-   *
    */
   public static function filterAdmin($string) {
     return static::filter($string, static::$adminTags);
@@ -215,7 +209,7 @@ class Xss {
       switch ($mode) {
         case 0:
           // Attribute name, href for instance.
-          if (preg_match('/^([-a-zA-Z]+)/', $attributes, $match)) {
+          if (preg_match('/^([-a-zA-Z][-a-zA-Z0-9]*)/', $attributes, $match)) {
             $attribute_name = strtolower($match[1]);
             $skip = ($attribute_name == 'style' || substr($attribute_name, 0, 2) == 'on');
 
@@ -230,10 +224,12 @@ class Xss {
             $skip_protocol_filtering = substr($attribute_name, 0, 5) === 'data-' || in_array($attribute_name, array(
               'title',
               'alt',
+              'rel',
+              'property',
             ));
 
             $working = $mode = 1;
-            $attributes = preg_replace('/^[-a-zA-Z]+/', '', $attributes);
+            $attributes = preg_replace('/^[-a-zA-Z][-a-zA-Z0-9]*/', '', $attributes);
           }
           break;
 
@@ -349,4 +345,5 @@ class Xss {
   public static function getHtmlTagList() {
     return static::$htmlTags;
   }
+
 }

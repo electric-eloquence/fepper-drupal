@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\Core\Datetime\Plugin\Field\FieldWidget\TimestampDatetimeWidget.
- */
 
 namespace Drupal\Core\Datetime\Plugin\Field\FieldWidget;
 
@@ -54,7 +50,7 @@ class TimestampDatetimeWidget extends WidgetBase {
       if (isset($item['value']) && $item['value'] instanceof DrupalDateTime) {
         $date = $item['value'];
       }
-      else if (isset($item['value']['object']) && $item['value']['object'] instanceof DrupalDateTime) {
+      elseif (isset($item['value']['object']) && $item['value']['object'] instanceof DrupalDateTime) {
         $date = $item['value']['object'];
       }
       else {

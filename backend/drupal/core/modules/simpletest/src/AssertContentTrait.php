@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\simpletest\AssertContentTrait.
- */
-
 namespace Drupal\simpletest;
 
 use Drupal\Component\Serialization\Json;
@@ -12,7 +7,7 @@ use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Render\RenderContext;
-use Symfony\Component\CssSelector\CssSelector;
+use Symfony\Component\CssSelector\CssSelectorConverter;
 
 /**
  * Provides test methods to assert content.
@@ -122,7 +117,7 @@ trait AssertContentTrait {
   /**
    * Parse content returned from curlExec using DOM and SimpleXML.
    *
-   * @return \SimpleXMLElement|FALSE
+   * @return \SimpleXMLElement|false
    *   A SimpleXMLElement or FALSE on failure.
    */
   protected function parse() {
@@ -220,23 +215,23 @@ trait AssertContentTrait {
    *   placeholders in the query. The values may be either strings or numeric
    *   values.
    *
-   * @return array
-   *   The return value of the xpath search. For details on the xpath string
-   *   format and return values see the SimpleXML documentation,
-   *   http://php.net/manual/function.simplexml-element-xpath.php.
+   * @return \SimpleXMLElement[]|bool
+   *   The return value of the xpath search or FALSE on failure. For details on
+   *   the xpath string format and return values see the SimpleXML
+   *   documentation.
+   *
+   * @see http://php.net/manual/function.simplexml-element-xpath.php
    */
-  protected function xpath($xpath, array $arguments = array()) {
+  protected function xpath($xpath, array $arguments = []) {
     if ($this->parse()) {
       $xpath = $this->buildXPathQuery($xpath, $arguments);
       $result = $this->elements->xpath($xpath);
       // Some combinations of PHP / libxml versions return an empty array
       // instead of the documented FALSE. Forcefully convert any falsish values
       // to an empty array to allow foreach(...) constructions.
-      return $result ? $result : array();
+      return $result ?: [];
     }
-    else {
-      return FALSE;
-    }
+    return FALSE;
   }
 
   /**
@@ -252,7 +247,7 @@ trait AssertContentTrait {
    *   selector to an XPath selector.
    */
   protected function cssSelect($selector) {
-    return $this->xpath(CssSelector::toXPath($selector));
+    return $this->xpath((new CssSelectorConverter())->toXPath($selector));
   }
 
   /**
@@ -1244,6 +1239,24 @@ trait AssertContentTrait {
   protected function assertOption($id, $option, $message = '', $group = 'Browser') {
     $options = $this->xpath('//select[@id=:id]//option[@value=:option]', array(':id' => $id, ':option' => $option));
     return $this->assertTrue(isset($options[0]), $message ? $message : SafeMarkup::format('Option @option for field @id exists.', array('@option' => $option, '@id' => $id)), $group);
+  }
+
+  /**
+   * Asserts that a select option with the visible text exists.
+   *
+   * @param string $id
+   *   The ID of the select field to assert.
+   * @param string $text
+   *   The text for the option tag to assert.
+   * @param string $message
+   *   (optional) A message to display with the assertion.
+   *
+   * @return bool
+   *   TRUE on pass, FALSE on fail.
+   */
+  protected function assertOptionByText($id, $text, $message = '') {
+    $options = $this->xpath('//select[@id=:id]//option[normalize-space(text())=:text]', [':id' => $id, ':text' => $text]);
+    return $this->assertTrue(isset($options[0]), $message ?: 'Option with text label ' . $text . ' for select field ' . $id . ' exits.');
   }
 
   /**

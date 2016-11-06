@@ -178,6 +178,9 @@ field.widget.settings.email_default:
     placeholder:
       type: label
       label: 'Placeholder'
+    size:
+      type: integer
+      label: 'Size of email field'
 
 field.widget.settings.datetime_timestamp:
   type: mapping
@@ -238,19 +241,6 @@ field.widget.settings.entity_reference_autocomplete:
     placeholder:
       type: label
       label: 'Placeholder'
-
-field.formatter.settings.boolean:
-  type: mapping
-  mapping:
-    format:
-      type: string
-      label: 'Output format'
-    format_custom_false:
-      type: string
-      label: 'Custom output for FALSE'
-    format_custom_true:
-      type: string
-      label: 'Custom output for TRUE'
 
 field.formatter.settings.boolean:
   type: mapping
