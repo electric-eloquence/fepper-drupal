@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\Session\AccountProxy.
- */
-
 namespace Drupal\Core\Session;
 
 /**
@@ -56,7 +51,7 @@ class AccountProxy implements AccountProxyInterface {
         // After the container is rebuilt, DrupalKernel sets the initial
         // account to the id of the logged in user. This is necessary in order
         // to refresh the user account reference here.
-        $this->account = $this->loadUserEntity($this->initialAccountId);
+        $this->setAccount($this->loadUserEntity($this->initialAccountId));
       }
       else {
         $this->account = new AnonymousUserSession();
@@ -184,7 +179,7 @@ class AccountProxy implements AccountProxyInterface {
    * @param int $account_id
    *   The id of an account to load.
    *
-   * @return \Drupal\Core\Session\AccountInterface|NULL
+   * @return \Drupal\Core\Session\AccountInterface|null
    *   An account or NULL if none is found.
    */
   protected function loadUserEntity($account_id) {

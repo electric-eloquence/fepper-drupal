@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Core\Entity\KeyValueStore\KeyValueContentEntityStorage.
- */
-
 namespace Drupal\Core\Entity\KeyValueStore;
 
 use Drupal\Core\Entity\ContentEntityInterface;
@@ -19,7 +14,8 @@ class KeyValueContentEntityStorage extends KeyValueEntityStorage implements Cont
    * {@inheritdoc}
    */
   public function createTranslation(ContentEntityInterface $entity, $langcode, array $values = []) {
-    // @todo
+    // @todo Complete the content entity storage implementation in
+    //   https://www.drupal.org/node/2618436.
   }
 
 }

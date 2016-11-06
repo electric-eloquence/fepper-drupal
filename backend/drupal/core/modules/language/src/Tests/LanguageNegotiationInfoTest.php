@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\language\Tests\LanguageNegotiationInfoTest.
- */
-
 namespace Drupal\language\Tests;
 
 use Drupal\Core\Language\LanguageInterface;
@@ -23,14 +18,14 @@ class LanguageNegotiationInfoTest extends WebTestBase {
    *
    * @var array
    */
-  public static $modules = array('language');
+  public static $modules = ['language', 'content_translation'];
 
   /**
    * {@inheritdoc}
    */
   protected function setUp() {
     parent::setUp();
-    $admin_user = $this->drupalCreateUser(array('administer languages', 'access administration pages', 'view the administration theme'));
+    $admin_user = $this->drupalCreateUser(['administer languages', 'access administration pages', 'view the administration theme', 'administer modules']);
     $this->drupalLogin($admin_user);
     $this->drupalPostForm('admin/config/regional/language/add', array('predefined_langcode' => 'it'), t('Add language'));
   }
@@ -91,7 +86,7 @@ class LanguageNegotiationInfoTest extends WebTestBase {
     $test_type = 'test_language_type';
     $interface_method_id = LanguageNegotiationUI::METHOD_ID;
     $test_method_id = 'test_language_negotiation_method';
-    $form_field = $type . '[enabled]['. $interface_method_id .']';
+    $form_field = $type . '[enabled][' . $interface_method_id . ']';
     $edit = array(
       $form_field => TRUE,
       $type . '[enabled][' . $test_method_id . ']' => TRUE,
@@ -174,4 +169,41 @@ class LanguageNegotiationInfoTest extends WebTestBase {
       }
     }
   }
+
+  /**
+   * Tests altering config of configurable language types.
+   */
+  public function testConfigLangTypeAlterations() {
+    // Default of config.
+    $test_type = LanguageInterface::TYPE_CONTENT;
+    $this->assertFalse($this->isLanguageTypeConfigurable($test_type), 'Language type is not configurable.');
+
+    // Editing config.
+    $edit = [$test_type . '[configurable]' => TRUE];
+    $this->drupalPostForm('admin/config/regional/language/detection', $edit, t('Save settings'));
+    $this->assertTrue($this->isLanguageTypeConfigurable($test_type), 'Language type is now configurable.');
+
+    // After installing another module, the config should be the same.
+    $this->drupalPostForm('admin/modules', ['modules[Testing][test_module][enable]' => 1], t('Install'));
+    $this->assertTrue($this->isLanguageTypeConfigurable($test_type), 'Language type is still configurable.');
+
+    // After uninstalling the other module, the config should be the same.
+    $this->drupalPostForm('admin/modules/uninstall', ['uninstall[test_module]' => 1], t('Uninstall'));
+    $this->assertTrue($this->isLanguageTypeConfigurable($test_type), 'Language type is still configurable.');
+  }
+
+  /**
+   * Checks whether the given language type is configurable.
+   *
+   * @param string $type
+   *   The language type.
+   *
+   * @return bool
+   *   TRUE if the specified language type is configurable, FALSE otherwise.
+   */
+  protected function isLanguageTypeConfigurable($type) {
+    $configurable_types = $this->config('language.types')->get('configurable');
+    return in_array($type, $configurable_types);
+  }
+
 }

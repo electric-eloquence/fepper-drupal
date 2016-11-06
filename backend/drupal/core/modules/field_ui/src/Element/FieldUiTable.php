@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\field_ui\Element\FieldUiTable.
- */
-
 namespace Drupal\field_ui\Element;
 
 use Drupal\Component\Utility\Html;
@@ -85,11 +80,12 @@ class FieldUiTable extends Table {
           if ($depth = count($parents[$name])) {
             $children = Element::children($row);
             $cell = current($children);
-            $row[$cell]['#prefix'] = [
+            $indentation = [
               '#theme' => 'indentation',
               '#size' => $depth,
               '#suffix' => isset($row[$cell]['#prefix']) ? $row[$cell]['#prefix'] : '',
             ];
+            $row[$cell]['#prefix'] = \Drupal::service('renderer')->render($indentation);
           }
 
           // Add row id and associate JS settings.

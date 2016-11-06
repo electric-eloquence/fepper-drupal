@@ -19,8 +19,6 @@
  *   displaying messages of that specific type.
  * - attributes: HTML attributes for the element, including:
  *   - class: HTML classes.
- *
- * @see template_preprocess_status_messages()
  */
 #}
 {{ attach_library('classy/messages') }}
@@ -53,6 +51,6 @@
     {% endif %}
   </div>
   {# Remove type specific classes. #}
-  {{ attributes.removeClass(classes) }}
+  {% set attributes = attributes.removeClass(classes) %}
 {% endfor %}
 {% endblock messages %}
