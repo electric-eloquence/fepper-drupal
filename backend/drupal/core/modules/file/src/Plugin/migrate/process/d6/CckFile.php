@@ -1,14 +1,9 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\file\Plugin\migrate\process\d6\CckFile.
- */
-
 namespace Drupal\file\Plugin\migrate\process\d6;
 
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Drupal\migrate\Entity\MigrationInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
 use Drupal\migrate\MigrateExecutableInterface;
 use Drupal\migrate\MigrateSkipRowException;
 use Drupal\migrate\Plugin\MigrateProcessInterface;
@@ -39,7 +34,7 @@ class CckFile extends ProcessPluginBase implements ContainerFactoryPluginInterfa
    *   The plugin ID.
    * @param mixed $plugin_definition
    *   The plugin definition.
-   * @param \Drupal\migrate\Entity\MigrationInterface $migration
+   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
    *   The current migration.
    * @param \Drupal\migrate\Plugin\MigrateProcessInterface $migration_plugin
    *   An instance of the 'migration' process plugin.
@@ -55,10 +50,10 @@ class CckFile extends ProcessPluginBase implements ContainerFactoryPluginInterfa
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration = NULL) {
     // Configure the migration process plugin to look up migrated IDs from
-    // the d6_file migration.
-    $migration_plugin_configuration = [
-      'source' => ['fid'],
+    // a d6 file migration.
+    $migration_plugin_configuration = $configuration + [
       'migration' => 'd6_file',
+      'source' => ['fid'],
     ];
 
     return new static(
