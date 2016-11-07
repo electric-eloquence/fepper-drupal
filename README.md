@@ -21,6 +21,7 @@ when constructing parameter keys for further template reuse.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * This type of parameter is usually boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
 * Quoting of keys and values should follow JSON5 syntax: http://json5.org
+* When quoting is necessary, to avoid escaping quotes in .mustache and .yml files, wrap keys in double-quotes and values in single-quotes.
 
 ### Table of contents
 * [Install](#install)
