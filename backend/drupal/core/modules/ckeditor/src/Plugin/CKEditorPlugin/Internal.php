@@ -1,14 +1,11 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\ckeditor\Plugin\CKEditorPlugin\Internal.
- */
-
 namespace Drupal\ckeditor\Plugin\CKEditorPlugin;
 
 use Drupal\ckeditor\CKEditorPluginBase;
-use Drupal\Component\Utility\NestedArray;
+use Drupal\ckeditor\CKEditorPluginContextualInterface;
+use Drupal\ckeditor\CKEditorPluginManager;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
@@ -24,7 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   label = @Translation("CKEditor core")
  * )
  */
-class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInterface {
+class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInterface, CKEditorPluginContextualInterface {
 
   /**
    * The cache backend.
@@ -84,6 +81,15 @@ class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInter
   /**
    * {@inheritdoc}
    */
+  public function isEnabled(Editor $editor) {
+    // This plugin represents the core CKEditor plugins. They're always enabled:
+    // its configuration is always necessary.
+    return TRUE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getFile() {
     // This plugin is already part of Drupal core's CKEditor build.
     return FALSE;
@@ -100,6 +106,7 @@ class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInter
       'resize_dir' => 'vertical',
       'justifyClasses' => array('text-align-left', 'text-align-center', 'text-align-right', 'text-align-justify'),
       'entities' => FALSE,
+      'disableNativeSpellChecker' => FALSE,
     );
 
     // Add the allowedContent setting, which ensures CKEditor only allows tags
@@ -107,14 +114,7 @@ class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInter
     list($config['allowedContent'], $config['disallowedContent']) = $this->generateACFSettings($editor);
 
     // Add the format_tags setting, if its button is enabled.
-    $toolbar_rows = array();
-    $settings = $editor->getSettings();
-    foreach ($settings['toolbar']['rows'] as $row_number => $row) {
-      $toolbar_rows[] = array_reduce($settings['toolbar']['rows'][$row_number], function (&$result, $button_group) {
-        return array_merge($result, $button_group['items']);
-      }, array());
-    }
-    $toolbar_buttons = array_unique(NestedArray::mergeDeepArray($toolbar_rows));
+    $toolbar_buttons = CKEditorPluginManager::getEnabledButtons($editor);
     if (in_array('Format', $toolbar_buttons)) {
       $config['format_tags'] = $this->generateFormatTagsSetting($editor);
     }
@@ -370,7 +370,7 @@ class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInter
       foreach ($possible_format_tags as $tag) {
         $input = '<' . $tag . '>TEST</' . $tag . '>';
         $output = trim(check_markup($input, $editor->id()));
-        if ($input == $output) {
+        if (Html::load($output)->getElementsByTagName($tag)->length !== 0) {
           $format_tags[] = $tag;
         }
       }
@@ -477,11 +477,11 @@ class Internal extends CKEditorPluginBase implements ContainerFactoryPluginInter
           //     Once validated, an element or its property cannot be
           //     invalidated by another rule.
           // That means that the most permissive setting wins. Which means that
-          // it will still be allowed by CKEditor to e.g. define any style, no
-          // matter what the "*" tag's restrictions may be. If there's a setting
-          // for either the "style" or "class" attribute, it cannot possibly be
-          // more permissive than what was set above. Hence: inherit from the
-          // "*" tag where possible.
+          // it will still be allowed by CKEditor, for instance, to define any
+          // style, no matter what the "*" tag's restrictions may be. If there
+          // is a setting for either the "style" or "class" attribute, it cannot
+          // possibly be more permissive than what was set above. Hence, inherit
+          // from the "*" tag where possible.
           if (isset($html_restrictions['allowed']['*'])) {
             $wildcard = $html_restrictions['allowed']['*'];
             if (isset($wildcard['style'])) {

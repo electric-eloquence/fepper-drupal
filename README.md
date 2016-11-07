@@ -11,8 +11,8 @@ Drupal with no further effort beyond running `fp template`. Follow these rules
 when constructing parameter keys for further template reuse:
 
 * The parameter key should be BEM-like in syntax.
-* It should start with the target's significant identifier, usually yet another partial.
-* When including partials, use Pattern Lab's convention for IDing patterns: `{type}-{pattern}`.
+* It should start with the target's significant identifier, usually a partial.
+* To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * Follow that with a `--` and then the pattern ID of the original page or pattern at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).

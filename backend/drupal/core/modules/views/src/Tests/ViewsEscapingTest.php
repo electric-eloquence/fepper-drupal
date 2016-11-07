@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\views\Tests\ViewsEscapingTest.
- */
-
 namespace Drupal\views\Tests;
 
 /**
@@ -19,7 +14,7 @@ class ViewsEscapingTest extends ViewTestBase {
    *
    * @var array
    */
-  public static $testViews = array('test_page_display');
+  public static $testViews = array('test_page_display', 'test_field_header');
 
   /**
    * Used by WebTestBase::setup()
@@ -67,6 +62,23 @@ class ViewsEscapingTest extends ViewTestBase {
 
     // Assert that there are no escaped '<'s characters.
     $this->assertNoEscaped('<');
+  }
+
+  /**
+   * Tests for incorrectly escaped markup in a header label on a display table.
+   */
+  public function testViewsFieldHeaderEscaping() {
+    // Test with a field header label having an html element wrapper.
+    $this->drupalGet('test_field_header');
+
+    // Assert that there are no escaped '<'s characters.
+    $this->assertNoEscaped('<');
+
+    // Test with a field header label having a XSS test as a wrapper.
+    $this->drupalGet('test_field_header_xss');
+
+    // Assert that XSS test is escaped.
+    $this->assertNoRaw('<script>alert("XSS")</script>', 'Harmful tags are escaped in header label.');
   }
 
 }
