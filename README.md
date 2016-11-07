@@ -17,6 +17,7 @@ when constructing parameter keys for further template reuse:
 * Follow that with a `--` and then the pattern ID of the original page or pattern at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * This type of parameter is usually boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
+* Quoting of keys and values should follow JSON5 syntax: http://json5.org
 
 ### Table of contents
 * [Install](#install)
