@@ -39,15 +39,6 @@
     "href": "../04-pages-00-homepage/04-pages-00-homepage.html",
     "src": "../../_assets/logo.png"
   },
-  "month" : {
-    "long": "February",
-    "short": "Feb",
-    "digit": "02"
-  },
-  "author" : {
-    "first_name": "Author",
-    "last_name": "Name"
-  },
   "headline" : {
     "short" : "Lorem ipsum dolor sit (37 characters)",
     "medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
