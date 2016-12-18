@@ -2,7 +2,7 @@
   "article_title" : "<span property=\"schema:name\">How to build a campfire</span>",
   "img": {
     "landscape_16x9": {
-      "src": "../../_assets/sample/thumb-square-fire.jpg",
+      "src": "../../_assets/src/sample/thumb-square-fire.jpg",
       "alt": "Fire"
     }
   }
