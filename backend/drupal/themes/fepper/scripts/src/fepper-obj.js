@@ -1,5 +1,4 @@
 /**
- * @file
  * Fepper-specific namespace for browser JavaScripts.
  *
  * Create this object as a member of the window object so it can be a source of
@@ -9,7 +8,6 @@
  * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript}
  * {@link https://github.com/felixge/node-style-guide}
  */
-
 (function () {
   'use strict';
 
