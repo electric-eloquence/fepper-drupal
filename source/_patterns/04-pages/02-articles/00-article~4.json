@@ -2,7 +2,7 @@
   "article_title" : "<span property=\"schema:name\">Navigate the Allegheny River</span>",
   "img": {
     "landscape_16x9": {
-      "src": "../../_assets/sample/thumb-square-river.jpg",
+      "src": "../../_assets/src/sample/thumb-square-river.jpg",
       "alt": "Post Thumbnail"
     }
   }
