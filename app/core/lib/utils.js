@@ -145,9 +145,7 @@ exports.data = function () {
  *
  * @param {object} obj1 - If obj1 has properties obj2 doesn't, add to obj2.
  * @param {object} obj2 - This object's properties have priority over obj1.
- *   If obj2 is null or undefined, be sure to make an assignment to the output
- *   of this function. In other cases, obj2 get mutated, and no assignment is
- *   necessary.
+ *   Since obj2 gets mutated, the return value is only necessary for the purpose of referencing to a new variable.
  * @return {object} The mutated obj2 object.
  */
 exports.mergeObjects = function (obj1, obj2) {
@@ -227,6 +225,24 @@ exports.pathResolve = function (relPath, normalize) {
   else {
     return `${global.workDir}/${relPath}`;
   }
+};
+
+exports.findup = function (fileName, workDirParam) {
+  var dirMatch = null;
+  var workDir = path.normalize(`${workDirParam}/..`);
+  var files = fs.readdirSync(workDir);
+
+  if (files.indexOf(fileName) > -1) {
+    return workDir;
+  }
+  else if (workDir !== '/') {
+    dirMatch = exports.findup(fileName, workDir);
+  }
+  else {
+    return null;
+  }
+
+  return dirMatch;
 };
 
 // ///////////////////////////////////////////////////////////////////////////
