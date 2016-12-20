@@ -12,9 +12,6 @@ const utils = require('../lib/utils');
 
 const sourceDir = utils.pathResolve(conf.ui.paths.source.root, true);
 
-const scriptsDirBld = utils.pathResolve(conf.ui.paths.source.jsBld);
-const scriptsDirSrc = utils.pathResolve(conf.ui.paths.source.jsSrc);
-
 exports.mapPlNomenclature = function (frontendType) {
   var plName = frontendType;
 
@@ -37,19 +34,20 @@ exports.srcDirGlob = function (frontendType) {
   var globDir1;
   var plName = exports.mapPlNomenclature(frontendType);
   var srcDir = utils.pathResolve(conf.ui.paths.source[plName]);
+  var srcDirBld = utils.pathResolve(conf.ui.paths.source[`${plName}Bld`]);
 
   switch (frontendType) {
     case 'assets':
-      globDir = srcDir + '/*';
+      globDir = srcDir + '/*.*';
       globDir1 = srcDir + '/!(_nosync)/**';
       break;
     case 'scripts':
-      globDir = srcDir + '/*/*';
+      globDir = srcDir + '/*/*.*';
       globDir1 = srcDir + '/*/!(_nosync)/**';
       break;
     case 'styles':
-      globDir = srcDir + '/*';
-      globDir1 = srcDir + '/!(_nosync)/**';
+      globDir = srcDirBld + '/*.*';
+      globDir1 = srcDirBld + '/!(_nosync)/**';
   }
 
   var globbed = glob.sync(globDir);
@@ -64,6 +62,7 @@ exports.main = function (frontendType) {
   var frontendDataKey = `${frontendType}_dir`;
   var frontendDir = `_${frontendType}`;
   var i;
+  var regexExt = /\.[a-z]+$/;
   var srcDir;
   var stats;
   var stats1;
@@ -86,12 +85,13 @@ exports.main = function (frontendType) {
         // Fail gracefully.
       }
 
-      // Exclude directories and files prefixed by __ or suffixed by .yml.
+      // Exclude directories, files prefixed by __ or suffixed by .yml, and readme files.
       if (
         !stats ||
         !stats.isFile() ||
         path.basename(files[i]).slice(0, 2) === '__' ||
-        files[i].slice(-4) === '.yml'
+        files[i].slice(-4) === '.yml' ||
+        path.basename(files[i]).replace(regexExt, '') === 'README'
       ) {
         continue;
       }
@@ -101,11 +101,8 @@ exports.main = function (frontendType) {
       targetDir = '';
 
       // Check for file-specific YAML file.
-      ymlFile = files[i].replace(/\.[a-z]+$/, '.yml');
-
-      // If iterating on a built script, check for its source file's YAML.
-      if (frontendType === 'scripts' && files[i].indexOf(scriptsDirBld) === 0) {
-        ymlFile = ymlFile.replace(scriptsDirBld, scriptsDirSrc);
+      if (regexExt.test(files[i])) {
+        ymlFile = files[i].replace(regexExt, '.yml');
       }
 
       // Read and process YAML file if it exists.
