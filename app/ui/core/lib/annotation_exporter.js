@@ -35,7 +35,9 @@ var annotations_exporter = function (pl) {
       console.log(ex);
       return [];
     }
-    return oldAnnotationsJSON.comments;
+
+    var retVal = oldAnnotationsJSON.comments || [];
+    return retVal;
   }
 
   function buildAnnotationMD(annotationsYAML, markdown_parser) {
