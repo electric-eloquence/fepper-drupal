@@ -1,0 +1,6 @@
+'# content\?': |2
+  {% block content %}
+'fpo_template_content': |2
+  \{\{ content \}\}
+'/ content\?': |2
+  {% endblock %}
