@@ -78,6 +78,13 @@ function fepper_preprocess_page(&$variables) {
 }
 
 /**
+ * Implements template_preprocess_region().
+ */
+function fepper_preprocess_region(&$variables) {
+  $variables['attributes']['id'][0] = 'region-' . str_replace('_', '-', $variables['region']);
+}
+
+/**
  * Implements template_preprocess_views_view().
  */
 function fepper_preprocess_views_view(&$variables) {
