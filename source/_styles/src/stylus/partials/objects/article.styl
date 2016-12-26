@@ -6,9 +6,15 @@ article[role="article"] > footer
 #block-fepper-content
   > article[role="article"] > h1
     font-size: 2.5em
-@media all and (min-width: $bp-small)
-  #block-views-block-content-recent-block-3,
-  #views-view-content-recent-page-1
+#block-views-block-content-recent-block-3,
+#views-view-content-recent-page-1
+  @media all and (max-width: $bp-small-2 - 1px)
+    article[role="article"]
+      > h2
+        font-size: 1.8rem
+      div[property="text"]
+        font-size: 1.4rem
+  @media all and (min-width: $bp-small)
     .item-list
       margin-top: 0.5em
     .item-list li
