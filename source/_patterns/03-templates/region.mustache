@@ -1,10 +1,6 @@
 <!-- Begin region -->
 {{# content? }}
   <div{{{ attributes }}}>
-    {{# templates-region? }}
-      {{{ fpo_template_content }}}
-    {{/ templates-region? }}
-
 
     {{! BEGIN HEADER CONTENT }}
 
@@ -37,7 +33,7 @@
         block_attributes: ' id="block-fepper-content"',
         "templates-container--pages-homepage__hero?": true
       ) }}
-      {{> 03-templates/_block--views--content-recent-block-2(
+      {{> 03-templates/_block--views-block--content-recent-block-2(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-2"',
         "templates-container--pages-homepage__touts?": true
       ) }}
@@ -100,7 +96,7 @@
 
     {{! END FOOTER CONTENT }}
 
-
+    {{{ fpo_template_content }}}
   </div>
 {{/ content? }}
 <!-- End region -->

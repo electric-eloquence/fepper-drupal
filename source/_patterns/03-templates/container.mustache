@@ -1,7 +1,3 @@
-{{# templates-container? }}
-  {{{ fpo_template_content }}}
-{{/ templates-container? }}
-
 {{# templates-views-view--pages-homepage__hero? }}
   {{> 03-templates/views-view(
     "templates-views-view-unformatted--pages-homepage__hero?": true,
@@ -25,3 +21,4 @@
     "views_view_attributes": ' id="views-view-content-recent-page-1"'
   ) }}
 {{/ templates-views-view--pages-blog? }}
+{{{ fpo_template_content }}}
