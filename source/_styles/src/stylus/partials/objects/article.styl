@@ -3,18 +3,19 @@ article[role="article"] > footer
   font-size: 0.875em
   font-style: italic
   margin-bottom: 0.5em
-#block-fepper-content,
-#block-views-block-content-recent-block-3
+#block-fepper-content
   > article[role="article"] > h1
     font-size: 2.5em
-  @media all and (min-width: $bp-small-2)
-    .views-element-container .item-list
+@media all and (min-width: $bp-small)
+  #block-views-block-content-recent-block-3,
+  #views-view-content-recent-page-1
+    .item-list
       margin-top: 0.5em
-    .views-element-container .item-list li
+    .item-list li
       clear: both
       float: left
       margin-bottom: 1em
-    .views-element-container article[role="article"]
+    article[role="article"]
       > h2,
       div[property="schema:text"],
       div[property="text"]

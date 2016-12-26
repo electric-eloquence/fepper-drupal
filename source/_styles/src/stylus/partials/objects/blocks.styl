@@ -12,7 +12,7 @@
     font-size: 1.5em
     font-weight: bold
     line-height: 1.2
-  @media all and (min-width: $bp-small-2)
+  @media all and (min-width: $bp-small)
     .views-field-title .field-content
       display: table-cell
       width: 70%
@@ -58,8 +58,8 @@
       padding: 0.5em
       font-size: 1.1em
       font-weight: bold
-@media all and (min-width: $bp-small-2) and (max-width: $bp-large - 1px)
-  #block-fepper-content,
+@media all and (min-width: $bp-small) and (max-width: $bp-large - 1px)
+  .front #block-fepper-content,
   .front #region-content > .views-row
     width: calc(50% - 0.4rem)
   #block-fepper-content
@@ -82,8 +82,8 @@
       a
         color: $white
 @media all and (min-width: $bp-large)
-  #block-fepper-content
+  .front #block-fepper-content
     width: 100%
-  #region-content > .views-row
+  .front #region-content > .views-row
     padding-top: $pad-half
     width: calc(33.3333333% - 1.0666666rem)
