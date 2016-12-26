@@ -1,18 +1,25 @@
 /* Main Content Article */
-article[role="article"] > footer
-  font-size: 0.875em
-  font-style: italic
-  margin-bottom: 0.5em
+article[role="article"]
+  margin-bottom: $pad
+  > footer
+    font-size: 0.875em
+    font-style: italic
+    margin-bottom: 0.5em
 #block-fepper-content
   > article[role="article"] > h1
     font-size: 2.5em
 #block-views-block-content-recent-block-3,
 #views-view-content-recent-page-1
+  @media all and (max-width: $bp-small - 1px)
+    article[role="article"]
+      > div > div:first-of-type > a
+        display: block
+        max-width: 30rem
   @media all and (max-width: $bp-small-2 - 1px)
     article[role="article"]
       > h2
         font-size: 1.8rem
-      div[property="text"]
+      div[property="schema:text"]
         font-size: 1.4rem
   @media all and (min-width: $bp-small)
     .item-list
