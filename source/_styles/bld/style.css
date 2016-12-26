@@ -1075,6 +1075,16 @@ article[role="article"] > footer {
 #block-fepper-content > article[role="article"] > h1 {
   font-size: 2.5em;
 }
+@media all and (max-width: 575px) {
+  #block-views-block-content-recent-block-3 article[role="article"] > h2,
+  #views-view-content-recent-page-1 article[role="article"] > h2 {
+    font-size: 1.8rem;
+  }
+  #block-views-block-content-recent-block-3 article[role="article"] div[property="text"],
+  #views-view-content-recent-page-1 article[role="article"] div[property="text"] {
+    font-size: 1.4rem;
+  }
+}
 @media all and (min-width: 480px) {
   #block-views-block-content-recent-block-3 .item-list,
   #views-view-content-recent-page-1 .item-list {
