@@ -11,7 +11,7 @@
     float: left
     max-width: 8em
     margin: 0.4em
-    @media all and (min-width: $bp-med-begin)
+    @media all and (min-width: $bp-med)
       max-width: 9em
 .nav-toggle
   float: right
@@ -20,7 +20,7 @@
   font-size: 2.08rem
   line-height: 1
   border-left: 1px solid #dbdbdb
-  @media all and (min-width: $bp-med-begin)
+  @media all and (min-width: $bp-med)
     display: none
 /* Search Form */
 #block-searchform
@@ -74,11 +74,11 @@
     font-size: 0.8125em
     position: relative
     z-index: 1
-@media all and (max-width: $bp-small-end)
+@media all and (max-width: $bp-med - 1px)
   #block-searchform.open
     width: auto
     height: auto
-@media all and (min-width: $bp-med-begin)
+@media all and (min-width: $bp-med)
   #block-searchform
     position: static
     width: auto
