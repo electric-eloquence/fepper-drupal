@@ -3,11 +3,6 @@
   <h3>{{ title }}</h3>
 {{/ title }}
 
-{{# templates-views-view-unformatted? }}
-  <div{{ row_attributes }}>
-    {{{ fpo_template_content }}}
-  </div>
-{{/ templates-views-view-unformatted? }}
 {{# templates-views-view-rows--pages-homepage__hero? }}
   {{> 03-templates/__views-view-rows(
     row_attributes: ' class="views-row"',
@@ -20,4 +15,9 @@
     "templates-node--pages-homepage__touts?": true
   ) }}
 {{/ templates-views-view-rows--pages-homepage__touts? }}
+{{# templates-views-view-unformatted? }}
+  <div{{ row_attributes }}>
+    {{{ fpo_template_content }}}
+  </div>
+{{/ templates-views-view-unformatted? }}
 <!-- End views-view-unformatted -->
