@@ -6,10 +6,6 @@
   {{/ block_label }}
   {{ title_suffix }}
   {{# content? }}
-    {{# templates-block? }}
-      {{{ fpo_template_content }}}
-    {{/ templates-block? }}
-
 
     {{! BEGIN HEADER }}
 
@@ -73,6 +69,7 @@
 
     {{! END FOOTER }}
 
+    {{{ fpo_template_content }}}
 
   {{/ content? }}
 </div>

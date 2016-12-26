@@ -1,6 +1,3 @@
-{{# templates-comment? }}
-  {{{ fpo_template_content }}}
-{{/ templates-comment? }}
 <article{{{ comment_attributes }}}>
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
@@ -22,5 +19,6 @@
       {{ title_suffix }}
     {{/ title? }}
     {{> 01-compounds/02-blocks/06-single-comment }}
+    {{{ fpo_template_content }}}
   </div>
 </article>
