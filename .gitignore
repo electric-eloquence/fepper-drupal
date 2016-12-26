@@ -2,7 +2,6 @@
 .DS_Store
 .publish/
 /app/test/**/pattern-overrider.js
-/backend/drupal/modules/devel/
 /backend/drupal/sites/default/files/
 /conf.yml
 /install.log
