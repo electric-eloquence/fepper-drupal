@@ -28,5 +28,5 @@
   \{\{ title_suffix \}\}
 '/ title\?': |2
   {% endif %}
-'> 01-compounds/02-blocks/06-single-comment': |2
+'fpo_template_content': |2
   \{\{ content \}\}

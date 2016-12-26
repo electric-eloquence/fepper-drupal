@@ -1,0 +1,24 @@
+{{# templates-views-view--pages-homepage__hero? }}
+  {{> 03-templates/views-view(
+    "templates-views-view-unformatted--pages-homepage__hero?": true,
+    "views_view_attributes": ' id="views-view-content-recent-page-2"'
+  ) }}
+{{/ templates-views-view--pages-homepage__hero? }}
+{{# templates-views-view--pages-homepage__touts? }}
+  {{> 03-templates/_views-view--content-recent--block-2(
+    "templates-views-view-unformatted--pages-homepage__touts?": true
+  ) }}
+{{/ templates-views-view--pages-homepage__touts? }}
+{{# templates-views-view--pages-homepage__blog? }}
+  {{> 03-templates/views-view(
+    "templates-views-view-list--pages-homepage__blog?": true,
+    "views_view_attributes": ' id="views-view-content-recent-block-3"'
+  ) }}
+{{/ templates-views-view--pages-homepage__blog? }}
+{{# templates-views-view--pages-blog? }}
+  {{> 03-templates/views-view(
+    "templates-views-view-list--pages-blog?": true,
+    "views_view_attributes": ' id="views-view-content-recent-page-1"'
+  ) }}
+{{/ templates-views-view--pages-blog? }}
+{{{ fpo_template_content }}}

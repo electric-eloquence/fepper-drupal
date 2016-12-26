@@ -2,7 +2,11 @@
 <div{{{ page_attributes }}}>
 
   <header class="header cf" role="banner">
-    {{> 03-templates/region("templates-block--header?": true) }}
+    {{> 03-templates/region(
+      "templates-block--header?": true,
+      "attributes": ' id="region-header"'
+    ) }}
+    {{ page.header }}
   </header>
 
   {{ page.primary_menu }}
@@ -20,34 +24,52 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
-      {{# templates-page? }}
-        {{{ fpo_template_content }}}
-      {{/ templates-page? }}
       {{# templates-region--pages-homepage? }}
-        {{> 03-templates/region("templates-block--main--pages-homepage?": true) }}
+        {{> 03-templates/region(
+          "templates-block--main--pages-homepage?": true,
+          "attributes": ' id="region-content"'
+        ) }}
       {{/ templates-region--pages-homepage? }}
       {{# templates-region--pages-blog? }}
-        {{> 03-templates/region("templates-block--main--pages-blog?": true) }}
+        {{> 03-templates/region(
+          "templates-block--main--pages-blog?": true,
+          "attributes": ' id="region-content"'
+        ) }}
       {{/ templates-region--pages-blog? }}
       {{# templates-region--pages-article? }}
-        {{> 03-templates/region("templates-block--main--pages-article?": true) }}
+        {{> 03-templates/region(
+          "templates-block--main--pages-article?": true,
+          "attributes": ' id="region-content"'
+        ) }}
       {{/ templates-region--pages-article? }}
+      {{{ fpo_template_content }}}
     </div>
 
     {{# sidebar_first? }}
       <aside class="layout-sidebar-first" role="complementary">
         {{# templates-region--pages-homepage? }}
-          {{> 03-templates/region("templates-block--sidebar1--pages-homepage?": true) }}
+          {{> 03-templates/region(
+            "templates-block--sidebar1--pages-homepage?": true,
+            "attributes": ' id="region-sidebar-first"'
+          ) }}
         {{/ templates-region--pages-homepage? }}
+        {{ page.sidebar_first }}
       </aside>
     {{/ sidebar_first? }}
 
     {{# sidebar_second? }}
       <aside class="layout-sidebar-second" role="complementary">
         {{# templates-region--pages-article? }}
-          {{> 03-templates/region("templates-block--sidebar2--pages-article?": true) }}
+          {{> 03-templates/region(
+            "templates-block--sidebar2--pages-article?": true,
+            "attributes": ' id="region-sidebar-second"'
+          ) }}
         {{/ templates-region--pages-article? }}
-        {{> 03-templates/region("templates-block--sidebar2?": true) }}
+        {{> 03-templates/region(
+          "templates-block--sidebar2?": true,
+          "attributes": ' id="region-sidebar-second"'
+        ) }}
+        {{ page.sidebar_second }}
       </aside>
     {{/ sidebar_second? }}
 
@@ -55,7 +77,11 @@
 
   {{# footer? }}
     <footer role="contentinfo">
-      {{> 03-templates/region("templates-block--footer?": true) }}
+      {{> 03-templates/region(
+        "templates-block--footer?": true,
+        "attributes": ' id="region-footer"'
+      ) }}
+      {{ page.footer }}
     </footer>
   {{/ footer? }}
 

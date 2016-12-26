@@ -8,6 +8,7 @@
   right: 0
   top: 0
   width: 100%
+  z-index: 1
   h2
     border-left: 1px solid #d8d8d8
     color: transparent
@@ -36,10 +37,10 @@
     border-top: 1px solid $gray-light-2
   &.active
     max-height: 40em
-@media all and (max-width: $bp-small-end)
+@media all and (max-width: $bp-med - 1px)
   #block-mainnavigation.open
     height: auto
-@media all and (min-width: $bp-med-begin)
+@media all and (min-width: $bp-med)
   #block-mainnavigation
     border-left: 0
     clear: none
@@ -55,21 +56,30 @@
     a
       border: 0
       padding: 1em
+.more-link
+  font-style: italic
 .pager
   clear: both
+  display: flex
+  justify-content: center
   padding-top: 1em
+  .pager__items
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
   li
-    float: left
     border-right: 1px solid $gray-light-2
     &:last-child
       border: 0
   a
-    padding: 1em 0.9em
-@media all and (max-width: $bp-small-2)
-  .pager li
-    &.pager__item--previous
-      float: none
-    &.pager__item--next
-      clear: left
-.more-link
-  font-style: italic
+    padding: 1.6rem 1.4rem
+  @media all and (max-width: $bp-small - 1px)
+    .pager__items
+      width: 18rem
+  @media all and (max-width: $bp-small-2 - 1px)
+    a
+      padding: 1.6rem 1.0rem
+  @media all and (min-width: $bp-large)
+    justify-content: flex-start
+    .pager__items
+      justify-content: flex-start

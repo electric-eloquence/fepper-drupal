@@ -6,10 +6,6 @@
   {{/ block_label }}
   {{ title_suffix }}
   {{# content? }}
-    {{# templates-block? }}
-      {{{ fpo_template_content }}}
-    {{/ templates-block? }}
-
 
     {{! BEGIN HEADER }}
 
@@ -25,32 +21,24 @@
 
     {{! BEGIN HOMEPAGE }}
 
-    {{# templates-views-element-container--pages-homepage__hero? }}
-      {{> 03-templates/__views-element-container(
-        "templates-views-view--pages-homepage__hero?": true
-      ) }}
-    {{/ templates-views-element-container--pages-homepage__hero? }}
-    {{# templates-views-element-container--pages-homepage__touts? }}
-      {{> 03-templates/__views-element-container(
-        "templates-views-view--pages-homepage__touts?": true
-      ) }}
-    {{/ templates-views-element-container--pages-homepage__touts? }}
-    {{# templates-views-element-container--pages-homepage__blog? }}
-      {{> 03-templates/__views-element-container(
-        "templates-views-view--pages-homepage__blog?": true
-      ) }}
-    {{/ templates-views-element-container--pages-homepage__blog? }}
+    {{# templates-container--pages-homepage__hero? }}
+      {{> 03-templates/container("templates-views-view--pages-homepage__hero?": true) }}
+    {{/ templates-container--pages-homepage__hero? }}
+    {{# templates-container--pages-homepage__touts? }}
+      {{> 03-templates/container("templates-views-view--pages-homepage__touts?": true) }}
+    {{/ templates-container--pages-homepage__touts? }}
+    {{# templates-container--pages-homepage__blog? }}
+      {{> 03-templates/container("templates-views-view--pages-homepage__blog?": true) }}
+    {{/ templates-container--pages-homepage__blog? }}
 
     {{! END HOMEPAGE }}
 
 
     {{! BEGIN BLOG }}
 
-    {{# templates-views-element-container--pages-blog? }}
-      {{> 03-templates/__views-element-container(
-        "templates-views-view--pages-blog?": true
-      ) }}
-    {{/ templates-views-element-container--pages-blog? }}
+    {{# templates-container--pages-blog? }}
+      {{> 03-templates/container("templates-views-view--pages-blog?": true) }}
+    {{/ templates-container--pages-blog? }}
 
     {{! END BLOG }}
 
@@ -81,6 +69,7 @@
 
     {{! END FOOTER }}
 
+    {{{ fpo_template_content }}}
 
   {{/ content? }}
 </div>
