@@ -65,15 +65,18 @@ var patternlab_engine = function (configParam, configDirParam) {
     var pathsSource = config.paths.source;
     for (var pathSrc in pathsSource) {
       if (pathsSource.hasOwnProperty(pathSrc)) {
-        pathsSource[pathSrc] = configDir + '/' + pathsSource[pathSrc];
+        pathsSource[pathSrc] = path.resolve(configDir, pathsSource[pathSrc]);
       }
     }
+
     var pathsPublic = config.paths.public;
     for (var pathPub in pathsPublic) {
       if (pathsPublic.hasOwnProperty(pathPub)) {
-        pathsPublic[pathPub] = configDir + '/' + pathsPublic[pathPub];
+        pathsPublic[pathPub] = path.resolve(configDir, pathsPublic[pathPub]);
       }
     }
+
+    config.patternExportDirectory = path.resolve(configDir, config.patternExportDirectory);
   }
 
   var jsonFileStr = fs.readFileSync(path.resolve(__dirname, '../../package.json'), 'utf8');
@@ -195,16 +198,16 @@ var patternlab_engine = function (configParam, configDirParam) {
     try {
       patternlab.data = buildPatternData(paths.source.data, fs);
     } catch (ex) {
-      plutils.logRed('missing or malformed' + paths.source.data +
-        'data.json  Pattern Lab may not work without this file.');
+      plutils.logRed('ERROR: missing or malformed ' + path.resolve(paths.source.data, 'data.json') +
+      '. Pattern Lab may not work without this file.');
       patternlab.data = {};
     }
     try {
       jsonFileStr = fs.readFileSync(path.resolve(paths.source.data, 'listitems.json'), 'utf8');
       patternlab.listitems = JSON5.parse(jsonFileStr);
     } catch (ex) {
-      plutils.logRed('missing or malformed' + paths.source.data +
-        'listitems.json  Pattern Lab may not work without this file.');
+      plutils.logRed('ERROR: missing or malformed ' + path.resolve(paths.source.data, 'listitems.json') +
+      '. Pattern Lab may not work without this file.');
       patternlab.listitems = {};
     }
     try {
@@ -219,8 +222,8 @@ var patternlab_engine = function (configParam, configDirParam) {
       patternlab.viewAll = fs.readFileSync(
         path.resolve(paths.source.patternlabFiles, 'viewall.mustache'), 'utf8');
     } catch (ex) {
-      plutils.logRed('\nERROR: missing an essential file from ' + paths.source.patternlabFiles +
-        '. Pattern Lab won\'t work without this file.\n');
+      plutils.logRed('ERROR: missing an essential file from ' + paths.source.patternlabFiles +
+        '. Pattern Lab won\'t work without this file.');
       throw ex;
     }
     patternlab.patterns = [];
@@ -231,7 +234,7 @@ var patternlab_engine = function (configParam, configDirParam) {
     setCacheBust();
 
     var pattern_assembler = new pa();
-    var pattern_exporter = new pe();
+    var pattern_exporter = new pe(configDir || process.cwd());
     var list_item_hunter = new lih();
     var patterns_dir = paths.source.patterns;
 
@@ -311,7 +314,7 @@ var patternlab_engine = function (configParam, configDirParam) {
     }
 
     // export patterns if necessary
-    pattern_exporter.export_patterns(patternlab);
+    pattern_exporter.exportPatterns(patternlab);
   }
 
   return {
