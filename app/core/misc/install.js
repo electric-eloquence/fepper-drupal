@@ -2,6 +2,7 @@
 
 const exec = require('child_process').exec;
 const fs = require('fs');
+const path = require('path');
 
 const copy = require('./copy');
 
@@ -26,7 +27,8 @@ new Promise(function (resolve) {
   });
 })
 .then(function () {
-  exec('./node_modules/.bin/gulp --gulpfile app/tasker.js install', (err, stdout, stderr) => {
+  var binGulp = path.resolve('node_modules', '.bin', 'gulp');
+  exec(`${binGulp} --gulpfile app/tasker.js install`, (err, stdout, stderr) => {
     if (err) {
       throw err;
     }
