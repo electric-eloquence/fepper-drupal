@@ -55,12 +55,19 @@ when constructing parameter keys for further template reuse:
   * Or enter `fp` on the command line.
 * Consult the [Pattern Lab docs](http://patternlab.io/docs/index.html) for instructions on using Pattern Lab.
 * Start editing files in `source`. Changes should automatically appear in the browser.
-  * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).  
-* To halt Fepper, go to the command line where Fepper is running and press Ctrl+c.
+  * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).
 
 #### Drupal install
 * To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
+
+#### Windows install
+* Assumes you haven't checked out the Fepper-Windows project and just need to add the Windows scripts to your project.
+* Also assumes you have Node.js installed.
+* Requires PowerShell >= 3.0.
+* Open PowerShell and enter `npm run install-windows`
+* Double-click `fepper.vbs` to launch the UI.
+* In PowerShell, enter `.\fepper.ps1 [task]` to run Fepper tasks.
 
 ### <a id="update"></a>Update
 In most cases, you can simply copy the latest package over the old. If there are 
@@ -182,12 +189,10 @@ reverse direction, Fepper serves backend files if their directories are entered
 into the `webserved_dirs` block in `pref.yml`. Be sure these values are 
 formatted as YAML array elements.
 
-```
-DO NOT INCLUDE DIRECTORIES WITH SOURCE CODE! GITHUB PAGES AND MANY OTHER PUBLIC 
-HOSTS DO NOT PREPROCESS PHP AND OTHER PROGRAMMING LANGUAGES, SO ANY PUBLISHED 
+> DO NOT INCLUDE DIRECTORIES WITH SOURCE CODE! MANY PUBLIC HOSTS DO NOT 
+PREPROCESS PHP AND OTHER PROGRAMMING LANGUAGES OUT OF THE BOX, SO ANY PUBLISHED 
 SOURCE CODE WILL BE RENDERED AS PLAIN TEXT! THIS WILL MAKE PUBLIC ANY SENSITIVE 
 INFORMATION CONTAINED WITHIN THE SOURCE CODE!
-```
 
 ### <a id="mustache-browser"></a>Mustache Browser
 Mustache code can be viewed in the Fepper UI by clicking the eyeball icon in the 
@@ -242,10 +247,10 @@ does not ship with Stylus (or any other CSS pre/post-processor) configured.
 However, since Stylus allows for this easy sharing of variables, Fepper does 
 ship with a `source/_styles/src/stylus` directory. In order to compile it to 
 CSS in the `source/_styles/bld` directory, run `npm install` in the `extend` 
-directory. Then, uncomment the `css-process` tasks in `extend/custom.js`. The 
-Stylus files are written in the terse, Python-like, indentation-based syntax; 
-however, the more verbose, CSS-like syntax (with curly braces, colons, and 
-semi-colons) is perfectly valid as well.
+directory. Then, uncomment the `stylus:`-prefixed tasks in `extend/contrib.js`. 
+The Stylus files are written in the terse, Python-like, indentation-based 
+syntax; however, the more verbose, CSS-like syntax (with curly braces, colons, 
+and semi-colons) is perfectly valid as well.
 
 ### <a id="extensions"></a>Extensions
 The `extend` directory is purposed for extending Fepper's functionality. 
