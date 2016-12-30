@@ -73,7 +73,7 @@ when constructing parameter keys for further template reuse.
 * Also assumes you have Node.js installed.
 * Requires PowerShell >= 3.0.
 * Open PowerShell and enter `npm run install-windows`
-* Double-click `fepper.vbs` to launch the UI.
+* In File Explorer, double-click `fepper.vbs` to launch the UI.
 * In PowerShell, enter `.\fepper.ps1 [task]` to run Fepper tasks.
 
 ### <a id="update"></a>Update
