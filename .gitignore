@@ -1,8 +1,8 @@
 .*.swp
 .DS_Store
 .publish/
-/app/test/**/pattern-overrider.js
-/backend/*
+/backend/drupal/modules/devel/
+/backend/drupal/sites/default/files/
 /conf.yml
 /extend/
 /install.log
