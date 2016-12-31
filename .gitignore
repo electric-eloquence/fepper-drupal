@@ -8,9 +8,8 @@
 /install.log
 /npm-debug.log
 /patternlab-config.json
-/public/*
-!/public/styleguide/
-/public/styleguide/data/
-/public/styleguide/html/
+/pref.yml
+/public/
+/source/
 ignore/
 node_modules/
