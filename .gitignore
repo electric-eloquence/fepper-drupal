@@ -5,9 +5,9 @@
 /conf.yml
 /install.log
 /npm-debug.log
-/patternlab-config.json
-/pref.yml
-/public/
-/source/
+/public/*
+!/public/styleguide/
+/public/styleguide/data/
+/public/styleguide/html/
 ignore/
 node_modules/
