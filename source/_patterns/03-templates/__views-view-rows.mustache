@@ -13,22 +13,22 @@
   {{/ touts }}
 {{/ templates-node--pages-homepage__touts? }}
 {{# templates-node--pages-homepage__blog? }}
-  {{# latest-posts }}
+  {{# latest_posts }}
     <li{{{ row_attributes }}}>
       {{> 03-templates/node(
         article_attributes: ' role="article" typeof="schema:Article"',
         "compounds-media-block--pages-homepage__blog?": true
       ) }}
     </li>
-  {{/ latest-posts }}
+  {{/ latest_posts }}
 {{/ templates-node--pages-homepage__blog? }}
 {{# templates-node--pages-blog? }}
-  {{# latest-posts }}
+  {{# latest_posts }}
     <li{{{ row_attributes }}}>
       {{> 03-templates/node(
         article_attributes: ' role="article" typeof="schema:Article"',
         "compounds-media-block--pages-blog?": true
       ) }}
     </li>
-  {{/ latest-posts }}
+  {{/ latest_posts }}
 {{/ templates-node--pages-blog? }}
