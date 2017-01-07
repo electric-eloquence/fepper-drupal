@@ -16,7 +16,7 @@ use Drupal\Core\Template\Attribute;
 // $config['breakpoints']['bp_md_min'] = 768;
 // $config['breakpoints']['bp_sm_min'] = 480;
 // $config['breakpoints']['bp_xs_min'] = 0;
-$bp_ini = drupal_get_path('theme', 'fepper') . '/scripts/variables.styl';
+$bp_ini = drupal_get_path('theme', 'fepper') . '/_scripts/variables.styl';
 if (file_exists($bp_ini)) {
   $GLOBALS['config']['breakpoints'] = parse_ini_file($bp_ini);
 }
