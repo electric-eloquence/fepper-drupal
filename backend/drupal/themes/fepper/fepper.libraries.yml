@@ -2,13 +2,13 @@ global-styling:
   version: VERSION
   css:
     theme:
-      styles/bld/style.css: {}
+      _styles/bld/style.css: {}
 
 global-scripts:
   js:
-    scripts/src/variables.styl: {}
-    scripts/src/fepper-obj.js: {}
-    scripts/src/behaviors.js: {}
+    _scripts/src/variables.styl: {}
+    _scripts/src/fepper-obj.js: {}
+    _scripts/src/behaviors.js: {}
   dependencies:
     - core/jquery
     - core/drupal
