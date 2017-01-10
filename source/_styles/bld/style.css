@@ -1,14 +1,6 @@
-
-/* line 73 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/extend/node_modules/fp-stylus/node_modules/gulp-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $TABLE OF CONTENTS
 *------------------------------------*/
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /**
  * VARIABLES..............................Declarations of Stylus variables
  * .....Colors
@@ -33,31 +25,11 @@
  * As a project becomes more complex, another directory may be necessary.
  * Perhaps call it "views" to encompass definitions specific to page views.
  */
-
-/* line 297 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/extend/node_modules/fp-stylus/node_modules/gulp-stylus/node_modules/stylus/lib/functions/index.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_scripts/src/variables.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_scripts/src/variables.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/variables.styl */
-
-/* line 71 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/variables.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/mixins.styl */
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/mixins.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/reset.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/reset.styl */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/reset.styl */
 html,
 body,
 div,
@@ -86,8 +58,6 @@ figure {
   margin: 0;
   padding: 0;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/reset.styl */
 header,
 footer,
 nav,
@@ -97,24 +67,14 @@ hgroup,
 figure {
   display: block;
 }
-
-/* line 32 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $GLOBAL ELEMENTS
 *------------------------------------*/
-
-/* line 13 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/base/reset.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .cf,
 .layout-content,
 [role="main"] {
   *zoom: 1;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .cf:before,
 .layout-content:before,
 [role="main"]:before,
@@ -126,21 +86,15 @@ figure {
   display: table;
 /* 2 */
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .cf:after,
 .layout-content:after,
 [role="main"]:after {
   clear: both;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .is-hidden {
   display: none !important;
   visibility: hidden !important;
 }
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
@@ -150,130 +104,76 @@ figure {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
 }
-
-/* line 28 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .right {
   float: right;
   padding: 0 0 1.6rem 1.6rem;
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .right-search {
   float: right;
   padding: 0 0 1.6rem 0;
 }
-
-/* line 34 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .left {
   float: left;
   padding: 0 1.6rem 1.6rem 0;
 }
-
-/* line 38 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .align-right {
   text-align: right;
 }
-
-/* line 40 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .align-center {
   text-align: center;
 }
-
-/* line 42 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .align-left {
   text-align: left;
 }
-
-/* line 45 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .valid {
   color: #089e00;
 }
-
-/* line 47 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
 .error {
   color: #f00;
 }
-
-/* line 48 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/global-classes.styl */
-
-/* line 48 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/main.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/main.styl */
 html {
   font-size: 62.5%;
 }
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/main.styl */
 body {
   background: #fff;
   font: 1.6em/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/main.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/links.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/links.styl */
 a {
   color: #333;
   text-decoration: none;
   outline: 0;
 }
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/links.styl */
 a:hover,
 a:focus {
   color: #808080;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/links.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
 h1,
 .alpha {
   line-height: 1.2;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
 h2,
 .beta {
   line-height: 1.2;
   margin-top: 0.5em;
 }
-
-/* line 8 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
 h3,
 .gamma {
   line-height: 1.2;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
 h4 {
   font-size: 1.0625em;
   font-weight: bold;
   margin-bottom: 1.6rem;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
 .subheading {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-weight: normal;
 }
-
-/* line 17 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/headings.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
 p {
   margin-bottom: 1.6rem;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
 blockquote {
   font-style: italic;
   border-left: 1px solid #808080;
@@ -281,111 +181,67 @@ blockquote {
   padding-left: 1.6rem;
   margin-bottom: 1.6rem;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
 hr {
   border: 0;
   height: 2px;
   background: #eee;
   margin: 3.2rem 0 1.6rem;
 }
-
-/* line 17 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
 abbr {
   border-bottom: 1px dotted #808080;
   cursor: help;
 }
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/text.styl */
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
 ol,
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
 dl {
   overflow: hidden;
   margin: 0 0 1.6rem;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
 dt {
   font-weight: bold;
 }
-
-/* line 11 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
 dd {
   margin-left: 0;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/lists.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
 img,
 video,
 object {
   max-width: 100%;
   height: auto;
 }
-
-/* line 8 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
 iframe {
   margin-bottom: 1.6rem;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
 figure {
   margin-bottom: 1.6rem;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
 figure img {
   margin-bottom: 0.4rem;
 }
-
-/* line 14 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
 figcaption {
   font-style: italic;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/media.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 form > div {
   margin-bottom: 1.6rem;
 }
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 form ol,
 form ul {
   list-style: none;
   margin-left: 0;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 fieldset {
   border: 0;
   padding: 0;
   margin: 0;
 }
-
-/* line 13 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 label {
   display: block;
   padding-bottom: 0.4rem;
 }
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 button,
 input,
 select,
@@ -394,15 +250,11 @@ textarea {
   font-size: 100%;
   margin: 0;
 }
-
-/* line 20 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 input,
 textarea {
   border: 1px solid #808080;
   padding: 0.8rem 1.04rem;
 }
-
-/* line 23 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 input[type=text],
 input[type=search],
 input[type=url],
@@ -410,8 +262,6 @@ input[type=number],
 textarea {
   -webkit-appearance: none;
 }
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 button,
 input[type="submit"] {
   padding: 0.8rem;
@@ -420,40 +270,26 @@ input[type="submit"] {
   color: #fff;
   cursor: pointer;
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 input[type="checkbox"],
 input[type="radio"] {
   width: auto;
   margin-right: 0.3em;
 }
-
-/* line 35 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 input[type="search"] {
   -webkit-appearance: none;
   border-radius: 0;
 }
-
-/* line 38 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-
-/* line 42 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .field-container {
   margin-bottom: 1.6rem;
 }
-
-/* line 44 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
-
-/* line 45 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .inline-form fieldset,
 .inline-form .inline-container {
   position: relative;
 }
-
-/* line 47 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .inline-form input[type=submit],
 .inline-form button,
 .inline-form .btn {
@@ -466,8 +302,6 @@ input[type="search"]::-webkit-search-decoration {
   z-index: 1;
   width: auto;
 }
-
-/* line 56 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .inline-form input[type=submit]:hover,
 .inline-form button:hover,
 .inline-form .btn:hover,
@@ -477,55 +311,33 @@ input[type="search"]::-webkit-search-decoration {
   background: #808080;
   color: #fff;
 }
-
-/* line 59 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 #edit-actions {
   background: transparent;
   color: #808080;
   padding: 0;
   position: relative;
 }
-
-/* line 65 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .has-error {
   border-color: #f00;
 }
-
-/* line 67 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
 .is-valid {
   border-color: #089e00;
 }
-
-/* line 68 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/forms.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/tables.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/tables.styl */
 table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid #808080;
   width: 100%;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/tables.styl */
 th {
   text-align: left;
   border: 1px solid #808080;
   padding: 0.2em;
 }
-
-/* line 13 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/tables.styl */
 td {
   border: 1px solid #808080;
   padding: 0.2em;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/tables.styl */
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
 .animate-fade {
   -webkit-transition: opacity 0.3s ease-out;
   -moz-transition: opacity 0.3s ease-out;
@@ -533,15 +345,9 @@ td {
   -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
 .animate-fade:hover {
   opacity: 0;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
 .animate-move > .demo-shape {
   -webkit-transition: all 0.8s ease-in-out;
   -moz-transition: all 0.8s ease-in-out;
@@ -549,17 +355,9 @@ td {
   -o-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
 }
-
-/* line 45 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $LAYOUT
 *------------------------------------*/
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/generic/animation.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .lc,
 .header,
 [role="main"],
@@ -568,105 +366,69 @@ td {
   margin: 0 auto;
   padding: 0.8rem;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .front .layout-content {
   border-bottom: 2px solid #eee;
   margin-bottom: 1em;
   padding: 0 0 2em;
   width: 100%;
 }
-
-/* line 17 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .front .layout-content #region-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
-
-/* line 22 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .layout-sidebar-second h2 {
   border-bottom: 1px solid #ddd;
   padding: 0.5em 0;
 }
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .layout-sidebar-second li {
   padding: 0.25em 0;
   border-bottom: 1px solid #ddd;
 }
-
-/* line 28 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 .layout-sidebar-second li > * {
   display: block;
 }
-
-/* line 30 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
 @media all and (max-width: 799px) {
-
-/* line 33 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
   .layout-content {
     clear: both;
   }
 }
 @media all and (min-width: 800px) {
-
-/* line 36 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
   .layout-content,
   .layout-sidebar-first {
     float: left;
     width: 70%;
     padding-right: 1em;
   }
-
-/* line 41 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
   .layout-sidebar-second {
     float: left;
     width: 30%;
     padding: 0 0 0 1em;
   }
 }
-
-/* line 49 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $PAGE STRUCTURE
 *------------------------------------*/
-
-/* line 44 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/layout.styl */
-
-/* line 44 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 .header {
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
   padding: 0;
   position: relative;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #block-fepper-branding {
   position: relative;
   z-index: 1;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #block-fepper-branding img {
   float: left;
   max-width: 8em;
   margin: 0.4em;
 }
 @media all and (min-width: 768px) {
-
-/* line 14 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   #block-fepper-branding img {
     max-width: 9em;
   }
 }
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 .nav-toggle {
   float: right;
   display: block;
@@ -676,14 +438,10 @@ td {
   border-left: 1px solid #dbdbdb;
 }
 @media all and (min-width: 768px) {
-
-/* line 23 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   .nav-toggle {
     display: none;
   }
 }
-
-/* line 26 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #block-searchform {
   height: 3em;
   overflow: hidden;
@@ -692,8 +450,6 @@ td {
   right: 0;
   width: 3.2em;
 }
-
-/* line 33 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #block-searchform h2 {
   border-left: 1px solid #d8d8d8;
   color: transparent;
@@ -705,51 +461,37 @@ td {
   width: 3.2em;
   height: 3em;
 }
-
-/* line 43 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #block-searchform h2:before {
   color: #333;
   float: right;
   font-size: 1.3em;
   padding: 0.7em;
 }
-
-/* line 48 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form {
   background-color: #fff;
   clear: both;
   overflow: hidden;
   position: relative;
 }
-
-/* line 53 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form > div {
   float: left;
   font-size: 1em;
   height: 2.25em;
   margin-bottom: 0;
 }
-
-/* line 58 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form input {
   height: 2.25em;
 }
-
-/* line 60 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form #edit-actions:hover {
   background: #808080;
   color: #fff;
 }
-
-/* line 63 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form #edit-actions.icon-search:before {
   position: absolute;
   top: 0.5em;
   right: 1em;
   z-index: 0;
 }
-
-/* line 68 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
 #search-block-form #edit-submit {
   background: none;
   padding: 1.7rem 0 1.7rem;
@@ -761,39 +503,25 @@ td {
   z-index: 1;
 }
 @media all and (max-width: 767px) {
-
-/* line 78 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   #block-searchform.open {
     width: auto;
     height: auto;
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 82 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   #block-searchform {
     position: static;
     width: auto;
     height: auto;
   }
-
-/* line 86 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   #block-searchform h2 {
     display: none;
   }
-
-/* line 88 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
   #search-block-form {
     float: right;
     margin: 0.65em 0.5em 0 0;
   }
 }
-
-/* line 90 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/header.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation {
   height: 3em;
   overflow: hidden;
@@ -803,8 +531,6 @@ td {
   width: 100%;
   z-index: 1;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation h2 {
   border-left: 1px solid #d8d8d8;
   color: transparent;
@@ -818,47 +544,33 @@ td {
   width: 3.2em;
   height: 3em;
 }
-
-/* line 24 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation h2:before {
   color: #333;
   float: right;
   font-size: 1.3em;
   padding: 0.7em;
 }
-
-/* line 29 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation h2:hover:before {
   color: #808080;
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation ul {
   background-color: #fff;
   clear: both;
 }
-
-/* line 34 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation a {
   display: block;
   padding: 1em;
   border-top: 1px solid #eee;
 }
-
-/* line 38 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 #block-mainnavigation.active {
   max-height: 40em;
 }
 @media all and (max-width: 767px) {
-
-/* line 41 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   #block-mainnavigation.open {
     height: auto;
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 44 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   #block-mainnavigation {
     border-left: 0;
     clear: none;
@@ -868,100 +580,62 @@ td {
     width: auto;
     height: auto;
   }
-
-/* line 52 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   #block-mainnavigation h2 {
     display: none;
   }
-
-/* line 54 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   #block-mainnavigation li {
     float: left;
   }
-
-/* line 56 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   #block-mainnavigation a {
     border: 0;
     padding: 1em;
   }
 }
-
-/* line 59 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .more-link {
   font-style: italic;
 }
-
-/* line 61 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .pager {
   clear: both;
   display: flex;
   justify-content: center;
   padding-top: 1em;
 }
-
-/* line 66 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .pager .pager__items {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-/* line 70 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .pager li {
   border-right: 1px solid #eee;
 }
-
-/* line 72 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .pager li:last-child {
   border: 0;
 }
-
-/* line 74 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
 .pager a {
   padding: 1.6rem 1.4rem;
 }
 @media all and (max-width: 479px) {
-
-/* line 77 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   .pager .pager__items {
     width: 18rem;
   }
 }
 @media all and (max-width: 575px) {
-
-/* line 80 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   .pager a {
     padding: 1.6rem 1rem;
   }
 }
 @media all and (min-width: 800px) {
-
-/* line 82 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   .pager {
     justify-content: flex-start;
   }
-
-/* line 84 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
   .pager .pager__items {
     justify-content: flex-start;
   }
 }
-
-/* line 85 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/nav.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/main.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/main.styl */
 [role="main"] {
   padding: 0.8rem 0.8rem 3.2rem;
   overflow: hidden;
 }
-
-/* line 8 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/main.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 footer[role="contentinfo"] {
   clear: both;
   overflow: hidden;
@@ -969,105 +643,63 @@ footer[role="contentinfo"] {
   color: #fff;
   line-height: 1.2;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 footer[role="contentinfo"] a {
   color: #f9f9f9;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 #block-fepperfooter {
   padding: 1.6rem 1.6rem 0;
 }
 @media all and (min-width: 768px) {
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
   #block-fepperfooter p {
     float: right;
   }
 }
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 .nav-footer {
   margin: -1.6rem -1.6rem 1.6rem;
 }
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 .nav-footer li {
   border-bottom: 1px solid #333;
 }
 @media all and (min-width: 768px) {
-
-/* line 23 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
   .nav-footer li {
     border: 0;
     float: left;
   }
 }
-
-/* line 26 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
 .nav-footer a {
   display: block;
   padding: 1.6rem;
 }
-
-/* line 56 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $TEXT Styles
 *------------------------------------*/
-
-/* line 28 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/footer.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 .font-secondary {
   font-family: Georgia, Times, "Times New Roman", serif;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 .text a {
   text-decoration: underline;
 }
-
-/* line 8 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 article[role="article"] ul,
 .text ul {
   list-style: disc;
   margin: 0 0 1.6rem 1.92rem;
 }
-
-/* line 13 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 article[role="article"] ul ul,
 .text ul ul {
   margin-bottom: 0;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 article[role="article"] ol,
 .text ol {
   list-style: decimal;
   margin: 0 0 1.6rem 1.92rem;
 }
-
-/* line 18 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
 article[role="article"] ol ol,
 .text ol ol {
   margin-bottom: 0;
 }
-
-/* line 60 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/style.styl */
 /*------------------------------------*
     $COMPONENTS
 *------------------------------------*/
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/text.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 @font-face {
   font-family: 'icons';
   src: url("fonts/icons.eot");
@@ -1075,8 +707,6 @@ article[role="article"] ol ol,
   font-weight: normal;
   font-style: normal;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 [data-icon]:before {
   font-family: 'icons';
   content: attr(data-icon);
@@ -1085,8 +715,6 @@ article[role="article"] ol ol,
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-twitter:before,
 .icon-stumbleupon:before,
 .icon-pinterest:before,
@@ -1118,113 +746,69 @@ article[role="article"] ol ol,
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-twitter:before {
   content: "\74";
 }
-
-/* line 27 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-stumbleupon:before {
   content: "\75";
 }
-
-/* line 29 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-pinterest:before {
   content: "\70";
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-linkedin:before {
   content: "\69";
 }
-
-/* line 33 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-google-plus:before {
   content: "\67";
 }
-
-/* line 35 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-search:before {
   content: "\73";
 }
-
-/* line 37 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-play:before {
   content: "\61";
 }
-
-/* line 39 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-menu:before {
   content: "\21";
 }
-
-/* line 41 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-arrow-left:before {
   content: "\23";
 }
-
-/* line 43 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-arrow-right:before {
   content: "\24";
 }
-
-/* line 45 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-bubble:before {
   content: "\25";
 }
-
-/* line 47 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-facebook:before {
   content: "\66";
 }
-
-/* line 49 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-feed:before {
   content: "\27";
 }
-
-/* line 51 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-youtube:before {
   content: "\79";
 }
-
-/* line 53 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-tag:before {
   content: "\28";
 }
-
-/* line 55 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-tumblr:before {
   content: "\6d";
 }
-
-/* line 57 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-instagram:before {
   content: "\22";
 }
-
-/* line 59 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-podcast:before {
   content: "\26";
 }
-
-/* line 61 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-android:before {
   content: "\29";
 }
-
-/* line 63 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-apple:before {
   content: "\2a";
 }
-
-/* line 65 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-envelope:before {
   content: "\2b";
 }
-
-/* line 67 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-arrow:after {
   content: "\61";
   display: inline-block;
@@ -1234,20 +818,14 @@ article[role="article"] ol ol,
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-
-/* line 75 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-play:before {
   font-size: 1.12rem;
   padding-left: 0.2em;
 }
-
-/* line 78 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-play-box {
   display: block;
   margin-left: 3.2rem;
 }
-
-/* line 81 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
 .icon-play-box:before {
   padding: 0.4rem;
   background: #808080;
@@ -1255,12 +833,6 @@ article[role="article"] ol ol,
   margin-left: -2.72rem;
   margin-right: 0.8rem;
 }
-
-/* line 86 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/icons.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/buttons.styl */
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/buttons.styl */
 .btn {
   display: inline-block;
   background: #333;
@@ -1271,65 +843,41 @@ article[role="article"] ol ol,
   border: 0;
   text-align: center;
 }
-
-/* line 13 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/buttons.styl */
 .btn:hover,
 .btn:focus {
   color: #fff;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/buttons.styl */
 .btn.disabled {
   background: #eee;
   color: #bbb;
 }
-
-/* line 17 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/buttons.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .block {
   overflow: hidden;
 }
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .block p:last-child {
   margin-bottom: 0;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #block-fepper-content {
   margin-bottom: 0.5em;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #block-fepper-content img {
   display: block;
 }
-
-/* line 11 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #block-fepper-content .views-field-title .field-content a {
   font-size: 1.5em;
   font-weight: bold;
   line-height: 1.2;
 }
 @media all and (min-width: 480px) {
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content .views-field-title .field-content {
     display: table-cell;
     width: 70%;
   }
 }
 @media all and (min-width: 800px) {
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content {
     position: relative;
   }
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content .views-field-title {
     position: absolute;
     bottom: 0;
@@ -1338,45 +886,31 @@ article[role="article"] ol ol,
     background: rgba(0,0,0,0.5);
     padding: 1.5em;
   }
-
-/* line 28 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content .views-field-title a {
     color: #fff;
   }
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .block-thumb {
   display: table;
   width: 100%;
   border-collapse: collapse;
 }
-
-/* line 35 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .block-thumb .b-inner {
   display: table-row;
   vertical-align: top;
   overflow: hidden;
 }
-
-/* line 40 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #region-content > .views-row {
   margin-bottom: 0.5em;
   position: relative;
 }
-
-/* line 43 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #region-content > .views-row .views-field-field-image {
   position: relative;
   z-index: 0;
 }
-
-/* line 46 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #region-content > .views-row .views-field-field-image img {
   display: block;
 }
-
-/* line 48 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #region-content > .views-row .views-field-title {
   position: absolute;
   bottom: 0;
@@ -1384,8 +918,6 @@ article[role="article"] ol ol,
   width: 100%;
   color: #fff;
 }
-
-/* line 54 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
 .front #region-content > .views-row .views-field-title a {
   background: rgba(0,0,0,0.5);
   color: #fff;
@@ -1395,31 +927,21 @@ article[role="article"] ol ol,
   font-weight: bold;
 }
 @media all and (min-width: 480px) and (max-width: 799px) {
-
-/* line 62 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content,
   .front #region-content > .views-row {
     width: calc(50% - 0.4rem);
   }
-
-/* line 65 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   #block-fepper-content {
     position: relative;
   }
-
-/* line 67 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   #block-fepper-content .views-field-field-image {
     padding-top: 75%;
   }
-
-/* line 69 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   #block-fepper-content .views-field-field-image .field-content {
     position: absolute;
     top: 0;
     left: 0;
   }
-
-/* line 73 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   #block-fepper-content .views-field-title {
     background: rgba(0,0,0,0.5);
     overflow: hidden;
@@ -1430,67 +952,35 @@ article[role="article"] ol ol,
     width: 100%;
     height: 7.36rem;
   }
-
-/* line 82 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   #block-fepper-content .views-field-title a {
     color: #fff;
   }
 }
 @media all and (min-width: 800px) {
-
-/* line 85 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #block-fepper-content {
     width: 100%;
   }
-
-/* line 87 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
   .front #region-content > .views-row {
     padding-top: 0.8rem;
     width: calc(33.3333333% - 1.0666666rem);
   }
 }
-
-/* line 89 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/blocks.styl */
-
-/* line 89 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
 .inline-list li {
   display: inline-block;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
 .post-list li {
   margin-bottom: 1.6rem;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/lists.styl */
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
 .tooltip-container {
   display: inline-block;
   position: relative;
 }
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
 .tooltip-container:hover .tooltip {
   display: block;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
 .tooltip-link {
   background: #f9f9f9;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
 .tooltip {
   display: none;
   position: absolute;
@@ -1502,43 +992,27 @@ article[role="article"] ol ol,
   border: 1px solid #808080;
   box-shadow: 0.3em 0.3em 1em 0 rgba(0,0,0,0.2);
 }
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
 .tooltip h2 {
   margin-top: 0;
 }
 @media all and (min-width: 480px) {
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
   .tooltip {
     width: 22em;
   }
 }
 @media all and (min-width: 576px) {
-
-/* line 23 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
   .tooltip {
     width: 27em;
   }
 }
 @media all and (min-width: 638px) {
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
   .tooltip {
     width: 30em;
   }
 }
-
-/* line 26 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tooltip.styl */
-
-/* line 26 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .accordion {
   margin-bottom: 1.6rem;
 }
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .acc-handle {
   background: #131313;
   color: #fff;
@@ -1549,138 +1023,80 @@ article[role="article"] ol ol,
   padding: 0.8rem;
   border-bottom: 1px solid #ddd;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .acc-handle:after {
   content: "+";
   float: right;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .acc-handle:hover {
   color: #fff;
   background: #333;
 }
-
-/* line 18 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .acc-handle.active {
   background: #333;
 }
-
-/* line 20 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
 .acc-handle.active:after {
   content: "-";
 }
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/accordion.styl */
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs {
   overflow: hidden;
 }
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs ul {
   display: table;
   width: 100%;
 }
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs li {
   display: table-cell;
   text-align: center;
   border-right: 1px solid #ddd;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs li:last-child {
   border-right: 0;
 }
-
-/* line 12 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs a {
   display: block;
   padding: 0.8rem;
   background: #808080;
 }
-
-/* line 16 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs a:hover,
 .tabs a:focus {
   background: #ddd;
 }
-
-/* line 18 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
 .tabs a.active {
   background: #333;
   color: #fff;
 }
-
-/* line 20 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/tabs.styl */
-
-/* line 20 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
 .section {
   margin: 0 0 1.6rem;
 }
-
-/* line 3 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
 .social-share {
   overflow: hidden;
   margin-bottom: 1.6rem;
 }
-
-/* line 6 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
 .social-share li {
   float: left;
   margin-right: 0.4rem;
 }
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
 .social-share a {
   background: #333;
   color: #fff;
   display: block;
   padding: 0.8rem;
 }
-
-/* line 14 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
 .social-share a:hover {
   background: #808080;
 }
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/sections.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
 article[role="article"] {
   margin-bottom: 1.6rem;
 }
-
-/* line 4 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
 article[role="article"] > footer {
   font-size: 0.875em;
   font-style: italic;
   margin-bottom: 0.5em;
 }
-
-/* line 8 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 9 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
 #block-fepper-content > article[role="article"] > h1 {
   font-size: 2.5em;
 }
-
-/* line 11 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
 @media all and (max-width: 479px) {
-
-/* line 14 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 15 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 article[role="article"] > div > div:first-of-type > a,
   #views-view-content-recent-page-1 article[role="article"] > div > div:first-of-type > a {
     display: block;
@@ -1688,40 +1104,26 @@ article[role="article"] > footer {
   }
 }
 @media all and (max-width: 575px) {
-
-/* line 19 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 20 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 article[role="article"] > h2,
   #views-view-content-recent-page-1 article[role="article"] > h2 {
     font-size: 1.8rem;
   }
-
-/* line 22 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 article[role="article"] div[property="schema:text"],
   #views-view-content-recent-page-1 article[role="article"] div[property="schema:text"] {
     font-size: 1.4rem;
   }
 }
 @media all and (min-width: 480px) {
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 .item-list,
   #views-view-content-recent-page-1 .item-list {
     margin-top: 0.5em;
   }
-
-/* line 27 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 .item-list li,
   #views-view-content-recent-page-1 .item-list li {
     clear: both;
     float: left;
     margin-bottom: 1em;
   }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 32 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 article[role="article"] > h2,
   #views-view-content-recent-page-1 article[role="article"] > h2,
   #block-views-block-content-recent-block-3 article[role="article"] div[property="schema:text"],
@@ -1733,8 +1135,6 @@ article[role="article"] > footer {
     padding: 0 1.6rem;
     width: 70%;
   }
-
-/* line 39 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
   #block-views-block-content-recent-block-3 article[role="article"] img,
   #views-view-content-recent-page-1 article[role="article"] img {
     float: left;
@@ -1742,80 +1142,48 @@ article[role="article"] > footer {
     width: 30%;
   }
 }
-
-/* line 42 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/article.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
-
-/* line 2 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] {
   border-top: 1px solid #ddd;
   margin-top: 2em;
 }
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] h2 {
   margin: 0.667em 0;
 }
-
-/* line 7 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
   padding-bottom: 1em;
   overflow: hidden;
 }
-
-/* line 10 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
   float: left;
   min-height: 9em;
   width: 12em;
 }
-
-/* line 14 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] article[typeof="schema:Comment"] p {
   line-height: 1;
   margin: 0;
 }
-
-/* line 17 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eee;
   margin-bottom: 0.5em;
 }
-
-/* line 21 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
 }
-
-/* line 23 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] span[property="schema:name"] {
   font-weight: bold;
 }
-
-/* line 25 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] span[property="schema:name"]:before {
   content: "\A";
   white-space: pre;
 }
-
-/* line 28 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] span[property="schema:name"]:after {
   content: "\A";
   white-space: pre;
 }
-
-/* line 31 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
 section[rel="schema:comment"] > article:last-of-type {
   border-bottom: 1px solid #ddd;
 }
-
-/* line 32 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/comments.styl */
-
-/* line 1 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/messaging.styl */
-
-/* line 5 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/messaging.styl */
 .alert {
   text-align: center;
   padding: 1.6rem;
@@ -1823,8 +1191,6 @@ section[rel="schema:comment"] > article:last-of-type {
   border: 1px solid #808080;
   background: #f9f9f9;
 }
-
-/* line 11 : /Users/Shared/Sites/Vagrant/Trusty64/VHosts/Fepper/fepper-drupal-dev/source/_styles/src/stylus/partials/objects/messaging.styl */
 .alert-error {
   color: #f00;
   border-color: #f00;
