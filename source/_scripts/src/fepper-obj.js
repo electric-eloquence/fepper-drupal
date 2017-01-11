@@ -18,15 +18,15 @@
       minWidth: window.bp_lg_min
     },
     md: {
-      maxWidth: window.bp_md_max,
+      maxWidth: window.bp_lg_min - 1,
       minWidth: window.bp_md_min
     },
     sm: {
-      maxWidth: window.bp_sm_max,
+      maxWidth: window.bp_md_min - 1,
       minWidth: window.bp_sm_min
     },
     xs: {
-      maxWidth: window.bp_xs_max,
+      maxWidth: window.bp_sm_min - 1,
       minWidth: window.bp_xs_min
     }
   };
