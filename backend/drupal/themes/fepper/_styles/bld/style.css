@@ -21,9 +21,9 @@
  * MEDIA------------------------------
  * LAYOUT------------------------------
  * NAVIGATION------------------------------
- * COMPOUND AND COMPONENT DEFINITIONS.....Referred to as objects
+ * COMPOUND AND COMPONENT RULES...........Encompassed in the objects directory
  * As a project becomes more complex, another directory may be necessary.
- * Perhaps call it "views" to encompass definitions specific to page views.
+ * Perhaps call it "views" to encompass rules specific to page views.
  */
 * {
   -moz-box-sizing: border-box;
