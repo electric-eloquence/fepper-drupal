@@ -63,7 +63,7 @@ when constructing parameter keys for further template reuse.
 
 #### Base install
 * Comes with no unnecessary assets, styles, or Pattern Lab demo.
-* Node.js must be installed beforehand.
+* Node.js and Bower must be installed beforehand.
 * `npm install -g fepper-cli`
 * `npm run install-base`
 * `fp`
