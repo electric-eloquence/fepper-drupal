@@ -424,7 +424,7 @@ td {
   max-width: 8em;
   margin: 0.4em;
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   #block-fepper-branding img {
     max-width: 9em;
   }
@@ -437,7 +437,7 @@ td {
   line-height: 1;
   border-left: 1px solid #dbdbdb;
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   .nav-toggle {
     display: none;
   }
@@ -502,13 +502,13 @@ td {
   position: relative;
   z-index: 1;
 }
-@media all and (max-width: 767px) {
+@media all and (max-width: 768px) {
   #block-searchform.open {
     width: auto;
     height: auto;
   }
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   #block-searchform {
     position: static;
     width: auto;
@@ -565,12 +565,12 @@ td {
 #block-mainnavigation.active {
   max-height: 40em;
 }
-@media all and (max-width: 767px) {
+@media all and (max-width: 768px) {
   #block-mainnavigation.open {
     height: auto;
   }
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   #block-mainnavigation {
     border-left: 0;
     clear: none;
@@ -614,7 +614,7 @@ td {
 .pager a {
   padding: 1.6rem 1.4rem;
 }
-@media all and (max-width: 479px) {
+@media all and (max-width: 480px) {
   .pager .pager__items {
     width: 18rem;
   }
@@ -649,7 +649,7 @@ footer[role="contentinfo"] a {
 #block-fepperfooter {
   padding: 1.6rem 1.6rem 0;
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   #block-fepperfooter p {
     float: right;
   }
@@ -660,7 +660,7 @@ footer[role="contentinfo"] a {
 .nav-footer li {
   border-bottom: 1px solid #333;
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 769px) {
   .nav-footer li {
     border: 0;
     float: left;
@@ -868,7 +868,7 @@ article[role="article"] ol ol,
   font-weight: bold;
   line-height: 1.2;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 481px) {
   .front #block-fepper-content .views-field-title .field-content {
     display: table-cell;
     width: 70%;
@@ -926,7 +926,7 @@ article[role="article"] ol ol,
   font-size: 1.1em;
   font-weight: bold;
 }
-@media all and (min-width: 480px) and (max-width: 799px) {
+@media all and (min-width: 481px) and (max-width: 799px) {
   .front #block-fepper-content,
   .front #region-content > .views-row {
     width: calc(50% - 0.4rem);
@@ -995,7 +995,7 @@ article[role="article"] ol ol,
 .tooltip h2 {
   margin-top: 0;
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 481px) {
   .tooltip {
     width: 22em;
   }
@@ -1096,7 +1096,7 @@ article[role="article"] > footer {
 #block-fepper-content > article[role="article"] > h1 {
   font-size: 2.5em;
 }
-@media all and (max-width: 479px) {
+@media all and (max-width: 480px) {
   #block-views-block-content-recent-block-3 article[role="article"] > div > div:first-of-type > a,
   #views-view-content-recent-page-1 article[role="article"] > div > div:first-of-type > a {
     display: block;
@@ -1113,7 +1113,7 @@ article[role="article"] > footer {
     font-size: 1.4rem;
   }
 }
-@media all and (min-width: 480px) {
+@media all and (min-width: 481px) {
   #block-views-block-content-recent-block-3 .item-list,
   #views-view-content-recent-page-1 .item-list {
     margin-top: 0.5em;

@@ -73,6 +73,11 @@ when constructing parameter keys for further template reuse:
 ### <a id="update"></a>Update
 Run `npm update` to download and install the latest core updates.
 
+To update the UI:
+
+* `cd public`
+* `bower update`
+
 ### <a id="configure"></a>Configure
 Edit `pref.yml` to customize preferences and to view further documentation in 
 the comments. If you wish to use the `syncback`, `frontend-copy`, or `template` 
