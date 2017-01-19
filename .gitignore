@@ -8,6 +8,7 @@
 /install.log
 /npm-debug.log
 /patternlab-config.json
-/public/
+/public/*
+!/public/bower.json
 ignore/
 node_modules/
