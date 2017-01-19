@@ -55,6 +55,7 @@ backend:
     #- docroot/img
     #- docroot/js
     - drupal/core/assets/vendor/domready
+    - drupal/core/assets/vendor/jquery
     - drupal/core/misc
 
 templater:

@@ -59,8 +59,10 @@ $border-med = 3px
 $border-thick = 7px
 
 //Breakpoints
-$bp-small = unit(bp_sm_min, px) // From patternlab-node/source/_scripts/src/variables.styl
+$bp-xs-max = unit(bp_xs_max, px) // From source/_scripts/src/variables.styl
+$bp-small = $bp-xs-max + 1px
 $bp-small-2 = 576px
 $bp-small-3 = 638px
-$bp-med = unit(bp_md_min, px) // From patternlab-node/source/_scripts/src/variables.styl
+$bp-sm-max = unit(bp_sm_max, px) // From source/_scripts/src/variables.styl
+$bp-med = $bp-sm-max + 1px
 $bp-med-2 = 800px
