@@ -9,6 +9,6 @@
 /npm-debug.log
 /patternlab-config.json
 /public/*
-!/public/bower.json
+!/public/package.json
 ignore/
 node_modules/
