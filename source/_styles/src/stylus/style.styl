@@ -1,73 +1,44 @@
-/*------------------------------------*
-    $TABLE OF CONTENTS
-*------------------------------------*/
-/**
- * VARIABLES..............................Declarations of Stylus variables
- * .....Colors
- * .....Typography
- * .....Layout
- * .....Defaults
- * .....Breakpoints
- * MIXINS.................................Stylus mixins
- * RESET..................................Set reset defaults
- * GLOBAL CLASSES.........................Set reset defaults
- * GLOBAL ELEMENTS........................Establish global styles
- * .....Main
- * .....Headings
- * .....Text-related elements (p, blockquote, lists)
- * .....Defaults
- * .....Breakpoints
- * TYPOGRAPHY------------------------------
- * MEDIA------------------------------
- * LAYOUT------------------------------
- * NAVIGATION------------------------------
- * COMPOUND AND COMPONENT RULES...........Encompassed in the objects directory
- * As a project becomes more complex, another directory may be necessary.
- * Perhaps call it "views" to encompass rules specific to page views.
- */
+// /////////////////////////////////////////////////////////////////////////////
+// variables.styl is shared between browser JavaScripts and Stylus.
+// /////////////////////////////////////////////////////////////////////////////
 @import '../../../_scripts/src/variables'
+
+// /////////////////////////////////////////////////////////////////////////////
+// The base on which the rest of the styles are built.
+// /////////////////////////////////////////////////////////////////////////////
 @import 'partials/base/variables'
 @import 'partials/base/mixins'
 @import 'partials/base/reset'
-/*------------------------------------*
-    $GLOBAL ELEMENTS
-*------------------------------------*/
-@import 'partials/generic/global-classes'
-@import 'partials/generic/main'
-@import 'partials/generic/links'
-@import 'partials/generic/headings'
-@import 'partials/generic/text'
-@import 'partials/generic/lists'
-@import 'partials/generic/media'
-@import 'partials/generic/forms'
-@import 'partials/generic/tables'
-@import 'partials/generic/animation'
-/*------------------------------------*
-    $LAYOUT
-*------------------------------------*/
-@import 'partials/objects/layout'
-/*------------------------------------*
-    $PAGE STRUCTURE
-*------------------------------------*/
-@import 'partials/objects/header'
-@import 'partials/objects/nav'
-@import 'partials/objects/main'
-@import 'partials/objects/footer'
-/*------------------------------------*
-    $TEXT Styles
-*------------------------------------*/
-@import 'partials/objects/text'
-/*------------------------------------*
-    $COMPONENTS
-*------------------------------------*/
-@import 'partials/objects/icons'
-@import 'partials/objects/buttons'
-@import 'partials/objects/blocks'
-@import 'partials/objects/lists'
-@import 'partials/objects/tooltip'
-@import 'partials/objects/accordion'
-@import 'partials/objects/tabs'
-@import 'partials/objects/sections'
-@import 'partials/objects/article'
-@import 'partials/objects/comments'
-@import 'partials/objects/messaging'
+@import 'partials/base/global'
+@import 'partials/base/animation'
+@import 'partials/base/icons'
+
+// /////////////////////////////////////////////////////////////////////////////
+// Styles specific to Element subtypes.
+// /////////////////////////////////////////////////////////////////////////////
+@import 'partials/elements/text'
+@import 'partials/elements/lists'
+@import 'partials/elements/images'
+
+// /////////////////////////////////////////////////////////////////////////////
+// Styles specific to Compound subtypes.
+// /////////////////////////////////////////////////////////////////////////////
+@import 'partials/compounds/forms'
+@import 'partials/compounds/navigation'
+@import 'partials/compounds/messaging'
+
+// /////////////////////////////////////////////////////////////////////////////
+// Styles specific to Component subtypes.
+// /////////////////////////////////////////////////////////////////////////////
+@import 'partials/components/comments'
+@import 'partials/components/sections'
+
+// /////////////////////////////////////////////////////////////////////////////
+// Styles specific to Pages.
+// /////////////////////////////////////////////////////////////////////////////
+@import 'partials/pages/layout'
+@import 'partials/pages/header'
+@import 'partials/pages/nav'
+@import 'partials/pages/article'
+@import 'partials/pages/footer'
+@import 'partials/pages/homepage'
