@@ -13,15 +13,6 @@
     margin: 0.4em
     @media all and (min-width: $bp-med)
       max-width: 9em
-.nav-toggle
-  float: right
-  display: block
-  padding: 1.44rem 1.6rem 1.12rem
-  font-size: 2.08rem
-  line-height: 1
-  border-left: 1px solid #dbdbdb
-  @media all and (min-width: $bp-med)
-    display: none
 /* Search Form */
 #block-searchform
   height: 3em
@@ -45,35 +36,6 @@
       float: right
       font-size: 1.3em
       padding: 0.7em
-#search-block-form
-  background-color: $white
-  clear: both
-  overflow: hidden
-  position: relative
-  > div
-    float: left
-    font-size: 1em
-    height: 2.25em
-    margin-bottom: 0
-  input
-    height: 2.25em
-  #edit-actions:hover
-    background: $gray
-    color: $white
-  #edit-actions.icon-search:before
-    position: absolute
-    top: 0.5em
-    right: 1em
-    z-index: 0
-  #edit-submit
-    background: none
-    padding: 1.7rem 0 1.7rem
-    border: 1px solid $gray
-    border-left: 0
-    color: transparent
-    font-size: 0.8125em
-    position: relative
-    z-index: 1
 @media all and (max-width: $bp-med - 1px)
   #block-searchform.open
     width: auto
@@ -85,6 +47,3 @@
     height: auto
     h2
       display: none
-  #search-block-form
-    float: right
-    margin: 0.65em 0.5em 0 0
