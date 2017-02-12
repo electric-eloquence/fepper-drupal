@@ -5,10 +5,10 @@
 /backend/drupal/sites/default/files/
 /conf.yml
 /extend/
+ignore/
 /install.log
+node_modules/
 /npm-debug.log
 /patternlab-config.json
 /public/*
 !/public/package.json
-ignore/
-node_modules/
