@@ -40,6 +40,13 @@ when constructing parameter keys for further template reuse:
 * [Contribute](#contribute)
 
 ### <a id="install"></a>Install
+#### System requirements
+* Unix-like or Windows OS.
+* Recommended minimum Node.js version 7.6.0.
+
+#### The simplest way to get started
+* Download the [latest release](https://github.com/electric-eloquence/fepper-drupal/releases).
+
 #### Main install
 * On Mac OS:
   * Double-click `fepper.command`
