@@ -2,11 +2,7 @@
 
 # A frontend prototyper for the rapid prototyping of websites
 
-### Downstream projects
-* [Fepper Base](https://github.com/electric-eloquence/fepper-base) - no unnecessary assets, styles, or Pattern Lab demo.
-* [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) - templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
-* [Fepper for Windows](https://github.com/electric-eloquence/fepper-windows) - scripted to run on Windows.
-* [Fepper for Wordpress](https://github.com/electric-eloquence/fepper-wordpress) - templates configured for WordPress, along with a WordPress theme built to accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
 ### Parameterized Template Reuse
 The patterns in `03-templates` show the reuse of templates. The recursion paths 
