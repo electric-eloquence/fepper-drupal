@@ -2,11 +2,23 @@
 
 # A frontend prototyper for the rapid prototyping of websites
 
-### Downstream projects
-* [Fepper Base](https://github.com/electric-eloquence/fepper-base) - no unnecessary assets, styles, or Pattern Lab demo.
-* [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) - templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
-* [Fepper for Windows](https://github.com/electric-eloquence/fepper-windows) - scripted to run on Windows.
-* [Fepper for Wordpress](https://github.com/electric-eloquence/fepper-wordpress) - templates configured for WordPress, along with a WordPress theme built to accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
+
+### Parameterized Template Reuse
+The patterns in `03-templates` show the reuse of templates. The recursion paths 
+match that in Drupal, and as such, the Fepper templates can be exported to 
+Drupal with no further effort beyond running `fp template`. Follow these rules 
+when constructing parameter keys for further template reuse:
+
+* The parameter key should be BEM-like in syntax.
+* It should start with the target's significant identifier, usually a partial.
+* To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
+* Follow that with any nested element or any modifying term (in BEM syntax).
+* Follow that with a `--` and then the pattern ID of the original page or pattern at the top level of recursion.
+* Follow that with any nested element or any modifying term (in BEM syntax).
+* This type of parameter is usually boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
+* Quoting of keys and values should follow JSON5 syntax: http://json5.org
+* When quoting is necessary, to avoid escaping quotes in .mustache and .yml files, wrap keys in double-quotes and values in single-quotes.
 
 ### Table of contents
 * [Install](#install)
