@@ -2,7 +2,7 @@
 
 # A frontend prototyper for the rapid prototyping of websites
 
-##### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
 ### Parameterized Template Reuse
 The patterns in `03-templates` show the reuse of templates. The recursion paths 
