@@ -5,6 +5,7 @@
  * Functions to support theming in the Fepper theme.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Template\Attribute;
 
 /*
@@ -17,8 +18,8 @@ use Drupal\Core\Template\Attribute;
 // $config['breakpoints']['bp_md_min'] = 768;
 // $config['breakpoints']['bp_sm_min'] = 480;
 // $config['breakpoints']['bp_xs_min'] = 0;
-*/
-$bp_ini = drupal_get_path('theme', 'fepper') . '/scripts/src/variables.styl';
+ */
+$bp_ini = drupal_get_path('theme', 'fepper') . '/_scripts/src/variables.styl';
 if (file_exists($bp_ini)) {
   $GLOBALS['config']['breakpoints'] = parse_ini_file($bp_ini);
 }
@@ -26,7 +27,7 @@ if (file_exists($bp_ini)) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function fepper_form_comment_form_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function fepper_form_comment_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
   if (!$user->id()) {
     $form['comment_body']['widget'][0]['#type'] = 'textarea';
@@ -36,7 +37,7 @@ function fepper_form_comment_form_alter(&$form, Drupal\Core\Form\FormStateInterf
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function fepper_form_search_block_form_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function fepper_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['keys']['#attributes']['placeholder'] = 'Search';
   $form['keys']['#attributes']['size'] = '';
   $form['actions']['#attributes']['class'][] = 'icon-search';
