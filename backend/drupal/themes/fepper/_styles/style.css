@@ -423,7 +423,7 @@ input[type="search"]::-webkit-search-decoration {
   position: relative;
   z-index: 1;
 }
-@media all and (min-width: 769px) {
+@media all and (min-width: 768px) {
   #search-block-form {
     float: right;
     margin: 0.65em 0.5em 0 0;
@@ -655,7 +655,7 @@ section[rel="schema:comment"] > article:last-of-type {
   max-width: 8em;
   margin: 0.4em;
 }
-@media all and (min-width: 769px) {
+@media all and (min-width: 768px) {
   #block-fepper-branding img {
     max-width: 9em;
   }
@@ -685,13 +685,13 @@ section[rel="schema:comment"] > article:last-of-type {
   font-size: 1.3em;
   padding: 0.7em;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 767px) {
   #block-searchform.open {
     width: auto;
     height: auto;
   }
 }
-@media all and (min-width: 769px) {
+@media all and (min-width: 768px) {
   #block-searchform {
     position: static;
     width: auto;
@@ -744,12 +744,12 @@ section[rel="schema:comment"] > article:last-of-type {
 #block-mainnavigation.active {
   max-height: 40em;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 767px) {
   #block-mainnavigation.open {
     height: auto;
   }
 }
-@media all and (min-width: 769px) {
+@media all and (min-width: 768px) {
   #block-mainnavigation {
     border-left: 0;
     clear: none;
@@ -854,7 +854,7 @@ footer[role="contentinfo"] a {
 #block-fepperfooter {
   padding: 1.6rem 1.6rem 0;
 }
-@media all and (min-width: 769px) {
+@media all and (min-width: 768px) {
   #block-fepperfooter p {
     float: right;
   }
