@@ -2,7 +2,7 @@ global-styling:
   version: VERSION
   css:
     theme:
-      _styles/bld/style.css: {}
+      _styles/style.css: {}
 
 global-scripts:
   js:
