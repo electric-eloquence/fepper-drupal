@@ -7,6 +7,7 @@
 
 use Drupal\Core\Template\Attribute;
 
+/*
 // Parse variables.styl for breakpoints. Add them to the global $config array.
 // Do this in the global scope so any and all functions can access these
 // breakpoint configurations, even module functions.
@@ -16,7 +17,8 @@ use Drupal\Core\Template\Attribute;
 // $config['breakpoints']['bp_md_min'] = 768;
 // $config['breakpoints']['bp_sm_min'] = 480;
 // $config['breakpoints']['bp_xs_min'] = 0;
-$bp_ini = drupal_get_path('theme', 'fepper') . '/_scripts/variables.styl';
+*/
+$bp_ini = drupal_get_path('theme', 'fepper') . '/scripts/src/variables.styl';
 if (file_exists($bp_ini)) {
   $GLOBALS['config']['breakpoints'] = parse_ini_file($bp_ini);
 }
@@ -24,7 +26,7 @@ if (file_exists($bp_ini)) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function fepper_form_comment_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function fepper_form_comment_form_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $user = \Drupal::currentUser();
   if (!$user->id()) {
     $form['comment_body']['widget'][0]['#type'] = 'textarea';
@@ -34,7 +36,7 @@ function fepper_form_comment_form_alter(&$form, \Drupal\Core\Form\FormStateInter
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function fepper_form_search_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function fepper_form_search_block_form_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   $form['keys']['#attributes']['placeholder'] = 'Search';
   $form['keys']['#attributes']['size'] = '';
   $form['actions']['#attributes']['class'][] = 'icon-search';
@@ -55,6 +57,22 @@ function fepper_preprocess_block(&$variables) {
       case 'searchform':
         $variables['title_attributes']['class'][] = 'icon-search';
         break;
+
+    }
+  }
+
+  // Move views-element-container class to more appropriate div.
+  $container_class = 'views-element-container';
+  if (is_array($variables['attributes']['class'])) {
+    foreach ($variables['attributes']['class'] as $key => $value) {
+      if ($value == $container_class) {
+        unset($variables['attributes']['class'][$key]);
+        $variables['content'] = [];
+        $variables['content']['#cache'] = $variables['elements']['content']['#cache'];
+        $variables['content']['#markup'] = render($variables['elements']['content']);
+        $variables['content']['#markup'] = preg_replace('/^(\s*<div)(>)/', '$1 class="' . $container_class . '"$2', $variables['content']['#markup']);
+        break;
+      }
     }
   }
 }
@@ -71,17 +89,10 @@ function fepper_preprocess_comment(&$variables) {
  * Implements template_preprocess_page().
  */
 function fepper_preprocess_page(&$variables) {
-  $variables['page_attributes'] = new Attribute(array('class' => array('layout-container')));
+  $variables['page_attributes'] = new Attribute(['class' => ['layout-container']]);
   if ($variables['is_front']) {
     $variables['page_attributes']['class'][] = 'front';
   }
-}
-
-/**
- * Implements template_preprocess_region().
- */
-function fepper_preprocess_region(&$variables) {
-  $variables['attributes']['id'][0] = 'region-' . str_replace('_', '-', $variables['region']);
 }
 
 /**
@@ -89,11 +100,6 @@ function fepper_preprocess_region(&$variables) {
  */
 function fepper_preprocess_views_view(&$variables) {
   $view = $variables['view'];
-
-  $variables['attributes']['id'][0] = 'views-view';
-  $variables['attributes']['id'][0] .= '-' . str_replace('_', '-', $view->element['#view_id']);
-  $variables['attributes']['id'][0] .= '-' . str_replace('_', '-', $view->element['#display_id']);
-
   if (strpos($view->current_display, 'page') === 0) {
     $variables['title'] = $view->getTitle();
   }
