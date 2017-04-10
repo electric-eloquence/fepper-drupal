@@ -4,12 +4,14 @@
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
-### Parameterized Template Reuse
-The patterns in `03-templates` show the reuse of templates. The recursion paths 
-match that in Drupal, and as such, the Fepper templates can be exported to 
-Drupal with no further effort beyond running `fp template`. Follow these rules 
-when constructing parameter keys for further template reuse:
+### Template Reuse
+The patterns in `03-templates` are parameterized to reuse templates in a 
+Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
+Fepper templates can be exported to Drupal with no further effort beyond running 
+`fp template`. Follow these rules when constructing parameter keys and values 
+for template reuse:
 
+* The parameters are submitted within parentheses inside the Mustache inclusion tags.
 * The parameter key should be BEM-like in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
