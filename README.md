@@ -66,12 +66,10 @@ for template reuse:
 * Start editing files in `source`. Changes should automatically appear in the browser.
   * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).
 
-#### Base install
-* Comes with no unnecessary assets, styles, or Pattern Lab demo.
-* Node.js must be installed beforehand.
-* `npm install -g fepper-cli`
-* `npm run install-base`
-* `fp`
+#### Drupal install
+* To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
+* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
+* Log into the Drupal admin with `admin:admin`
 
 #### Windows install
 * Assumes you haven't checked out the Fepper-Windows project and just need to add the Windows scripts to your project.
