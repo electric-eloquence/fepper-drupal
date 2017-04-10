@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  window.FEPPER = {
+  var FEPPER = {
     breakpoints: {
       lg: {
         maxWidth: window.bp_lg_max || -1,
@@ -13,10 +13,10 @@
       },
       md: {
         maxWidth: window.bp_md_max || 1024,
-        minWidth: window.bp_sm_max ? window.bp_sm_max + 1 : 769
+        minWidth: window.bp_sm_max ? window.bp_sm_max + 1 : 768
       },
       sm: {
-        maxWidth: window.bp_sm_max || 768,
+        maxWidth: window.bp_sm_max || 767,
         minWidth: window.bp_xs_max ? window.bp_xs_max + 1 : 481
       },
       xs: {
@@ -25,4 +25,6 @@
       }
     }
   };
+
+  window.FEPPER = FEPPER;
 })();
