@@ -33,7 +33,7 @@
 * Unix-like or Windows OS.
 * Recommended minimum Node.js version 7.6.0.
 
-#### The simplest way to get started
+#### Simplest way to get started
 * Download the [latest release](https://github.com/electric-eloquence/fepper/releases).
 
 #### Main install
@@ -227,9 +227,9 @@ values:
 
 ```
 bp_lg_max = -1
-bp_lg_min = 1024
-bp_md_min = 768
-bp_sm_min = 480
+bp_md_max = 1024
+bp_sm_max = 767
+bp_xs_max = 480
 bp_xs_min = 0
 ```
 
