@@ -4,6 +4,8 @@
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
+* [Main project](https://github.com/electric-eloquence/fepper)
+
 ### Template Reuse
 The patterns in `03-templates` are parameterized to reuse templates in a 
 Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
