@@ -1,6 +1,6 @@
 ## Fepper
 
-# A frontend prototyper tool for the rapid prototyping of web sites
+# A frontend prototyper tool for rapid prototyping of web sites
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
