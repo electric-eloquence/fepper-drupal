@@ -673,7 +673,7 @@ section[rel="schema:comment"] > article:last-of-type {
   }
 }
 #block-searchform {
-  overflow: hidden;
+  float: right;
 }
 #block-searchform h2 {
   border-left: 1px solid #d8d8d8;
@@ -691,9 +691,6 @@ section[rel="schema:comment"] > article:last-of-type {
   padding: 0.7em;
 }
 @media all and (max-width: 767px) {
-  #block-searchform {
-    float: right;
-  }
   #block-searchform h2 {
     width: 5rem;
     height: 5rem;
@@ -767,7 +764,7 @@ section[rel="schema:comment"] > article:last-of-type {
   #block-mainnavigation {
     border-top: 1px solid #eee;
     clear: none;
-    float: right;
+    float: left;
     margin-top: -0.1rem;
     padding-top: 1.2rem;
     position: static;
