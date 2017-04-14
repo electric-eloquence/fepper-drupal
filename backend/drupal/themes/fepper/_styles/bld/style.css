@@ -726,6 +726,9 @@ section[rel="schema:comment"] > article:last-of-type {
 #block-mainnavigation h2:hover:before {
   color: #808080;
 }
+#block-mainnavigation ul {
+  background-color: #fff;
+}
 #block-mainnavigation a {
   display: block;
 }
@@ -738,7 +741,6 @@ section[rel="schema:comment"] > article:last-of-type {
     height: 5rem;
   }
   #block-mainnavigation > ul {
-    background-color: #fff;
     max-height: 0;
     overflow: hidden;
     position: absolute;
