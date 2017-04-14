@@ -2,7 +2,6 @@
   background: $white
   border-bottom: 1px solid #dbdbdb
   padding: 0
-  position: relative
   @extend .lc
 #block-fepper-branding
   position: relative
@@ -15,12 +14,7 @@
       max-width: 9em
 /* Search Form */
 #block-searchform
-  height: 3em
   overflow: hidden
-  position: absolute
-  top: 0
-  right: 0
-  width: 3.2em
   h2
     border-left: 1px solid #d8d8d8
     color: transparent
@@ -29,19 +23,17 @@
     font-size: 1em
     margin: 0
     overflow: hidden
-    width: 3.2em
-    height: 3em
     &:before
       color: $gray-dark
       float: right
       font-size: 1.3em
       padding: 0.7em
-@media all and (max-width: $bp-med - 1px)
-  #block-searchform.open
-    width: auto
-    height: auto
-@media all and (min-width: $bp-med)
-  #block-searchform
+  @media all and (max-width: $bp-sm-max)
+    float: right
+    h2
+      width: 5rem
+      height: 5rem
+  @media all and (min-width: $bp-med)
     position: static
     width: auto
     height: auto

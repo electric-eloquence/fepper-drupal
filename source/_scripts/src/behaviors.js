@@ -11,7 +11,7 @@
       $('#block-mainnavigation, #block-searchform', context)
         .children('h2')
         .click(function () {
-          $(this).parents().toggleClass('open');
+          $(this).parent().toggleClass('open');
         }
       );
     }
