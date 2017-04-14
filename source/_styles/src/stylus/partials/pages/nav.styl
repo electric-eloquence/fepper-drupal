@@ -30,26 +30,45 @@
     clear: both
   a
     display: block
-    padding: 1em
+  @media all and (max-width: $bp-sm-max)
+    li
+      border-top: 1px solid $gray-light-2
+      a
+        display: table
+        padding: $pad-half $pad
+      li
+        padding-left: 2rem;
+    &.open
+      height: auto
+  @media all and (min-width: $bp-med)
     border-top: 1px solid $gray-light-2
-  &.active
-    max-height: 40em
-@media all and (max-width: $bp-med - 1px)
-  #block-mainnavigation.open
-    height: auto
-@media all and (min-width: $bp-med)
-  #block-mainnavigation
-    border-left: 0
     clear: none
     float: right
-    padding-right: 0
+    margin-top: -0.1rem
+    padding-top: $pad-quarter * 3
     position: static
     width: auto
     height: auto
     h2
       display: none
+    ul
+      ul
+        max-height: 0
+        overflow: hidden
+        position: absolute
+        transition: max-height 0.3s ease
+        z-index: 2
+        li
+          float: none
+          border: 1px solid $gray-light-2
+          border-bottom: 0
+          &:last-child
+            border-bottom: 1px solid $gray-light-2
     li
       float: left
     a
-      border: 0
-      padding: 1em
+      padding: $pad-quarter $pad
+    > ul
+      > li:hover
+        ul
+          max-height: 100%
