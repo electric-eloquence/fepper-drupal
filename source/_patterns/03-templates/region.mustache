@@ -9,17 +9,17 @@
         block_attributes: ' id="block-fepper-branding"',
         "elements-logo?": true
       ) }}
-      {{> 03-templates/_block--system-menu-block(
-        block_attributes: ' id="block-mainnavigation"',
-        title_attributes: ' class="icon-menu"',
-        block_label: 'Main navigation',
-        "compounds-primary-nav?": true
-      ) }}
       {{> 03-templates/block(
         block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
         title_attributes: ' class="icon-search"',
         block_label: 'Search form',
         "compounds-search?": true
+      ) }}
+      {{> 03-templates/_block--system-menu-block(
+        block_attributes: ' id="block-mainnavigation"',
+        title_attributes: ' class="icon-menu"',
+        block_label: 'Main navigation',
+        "compounds-primary-nav?": true
       ) }}
     {{/ templates-block--header? }}
 

@@ -74,7 +74,15 @@ input[type="search"]::-webkit-search-decoration
     font-size: 0.8125em
     position: relative
     z-index: 1
-@media all and (min-width: $bp-med)
-  #search-block-form
+  @media all and (max-width: $bp-sm-max)
+    margin-top: 0.3rem
+    max-height: 0
+    position: absolute
+    top: 5rem
+    right: 0
+    z-index: 2
+    .open &
+      max-height: 100%
+  @media all and (min-width: $bp-med)
     float: right
     margin: 0.65em 0.5em 0 0

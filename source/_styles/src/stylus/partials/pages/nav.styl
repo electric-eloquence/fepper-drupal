@@ -1,11 +1,4 @@
 #block-mainnavigation
-  height: 3em
-  overflow: hidden
-  position: absolute
-  right: 0
-  top: 0
-  width: 100%
-  z-index: 1
   h2
     border-left: 1px solid #d8d8d8
     color: transparent
@@ -13,11 +6,6 @@
     float: right
     font-size: 1em
     margin: 0
-    position: relative
-    right: 3.25em
-    top: 0
-    width: 3.2em
-    height: 3em
     &:before
       color: $gray-dark
       float: right
@@ -25,12 +13,21 @@
       padding: 0.7em
     &:hover:before
       color: $gray
-  ul
-    background-color: $white
-    clear: both
   a
     display: block
   @media all and (max-width: $bp-sm-max)
+    float: right
+    h2
+      width: 5rem
+      height: 5rem
+    > ul
+      background-color: $white
+      max-height: 0
+      overflow: hidden
+      position: absolute
+      top: 5rem
+      left: 0
+      z-index: 1
     li
       border-top: 1px solid $gray-light-2
       a
@@ -39,7 +36,9 @@
       li
         padding-left: 2rem;
     &.open
-      height: auto
+      > ul
+        max-height: 100%
+        width: 100%
   @media all and (min-width: $bp-med)
     border-top: 1px solid $gray-light-2
     clear: none
