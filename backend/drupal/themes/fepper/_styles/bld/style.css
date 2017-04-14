@@ -423,6 +423,19 @@ input[type="search"]::-webkit-search-decoration {
   position: relative;
   z-index: 1;
 }
+@media all and (max-width: 767px) {
+  #search-block-form {
+    margin-top: 0.3rem;
+    max-height: 0;
+    position: absolute;
+    top: 5rem;
+    right: 0;
+    z-index: 2;
+  }
+  .open #search-block-form {
+    max-height: 100%;
+  }
+}
 @media all and (min-width: 768px) {
   #search-block-form {
     float: right;
@@ -644,7 +657,6 @@ section[rel="schema:comment"] > article:last-of-type {
   background: #fff;
   border-bottom: 1px solid #dbdbdb;
   padding: 0;
-  position: relative;
 }
 #block-fepper-branding {
   position: relative;
@@ -661,12 +673,7 @@ section[rel="schema:comment"] > article:last-of-type {
   }
 }
 #block-searchform {
-  height: 3em;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 3.2em;
 }
 #block-searchform h2 {
   border-left: 1px solid #d8d8d8;
@@ -676,8 +683,6 @@ section[rel="schema:comment"] > article:last-of-type {
   font-size: 1em;
   margin: 0;
   overflow: hidden;
-  width: 3.2em;
-  height: 3em;
 }
 #block-searchform h2:before {
   color: #333;
@@ -686,9 +691,12 @@ section[rel="schema:comment"] > article:last-of-type {
   padding: 0.7em;
 }
 @media all and (max-width: 767px) {
-  #block-searchform.open {
-    width: auto;
-    height: auto;
+  #block-searchform {
+    float: right;
+  }
+  #block-searchform h2 {
+    width: 5rem;
+    height: 5rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -701,15 +709,6 @@ section[rel="schema:comment"] > article:last-of-type {
     display: none;
   }
 }
-#block-mainnavigation {
-  height: 3em;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
 #block-mainnavigation h2 {
   border-left: 1px solid #d8d8d8;
   color: transparent;
@@ -717,11 +716,6 @@ section[rel="schema:comment"] > article:last-of-type {
   float: right;
   font-size: 1em;
   margin: 0;
-  position: relative;
-  right: 3.25em;
-  top: 0;
-  width: 3.2em;
-  height: 3em;
 }
 #block-mainnavigation h2:before {
   color: #333;
@@ -732,14 +726,26 @@ section[rel="schema:comment"] > article:last-of-type {
 #block-mainnavigation h2:hover:before {
   color: #808080;
 }
-#block-mainnavigation ul {
-  background-color: #fff;
-  clear: both;
-}
 #block-mainnavigation a {
   display: block;
 }
 @media all and (max-width: 767px) {
+  #block-mainnavigation {
+    float: right;
+  }
+  #block-mainnavigation h2 {
+    width: 5rem;
+    height: 5rem;
+  }
+  #block-mainnavigation > ul {
+    background-color: #fff;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    z-index: 1;
+  }
   #block-mainnavigation li {
     border-top: 1px solid #eee;
   }
@@ -750,8 +756,9 @@ section[rel="schema:comment"] > article:last-of-type {
   #block-mainnavigation li li {
     padding-left: 2rem;
   }
-  #block-mainnavigation.open {
-    height: auto;
+  #block-mainnavigation.open > ul {
+    max-height: 100%;
+    width: 100%;
   }
 }
 @media all and (min-width: 768px) {
