@@ -51,7 +51,16 @@
     height: auto
     h2
       display: none
-    ul
+    li
+      float: left
+    a
+      padding: $pad-quarter $pad
+    .expanded
+      > a::after
+        color: $gray
+        content: "▼"
+        font-size: $font-size-sm
+        margin-left: $space-half
       ul
         max-height: 0
         overflow: hidden
@@ -64,11 +73,6 @@
           border-bottom: 0
           &:last-child
             border-bottom: 1px solid $gray-light-2
-    li
-      float: left
-    a
-      padding: $pad-quarter $pad
-    > ul
-      > li:hover
+      &:hover
         ul
           max-height: 100%
