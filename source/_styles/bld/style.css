@@ -768,7 +768,19 @@ section[rel="schema:comment"] > article:last-of-type {
   #block-mainnavigation h2 {
     display: none;
   }
-  #block-mainnavigation ul ul {
+  #block-mainnavigation li {
+    float: left;
+  }
+  #block-mainnavigation a {
+    padding: 0.4rem 1.6rem;
+  }
+  #block-mainnavigation .expanded > a::after {
+    color: #808080;
+    content: "▼";
+    font-size: 1.2rem;
+    margin-left: 0.8rem;
+  }
+  #block-mainnavigation .expanded ul {
     max-height: 0;
     overflow: hidden;
     position: absolute;
@@ -779,21 +791,15 @@ section[rel="schema:comment"] > article:last-of-type {
     transition: max-height 0.3s ease;
     z-index: 2;
   }
-  #block-mainnavigation ul ul li {
+  #block-mainnavigation .expanded ul li {
     float: none;
     border: 1px solid #eee;
     border-bottom: 0;
   }
-  #block-mainnavigation ul ul li:last-child {
+  #block-mainnavigation .expanded ul li:last-child {
     border-bottom: 1px solid #eee;
   }
-  #block-mainnavigation li {
-    float: left;
-  }
-  #block-mainnavigation a {
-    padding: 0.4rem 1.6rem;
-  }
-  #block-mainnavigation > ul > li:hover ul {
+  #block-mainnavigation .expanded:hover ul {
     max-height: 100%;
   }
 }
