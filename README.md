@@ -1,6 +1,6 @@
 ## Fepper for Drupal
 
-# A frontend prototyper for the rapid prototyping of websites
+# A frontend prototyper tool for rapid prototyping of web sites
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
@@ -38,6 +38,7 @@ for template reuse:
 * [Mustache Browser](#mustache-browser)
 * [HTML Scraper](#html-scraper)
 * [variables.styl](#variables.styl)
+* [UI Customization](#ui-customization)
 * [Extensions](#extensions)
 * [Mobile Devices](#mobile-devices)
 * [More Documentation](#more-documentation)
@@ -48,11 +49,11 @@ for template reuse:
 * Unix-like or Windows OS.
 * Recommended minimum Node.js version 7.6.0.
 
-#### The simplest way to get started
+#### Simplest way to get started
 * Download the [latest release](https://github.com/electric-eloquence/fepper-drupal/releases).
 
 #### Main install
-* On Mac OS:
+* On macOS:
   * Double-click `fepper.command`
   * Or on the command line, enter `./fepper.command`
 * On other OSs:
@@ -85,12 +86,7 @@ for template reuse:
   * If you Set-ExecutionPolicy to allow ps1 scripts, you can also enter `.\fepper.ps1 [task]`
 
 ### <a id="update"></a>Update
-Run `npm update` to download and install the latest core updates.
-
-To update the UI:
-
-* `cd public`
-* `npm update`
+Run `fp update` to download and install the latest updates.
 
 ### <a id="configure"></a>Configure
 Edit `pref.yml` to customize preferences and to view further documentation in 
@@ -99,7 +95,7 @@ tasks, you must supply values for the `backend.synced_dirs` preferences in order
 for those directories to get processed and copied to the backend.
 
 ### <a id="use"></a>Use
-* To launch from the Mac OS X Finder:
+* To launch from the macOS Finder:
   * Double-click `fepper.command`
 * To launch from the command line:
   * `fp`
@@ -159,7 +155,7 @@ backend web application.
 * These YAML files must match the source file's name with exception of the extension. 
 * The extension must be `.yml`
 * The overriding property must only contain the lowest level key-value, not the entire hierarchy, i.e. only `assets_dir`, `scripts_dir`, or `styles_dir` 
-* Files prefixed by "__" will be ignored as will files in the `_nosync` directory at the root of the source directories. 
+* Files prefixed by "\_\_" will be ignored as will files in the `_nosync` directory at the root of the source directories. 
 
 ### <a id="templater"></a>Templater
 Fepper's Mustache templates can be translated into templates compatible with 
@@ -182,7 +178,7 @@ Run `fp syncback` or `fp template` to execute the Templater.
 
 * Be sure that `backend.synced_dirs.templates_dir` and `backend.synced_dirs.templates_ext` are set in `pref.yml`. 
 * The default `templates_dir` and `templates_ext` settings in `pref.yml` can be overridden by similarly named settings in the template-specific YAML files. 
-* Templates prefixed by "__" will be ignored by the Templater as will files in the `_nosync` directory. 
+* Templates prefixed by "\_\_" will be ignored by the Templater as will files in the `_nosync` directory. 
 * The Templater will recurse through nested Mustache templates if the tags are written in the verbose syntax and have the `.mustache` extension, i.e. `{{> 02-organisms/00-global/00-header.mustache }}`. 
 * However, the more common inclusion use-case is to leave off the extension, and not recurse. 
 
@@ -231,8 +227,7 @@ Upon submission, you should be able to review the scraped output on the
 subsequent page. If the output looks correct, enter a filename and submit again. 
 The Scraper will save Mustache and JSON files by that name in the 98-scrape 
 directory, also viewable under the Scrape menu of the toolbar. The Scraper will 
-correctly indent the Mustache code. However, this beautification may also render 
-some attributes of the Mustache code a little different than the original HTML.
+also correctly indent the Mustache code.
 
 ### <a id="variables.styl"></a>variables.styl
 `source/_scripts/src/variables.styl` is a file containing variables that can 
@@ -242,9 +237,9 @@ values:
 
 ```
 bp_lg_max = -1
-bp_lg_min = 1024
-bp_md_min = 768
-bp_sm_min = 480
+bp_md_max = 1024
+bp_sm_max = 767
+bp_xs_max = 480
 bp_xs_min = 0
 ```
 
@@ -260,6 +255,52 @@ directory. Then, uncomment the `stylus:`-prefixed tasks in `extend/contrib.js`.
 The Stylus files are written in the terse, Python-like, indentation-based 
 syntax; however, the more verbose, CSS-like syntax (with curly braces, colons, 
 and semi-colons) is perfectly valid as well.
+
+The UI's viewport resizer buttons are dependent on the values in this file. The 
+default values will configure the XS, SM, and MD buttons to resize the viewport 
+to each breakpoint's assigned maximum width. The LG button will resize the 
+viewport to a width that is greater than `bp_md_max` by the distance between 
+`bp_sm_max` and `bp_md_max`.
+
+Users have the ability to add, modify, or delete values in this file. The UI 
+will respect these changes, keeping in mind that additions must be prefixed by 
+`bp_` and suffixed by `_max` in order for them to appear as viewport resizer 
+buttons. A `-1` value translates to `Number.MAX_SAFE_INTEGER`, and effectively 
+means infinity.
+
+### <a id="ui-customization"></a>UI Customization
+All aspects of the UI are available for customization. For example, the toolbar 
+can accept additions, modifications, and deletions per the needs of end users. 
+The UI is built by recursive, functional React calls. The recursion tree is 
+reflected by the directory structure containing the modules which compose the 
+UI. To override any given module, copy the directory structure leading to the 
+module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html
+to `source/_ui/index/html`. Copying and modifying similarly named and nested 
+files will override the respective modules in core. Additions (so long as they 
+are correctly nested) will also be recognized.
+
+It is mandatory to componentize style modifications to the UI this way. While it 
+is a better practice to componentize scripts this way, generic modifications to 
+UI JS can also be added to `source/_scripts/ui-extender.js`.
+
+View All markup can also be overridden by copying the `.mustache` files in 
+https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall 
+and pasting them to `source/_ui/viewall` (nested correctly). Modifications will 
+then be recognized and displayed in the UI. (No additions are allowed.) Custom 
+View All styles can be added to regular pattern styles in `source/_styles/bld`.
+
+You will need to compile the UI in order for the browser to pick up custom 
+changes to the UI:
+
+```
+fp ui:compile
+```
+
+New UI customizations will not be picked up simply by restarting Fepper.
+
+You can compile the UI on every build by setting `compileUiOnEveryBuild` to 
+`true` in `patternlab-config.json`. However, this is not recommended since it 
+would be a drain on performance and simply isn't necessary on every build.
 
 ### <a id="extensions"></a>Extensions
 The `extend` directory is purposed for extending Fepper's functionality. 
