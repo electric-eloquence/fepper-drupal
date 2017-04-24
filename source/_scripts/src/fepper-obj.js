@@ -21,6 +21,10 @@
       },
       xs: {
         maxWidth: window.bp_xs_max || 480,
+        minWidth: window.bp_xx_max ? window.bp_xx_max + 1 : 321
+      },
+      xx: {
+        maxWidth: window.bp_xx_max || 320,
         minWidth: window.bp_xs_min || 0
       }
     }
