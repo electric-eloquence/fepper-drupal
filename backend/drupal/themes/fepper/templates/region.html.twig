@@ -1,6 +1,7 @@
 <!-- Begin region -->
+{% set id = 'region-' ~ region|clean_class %}
 {% if content %}
-  <div{{ attributes }}>
+  <div{{ attributes.setAttribute('id', id) }}>
 
     {{ content }}
   </div>

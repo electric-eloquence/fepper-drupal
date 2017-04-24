@@ -46,7 +46,7 @@
     </div>
 
     {{# sidebar_first? }}
-      <aside class="layout-sidebar-first" role="complementary">
+      <aside class="layout-sidebar-first {{{ conditional_class }}}" role="complementary">
         {{# templates-region--pages-homepage? }}
           {{> 03-templates/region(
             "templates-block--sidebar1--pages-homepage?": true,

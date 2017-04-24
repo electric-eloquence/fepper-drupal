@@ -7,7 +7,7 @@
 // The base on which the rest of the styles are built.
 // /////////////////////////////////////////////////////////////////////////////
 @import 'partials/base/variables'
-@import 'partials/base/mixins'
+@import 'partials/base/helpers'
 @import 'partials/base/reset'
 @import 'partials/base/global'
 @import 'partials/base/animation'
@@ -42,3 +42,37 @@
 @import 'partials/pages/article'
 @import 'partials/pages/footer'
 @import 'partials/pages/homepage'
+
+// Only in Drupal, not Fepper.
+#block-fepper-branding
+  a + a
+    display: none
+#region-highlighted
+  padding: 0
+  @extend .cf
+#region-primary-menu
+  padding-bottom: 0
+#region-secondary-menu
+  padding-top: $pad-and-half
+#region-primary-menu + #region-secondary-menu
+  padding-top: 0
+#region-breadcrumb
+  display: none
+#block-fepper-page-title
+  display: none
+#block-fepper-local-tasks
+  padding-bottom: $pad
+  a[href="/user/login"]
+    display: none
+.no-sidebar-second
+  width: 100%
+#block-fepper-search
+  h2
+    display: none
+#block-fepper-footer
+  clear: both
+details
+  padding-bottom: $pad
+#edit-contact
+  label
+    display: inline

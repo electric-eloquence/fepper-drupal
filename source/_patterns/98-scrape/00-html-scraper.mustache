@@ -1,3 +1,18 @@
 <main>
+  <script>
+    (() => {
+      'use strict';
+      /* We don't want these styles to get applied to View All because they get called last and take priority. */
+      /* They will also break if the scrape directory is ever renamed. */
+      /* But users choosing to change that are probably prepared to do their own styling. */
+      if (window.location.pathname === '/patterns/98-scrape-00-html-scraper/98-scrape-00-html-scraper.html') {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/fepper-core/style.css';
+        link.media = 'all';
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
+    })();
+  </script>
   <script src="../../node_modules/fepper-ui/scripts/html-scraper-ajax.js"></script>
 </main>

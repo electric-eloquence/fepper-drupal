@@ -6,15 +6,14 @@ body
   font: 1.6em/1.5 $font
   -webkit-text-size-adjust: 100%
   color: $gray-dark
-/* Clearfix */
-.cf
-  &:before, &:after
-    content: " "
-    /* 1 */
-    display: table
-    /* 2 */
-  &:after
-    clear: both
+  min-width: $bp-xx-max
+  min-height: 100vh
+  padding-bottom: $footer-height
+  position: relative
+  @media all and (max-width: $bp-sm-max)
+    font-size: 1.4em
+aside
+  margin-bottom: $space
 /* Completely remove from the flow and screen readers. */
 .is-hidden
   display: none !important

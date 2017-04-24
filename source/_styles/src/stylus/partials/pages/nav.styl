@@ -1,27 +1,9 @@
 #block-mainnavigation
-  h2
-    border-left: 1px solid #d8d8d8
-    color: transparent
-    cursor: pointer
-    float: right
-    font-size: 1em
-    margin: 0
-    &:before
-      color: $gray-dark
-      float: right
-      font-size: 1.3em
-      padding: 0.7em
-    &:hover:before
-      color: $gray
   ul
-    background-color: $white
+    background: $white-translucent
   a
     display: block
   @media all and (max-width: $bp-sm-max)
-    float: right
-    h2
-      width: 5rem
-      height: 5rem
     > ul
       max-height: 0
       overflow: hidden
@@ -30,7 +12,7 @@
       left: 0
       z-index: 1
     li
-      border-top: 1px solid $gray-light-2
+      border-top: 1px solid $gray-light-3
       a
         display: table
         padding: $pad-half $pad
@@ -49,8 +31,6 @@
     position: static
     width: auto
     height: auto
-    h2
-      display: none
     li
       float: left
     a

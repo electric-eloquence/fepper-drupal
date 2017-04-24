@@ -3,12 +3,18 @@ footer[role="contentinfo"]
   overflow: hidden
   background: $gray-dark-2
   color: $white
+  height: $footer-height
   line-height: 1.2
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
   a
     color: $gray-light
 #block-fepperfooter
-  padding: $pad $pad 0
+  padding-top: $pad
   @extend .lc
-@media all and (min-width: $bp-med)
-  #block-fepperfooter p
-    float: right
+  p
+    margin-bottom: 0
+    @media all and (min-width: $bp-med)
+      float: right
