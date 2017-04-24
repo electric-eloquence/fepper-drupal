@@ -38,9 +38,8 @@ function fepper_form_comment_form_alter(&$form, FormStateInterface $form_state, 
  * Implements hook_form_FORM_ID_alter().
  */
 function fepper_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  $form['keys']['#attributes']['placeholder'] = 'Search';
+  $form['keys']['#attributes']['placeholder'] = t('Search');
   $form['keys']['#attributes']['size'] = '';
-  $form['actions']['#attributes']['class'][] = 'icon-search';
 }
 
 /**

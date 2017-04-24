@@ -12,29 +12,24 @@ $black = black
 
 $dim = rgba(0, 0, 0, 0.5)
 $dimmer = rgba(0, 0, 0, 0.8)
+$white-translucent = rgba(255, 255, 255, 0.9)
 
 $error = red
 $valid = #089e00
-
-$brand-facebook = #03539e
-$brand-twitter = #35ccff
-$brand-linkedin = #217bc1
 
 // Typography
 $font = "HelveticaNeue", "Helvetica", "Arial", sans-serif
 $font-secondary = Georgia, Times, "Times New Roman", serif
 
-$font-size-norm = 1.6rem
-$font-size-slightly-larger = 1.7rem
-$font-size-slightly-smaller = 1.4rem
-$font-size-sm = 1.2rem
-$font-size-large = 2.3rem
+$font-size-norm = 1em
+$font-size-slightly-larger = 1.1em
+$font-size-slightly-smaller = 0.9em
+$font-size-sm = 0.75em
+$font-size-large = 1.5em
 
 // Layout
 $max-width = 115.2rem
-$offset-left-1 = 7.2rem
-
-$l-sidebar-width = 31.6rem
+$footer-height = 5rem
 
 // Defaults
 $space = 1.6rem
@@ -47,18 +42,13 @@ $space-quarter = $space / 4
 $pad = 1.6rem
 $pad-and-half = $pad * 1.5
 $pad-double = $pad * 2
+$pad-triple = $pad * 3
 $pad-half = $pad / 2
 $pad-quarter = $pad / 4
 
-// Borders
-$border-med = 3px
-$border-thick = 7px
-
 // Breakpoints
+$bp-xx-max = unit(bp_xx_max, px) // From source/_scripts/src/variables.styl
 $bp-xs-max = unit(bp_xs_max, px) // From source/_scripts/src/variables.styl
 $bp-small = $bp-xs-max + 1px
-$bp-small-2 = 576px
-$bp-small-3 = 638px
 $bp-sm-max = unit(bp_sm_max, px) // From source/_scripts/src/variables.styl
 $bp-med = $bp-sm-max + 1px
-$bp-med-2 = 800px

@@ -1,12 +1,10 @@
-/* Layout Container */
-.lc
-  max-width: $max-width
-  margin: 0 auto
-  padding: $pad-half
+.layout-container
+  > *:not(footer)
+    @extend .lc
 .layout-sidebar-second
   h2
     border-bottom: 1px solid $gray-light-3
-    padding: 0.5em 0
+    padding: 0 0 0.5em
   li
     padding: 0.25em 0
     border-bottom: 1px solid $gray-light-3
@@ -14,10 +12,10 @@
       display: block
 .layout-content
   @extend .cf
-@media all and (max-width: $bp-med-2 - 1px)
+@media all and (max-width: $bp-sm-max)
   .layout-content
     clear: both
-@media all and (min-width: $bp-med-2)
+@media all and (min-width: $bp-med)
   .layout-content,
   .layout-sidebar-first
     float: left
@@ -28,10 +26,9 @@
     width: 30%
     padding: 0 0 0 1em
 /* Main */
-[role="main"]
+main[role="main"]
   padding: $pad-half $pad-half $pad-double
   overflow: hidden
-  @extend .lc
   @extend .cf
 /* Block */
 .block
@@ -39,40 +36,8 @@
   p:last-child
     margin-bottom: 0
 /* Hero Block */
-.front #block-fepper-content
-  margin-bottom: 0.5em
-  img
-    display: block
-  .views-field-title .field-content a
-    font-size: 1.5em
-    font-weight: bold
-    line-height: 1.2
-  @media all and (min-width: $bp-small)
-    .views-field-title .field-content
-      display: table-cell
-      width: 70%
-  @media all and (min-width: $bp-med-2)
-    position: relative
-    .views-field-title
-      position: absolute
-      bottom: 0
-      left: 0
-      width: 100%
-      background: rgba(0, 0, 0, 0.5)
-      padding: 1.5em
-      a
-        color: $white
-/* Block Thumbnail with Headline */
-.block-thumb
-  display: table
-  width: 100%
-  border-collapse: collapse
-  .b-inner
-    display: table-row
-    vertical-align: top
-    overflow: hidden
-@media all and (min-width: $bp-small) and (max-width: $bp-med-2 - 1px)
-  #block-fepper-content
+#block-fepper-content
+  @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
     position: relative;
     .views-field-field-image
       padding-top: 75%
@@ -88,6 +53,14 @@
       bottom: 0
       left: 0
       width: 100%
-      height: 7.36rem
       a
         color: $white
+/* Block Thumbnail with Headline */
+.block-thumb
+  display: table
+  width: 100%
+  border-collapse: collapse
+  .b-inner
+    display: table-row
+    vertical-align: top
+    overflow: hidden

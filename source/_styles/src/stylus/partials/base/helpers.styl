@@ -1,3 +1,17 @@
+/* Clearfix */
+.cf
+  &::before, &::after
+    content: " "
+    /* 1 */
+    display: table
+    /* 2 */
+  &::after
+    clear: both
+/* Layout Container */
+.lc
+  max-width: $max-width
+  margin: 0 auto
+  padding: 0.8rem
 /* CSS Transition
     Usage: transition(width,0.3s,ease-out)
  */
