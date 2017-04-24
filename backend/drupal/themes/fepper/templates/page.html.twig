@@ -21,7 +21,7 @@
     </div>
 
     {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
+      <aside class="layout-sidebar-first {% if page.sidebar_second is empty %}no-sidebar-second{% endif %}" role="complementary">
         {{ page.sidebar_first }}
       </aside>
     {% endif %}

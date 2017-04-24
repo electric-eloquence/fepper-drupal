@@ -17,7 +17,11 @@ button, input, select, textarea
 input, textarea
   border: 1px solid $gray
   padding: $pad-half 1.04rem
-input[type=text], input[type=search], input[type=url], input[type=number], textarea
+input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"]
+  width: 25.5rem
+textarea
+  width: 30.4rem
+input[type="text"], input[type="search"], input[type="url"], input[type="number"], textarea
   -webkit-appearance: none
 button, input[type="submit"]
   padding: $pad-half
@@ -46,35 +50,45 @@ input[type="search"]::-webkit-search-decoration
 .is-valid
   border-color: $valid
 #search-block-form
-  background-color: $white
-  clear: both
+  background: $white-translucent
+  float: right
+  margin: 0.65em 0.5em 0 0
   overflow: hidden
   position: relative
-  > div
+  .form-item-keys
     float: left
     font-size: 1em
     height: 2.25em
     margin-bottom: 0
+    &::after
+      color: $black
+      content: "\73"
+      position: absolute
+      top: 0.6em
+      right: 1em
   input
-    height: 2.25em
-  #edit-actions:hover
-    background: $gray
-    color: $white
-  #edit-actions.icon-search:before
-    position: absolute
-    top: 0.5em
-    right: 1em
-    z-index: 0
-  #edit-submit
-    background: none
-    padding: 1.7rem 0 1.7rem
+    background: transparent
+    height: 3.6rem
+  #edit-keys
+    width: 11.5em
+  .button.form-submit
     border: 1px solid $gray
     border-left: 0
     color: transparent
-    font-size: 0.8125em
+    font-size: 0.85em
+    padding-right: 0
+    padding-left: 0
     position: relative
+    width: 5rem
     z-index: 1
-@media all and (min-width: $bp-med)
-  #search-block-form
-    float: right
-    margin: 0.65em 0.5em 0 0
+    &:hover
+      background: rgba(0, 0, 0, 0.3)
+  @media all and (max-width: $bp-sm-max)
+    margin: 0.1rem 0 0
+    max-height: 0
+    position: absolute
+    top: 5rem
+    right: 0
+    z-index: 2
+  .open &
+    max-height: 100%

@@ -4,6 +4,8 @@
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
 
+* [Main project](https://github.com/electric-eloquence/fepper)
+
 ### Template Reuse
 The patterns in `03-templates` are parameterized to reuse templates in a 
 Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
@@ -69,6 +71,9 @@ for template reuse:
 #### Drupal install
 * To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
+* Configure `d8.local` to be the hostname in your web server configs.
+* Open http://d8.local in a browser.
+* Log into Drupal with `admin:admin`
 
 #### Windows install
 * Assumes you haven't checked out the Fepper-Windows project and just need to add the Windows scripts to your project.
