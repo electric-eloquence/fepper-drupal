@@ -2,7 +2,7 @@
   clear: both
   display: flex
   justify-content: center
-  padding-top: 1em
+  padding-bottom: 1em
   .pager__items
     display: flex
     flex-wrap: wrap
@@ -13,13 +13,13 @@
       border: 0
   a
     padding: 1.6rem 1.4rem
-  @media all and (max-width: $bp-small - 1px)
+  @media all and (max-width: $bp-sx-max)
     .pager__items
       width: 18rem
-  @media all and (max-width: $bp-small-2 - 1px)
+  @media all and (max-width: $bp-sm-max)
     a
       padding: 1.6rem 1.0rem
-  @media all and (min-width: $bp-med-2)
+  @media all and (min-width: $bp-med)
     justify-content: flex-start
     .pager__items
       justify-content: flex-start
