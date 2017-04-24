@@ -7,7 +7,7 @@
 * [Main project](https://github.com/electric-eloquence/fepper)
 
 ### Template Reuse
-The patterns in `03-templates` are parameterized to reuse templates in a 
+The patterns in `source/03-templates` are parameterized to reuse templates in a 
 Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
 Fepper templates can be exported to Drupal with no further effort beyond running 
 `fp template`. Follow these rules when constructing parameter keys and values 
