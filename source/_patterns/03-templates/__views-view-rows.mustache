@@ -12,16 +12,16 @@
     </div>
   {{/ subs }}
 {{/ templates-node--pages-homepage__subs? }}
-{{# templates-node--pages-homepage__blog? }}
+{{# templates-node--pages-homepage__hoagies? }}
   {{# latest_posts }}
     <li{{{ row_attributes }}}>
       {{> 03-templates/node(
         article_attributes: ' role="article" typeof="schema:Article"',
-        "compounds-media-block--pages-homepage__blog?": true
+        "compounds-media-block--pages-homepage__hoagies?": true
       ) }}
     </li>
   {{/ latest_posts }}
-{{/ templates-node--pages-homepage__blog? }}
+{{/ templates-node--pages-homepage__hoagies? }}
 {{# templates-node--pages-blog? }}
   {{# latest_posts }}
     <li{{{ row_attributes }}}>
