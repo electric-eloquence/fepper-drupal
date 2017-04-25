@@ -30,7 +30,8 @@ INSTALLATION
 * However, if you wish to replicate the look and feel of the Fepper demo site 
   (as per the screenshot), you should follow the Fepper documentation on 
   importing the sample Drupal backend mentioned earlier. This will serve as a 
-  starting point for further customization.
+  starting point for further customization:
+  https://github.com/electric-eloquence/fepper-drupal#user-content-drupal-install
 
 CONFIGURATION
 -------------
