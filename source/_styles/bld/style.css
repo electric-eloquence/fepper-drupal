@@ -609,7 +609,7 @@ section[rel="schema:comment"] > article:last-of-type {
   }
 }
 main[role="main"] {
-  padding: 0.8rem 0.8rem 3.2rem;
+  padding: 0.8rem;
   overflow: hidden;
 }
 .block {
@@ -881,7 +881,7 @@ footer[role="contentinfo"] a {
   padding: 0 0 3.2rem;
   width: 100%;
 /* Hero Block */
-/* Touts Block */
+/* Subs Block */
 }
 @media all and (min-width: 768px) {
   .front .layout-content {
