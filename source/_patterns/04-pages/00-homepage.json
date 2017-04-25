@@ -15,12 +15,12 @@
       }
     }
   ],
-  "touts" : [
+  "subs" : [
     {
       "url": "../04-pages-02-articles-00-article-1/04-pages-02-articles-00-article-1.html",
       "img": {
         "landscape_4x3": {
-          "src": "../../_assets/src/tout-4x3-climber.jpg",
+          "src": "../../_assets/src/sub-4x3-climber.jpg",
           "alt": "Climber"
         }
       },
@@ -32,7 +32,7 @@
       "url": "../04-pages-02-articles-00-article-2/04-pages-02-articles-00-article-2.html",
       "img": {
         "landscape_4x3": {
-          "src": "../../_assets/src/tout-4x3-stream.jpg",
+          "src": "../../_assets/src/sub-4x3-stream.jpg",
           "alt": "Stream hiking"
         }
       },
@@ -44,7 +44,7 @@
       "url": "../04-pages-02-articles-00-article-3/04-pages-02-articles-00-article-3.html",
       "img": {
         "landscape_4x3": {
-          "src": "../../_assets/src/tout-4x3-climbers.jpg",
+          "src": "../../_assets/src/sub-4x3-climbers.jpg",
           "alt": "Explore hiking trails"
         }
       },
