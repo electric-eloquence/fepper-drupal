@@ -1,29 +1,3 @@
-.cf::before,
-.layout-content::before,
-main[role="main"]::before,
-#region-highlighted::before,
-.cf::after,
-.layout-content::after,
-main[role="main"]::after,
-#region-highlighted::after {
-  content: " ";
-/* 1 */
-  display: table;
-/* 2 */
-}
-.cf::after,
-.layout-content::after,
-main[role="main"]::after,
-#region-highlighted::after {
-  clear: both;
-}
-.lc,
-.layout-container > *:not(footer),
-#block-fepperfooter {
-  max-width: 115.2rem;
-  margin: 0 auto;
-  padding: 0.8rem;
-}
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -65,84 +39,6 @@ article,
 hgroup,
 figure {
   display: block;
-}
-html {
-  font-size: 62.5%;
-}
-body {
-  background: #fff;
-  font: 1.6em/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  -webkit-text-size-adjust: 100%;
-  color: #333;
-  min-width: 320px;
-  min-height: 100vh;
-  padding-bottom: 5rem;
-  position: relative;
-}
-@media all and (max-width: 767px) {
-  body {
-    font-size: 1.4em;
-  }
-}
-aside {
-  margin-bottom: 1.6rem;
-}
-.is-hidden {
-  display: none !important;
-  visibility: hidden !important;
-}
-.visually-hidden {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-}
-.right {
-  float: right;
-  padding: 0 0 1.6rem 1.6rem;
-}
-.right-search {
-  float: right;
-  padding: 0 0 1.6rem 0;
-}
-.left {
-  float: left;
-  padding: 0 1.6rem 1.6rem 0;
-}
-.align-right {
-  text-align: right;
-}
-.align-center {
-  text-align: center;
-}
-.align-left {
-  text-align: left;
-}
-.valid {
-  color: #089e00;
-}
-.error {
-  color: #f00;
-}
-.animate-fade {
-  -webkit-transition: opacity 0.3s ease-out;
-  -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
-  transition: opacity 0.3s ease-out;
-}
-.animate-fade:hover {
-  opacity: 0;
-}
-.animate-move > .demo-shape {
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  -ms-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
 }
 @font-face {
   font-family: 'icons';
@@ -277,6 +173,93 @@ aside {
   color: #fff;
   margin-left: -2.72rem;
   margin-right: 0.8rem;
+}
+.cf::before,
+.layout-content::before,
+main[role="main"]::before,
+#region-highlighted::before,
+.cf::after,
+.layout-content::after,
+main[role="main"]::after,
+#region-highlighted::after {
+  content: " ";
+/* 1 */
+  display: table;
+/* 2 */
+}
+.cf::after,
+.layout-content::after,
+main[role="main"]::after,
+#region-highlighted::after {
+  clear: both;
+}
+.lc,
+.layout-container > *:not(footer),
+#block-fepperfooter {
+  max-width: 115.2rem;
+  margin: 0 auto;
+  padding: 0.8rem;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: #fff;
+  font: 1.6em/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  color: #333;
+  min-width: 320px;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  position: relative;
+}
+@media all and (max-width: 767px) {
+  body {
+    font-size: 1.4em;
+  }
+}
+aside {
+  margin-bottom: 1.6rem;
+}
+.is-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.right {
+  float: right;
+  padding: 0 0 1.6rem 1.6rem;
+}
+.right-search {
+  float: right;
+  padding: 0 0 1.6rem 0;
+}
+.left {
+  float: left;
+  padding: 0 1.6rem 1.6rem 0;
+}
+.align-right {
+  text-align: right;
+}
+.align-center {
+  text-align: center;
+}
+.align-left {
+  text-align: left;
+}
+.valid {
+  color: #089e00;
+}
+.error {
+  color: #f00;
 }
 h1,
 .alpha {
@@ -612,12 +595,6 @@ main[role="main"] {
   padding: 0.8rem;
   overflow: hidden;
 }
-.block {
-  overflow: hidden;
-}
-.block p:last-child {
-  margin-bottom: 0;
-}
 @media all and (min-width: 481px) and (max-width: 767px) {
   #block-fepper-content {
     position: relative;
@@ -642,16 +619,6 @@ main[role="main"] {
   #block-fepper-content .views-field-title a {
     color: #fff;
   }
-}
-.block-thumb {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-.block-thumb .b-inner {
-  display: table-row;
-  vertical-align: top;
-  overflow: hidden;
 }
 header.header {
   background: #fff;
