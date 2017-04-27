@@ -809,41 +809,41 @@ article[role="article"] > footer {
 }
 @media all and (max-width: 480px) {
   #block-views-block-content-recent-block-3 article[role="article"] > div > div:first-of-type > a,
-  #views-view-content-recent-page-1 article[role="article"] > div > div:first-of-type > a {
+  .view-content-recent.view-display-id-page_1 article[role="article"] > div > div:first-of-type > a {
     display: block;
     max-width: 22.5rem;
   }
 }
 @media all and (max-width: 767px) {
   #block-views-block-content-recent-block-3 article[role="article"] > h2,
-  #views-view-content-recent-page-1 article[role="article"] > h2 {
+  .view-content-recent.view-display-id-page_1 article[role="article"] > h2 {
     font-size: 1.8rem;
   }
 }
 @media all and (min-width: 481px) {
   #block-views-block-content-recent-block-3 .item-list,
-  #views-view-content-recent-page-1 .item-list {
+  .view-content-recent.view-display-id-page_1 .item-list {
     margin-top: 0.5em;
   }
   #block-views-block-content-recent-block-3 .item-list li,
-  #views-view-content-recent-page-1 .item-list li {
+  .view-content-recent.view-display-id-page_1 .item-list li {
     clear: both;
     float: left;
     margin-bottom: 2.4rem;
   }
   #block-views-block-content-recent-block-3 article[role="article"] > h2,
-  #views-view-content-recent-page-1 article[role="article"] > h2,
+  .view-content-recent.view-display-id-page_1 article[role="article"] > h2,
   #block-views-block-content-recent-block-3 article[role="article"] div[property="schema:text"],
-  #views-view-content-recent-page-1 article[role="article"] div[property="schema:text"],
+  .view-content-recent.view-display-id-page_1 article[role="article"] div[property="schema:text"],
   #block-views-block-content-recent-block-3 article[role="article"] div[property="text"],
-  #views-view-content-recent-page-1 article[role="article"] div[property="text"] {
+  .view-content-recent.view-display-id-page_1 article[role="article"] div[property="text"] {
     float: right;
     margin-top: 0;
     padding: 0 1.6rem;
     width: 70%;
   }
   #block-views-block-content-recent-block-3 article[role="article"] img,
-  #views-view-content-recent-page-1 article[role="article"] img {
+  .view-content-recent.view-display-id-page_1 article[role="article"] img {
     float: left;
     height: auto;
     width: 30%;
