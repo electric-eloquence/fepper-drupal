@@ -144,7 +144,7 @@ hard-coded links to other pages in the `patterns` directory must start with
 `../04-pages-` and not `../../patterns/04-pages-`.
 
 ### <a id="the-backend"></a>The Backend
-Fepper can almost as easily work with a CMS backend such as Drupal or WordPress, 
+Fepper can very easily work with a CMS backend such as Drupal or WordPress, 
 while not requiring Apache, MySQL, or PHP. Put the actual backend codebase or 
 even just a symbolic link to the codebase into the `backend` directory. Then, 
 enter the relative paths to the appropriate backend directories into `pref.yml`. 
@@ -163,16 +163,17 @@ backend web application.
 Fepper's Mustache templates can be translated into templates compatible with 
 your backend. Mustache tags just need to be replaced with tags the backend can 
 use. Put these translations into YAML files named similarly to the Mustache 
-files in `source/_patterns/03-templates`. Follow the example in 
-`test/files/_patterns/03-templates/00-homepage.yml` for the correct YAML syntax. 
+files in `source/_patterns/03-templates`. Follow 
+[this example](https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_patterns/03-templates/page.yml) 
+for the correct YAML syntax. 
 
 Follow these rules for setting up keys and values:
 
 * Delete the outer two curly Mustache braces for keys.
 * Trim any exterior whitespace.
 * Leave other control structures within the key, i.e., !#/>^{}
-* Escape parentheses and question marks with two backslashes.
-* Wrap the key in double quotes.
+* Escape parentheses and question marks with a backslash.
+* Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, and the numeral 2.
 * Indent each line of the value by at least two spaces.
 
@@ -222,7 +223,7 @@ selector you wish to target (prepended with "#" for IDs and "." for classes).
 Classnames and tagnames may be appended with array index notation ([n]). 
 Otherwise, the Scraper will scrape all elements of that class or tag 
 sequentially. Such a loosely targeted scrape will save many of the targeted 
-fields to the JSON file, but will only save the first instance of the target to 
+fields to a JSON file, but will only save the first instance of the target to 
 a Mustache template.
 
 Upon submission, you should be able to review the scraped output on the 
@@ -242,7 +243,8 @@ bp_lg_max = -1
 bp_md_max = 1024
 bp_sm_max = 767
 bp_xs_max = 480
-bp_xs_min = 0
+bp_xx_max = 320
+bp_xx_min = 0
 ```
 
 It cannot contain comments, semi-colons, curly braces, etc. It is 
@@ -259,9 +261,9 @@ syntax; however, the more verbose, CSS-like syntax (with curly braces, colons,
 and semi-colons) is perfectly valid as well.
 
 The UI's viewport resizer buttons are dependent on the values in this file. The 
-default values will configure the XS, SM, and MD buttons to resize the viewport 
-to each breakpoint's assigned maximum width. The LG button will resize the 
-viewport to a width that is greater than `bp_md_max` by the distance between 
+default values will configure the XX, XS, SM, and MD buttons to resize the 
+viewport to each breakpoint's assigned maximum width. The LG button will resize 
+the viewport to a width that is greater than `bp_md_max` by the distance between 
 `bp_sm_max` and `bp_md_max`.
 
 Users have the ability to add, modify, or delete values in this file. The UI 
@@ -359,12 +361,12 @@ If your Mac is connected to the Internet through a wire:
 * Change the port number if Fepper is listening on a different port
 
 ### <a id="more-documentation"></a>More Documentation
-* [default.pref.yml](https://github.com/electric-eloquence/fepper/blob/master/excludes/default.pref.yml)
+* [default.pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
 * [Pattern Lab](http://patternlab.io/docs/index.html)
 * [Mustache](https://mustache.github.io/mustache.5.html)
 
 ### <a id="contribute"></a>Contribute
 Contributions and bug fixes are greatly appreciated!
 
-* Please pull request against the [dev branch](https://github.com/electric-eloquence/fepper/tree/dev).
-* Please try to be both concise as well as clear on what is trying to be accomplished.
+* Please pull request against the dev branch.
+* Please try to be both clear as well as concise on what is trying to be accomplished.
