@@ -14,7 +14,7 @@ Fepper templates can be exported to Drupal with no further effort beyond running
 values for template reuse:
 
 * The parameters are submitted within parentheses inside the Mustache inclusion tags.
-* The parameter key should be BEM-like in syntax.
+* The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
