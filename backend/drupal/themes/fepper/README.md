@@ -6,11 +6,11 @@ Drupal theme to match the look and feel of the Fepper frontend.
 
 * For a full description of Fepper for Drupal, visit the [project page](https://github.com/electric-eloquence/fepper-drupal).
 
-### Requirements
+## Requirements
 
 * No special requirements
 
-### Installation
+## Installation
 
 * You may install this as you would normally [install a contributed Drupal theme](https://www.drupal.org/getting-started/install-contrib/themes). 
 * However, it is highly recommended to use this theme with a complete Fepper 
@@ -26,11 +26,11 @@ Drupal theme to match the look and feel of the Fepper frontend.
   mentioned earlier. This will serve as a starting point for further 
   customization.
 
-### Configuration
+## Configuration
 
 The theme has no menu or modifiable settings. There is no configuration.
 
-### Copyright
+## Copyright
 
 Copyright (C) 2017  Electric Eloquence
 
@@ -44,28 +44,39 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
-The Fepper theme for Drupal bundles the following third-party resources:
+### The Fepper theme for Drupal bundles the following third-party resources:
 
-IcoMoon icons, Copyright Roonas
-License: GPL / CC BY 4
-License URI: http://www.gnu.org/licenses/gpl.html
-License URI: https://creativecommons.org/licenses/by/4.0/
-Source: https://icomoon.io
+#### IcoMoon icons
 
-Composite screenshot image
+Copyright Roonas
+
+* License: GPL / CC BY 4
+* License URI: http://www.gnu.org/licenses/gpl.html
+* License URI: https://creativecommons.org/licenses/by/4.0/
+* Source: https://icomoon.io
+
+#### Composite screenshot image
+
 Copyright: Alex Grichenko
-License: CC0 1.0 Universal (CC0 1.0)
-License URI: https://creativecommons.org/publicdomain/zero/1.0/
-Source: http://www.publicdomainpictures.net/view-image.php?image=50301&picture=sunrise-in-mountains
+
+* License: CC0 1.0 Universal (CC0 1.0)
+* License URI: https://creativecommons.org/publicdomain/zero/1.0/
+* Source: http://www.publicdomainpictures.net/view-image.php?image=50301&picture=sunrise-in-mountains
+
 Copyright: Shaun Pierre
-License: CC0 1.0 Universal (CC0 1.0)
-License URI: https://creativecommons.org/publicdomain/zero/1.0/
-Source: http://www.publicdomainpictures.net/view-image.php?image=40694&picture=blue-mountains
+
+* License: CC0 1.0 Universal (CC0 1.0)
+* License URI: https://creativecommons.org/publicdomain/zero/1.0/
+* Source: http://www.publicdomainpictures.net/view-image.php?image=40694&picture=blue-mountains
+
 Copyright: Public Domain Archive
-License: CC0 1.0 Universal (CC0 1.0)
-License URI: https://creativecommons.org/publicdomain/zero/1.0/
-Source: http://publicdomainarchive.com/winter-mountain-glacier-grey-blue/
+
+* License: CC0 1.0 Universal (CC0 1.0)
+* License URI: https://creativecommons.org/publicdomain/zero/1.0/
+* Source: http://publicdomainarchive.com/winter-mountain-glacier-grey-blue/
+
 Copyright: Alex Grichenko
-License: CC0 1.0 Universal (CC0 1.0)
-License URI: https://creativecommons.org/publicdomain/zero/1.0/
-Source: http://www.publicdomainpictures.net/view-image.php?image=55734&picture=night-sky-in-mountains
+
+* License: CC0 1.0 Universal (CC0 1.0)
+* License URI: https://creativecommons.org/publicdomain/zero/1.0/
+* Source: http://www.publicdomainpictures.net/view-image.php?image=55734&picture=night-sky-in-mountains
