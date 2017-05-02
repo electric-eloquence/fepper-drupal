@@ -75,6 +75,8 @@ values for template reuse:
 * To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
 * Configure `d8.local` to be the hostname in your web server configs.
+* Configure `backend/drupal` (correctly pathed) to be the document root for this host.
+* Restart the web server.
 * Open http://d8.local in a browser.
 * Log into Drupal with `admin:admin`
 
