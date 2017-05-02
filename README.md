@@ -72,7 +72,7 @@ values for template reuse:
   * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).
 
 #### Drupal install
-* To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
+* To install the included Drupal backend, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
 * Configure `d8.local` to be the hostname in your web server configs.
 * Configure `backend/drupal` (correctly pathed) to be the document root for this host.
