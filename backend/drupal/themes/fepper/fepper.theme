@@ -14,10 +14,11 @@ use Drupal\Core\Template\Attribute;
 // breakpoint configurations, even module functions.
 // Out of the box, they will be:
 // $config['breakpoints']['bp_lg_max'] = -1;
-// $config['breakpoints']['bp_lg_min'] = 1024;
-// $config['breakpoints']['bp_md_min'] = 768;
-// $config['breakpoints']['bp_sm_min'] = 480;
-// $config['breakpoints']['bp_xs_min'] = 0;
+// $config['breakpoints']['bp_md_max'] = 1024;
+// $config['breakpoints']['bp_sm_max'] = 767;
+// $config['breakpoints']['bp_xs_max'] = 480;
+// $config['breakpoints']['bp_xx_max'] = 320;
+// $config['breakpoints']['bp_xx_min'] = 0;
  */
 $bp_ini = drupal_get_path('theme', 'fepper') . '/_scripts/src/variables.styl';
 if (file_exists($bp_ini)) {
