@@ -959,6 +959,10 @@ footer[role="contentinfo"] a {
     width: calc(33.3333333% - 1.0666666rem);
   }
 }
+div.status,
+div.error {
+  background-image: none;
+}
 #block-fepper-branding a + a {
   display: none;
 }
@@ -975,7 +979,8 @@ footer[role="contentinfo"] a {
 #region-primary-menu + #region-secondary-menu {
   padding-top: 0;
 }
-#region-breadcrumb {
+#region-breadcrumb,
+#breadcrumb {
   font-size: 0.75em;
   font-weight: bold;
 }

@@ -43,6 +43,9 @@
 @import 'partials/pages/homepage'
 
 // Only in Drupal, not Fepper.
+div.status,
+div.error
+  background-image: none
 #block-fepper-branding
   a + a
     display: none
@@ -56,7 +59,8 @@
   padding-top: $pad-and-half
 #region-primary-menu + #region-secondary-menu
   padding-top: 0
-#region-breadcrumb
+#region-breadcrumb,
+#breadcrumb
   font-size: 0.75em
   font-weight: bold
 #block-fepper-page-title
