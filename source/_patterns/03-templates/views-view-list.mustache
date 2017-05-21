@@ -8,16 +8,16 @@
 
 <{{ list_type }}{{ list_attributes }}>
 
-  {{# templates-views-view-rows--pages-homepage__hoagies? }}
+  {{# templates-views-view-list__rows--pages-homepage__hoagies? }}
     {{# hoagies }}
       {{> 03-templates/__views-view-list__rows("templates-node--pages-homepage__hoagies?": true) }}
     {{/ hoagies }}
-  {{/ templates-views-view-rows--pages-homepage__hoagies? }}
-  {{# templates-views-view-rows--pages-blog? }}
+  {{/ templates-views-view-list__rows--pages-homepage__hoagies? }}
+  {{# templates-views-view-list__rows--pages-blog? }}
     {{# latest_posts }}
       {{> 03-templates/__views-view-list__rows("templates-node--pages-blog?": true) }}
     {{/ latest_posts }}
-  {{/ templates-views-view-rows--pages-blog? }}
+  {{/ templates-views-view-list__rows--pages-blog? }}
   {{{ fpo_template_content }}}
 
 </{{ list_type }}>
