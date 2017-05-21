@@ -258,8 +258,12 @@ aside {
 .valid {
   color: #089e00;
 }
-.error {
+div.error,
+div.error a {
   color: #f00;
+}
+div.error a {
+  text-decoration: underline;
 }
 h1,
 .alpha {
