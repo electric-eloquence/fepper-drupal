@@ -9,16 +9,16 @@
 <{{ list_type }}{{ list_attributes }}>
 
   {{# templates-views-view-rows--pages-homepage__hoagies? }}
-    {{> 03-templates/__views-view-rows("templates-node--pages-homepage__hoagies?": true) }}
+    {{# hoagies }}
+      {{> 03-templates/__views-view-list__rows("templates-node--pages-homepage__hoagies?": true) }}
+    {{/ hoagies }}
   {{/ templates-views-view-rows--pages-homepage__hoagies? }}
   {{# templates-views-view-rows--pages-blog? }}
-    {{> 03-templates/__views-view-rows("templates-node--pages-blog?": true) }}
+    {{# latest_posts }}
+      {{> 03-templates/__views-view-list__rows("templates-node--pages-blog?": true) }}
+    {{/ latest_posts }}
   {{/ templates-views-view-rows--pages-blog? }}
-  {{# templates-views-view-list? }}
-    <li{{ row_attributes }}>
-      {{{ fpo_template_content }}}
-    </li>
-  {{/ templates-views-view-list? }}
+  {{{ fpo_template_content }}}
 
 </{{ list_type }}>
 
