@@ -3,21 +3,21 @@
   <h3>{{ title }}</h3>
 {{/ title }}
 
-{{# templates-views-view-rows--pages-homepage__hero? }}
+{{# templates-views-view-unformatted__rows--pages-homepage__hero? }}
   {{# hero }}
     {{> 03-templates/__views-view-unformatted__rows(
       row_attributes: ' class="views-row"',
       "templates-node--pages-homepage__hero?": true
     ) }}
   {{/ hero }}
-{{/ templates-views-view-rows--pages-homepage__hero? }}
-{{# templates-views-view-rows--pages-homepage__subs? }}
+{{/ templates-views-view-unformatted__rows--pages-homepage__hero? }}
+{{# templates-views-view-unformatted__rows--pages-homepage__subs? }}
   {{# subs }}
     {{> 03-templates/__views-view-unformatted__rows(
       row_attributes: ' class="views-row"',
       "templates-node--pages-homepage__subs?": true
     ) }}
   {{/ subs }}
-{{/ templates-views-view-rows--pages-homepage__subs? }}
+{{/ templates-views-view-unformatted__rows--pages-homepage__subs? }}
 {{{ fpo_template_content }}}
 <!-- End views-view-unformatted -->
