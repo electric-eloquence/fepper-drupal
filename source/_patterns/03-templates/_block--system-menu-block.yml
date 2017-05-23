@@ -12,7 +12,7 @@
   \{\{ title_prefix \}\}
 'title_attributes': |2
   \{\{ title_attributes \}\}
-'block_label': |2
+'title': |2
   \{\{ configuration.label \}\}
 'title_suffix': |2
   \{\{ title_suffix \}\}
