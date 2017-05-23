@@ -1,6 +1,6 @@
 {
   "alert": {
-    "label" : "Error message",
+    "label": "Error message",
     "message": "Emergency!",
     "link_text": "This is a variation of the core homepage template."
   }
