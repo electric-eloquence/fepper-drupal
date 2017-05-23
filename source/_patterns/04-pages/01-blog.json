@@ -65,15 +65,5 @@
         "medium" : "The equipment used in camping varies with the particular type of camping. For instance, in survival camping the equipment consists of small items which have the purpose of helping the camper in providing food, heat and safety."
       }
     }
-  ],
-  "inset-blocks" : [
-    {
-      "headline" : "This is the headline for the inset block"
-    }
-  ],
-  "latest-block" : [
-    {
-      "headline" : "This is the headline for the latest block"
-    }
   ]
 }
