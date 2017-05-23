@@ -1,5 +1,6 @@
-<div class="alert-wrapper">
-  <mark class="alert alert-{{ alert_class }}">
-    {{ excerpt.short }}
-  </mark>
+<div role="contentinfo" aria-label="{{ label }}">
+  <div role="alert">
+    <h2 class="visually-hidden">{{{ label }}}</h2>
+    {{{ message }}} <a href="#">{{{ link_text }}}</a>
+  </div>
 </div>

@@ -1,8 +1,7 @@
 {
-  "emergency": {
-    "alert_class" : "error",
-    "excerpt" : {
-      "short" : "Emergency! This is a variation of the core homepage template."
-    }
+  "alert": {
+    "label" : "Error message",
+    "message": "Emergency!",
+    "link_text": "This is a variation of the core homepage template."
   }
 }
