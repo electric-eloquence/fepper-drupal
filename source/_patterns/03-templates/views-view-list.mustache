@@ -2,11 +2,11 @@
 {{# views_view_list_attributes }}
   <div{{{ views_view_list_attributes }}}>
 {{/ views_view_list_attributes }}
-{{# views_view_list_title }}
-  <h3>{{{ views_view_list_title }}}</h3>
-{{/ views_view_list_title }}
+{{# title }}
+  <h3>{{{ title }}}</h3>
+{{/ title }}
 
-<{{ list_type }}{{ list_attributes }}>
+<{{ list_type }}{{{ list_attributes }}}>
 
   {{# templates-views-view-list__rows--pages-homepage__hoagies? }}
     {{# hoagies }}

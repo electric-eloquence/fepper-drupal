@@ -4,11 +4,11 @@
   \{\{ attributes \}\}
 '/ views_view_list_attributes': |2
   {% endif %}
-'# views_view_list_title': |2
+'# title': |2
   {% if title %}
-'views_view_list_title': |2
+'title': |2
   \{\{ title \}\}
-'/ views_view_list_title': |2
+'/ title': |2
   {% endif %}
 'list_type': |2
   \{\{ list.type \}\}
