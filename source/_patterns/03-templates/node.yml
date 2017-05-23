@@ -1,4 +1,4 @@
-'article_attributes': |2
+'node_attributes': |2
   \{\{ attributes \}\}
 'title_prefix': |2
   \{\{ title_prefix \}\}
@@ -8,7 +8,7 @@
   \{\{ title_attributes \}\}
 'url': |2
   \{\{ url \}\}
-'article_title': |2
+'title': |2
   \{\{ label \}\}
 '\^ view_mode_full\?': |2
   {% if not page %}

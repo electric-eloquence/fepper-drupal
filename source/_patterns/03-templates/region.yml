@@ -1,7 +1,7 @@
 '# content\?': |2
   {% set id = 'region-' ~ region|clean_class %}
   {% if content %}
-'attributes': |2
+'region_attributes': |2
   \{\{ attributes.setAttribute('id', id) \}\}
 'fpo_template_content': |2
   \{\{ content \}\}
