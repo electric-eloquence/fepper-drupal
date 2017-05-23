@@ -4,12 +4,12 @@
   {{{ title_prefix }}}
   {{# view_mode_full? }}
     <h1{{{ title_attributes }}}>
-      <a href="{{ url }}" rel="bookmark">{{{ title }}}</a>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h1>
   {{/ view_mode_full? }}
   {{^ view_mode_full? }}
     <h2{{{ title_attributes }}}>
-      <a href="{{ url }}" rel="bookmark">{{{ title }}}</a>
+      <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h2>
   {{/ view_mode_full? }}
   {{{ title_suffix }}}
