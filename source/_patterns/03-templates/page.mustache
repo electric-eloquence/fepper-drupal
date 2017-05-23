@@ -11,13 +11,13 @@
 
   {{{ page.primary_menu }}}
   {{{ page.secondary_menu }}}
-
   {{{ page.breadcrumb }}}
 
-  {{# emergency }}
-    {{> 01-compounds/04-messaging/00-alert }}
-  {{/ emergency }}
-
+  {{> 03-templates/region(
+    "compounds-alert--alert?": true,
+    region_attributes: ' id="region-highlighted"'
+  ) }}
+  {{{ page.highlighted }}}
   {{{ page.help }}}
 
   <main role="main">

@@ -26,6 +26,17 @@
     {{! END HEADER CONTENT }}
 
 
+    {{! BEGIN ALERT CONTENT }}
+
+    {{# compounds-alert--alert? }}
+      {{# alert }}
+        {{> 01-compounds/04-messaging/00-alert }}
+      {{/ alert }}
+    {{/ compounds-alert--alert? }}
+
+    {{! END ALERT CONTENT }}
+
+
     {{! BEGIN MAIN CONTENT }}
 
     {{# templates-block--main--pages-homepage? }}
