@@ -2,8 +2,8 @@
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
-    {{> 00-elements/04-images/04-avatar }}
-    <p>{{> 01-compounds/00-text/07-byline-commenter }}</p>
+    {{> 00-elements/02-images/04-avatar }}
+    <p>{{> 01-compounds/00-text/00-byline-commenter }}</p>
 
     {{# parent }}
       <p class="visually-hidden">{{{ parent }}}</p>
@@ -18,7 +18,7 @@
       <h3{{{ title_attributes }}}>{{{ title }}}</h3>
       {{{ title_suffix }}}
     {{/ title }}
-    {{> 01-compounds/02-blocks/06-single-comment }}
+    {{> 01-compounds/01-blocks/03-single-comment }}
     {{{ fpo_template_content }}}
   </div>
 </article>
