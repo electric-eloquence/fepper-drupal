@@ -4,21 +4,21 @@
   <header class="header cf" role="banner">
     {{> 03-templates/region(
       "templates-block--header?": true,
-      attributes: ' id="region-header"'
+      region_attributes: ' id="region-header"'
     ) }}
-    {{ page.header }}
+    {{{ page.header }}}
   </header>
 
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
+  {{{ page.primary_menu }}}
+  {{{ page.secondary_menu }}}
 
-  {{ page.breadcrumb }}
+  {{{ page.breadcrumb }}}
 
   {{# emergency }}
     {{> 01-compounds/07-messaging/00-alert }}
   {{/ emergency }}
 
-  {{ page.help }}
+  {{{ page.help }}}
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>
@@ -27,19 +27,19 @@
       {{# templates-region--pages-homepage? }}
         {{> 03-templates/region(
           "templates-block--main--pages-homepage?": true,
-          attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"'
         ) }}
       {{/ templates-region--pages-homepage? }}
       {{# templates-region--pages-blog? }}
         {{> 03-templates/region(
           "templates-block--main--pages-blog?": true,
-          attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"'
         ) }}
       {{/ templates-region--pages-blog? }}
       {{# templates-region--pages-article? }}
         {{> 03-templates/region(
           "templates-block--main--pages-article?": true,
-          attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"'
         ) }}
       {{/ templates-region--pages-article? }}
       {{{ fpo_template_content }}}
@@ -50,10 +50,10 @@
         {{# templates-region--pages-homepage? }}
           {{> 03-templates/region(
             "templates-block--sidebar1--pages-homepage?": true,
-            attributes: ' id="region-sidebar-first"'
+            region_attributes: ' id="region-sidebar-first"'
           ) }}
         {{/ templates-region--pages-homepage? }}
-        {{ page.sidebar_first }}
+        {{{ page.sidebar_first }}}
       </aside>
     {{/ sidebar_first? }}
 
@@ -62,14 +62,14 @@
         {{# templates-region--pages-article? }}
           {{> 03-templates/region(
             "templates-block--sidebar2--pages-article?": true,
-            attributes: ' id="region-sidebar-second"'
+            region_attributes: ' id="region-sidebar-second"'
           ) }}
         {{/ templates-region--pages-article? }}
         {{> 03-templates/region(
           "templates-block--sidebar2?": true,
-          attributes: ' id="region-sidebar-second"'
+          region_attributes: ' id="region-sidebar-second"'
         ) }}
-        {{ page.sidebar_second }}
+        {{{ page.sidebar_second }}}
       </aside>
     {{/ sidebar_second? }}
 
@@ -79,9 +79,9 @@
     <footer role="contentinfo">
       {{> 03-templates/region(
         "templates-block--footer?": true,
-        attributes: ' id="region-footer"'
+        region_attributes: ' id="region-footer"'
       ) }}
-      {{ page.footer }}
+      {{{ page.footer }}}
     </footer>
   {{/ footer? }}
 

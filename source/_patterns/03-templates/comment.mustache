@@ -5,19 +5,19 @@
     {{> 00-elements/04-images/04-avatar }}
     <p>{{> 01-compounds/00-text/07-byline-commenter }}</p>
 
-    {{# parent? }}
-      <p class="visually-hidden">{{ parent }}</p>
-    {{/ parent? }}
+    {{# parent }}
+      <p class="visually-hidden">{{{ parent }}}</p>
+    {{/ parent }}
 
-    {{ permalink }}
+    {{{ permalink }}}
   </footer>
 
   <div{{{ content_attributes }}}>
-    {{# title? }}
-      {{ title_prefix }}
-      <h3{{{ title_attributes }}}>{{ comment_title }}</h3>
-      {{ title_suffix }}
-    {{/ title? }}
+    {{# title }}
+      {{{ title_prefix }}}
+      <h3{{{ title_attributes }}}>{{{ title }}}</h3>
+      {{{ title_suffix }}}
+    {{/ title }}
     {{> 01-compounds/02-blocks/06-single-comment }}
     {{{ fpo_template_content }}}
   </div>
