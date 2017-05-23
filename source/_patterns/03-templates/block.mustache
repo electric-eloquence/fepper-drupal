@@ -47,6 +47,7 @@
 
     {{# templates-node--pages-article? }}
       {{> 03-templates/node(
+        node_attributes: ' role="article" typeof="schema:Article"',
         "view_mode_full?": true,
         "components-article?": true
       ) }}
