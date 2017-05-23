@@ -32,11 +32,11 @@
   \{\{ rows \}\}
 'empty': |2
   \{\{ empty \}\}
-'> 01-compounds/05-navigation/03-pagination': |2
+'> 01-compounds/03-navigation/01-pagination': |2
   \{\{ pager \}\}
 'attachment_after': |2
   \{\{ attachment_after \}\}
-'> 02-components/04-sections/03-more-link': |2
+'> 02-components/03-sections/03-more-link': |2
   \{\{ more \}\}
 '# footer': |2
   {% if footer %}
