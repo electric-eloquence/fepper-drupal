@@ -36,7 +36,7 @@
   \{\{ pager \}\}
 'attachment_after': |2
   \{\{ attachment_after \}\}
-'> 02-components/03-sections/03-more-link': |2
+'> 02-components/03-sections/02-more-link': |2
   \{\{ more \}\}
 '# footer': |2
   {% if footer %}
