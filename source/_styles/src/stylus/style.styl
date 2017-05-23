@@ -53,6 +53,14 @@ div.error
   padding-top: 0
   padding-bottom: 0
   @extend .cf
+  div[aria-label="Error message"]
+    background-color: #fef5f1
+    border: 1px solid #ed541d
+    padding: $pad-half
+    &, & a
+      color: #f00
+    & a
+      text-decoration: underline
 #region-primary-menu
   padding-bottom: 0
 #region-secondary-menu
