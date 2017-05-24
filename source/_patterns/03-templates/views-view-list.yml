@@ -1,8 +1,8 @@
-'# views_view_list_attributes': |2
+'# views-view-list_attributes': |2
   {% if attributes -%}
-'views_view_list_attributes': |2
+'views-view-list_attributes': |2
   \{\{ attributes \}\}
-'/ views_view_list_attributes': |2
+'/ views-view-list_attributes': |2
   {% endif %}
 '# title': |2
   {% if title %}
