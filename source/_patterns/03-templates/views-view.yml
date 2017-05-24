@@ -6,7 +6,7 @@
       dom_id ? 'js-view-dom-id-' ~ dom_id,
     ]
   %}
-'views_view_attributes': |2
+'views-view_attributes': |2
   \{\{ attributes.addClass(classes) \}\}
 'title_prefix': |2
   \{\{ title_prefix \}\}
