@@ -43,9 +43,6 @@
 @import '04-pages/homepage'
 
 // Only in Drupal, not Fepper.
-div.status,
-div.error
-  background-image: none
 #block-fepper-branding
   a + a
     display: none
@@ -53,14 +50,27 @@ div.error
   padding-top: 0
   padding-bottom: 0
   @extend .cf
+  div[role="contentinfo"]
+    border-width: 1px
+    border-style: solid
+    padding: $pad-half
+    a
+      text-decoration: underline
+  div[aria-label="Status message"]
+    background-color: #f8fff0
+    border-color: #be7
+    &, & a
+      color: #234600
+  div[aria-label="Warning message"]
+    background-color: #fffce5
+    border-color: #ed5
+    &, & a
+      color: #840
   div[aria-label="Error message"]
     background-color: #fef5f1
-    border: 1px solid #ed541d
-    padding: $pad-half
+    border-color: #ed541d
     &, & a
       color: #f00
-    & a
-      text-decoration: underline
 #region-primary-menu
   padding-bottom: 0
 #region-secondary-menu

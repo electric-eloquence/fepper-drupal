@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "label": "Warning message",
+    "message": "Alert!",
+    "link_text": "This is a variation of the core homepage template."
+  }
+}
