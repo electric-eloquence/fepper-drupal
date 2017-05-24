@@ -255,16 +255,6 @@ aside {
 .align-left {
   text-align: left;
 }
-.valid {
-  color: #089e00;
-}
-div.error,
-div.error a {
-  color: #f00;
-}
-div.error a {
-  text-decoration: underline;
-}
 h1,
 .alpha {
   line-height: 1.2;
@@ -963,10 +953,6 @@ footer[role="contentinfo"] a {
     width: calc(33.3333333% - 1.0666666rem);
   }
 }
-div.status,
-div.error {
-  background-image: none;
-}
 #block-fepper-branding a + a {
   display: none;
 }
@@ -974,17 +960,37 @@ div.error {
   padding-top: 0;
   padding-bottom: 0;
 }
+#region-highlighted div[role="contentinfo"] {
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.8rem;
+}
+#region-highlighted div[role="contentinfo"] a {
+  text-decoration: underline;
+}
+#region-highlighted div[aria-label="Status message"] {
+  background-color: #f8fff0;
+  border-color: #be7;
+}
+#region-highlighted div[aria-label="Status message"],
+#region-highlighted div[aria-label="Status message"] a {
+  color: #234600;
+}
+#region-highlighted div[aria-label="Warning message"] {
+  background-color: #fffce5;
+  border-color: #ed5;
+}
+#region-highlighted div[aria-label="Warning message"],
+#region-highlighted div[aria-label="Warning message"] a {
+  color: #840;
+}
 #region-highlighted div[aria-label="Error message"] {
   background-color: #fef5f1;
-  border: 1px solid #ed541d;
-  padding: 0.8rem;
+  border-color: #ed541d;
 }
 #region-highlighted div[aria-label="Error message"],
 #region-highlighted div[aria-label="Error message"] a {
   color: #f00;
-}
-#region-highlighted div[aria-label="Error message"] a {
-  text-decoration: underline;
 }
 #region-primary-menu {
   padding-bottom: 0;
