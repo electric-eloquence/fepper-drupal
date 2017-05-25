@@ -3,8 +3,8 @@
 
   <header class="header cf" role="banner">
     {{> 03-templates/region(
-      "templates-block--header?": true,
-      region_attributes: ' id="region-header"'
+      region_attributes: ' id="region-header"',
+      "templates-block--header?": true
     ) }}
     {{{ page.header }}}
   </header>
@@ -14,8 +14,8 @@
   {{{ page.breadcrumb }}}
 
   {{> 03-templates/region(
-    "compounds-alert--alert?": true,
-    region_attributes: ' id="region-highlighted"'
+    region_attributes: ' id="region-highlighted"',
+    "compounds-alert--alert?": true
   ) }}
   {{{ page.highlighted }}}
   {{{ page.help }}}
@@ -26,20 +26,20 @@
     <div class="layout-content">
       {{# templates-region--pages-homepage? }}
         {{> 03-templates/region(
-          "templates-block--main--pages-homepage?": true,
-          region_attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"',
+          "templates-block--main--pages-homepage?": true
         ) }}
       {{/ templates-region--pages-homepage? }}
       {{# templates-region--pages-blog? }}
         {{> 03-templates/region(
-          "templates-block--main--pages-blog?": true,
-          region_attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"',
+          "templates-block--main--pages-blog?": true
         ) }}
       {{/ templates-region--pages-blog? }}
       {{# templates-region--pages-article? }}
         {{> 03-templates/region(
-          "templates-block--main--pages-article?": true,
-          region_attributes: ' id="region-content"'
+          region_attributes: ' id="region-content"',
+          "templates-block--main--pages-article?": true
         ) }}
       {{/ templates-region--pages-article? }}
       {{{ fpo_template_content }}}
@@ -49,8 +49,8 @@
       <aside class="layout-sidebar-first {{ conditional_class }}" role="complementary">
         {{# templates-region--pages-homepage? }}
           {{> 03-templates/region(
-            "templates-block--sidebar1--pages-homepage?": true,
-            region_attributes: ' id="region-sidebar-first"'
+            region_attributes: ' id="region-sidebar-first"',
+            "templates-block--sidebar1--pages-homepage?": true
           ) }}
         {{/ templates-region--pages-homepage? }}
         {{{ page.sidebar_first }}}
@@ -61,13 +61,13 @@
       <aside class="layout-sidebar-second" role="complementary">
         {{# templates-region--pages-article? }}
           {{> 03-templates/region(
-            "templates-block--sidebar2--pages-article?": true,
-            region_attributes: ' id="region-sidebar-second"'
+            region_attributes: ' id="region-sidebar-second"',
+            "templates-block--sidebar2--pages-article?": true
           ) }}
         {{/ templates-region--pages-article? }}
         {{> 03-templates/region(
-          "templates-block--sidebar2?": true,
-          region_attributes: ' id="region-sidebar-second"'
+          region_attributes: ' id="region-sidebar-second"',
+          "templates-block--sidebar2?": true
         ) }}
         {{{ page.sidebar_second }}}
       </aside>
@@ -78,8 +78,8 @@
   {{# footer? }}
     <footer role="contentinfo">
       {{> 03-templates/region(
-        "templates-block--footer?": true,
-        region_attributes: ' id="region-footer"'
+        region_attributes: ' id="region-footer"',
+        "templates-block--footer?": true
       ) }}
       {{{ page.footer }}}
     </footer>
