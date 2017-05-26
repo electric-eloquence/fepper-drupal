@@ -1,9 +1,8 @@
 '# content\?': |2
   {%
     set classes = [
-      'view-' ~ id|clean_class,
-      'view-display-id-' ~ display_id,
-      dom_id ? 'js-view-dom-id-' ~ dom_id,
+      'view-id-' ~ id,
+      'view-display-id-' ~ display_id
     ]
   %}
 'views-view_attributes': |2
