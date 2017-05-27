@@ -535,6 +535,7 @@ section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eee;
   margin-bottom: 0.5em;
+  width: 10rem;
 }
 section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
