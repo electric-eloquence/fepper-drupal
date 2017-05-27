@@ -431,7 +431,7 @@ input[type="search"]::-webkit-search-decoration {
 #search-block-form #edit-keys {
   width: 11.5em;
 }
-#search-block-form .button.form-submit {
+#search-block-form #edit-submit {
   border: 1px solid #808080;
   border-left: 0;
   color: transparent;
@@ -442,7 +442,7 @@ input[type="search"]::-webkit-search-decoration {
   width: 5rem;
   z-index: 1;
 }
-#search-block-form .button.form-submit:hover {
+#search-block-form #edit-submit:hover {
   background: rgba(0,0,0,0.3);
 }
 @media all and (max-width: 767px) {
