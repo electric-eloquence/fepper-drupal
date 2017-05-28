@@ -83,7 +83,8 @@ values for template reuse:
 #### Windows install
 * Assumes you haven't checked out the Fepper-Windows project and just need to add the Windows scripts to your project.
 * Also assumes you have Node.js installed.
-* Requires PowerShell >= 3.0.
+* PowerShell >= 3.0 required.
+* 64-bit CPU architecture recommended.
 * Open PowerShell and enter `npm run install-windows`
 * In File Explorer, double-click `fepper.vbs` to launch the UI.
 * In PowerShell, enter `cscript .\fepper.vbs [task]` to run Fepper tasks.
@@ -104,15 +105,15 @@ for those directories to get processed and copied to the backend.
 * To launch from the command line:
   * `fp`
 * These other utility tasks are runnable on the command line:
-  * `fp data` compile data.json from underscore-prefixed .json files.
-  * `fp frontend-copy` copy assets, scripts, and styles to the backend.
-  * `fp help` print documentation of Fepper tasks.
-  * `fp once` do a one-off Fepper build to the public directory.
-  * `fp restart` restart after shutdown, but without opening the browser.
-  * `fp static` generate a static site from the 04-pages directory.
-  * `fp syncback` combine frontend-copy and template tasks.
-  * `fp template` translate templates in 03-templates for the backend and copy them there.
-  * `fp version` print versions of Fepper CLI, Fepper NPM, and Fepper UI.
+  * `fp data` - compile data.json from underscore-prefixed .json files.
+  * `fp frontend-copy` - copy assets, scripts, and styles to the backend.
+  * `fp help` - print documentation of Fepper tasks.
+  * `fp once` - do a one-off Fepper build to the public directory.
+  * `fp restart` - restart after shutdown, but without opening the browser.
+  * `fp static` - generate a static site from the 04-pages directory.
+  * `fp syncback` - combine frontend-copy and template tasks.
+  * `fp template` - translate templates in 03-templates for the backend and copy them there.
+  * `fp version` - print versions of Fepper CLI, Fepper NPM, and Fepper UI.
 * If using Git for version control, directories named "ignore" will be ignored.
 
 ### <a id="global-data"></a>Global Data
@@ -173,9 +174,9 @@ for the correct YAML syntax.
 
 Follow these rules for setting up keys and values:
 
-* Delete the outer two curly Mustache braces for keys.
+* Delete the Mustache curly braces for keys.
 * Trim any exterior whitespace.
-* Leave other control structures within the key, i.e., !#/>^{}
+* Leave other control structures within the key, i.e., !#/>^
 * Escape parentheses and question marks with a backslash.
 * Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, and the numeral 2.
@@ -186,7 +187,7 @@ Run `fp syncback` or `fp template` to execute the Templater.
 * Be sure that `backend.synced_dirs.templates_dir` and `backend.synced_dirs.templates_ext` are set in `pref.yml`. 
 * The default `templates_dir` and `templates_ext` settings in `pref.yml` can be overridden by similarly named settings in the template-specific YAML files. 
 * Templates prefixed by "\_\_" will be ignored by the Templater as will files in the `_nosync` directory. 
-* The Templater will recurse through nested Mustache templates if the tags are written in the verbose syntax and have the `.mustache` extension, i.e. `{{> 02-organisms/00-global/00-header.mustache }}`. 
+* The Templater will recurse through nested Mustache templates if the tags are written in the verbose syntax and have the `.mustache` extension, i.e. `{{> 02-components/00-global/00-header.mustache }}`. 
 * However, the more common inclusion use-case is to leave off the extension, and not recurse. 
 
 [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) and 
@@ -212,7 +213,7 @@ upper right, then clicking Code, and then clicking the Mustache tab in the
 bottom pane. The Mustache tags are hot-linked, and if they are written in the 
 verbose syntax, clicking on them will open that Mustache file and display its 
 code in the Fepper UI, with its Mustache tags hot-linked as well. The Mustache 
-tags must be coded in the verbose-pathed manner: `{{> 02-organisms/00-global/00-header }}`
+tags must be coded in the verbose-pathed manner: `{{> 02-components/00-global/00-header }}`
 
 The path must be correct; however, the `.mustache` extension is optional. The 
 default homepage is a working example.
@@ -282,10 +283,10 @@ can accept additions, modifications, and deletions per the needs of end users.
 The UI is built by recursive, functional React calls. The recursion tree is 
 reflected by the directory structure containing the modules which compose the 
 UI. To override any given module, copy the directory structure leading to the 
-module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html
-to `source/_ui/index/html`. Copying and modifying similarly named and nested 
-files will override the respective modules in core. Additions (so long as they 
-are correctly nested) will also be recognized.
+module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html 
+to `source/_ui/index/html`, respective to your implementation. Modifications to 
+modules in that directory will override the corresponding modules in core. 
+Additions (so long as they are correctly nested) will also be recognized.
 
 It is mandatory to componentize style modifications to the UI this way. While it 
 is a better practice to componentize scripts this way, generic modifications to 
@@ -295,7 +296,7 @@ View All markup can also be overridden by copying the `.mustache` files in
 https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall 
 and pasting them to `source/_ui/viewall` (nested correctly). Modifications will 
 then be recognized and displayed in the UI. (No additions are allowed.) Custom 
-View All styles can be added to regular pattern styles in `source/_styles/bld`.
+View All styles can be added to regular pattern styles in `source/_styles`.
 
 You will need to compile the UI in order for the browser to pick up custom 
 changes to the UI:
@@ -365,7 +366,7 @@ If your Mac is connected to the Internet through a wire:
 * Change the port number if Fepper is listening on a different port
 
 ### <a id="more-documentation"></a>More Documentation
-* [default.pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
+* [Default pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
 * [Pattern Lab](http://patternlab.io/docs/index.html)
 * [Mustache](https://mustache.github.io/mustache.5.html)
 
