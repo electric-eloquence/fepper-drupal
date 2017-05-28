@@ -1,7 +1,7 @@
 <!-- Begin node -->
-<article{{{ article_attributes }}}>
+<article{{{ node_attributes }}}>
 
-  {{ title_prefix }}
+  {{{ title_prefix }}}
   {{# view_mode_full? }}
     <h1{{{ title_attributes }}}>
       <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
@@ -12,13 +12,13 @@
       <a href="{{ url }}" rel="bookmark">{{{ article_title }}}</a>
     </h2>
   {{/ view_mode_full? }}
-  {{ title_suffix }}
+  {{{ title_suffix }}}
 
   {{# view_mode_full? }}
     <footer>
       <div{{{ author_attributes }}}>
-        By {{ author_name }} on {{ date }}
-        {{ metadata }}
+        By {{{ author_name }}} on {{{ date }}}
+        {{{ metadata }}}
       </div>
     </footer>
   {{/ view_mode_full? }}
@@ -27,14 +27,14 @@
 
     {{! BEGIN NODE CONTENT }}
 
-    {{# compounds-media-block--pages-homepage__hoagies? }}
-      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: ' property="text"') }}
-    {{/ compounds-media-block--pages-homepage__hoagies? }}
-    {{# compounds-media-block--pages-blog? }}
-      {{> 01-compounds/02-blocks/00-media-block(media_block_attributes: ' property="schema:text"') }}
-    {{/ compounds-media-block--pages-blog? }}
+    {{# compounds-block-media--pages-homepage__hoagies? }}
+      {{> 01-compounds/01-blocks/02-block-media(media_attributes: ' property="text"') }}
+    {{/ compounds-block-media--pages-homepage__hoagies? }}
+    {{# compounds-block-media--pages-blog? }}
+      {{> 01-compounds/01-blocks/02-block-media(media_attributes: ' property="schema:text"') }}
+    {{/ compounds-block-media--pages-blog? }}
     {{# components-article? }}
-      {{> 02-components/01-article/01-article }}
+      {{> 02-components/01-article/00-article }}
     {{/ components-article? }}
 
     {{! END NODE CONTENT }}

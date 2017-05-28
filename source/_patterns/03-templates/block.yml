@@ -2,13 +2,13 @@
   \{\{ attributes \}\}
 'title_prefix': |2
   \{\{ title_prefix \}\}
-'# block_label': |2
+'# title': |2
   {% if label %}
 'title_attributes': |2
   \{\{ title_attributes \}\}
-'block_label': |2
+'title': |2
   \{\{ label \}\}
-'/ block_label': |2
+'/ title': |2
   {% endif %}
 'title_suffix': |2
   \{\{ title_suffix \}\}

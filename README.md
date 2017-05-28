@@ -10,17 +10,17 @@
 The patterns in `source/03-templates` are parameterized to reuse templates in a 
 Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
 Fepper templates can be exported to Drupal with no further effort beyond running 
-`fp template`. Follow these rules when constructing parameter keys and values 
-for template reuse:
+`fp template`. Follow these rules when constructing new parameter keys and 
+values for template reuse:
 
 * The parameters are submitted within parentheses inside the Mustache inclusion tags.
-* The parameter key should be BEM-like in syntax.
+* The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * Follow that with a `--` and then the pattern ID of the original page or pattern at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
-* This type of parameter is usually boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
+* This type of parameter is usually a boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
 * Quoting of keys and values should follow JSON5 syntax: http://json5.org
 * When quoting is necessary, to avoid escaping quotes in .mustache and .yml files, wrap keys in double-quotes and values in single-quotes.
 
@@ -53,11 +53,13 @@ for template reuse:
 * Download the [latest release](https://github.com/electric-eloquence/fepper-drupal/releases).
 
 #### Main install
-* On macOS:
+* In macOS Finder:
   * Double-click `fepper.command`
-  * Or on the command line, enter `./fepper.command`
-* On other OSs:
-  * If the OS can run Node.js, it can run Fepper. However, the `fp` command is dependent on BASH.
+  * Among other things, this will install the [fepper-cli](https://www.npmjs.com/package/fepper-cli), which will give you the `fp` command.
+* On other Unix-like OSs (or if you prefer the command line):
+  * On the command line, enter `./fepper.command`
+  * If your OS can run Node.js, it can run Fepper. However, `./fepper.command` and the `fp` command are dependent on BASH.
+  * See further instructions for installation on non-BASH Windows environments.
   * Using Fepper on other OSs implies that you know what you are doing!
 * After entering your password for installation, Fepper should automatically open in a browser.
   * Open http://localhost:3000 if it doesn't open automatically.
@@ -70,16 +72,19 @@ for template reuse:
   * If changes do not appear immediately, it may be necessary to install a [LiveReload browser extension](http://livereload.com/extensions/).
 
 #### Drupal install
-* To install the included Drupal instance, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
+* To install the included Drupal backend, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
 * Configure `d8.local` to be the hostname in your web server configs.
+* Configure `backend/drupal` (correctly pathed) to be the document root for this host.
+* Restart the web server.
 * Open http://d8.local in a browser.
 * Log into Drupal with `admin:admin`
 
 #### Windows install
 * Assumes you haven't checked out the Fepper-Windows project and just need to add the Windows scripts to your project.
 * Also assumes you have Node.js installed.
-* Requires PowerShell >= 3.0.
+* PowerShell >= 3.0 required.
+* 64-bit CPU architecture recommended.
 * Open PowerShell and enter `npm run install-windows`
 * In File Explorer, double-click `fepper.vbs` to launch the UI.
 * In PowerShell, enter `cscript .\fepper.vbs [task]` to run Fepper tasks.
@@ -100,15 +105,15 @@ for those directories to get processed and copied to the backend.
 * To launch from the command line:
   * `fp`
 * These other utility tasks are runnable on the command line:
-  * `fp data` compile data.json from underscore-prefixed .json files.
-  * `fp frontend-copy` copy assets, scripts, and styles to the backend.
-  * `fp help` print documentation of Fepper tasks.
-  * `fp once` do a one-off Fepper build to the public directory.
-  * `fp restart` restart after shutdown, but without opening the browser.
-  * `fp static` generate a static site from the 04-pages directory.
-  * `fp syncback` combine frontend-copy and template tasks.
-  * `fp template` translate templates in 03-templates for the backend and copy them there.
-  * `fp version` print versions of Fepper CLI, Fepper NPM, and Fepper UI.
+  * `fp data` - compile data.json from underscore-prefixed .json files.
+  * `fp frontend-copy` - copy assets, scripts, and styles to the backend.
+  * `fp help` - print documentation of Fepper tasks.
+  * `fp once` - do a one-off Fepper build to the public directory.
+  * `fp restart` - restart after shutdown, but without opening the browser.
+  * `fp static` - generate a static site from the 04-pages directory.
+  * `fp syncback` - combine frontend-copy and template tasks.
+  * `fp template` - translate templates in 03-templates for the backend and copy them there.
+  * `fp version` - print versions of Fepper CLI, Fepper NPM, and Fepper UI.
 * If using Git for version control, directories named "ignore" will be ignored.
 
 ### <a id="global-data"></a>Global Data
@@ -144,7 +149,7 @@ hard-coded links to other pages in the `patterns` directory must start with
 `../04-pages-` and not `../../patterns/04-pages-`.
 
 ### <a id="the-backend"></a>The Backend
-Fepper can almost as easily work with a CMS backend such as Drupal or WordPress, 
+Fepper can very easily work with a CMS backend such as Drupal or WordPress, 
 while not requiring Apache, MySQL, or PHP. Put the actual backend codebase or 
 even just a symbolic link to the codebase into the `backend` directory. Then, 
 enter the relative paths to the appropriate backend directories into `pref.yml`. 
@@ -163,16 +168,17 @@ backend web application.
 Fepper's Mustache templates can be translated into templates compatible with 
 your backend. Mustache tags just need to be replaced with tags the backend can 
 use. Put these translations into YAML files named similarly to the Mustache 
-files in `source/_patterns/03-templates`. Follow the example in 
-`test/files/_patterns/03-templates/00-homepage.yml` for the correct YAML syntax. 
+files in `source/_patterns/03-templates`. Follow 
+[this example](https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_patterns/03-templates/page.yml) 
+for the correct YAML syntax. 
 
 Follow these rules for setting up keys and values:
 
-* Delete the outer two curly Mustache braces for keys.
+* Delete the Mustache curly braces for keys.
 * Trim any exterior whitespace.
-* Leave other control structures within the key, i.e., !#/>^{}
-* Escape parentheses and question marks with two backslashes.
-* Wrap the key in double quotes.
+* Leave other control structures within the key, i.e., !#/>^
+* Escape parentheses and question marks with a backslash.
+* Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, and the numeral 2.
 * Indent each line of the value by at least two spaces.
 
@@ -181,7 +187,7 @@ Run `fp syncback` or `fp template` to execute the Templater.
 * Be sure that `backend.synced_dirs.templates_dir` and `backend.synced_dirs.templates_ext` are set in `pref.yml`. 
 * The default `templates_dir` and `templates_ext` settings in `pref.yml` can be overridden by similarly named settings in the template-specific YAML files. 
 * Templates prefixed by "\_\_" will be ignored by the Templater as will files in the `_nosync` directory. 
-* The Templater will recurse through nested Mustache templates if the tags are written in the verbose syntax and have the `.mustache` extension, i.e. `{{> 02-organisms/00-global/00-header.mustache }}`. 
+* The Templater will recurse through nested Mustache templates if the tags are written in the verbose syntax and have the `.mustache` extension, i.e. `{{> 02-components/00-global/00-header.mustache }}`. 
 * However, the more common inclusion use-case is to leave off the extension, and not recurse. 
 
 [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) and 
@@ -207,7 +213,7 @@ upper right, then clicking Code, and then clicking the Mustache tab in the
 bottom pane. The Mustache tags are hot-linked, and if they are written in the 
 verbose syntax, clicking on them will open that Mustache file and display its 
 code in the Fepper UI, with its Mustache tags hot-linked as well. The Mustache 
-tags must be coded in the verbose-pathed manner: `{{> 02-organisms/00-global/00-header }}`
+tags must be coded in the verbose-pathed manner: `{{> 02-components/00-global/00-header }}`
 
 The path must be correct; however, the `.mustache` extension is optional. The 
 default homepage is a working example.
@@ -222,7 +228,7 @@ selector you wish to target (prepended with "#" for IDs and "." for classes).
 Classnames and tagnames may be appended with array index notation ([n]). 
 Otherwise, the Scraper will scrape all elements of that class or tag 
 sequentially. Such a loosely targeted scrape will save many of the targeted 
-fields to the JSON file, but will only save the first instance of the target to 
+fields to a JSON file, but will only save the first instance of the target to 
 a Mustache template.
 
 Upon submission, you should be able to review the scraped output on the 
@@ -242,7 +248,8 @@ bp_lg_max = -1
 bp_md_max = 1024
 bp_sm_max = 767
 bp_xs_max = 480
-bp_xs_min = 0
+bp_xx_max = 320
+bp_xx_min = 0
 ```
 
 It cannot contain comments, semi-colons, curly braces, etc. It is 
@@ -259,9 +266,9 @@ syntax; however, the more verbose, CSS-like syntax (with curly braces, colons,
 and semi-colons) is perfectly valid as well.
 
 The UI's viewport resizer buttons are dependent on the values in this file. The 
-default values will configure the XS, SM, and MD buttons to resize the viewport 
-to each breakpoint's assigned maximum width. The LG button will resize the 
-viewport to a width that is greater than `bp_md_max` by the distance between 
+default values will configure the XX, XS, SM, and MD buttons to resize the 
+viewport to each breakpoint's assigned maximum width. The LG button will resize 
+the viewport to a width that is greater than `bp_md_max` by the distance between 
 `bp_sm_max` and `bp_md_max`.
 
 Users have the ability to add, modify, or delete values in this file. The UI 
@@ -276,20 +283,20 @@ can accept additions, modifications, and deletions per the needs of end users.
 The UI is built by recursive, functional React calls. The recursion tree is 
 reflected by the directory structure containing the modules which compose the 
 UI. To override any given module, copy the directory structure leading to the 
-module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html
-to `source/_ui/index/html`. Copying and modifying similarly named and nested 
-files will override the respective modules in core. Additions (so long as they 
-are correctly nested) will also be recognized.
+module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html 
+to `source/_ui/index/html`, respective to your implementation. Modifications to 
+modules in that directory will override the corresponding modules in core. 
+Additions (so long as they are correctly nested) will also be recognized.
 
 It is mandatory to componentize style modifications to the UI this way. While it 
 is a better practice to componentize scripts this way, generic modifications to 
-UI JS can also be added to `source/_scripts/ui-extender.js`.
+UI JavaScript can also be added to `source/_scripts/ui-extender.js`.
 
 View All markup can also be overridden by copying the `.mustache` files in 
 https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall 
 and pasting them to `source/_ui/viewall` (nested correctly). Modifications will 
 then be recognized and displayed in the UI. (No additions are allowed.) Custom 
-View All styles can be added to regular pattern styles in `source/_styles/bld`.
+View All styles can be added to regular pattern styles in `source/_styles`.
 
 You will need to compile the UI in order for the browser to pick up custom 
 changes to the UI:
@@ -359,12 +366,11 @@ If your Mac is connected to the Internet through a wire:
 * Change the port number if Fepper is listening on a different port
 
 ### <a id="more-documentation"></a>More Documentation
-* [default.pref.yml](https://github.com/electric-eloquence/fepper/blob/master/excludes/default.pref.yml)
+* [Default pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
 * [Pattern Lab](http://patternlab.io/docs/index.html)
 * [Mustache](https://mustache.github.io/mustache.5.html)
 
 ### <a id="contribute"></a>Contribute
-Contributions and bug fixes are greatly appreciated!
+Contributions and bug reports are greatly appreciated!
 
-* Please pull request against the [dev branch](https://github.com/electric-eloquence/fepper/tree/dev).
-* Please try to be both concise as well as clear on what is trying to be accomplished.
+* Please pull request against the dev branch.

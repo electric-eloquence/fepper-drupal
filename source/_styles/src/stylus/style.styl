@@ -6,41 +6,40 @@
 // /////////////////////////////////////////////////////////////////////////////
 // The base on which the rest of the styles are built.
 // /////////////////////////////////////////////////////////////////////////////
-@import 'partials/base/variables'
-@import 'partials/base/reset'
-@import 'partials/base/icons'
-@import 'partials/base/helpers'
-@import 'partials/base/global'
+@import '0-base/00-variables'
+@import '0-base/01-reset'
+@import '0-base/02-icons'
+@import '0-base/03-helpers'
+@import '0-base/04-global'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Element subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import 'partials/elements/text'
-@import 'partials/elements/lists'
-@import 'partials/elements/images'
+@import '00-elements/00-text'
+@import '00-elements/01-lists'
+@import '00-elements/02-images'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Compound subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import 'partials/compounds/forms'
-@import 'partials/compounds/navigation'
-@import 'partials/compounds/messaging'
+@import '01-compounds/02-forms'
+@import '01-compounds/03-navigation'
+@import '01-compounds/04-messaging'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Component subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import 'partials/components/comments'
-@import 'partials/components/sections'
+@import '02-components/02-comments'
+@import '02-components/03-sections'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Pages.
 // /////////////////////////////////////////////////////////////////////////////
-@import 'partials/pages/layout'
-@import 'partials/pages/header'
-@import 'partials/pages/nav'
-@import 'partials/pages/article'
-@import 'partials/pages/footer'
-@import 'partials/pages/homepage'
+@import '04-pages/00-header'
+@import '04-pages/01-layout'
+@import '04-pages/02-footer'
+@import '04-pages/03-homepage'
+@import '04-pages/04-article'
 
 // Only in Drupal, not Fepper.
 #block-fepper-branding
@@ -50,13 +49,35 @@
   padding-top: 0
   padding-bottom: 0
   @extend .cf
+  div[role="contentinfo"]
+    border-width: 1px
+    border-style: solid
+    padding: $pad-half
+    a
+      text-decoration: underline
+  div[aria-label="Status message"]
+    background-color: #f8fff0
+    border-color: #be7
+    &, & a
+      color: #234600
+  div[aria-label="Warning message"]
+    background-color: #fffce5
+    border-color: #ed5
+    &, & a
+      color: #840
+  div[aria-label="Error message"]
+    background-color: #fef5f1
+    border-color: #ed541d
+    &, & a
+      color: #f00
 #region-primary-menu
   padding-bottom: 0
 #region-secondary-menu
   padding-top: $pad-and-half
 #region-primary-menu + #region-secondary-menu
   padding-top: 0
-#region-breadcrumb
+#region-breadcrumb,
+#breadcrumb
   font-size: 0.75em
   font-weight: bold
 #block-fepper-page-title

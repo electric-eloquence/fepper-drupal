@@ -1,45 +1,40 @@
 {{# content? }}
 {{/ content? }}
 <!-- Begin views-view -->
-<div{{{ views_view_attributes }}}>
-  {{ title_prefix }}
+<div{{{ views-view_attributes }}}>
+  {{{ title_prefix }}}
   {{# title }}
-    <h1>{{ title }}</h1>
+    <h1>{{{ title }}}</h1>
   {{/ title }}
-  {{ title_suffix }}
+  {{{ title_suffix }}}
 
   {{# header }}
     <header>
-      {{ header }}
+      {{{ header }}}
     </header>
   {{/ header }}
 
-  {{ exposed }}
-  {{ attachment_before }}
+  {{{ exposed }}}
+  {{{ attachment_before }}}
 
 
   {{! BEGIN VIEWS ROWS }}
 
   {{# templates-views-view-unformatted--pages-homepage__hero? }}
     {{> 03-templates/views-view-unformatted(
-      "templates-views-view-rows--pages-homepage__hero?": true
+      "templates-views-view-unformatted__row--pages-homepage__hero?": true
     ) }}
   {{/ templates-views-view-unformatted--pages-homepage__hero? }}
-  {{# templates-views-view-unformatted--pages-homepage__subs? }}
-    {{> 03-templates/views-view-unformatted(
-      "templates-views-view-rows--pages-homepage__subs?": true
-    ) }}
-  {{/ templates-views-view-unformatted--pages-homepage__subs? }}
   {{# templates-views-view-list--pages-homepage__hoagies? }}
     {{> 03-templates/views-view-list(
-      views_view_list_attributes: ' class="item-list"',
-      "templates-views-view-rows--pages-homepage__hoagies?": true
+      views-view-list_attributes: ' class="item-list"',
+      "templates-views-view-list__row--pages-homepage__hoagies?": true
     ) }}
   {{/ templates-views-view-list--pages-homepage__hoagies? }}
   {{# templates-views-view-list--pages-blog? }}
     {{> 03-templates/views-view-list(
-      views_view_list_attributes: ' class="item-list"',
-      "templates-views-view-rows--pages-blog?": true
+      views-view-list_attributes: ' class="item-list"',
+      "templates-views-view-list__row--pages-blog?": true
     ) }}
   {{/ templates-views-view-list--pages-blog? }}
   {{{ fpo_template_content }}}
@@ -47,22 +42,22 @@
   {{! END VIEWS ROWS }}
 
 
-  {{ empty }}
+  {{{ empty }}}
   {{# templates-views-view-list--pages-blog? }}
-    {{> 01-compounds/05-navigation/03-pagination }}
+    {{> 01-compounds/03-navigation/01-pagination }}
   {{/ templates-views-view-list--pages-blog? }}
 
-  {{ attachment_after }}
+  {{{ attachment_after }}}
   {{# templates-views-view-list--pages-homepage__hoagies? }}
-    {{> 02-components/04-sections/03-more-link }}
+    {{> 02-components/03-sections/02-more-link }}
   {{/ templates-views-view-list--pages-homepage__hoagies? }}
 
   {{# footer }}
     <footer>
-      {{ footer }}
+      {{{ footer }}}
     </footer>
   {{/ footer }}
 
-  {{ feed_icons }}
+  {{{ feed_icons }}}
 </div>
 <!-- End views-view -->

@@ -1,6 +1,6 @@
 <!-- Begin region -->
 {{# content? }}
-  <div{{{ attributes }}}>
+  <div{{{ region_attributes }}}>
 
     {{! BEGIN HEADER CONTENT }}
 
@@ -12,18 +12,29 @@
       {{> 03-templates/block(
         block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
         title_attributes: ' class="icon-search"',
-        block_label: 'Search form',
+        title: 'Search form',
         "compounds-search?": true
       ) }}
       {{> 03-templates/_block--system-menu-block(
         block_attributes: ' id="block-mainnavigation"',
         title_attributes: ' class="icon-menu"',
-        block_label: 'Main navigation',
+        title: 'Main navigation',
         "compounds-primary-nav?": true
       ) }}
     {{/ templates-block--header? }}
 
     {{! END HEADER CONTENT }}
+
+
+    {{! BEGIN ALERT CONTENT }}
+
+    {{# compounds-alert--alert? }}
+      {{# alert }}
+        {{> 01-compounds/04-messaging/00-alert }}
+      {{/ alert }}
+    {{/ compounds-alert--alert? }}
+
+    {{! END ALERT CONTENT }}
 
 
     {{! BEGIN MAIN CONTENT }}
@@ -34,7 +45,6 @@
         "templates-container--pages-homepage__hero?": true
       ) }}
       {{> 03-templates/_block--views-block--content-recent-block-2(
-        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-2"',
         "templates-container--pages-homepage__subs?": true
       ) }}
     {{/ templates-block--main--pages-homepage? }}
@@ -59,7 +69,7 @@
     {{# templates-block--sidebar1--pages-homepage? }}
       {{> 03-templates/block(
         block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-3"',
-        block_label: 'Latest posts',
+        title: 'Latest posts',
         "templates-container--pages-homepage__hoagies?": true
       ) }}
     {{/ templates-block--sidebar1--pages-homepage? }}
