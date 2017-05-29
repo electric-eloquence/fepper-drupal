@@ -79,14 +79,6 @@ function fepper_preprocess_block(&$variables) {
 }
 
 /**
- * Implements template_preprocess_comment().
- */
-function fepper_preprocess_comment(&$variables) {
-  $variables['title'] = '';
-  $variables['permalink'] = '';
-}
-
-/**
  * Implements template_preprocess_page().
  */
 function fepper_preprocess_page(&$variables) {
