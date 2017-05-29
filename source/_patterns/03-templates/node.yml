@@ -16,8 +16,8 @@
   {% endif %}
 'title_suffix': |2
   \{\{ title_suffix \}\}
-'author_picture': |2
-  \{\{ author_picture \}\}
+'! author_picture': |2
+  \{# author_picture #\}
 'author_attributes': |2
   \{\{ author_attributes \}\}
 'author_name': |2
