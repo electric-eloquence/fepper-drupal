@@ -83,7 +83,6 @@ h2[class^="icon-"]
       ul
         max-height: 0
         overflow: hidden
-        position: absolute
         transition: max-height 0.3s ease
         z-index: 2
         li
@@ -95,3 +94,11 @@ h2[class^="icon-"]
       &:hover
         ul
           max-height: 100%
+    > ul > .expanded > ul
+      position: absolute
+      > .expanded li
+        border-right: 0
+        border-bottom: 0
+        border-left: 0
+      .expanded
+        padding-left: 1rem
