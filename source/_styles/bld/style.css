@@ -695,6 +695,9 @@ h2[class^="icon-"]:hover::before {
   #block-mainnavigation > ul > .expanded > ul .expanded {
     padding-left: 1rem;
   }
+  #block-mainnavigation > ul > .expanded > ul ul {
+    background: transparent;
+  }
 }
 .layout-sidebar-second h2 {
   border-bottom: 1px solid #ddd;
