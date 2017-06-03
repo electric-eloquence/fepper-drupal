@@ -666,7 +666,6 @@ h2[class^="icon-"]:hover::before {
   #block-mainnavigation .expanded ul {
     max-height: 0;
     overflow: hidden;
-    position: absolute;
     -webkit-transition: max-height 0.3s ease;
     -moz-transition: max-height 0.3s ease;
     -ms-transition: max-height 0.3s ease;
@@ -684,6 +683,17 @@ h2[class^="icon-"]:hover::before {
   }
   #block-mainnavigation .expanded:hover ul {
     max-height: 100%;
+  }
+  #block-mainnavigation > ul > .expanded > ul {
+    position: absolute;
+  }
+  #block-mainnavigation > ul > .expanded > ul > .expanded li {
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+  #block-mainnavigation > ul > .expanded > ul .expanded {
+    padding-left: 1rem;
   }
 }
 .layout-sidebar-second h2 {
