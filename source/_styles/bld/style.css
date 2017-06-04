@@ -429,10 +429,10 @@ input[type="search"]::-webkit-search-decoration {
   background: transparent;
   height: 3.6rem;
 }
-#search-block-form #edit-keys {
+#search-block-form input[id=^="edit-keys"] {
   width: 11.5em;
 }
-#search-block-form #edit-submit {
+#search-block-form input[id^="edit-submit"] {
   border: 1px solid #808080;
   border-left: 0;
   color: transparent;
@@ -443,7 +443,7 @@ input[type="search"]::-webkit-search-decoration {
   width: 5rem;
   z-index: 1;
 }
-#search-block-form #edit-submit:hover {
+#search-block-form input[id^="edit-submit"]:hover {
   background: rgba(0,0,0,0.3);
 }
 @media all and (max-width: 767px) {
@@ -520,17 +520,24 @@ section[rel="schema:comment"] h2 {
   margin: 0.667em 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
+  display: flex;
   padding-bottom: 1em;
-  overflow: hidden;
+  position: relative;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
-  float: left;
-  min-height: 9em;
+  min-height: 11em;
   width: 12em;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] p {
   line-height: 1;
   margin: 0;
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
+  padding-bottom: 0.8rem;
+  width: calc(100% - 12em);
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
+  margin-top: 0.4rem;
 }
 section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
@@ -554,6 +561,22 @@ section[rel="schema:comment"] span[property="schema:name"]::after {
 }
 section[rel="schema:comment"] > article:last-of-type {
   border-bottom: 1px solid #ddd;
+}
+@media (max-width: 480px) {
+  section[rel="schema:comment"] article[typeof="schema:Comment"] {
+    display: block;
+    overflow: hidden;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
+    float: left;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
+    padding-bottom: 0;
+    width: auto;
+  }
+  section[rel="schema:comment"] div[property="schema:text"] {
+    min-height: 11em;
+  }
 }
 .more-link {
   font-style: italic;
