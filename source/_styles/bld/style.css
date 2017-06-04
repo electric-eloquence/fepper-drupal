@@ -196,6 +196,7 @@ main[role="main"]::after,
 .lc,
 .layout-container > *:not(footer),
 #block-fepperfooter {
+  clear: both;
   max-width: 115.2rem;
   margin: 0 auto;
   padding: 0.8rem;
@@ -1031,6 +1032,12 @@ article[role="article"] > footer {
 }
 .no-sidebar-second {
   width: 100%;
+}
+.path-search #search-form > * {
+  display: inline;
+}
+.path-search h2 {
+  margin: 2.4rem 0;
 }
 #block-fepper-search h2 {
   display: none;
