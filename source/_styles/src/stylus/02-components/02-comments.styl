@@ -5,19 +5,20 @@ section[rel="schema:comment"]
     margin: 0.667em 0
   article[typeof="schema:Comment"]
     display: flex
-    padding-bottom: 1em
+    padding-top: 0.75em
     position: relative
     > footer
       min-height: 11em
       width: 12em
-    p
-      line-height: 1
-      margin: 0
+      p
+        line-height: 1
+        margin: 0
     > div
       padding-bottom: $space-half
       width: calc(100% - 12em)
       .links
         margin-top: $space-quarter
+        margin-bottom: 0
   article[typeof="schema:Person"] img
     display: block
     border: 1px solid $gray-light-2
@@ -33,7 +34,8 @@ section[rel="schema:comment"]
     &::after
       content: "\A"
       white-space: pre
-  > article:last-of-type
+  > article[typeof="schema:Comment"]:last-of-type,
+  article[typeof="schema:Comment"]:last-child
     border-bottom: 1px solid $gray-light-3
   @media (max-width: $bp-xs-max)
     article[typeof="schema:Comment"]
