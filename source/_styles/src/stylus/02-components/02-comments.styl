@@ -4,15 +4,20 @@ section[rel="schema:comment"]
   h2
     margin: 0.667em 0
   article[typeof="schema:Comment"]
+    display: flex
     padding-bottom: 1em
-    overflow: hidden
+    position: relative
     > footer
-      float: left
-      min-height: 9em
+      min-height: 11em
       width: 12em
     p
       line-height: 1
       margin: 0
+    > div
+      padding-bottom: $space-half
+      width: calc(100% - 12em)
+      .links
+        margin-top: $space-quarter
   article[typeof="schema:Person"] img
     display: block
     border: 1px solid $gray-light-2
@@ -30,3 +35,14 @@ section[rel="schema:comment"]
       white-space: pre
   > article:last-of-type
     border-bottom: 1px solid $gray-light-3
+  @media (max-width: $bp-xs-max)
+    article[typeof="schema:Comment"]
+      display: block
+      overflow: hidden
+      > footer
+        float: left
+      > div
+        padding-bottom: 0
+        width: auto
+    div[property="schema:text"]
+      min-height: 11em
