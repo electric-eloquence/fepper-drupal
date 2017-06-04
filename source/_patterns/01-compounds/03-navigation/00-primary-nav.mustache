@@ -1,62 +1,6 @@
 <ul>
-  <li>
-    <a href="/" data-drupal-link-system-path="<front>" class="is-active">{{ is_active }}</a>
-  </li>
-  <li>
-    <a href="/" data-drupal-link-system-path="<front>" class="is-active">{{ is_active_1 }}</a>
-  </li>
-  <li class="expanded">
-    <a href="/blog" data-drupal-link-system-path="blog">{{ a }}</a>
-    <ul>
-      <li>
-        <a href="/node/21" data-drupal-link-system-path="node/21">{{ a_1 }}</a>
-      </li>
-      <li>
-        <a href="/node/36" data-drupal-link-system-path="node/36">{{ a_2 }}</a>
-      </li>
-      <li>
-        <a href="/node/46" data-drupal-link-system-path="node/46">{{ a_3 }}</a>
-      </li>
-    </ul>
-
-  </li>
-  <li>
-    <a href="/contact">{{ a_4 }}</a>
-  </li>
-  <li>
-    <a href="/node/31" data-drupal-link-system-path="node/31">{{ a_5 }}</a>
-  </li>
-  <li class="expanded">
-    <a href="/node/41" data-drupal-link-system-path="node/41">{{ a_6 }}</a>
-    <ul>
-      <li>
-        <a href="/node/26" data-drupal-link-system-path="node/26">{{ a_7 }}</a>
-      </li>
-    </ul>
-
-  </li>
-  <li>
-    <a href="/node/11" data-drupal-link-system-path="node/11">{{ a_8 }}</a>
-  </li>
-  <li>
-    <a href="/node/6" data-drupal-link-system-path="node/6">{{ a_9 }}</a>
-  </li>
-  <li class="expanded">
-    <a href="/node/16" data-drupal-link-system-path="node/16">{{ a_10 }}</a>
-    <ul>
-      <li class="expanded">
-        <a href="/" data-drupal-link-system-path="<front>" class="is-active">{{ is_active_2 }}</a>
-        <ul>
-          <li class="expanded">
-            <a href="/" data-drupal-link-system-path="<front>" class="is-active">{{ is_active_3 }}</a>
-            <ul>
-              <li>
-                <a href="/blog">{{ a_11 }}</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li><a href="{{ link.pages-homepage }}">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="{{ link.pages-blog }}">Blog</a></li>
+  <li><a href="#">Contact</a></li>
 </ul>
