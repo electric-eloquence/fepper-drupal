@@ -2,10 +2,10 @@ section[rel="schema:comment"]
   border-top: 1px solid $gray-light-3
   margin-top: 2em
   h2
-    margin: 0.667em 0
+    margin: 0.667em 0 0
   article[typeof="schema:Comment"]
     display: flex
-    padding-top: 0.75em
+    padding: 0.75em 0 0.5em
     position: relative
     > footer
       min-height: 11em
@@ -14,16 +14,18 @@ section[rel="schema:comment"]
         line-height: 1
         margin: 0
     > div
-      padding-bottom: $space-half
-      width: calc(100% - 12em)
+      padding-bottom: 0.5em
       .links
-        margin-top: $space-quarter
+        margin-top: 0.25em
         margin-bottom: 0
-  article[typeof="schema:Person"] img
-    display: block
-    border: 1px solid $gray-light-2
-    margin-bottom: 0.5em
-    width: 10rem
+    > footer + div
+      width: calc(100% - 12em)
+  article[typeof="schema:Person"]
+    img
+      display: block
+      border: 1px solid $gray-light-2
+      margin-bottom: 0.5em
+      width: 6.25em
   span[rel="schema:author"]
     font-size: 0.75em
   span[property="schema:name"]
@@ -34,17 +36,28 @@ section[rel="schema:comment"]
     &::after
       content: "\A"
       white-space: pre
+  div[property="schema:text"]
+    p
+      margin-bottom: 0
   > article[typeof="schema:Comment"]:last-of-type,
   article[typeof="schema:Comment"]:last-child
     border-bottom: 1px solid $gray-light-3
-  @media (max-width: $bp-xs-max)
+  @media all and (max-width: $bp-xs-max)
     article[typeof="schema:Comment"]
       display: block
       overflow: hidden
       > footer
-        float: left
+        margin-bottom: 0.5em
+        min-height: 0
+        width: auto
       > div
         padding-bottom: 0
+      > footer + div
         width: auto
-    div[property="schema:text"]
-      min-height: 11em
+    span[property="schema:name"]
+      &::before
+        content: " "
+      &::after
+        content: " "
+    article[typeof="schema:Person"]
+      display: none
