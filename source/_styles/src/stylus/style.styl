@@ -52,6 +52,7 @@
   div[role="contentinfo"]
     border-width: 1px
     border-style: solid
+    margin-top: $space-half
     padding: $pad-half
     a
       text-decoration: underline
@@ -73,7 +74,8 @@
 #region-primary-menu
   padding-bottom: 0
 #region-secondary-menu
-  padding-top: $pad-and-half
+  padding-top: 0
+  padding-bottom: 0
 #region-primary-menu + #region-secondary-menu
   padding-top: 0
 #region-breadcrumb,
@@ -83,6 +85,7 @@
 #block-fepper-page-title
   display: none
 #block-fepper-local-tasks
+  padding-top: $pad
   padding-bottom: $pad
   a[href="/user/login"]
     display: none
@@ -101,3 +104,5 @@ details
   padding-bottom: $pad
 #edit-contact label
   display: inline
+.indented
+  margin-left: $pad-and-half
