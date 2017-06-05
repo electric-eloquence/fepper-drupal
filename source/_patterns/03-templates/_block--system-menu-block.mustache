@@ -11,10 +11,10 @@
   {{/ title }}
   {{{ title_suffix }}}
 
-  {{# templates-block? }}
-    {{{ content }}}
-  {{/ templates-block? }}
   {{# compounds-primary-nav? }}
     {{> 01-compounds/03-navigation/00-primary-nav }}
   {{/ compounds-primary-nav? }}
+  {{# templates-block? }}
+    {{{ fpo_template_content }}}
+  {{/ templates-block? }}
 </nav>
