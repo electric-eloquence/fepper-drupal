@@ -31,11 +31,11 @@ Drupal theme to match the look and feel of the Fepper frontend.
 
 ## Configuration
 
-The theme has no menu or modifiable settings. There is no configuration.
+The theme has no menu or administerable settings.
 
 ## Copyright
 
-Copyright (C) 2017  Electric Eloquence
+Copyright (C) 2017 - ∞ Electric Eloquence
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
