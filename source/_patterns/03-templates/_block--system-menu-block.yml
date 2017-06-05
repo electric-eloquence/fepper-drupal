@@ -18,7 +18,7 @@
   \{\{ title_suffix \}\}
 '# templates-block\?': |2
   {% block content %}
-'content': |2
+'fpo_template_content': |2
   \{\{ content \}\}
 '/ templates-block\?': |2
   {% endblock %}
