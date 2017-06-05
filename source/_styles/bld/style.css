@@ -196,6 +196,7 @@ main[role="main"]::after,
 .lc,
 .layout-container > *:not(footer),
 #block-fepperfooter {
+  clear: both;
   max-width: 115.2rem;
   margin: 0 auto;
   padding: 0.8rem;
@@ -361,9 +362,6 @@ input[type="url"],
 input[type="number"] {
   width: 25.5rem;
 }
-textarea {
-  width: 30.4rem;
-}
 input[type="text"],
 input[type="search"],
 input[type="url"],
@@ -391,6 +389,11 @@ input[type="search"] {
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
+}
+@media all and (max-width: 480px) {
+  textarea {
+    width: 100%;
+  }
 }
 #edit-actions {
   background: transparent;
@@ -428,10 +431,10 @@ input[type="search"]::-webkit-search-decoration {
   background: transparent;
   height: 3.6rem;
 }
-#search-block-form #edit-keys {
+#search-block-form input[id=^="edit-keys"] {
   width: 11.5em;
 }
-#search-block-form #edit-submit {
+#search-block-form input[id^="edit-submit"] {
   border: 1px solid #808080;
   border-left: 0;
   color: transparent;
@@ -442,7 +445,7 @@ input[type="search"]::-webkit-search-decoration {
   width: 5rem;
   z-index: 1;
 }
-#search-block-form #edit-submit:hover {
+#search-block-form input[id^="edit-submit"]:hover {
   background: rgba(0,0,0,0.3);
 }
 @media all and (max-width: 767px) {
@@ -516,26 +519,36 @@ section[rel="schema:comment"] {
   margin-top: 2em;
 }
 section[rel="schema:comment"] h2 {
-  margin: 0.667em 0;
+  margin: 0.667em 0 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
-  padding-bottom: 1em;
-  overflow: hidden;
+  display: flex;
+  padding: 0.75em 0 0.5em;
+  position: relative;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
-  float: left;
-  min-height: 9em;
+  min-height: 11em;
   width: 12em;
 }
-section[rel="schema:comment"] article[typeof="schema:Comment"] p {
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
   line-height: 1;
   margin: 0;
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
+  padding-bottom: 0.5em;
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
+  margin-top: 0.25em;
+  margin-bottom: 0;
+}
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer + div {
+  width: calc(100% - 12em);
 }
 section[rel="schema:comment"] article[typeof="schema:Person"] img {
   display: block;
   border: 1px solid #eee;
   margin-bottom: 0.5em;
-  width: 10rem;
+  width: 6.25em;
 }
 section[rel="schema:comment"] span[rel="schema:author"] {
   font-size: 0.75em;
@@ -551,8 +564,38 @@ section[rel="schema:comment"] span[property="schema:name"]::after {
   content: "\A";
   white-space: pre;
 }
-section[rel="schema:comment"] > article:last-of-type {
+section[rel="schema:comment"] div[property="schema:text"] p {
+  margin-bottom: 0;
+}
+section[rel="schema:comment"] > article[typeof="schema:Comment"]:last-of-type,
+section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
   border-bottom: 1px solid #ddd;
+}
+@media all and (max-width: 480px) {
+  section[rel="schema:comment"] article[typeof="schema:Comment"] {
+    display: block;
+    overflow: hidden;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
+    margin-bottom: 0.5em;
+    min-height: 0;
+    width: auto;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
+    padding-bottom: 0;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer + div {
+    width: auto;
+  }
+  section[rel="schema:comment"] span[property="schema:name"]::before {
+    content: " ";
+  }
+  section[rel="schema:comment"] span[property="schema:name"]::after {
+    content: " ";
+  }
+  section[rel="schema:comment"] article[typeof="schema:Person"] {
+    display: none;
+  }
 }
 .more-link {
   font-style: italic;
@@ -666,7 +709,6 @@ h2[class^="icon-"]:hover::before {
   #block-mainnavigation .expanded ul {
     max-height: 0;
     overflow: hidden;
-    position: absolute;
     -webkit-transition: max-height 0.3s ease;
     -moz-transition: max-height 0.3s ease;
     -ms-transition: max-height 0.3s ease;
@@ -684,6 +726,20 @@ h2[class^="icon-"]:hover::before {
   }
   #block-mainnavigation .expanded:hover ul {
     max-height: 100%;
+  }
+  #block-mainnavigation > ul > .expanded > ul {
+    position: absolute;
+  }
+  #block-mainnavigation > ul > .expanded > ul > .expanded li {
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+  #block-mainnavigation > ul > .expanded > ul .expanded {
+    padding-left: 1rem;
+  }
+  #block-mainnavigation > ul > .expanded > ul ul {
+    background: transparent;
   }
 }
 .layout-sidebar-second h2 {
@@ -964,6 +1020,7 @@ article[role="article"] > footer {
 #region-highlighted div[role="contentinfo"] {
   border-width: 1px;
   border-style: solid;
+  margin-top: 0.8rem;
   padding: 0.8rem;
 }
 #region-highlighted div[role="contentinfo"] a {
@@ -997,7 +1054,8 @@ article[role="article"] > footer {
   padding-bottom: 0;
 }
 #region-secondary-menu {
-  padding-top: 2.4rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 #region-primary-menu + #region-secondary-menu {
   padding-top: 0;
@@ -1011,6 +1069,7 @@ article[role="article"] > footer {
   display: none;
 }
 #block-fepper-local-tasks {
+  padding-top: 1.6rem;
   padding-bottom: 1.6rem;
 }
 #block-fepper-local-tasks a[href="/user/login"] {
@@ -1018,6 +1077,12 @@ article[role="article"] > footer {
 }
 .no-sidebar-second {
   width: 100%;
+}
+.path-search #search-form > * {
+  display: inline;
+}
+.path-search h2 {
+  margin: 2.4rem 0;
 }
 #block-fepper-search h2 {
   display: none;
@@ -1030,4 +1095,7 @@ details {
 }
 #edit-contact label {
   display: inline;
+}
+.indented {
+  margin-left: 0.75em;
 }

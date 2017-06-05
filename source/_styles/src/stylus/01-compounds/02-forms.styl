@@ -19,8 +19,6 @@ input, textarea
   padding: $pad-half 1.04rem
 input[type="text"], input[type="email"], input[type="password"], input[type="url"], input[type="number"]
   width: 25.5rem
-textarea
-  width: 30.4rem
 input[type="text"], input[type="search"], input[type="url"], input[type="number"], textarea
   -webkit-appearance: none
 button, input[type="submit"]
@@ -39,6 +37,9 @@ input[type="search"]
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration
   -webkit-appearance: none
+@media all and (max-width: $bp-xs-max)
+  textarea
+    width: 100%
 #edit-actions
   background: transparent
   color: $gray
@@ -69,20 +70,20 @@ input[type="search"]::-webkit-search-decoration
   input
     background: transparent
     height: 3.6rem
-  #edit-keys
-    width: 11.5em
-  #edit-submit
-    border: 1px solid $gray
-    border-left: 0
-    color: transparent
-    font-size: 0.85em
-    padding-right: 0
-    padding-left: 0
-    position: relative
-    width: 5rem
-    z-index: 1
-    &:hover
-      background: rgba(0, 0, 0, 0.3)
+    &[id=^="edit-keys"]
+      width: 11.5em
+    &[id^="edit-submit"]
+      border: 1px solid $gray
+      border-left: 0
+      color: transparent
+      font-size: 0.85em
+      padding-right: 0
+      padding-left: 0
+      position: relative
+      width: 5rem
+      z-index: 1
+      &:hover
+        background: rgba(0, 0, 0, 0.3)
   @media all and (max-width: $bp-sm-max)
     margin: 0.1rem 0 0
     max-height: 0
