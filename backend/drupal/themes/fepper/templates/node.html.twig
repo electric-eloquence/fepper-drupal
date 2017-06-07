@@ -18,7 +18,7 @@
     <footer>
       {# author_picture #}
       <div{{ author_attributes }}>
-        By {{ author_name }} on {{ date }}
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>

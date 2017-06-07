@@ -15,7 +15,7 @@
   <div{{ content_attributes }}>
     {% if title %}
       {{ title_prefix }}
-      <h3 style="display: none;">{{ title }}</h3>
+      <h3{{ title_attributes.addClass('visually-hidden') }}>{{ title }}</h3>
       {{ title_suffix }}
     {% endif %}
     {{ content }}
