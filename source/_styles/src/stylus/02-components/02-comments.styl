@@ -5,14 +5,15 @@ section[rel="schema:comment"]
     margin: 0.667em 0 0
   article[typeof="schema:Comment"]
     display: flex
-    padding: 0.75em 0 0.5em
+    margin-top: 0.75em
+    padding-bottom: 0.5em
     position: relative
     > footer
       min-height: 11em
       width: 12em
       p
         line-height: 1
-        margin: 0
+        margin: 0 0 0 2px
     > div
       padding-bottom: 0.5em
       .links
@@ -39,9 +40,12 @@ section[rel="schema:comment"]
   div[property="schema:text"]
     p
       margin-bottom: 0
-  > article[typeof="schema:Comment"]:last-of-type,
-  article[typeof="schema:Comment"]:last-child
+  article[typeof="schema:Comment"]:last-of-type
     border-bottom: 1px solid $gray-light-3
+  .indented
+    margin-left: 0.75em
+    article[typeof="schema:Comment"]
+      border-left: 1px solid $gray-light-3
   @media all and (max-width: $bp-xs-max)
     article[typeof="schema:Comment"]
       display: block
@@ -50,6 +54,8 @@ section[rel="schema:comment"]
         margin-bottom: 0.5em
         min-height: 0
         width: auto
+        p
+          margin: 0
       > div
         padding-bottom: 0
       > footer + div
@@ -61,3 +67,7 @@ section[rel="schema:comment"]
         content: " "
     article[typeof="schema:Person"]
       display: none
+    .indented
+      article[typeof="schema:Comment"]
+        > *
+          margin-left: 2px

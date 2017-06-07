@@ -77,7 +77,9 @@ figure {
 .icon-apple,
 .icon-android,
 .icon-arrow::after,
-.icon-envelope::before {
+.icon-envelope::before,
+#block-searchform > h2::before,
+#block-mainnavigation > h2::before {
   font-family: 'icons';
   speak: none;
   font-style: normal;
@@ -102,13 +104,15 @@ figure {
 .icon-google-plus::before {
   content: "\67";
 }
-.icon-search::before {
+.icon-search::before,
+#block-searchform > h2::before {
   content: "\73";
 }
 .icon-play::before {
   content: "\61";
 }
-.icon-menu::before {
+.icon-menu::before,
+#block-mainnavigation > h2::before {
   content: "\21";
 }
 .icon-arrow-left::before {
@@ -523,7 +527,8 @@ section[rel="schema:comment"] h2 {
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
   display: flex;
-  padding: 0.75em 0 0.5em;
+  margin-top: 0.75em;
+  padding-bottom: 0.5em;
   position: relative;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
@@ -532,7 +537,7 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
   line-height: 1;
-  margin: 0;
+  margin: 0 0 0 2px;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
   padding-bottom: 0.5em;
@@ -567,9 +572,14 @@ section[rel="schema:comment"] span[property="schema:name"]::after {
 section[rel="schema:comment"] div[property="schema:text"] p {
   margin-bottom: 0;
 }
-section[rel="schema:comment"] > article[typeof="schema:Comment"]:last-of-type,
-section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
+section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
   border-bottom: 1px solid #ddd;
+}
+section[rel="schema:comment"] .indented {
+  margin-left: 0.75em;
+}
+section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
+  border-left: 1px solid #ddd;
 }
 @media all and (max-width: 480px) {
   section[rel="schema:comment"] article[typeof="schema:Comment"] {
@@ -580,6 +590,9 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
     margin-bottom: 0.5em;
     min-height: 0;
     width: auto;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
+    margin: 0;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
@@ -595,6 +608,9 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
   }
   section[rel="schema:comment"] article[typeof="schema:Person"] {
     display: none;
+  }
+  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > * {
+    margin-left: 2px;
   }
 }
 .more-link {
@@ -625,10 +641,8 @@ header.header {
     height: 4.2rem;
   }
 }
-#block-searchform {
-  float: right;
-}
-h2[class^="icon-"] {
+#block-searchform > h2,
+#block-mainnavigation > h2 {
   background: rgba(255,255,255,0.9);
   border-left: 1px solid #ddd;
   color: transparent;
@@ -639,19 +653,25 @@ h2[class^="icon-"] {
   height: 5rem;
   overflow: hidden;
 }
-h2[class^="icon-"]::before {
+#block-searchform > h2::before,
+#block-mainnavigation > h2::before {
   color: #333;
   float: right;
   font-size: 2.1rem;
   padding: 0.7em;
 }
-h2[class^="icon-"]:hover::before {
+#block-searchform > h2:hover::before,
+#block-mainnavigation > h2:hover::before {
   color: #808080;
 }
 @media all and (min-width: 768px) {
-  h2[class^="icon-"] {
+  #block-searchform > h2,
+  #block-mainnavigation > h2 {
     display: none;
   }
+}
+#block-searchform {
+  float: right;
 }
 #block-mainnavigation ul {
   background: rgba(255,255,255,0.9);
@@ -826,7 +846,7 @@ footer[role="contentinfo"] a {
     float: right;
   }
 }
-.front .layout-content {
+.path-frontpage .layout-content {
   border-bottom: 2px solid #eee;
   margin-bottom: 3.2rem;
   padding: 0 0 3.2rem;
@@ -835,22 +855,22 @@ footer[role="contentinfo"] a {
 /* Subs Block */
 }
 @media all and (min-width: 768px) {
-  .front .layout-content {
+  .path-frontpage .layout-content {
     margin-bottom: 2rem;
   }
 }
-.front .layout-content #region-content {
+.path-frontpage .layout-content #region-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.front .layout-content #block-fepper-content {
+.path-frontpage .layout-content #block-fepper-content {
   margin-bottom: 0.5em;
 }
-.front .layout-content #block-fepper-content img {
+.path-frontpage .layout-content #block-fepper-content img {
   display: block;
 }
-.front .layout-content #block-fepper-content .views-field-title a {
+.path-frontpage .layout-content #block-fepper-content .views-field-title a {
   color: #fff;
   display: block;
   font-size: 2.4rem;
@@ -858,7 +878,7 @@ footer[role="contentinfo"] a {
   line-height: 1.2;
 }
 @media all and (max-width: 480px) {
-  .front .layout-content #block-fepper-content .views-field-title {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -866,20 +886,20 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (max-width: 767px) {
-  .front .layout-content #block-fepper-content .views-field-title {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title {
     background: rgba(0,0,0,0.8);
     overflow: hidden;
     padding: 0 0.8rem;
   }
-  .front .layout-content #block-fepper-content .views-field-title a {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title a {
     font-size: 1.8rem;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-  .front .layout-content #block-fepper-content .views-field-title {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title {
     padding-top: 19%;
   }
-  .front .layout-content #block-fepper-content .views-field-title .field-content {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title .field-content {
     display: block;
     position: absolute;
     top: 50%;
@@ -887,10 +907,10 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (min-width: 768px) {
-  .front .layout-content #block-fepper-content {
+  .path-frontpage .layout-content #block-fepper-content {
     position: relative;
   }
-  .front .layout-content #block-fepper-content .views-field-title {
+  .path-frontpage .layout-content #block-fepper-content .views-field-title {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -899,25 +919,25 @@ footer[role="contentinfo"] a {
     padding: 1.5em;
   }
 }
-.front .layout-content #region-content > .views-row {
+.path-frontpage .layout-content #region-content > .views-row {
   margin-bottom: 0.5em;
   position: relative;
 }
-.front .layout-content #region-content > .views-row .views-field-field-image {
+.path-frontpage .layout-content #region-content > .views-row .views-field-field-image {
   position: relative;
   z-index: 0;
 }
-.front .layout-content #region-content > .views-row .views-field-field-image img {
+.path-frontpage .layout-content #region-content > .views-row .views-field-field-image img {
   display: block;
 }
-.front .layout-content #region-content > .views-row .views-field-title {
+.path-frontpage .layout-content #region-content > .views-row .views-field-title {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   color: #fff;
 }
-.front .layout-content #region-content > .views-row .views-field-title a {
+.path-frontpage .layout-content #region-content > .views-row .views-field-title a {
   background: rgba(0,0,0,0.5);
   color: #fff;
   display: block;
@@ -927,18 +947,18 @@ footer[role="contentinfo"] a {
   line-height: 1.2;
 }
 @media all and (max-width: 767px) {
-  .front .layout-content #region-content > .views-row .views-field-title a {
+  .path-frontpage .layout-content #region-content > .views-row .views-field-title a {
     font-size: 1.7rem;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-  .front .layout-content #block-fepper-content,
-  .front .layout-content #region-content > .views-row {
+  .path-frontpage .layout-content #block-fepper-content,
+  .path-frontpage .layout-content #region-content > .views-row {
     width: calc(50% - 0.4rem);
   }
 }
 @media all and (min-width: 768px) {
-  .front .layout-content #region-content > .views-row {
+  .path-frontpage .layout-content #region-content > .views-row {
     padding-top: 0.8rem;
     width: calc(33.3333333% - 1.0666666rem);
   }
@@ -1095,7 +1115,4 @@ details {
 }
 #edit-contact label {
   display: inline;
-}
-.indented {
-  margin-left: 0.75em;
 }
