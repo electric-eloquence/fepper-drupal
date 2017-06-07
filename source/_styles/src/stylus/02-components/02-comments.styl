@@ -42,6 +42,10 @@ section[rel="schema:comment"]
       margin-bottom: 0
   article[typeof="schema:Comment"]:last-of-type
     border-bottom: 1px solid $gray-light-3
+  .indented
+    margin-left: 0.75em
+    article[typeof="schema:Comment"]
+      border-left: 1px solid $gray-light-3
   @media all and (max-width: $bp-xs-max)
     article[typeof="schema:Comment"]
       display: block
@@ -63,7 +67,8 @@ section[rel="schema:comment"]
         content: " "
     article[typeof="schema:Person"]
       display: none
-  .indented
-    margin-left: 0.75em
-    article
-      border-left: 1px solid $gray-light-3
+    .indented
+      article[typeof="schema:Comment"]
+        > footer,
+        > div
+          margin-left: 2px

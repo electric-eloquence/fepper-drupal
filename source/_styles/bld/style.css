@@ -575,6 +575,12 @@ section[rel="schema:comment"] div[property="schema:text"] p {
 section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
   border-bottom: 1px solid #ddd;
 }
+section[rel="schema:comment"] .indented {
+  margin-left: 0.75em;
+}
+section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
+  border-left: 1px solid #ddd;
+}
 @media all and (max-width: 480px) {
   section[rel="schema:comment"] article[typeof="schema:Comment"] {
     display: block;
@@ -603,12 +609,10 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
   section[rel="schema:comment"] article[typeof="schema:Person"] {
     display: none;
   }
-}
-section[rel="schema:comment"] .indented {
-  margin-left: 0.75em;
-}
-section[rel="schema:comment"] .indented article {
-  border-left: 1px solid #ddd;
+  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > footer,
+  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > div {
+    margin-left: 2px;
+  }
 }
 .more-link {
   font-style: italic;
