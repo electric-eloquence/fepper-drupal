@@ -20,10 +20,14 @@
   \{# author_picture #\}
 'author_attributes': |2
   \{\{ author_attributes \}\}
+'trans': |2
+  {% trans %}
 'author_name': |2
   \{\{ author_name \}\}
 'date': |2
   \{\{ date \}\}
+'endtrans': |2
+  {% endtrans %}
 'metadata': |2
   \{\{ metadata \}\}
 'content_attributes': |2

@@ -21,7 +21,7 @@
 'title_prefix': |2
   \{\{ title_prefix \}\}
 'title_attributes': |2
-   style="display: none;"
+  \{\{ title_attributes.addClass('visually-hidden') \}\}
 'title': |2
   \{\{ title \}\}
 'title_suffix': |2
