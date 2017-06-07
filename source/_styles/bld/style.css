@@ -542,7 +542,7 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
   line-height: 1;
-  margin: 0;
+  margin: 0 0 0 2px;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
   padding-bottom: 0.5em;
