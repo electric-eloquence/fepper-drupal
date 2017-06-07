@@ -609,8 +609,7 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
   section[rel="schema:comment"] article[typeof="schema:Person"] {
     display: none;
   }
-  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > footer,
-  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > div {
+  section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > * {
     margin-left: 2px;
   }
 }
