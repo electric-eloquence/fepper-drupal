@@ -518,12 +518,6 @@ input[type="search"]::-webkit-search-decoration {
   border-color: #f00;
   background: #ffbebe;
 }
-.indented {
-  margin-left: 0.75em;
-}
-.indented article {
-  border-left: 1px solid #ddd;
-}
 section[rel="schema:comment"] {
   border-top: 1px solid #ddd;
   margin-top: 2em;
@@ -533,7 +527,8 @@ section[rel="schema:comment"] h2 {
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
   display: flex;
-  padding: 0.75em 0 0.5em;
+  margin-top: 0.75em;
+  padding-bottom: 0.5em;
   position: relative;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
@@ -577,8 +572,7 @@ section[rel="schema:comment"] span[property="schema:name"]::after {
 section[rel="schema:comment"] div[property="schema:text"] p {
   margin-bottom: 0;
 }
-section[rel="schema:comment"] > article[typeof="schema:Comment"]:last-of-type,
-section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
+section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
   border-bottom: 1px solid #ddd;
 }
 @media all and (max-width: 480px) {
@@ -590,6 +584,9 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
     margin-bottom: 0.5em;
     min-height: 0;
     width: auto;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
+    margin: 0;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
@@ -606,6 +603,12 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-child {
   section[rel="schema:comment"] article[typeof="schema:Person"] {
     display: none;
   }
+}
+section[rel="schema:comment"] .indented {
+  margin-left: 0.75em;
+}
+section[rel="schema:comment"] .indented article {
+  border-left: 1px solid #ddd;
 }
 .more-link {
   font-style: italic;
