@@ -2,25 +2,25 @@
 {{# views-view-list_attributes }}
   <div{{{ views-view-list_attributes }}}>
 {{/ views-view-list_attributes }}
-{{# title }}
-  <h3>{{{ title }}}</h3>
-{{/ title }}
+  {{# title }}
+    <h3>{{{ title }}}</h3>
+  {{/ title }}
 
-<{{ list_type }}{{{ list_attributes }}}>
+  <{{ list_type }}{{{ list_attributes }}}>
 
-  {{# templates-views-view-list__row--pages-homepage__hoagies? }}
-    {{# hoagies }}
-      {{> 03-templates/__views-view-list__row("templates-node--pages-homepage__hoagies?": true) }}
-    {{/ hoagies }}
-  {{/ templates-views-view-list__row--pages-homepage__hoagies? }}
-  {{# templates-views-view-list__row--pages-blog? }}
-    {{# latest_posts }}
-      {{> 03-templates/__views-view-list__row("templates-node--pages-blog?": true) }}
-    {{/ latest_posts }}
-  {{/ templates-views-view-list__row--pages-blog? }}
-  {{{ fpo_template_content }}}
+    {{# templates-views-view-list__row--pages-homepage__hoagies? }}
+      {{# hoagies }}
+        {{> 03-templates/__views-view-list__row("templates-node--pages-homepage__hoagies?": true) }}
+      {{/ hoagies }}
+    {{/ templates-views-view-list__row--pages-homepage__hoagies? }}
+    {{# templates-views-view-list__row--pages-blog? }}
+      {{# latest_posts }}
+        {{> 03-templates/__views-view-list__row("templates-node--pages-blog?": true) }}
+      {{/ latest_posts }}
+    {{/ templates-views-view-list__row--pages-blog? }}
+    {{{ fpo_template_content }}}
 
-</{{ list_type }}>
+  </{{ list_type }}>
 
 {{# views-view-list_attributes }}
   </div>
