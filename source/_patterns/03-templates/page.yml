@@ -1,5 +1,3 @@
-'page_attributes': |2
-  \{\{ page_attributes \}\}
 'page.header': |2
   \{\{ page.header \}\}
 'page.primary_menu': |2
