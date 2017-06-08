@@ -28,12 +28,12 @@
 
     {{! BEGIN NODE CONTENT }}
 
-    {{# compounds-block-media--pages-homepage__hoagies? }}
+    {{# compounds-block-media~~pages-homepage__hoagies? }}
       {{> 01-compounds/01-blocks/02-block-media(media_attributes: ' property="text"') }}
-    {{/ compounds-block-media--pages-homepage__hoagies? }}
-    {{# compounds-block-media--pages-blog? }}
+    {{/ compounds-block-media~~pages-homepage__hoagies? }}
+    {{# compounds-block-media~~pages-blog? }}
       {{> 01-compounds/01-blocks/02-block-media(media_attributes: ' property="schema:text"') }}
-    {{/ compounds-block-media--pages-blog? }}
+    {{/ compounds-block-media~~pages-blog? }}
     {{# components-article? }}
       {{> 02-components/01-article/00-article }}
     {{/ components-article? }}
