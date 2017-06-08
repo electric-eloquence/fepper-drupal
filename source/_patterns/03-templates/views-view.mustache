@@ -20,37 +20,37 @@
 
   {{! BEGIN VIEWS ROWS }}
 
-  {{# templates-views-view-unformatted--pages-homepage__hero? }}
+  {{# templates-views-view-unformatted~~pages-homepage__hero? }}
     {{> 03-templates/views-view-unformatted(
-      "templates-views-view-unformatted__row--pages-homepage__hero?": true
+      "templates-views-view-unformatted__row~~pages-homepage__hero?": true
     ) }}
-  {{/ templates-views-view-unformatted--pages-homepage__hero? }}
-  {{# templates-views-view-list--pages-homepage__hoagies? }}
+  {{/ templates-views-view-unformatted~~pages-homepage__hero? }}
+  {{# templates-views-view-list~~pages-homepage__hoagies? }}
     {{> 03-templates/views-view-list(
       views-view-list_attributes: ' class="item-list"',
-      "templates-views-view-list__row--pages-homepage__hoagies?": true
+      "templates-views-view-list__row~~pages-homepage__hoagies?": true
     ) }}
-  {{/ templates-views-view-list--pages-homepage__hoagies? }}
-  {{# templates-views-view-list--pages-blog? }}
+  {{/ templates-views-view-list~~pages-homepage__hoagies? }}
+  {{# templates-views-view-list~~pages-blog? }}
     {{> 03-templates/views-view-list(
       views-view-list_attributes: ' class="item-list"',
-      "templates-views-view-list__row--pages-blog?": true
+      "templates-views-view-list__row~~pages-blog?": true
     ) }}
-  {{/ templates-views-view-list--pages-blog? }}
+  {{/ templates-views-view-list~~pages-blog? }}
   {{{ fpo_template_content }}}
 
   {{! END VIEWS ROWS }}
 
 
   {{{ empty }}}
-  {{# templates-views-view-list--pages-blog? }}
+  {{# templates-views-view-list~~pages-blog? }}
     {{> 01-compounds/03-navigation/01-pagination }}
-  {{/ templates-views-view-list--pages-blog? }}
+  {{/ templates-views-view-list~~pages-blog? }}
 
   {{{ attachment_after }}}
-  {{# templates-views-view-list--pages-homepage__hoagies? }}
+  {{# templates-views-view-list~~pages-homepage__hoagies? }}
     {{> 02-components/03-sections/02-more-link }}
-  {{/ templates-views-view-list--pages-homepage__hoagies? }}
+  {{/ templates-views-view-list~~pages-homepage__hoagies? }}
 
   {{# footer }}
     <footer>
