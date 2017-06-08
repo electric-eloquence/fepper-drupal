@@ -24,47 +24,47 @@
     <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
-      {{# templates-region--pages-homepage? }}
+      {{# templates-region~~pages-homepage? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main--pages-homepage?": true
+          "templates-block--main~~pages-homepage?": true
         ) }}
-      {{/ templates-region--pages-homepage? }}
-      {{# templates-region--pages-blog? }}
+      {{/ templates-region~~pages-homepage? }}
+      {{# templates-region~~pages-blog? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main--pages-blog?": true
+          "templates-block--main~~pages-blog?": true
         ) }}
-      {{/ templates-region--pages-blog? }}
-      {{# templates-region--pages-article? }}
+      {{/ templates-region~~pages-blog? }}
+      {{# templates-region~~pages-article? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main--pages-article?": true
+          "templates-block--main~~pages-article?": true
         ) }}
-      {{/ templates-region--pages-article? }}
+      {{/ templates-region~~pages-article? }}
       {{{ fpo_template_content }}}
     </div>
 
     {{# sidebar_first? }}
       <aside class="layout-sidebar-first {{ conditional_class }}" role="complementary">
-        {{# templates-region--pages-homepage? }}
+        {{# templates-region~~pages-homepage? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-first"',
-            "templates-block--sidebar1--pages-homepage?": true
+            "templates-block--sidebar1~~pages-homepage?": true
           ) }}
-        {{/ templates-region--pages-homepage? }}
+        {{/ templates-region~~pages-homepage? }}
         {{{ page.sidebar_first }}}
       </aside>
     {{/ sidebar_first? }}
 
     {{# sidebar_second? }}
       <aside class="layout-sidebar-second" role="complementary">
-        {{# templates-region--pages-article? }}
+        {{# templates-region~~pages-article? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-second"',
-            "templates-block--sidebar2--pages-article?": true
+            "templates-block--sidebar2~~pages-article?": true
           ) }}
-        {{/ templates-region--pages-article? }}
+        {{/ templates-region~~pages-article? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-sidebar-second"',
           "templates-block--sidebar2?": true
