@@ -1,14 +1,14 @@
 <li{{{ row_attributes }}}>
-  {{# templates-node--pages-homepage__hoagies? }}
+  {{# templates-node~~pages-homepage__hoagies? }}
     {{> 03-templates/node(
       node_attributes: ' role="article" typeof="schema:Article"',
-      "compounds-block-media--pages-homepage__hoagies?": true
+      "compounds-block-media~~pages-homepage__hoagies?": true
     ) }}
-  {{/ templates-node--pages-homepage__hoagies? }}
-  {{# templates-node--pages-blog? }}
+  {{/ templates-node~~pages-homepage__hoagies? }}
+  {{# templates-node~~pages-blog? }}
     {{> 03-templates/node(
       node_attributes: ' role="article" typeof="schema:Article"',
-      "compounds-block-media--pages-blog?": true
+      "compounds-block-media~~pages-blog?": true
     ) }}
-{{/ templates-node--pages-blog? }}
+{{/ templates-node~~pages-blog? }}
 </li>
