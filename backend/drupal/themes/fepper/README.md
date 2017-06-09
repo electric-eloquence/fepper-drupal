@@ -21,8 +21,10 @@ Drupal theme to match the look and feel of the Fepper frontend.
   within a fully configured Drupal 8 backend in the 
   [Fepper for Drupal project](https://github.com/electric-eloquence/fepper-drupal).
 * This theme is unopinionated with regards to styles and markup and should be 
-  used as a base theme. You are encouraged to override any or all aspects of 
-  this theme for your custom needs.
+  used as a 
+  [base theme](https://www.drupal.org/docs/8/theming-drupal-8/creating-a-drupal-8-sub-theme-or-sub-theme-of-sub-theme).
+  You are encouraged to override any or all aspects of this theme for your 
+  custom needs.
 * However, if you wish to replicate the look and feel of the Fepper demo site 
   (as per the screenshot), you should follow the Fepper documentation on 
   [importing the sample Drupal backend](https://github.com/electric-eloquence/fepper-drupal#user-content-drupal-install) 
