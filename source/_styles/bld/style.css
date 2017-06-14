@@ -619,13 +619,7 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
 header.header {
   background: #fff;
   border-bottom: 1px solid #ddd;
-  height: 5.1rem;
   padding: 0;
-}
-@media all and (min-width: 768px) {
-  header.header {
-    height: 5.6rem;
-  }
 }
 #block-fepper-branding {
   position: relative;
