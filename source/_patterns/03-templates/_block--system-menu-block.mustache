@@ -14,6 +14,12 @@
   {{# compounds-primary-nav? }}
     {{> 01-compounds/03-navigation/00-primary-nav }}
   {{/ compounds-primary-nav? }}
+  {{# compounds-secondary-nav? }}
+    {{> 01-compounds/03-navigation/02-secondary-nav }}
+  {{/ compounds-secondary-nav? }}
+  {{# compounds-footer-nav? }}
+    {{> 01-compounds/03-navigation/04-footer-nav }}
+  {{/ compounds-footer-nav? }}
   {{# templates-block? }}
     {{{ fpo_template_content }}}
   {{/ templates-block? }}

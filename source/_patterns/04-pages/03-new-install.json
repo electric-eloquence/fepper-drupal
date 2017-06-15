@@ -1,0 +1,6 @@
+{
+  "body_class": "path-frontpage",
+  "sidebar_first?": true,
+  "sidebar_second?": false,
+  "conditional_class": "no-sidebar-second"
+}

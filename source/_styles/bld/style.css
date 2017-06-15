@@ -1080,7 +1080,7 @@ article[role="article"] > footer {
   font-weight: bold;
 }
 #block-fepper-page-title {
-  display: none;
+  width: 100%;
 }
 #block-fepper-local-tasks {
   padding-top: 1.6rem;
