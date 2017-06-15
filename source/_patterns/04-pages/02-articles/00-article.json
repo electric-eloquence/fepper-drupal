@@ -1,4 +1,5 @@
 {
+  "demo_site?": true,
   "body_class": "path-node page-node-type-article",
   "article_attributes": " role=\"article\"",
   "article_title": "<span property=\"schema:name\">Top 10 mountain ranges for hiking</span>",
@@ -9,5 +10,46 @@
       "src": "../../_assets/src/landscape-16x9-mountains.jpg",
       "alt": "Mountains"
     }
-  }
+  },
+  "unordered": {
+    "list_attributes": " class=\"text\"",
+    "list_items": [
+      {
+        "list_item": "This is a list item in an unordered list"
+      },
+      {
+        "list_item": "An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line."
+      },
+      {
+        "list_item": "Lists can be nested inside of each other"
+      },
+      {
+        "list_item": "<ul><li>This is a nested list item</li><li>This is another nested list item in an unordered list</li></ul>"
+      },
+      {
+        "list_item": "This is the last list item"
+      }
+    ]
+  },
+  "ordered": {
+    "list_attributes": " class=\"text\"",
+    "list_items": [
+      {
+        "list_item": "This is a list item in an ordered list"
+      },
+      {
+        "list_item": "An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters."
+      },
+      {
+        "list_item": "Lists can be nested inside of each other"
+      },
+      {
+        "list_item": "<ol><li>This is a nested list item</li><li>This is another nested list item in an ordered list</li></ol>"
+      },
+      {
+        "list_item": "This is the last list item"
+      }
+    ]
+  },
+  "footer?": true
 }
