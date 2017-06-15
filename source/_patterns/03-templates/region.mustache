@@ -20,9 +20,56 @@
         "compounds-primary-nav?": true
       ) }}
     {{/ templates-block--header? }}
+    {{# templates-block--header~~pages-new-install? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-branding"',
+        "elements-logo?": true
+      ) }}
+    {{/ templates-block--header~~pages-new-install? }}
 
     {{! END HEADER CONTENT }}
 
+    {{! BEGIN PRIMARY MENU CONTENT }}
+
+    {{# templates-block--primary-menu~~pages-new-install? }}
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'block-fepper-main-menu-menu',
+        block_attributes: ' id="block-fepper-main-menu"',
+        title_attributes: ' class="visually-hidden"',
+        title: 'Main navigation',
+        "compounds-primary-nav?": true
+      ) }}
+    {{/ templates-block--primary-menu~~pages-new-install? }}
+
+    {{! END PRIMARY MENU CONTENT }}
+
+    {{! BEGIN SECONDARY MENU CONTENT }}
+
+    {{# templates-block--secondary-menu~~pages-new-install? }}
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'block-fepper-account-menu-menu',
+        block_attributes: ' id="block-fepper-main-menu"',
+        title_attributes: ' class="visually-hidden"',
+        title: 'User account menu',
+        "compounds-secondary-nav?": true
+      ) }}
+    {{/ templates-block--secondary-menu~~pages-new-install? }}
+
+    {{! END SECONDARY MENU CONTENT }}
+
+    {{! BEGIN BREADCRUMBS CONTENT }}
+
+
+    {{! END BREADCRUMBS CONTENT }}
+
+    {{# templates-block--breadcrumbs~~pages-new-install? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-main-menu"',
+        title_attributes: ' class="visually-hidden"',
+        title: 'Breadcrumb',
+        "compounds-breadcrumbs?": true
+      ) }}
+    {{/ templates-block--breadcrumbs~~pages-new-install? }}
 
     {{! BEGIN ALERT CONTENT }}
 
@@ -58,6 +105,16 @@
         "templates-node~~pages-article?": true
       ) }}
     {{/ templates-block--main~~pages-article? }}
+    {{# templates-block--main~~pages-new-install? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-page-title"',
+        "elements-heading?": true
+      ) }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-content"',
+        "views-view~~pages-new-install?": true
+      ) }}
+    {{/ templates-block--main~~pages-new-install? }}
 
     {{! END MAIN CONTENT }}
 
@@ -71,6 +128,24 @@
         "templates-container~~pages-homepage__hoagies?": true
       ) }}
     {{/ templates-block--sidebar1~~pages-homepage? }}
+    {{# templates-block--sidebar1~~pages-new-install? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="search-block-form" id="block-fepper-search" role="search"',
+        title: 'Search',
+        "compounds-search?": true
+      ) }}
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'block-fepper-footer-menu',
+        block_attributes: ' id="block-fepper-footer"',
+        title_attributes: ' class="visually-hidden"',
+        title: 'Footer menu',
+        "compounds-footer-nav?": true
+      ) }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-powered" role="complementary"',
+        "compounds-powered-by?": true
+      ) }}
+    {{/ templates-block--sidebar1~~pages-new-install? }}
 
     {{! END SIDEBAR1 CONTENT }}
 

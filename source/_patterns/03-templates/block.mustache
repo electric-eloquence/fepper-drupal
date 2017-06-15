@@ -59,6 +59,31 @@
     {{! END ARTICLE }}
 
 
+    {{! BEGIN NEW INSTALL }}
+
+    {{# elements-heading? }}
+      {{> 00-elements/00-text/01-heading(
+        heading_tag: 'h1',
+        heading_attributes: ' class="js-quickedit-page-title"',
+        heading_text: 'Welcome to Fepper Theme'
+      ) }}
+    {{/ elements-heading? }}
+    {{# compounds-breadcrumbs? }}
+      {{> 01-compounds/03-navigation/03-breadcrumbs }}
+    {{/ compounds-breadcrumbs? }}
+    {{# views-view~~pages-new-install? }}
+      {{> 03-templates/views-view(
+        views-view_attributes: ' class="view-id-frontpage view-display-id-page_1"',
+        "pages-new-install?": true
+      ) }}
+    {{/ views-view~~pages-new-install? }}
+    {{# compounds-powered-by? }}
+      {{> 01-compounds/00-text/02-powered-by }}
+    {{/ compounds-powered-by? }}
+
+    {{! END NEW INSTALL }}
+
+
     {{! BEGIN FOOTER }}
 
     {{# components-footer? }}
