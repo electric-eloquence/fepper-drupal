@@ -1,19 +1,23 @@
 header.header
   background: $white
   border-bottom: 1px solid $gray-light-3
-  height: 5.1rem
   padding: 0
-  @media all and (min-width: $bp-med)
-    height: 5.6rem
+  @media all and (max-width: $bp-sm-max)
+    margin: 0 0 0 $space-half
+    width: "calc(100% - %s)" % $space-half
+  @media all and (min-width: $bp-med) and (max-width: $bp-md-max)
+    width: "calc(100% - %s)" % $space
+  @media all and (min-width: $max-width)
+    width: "calc(%s - %s)" % ($max-width $space)
 #block-fepper-branding
   position: relative
   z-index: 1
   img
     float: left
     height: 3.7rem
-    margin: 0.65rem
+    margin: 0.65rem 0
     @media all and (min-width: $bp-med)
-      height: 4.2rem
+      height: 4rem
 /* Search and Navigation Forms */
 #block-searchform,
 #block-mainnavigation
@@ -41,7 +45,11 @@ header.header
   float: right
   > h2::before
     @extend .icon-search::before
-/* Main Navigation */
+/* Navigation */
+nav
+  li
+    float: left
+    margin-right: 1em
 #block-mainnavigation
   > h2::before
     @extend .icon-menu::before
@@ -59,6 +67,8 @@ header.header
       z-index: 1
     li
       border-top: 1px solid $gray-light-3
+      float: none
+      margin-right: 0
       a
         display: table
         padding: $pad-half $pad
@@ -79,6 +89,7 @@ header.header
     height: auto
     li
       float: left
+      margin-right: 0
     a
       padding: $pad-quarter $pad
     .expanded

@@ -1,4 +1,4 @@
-<article{{{ comment_attributes }}}>
+<article {{{ comment_attributes }}}>
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
@@ -12,13 +12,13 @@
     {{! permalink }}
   </footer>
 
-  <div{{{ content_attributes }}}>
+  <div {{{ content_attributes }}}>
     {{# title }}
       {{{ title_prefix }}}
-      <h3{{{ title_attributes }}}>{{{ title }}}</h3>
+      <h3 {{{ title_attributes }}}>{{{ title }}}</h3>
       {{{ title_suffix }}}
     {{/ title }}
-    {{> 01-compounds/01-blocks/04-single-comment }}
+    {{> 01-compounds/01-blocks/03-single-comment }}
     {{{ fpo_template_content }}}
   </div>
 </article>

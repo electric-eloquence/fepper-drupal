@@ -1,7 +1,7 @@
 {{# content? }}
 {{/ content? }}
 <!-- Begin views-view -->
-<div{{{ views-view_attributes }}}>
+<div {{{ views-view_attributes }}}>
   {{{ title_prefix }}}
   {{# title }}
     <h1>{{{ title }}}</h1>
@@ -42,14 +42,19 @@
   {{! END VIEWS ROWS }}
 
 
+  {{# pages-new-install? }}
+    {{> 01-compounds/00-text/01-new-install }}
+  {{/ pages-new-install? }}
   {{{ empty }}}
+
   {{# templates-views-view-list~~pages-blog? }}
-    {{> 01-compounds/03-navigation/01-pagination }}
+    {{> 02-components/03-navigation/01-pagination }}
   {{/ templates-views-view-list~~pages-blog? }}
 
   {{{ attachment_after }}}
+
   {{# templates-views-view-list~~pages-homepage__hoagies? }}
-    {{> 02-components/03-sections/02-more-link }}
+    {{> 01-compounds/00-text/03-more-link }}
   {{/ templates-views-view-list~~pages-homepage__hoagies? }}
 
   {{# footer }}

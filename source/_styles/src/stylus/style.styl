@@ -22,15 +22,14 @@
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Compound subtypes.
 // /////////////////////////////////////////////////////////////////////////////
+@import '01-compounds/00-text'
 @import '01-compounds/02-forms'
-@import '01-compounds/03-navigation'
-@import '01-compounds/04-messaging'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Component subtypes.
 // /////////////////////////////////////////////////////////////////////////////
 @import '02-components/02-comments'
-@import '02-components/03-sections'
+@import '02-components/03-navigation'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Pages.
@@ -83,7 +82,7 @@
   font-size: 0.75em
   font-weight: bold
 #block-fepper-page-title
-  display: none
+  width: 100%
 #block-fepper-local-tasks
   padding-top: $pad
   padding-bottom: $pad
@@ -96,10 +95,14 @@
     display: inline
   h2
     margin: $space-and-half 0
-#block-fepper-search h2
-  display: none
+#block-fepper-search
+  @extend .cf
+  h2
+    display: none
 #block-fepper-footer
   clear: both
+  margin-top: 0.5em
+  @extend .cf
 details
   padding-bottom: $pad
 #edit-contact label

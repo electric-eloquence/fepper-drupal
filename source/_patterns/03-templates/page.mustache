@@ -2,15 +2,43 @@
 <div class="layout-container">
 
   <header class="header cf" role="banner">
-    {{> 03-templates/region(
-      region_attributes: ' id="region-header"',
-      "templates-block--header?": true
-    ) }}
+    {{# demo_site? }}
+      {{> 03-templates/region(
+        region_attributes: ' id="region-header"',
+        "templates-block--header?": true
+      ) }}
+    {{/ demo_site? }}
+    {{# templates-region~~pages-new-install? }}
+      {{> 03-templates/region(
+        region_attributes: ' id="region-header"',
+        "templates-block--header~~pages-new-install?": true
+      ) }}
+    {{/ templates-region~~pages-new-install? }}
     {{{ page.header }}}
   </header>
 
+  {{# templates-region~~pages-new-install? }}
+    {{> 03-templates/region(
+      region_attributes: ' id="region-primary-menu"',
+      "templates-block--primary-menu~~pages-new-install?": true
+    ) }}
+  {{/ templates-region~~pages-new-install? }}
   {{{ page.primary_menu }}}
+
+  {{# templates-region~~pages-new-install? }}
+    {{> 03-templates/region(
+      region_attributes: ' id="region-secondary-menu"',
+      "templates-block--secondary-menu~~pages-new-install?": true
+    ) }}
+  {{/ templates-region~~pages-new-install? }}
   {{{ page.secondary_menu }}}
+
+  {{# templates-region~~pages-new-install? }}
+    {{> 03-templates/region(
+      region_attributes: ' id="region-breadcrumb"',
+      "templates-block--breadcrumbs~~pages-new-install?": true
+    ) }}
+  {{/ templates-region~~pages-new-install? }}
   {{{ page.breadcrumb }}}
 
   {{> 03-templates/region(
@@ -18,6 +46,7 @@
     "compounds-alert--alert?": true
   ) }}
   {{{ page.highlighted }}}
+
   {{{ page.help }}}
 
   <main role="main">
@@ -42,6 +71,12 @@
           "templates-block--main~~pages-article?": true
         ) }}
       {{/ templates-region~~pages-article? }}
+      {{# templates-region~~pages-new-install? }}
+        {{> 03-templates/region(
+          region_attributes: ' id="region-content"',
+          "templates-block--main~~pages-new-install?": true
+        ) }}
+      {{/ templates-region~~pages-new-install? }}
       {{{ fpo_template_content }}}
     </div>
 
@@ -53,6 +88,12 @@
             "templates-block--sidebar1~~pages-homepage?": true
           ) }}
         {{/ templates-region~~pages-homepage? }}
+        {{# templates-region~~pages-new-install? }}
+          {{> 03-templates/region(
+            region_attributes: ' id="region-sidebar-first"',
+            "templates-block--sidebar1~~pages-new-install?": true
+          ) }}
+        {{/ templates-region~~pages-new-install? }}
         {{{ page.sidebar_first }}}
       </aside>
     {{/ sidebar_first? }}
