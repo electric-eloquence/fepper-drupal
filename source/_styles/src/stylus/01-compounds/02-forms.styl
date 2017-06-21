@@ -53,13 +53,12 @@ input[type="search"]::-webkit-search-decoration
 #search-block-form
   background: $white-translucent
   float: right
-  margin: 0.65em 0.5em 0 0
+  margin: 0.65rem 0 0
   overflow: hidden
   position: relative
   .form-item-keys
     float: left
     font-size: 1em
-    height: 2.25em
     margin-bottom: 0
     &::after
       color: $black
@@ -69,7 +68,7 @@ input[type="search"]::-webkit-search-decoration
       right: 1em
   input
     background: transparent
-    height: 3.6rem
+    height: 4rem
     &[id=^="edit-keys"]
       width: 11.5em
     &[id^="edit-submit"]
@@ -85,11 +84,14 @@ input[type="search"]::-webkit-search-decoration
       &:hover
         background: rgba(0, 0, 0, 0.3)
   @media all and (max-width: $bp-sm-max)
-    margin: 0.1rem 0 0
-    max-height: 0
-    position: absolute
-    top: 5rem
-    right: 0
-    z-index: 2
-  .open &
-    max-height: 100%
+    #block-searchform.open &
+      max-height: 100%
+    #block-searchform &
+      margin: 0.1rem 0 0
+      max-height: 0
+      position: absolute
+      top: 5rem
+      right: 0
+      z-index: 2
+    input
+      height: 3.7rem
