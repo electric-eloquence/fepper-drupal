@@ -1,13 +1,13 @@
 <!-- Begin region -->
 {{# content? }}
-  <div{{{ region_attributes }}}>
+  <div {{{ region_attributes }}}>
 
     {{! BEGIN HEADER CONTENT }}
 
     {{# templates-block--header? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-branding"',
-        "elements-logo?": true
+        "compounds-logo?": true
       ) }}
       {{> 03-templates/block(
         block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
@@ -17,17 +17,18 @@
       {{> 03-templates/_block--system-menu-block(
         block_attributes: ' id="block-mainnavigation"',
         title: 'Main navigation',
-        "compounds-primary-nav?": true
+        "components-primary-nav?": true
       ) }}
     {{/ templates-block--header? }}
     {{# templates-block--header~~pages-new-install? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-branding"',
-        "elements-logo?": true
+        "compounds-logo?": true
       ) }}
     {{/ templates-block--header~~pages-new-install? }}
 
     {{! END HEADER CONTENT }}
+
 
     {{! BEGIN PRIMARY MENU CONTENT }}
 
@@ -37,45 +38,48 @@
         block_attributes: ' id="block-fepper-main-menu"',
         title_attributes: ' class="visually-hidden"',
         title: 'Main navigation',
-        "compounds-primary-nav?": true
+        "components-primary-nav?": true
       ) }}
     {{/ templates-block--primary-menu~~pages-new-install? }}
 
     {{! END PRIMARY MENU CONTENT }}
+
 
     {{! BEGIN SECONDARY MENU CONTENT }}
 
     {{# templates-block--secondary-menu~~pages-new-install? }}
       {{> 03-templates/_block--system-menu-block(
         heading_id: 'block-fepper-account-menu-menu',
-        block_attributes: ' id="block-fepper-main-menu"',
+        block_attributes: ' id="block-fepper-account-menu"',
         title_attributes: ' class="visually-hidden"',
         title: 'User account menu',
-        "compounds-secondary-nav?": true
+        "components-secondary-nav?": true
       ) }}
     {{/ templates-block--secondary-menu~~pages-new-install? }}
 
     {{! END SECONDARY MENU CONTENT }}
 
+
     {{! BEGIN BREADCRUMBS CONTENT }}
 
-
-    {{! END BREADCRUMBS CONTENT }}
-
     {{# templates-block--breadcrumbs~~pages-new-install? }}
-      {{> 03-templates/block(
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'system-breadcrumb',
         block_attributes: ' id="block-fepper-main-menu"',
         title_attributes: ' class="visually-hidden"',
         title: 'Breadcrumb',
-        "compounds-breadcrumbs?": true
+        "components-breadcrumbs?": true
       ) }}
     {{/ templates-block--breadcrumbs~~pages-new-install? }}
+
+    {{! END BREADCRUMBS CONTENT }}
+
 
     {{! BEGIN ALERT CONTENT }}
 
     {{# compounds-alert--alert? }}
       {{# alert }}
-        {{> 01-compounds/04-messaging/00-alert }}
+        {{> 01-compounds/00-text/02-alert }}
       {{/ alert }}
     {{/ compounds-alert--alert? }}
 
@@ -139,7 +143,7 @@
         block_attributes: ' id="block-fepper-footer"',
         title_attributes: ' class="visually-hidden"',
         title: 'Footer menu',
-        "compounds-footer-nav?": true
+        "components-footer-nav?": true
       ) }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-powered" role="complementary"',
@@ -179,7 +183,9 @@
 
     {{! END FOOTER CONTENT }}
 
+
     {{{ fpo_template_content }}}
+
   </div>
 {{/ content? }}
 <!-- End region -->

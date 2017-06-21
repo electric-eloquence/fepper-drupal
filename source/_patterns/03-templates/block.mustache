@@ -1,17 +1,17 @@
 <!-- Begin block -->
-<div{{{ block_attributes }}}>
+<div {{{ block_attributes }}}>
   {{{ title_prefix }}}
   {{# title }}
-    <h2{{{ title_attributes }}}>{{{ title }}}</h2>
+    <h2 {{{ title_attributes }}}>{{{ title }}}</h2>
   {{/ title }}
   {{{ title_suffix }}}
   {{# content? }}
 
     {{! BEGIN HEADER }}
 
-    {{# elements-logo? }}
-      {{> 00-elements/02-images/00-logo }}
-    {{/ elements-logo? }}
+    {{# compounds-logo? }}
+      {{> 01-compounds/01-blocks/04-logo }}
+    {{/ compounds-logo? }}
     {{# compounds-search? }}
       {{> 01-compounds/02-forms/00-search }}
     {{/ compounds-search? }}
@@ -50,10 +50,10 @@
       ) }}
     {{/ templates-node~~pages-article? }}
     {{# components-related-posts? }}
-      {{> 02-components/03-sections/01-related-posts }}
+      {{> 02-components/01-sections/01-related-posts }}
     {{/ components-related-posts? }}
     {{# components-recent-comments? }}
-      {{> 02-components/03-sections/00-recent-comments }}
+      {{> 02-components/01-sections/00-recent-comments }}
     {{/ components-recent-comments? }}
 
     {{! END ARTICLE }}
@@ -68,9 +68,6 @@
         heading_text: 'Welcome to Fepper Theme'
       ) }}
     {{/ elements-heading? }}
-    {{# compounds-breadcrumbs? }}
-      {{> 01-compounds/03-navigation/03-breadcrumbs }}
-    {{/ compounds-breadcrumbs? }}
     {{# views-view~~pages-new-install? }}
       {{> 03-templates/views-view(
         views-view_attributes: ' class="view-id-frontpage view-display-id-page_1"',
@@ -78,7 +75,7 @@
       ) }}
     {{/ views-view~~pages-new-install? }}
     {{# compounds-powered-by? }}
-      {{> 01-compounds/00-text/02-powered-by }}
+      {{> 01-compounds/00-text/05-powered-by }}
     {{/ compounds-powered-by? }}
 
     {{! END NEW INSTALL }}
@@ -87,7 +84,7 @@
     {{! BEGIN FOOTER }}
 
     {{# components-footer? }}
-      {{> 02-components/00-global/00-footer }}
+      {{> 01-compounds/00-text/04-copyright }}
     {{/ components-footer? }}
 
     {{! END FOOTER }}
