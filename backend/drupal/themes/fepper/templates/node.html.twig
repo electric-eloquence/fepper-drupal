@@ -1,14 +1,14 @@
 <!-- Begin node -->
-<article{{ attributes }}>
+<article {{ attributes }}>
 
   {{ title_prefix }}
   {% if page %}
-    <h1{{ title_attributes }}>
+    <h1 {{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h1>
   {% endif %}
   {% if not page %}
-    <h2{{ title_attributes }}>
+    <h2 {{ title_attributes }}>
       <a href="{{ url }}" rel="bookmark">{{ label }}</a>
     </h2>
   {% endif %}
@@ -17,14 +17,14 @@
   {% if page %}
     <footer>
       {# author_picture #}
-      <div{{ author_attributes }}>
+      <div {{ author_attributes }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
       </div>
     </footer>
   {% endif %}
 
-  <div{{ content_attributes }}>
+  <div {{ content_attributes }}>
 
     {{ content }}
   </div>

@@ -1,25 +1,28 @@
 {{# content? }}
 {{/ content? }}
-<nav role="navigation" aria-labelledby="{{ heading_id }}"{{{ block_attributes }}}>
+<nav role="navigation" aria-labelledby="{{ heading_id }}" {{{ block_attributes }}}>
   {{# no_label? }}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}
   {{/ no_label? }}
 
   {{{ title_prefix }}}
   {{# title }}
-    <h2{{{ title_attributes }}}>{{{ title }}}</h2>
+    <h2 {{{ title_attributes }}}>{{{ title }}}</h2>
   {{/ title }}
   {{{ title_suffix }}}
 
-  {{# compounds-primary-nav? }}
-    {{> 01-compounds/03-navigation/00-primary-nav }}
-  {{/ compounds-primary-nav? }}
-  {{# compounds-secondary-nav? }}
-    {{> 01-compounds/03-navigation/02-secondary-nav }}
-  {{/ compounds-secondary-nav? }}
-  {{# compounds-footer-nav? }}
-    {{> 01-compounds/03-navigation/04-footer-nav }}
-  {{/ compounds-footer-nav? }}
+  {{# components-primary-nav? }}
+    {{> 02-components/03-navigation/00-primary-nav }}
+  {{/ components-primary-nav? }}
+  {{# components-secondary-nav? }}
+    {{> 02-components/03-navigation/02-secondary-nav }}
+  {{/ components-secondary-nav? }}
+  {{# components-breadcrumbs? }}
+    {{> 02-components/03-navigation/03-breadcrumbs }}
+  {{/ components-breadcrumbs? }}
+  {{# components-footer-nav? }}
+    {{> 02-components/03-navigation/04-footer-nav }}
+  {{/ components-footer-nav? }}
   {{# templates-block? }}
     {{{ fpo_template_content }}}
   {{/ templates-block? }}

@@ -4,18 +4,25 @@
     <label for="edit-name">Your name</label>
     <input id="edit-name" name="name" value="" size="30" maxlength="60" class="form-text" type="text">
   </div>
-  <div class="field--type-text-long field--name-comment-body field--widget-text-textarea js-form-wrapper form-wrapper" id="edit-comment-body-wrapper">
-    <div class="js-form-item form-item js-form-type-textarea form-item-comment-body-0 js-form-item-comment-body-0">
-      <label for="edit-comment-body-0" class="js-form-required form-required">Comment</label>
+  <input name="form_build_id" value="" type="hidden">
+  <input name="form_id" value="comment_comment_form" type="hidden">
+  <div class="js-text-format-wrapper js-form-item form-item">
+    <div class="js-form-item form-item js-form-type-textarea form-item-comment-body-0-value js-form-item-comment-body-0-value">
+      <label for="edit-comment-body-0-value" class="js-form-required form-required">Comment</label>
       <div>
-        <textarea class="js-text-full text-full form-textarea required" id="edit-comment-body-0" name="comment_body[0]" rows="5" cols="60" placeholder="" required="required"></textarea>
+        <textarea class="js-text-full text-full form-textarea required" id="edit-comment-body-0-value" name="comment_body[0][value]" rows="5" cols="60" placeholder="" required="required" aria-required="true"></textarea>
       </div>
     </div>
+    <a href="#" id="edit-comment-body-0-format-help-about">About text formats</a>
+    <div>
+      <h4>Plain text</h4>
+      <ul>
+        <li>No HTML tags allowed.</li>
+        <li>Lines and paragraphs break automatically.</li>
+        <li>Web page addresses and email addresses turn into links automatically.</li>
+      </ul>
+    </div>
   </div>
-  <div class="field--type-language field--name-langcode field--widget-language-select js-form-wrapper form-wrapper" id="edit-langcode-wrapper">      
-  </div>
-  <div class="form-actions js-form-wrapper form-wrapper" id="edit-actions--2">
-    <input id="edit-submit--2" name="op" value="Save" class="button button--primary js-form-submit form-submit" type="submit">
-    <input id="edit-preview" name="op" value="Preview" class="button js-form-submit form-submit" type="submit">
-  </div>
+  <input id="edit-submit" name="op" value="Save" class="button button--primary js-form-submit form-submit" type="submit">
+  <input id="edit-preview" name="op" value="Preview" class="button js-form-submit form-submit" type="submit">
 </form>

@@ -1,4 +1,4 @@
-<article{{ attributes.addClass('js-comment') }}>
+<article {{ attributes.addClass('js-comment') }}>
   <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
   <footer>
@@ -12,10 +12,10 @@
     {# permalink #}
   </footer>
 
-  <div{{ content_attributes }}>
+  <div {{ content_attributes }}>
     {% if title %}
       {{ title_prefix }}
-      <h3{{ title_attributes.addClass('visually-hidden') }}>{{ title }}</h3>
+      <h3 {{ title_attributes.addClass('visually-hidden') }}>{{ title }}</h3>
       {{ title_suffix }}
     {% endif %}
     {{ content }}
