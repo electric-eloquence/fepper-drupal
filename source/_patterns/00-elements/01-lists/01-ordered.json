@@ -1,20 +1,3 @@
 {
-  "list_attributes": " class=\"text\"",
-  "list_items": [
-    {
-      "list_item": "This is a list item in an ordered list"
-    },
-    {
-      "list_item": "An ordered list is a list in which the sequence of items is important. An ordered list does not necessarily contain sequence characters."
-    },
-    {
-      "list_item": "Lists can be nested inside of each other"
-    },
-    {
-      "list_item": "<ol><li>This is a nested list item</li><li>This is another nested list item in an ordered list</li></ol>"
-    },
-    {
-      "list_item": "This is the last list item"
-    }
-  ]
+  "body_class": "text"
 }
