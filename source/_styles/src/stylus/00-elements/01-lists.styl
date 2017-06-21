@@ -2,14 +2,15 @@ ol, ul
   margin: 0
   padding: 0
   list-style: none
-.text
+.text ul,
+ul.text
+  list-style: disc
+  margin: 0 0 $space 1.92rem
   ul
-    list-style: disc
-    margin: 0 0 $space 1.92rem
-    ul
-      margin-bottom: 0
+    margin-bottom: 0
+.text ol,
+ol.text
+  list-style: decimal
+  margin: 0 0 $space 1.92rem
   ol
-    list-style: decimal
-    margin: 0 0 $space 1.92rem
-    ol
-      margin-bottom: 0
+    margin-bottom: 0

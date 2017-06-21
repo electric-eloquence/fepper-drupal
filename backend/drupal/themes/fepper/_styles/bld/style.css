@@ -315,18 +315,22 @@ ul {
   padding: 0;
   list-style: none;
 }
-.text ul {
+.text ul,
+ul.text {
   list-style: disc;
   margin: 0 0 1.6rem 1.92rem;
 }
-.text ul ul {
+.text ul ul,
+ul.text ul {
   margin-bottom: 0;
 }
-.text ol {
+.text ol,
+ol.text {
   list-style: decimal;
   margin: 0 0 1.6rem 1.92rem;
 }
-.text ol ol {
+.text ol ol,
+ol.text ol {
   margin-bottom: 0;
 }
 img,
@@ -990,20 +994,6 @@ footer[role="contentinfo"] a {
 }
 article[role="article"] {
   margin-bottom: 1.6rem;
-}
-article[role="article"] ul {
-  list-style: disc;
-  margin: 0 0 1.6rem 1.92rem;
-}
-article[role="article"] ul ul {
-  margin-bottom: 0;
-}
-article[role="article"] ol {
-  list-style: decimal;
-  margin: 0 0 1.6rem 1.92rem;
-}
-article[role="article"] ol ol {
-  margin-bottom: 0;
 }
 article[role="article"] > footer {
   font-size: 0.9em;
