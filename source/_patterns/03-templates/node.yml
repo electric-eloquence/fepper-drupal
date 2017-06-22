@@ -10,10 +10,10 @@
   \{\{ url \}\}
 'article_title': |2
   \{\{ label \}\}
-'\^ view_mode_full\?': |2
-  {% if not page %}
 '/ view_mode_full\?': |2
   {% endif %}
+'\^ view_mode_full\?': |2
+  {% if not page %}
 'title_suffix': |2
   \{\{ title_suffix \}\}
 '! author_picture': |2
