@@ -77,6 +77,47 @@
     "short": "Lorem ipsum dolor sit (37 characters)",
     "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
   },
+  "pagination": {
+    "list_attributes": " class=\"pager__items js-pager__items\"",
+    "ul_items": [
+      {
+        "item_attributes": " class=\"pager__item pager__item--first\"",
+        "item": "<a href=\"#\" title=\"Go to first page\"><span class=\"visually-hidden\">First page</span><span aria-hidden=\"true\">« First</span></a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item pager__item--previous\"",
+        "item": "<a href=\"#\" title=\"Go to previous page\" rel=\"prev\"><span class=\"visually-hidden\">Previous page</span><span aria-hidden=\"true\">‹ Previous</span></a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item\"",
+        "item": "<a href=\"#\" title=\"Go to page 1\"><span class=\"visually-hidden\">Page</span>1</a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item is-active\"",
+        "item": "<a href=\"#\" title=\"Go to page 2\"><span class=\"visually-hidden\">Current page</span>2</a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item\"",
+        "item": "<a href=\"#\" title=\"Go to page 3\"><span class=\"visually-hidden\">Page</span>3</a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item\"",
+        "item": "<a href=\"#\" title=\"Go to page 4\"><span class=\"visually-hidden\">Page</span>4</a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item\"",
+        "item": "<a href=\"#\" title=\"Go to page 5\"><span class=\"visually-hidden\">Page</span>5</a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item pager__item--next\"",
+        "item": "<a href=\"?page=1\" title=\"Go to next page\" rel=\"next\"><span class=\"visually-hidden\">Next page</span><span aria-hidden=\"true\">Next ›</span></a>"
+      },
+      {
+        "item_attributes": " class=\"pager__item pager__item--last\"",
+        "item": "<a href=\"?page=1\" title=\"Go to last page\"><span class=\"visually-hidden\">Last page</span><span aria-hidden=\"true\">Last »</span></a>"
+      }
+    ]
+  },
   "secondary_menu": {
     "ul_items": [
       {
