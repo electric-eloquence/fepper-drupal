@@ -1,10 +1,12 @@
 <!-- Begin block -->
 <div {{{ block_attributes }}}>
+
   {{{ title_prefix }}}
   {{# title }}
     <h2 {{{ title_attributes }}}>{{{ title }}}</h2>
   {{/ title }}
   {{{ title_suffix }}}
+
   {{# content? }}
 
     {{! BEGIN HEADER }}
@@ -89,8 +91,10 @@
 
     {{! END FOOTER }}
 
+
     {{{ fpo_template_content }}}
 
   {{/ content? }}
+
 </div>
 <!-- End block -->
