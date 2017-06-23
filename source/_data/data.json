@@ -70,9 +70,6 @@
       "alt": "Rectangle"
     }
   },
-  "logo": {
-    "href": "../04-pages-00-homepage-00-homepage/04-pages-00-homepage-00-homepage.html"
-  },
   "headline": {
     "short": "Lorem ipsum dolor sit (37 characters)",
     "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
