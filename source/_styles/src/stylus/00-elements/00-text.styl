@@ -13,15 +13,19 @@ h4
   margin-bottom: $space
 p
   margin-bottom: $space
-blockquote
-  font-style: italic
-  border-left: 1px solid $gray
-  color: $gray
-  padding-left: $pad
-  margin-bottom: $space
 a
   color: $gray-dark
   text-decoration: none
   outline: 0
   &:hover, &:focus
     color: $gray
+.text a,
+a.text,
+p a
+  text-decoration: underline
+blockquote
+  font-style: italic
+  border-left: 1px solid $gray
+  color: $gray
+  padding-left: $pad
+  margin-bottom: $space
