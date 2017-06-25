@@ -1108,6 +1108,9 @@ article[role="article"] > footer {
 #block-fepper-page-title {
   width: 100%;
 }
+.path-node #block-fepper-page-title {
+  display: none;
+}
 #block-fepper-local-tasks {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
@@ -1136,4 +1139,7 @@ details {
 }
 #edit-contact label {
   display: inline;
+}
+#block-fepper-tools {
+  z-index: 1;
 }
