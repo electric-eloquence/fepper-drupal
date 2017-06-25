@@ -293,13 +293,6 @@ h4 {
 p {
   margin-bottom: 1.6rem;
 }
-blockquote {
-  font-style: italic;
-  border-left: 1px solid #808080;
-  color: #808080;
-  padding-left: 1.6rem;
-  margin-bottom: 1.6rem;
-}
 a {
   color: #333;
   text-decoration: none;
@@ -308,6 +301,18 @@ a {
 a:hover,
 a:focus {
   color: #808080;
+}
+.text a,
+a.text,
+p a {
+  text-decoration: underline;
+}
+blockquote {
+  font-style: italic;
+  border-left: 1px solid #808080;
+  color: #808080;
+  padding-left: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 ol,
 ul {
@@ -1103,6 +1108,9 @@ article[role="article"] > footer {
 #block-fepper-page-title {
   width: 100%;
 }
+.path-node #block-fepper-page-title {
+  display: none;
+}
 #block-fepper-local-tasks {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
@@ -1131,4 +1139,7 @@ details {
 }
 #edit-contact label {
   display: inline;
+}
+#block-fepper-tools {
+  z-index: 1;
 }
