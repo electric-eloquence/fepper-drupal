@@ -293,13 +293,6 @@ h4 {
 p {
   margin-bottom: 1.6rem;
 }
-blockquote {
-  font-style: italic;
-  border-left: 1px solid #808080;
-  color: #808080;
-  padding-left: 1.6rem;
-  margin-bottom: 1.6rem;
-}
 a {
   color: #333;
   text-decoration: none;
@@ -308,6 +301,18 @@ a {
 a:hover,
 a:focus {
   color: #808080;
+}
+.text a,
+a.text,
+p a {
+  text-decoration: underline;
+}
+blockquote {
+  font-style: italic;
+  border-left: 1px solid #808080;
+  color: #808080;
+  padding-left: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 ol,
 ul {
