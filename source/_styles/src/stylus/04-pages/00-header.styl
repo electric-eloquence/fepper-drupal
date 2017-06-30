@@ -19,6 +19,52 @@ header.header
     @media all and (min-width: $bp-med)
       height: 4rem
 /* Search and Navigation Forms */
+#region-primary-menu,
+#region-secondary-menu
+  nav:not(#block-mainnavigation)
+    float: left
+    padding-top: $pad-quarter * 3
+#region-primary-menu,
+#region-secondary-menu
+  li
+    float: left
+    margin-right: 0
+  a
+    display: block
+    padding: $pad-quarter $pad
+  @media all and (min-width: $bp-med)
+    .expanded
+      > a::after
+        color: $gray
+        content: "▼"
+        font-size: $font-size-sm
+        margin-left: $space-half
+      ul
+        li
+          float: none
+          border: 1px solid $gray-light-2
+          border-bottom: 0
+          &:last-child
+            border-bottom: 1px solid $gray-light-2
+      &:hover
+        ul
+          max-height: 100%
+    nav > ul > .expanded > ul
+      background: $white-translucent
+      max-height: 0
+      position: absolute
+      overflow: hidden
+      transition: max-height 0.3s ease
+      z-index: 2
+      > .expanded li
+        border-right: 0
+        border-bottom: 0
+        border-left: 0
+        padding-left: 1rem
+#region-secondary-menu
+  li:first-child
+    a
+      padding-left: 0
 #block-searchform,
 #block-mainnavigation
   > h2
@@ -46,19 +92,21 @@ header.header
   > h2::before
     @extend .icon-search::before
 /* Navigation */
-nav
+nav,
+#block-fepper-local-tasks
   li
     float: left
     margin-right: 1em
+#block-fepper-local-tasks
+  @extend .cf
 #block-mainnavigation
   > h2::before
     @extend .icon-menu::before
-  ul
-    background: $white-translucent
   a
     display: block
   @media all and (max-width: $bp-sm-max)
     > ul
+      background: $white-translucent
       max-height: 0
       overflow: hidden
       position: absolute
@@ -80,45 +128,9 @@ nav
         width: 100%
   @media all and (min-width: $bp-med)
     border-top: 1px solid $gray-light-2
-    clear: none
-    float: left
+    display: inline-block
     margin-top: -0.1rem
     padding-top: $pad-quarter * 3
     position: static
     width: auto
     height: auto
-    li
-      float: left
-      margin-right: 0
-    a
-      padding: $pad-quarter $pad
-    .expanded
-      > a::after
-        color: $gray
-        content: "▼"
-        font-size: $font-size-sm
-        margin-left: $space-half
-      ul
-        max-height: 0
-        overflow: hidden
-        transition: max-height 0.3s ease
-        z-index: 2
-        li
-          float: none
-          border: 1px solid $gray-light-2
-          border-bottom: 0
-          &:last-child
-            border-bottom: 1px solid $gray-light-2
-      &:hover
-        ul
-          max-height: 100%
-    > ul > .expanded > ul
-      position: absolute
-      > .expanded li
-        border-right: 0
-        border-bottom: 0
-        border-left: 0
-      .expanded
-        padding-left: 1rem
-      ul
-        background: transparent

@@ -1,4 +1,5 @@
 {
+  "homepage?": true,
   "demo_site?": true,
   "body_class": "path-frontpage",
   "sidebar_first?": true,
