@@ -2,6 +2,9 @@
 <div class="layout-container">
 
   <header class="header cf" role="banner">
+    {{# homepage? }}
+      <h1>
+    {{/ homepage? }}
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-header"',
@@ -15,15 +18,24 @@
       ) }}
     {{/ templates-region~~pages-new-install? }}
     {{{ page.header }}}
-  </header>
+    {{# homepage? }}
+      </h1>
+    {{/ homepage? }}
 
-  {{# templates-region~~pages-new-install? }}
-    {{> 03-templates/region(
-      region_attributes: ' id="region-primary-menu"',
-      "templates-block--primary-menu~~pages-new-install?": true
-    ) }}
-  {{/ templates-region~~pages-new-install? }}
-  {{{ page.primary_menu }}}
+    {{# demo_site? }}
+      {{> 03-templates/region(
+        region_attributes: ' id="region-primary-menu"',
+        "templates-block--primary-menu?": true
+      ) }}
+    {{/ demo_site? }}
+    {{# templates-region~~pages-new-install? }}
+      {{> 03-templates/region(
+        region_attributes: ' id="region-primary-menu"',
+        "templates-block--primary-menu~~pages-new-install?": true
+      ) }}
+    {{/ templates-region~~pages-new-install? }}
+    {{{ page.primary_menu }}}
+  </header>
 
   {{# templates-region~~pages-new-install? }}
     {{> 03-templates/region(

@@ -1,3 +1,7 @@
+'# homepage\?': |2
+  \{% if is_front %\}
+'/ homepage\?': |2
+  \{% endif %\}
 'page.header': |2
   \{\{ page.header \}\}
 'page.primary_menu': |2
