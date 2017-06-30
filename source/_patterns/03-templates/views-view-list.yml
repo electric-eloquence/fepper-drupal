@@ -16,7 +16,7 @@
   \{\{ list.attributes \}\}
 'fpo_template_content': |2
   {% for row in rows %}
-    <li\{\{ row.attributes \}\}>
+    <li \{\{ row.attributes \}\}>
       \{\{ row.content \}\}
     </li>
   {% endfor %}

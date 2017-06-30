@@ -12,8 +12,8 @@
   \{\{ parent \}\}
 '/ parent': |2
   {% endif %}
-'! permalink': |2
-  \{# permalink #\}
+'> 01-compounds/00-text/04-permalink': |2
+  \{\{ permalink \}\}
 'content_attributes': |2
   \{\{ content_attributes \}\}
 '# title': |2

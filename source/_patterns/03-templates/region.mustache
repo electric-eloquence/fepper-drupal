@@ -9,16 +9,6 @@
         block_attributes: ' id="block-fepper-branding"',
         "compounds-logo?": true
       ) }}
-      {{> 03-templates/block(
-        block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
-        title: 'Search form',
-        "compounds-search?": true
-      ) }}
-      {{> 03-templates/_block--system-menu-block(
-        block_attributes: ' id="block-mainnavigation"',
-        title: 'Main navigation',
-        "components-primary-nav?": true
-      ) }}
     {{/ templates-block--header? }}
     {{# templates-block--header~~pages-new-install? }}
       {{> 03-templates/block(
@@ -32,6 +22,18 @@
 
     {{! BEGIN PRIMARY MENU CONTENT }}
 
+    {{# templates-block--primary-menu? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="search-block-form" id="block-searchform" role="search"',
+        title: 'Search form',
+        "compounds-search?": true
+      ) }}
+      {{> 03-templates/_block--system-menu-block(
+        block_attributes: ' id="block-mainnavigation"',
+        title: 'Main navigation',
+        "components-primary-nav?": true
+      ) }}
+    {{/ templates-block--primary-menu? }}
     {{# templates-block--primary-menu~~pages-new-install? }}
       {{> 03-templates/_block--system-menu-block(
         heading_id: 'block-fepper-main-menu-menu',

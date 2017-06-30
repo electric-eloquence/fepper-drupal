@@ -27,8 +27,13 @@ section[rel="schema:comment"]
       border: 1px solid $gray-light-2
       margin-bottom: 0.5em
       width: 6.25em
-  span[rel="schema:author"]
+  span[rel="schema:author"],
+  footer > a
     font-size: 0.75em
+  footer > a
+    display: block
+    margin-left: 2px
+    text-decoration: underline
   span[property="schema:name"]
     font-weight: bold
     &::before
@@ -51,11 +56,17 @@ section[rel="schema:comment"]
       display: block
       overflow: hidden
       > footer
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        height: 6.25em
         margin-bottom: 0.5em
         min-height: 0
+        position: relative
         width: auto
-        p
+        p, a
           margin: 0
+          max-width: calc(100% - 6.25em)
       > div
         padding-bottom: 0
       > footer + div
@@ -66,7 +77,11 @@ section[rel="schema:comment"]
       &::after
         content: " "
     article[typeof="schema:Person"]
-      display: none
+      position: absolute
+      right: 0
+      bottom: 0
+      img
+        margin: 0
     .indented
       article[typeof="schema:Comment"]
         > *
