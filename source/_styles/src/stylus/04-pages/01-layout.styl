@@ -1,6 +1,6 @@
-.layout-container
-  > *:not(footer)
-    @extend .lc
+*[role="main"],
+.layout-container > *:not(footer)
+  @extend .lc
 .layout-sidebar-second
   h2
     border-bottom: 1px solid $gray-light-3
@@ -16,15 +16,16 @@
   .layout-content
     clear: both
 @media all and (min-width: $bp-med)
-  .layout-content,
-  .layout-sidebar-first
+  main[role="main"]:nth-child(3) .layout-sidebar-first,
+  body:not(.path-frontpage) main[role="main"]:nth-child(3) .layout-content
     float: left
     width: 70%
     padding-right: 1em
-  .layout-sidebar-second
-    float: left
-    width: 30%
-    padding: 0 0 0 1em
+  main[role="main"]:nth-child(3)
+    .layout-sidebar-second
+      float: left
+      width: 30%
+      padding: 0 0 0 1em
 /* Main */
 main[role="main"]
   padding: $pad-half

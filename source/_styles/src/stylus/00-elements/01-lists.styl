@@ -3,14 +3,20 @@ ol, ul
   padding: 0
   list-style: none
 .text ul,
-ul.text
-  list-style: disc
-  margin: 0 0 $space 1.92rem
-  ul
-    margin-bottom: 0
 .text ol,
-ol.text
-  list-style: decimal
+ul.text,
+ol.text,
+article ul,
+article ol
   margin: 0 0 $space 1.92rem
+  ul,
   ol
     margin-bottom: 0
+.text ul,
+ul.text,
+article ul
+  list-style: disc
+.text ol,
+ol.text,
+article ol
+  list-style: decimal

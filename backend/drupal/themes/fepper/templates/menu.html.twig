@@ -10,13 +10,13 @@
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
-      <ul{{ attributes }}>
+      <ul {{ attributes }}>
     {% else %}
       <ul>
     {% endif %}
     {% for item in items %}
       {% set classes = [item.is_expanded ? 'expanded',] %}
-      <li{{ item.attributes.addClass(classes) }}>
+      <li {{ item.attributes.addClass(classes) }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}
           {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
