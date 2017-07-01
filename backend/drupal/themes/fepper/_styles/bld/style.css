@@ -834,7 +834,7 @@ nav li,
 }
 @media all and (min-width: 768px) {
   #block-mainnavigation {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ddd;
     display: inline-block;
     margin-top: -0.1rem;
     padding-top: 1.2rem;
