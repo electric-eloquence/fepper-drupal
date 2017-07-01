@@ -597,9 +597,8 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 8.75rem;
     margin-bottom: 0.5em;
-    min-height: 0;
+    min-height: 8.75rem;
     position: relative;
     width: auto;
   }
