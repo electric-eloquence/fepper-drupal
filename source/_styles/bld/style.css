@@ -606,7 +606,7 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
     margin: 0;
-    max-width: calc(100% - 8.75rem);
+    max-width: calc(100% - 8.75rem - 0.2rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
