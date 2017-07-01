@@ -697,12 +697,11 @@ header.header {
 }
 #block-fepper-branding img {
   float: left;
-  height: 3.7rem;
   margin: 0.65rem 0;
 }
-@media all and (min-width: 768px) {
+@media all and (max-width: 767px) {
   #block-fepper-branding img {
-    height: 4rem;
+    height: 3.7rem;
   }
 }
 #region-primary-menu nav:not(#block-mainnavigation),
