@@ -597,7 +597,7 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 6.25em;
+    height: 8.75rem;
     margin-bottom: 0.5em;
     min-height: 0;
     position: relative;
@@ -606,7 +606,7 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
     margin: 0;
-    max-width: calc(100% - 6.25em);
+    max-width: calc(100% - 8.75rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;

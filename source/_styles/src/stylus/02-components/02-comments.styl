@@ -52,6 +52,7 @@ section[rel="schema:comment"]
     article[typeof="schema:Comment"]
       border-left: 1px solid $gray-light-3
   @media all and (max-width: $bp-xs-max)
+    $img-size-xs = 8.75rem
     article[typeof="schema:Comment"]
       display: block
       overflow: hidden
@@ -59,14 +60,14 @@ section[rel="schema:comment"]
         display: flex
         flex-direction: column
         justify-content: flex-end
-        height: 6.25em
+        height: $img-size-xs
         margin-bottom: 0.5em
         min-height: 0
         position: relative
         width: auto
         p, a
           margin: 0
-          max-width: calc(100% - 6.25em)
+          max-width: "calc(100% - %s)" % $img-size-xs
       > div
         padding-bottom: 0
       > footer + div
