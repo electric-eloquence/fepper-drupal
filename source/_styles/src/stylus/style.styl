@@ -43,7 +43,7 @@
 // Only in Drupal, not Fepper.
 #block-fepper-branding
   a + a
-    display: none
+    @extend .visually-hidden
 #region-highlighted
   padding-top: 0
   padding-bottom: 0
@@ -84,12 +84,12 @@
 #block-fepper-page-title
   width: 100%
   .path-node &
-    display: none
+    @extend .visually-hidden
 #block-fepper-local-tasks
   padding-top: $space
   padding-bottom: $space
   a[href="/user/login"]
-    display: none
+    @extend .visually-hidden
 .no-sidebar-second
   width: 100% !important
 .path-search
@@ -100,7 +100,7 @@
 #block-fepper-search
   @extend .cf
   h2
-    display: none
+    @extend .visually-hidden
 #block-fepper-footer
   clear: both
   margin-top: 0.5em
