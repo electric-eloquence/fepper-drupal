@@ -1,16 +1,18 @@
-h1, .alpha
+/* Override user-agent defaults */
+article, aside, nav, section
+  h1
+    font-size: 2em
+h1, h2
   line-height: 1.2
-  @media all and (max-width: $bp-sm-max)
-    font-size: 2.8rem
-h2, .beta
-  line-height: 1.2
+h2
   margin-top: 0.5em
-h3, .gamma
-  line-height: 1.2
 h4
-  font-size: $font-size-slightly-larger
-  font-weight: bold
+  font-size: 1.1em
   margin-bottom: $space
+h5
+  font-size: 1.0625em
+h6
+  font-size: 1em
 p
   margin-bottom: $space
 a
@@ -28,5 +30,5 @@ blockquote
   font-style: italic
   border-left: 1px solid $gray
   color: $gray
-  padding-left: $pad
+  padding-left: $space
   margin-bottom: $space

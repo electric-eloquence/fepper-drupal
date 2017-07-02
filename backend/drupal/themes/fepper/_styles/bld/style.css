@@ -270,29 +270,28 @@ aside {
 .align-left {
   text-align: left;
 }
+article h1,
+aside h1,
+nav h1,
+section h1 {
+  font-size: 2em;
+}
 h1,
-.alpha {
+h2 {
   line-height: 1.2;
 }
-@media all and (max-width: 767px) {
-  h1,
-  .alpha {
-    font-size: 2.8rem;
-  }
-}
-h2,
-.beta {
-  line-height: 1.2;
+h2 {
   margin-top: 0.5em;
-}
-h3,
-.gamma {
-  line-height: 1.2;
 }
 h4 {
   font-size: 1.1em;
-  font-weight: bold;
   margin-bottom: 1.6rem;
+}
+h5 {
+  font-size: 1.0625em;
+}
+h6 {
+  font-size: 1em;
 }
 p {
   margin-bottom: 1.6rem;
@@ -681,7 +680,7 @@ header.header {
     width: calc(100% - 0.8rem);
   }
 }
-@media all and (min-width: 768px) and (max-width: 1024px) {
+@media all and (min-width: 768px) and (max-width: 1152px) {
   header.header {
     width: calc(100% - 1.6rem);
   }
@@ -1051,9 +1050,6 @@ article[role="article"] > footer {
   font-size: 0.9em;
   font-style: italic;
   margin-bottom: 0.5em;
-}
-#block-fepper-content > article[role="article"] > h1 {
-  font-size: 2.5em;
 }
 @media all and (max-width: 480px) {
   #block-views-block-content-recent-block-3 article[role="article"] > div > div:first-of-type > a,
