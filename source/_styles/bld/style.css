@@ -236,11 +236,15 @@ body {
 aside {
   margin-bottom: 1.6rem;
 }
-.is-hidden {
+.hidden {
   display: none !important;
   visibility: hidden !important;
 }
-.visually-hidden {
+.visually-hidden,
+#block-fepper-branding a + a,
+.path-node #block-fepper-page-title,
+#block-fepper-local-tasks a[href="/user/login"],
+#block-fepper-search h2 {
   position: absolute !important;
   overflow: hidden;
   width: 1px;
@@ -1093,9 +1097,6 @@ article[role="article"] > footer {
     width: 30%;
   }
 }
-#block-fepper-branding a + a {
-  display: none;
-}
 #region-highlighted {
   padding-top: 0;
   padding-bottom: 0;
@@ -1151,15 +1152,9 @@ article[role="article"] > footer {
 #block-fepper-page-title {
   width: 100%;
 }
-.path-node #block-fepper-page-title {
-  display: none;
-}
 #block-fepper-local-tasks {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
-}
-#block-fepper-local-tasks a[href="/user/login"] {
-  display: none;
 }
 .no-sidebar-second {
   width: 100% !important;
@@ -1169,9 +1164,6 @@ article[role="article"] > footer {
 }
 .path-search h2 {
   margin: 2.4rem 0;
-}
-#block-fepper-search h2 {
-  display: none;
 }
 #block-fepper-footer {
   clear: both;
