@@ -460,12 +460,6 @@ input[type="search"]::-webkit-search-decoration {
   padding: 0;
   position: relative;
 }
-.has-error {
-  border-color: #f00;
-}
-.is-valid {
-  border-color: #089e00;
-}
 #search-block-form {
   background: rgba(255,255,255,0.95);
   float: right;
