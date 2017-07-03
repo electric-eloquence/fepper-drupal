@@ -315,7 +315,6 @@ p a,
   text-decoration: underline;
 }
 blockquote {
-  font-style: italic;
   border-left: 1px solid #808080;
   color: #808080;
   padding-left: 1.6rem;
