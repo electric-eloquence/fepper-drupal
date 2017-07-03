@@ -475,8 +475,8 @@ input[type="search"]::-webkit-search-decoration {
   color: #000;
   content: "\73";
   position: absolute;
-  top: 0.6em;
-  right: 1em;
+  top: 0.7em;
+  right: 1.1em;
 }
 #search-block-form input {
   background: transparent;
