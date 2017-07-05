@@ -236,11 +236,15 @@ body {
 aside {
   margin-bottom: 1.6rem;
 }
-.is-hidden {
+.hidden {
   display: none !important;
   visibility: hidden !important;
 }
-.visually-hidden {
+.visually-hidden,
+#block-fepper-branding a + a,
+.path-node #block-fepper-page-title,
+#block-fepper-local-tasks a[href="/user/login"],
+#block-fepper-search h2 {
   position: absolute !important;
   overflow: hidden;
   width: 1px;
@@ -270,29 +274,27 @@ aside {
 .align-left {
   text-align: left;
 }
+article h1,
+aside h1,
+nav h1,
+section h1 {
+  font-size: 2em;
+}
 h1,
-.alpha {
+h2 {
   line-height: 1.2;
 }
-@media all and (max-width: 767px) {
-  h1,
-  .alpha {
-    font-size: 2.8rem;
-  }
-}
-h2,
-.beta {
-  line-height: 1.2;
+h2 {
   margin-top: 0.5em;
-}
-h3,
-.gamma {
-  line-height: 1.2;
 }
 h4 {
   font-size: 1.1em;
-  font-weight: bold;
-  margin-bottom: 1.6rem;
+}
+h5 {
+  font-size: 1.0625em;
+}
+h6 {
+  font-size: 1em;
 }
 p {
   margin-bottom: 1.6rem;
@@ -313,7 +315,6 @@ p a,
   text-decoration: underline;
 }
 blockquote {
-  font-style: italic;
   border-left: 1px solid #808080;
   color: #808080;
   padding-left: 1.6rem;
@@ -457,12 +458,6 @@ input[type="search"]::-webkit-search-decoration {
   padding: 0;
   position: relative;
 }
-.has-error {
-  border-color: #f00;
-}
-.is-valid {
-  border-color: #089e00;
-}
 #search-block-form {
   background: rgba(255,255,255,0.95);
   float: right;
@@ -479,8 +474,8 @@ input[type="search"]::-webkit-search-decoration {
   color: #000;
   content: "\73";
   position: absolute;
-  top: 0.6em;
-  right: 1em;
+  top: 0.7em;
+  right: 1.1em;
 }
 #search-block-form input {
   background: transparent;
@@ -597,16 +592,15 @@ section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 6.25em;
     margin-bottom: 0.5em;
-    min-height: 0;
+    min-height: 8.75rem;
     position: relative;
     width: auto;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
     margin: 0;
-    max-width: calc(100% - 6.25em);
+    max-width: calc(100% - 8.75rem - 0.2rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
@@ -682,7 +676,7 @@ header.header {
     width: calc(100% - 0.8rem);
   }
 }
-@media all and (min-width: 768px) and (max-width: 1024px) {
+@media all and (min-width: 768px) and (max-width: 1152px) {
   header.header {
     width: calc(100% - 1.6rem);
   }
@@ -698,12 +692,11 @@ header.header {
 }
 #block-fepper-branding img {
   float: left;
-  height: 3.7rem;
   margin: 0.65rem 0;
 }
-@media all and (min-width: 768px) {
+@media all and (max-width: 767px) {
   #block-fepper-branding img {
-    height: 4rem;
+    height: 3.7rem;
   }
 }
 #region-primary-menu nav:not(#block-mainnavigation),
@@ -836,7 +829,7 @@ nav li,
 }
 @media all and (min-width: 768px) {
   #block-mainnavigation {
-    border-top: 1px solid #eee;
+    border-top: 1px solid #ddd;
     display: inline-block;
     margin-top: -0.1rem;
     padding-top: 1.2rem;
@@ -846,12 +839,11 @@ nav li,
   }
 }
 .layout-sidebar-second h2 {
-  border-bottom: 1px solid #ddd;
   padding: 0 0 0.5em;
 }
 .layout-sidebar-second li {
   padding: 0.25em 0;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 .layout-sidebar-second li > * {
   display: block;
@@ -993,6 +985,9 @@ footer[role="contentinfo"] a {
   .path-frontpage .layout-content #block-fepper-content {
     position: relative;
   }
+  .path-frontpage .layout-content #block-fepper-content .views-field-field-image {
+    min-height: 7.68rem;
+  }
   .path-frontpage .layout-content #block-fepper-content .views-field-title {
     position: absolute;
     bottom: 0;
@@ -1007,6 +1002,7 @@ footer[role="contentinfo"] a {
   position: relative;
 }
 .path-frontpage .layout-content #region-content > .views-row .views-field-field-image {
+  min-height: 17rem;
   position: relative;
   z-index: 0;
 }
@@ -1054,9 +1050,6 @@ article[role="article"] > footer {
   font-style: italic;
   margin-bottom: 0.5em;
 }
-#block-fepper-content > article[role="article"] > h1 {
-  font-size: 2.5em;
-}
 @media all and (max-width: 480px) {
   #block-views-block-content-recent-block-3 article[role="article"] > div > div:first-of-type > a,
   .view-id-content_recent.view-display-id-page_1 article[role="article"] > div > div:first-of-type > a {
@@ -1098,9 +1091,6 @@ article[role="article"] > footer {
     height: auto;
     width: 30%;
   }
-}
-#block-fepper-branding a + a {
-  display: none;
 }
 #region-highlighted {
   padding-top: 0;
@@ -1157,15 +1147,9 @@ article[role="article"] > footer {
 #block-fepper-page-title {
   width: 100%;
 }
-.path-node #block-fepper-page-title {
-  display: none;
-}
 #block-fepper-local-tasks {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
-}
-#block-fepper-local-tasks a[href="/user/login"] {
-  display: none;
 }
 .no-sidebar-second {
   width: 100% !important;
@@ -1175,9 +1159,6 @@ article[role="article"] > footer {
 }
 .path-search h2 {
   margin: 2.4rem 0;
-}
-#block-fepper-search h2 {
-  display: none;
 }
 #block-fepper-footer {
   clear: both;

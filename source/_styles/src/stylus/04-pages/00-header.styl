@@ -5,7 +5,7 @@ header.header
   @media all and (max-width: $bp-sm-max)
     margin: 0 0 0 $space-half
     width: "calc(100% - %s)" % $space-half
-  @media all and (min-width: $bp-med) and (max-width: $bp-md-max)
+  @media all and (min-width: $bp-med) and (max-width: $max-width)
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
     width: "calc(%s - %s)" % ($max-width $space)
@@ -14,16 +14,15 @@ header.header
   z-index: 1
   img
     float: left
-    height: 3.7rem
     margin: 0.65rem 0
-    @media all and (min-width: $bp-med)
-      height: 4rem
+    @media all and (max-width: $bp-sm-max)
+      height: 3.7rem
 /* Search and Navigation Forms */
 #region-primary-menu,
 #region-secondary-menu
   nav:not(#block-mainnavigation)
     float: left
-    padding-top: $pad-quarter * 3
+    padding-top: $space-quarter * 3
 #region-primary-menu,
 #region-secondary-menu
   li
@@ -31,13 +30,13 @@ header.header
     margin-right: 0
   a
     display: block
-    padding: $pad-quarter $pad
+    padding: $space-quarter $space
   @media all and (min-width: $bp-med)
     .expanded
       > a::after
         color: $gray
         content: "▼"
-        font-size: $font-size-sm
+        font-size: 0.75em
         margin-left: $space-half
       ul
         li
@@ -119,7 +118,7 @@ nav,
       margin-right: 0
       a
         display: table
-        padding: $pad-half $pad
+        padding: $space-half $space
       li
         padding-left: 2rem;
     &.open
@@ -127,10 +126,10 @@ nav,
         max-height: 100%
         width: 100%
   @media all and (min-width: $bp-med)
-    border-top: 1px solid $gray-light-2
+    border-top: 1px solid $gray-light-3
     display: inline-block
     margin-top: -0.1rem
-    padding-top: $pad-quarter * 3
+    padding-top: $space-quarter * 3
     position: static
     width: auto
     height: auto
