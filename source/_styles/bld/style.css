@@ -274,6 +274,13 @@ aside {
 .align-left {
   text-align: left;
 }
+@media print {
+  header.header,
+  form,
+  footer[role="contentinfo"] {
+    display: none;
+  }
+}
 article h1,
 aside h1,
 nav h1,
