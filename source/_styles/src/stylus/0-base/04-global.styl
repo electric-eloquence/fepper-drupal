@@ -44,3 +44,9 @@ aside
   text-align: center
 .align-left
   text-align: left
+/* Hide elements in print view */
+@media print
+  header.header,
+  form,
+  footer[role="contentinfo"]
+    display: none
