@@ -2,17 +2,28 @@
 
 # A frontend prototyper tool for rapid prototyping of web sites
 
-### Downstream projects
-* [Fepper Base](https://github.com/electric-eloquence/fepper-base) - no 
-  unnecessary assets, styles, or Pattern Lab demo.
-* [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) - 
-  templates configured for Drupal 8, along with a Drupal theme built to 
-  accommodate those templates.
-* [Fepper for Windows](https://github.com/electric-eloquence/fepper-windows) - 
-  scripted to run on Windows.
-* [Fepper for Wordpress](https://github.com/electric-eloquence/fepper-wordpress) 
-  \- templates configured for WordPress, along with a WordPress theme built to 
-  accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a Drupal theme built to accommodate those templates.
+
+* [Main project](https://github.com/electric-eloquence/fepper)
+
+### Template Reuse
+The patterns in `source/03-templates` are parameterized to reuse templates in a 
+Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
+Fepper templates can be exported to Drupal with no further effort beyond running 
+`fp template`. Follow these rules when constructing new parameter keys and 
+values for template reuse:
+
+* The parameters are submitted within parentheses inside the Mustache inclusion tags.
+* The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
+* It should start with the target's significant identifier, usually a partial.
+* To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
+* Follow that with any nested element or any modifying term (in BEM syntax).
+* Follow that with `~~` and then the pattern ID of the original page or pattern at the top level of recursion.
+* Follow that with any nested element or any modifying term (in BEM syntax).
+* This type of parameter is usually a boolean. End the key with a `?` to follow Mustache's convention for Non-False Values: https://mustache.github.io/mustache.5.html
+* Quoting of keys and values should follow JSON5 syntax: http://json5.org
+* When quoting is necessary, to avoid escaping quotes in .mustache files, wrap keys in double-quotes and values in single-quotes.
+* In .yml files, wrap keys in single-quotes.
 
 ### Table of contents
 * [Install](#install)
