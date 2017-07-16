@@ -315,9 +315,9 @@ a:hover,
 a:focus {
   color: #808080;
 }
-.feed-icon a,
 .text a,
 a.text,
+a.feed-icon,
 p a,
 *[property="schema:text"] a {
   text-decoration: underline;
