@@ -315,6 +315,7 @@ a:hover,
 a:focus {
   color: #808080;
 }
+.feed-icon a,
 .text a,
 a.text,
 p a,
