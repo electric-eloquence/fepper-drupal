@@ -13,17 +13,22 @@ Fepper templates can be exported to Drupal with no further effort beyond running
 `fp template`. Follow these rules when constructing new parameter keys and 
 values for template reuse:
 
-* The parameters are submitted within parentheses inside the Mustache inclusion tags.
+* The parameters are submitted within parentheses inside the Mustache inclusion 
+  tags.
 * The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
-* Follow that with `~~` and then the pattern ID of the original page or pattern at the top level of recursion.
+* Follow that with `~~` and then the pattern ID of the original page or pattern 
+  at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
-* This type of parameter is usually a boolean. End the key with a `?` to follow Mustache's convention for [Non-False Values](https://mustache.github.io/mustache.5.html).
+* This type of parameter is usually a boolean. End the key with a `?` to follow 
+  Mustache's convention for [Non-False Values](https://mustache.github.io/mustache.5.html).
 * Quoting of keys and values should follow [JSON5 syntax](http://json5.org).
-* When quoting is necessary, to avoid escaping quotes in .mustache files, wrap keys in double-quotes and values in single-quotes.
-* In .yml files, wrap keys in single-quotes and indent the values.
+* When quoting is necessary, to avoid escaping special characters in .mustache 
+  files, wrap parameter keys in double-quotes and values in single-quotes.
+* Consult the [Templater section](#templater) for additional documentation on 
+  configuring Mustache and YAML files to sync Fepper with Drupal.
 
 ### Table of contents
 * [Install](#install)
