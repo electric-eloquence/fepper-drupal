@@ -56,7 +56,7 @@ values for template reuse:
 * Recommended minimum Node.js version 7.6.0.
 
 #### Simplest way to get started
-* Download the [latest release](https://github.com/electric-eloquence/fepper/releases).
+* Download the [latest release](https://github.com/electric-eloquence/fepper/releases/latest).
 
 #### Main install
 * In macOS Finder:
