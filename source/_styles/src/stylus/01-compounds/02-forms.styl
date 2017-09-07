@@ -25,6 +25,7 @@ button, input[type="submit"]
   padding: $space-half
   background: $gray-dark
   border: 1px solid $gray
+  border-radius: 0
   color: $white
   cursor: pointer
 input[type="checkbox"],
@@ -48,7 +49,7 @@ input[type="search"]::-webkit-search-decoration
 #search-block-form
   background: $white-translucent
   float: right
-  margin: 0.65rem 0 0
+  margin: $space-half 0 0
   overflow: hidden
   position: relative
   .form-item-keys
@@ -56,8 +57,8 @@ input[type="search"]::-webkit-search-decoration
     font-size: 1em
     margin-bottom: 0
     &::after
+      @extend .icon-search::before
       color: $black
-      content: "\73"
       position: absolute
       top: 0.7em
       right: 1.1em
@@ -85,7 +86,7 @@ input[type="search"]::-webkit-search-decoration
       margin: 0.1rem 0 0
       max-height: 0
       position: absolute
-      top: 5rem
+      top: $nav-toggle-height
       right: 0
       z-index: 2
     input
