@@ -7,9 +7,9 @@
 // The base on which the rest of the styles are built.
 // /////////////////////////////////////////////////////////////////////////////
 @import '0-base/00-variables'
-@import '0-base/01-reset'
-@import '0-base/02-icons'
-@import '0-base/03-helpers'
+@import '0-base/01-helpers'
+@import '0-base/02-reset'
+@import '0-base/03-icons'
 @import '0-base/04-global'
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -45,9 +45,9 @@
   a + a
     @extend .visually-hidden
 #region-highlighted
+  @extend .cf
   padding-top: 0
   padding-bottom: 0
-  @extend .cf
   div[role="contentinfo"]
     border-width: 1px
     border-style: solid
@@ -102,9 +102,9 @@
   h2
     @extend .visually-hidden
 #block-fepper-footer
+  @extend .cf
   clear: both
   margin-top: 0.5em
-  @extend .cf
 details
   padding-bottom: $space
 #edit-contact label
