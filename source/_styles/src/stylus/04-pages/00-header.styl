@@ -14,10 +14,10 @@ header.header
   z-index: 1
   img
     float: left
-    margin: 0.65rem 0
+    margin: $space-half 0
     @media all and (max-width: $bp-sm-max)
       height: 3.7rem
-/* Search and Navigation Forms */
+// Search and Navigation Forms
 #region-primary-menu,
 #region-secondary-menu
   nav:not(#block-mainnavigation)
@@ -64,33 +64,45 @@ header.header
   li:first-child
     a
       padding-left: 0
+div[id^="block-"],
+nav[role="navigation"]
+  > h2 > a
+    pointer-events: none
 #block-searchform,
 #block-mainnavigation
   > h2
-    background: $white-translucent
-    border-left: 1px solid $gray-light-3
-    color: transparent
-    cursor: pointer
     float: right
     margin: 0
-    width: 5.1rem
-    height: 5rem
-    overflow: hidden
-    &::before
-      color: $gray-dark
-      float: right
-      font-size: 2.1rem
-      padding: 0.7em
-    &:hover::before
-      color: $gray
-    @media all and (min-width: $bp-med)
-      display: none
-/* Search Form */
+    position: relative
+    z-index: 2
+    > a
+      background: $white-translucent
+      border-left: 1px solid $gray-light-3
+      color: transparent
+      cursor: pointer
+      width: $nav-toggle-n-border
+      height: $nav-toggle-height
+      overflow: hidden
+      padding: 0
+      pointer-events: auto
+      position: relative
+      &::before
+        color: $gray-dark
+        display: block
+        font-size: 2.1rem
+        padding: ($space + 0.1rem) $space $space
+      &:hover,
+      &:focus
+        &::before
+          color: $gray
+      @media all and (min-width: $bp-med)
+        display: none
+// Search Form
 #block-searchform
   float: right
-  > h2::before
+  > h2 > a::before
     @extend .icon-search::before
-/* Navigation */
+// Navigation
 nav,
 #block-fepper-local-tasks
   li
@@ -99,17 +111,18 @@ nav,
 #block-fepper-local-tasks
   @extend .cf
 #block-mainnavigation
-  > h2::before
+  > h2 > a::before
     @extend .icon-menu::before
   a
     display: block
   @media all and (max-width: $bp-sm-max)
     > ul
       background: $white-translucent
+      border-bottom: 1px solid $gray-light-3
       max-height: 0
       overflow: hidden
       position: absolute
-      top: 5rem
+      top: 0
       left: 0
       z-index: 1
     li
@@ -124,6 +137,7 @@ nav,
     &.open
       > ul
         max-height: 100%
+        padding-top: $nav-toggle-height
         width: 100%
   @media all and (min-width: $bp-med)
     border-top: 1px solid $gray-light-3

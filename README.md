@@ -2,7 +2,7 @@
 
 # A frontend prototyper tool for rapid prototyping of web sites
 
-#### This checkout of Fepper has templates configured for Drupal 8, along with a [Drupal theme](https://www.drupal.org/project/fepper) built to accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
 
 * [Main project](https://github.com/electric-eloquence/fepper)
 
@@ -15,7 +15,7 @@ values for template reuse:
 
 * The parameters are submitted within parentheses inside the Mustache inclusion 
   tags.
-* The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
+* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">BEM-like</a> in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
@@ -23,8 +23,9 @@ values for template reuse:
   at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * This type of parameter is usually a boolean. End the key with a `?` to follow 
-  Mustache's convention for [Non-False Values](https://mustache.github.io/mustache.5.html).
-* Quoting of keys and values should follow [JSON5 syntax](http://json5.org).
+  Mustache's convention for <a href="https://mustache.github.io/mustache.5.html" target="_blank">Non-False Values</a>.
+* Quoting of keys and values should follow <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
+* (Avoid quotes if you can.)
 * When quoting is necessary, to avoid escaping special characters in .mustache 
   files, wrap parameter keys in double-quotes and values in single-quotes.
 * Consult the [Templater section](#templater) for additional documentation on 
@@ -56,7 +57,7 @@ values for template reuse:
 * Recommended minimum Node.js version 7.6.0.
 
 #### Simplest way to get started
-* Download the [latest release](https://github.com/electric-eloquence/fepper-drupal/releases/latest).
+* Download the <a href="https://github.com/electric-eloquence/fepper-drupal/releases/latest" target="_blank">latest release</a>.
 
 #### Main install
 * In macOS Finder:
@@ -409,8 +410,3 @@ If your Mac is connected to the Internet through a wire:
 * [Default pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
 * [Pattern Lab](http://patternlab.io/docs/index.html)
 * [Mustache](https://mustache.github.io/mustache.5.html)
-
-### <a id="contribute"></a>Contribute
-Contributions and bug reports are greatly appreciated!
-
-* Please pull request against the dev branch.

@@ -6,14 +6,25 @@
 (function ($) {
   'use strict';
 
+  function mobileNavToggle(toggleSelector, context) {
+    var $toggleSelector = $(toggleSelector, context);
+    var $toggler = $toggleSelector.find('> h2 > a');
+
+    $toggler.click(function (e) {
+      e.preventDefault();
+
+      $toggleSelector.toggleClass('open');
+
+      if (!$toggleSelector.hasClass('open')) {
+        $toggler.blur();
+      }
+    });
+  }
+
   Drupal.behaviors.openToggle = {
     attach: function (context) {
-      $('#block-mainnavigation, #block-searchform', context)
-        .children('h2')
-        .click(function () {
-          $(this).parent().toggleClass('open');
-        }
-      );
+      mobileNavToggle('#block-searchform', context);
+      mobileNavToggle('#block-mainnavigation', context);
     }
   };
 })(jQuery);
