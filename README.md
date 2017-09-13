@@ -15,7 +15,8 @@ values for template reuse:
 
 * The parameters are submitted within parentheses inside the Mustache inclusion 
   tags.
-* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">BEM-like</a> in syntax.
+* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">
+  BEM-like</a> in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
@@ -23,8 +24,11 @@ values for template reuse:
   at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * This type of parameter is usually a boolean. End the key with a `?` to follow 
-  Mustache's convention for <a href="https://mustache.github.io/mustache.5.html" target="_blank">Non-False Values</a>.
-* Quoting of keys and values should follow <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
+  Mustache's convention for 
+  <a href="https://mustache.github.io/mustache.5.html" target="_blank">
+  Non-False Values</a>.
+* Quoting of keys and values should follow 
+  <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
 * (Avoid quotes if you can.)
 * When quoting is necessary, to avoid escaping special characters in .mustache 
   files, wrap parameter keys in double-quotes and values in single-quotes.
@@ -94,10 +98,13 @@ values for template reuse:
     LiveReload browser extension</a>.
 
 #### Drupal install
-* To install the included Drupal backend, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
-* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
+* To install the included Drupal backend, restore the MySQL dump 
+  `fepper-drupal-mysqldump.sql`.
+* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` 
+  to reflect your own database settings.
 * Configure `d8.local` to be the hostname in your web server configs.
-* Configure `backend/drupal` (correctly pathed) to be the document root for this host.
+* Configure `backend/drupal` (correctly pathed) to be the document root for this 
+  host.
 * Restart the web server.
 * Open http://d8.local in a browser.
 * Log into Drupal with `admin:admin`
