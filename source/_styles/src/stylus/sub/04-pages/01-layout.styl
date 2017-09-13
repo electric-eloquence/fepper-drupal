@@ -1,0 +1,12 @@
+@media all and (min-width: $bp-med)
+  [role="main"]
+    display: flex
+    justify-content: space-between
+    .layout-sidebar-second
+      width: $column-width-narrow
+      padding: 0 0 0 1em
+  .layout-sidebar-first,
+  body:not(.path-frontpage) .layout-content
+    flex-grow: 1
+    padding-right: 1em
+    width: $column-width-wide
