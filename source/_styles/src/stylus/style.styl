@@ -6,66 +6,65 @@
 // /////////////////////////////////////////////////////////////////////////////
 // The base on which the rest of the styles are built.
 // /////////////////////////////////////////////////////////////////////////////
-@import '0-base/00-variables'
-@import '0-base/01-helpers'
-@import '0-base/02-reset'
-@import '0-base/03-icons'
-@import '0-base/04-global'
+@import 'base/0-base/00-variables'
+@import 'base/0-base/01-helpers'
+@import 'base/0-base/02-reset'
+@import 'base/0-base/03-icons'
+@import 'base/0-base/04-global'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Element subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import '00-elements/00-text'
-@import '00-elements/01-lists'
-@import '00-elements/02-images'
+@import 'base/00-elements/00-text'
+@import 'base/00-elements/01-lists'
+@import 'base/00-elements/02-images'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Compound subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import '01-compounds/00-text'
-@import '01-compounds/02-forms'
+@import 'base/01-compounds/00-text'
+@import 'base/01-compounds/02-forms'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Component subtypes.
 // /////////////////////////////////////////////////////////////////////////////
-@import '02-components/02-comments'
-@import '02-components/03-navigation'
+@import 'base/02-components/02-comments'
+@import 'base/02-components/03-navigation'
 
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Pages.
 // /////////////////////////////////////////////////////////////////////////////
-@import '04-pages/00-header'
-@import '04-pages/01-layout'
-@import '04-pages/02-footer'
-@import '04-pages/03-homepage'
-@import '04-pages/04-article'
+@import 'base/04-pages/00-header'
+@import 'base/04-pages/01-layout'
+@import 'base/04-pages/02-footer'
+@import 'base/04-pages/03-article'
 
 // Only in Drupal, not Fepper.
-#block-fepper-branding
+[id^="block-fepper-"][id$="-branding"]
   a + a
     @extend .visually-hidden
 #region-highlighted
   @extend .cf
   padding-top: 0
   padding-bottom: 0
-  div[role="contentinfo"]
+  [role="contentinfo"]
     border-width: 1px
     border-style: solid
     margin-top: $space-half
     padding: $space-half
     a
       text-decoration: underline
-  div[aria-label="Status message"]
+  [aria-label="Status message"]
     background-color: #f8fff0
     border-color: #be7
     &, & a
       color: #234600
-  div[aria-label="Warning message"]
+  [aria-label="Warning message"]
     background-color: #fffce5
     border-color: #ed5
     &, & a
       color: #840
-  div[aria-label="Error message"]
+  [aria-label="Error message"]
     background-color: #fef5f1
     border-color: #ed541d
     &, & a
@@ -81,27 +80,29 @@
 #breadcrumb
   font-size: 0.75em
   font-weight: bold
-#block-fepper-page-title
+[id^="block-fepper-"][id$="-page-title"]
   width: 100%
   .path-node &
     @extend .visually-hidden
-#block-fepper-local-tasks
+[id^="block-fepper-"][id$="-local-tasks"]
   padding-top: $space
   padding-bottom: $space
-  a[href="/user/login"]
+  [href="/user/login"]
     @extend .visually-hidden
 .no-sidebar-second
   width: 100% !important
 .path-search
-  #search-form > *
-    display: inline
   h2
     margin: $space-and-half 0
-#block-fepper-search
+  #search-form > *
+    display: inline-block
+  #edit-help-link
+    margin-top: $space-quarter
+[id^="block-fepper-"][id$="-search"]
   @extend .cf
   h2
     @extend .visually-hidden
-#block-fepper-footer
+[id^="block-fepper-"][id$="-footer"]
   @extend .cf
   clear: both
   margin-top: 0.5em
@@ -109,5 +110,5 @@ details
   padding-bottom: $space
 #edit-contact label
   display: inline
-#block-fepper-tools
+[id^="block-fepper-"][id$="-tools"]
   z-index: 1
