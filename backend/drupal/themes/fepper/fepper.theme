@@ -7,23 +7,6 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
-/*
-// Parse variables.styl for breakpoints. Add them to the global $config array.
-// Do this in the global scope so any and all functions can access these
-// breakpoint configurations, even module functions.
-// Out of the box, they will be:
-// $config['breakpoints']['bp_lg_max'] = -1;
-// $config['breakpoints']['bp_md_max'] = 1024;
-// $config['breakpoints']['bp_sm_max'] = 767;
-// $config['breakpoints']['bp_xs_max'] = 480;
-// $config['breakpoints']['bp_xx_max'] = 320;
-// $config['breakpoints']['bp_xx_min'] = 0;
- */
-$bp_ini = drupal_get_path('theme', 'fepper') . '/_scripts/src/variables.styl';
-if (file_exists($bp_ini)) {
-  $GLOBALS['config']['breakpoints'] = parse_ini_file($bp_ini);
-}
-
 /**
  * Implements hook_form_FORM_ID_alter().
  */

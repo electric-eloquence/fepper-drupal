@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Fepper Sub theme.
+ */
+
+/*
+// Parse variables.styl for variables common to Stylus and JavaScript.
+// Add them to the global $config array.
+// Do this in the global scope so any and all functions can access these
+// configurations, even module functions.
+//
+// Out of the box, they will be:
+// $config['fepper']['bp_lg_max'] = -1;
+// $config['fepper']['bp_md_max'] = 1024;
+// $config['fepper']['bp_sm_max'] = 767;
+// $config['fepper']['bp_xs_max'] = 480;
+// $config['fepper']['bp_xx_max'] = 320;
+// $config['fepper']['bp_xx_min'] = 0;
+*/
+$fepper_ini = drupal_get_path('theme', 'fepper_sub') . '/_scripts/src/variables.styl';
+if (file_exists($fepper_ini)) {
+  $GLOBALS['config']['fepper'] = parse_ini_file($fepper_ini);
+}

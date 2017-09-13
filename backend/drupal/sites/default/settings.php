@@ -764,3 +764,5 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_PCkDK8_nKA7hU8ZAFI66VDMwiYUwaLp-3W0tvoVKoRZr_uO-AmmWWv1wLVXbXrcocsGk_uNu1A/sync';
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
