@@ -1,5 +1,5 @@
 ---
-el: #block-fepper-branding
+el: #block-fepper-sub-branding
 title: Logo
 ---
 The logo image is an SVG file, which ensures that the logo displays crisply even 

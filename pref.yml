@@ -22,11 +22,10 @@ backend:
     #styles_dir: docroot/themes/theme/styles
     #templates_dir: docroot/themes/theme/templates
     #templates_ext: tpl.php
-    assets_dir: drupal/themes/fepper/_assets
-    scripts_dir: drupal/themes/fepper/_scripts
-    styles_dir: drupal/themes/fepper/_styles
-    templates_dir: drupal/themes/fepper/templates
+    scripts_dir: drupal/themes/fepper_sub/_scripts
+    templates_dir: drupal/themes/fepper_sub/templates
     templates_ext: html.twig
+    # styles_dir is configured locally in source/_styles/bld/style-sub.yml
 
   webserved_dirs:
     # Relative paths to the backend directories that will be served by Fepper's
