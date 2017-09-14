@@ -46,40 +46,6 @@
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
 }
-@media all and (max-width: 480px) {
-  .hoagies [role="article"] > div > div:first-of-type > a {
-    display: block;
-    max-width: 22.5rem;
-  }
-}
-@media all and (max-width: 767px) {
-  .hoagies [role="article"] > h2 {
-    font-size: 1.8rem;
-  }
-}
-@media all and (min-width: 481px) {
-  .hoagies .item-list {
-    margin-top: 0.5em;
-  }
-  .hoagies .item-list li {
-    clear: both;
-    float: left;
-    margin-bottom: 2.4rem;
-  }
-  .hoagies [role="article"] > h2,
-  .hoagies [role="article"] [property="schema:text"],
-  .hoagies [role="article"] [property="text"] {
-    float: right;
-    margin-top: 0;
-    padding: 0 1.6rem;
-    width: 70%;
-  }
-  .hoagies [role="article"] img {
-    float: left;
-    height: auto;
-    width: 30%;
-  }
-}
 html {
   box-sizing: border-box;
 }
