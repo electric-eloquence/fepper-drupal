@@ -197,11 +197,14 @@ backend web application.
   similarly named YAML files with similarly named settings. 
 * These YAML files must match the source file's name with exception of the 
   extension. 
-* The extension must be `.yml`
+* The extension must be `.yml` 
 * The overriding property must only contain the lowest level key-value, not the 
   entire hierarchy, i.e. only `assets_dir`, `scripts_dir`, or `styles_dir` 
 * Files prefixed by "\_\_" will be ignored as will files in the `_nosync` 
   directory at the root of the source directories. 
+* Frontend code will be synced with a customizable 
+  <a href="https://github.com/electric-eloquence/fepper-drupal/blob/dev/backend/drupal/themes/fepper_sub/README.md" target="_blank">
+  sub-theme</a>. The base theme will not be modified. 
 
 ### <a id="templater"></a>Templater
 Fepper's Mustache templates can be translated into templates compatible with 
