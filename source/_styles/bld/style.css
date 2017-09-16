@@ -516,7 +516,7 @@ section[rel="schema:comment"] {
   margin-top: 2em;
 }
 section[rel="schema:comment"] h2 {
-  margin: 0.667em 0 0;
+  margin: 1.6rem 0 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
   display: flex;
