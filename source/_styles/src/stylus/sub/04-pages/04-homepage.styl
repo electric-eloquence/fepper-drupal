@@ -97,7 +97,7 @@
         line-height: 1.2
     @media all and (min-width: $bp-med)
       padding-top: $space-half
-      width: calc(33.3333333% - 1.0666666rem)
+      width: "calc(%s - (%s / 3))" % ($column-width-narrow $space-double)
   @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
     // Hero and sub blocks
     #block-fepper-sub-content,
