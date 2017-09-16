@@ -9,7 +9,7 @@ Use this sub-theme to customize the Fepper base theme.
 * [Install Drupal alongside Fepper](https://github.com/electric-eloquence/fepper-drupal#user-content-drupal-install).
 * Be sure there is an instance of the [Fepper base theme](https://www.drupal.org/project/fepper) 
   at `backend/drupal/themes`.
-* Activate this theme in the browser admin at /wp-admin/themes.php
+* Activate this theme in the browser admin at /admin/appearance
 
 ## Fepper Usage
 
@@ -27,4 +27,4 @@ Use this sub-theme to customize the Fepper base theme.
 * The Subs section will be populated by the first three posts under the Sub category.
 * The Hoagies section will be populated by the first five posts under the Uncategorized category.
 * The Hero + Subs + Hoagies layout is by no means mandatory.
-* You are welcome (indeed encouraged) to use any frontend code you wish.
+* You are welcome (indeed encouraged) to customize this sub-theme as you wish.
