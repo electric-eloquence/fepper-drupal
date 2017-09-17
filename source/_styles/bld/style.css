@@ -990,3 +990,8 @@ details {
 [id^="block-fepper-"][id$="-tools"] {
   z-index: 1;
 }
+@media all and (max-width: 767px) {
+  .skip-link {
+    display: none;
+  }
+}

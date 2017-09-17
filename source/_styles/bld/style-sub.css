@@ -76,15 +76,15 @@
     display: flex;
     justify-content: space-between;
   }
-  [role="main"] .layout-sidebar-second {
-    width: 33.333333333333336%;
-    padding: 0 0 0 1em;
-  }
   .layout-sidebar-first,
-  body:not(.path-frontpage) .layout-content {
+  .layout-content {
     flex-grow: 1;
     padding-right: 1em;
     width: 66.66666666666667%;
+  }
+  .layout-sidebar-second {
+    width: 33.333333333333336%;
+    padding: 0 0 0 1em;
   }
 }
 .path-frontpage [role="main"] {
