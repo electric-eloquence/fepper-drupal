@@ -822,7 +822,6 @@ nav li,
   }
   [id^="block-"][id$="-mainnavigation"] > ul {
     background: rgba(255,255,255,0.95);
-    border-bottom: 1px solid #ddd;
     max-height: 0;
     overflow: hidden;
     position: absolute;
@@ -843,6 +842,7 @@ nav li,
     padding-left: 2rem;
   }
   [id^="block-"][id$="-mainnavigation"].open > ul {
+    border-bottom: 1px solid #ddd;
     max-height: 100%;
     padding-top: 5.4rem;
     width: 100%;
