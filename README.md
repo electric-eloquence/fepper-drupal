@@ -1,6 +1,11 @@
-## Fepper for Drupal
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/electric-eloquence/fepper-npm/master/excludes/fepper-branding.png"
+    alt="Fepper for Drupal"
+  >
+</p>
 
-# A frontend prototyper tool for rapid prototyping of web sites
+<h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
 
@@ -379,10 +384,11 @@ Contributed extensions:
 
 Custom extensions:
 
-* Write custom extensions within an appropriately named directory just under the 
-  `extend/custom` directory.
-* They must include a file ending in "~extend.js" in order for Fepper to 
+* Write custom extensions in the `extend/custom` directory.
+* Extensions require a file ending in "~extend.js" in order for Fepper to 
   recognize their tasks.
+* The "\*~extend.js" file can be directly under `extend/custom`, or nested one 
+  directory deep, but no deeper.
 * Add the tasks to `extend/custom.js` (and `extend/auxiliary/auxiliary_custom.js` 
   if necessary) in order for Fepper to run them.
 
