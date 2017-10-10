@@ -1,6 +1,11 @@
-## Fepper
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/electric-eloquence/fepper-npm/master/excludes/fepper-branding.png"
+    alt="Fepper"
+  >
+</p>
 
-# A frontend prototyper tool for rapid prototyping of web sites
+<h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
 #### This checkout of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
 
