@@ -6,8 +6,6 @@ global-styling:
 
 global-scripts:
   js:
-    _scripts/src/variables.styl: {}
-    _scripts/src/fepper-obj.js: {}
     _scripts/src/behaviors.js: {}
   dependencies:
     - core/jquery

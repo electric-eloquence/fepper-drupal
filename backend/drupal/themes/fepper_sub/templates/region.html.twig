@@ -1,0 +1,10 @@
+<!-- Begin region -->
+{% set id = 'region-' ~ region|clean_class %}
+{% if content %}
+  <div {{ attributes.setAttribute('id', id) }}>
+
+    {{ content }}
+
+  </div>
+{% endif %}
+<!-- End region -->

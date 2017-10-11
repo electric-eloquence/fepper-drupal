@@ -1,0 +1,17 @@
+[role="main"],
+.layout-container > *:not(footer)
+  @extend .lc
+[role="main"]
+  @extend .cf
+  padding: $space-half
+  overflow: hidden
+.layout-content
+  @extend .cf
+.layout-sidebar-second
+  h2
+    padding: 0 0 0.5em
+  li
+    padding: 0.25em 0
+    border-top: 1px solid $gray-light-3
+    > *
+      display: block

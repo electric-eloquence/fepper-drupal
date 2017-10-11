@@ -1,0 +1,88 @@
+section[rel="schema:comment"]
+  border-top: 1px solid $gray-light-3
+  margin-top: 2em
+  h2
+    margin: $space 0 0
+  article[typeof="schema:Comment"]
+    display: flex
+    margin-top: 0.75em
+    padding-bottom: 0.5em
+    position: relative
+    > footer
+      min-height: 11em
+      width: 12em
+      p
+        line-height: 1
+        margin: 0 0 0 2px
+    > div
+      padding-bottom: 0.5em
+      .links
+        margin-top: 0.25em
+        margin-bottom: 0
+    > footer + div
+      width: calc(100% - 12em)
+  article[typeof="schema:Person"]
+    img
+      display: block
+      border: 1px solid $gray-light-2
+      margin-bottom: 0.5em
+      width: 6.25em
+  span[rel="schema:author"],
+  footer > a
+    font-size: 0.75em
+  footer > a
+    display: block
+    margin-left: 2px
+    text-decoration: underline
+  span[property="schema:name"]
+    font-weight: bold
+    &::before
+      content: "\A"
+      white-space: pre
+    &::after
+      content: "\A"
+      white-space: pre
+  div[property="schema:text"]
+    p
+      margin-bottom: 0
+  article[typeof="schema:Comment"]:last-of-type
+    border-bottom: 1px solid $gray-light-3
+  .indented
+    margin-left: 0.75em
+    article[typeof="schema:Comment"]
+      border-left: 1px solid $gray-light-3
+  @media all and (max-width: $bp-xs-max)
+    $img-size-xs = 8.75rem
+    article[typeof="schema:Comment"]
+      display: block
+      overflow: hidden
+      > footer
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        margin-bottom: 0.5em
+        min-height: $img-size-xs
+        position: relative
+        width: auto
+        p, a
+          margin: 0
+          max-width: "calc(100% - %s - 0.2rem)" % $img-size-xs
+      > div
+        padding-bottom: 0
+      > footer + div
+        width: auto
+    span[property="schema:name"]
+      &::before
+        content: " "
+      &::after
+        content: " "
+    article[typeof="schema:Person"]
+      position: absolute
+      right: 0
+      bottom: 0
+      img
+        margin: 0
+    .indented
+      article[typeof="schema:Comment"]
+        > *
+          margin-left: 2px

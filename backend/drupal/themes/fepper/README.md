@@ -15,11 +15,11 @@ Drupal theme to match the look and feel of the Fepper frontend.
 
 * You may install this as you would normally 
   [install a contributed Drupal theme](https://www.drupal.org/getting-started/install-contrib/themes). 
-* However, it is highly recommended to use this theme with a complete Fepper 
-  prototyper.
+* However, it is highly recommended to use this theme with a complete 
+  [Fepper prototyper](https://github.com/electric-eloquence/fepper-drupal/releases/latest).
 * With that being known, it should also be known that this theme is included 
   within a fully configured Drupal 8 backend in the 
-  [Fepper for Drupal project](https://github.com/electric-eloquence/fepper-drupal).
+  [Fepper for Drupal project](https://github.com/electric-eloquence/fepper-drupal#readme).
 * This theme is unopinionated with regards to styles and markup and should be 
   used as a 
   [base theme](https://www.drupal.org/docs/8/theming-drupal-8/creating-a-drupal-8-sub-theme-or-sub-theme-of-sub-theme).

@@ -1,0 +1,150 @@
+header.header
+  background: $white
+  border-bottom: 1px solid $gray-light-3
+  padding: 0
+  @media all and (max-width: $bp-sm-max)
+    margin: 0 0 0 $space-half
+    width: "calc(100% - %s)" % $space-half
+  @media all and (min-width: $bp-med) and (max-width: $max-width)
+    width: "calc(100% - %s)" % $space
+  @media all and (min-width: $max-width)
+    width: "calc(%s - %s)" % ($max-width $space)
+[id^="block-fepper-"][id$="-branding"]
+  position: relative
+  z-index: 1
+  img
+    float: left
+    margin: $space-half 0
+    @media all and (max-width: $bp-sm-max)
+      height: 3.7rem
+// Search and Navigation Forms
+// Need to lower specificity with an attribute match so these don't override other selections by attribute match.
+[id="region-primary-menu"],
+[id="region-secondary-menu"]
+  nav
+    float: left
+    padding-top: $space-quarter * 3
+  li
+    float: left
+    margin-right: 0
+  a
+    display: block
+    padding: $space-quarter $space
+  @media all and (min-width: $bp-med)
+    .expanded
+      > a::after
+        color: $gray
+        content: "▼"
+        font-size: 0.75em
+        margin-left: $space-half
+      ul
+        li
+          float: none
+          border: 1px solid $gray-light-2
+          border-bottom: 0
+          &:last-child
+            border-bottom: 1px solid $gray-light-2
+      &:hover
+        ul
+          max-height: 100%
+    nav > ul > .expanded > ul
+      background: $white-translucent
+      max-height: 0
+      position: absolute
+      overflow: hidden
+      transition: max-height 0.3s ease
+      z-index: 2
+      > .expanded li
+        border-right: 0
+        border-bottom: 0
+        border-left: 0
+        padding-left: 1rem
+[id="region-secondary-menu"]
+  li:first-child
+    a
+      padding-left: 0
+[id^="block-"]
+  > h2 > a
+    pointer-events: none
+[id^="block-"][id$="-searchform"],
+[id^="block-"][id$="-mainnavigation"]
+  > h2
+    float: right
+    margin: 0
+    position: relative
+    z-index: 2
+    > a
+      background: $white-translucent
+      border-left: 1px solid $gray-light-3
+      color: transparent
+      cursor: pointer
+      width: $nav-toggle-n-border
+      height: $nav-toggle-height
+      overflow: hidden
+      padding: 0
+      pointer-events: auto
+      position: relative
+      &::before
+        color: $gray-dark
+        display: block
+        font-size: 2.1rem
+        padding: ($space + 0.1rem) $space $space
+      &:hover,
+      &:focus
+        &::before
+          color: $gray
+      @media all and (min-width: $bp-med)
+        display: none
+// Search Form
+[id^="block-"][id$="-searchform"]
+  float: right
+  .path-search &
+    display: none
+  > h2 > a::before
+    @extend .icon-search::before
+// Navigation
+nav,
+[id^="block-fepper-"][id$="-local-tasks"]
+  li
+    float: left
+    margin-right: 1em
+[id^="block-fepper-"][id$="-local-tasks"]
+  @extend .cf
+[id^="block-"][id$="-mainnavigation"]
+  float: none
+  > h2 > a::before
+    @extend .icon-menu::before
+  a
+    display: block
+  @media all and (max-width: $bp-sm-max)
+    padding-top: 0
+    > ul
+      background: $white-translucent
+      max-height: 0
+      overflow: hidden
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 1
+    li
+      border-top: 1px solid $gray-light-3
+      float: none
+      margin-right: 0
+      a
+        display: table
+        padding: $space-half $space
+      li
+        padding-left: 2rem;
+    &.open
+      > ul
+        border-bottom: 1px solid $gray-light-3
+        max-height: 100%
+        padding-top: $nav-toggle-height
+        width: 100%
+  @media all and (min-width: $bp-med)
+    border-top: 1px solid $gray-light-3
+    display: inline-block
+    margin-top: -0.1rem
+    position: static
+    width: auto
+    height: auto

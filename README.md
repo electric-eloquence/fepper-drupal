@@ -1,8 +1,13 @@
-## Fepper for Drupal
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/electric-eloquence/fepper-npm/master/excludes/fepper-branding.png"
+    alt="Fepper for Drupal"
+  >
+</p>
 
-# A frontend prototyper tool for rapid prototyping of web sites
+<h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-#### This checkout of Fepper has templates configured for Drupal 8, along with a [Drupal theme](https://www.drupal.org/project/fepper) built to accommodate those templates.
+#### This checkout of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
 
 * [Main project](https://github.com/electric-eloquence/fepper)
 
@@ -15,7 +20,8 @@ values for template reuse:
 
 * The parameters are submitted within parentheses inside the Mustache inclusion 
   tags.
-* The parameter key should be [BEM-like](http://getbem.com/naming/) in syntax.
+* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">
+  BEM-like</a> in syntax.
 * It should start with the target's significant identifier, usually a partial.
 * To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
 * Follow that with any nested element or any modifying term (in BEM syntax).
@@ -23,8 +29,12 @@ values for template reuse:
   at the top level of recursion.
 * Follow that with any nested element or any modifying term (in BEM syntax).
 * This type of parameter is usually a boolean. End the key with a `?` to follow 
-  Mustache's convention for [Non-False Values](https://mustache.github.io/mustache.5.html).
-* Quoting of keys and values should follow [JSON5 syntax](http://json5.org).
+  Mustache's convention for 
+  <a href="https://mustache.github.io/mustache.5.html" target="_blank">
+  Non-False Values</a>.
+* Quoting of keys and values should follow 
+  <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
+* (Avoid quotes if you can.)
 * When quoting is necessary, to avoid escaping special characters in .mustache 
   files, wrap parameter keys in double-quotes and values in single-quotes.
 * Consult the [Templater section](#templater) for additional documentation on 
@@ -48,23 +58,25 @@ values for template reuse:
 * [Extensions](#extensions)
 * [Mobile Devices](#mobile-devices)
 * [More Documentation](#more-documentation)
-* [Contribute](#contribute)
 
 ### <a id="install"></a>Install
 #### System requirements
 * Unix-like or Windows OS.
-* Recommended minimum Node.js version 7.6.0.
+* Recommended minimum Node.js version 8.0.0.
 
 #### Simplest way to get started
-* Download the [latest release](https://github.com/electric-eloquence/fepper-drupal/releases).
+* Download the 
+  <a href="https://github.com/electric-eloquence/fepper-drupal/releases/latest" target="_blank">
+  latest release</a>.
 
 #### Main install
 * In macOS Finder:
   * Double-click `fepper.command`
-  * Among other things, this will install the [fepper-cli](https://www.npmjs.com/package/fepper-cli), 
-    which will give you the `fp` command.
+  * Among other things, this will install the 
+    <a href="https://www.npmjs.com/package/fepper-cli" target="_blank">
+    fepper-cli</a>, which will give you the `fp` command.
   * If opening for the first time, macOS may warn that it can't be opened 
-       because it is from an unidentified  developer.
+    because it is from an unidentified  developer.
      * In that case, Ctrl+click `fepper.command` and click "Open"
      * In the following prompt, click "Open" to confirm that you're sure you 
        want to open it.
@@ -82,18 +94,22 @@ values for template reuse:
 * To restart Fepper:
   * Double-click `fepper.command` again.
   * Or enter `fp` on the command line.
-* Consult the [Pattern Lab docs](http://patternlab.io/docs/index.html) for 
-  instructions on using Pattern Lab.
+* Consult the <a href="http://patternlab.io/docs/index.html" target="_blank">
+  Pattern Lab docs</a> for instructions on using Pattern Lab.
 * Start editing files in `source`. Changes should automatically appear in the 
   browser.
   * If changes do not appear immediately, it may be necessary to install a 
-    [LiveReload browser extension](http://livereload.com/extensions/).
+    <a href="http://livereload.com/extensions/" target="_blank">
+    LiveReload browser extension</a>.
 
 #### Drupal install
-* To install the included Drupal backend, restore the MySQL dump `fepper-drupal-mysqldump.sql`.
-* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` to reflect your own database settings.
+* To install the included Drupal backend, restore the MySQL dump 
+  `fepper-drupal-mysqldump.sql`.
+* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` 
+  to reflect your own database settings.
 * Configure `d8.local` to be the hostname in your web server configs.
-* Configure `backend/drupal` (correctly pathed) to be the document root for this host.
+* Configure `backend/drupal` (correctly pathed) to be the document root for this 
+  host.
 * Restart the web server.
 * Open http://d8.local in a browser.
 * Log into Drupal with `admin:admin`
@@ -161,13 +177,14 @@ will be picked up by all patterns.
 
 ### <a id="static-site-generation"></a>Static Site Generation
 Running `fp static` will generate a complete static site based on the files in 
-`source/_patterns/04-pages`. The site will be viewable at http://localhost:3000/static/. 
-An `index.html` will be generated based on `04-pages-00-homepage` or whatever is 
-defined as the homepage in `_data.json`. If the links are relative and they work 
-correctly in the Fepper UI, they will work correctly in the static site even if 
-the `public/static` directory is copied and renamed. The only caveat is that 
-hard-coded links to other pages in the `patterns` directory must start with 
-`../04-pages-` and not `../../patterns/04-pages-`.
+`source/_patterns/04-pages`. The site will be viewable at 
+http://localhost:3000/static/. An `index.html` will be generated based on 
+`04-pages-00-homepage` or whatever is defined as the homepage in `_data.json`. 
+If the links are relative and they work correctly in the Fepper UI, they will 
+work correctly in the static site even if the `public/static` directory is 
+copied and renamed. The only caveat is that hard-coded links to other pages in 
+the `patterns` directory must start with `../04-pages-` and not 
+`../../patterns/04-pages-`.
 
 ### <a id="the-backend"></a>The Backend
 Fepper can very easily work with a CMS backend such as Drupal or WordPress, 
@@ -178,40 +195,45 @@ enter the relative paths to the appropriate backend directories in `pref.yml`.
 `fp syncback` or `fp frontend-copy` to export your frontend data into your 
 backend web application.
 
-* Be sure that `backend.synced_dirs.assets_dir`, `backend.synced_dirs.scripts_dir`, 
-  and `backend.synced_dirs.styles_dir` are set in `pref.yml`. 
+* Be sure that `backend.synced_dirs.assets_dir`, 
+  `backend.synced_dirs.scripts_dir`, and `backend.synced_dirs.styles_dir` are 
+  set in `pref.yml`. 
 * The above values set in `pref.yml` can be overridden on a per-file basis by 
   similarly named YAML files with similarly named settings. 
 * These YAML files must match the source file's name with exception of the 
   extension. 
-* The extension must be `.yml`
+* The extension must be `.yml` 
 * The overriding property must only contain the lowest level key-value, not the 
   entire hierarchy, i.e. only `assets_dir`, `scripts_dir`, or `styles_dir` 
 * Files prefixed by "\_\_" will be ignored as will files in the `_nosync` 
   directory at the root of the source directories. 
+* Frontend code will be synced with a customizable 
+  <a href="https://github.com/electric-eloquence/fepper-drupal/blob/dev/backend/drupal/themes/fepper_sub/README.md" target="_blank">
+  sub-theme</a>. The base theme will not be modified. 
 
 ### <a id="templater"></a>Templater
 Fepper's Mustache templates can be translated into templates compatible with 
 your backend. Mustache tags just need to be replaced with tags the backend can 
 use. Put these translations into YAML files named similarly to the Mustache 
 files in `source/_patterns/03-templates`. Follow 
-[this example](https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_patterns/03-templates/page.yml) 
-for the correct YAML syntax. 
+<a href="https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_patterns/03-templates/page.yml" target="_blank">
+this example</a> for the correct YAML syntax. 
 
 Follow these rules for setting up keys and values:
 
 * Delete the Mustache curly braces for keys.
 * Trim any exterior whitespace.
 * Leave other control structures within the key, i.e., !#/>^
-* Escape parentheses and question marks with a backslash.
+* Escape parentheses, carets, and question marks with a backslash.
 * Wrap the key in single quotes.
-* Follow the closing quote with a colon, space, pipe, and the numeral 2.
+* Follow the closing quote with a colon, space, pipe, the numeral 2, and a 
+  newline `: |2`
 * Indent each line of the value by at least two spaces.
 
 Run `fp syncback` or `fp template` to execute the Templater. 
 
-* Be sure that `backend.synced_dirs.templates_dir` and `backend.synced_dirs.templates_ext` 
-  are set in `pref.yml`. 
+* Be sure that `backend.synced_dirs.templates_dir` and 
+  `backend.synced_dirs.templates_ext` are set in `pref.yml`. 
 * The default `templates_dir` and `templates_ext` settings in `pref.yml` can be 
   overridden by similarly named settings in the template-specific YAML files. 
 * Templates prefixed by "\_\_" will be ignored by the Templater as will files in 
@@ -222,9 +244,11 @@ Run `fp syncback` or `fp template` to execute the Templater.
 * However, the more common inclusion use-case is to leave off the extension, and 
   not recurse. 
 
-[Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) and 
-[Fepper for WordPress](https://github.com/electric-eloquence/fepper-wordpress) 
-have working examples of templates compatible with the Templater.
+<a href="https://github.com/electric-eloquence/fepper-drupal" target="_blank">
+Fepper for Drupal</a> and 
+<a href="https://github.com/electric-eloquence/fepper-wordpress" target="_blank">
+Fepper for WordPress</a> have working examples of templates compatible with the 
+Templater.
 
 ### <a id="webserved-directories"></a>Webserved Directories
 When using a backend, assets generally need to be shared with the Fepper 
@@ -245,7 +269,8 @@ upper right, then clicking Code, and then clicking the Mustache tab in the
 bottom pane. The Mustache tags are hot-linked, and if they are written in the 
 verbose syntax, clicking on them will open that Mustache file and display its 
 code in the Fepper UI, with its Mustache tags hot-linked as well. The Mustache 
-tags must be coded in the verbose-pathed manner: `{{> 02-components/00-global/00-header }}`
+tags must be coded in the verbose-pathed manner: 
+`{{> 02-components/00-global/00-header }}`
 
 The path must be correct; however, the `.mustache` extension is optional. The 
 default homepage is a working example.
@@ -275,7 +300,7 @@ be shared across the Stylus CSS preprocessor, browser JavaScripts, and PHP
 backends (and possibly other language backends as well). It ships with these 
 values:
 
-```
+```javascript
 bp_lg_max = -1
 bp_md_max = 1024
 bp_sm_max = 767
@@ -315,7 +340,9 @@ can accept additions, modifications, and deletions per the needs of end users.
 The UI is built by recursive, functional React calls. The recursion tree is 
 reflected by the directory structure containing the modules which compose the 
 UI. To override any given module, copy the directory structure leading to the 
-module from https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html 
+module from 
+<a href="https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html" target="_blank">
+https&colon;//github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html</a> 
 to `source/_ui/index/html`, respective to your implementation. Modifications to 
 modules in that directory will override the corresponding modules in core. 
 Additions (so long as they are correctly nested) will also be recognized.
@@ -325,7 +352,8 @@ is a better practice to componentize scripts this way, generic modifications to
 UI JavaScript can also be added to `source/_scripts/ui-extender.js`.
 
 View All markup can also be overridden by copying the `.mustache` files in 
-https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall 
+<a href="https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall" target="_blank">
+https&colon;//github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall</a> 
 and pasting them to `source/_ui/viewall` (nested correctly). Modifications will 
 then be recognized and displayed in the UI. (No additions are allowed.) Custom 
 View All styles can be added to regular pattern styles in `source/_styles`.
@@ -356,10 +384,11 @@ Contributed extensions:
 
 Custom extensions:
 
-* Write custom extensions within an appropriately named directory just under the 
-  `extend/custom` directory.
-* They must include a file ending in "~extend.js" in order for Fepper to 
+* Write custom extensions in the `extend/custom` directory.
+* Extensions require a file ending in "~extend.js" in order for Fepper to 
   recognize their tasks.
+* The "\*~extend.js" file can be directly under `extend/custom`, or nested one 
+  directory deep, but no deeper.
 * Add the tasks to `extend/custom.js` (and `extend/auxiliary/auxiliary_custom.js` 
   if necessary) in order for Fepper to run them.
 
@@ -406,11 +435,8 @@ If your Mac is connected to the Internet through a wire:
 * Change the port number if Fepper is listening on a different port
 
 ### <a id="more-documentation"></a>More Documentation
-* [Default pref.yml](https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml)
-* [Pattern Lab](http://patternlab.io/docs/index.html)
-* [Mustache](https://mustache.github.io/mustache.5.html)
-
-### <a id="contribute"></a>Contribute
-Contributions and bug reports are greatly appreciated!
-
-* Please pull request against the dev branch.
+* <a href="https://github.com/electric-eloquence/fepper-npm/blob/dev/excludes/pref.yml" target="_blank">
+  Default pref.yml</a>
+* <a href="http://patternlab.io/docs/index.html" target="_blank">Pattern Lab</a>
+* <a href="https://mustache.github.io/mustache.5.html" target="_blank">
+  Mustache</a>
