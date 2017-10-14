@@ -1,53 +1,90 @@
+/* eslint-disable no-console */
 'use strict';
 
-const exec = require('child_process').exec;
+const spawnSync = require('child_process').spawnSync;
 const fs = require('fs');
 const path = require('path');
 
-const sourceDir = 'source';
+const conf = {};
+const confUiFile = './patternlab-config.json';
 
-new Promise(function (resolve) {
-  // First, create empty source dir so the postinstall script doesn't write the main profile there.
-  if (!fs.existsSync(sourceDir)) {
-    fs.mkdirSync(sourceDir);
+let sourceDir;
+
+if (fs.existsSync(confUiFile)) {
+  const confUiStr = fs.readFileSync(confUiFile, 'utf8');
+
+  try {
+    conf.ui = JSON.parse(confUiStr);
+  }
+  catch (err) {
+    throw err;
   }
 
-  // Then, run npm install.
-  exec('npm install', (err, stdout, stderr) => {
-    if (err) {
-      throw err;
-    }
+  if (conf.ui) {
+    sourceDir = conf.ui.paths.source.root;
+  }
+}
 
-    if (stderr) {
+// Conf file may not exists at this point of installation. Hard-code in that case.
+else {
+  sourceDir = 'source';
+}
 
-      /* eslint-disable no-console */
-      console.log(stderr);
-    }
-    console.log(stdout);
+// First, create empty source dir so the postinstall script doesn't write the main profile there.
+if (!fs.existsSync(sourceDir)) {
+  fs.mkdirSync(sourceDir);
+  fs.mkdirSync(`${sourceDir}/_data`);
+  fs.mkdirSync(`${sourceDir}/_patterns`);
+  fs.mkdirSync(`${sourceDir}/_styles`);
+  fs.writeFileSync(`${sourceDir}/_data/data.json`, '{}');
+  fs.writeFileSync(`${sourceDir}/_data/listitems.json`, '{}');
+}
 
-    /* eslint-enable no-console */
-    resolve();
-  });
-})
-.then(function () {
-  // Then, delete the empty source dir so a new one can be copied over.
-  fs.rmdirSync(sourceDir);
+// Return if node_modules is already installed. (Avoid infinite loops!)
+if (fs.existsSync('node_modules')) {
+  console.warn('Fepper is already installed! Aborting!');
 
-  // Then, copy over the base profile source dir.
-  var binGulp = path.resolve('node_modules', '.bin', 'gulp');
-  exec(`${binGulp} --gulpfile node_modules/fepper/tasker.js install:copy-base`, (err, stdout, stderr) => {
-    if (err) {
-      throw err;
-    }
+  return;
+}
 
-    fs.writeFileSync('install.log', stdout);
-    if (stderr) {
+// Else, run npm install.
+else {
+  spawnSync('npm', ['install'], {stdio: 'inherit'});
+}
 
-      /* eslint-disable no-console */
-      console.log(stderr);
+// Check if patterns dir is already populated.
+const patternsDirContent = fs.readdirSync(`${sourceDir}/_patterns`);
 
-      /* eslint-enable no-console */
-      fs.appendFileSync('install.log', stderr);
-    }
-  });
-});
+// Return if already populated.
+if (patternsDirContent.length) {
+  console.warn(`${sourceDir} dir already has content! Aborting base install!`);
+
+  return;
+}
+
+// Delete the source dir so a new one can be copied over.
+fs.unlinkSync(`${sourceDir}/_data/listitems.json`);
+fs.unlinkSync(`${sourceDir}/_data/data.json`);
+fs.rmdirSync(`${sourceDir}/_styles`);
+fs.rmdirSync(`${sourceDir}/_patterns`);
+fs.rmdirSync(`${sourceDir}/_data`);
+fs.rmdirSync(sourceDir);
+
+// Copy over the base profile source dir.
+const binGulp = path.resolve('node_modules', '.bin', 'gulp');
+const spawnedObj =
+  spawnSync(binGulp, ['--gulpfile', 'node_modules/fepper/tasker.js', 'install:copy-base'], {stdio: 'inherit'});
+
+// Output to install.log.
+const installLog = 'install.log';
+
+fs.writeFileSync(installLog, '');
+
+if (spawnedObj.stderr) {
+  fs.appendFileSync(installLog, `${spawnedObj.stderr}\n`);
+}
+
+fs.appendFileSync(installLog, `Process exited with status ${spawnedObj.status}.\n`);
+
+// Compile UI.
+spawnSync('node', ['node_modules/fepper/index.js', 'ui:compile'], {stdio: 'inherit'});

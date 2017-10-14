@@ -1,37 +1,30 @@
+/* eslint-disable no-console */
 'use strict';
 
-const exec = require('child_process').exec;
-const fs = require('fs-extra');
+const spawnSync = require('child_process').spawnSync;
+const fs = require('fs');
 const path = require('path');
 
-new Promise(function (resolve) {
-  // Run npm install.
-  exec('npm install', (err, stdout, stderr) => {
-    if (err) {
-      throw err;
-    }
+// Return if node_modules is already installed. (Avoid infinite loops!)
+if (fs.existsSync('node_modules')) {
+  console.warn('Fepper is already installed! Aborting!');
 
-    if (stderr) {
+  return;
+}
 
-      /* eslint-disable no-console */
-      console.log(stderr);
-    }
-    console.log(stdout);
+// Else, run npm install.
+else {
+  spawnSync('npm', ['install'], {stdio: 'inherit'});
+}
 
-    /* eslint-enable no-console */
-    resolve();
-  });
-})
-.then(function () {
-  // Then, copy over Windows-specific files.
-  var windowsFiles = [
-    'fepper.ps1',
-    'fepper.vbs'
-  ];
+// Then, copy over Windows-specific files.
+const windowsFiles = [
+  'fepper.ps1',
+  'fepper.vbs'
+];
 
-  var srcDir = 'node_modules/fepper/excludes/profiles/windows';
+const srcDir = 'node_modules/fepper/excludes/profiles/windows';
 
-  windowsFiles.forEach(function (windowsFile) {
-    fs.copySync(path.resolve(srcDir, windowsFile), windowsFile);
-  });
+windowsFiles.forEach(function (windowsFile) {
+  fs.copyFileSync(path.resolve(srcDir, windowsFile), windowsFile);
 });

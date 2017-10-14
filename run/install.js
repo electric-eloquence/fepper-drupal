@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const spawnSync = require('child_process').spawnSync;
@@ -14,11 +15,11 @@ if (!fs.existsSync(confFile)) {
   fs.copySync(confFileSrc, confFile);
 }
 
-const plConfFile = 'patternlab-config.json';
-const plConfFileSrc = path.resolve(excludesDir, plConfFile);
+const confUiFile = 'patternlab-config.json';
+const confUiFileSrc = path.resolve(excludesDir, confUiFile);
 
-if (!fs.existsSync(plConfFile)) {
-  fs.copySync(plConfFileSrc, plConfFile);
+if (!fs.existsSync(confUiFile)) {
+  fs.copySync(confUiFileSrc, confUiFile);
 }
 
 const prefFile = 'pref.yml';
@@ -36,7 +37,6 @@ try {
   conf = yaml.safeLoad(yml);
 }
 catch (err) {
-  // eslint-disable-next-line no-console
   console.error(err);
 }
 
@@ -50,8 +50,24 @@ if (conf.headed) {
 
 const spawnedObj = spawnSync('node', argv, {stdio: 'inherit'});
 
-fs.writeFileSync('install.log', `Process exited with status ${spawnedObj.status}.\n`);
-
 if (spawnedObj.stderr) {
   fs.appendFileSync('install.log', `${spawnedObj.stderr}\n`);
+}
+
+fs.writeFileSync('install.log', `Process exited with status ${spawnedObj.status}.\n`);
+
+// Only run ui:compile if source dir is populated. (A base install will have it be empty at this point.)
+const confUiStr = fs.readFileSync(confUiFile, 'utf8');
+
+try {
+  conf.ui = JSON.parse(confUiStr);
+}
+catch (err) {
+  throw err;
+}
+
+const sourceDirContent = fs.readdirSync(conf.ui.paths.source.root);
+
+if (sourceDirContent.length) {
+  spawnSync('node', ['node_modules/fepper/index.js', 'ui:compile'], {stdio: 'inherit'});
 }
