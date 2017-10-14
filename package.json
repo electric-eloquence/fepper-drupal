@@ -4,7 +4,9 @@
     "install-base": "node run/install-base.js",
     "install-windows": "node run/install-windows.js",
     "postinstall": "node run/install.js",
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "npm run test-eslint && npm run test-mocha",
+    "test-eslint": "eslint run && eslint test",
+    "test-mocha": "mocha test/install-tests.js",
     "update": "node run/update.js"
   },
   "repository": {
@@ -30,7 +32,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.5.0"
   },
   "devDependencies": {
     "body-parser": "^1.6.3",
@@ -43,8 +45,9 @@
     "gulp-rename": "^1.2.2",
     "he": "1.1.0",
     "html2json": "^1.0.2",
+    "husky": "^0.14.3",
     "js-yaml": "^3.2.7",
-    "marked": "chjj/marked#8f9d0b72f5606ed32057049f387161dd41c36ade",
+    "marked": "github:chjj/marked#8f9d0b72f5606ed32057049f387161dd41c36ade",
     "open": "~0.0.5",
     "request": "^2.40.0",
     "require-dir": "^0.3.0",
