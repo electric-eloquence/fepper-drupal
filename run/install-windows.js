@@ -14,7 +14,14 @@ if (fs.existsSync('node_modules')) {
 
 // Else, run npm install.
 else {
-  spawnSync('npm', ['install'], {stdio: 'inherit'});
+  let binNpm = 'npm';
+
+  // Spawn npm.cmd if Windows and not BASH.
+  if (process.env.ComSpec && process.env.ComSpec.toLowerCase() === 'c:\\windows\\system32\\cmd.exe') {
+    binNpm = 'npm.cmd';
+  }
+
+  spawnSync(binNpm, ['install'], {stdio: 'inherit'});
 }
 
 // Then, copy over Windows-specific files.
@@ -23,7 +30,7 @@ const windowsFiles = [
   'fepper.vbs'
 ];
 
-const srcDir = 'node_modules/fepper/excludes/profiles/windows';
+const srcDir = path.resolve('node_modules', 'fepper', 'excludes', 'profiles', 'windows');
 
 windowsFiles.forEach(function (windowsFile) {
   fs.copyFileSync(path.resolve(srcDir, windowsFile), windowsFile);
