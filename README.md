@@ -89,10 +89,8 @@ values for template reuse:
   * After installation, Fepper should automatically open in a browser.
   * Open http://localhost:3000 if it doesn't open automatically.
 * On other Unix-like OSs (or if you prefer working on a BASH-like command line):
-  * Make sure you have Node.js installed.
+  * Install Node.js if it isn't installed already.
   * `npm install -g fepper-cli`
-  * If you are installing this way, it is implied that you know how and when to 
-    `sudo`!
   * `npm install`
   * `fp`
 * To stop Fepper, go to the command line where Fepper is running and press 
@@ -124,11 +122,10 @@ values for template reuse:
   add the Windows scripts to your project.
 * Also assumes you have Node.js installed.
 * PowerShell >= 3.0 required.
-* 64-bit CPU architecture recommended.
 * Open PowerShell and enter `npm run install-windows`
 * In File Explorer, double-click `fepper.vbs` to launch the UI.
 * In PowerShell, enter `cscript .\fepper.vbs [task]` to run Fepper tasks.
-  * If you Set-ExecutionPolicy to allow ps1 scripts, you can also enter 
+  * If you Set-ExecutionPolicy to allow ps1 scripts, you may also enter 
     `.\fepper.ps1 [task]`
 
 ### <a id="update"></a>Update
