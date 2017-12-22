@@ -85,15 +85,14 @@ values for template reuse:
      * In that case, Ctrl+click `fepper.command` and click "Open"
      * In the following prompt, click "Open" to confirm that you're sure you 
        want to open it.
-* On other Unix-like OSs (or if you prefer the command line):
-  * On the command line, enter `./fepper.command`
-  * If your OS can run Node.js, it can run Fepper. However, `./fepper.command` 
-    and the `fp` command are dependent on BASH.
-  * See further instructions for installation on non-BASH Windows environments.
-  * Using Fepper on other OSs implies that you know what you are doing!
-* After entering your password for installation, Fepper should automatically 
-  open in a browser.
+  * Enter your password to allow installation.
+  * After installation, Fepper should automatically open in a browser.
   * Open http://localhost:3000 if it doesn't open automatically.
+* On other Unix-like OSs (or if you prefer working on a BASH-like command line):
+  * Install Node.js if it isn't installed already.
+  * `npm install -g fepper-cli`
+  * `npm install`
+  * `fp`
 * To stop Fepper, go to the command line where Fepper is running and press 
   Ctrl+c.
 * To restart Fepper:
@@ -103,9 +102,6 @@ values for template reuse:
   Pattern Lab docs</a> for instructions on using Pattern Lab.
 * Start editing files in `source`. Changes should automatically appear in the 
   browser.
-  * If changes do not appear immediately, it may be necessary to install a 
-    <a href="http://livereload.com/extensions/" target="_blank">
-    LiveReload browser extension</a>.
 
 #### Drupal install
 
@@ -126,11 +122,10 @@ values for template reuse:
   add the Windows scripts to your project.
 * Also assumes you have Node.js installed.
 * PowerShell >= 3.0 required.
-* 64-bit CPU architecture recommended.
 * Open PowerShell and enter `npm run install-windows`
 * In File Explorer, double-click `fepper.vbs` to launch the UI.
 * In PowerShell, enter `cscript .\fepper.vbs [task]` to run Fepper tasks.
-  * If you Set-ExecutionPolicy to allow ps1 scripts, you can also enter 
+  * If you Set-ExecutionPolicy to allow ps1 scripts, you may also enter 
     `.\fepper.ps1 [task]`
 
 ### <a id="update"></a>Update
@@ -195,9 +190,9 @@ http://localhost:3000/static/. An `index.html` will be generated based on
 `04-pages-00-homepage` or whatever is defined as the homepage in `_data.json`. 
 If the links are relative and they work correctly in the Fepper UI, they will 
 work correctly in the static site even if the `public/static` directory is 
-copied and renamed. The only caveat is that hard-coded links to other pages in 
-the `patterns` directory must start with `../04-pages-` and not 
-`../../patterns/04-pages-`.
+copied and renamed. Just be sure that hard-coded links to other pages in the 
+`patterns` directory start with `../04-pages-` and not `../../patterns/04-pages-`. 
+Also, `href` and `src` attributes _must_ be wrapped in _double-quotes_.
 
 ### <a id="the-backend"></a>The Backend
 
