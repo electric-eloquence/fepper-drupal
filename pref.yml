@@ -10,7 +10,7 @@ backend:
     #   static files from the backend as per the webserved_dirs settings.
     # - Do not include "backend" or a leading or trailing slash in the directory
     #   settings.
-    # - Do not include a leading dot in the templates_ext setting.
+    # - Do include a leading dot in the templates_ext setting.
     # - Note that JavaScripts will only be synced if they are at least one
     #   directory below source/_scripts. In other words, place JavaScripts you
     #   wish to ignore directly in source/_scripts and no deeper.
@@ -21,10 +21,10 @@ backend:
     #scripts_dir: docroot/themes/theme/scripts
     #styles_dir: docroot/themes/theme/styles
     #templates_dir: docroot/themes/theme/templates
-    #templates_ext: tpl.php
+    #templates_ext: .tpl.php
     scripts_dir: drupal/themes/fepper_sub/_scripts
     templates_dir: drupal/themes/fepper_sub/templates
-    templates_ext: html.twig
+    templates_ext: .html.twig
     # styles_dir is configured locally in source/_styles/bld/style-sub.yml
 
   webserved_dirs:
