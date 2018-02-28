@@ -6,14 +6,14 @@ Use this sub-theme to customize the Fepper base theme.
 
 ## Installation
 
-* [Install Drupal alongside Fepper](https://github.com/electric-eloquence/fepper-drupal#user-content-drupal-install).
+* [Install Drupal alongside Fepper](https://github.com/electric-eloquence/fepper-drupal#drupal-install).
 * Be sure there is an instance of the [Fepper base theme](https://www.drupal.org/project/fepper) 
   at `backend/drupal/themes`.
 * Activate this theme in the browser admin at /admin/appearance
 
 ## Fepper Usage
 
-* [Install Fepper](https://github.com/electric-eloquence/fepper-drupal#user-content-install).
+* [Install Fepper](https://github.com/electric-eloquence/fepper-drupal#install).
 * Launch Fepper on the command line:
   * `fp`
 * Write your frontend code in the `source` directory.

@@ -28,7 +28,7 @@ Drupal theme to match the look and feel of the Fepper frontend.
 * However, if you wish to replicate the look and feel of the Fepper demo site 
   ([as per the screenshot](https://raw.githubusercontent.com/electric-eloquence/fepper-drupal/dev/backend/drupal/themes/fepper/screenshot.png)), 
   you should follow the Fepper documentation on 
-  [importing the sample Drupal backend](https://github.com/electric-eloquence/fepper-drupal#user-content-drupal-install) 
+  [importing the sample Drupal backend](https://github.com/electric-eloquence/fepper-drupal#drupal-install) 
   mentioned earlier. This will serve as a starting point for further 
   customization.
 
