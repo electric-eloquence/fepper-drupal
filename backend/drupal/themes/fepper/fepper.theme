@@ -8,6 +8,20 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_preprocess_block() for block content.
+ */
+function fepper_preprocess_block(&$variables) {
+  // Set $variables['is_front'].
+  // Copied from core/includes/theme.inc template_preprocess_page().
+  try {
+    $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (Exception $e) {
+    $variables['is_front'] = FALSE;
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function fepper_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
