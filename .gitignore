@@ -5,6 +5,7 @@
 .DS_Store
 .publish/
 /backend/drupal/sites/default/files/
+/.timestamp
 /conf.yml
 /install.log
 /npm-debug.log
