@@ -4,8 +4,8 @@
 .*.swp
 .DS_Store
 .publish/
-/backend/drupal/sites/default/files/
 /.timestamp
+/backend/drupal/sites/default/files/
 /conf.yml
 /install.log
 /npm-debug.log
