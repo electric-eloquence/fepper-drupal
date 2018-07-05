@@ -4,9 +4,9 @@
 .*.swp
 .DS_Store
 .publish/
+/.timestamp
 /backend/drupal/modules/devel/
 /backend/drupal/sites/default/files/
-/.timestamp
 /conf.yml
 /extend/
 /install.log
