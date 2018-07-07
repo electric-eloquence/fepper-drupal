@@ -1,11 +1,11 @@
 {{! extends block.html.twig }}
 
 {{# content? }}
-  {{# compounds-logo? }}
+  {{# img.logo }}
     {{# homepage? }}{{^ site_name? }}<h1>{{/ site_name? }}{{/ homepage? }}
       {{> 01-compounds/01-blocks/04-logo.mustache }}
     {{# homepage? }}{{^ site_name? }}</h1>{{/ site_name? }}{{/ homepage? }}
-  {{/ compounds-logo? }}
+  {{/ img.logo }}
   {{# site_name? }}
     {{# homepage? }}<h1>{{/ homepage? }}
       <a href="{{ link.pages-homepage }}" title="{{ header_title }}" rel="{{ header_rel }}">
