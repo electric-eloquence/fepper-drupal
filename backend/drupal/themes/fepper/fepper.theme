@@ -11,6 +11,13 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_preprocess_block() for block content.
  */
 function fepper_preprocess_block(&$variables) {
+  $config = \Drupal::config('system.site');
+
+  // Set $variables['system_site_name'] to provide site name even when site_name
+  // has been switched off in the block configuration at
+  // /admin/structure/block/manage/fepper_branding.
+  $variables['system_site_name'] = $config->get('name');
+
   // Set $variables['is_front'].
   // Copied from core/includes/theme.inc template_preprocess_page().
   try {
