@@ -15,7 +15,7 @@ function fepper_preprocess_block(&$variables) {
 
   // Set $variables['system_site_name'] to provide site name even when site_name
   // has been switched off in the block configuration at
-  // /admin/structure/block/manage/fepper_branding.
+  // admin/structure/block/manage/fepper_branding.
   $variables['system_site_name'] = $config->get('name');
 
   // Set $variables['is_front'].
