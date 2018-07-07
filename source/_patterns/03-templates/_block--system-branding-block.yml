@@ -1,0 +1,34 @@
+'! extends block.html.twig': |2
+  {% extends "block.html.twig" %}
+'# content\?': |2
+  {% block content %}
+'# compounds-logo\?': |2
+  {% if site_logo %}
+'# homepage\?': |2
+  {% if is_front %}
+'\^ site_name\?': |2
+  {% if not site_name %}
+'/ site_name\?': |2
+  {% endif %}
+'/ homepage\?': |2
+  {% endif %}
+'/ compounds-logo\?': |2
+  {% endif %}
+'# site_name\?': |2
+  {% if site_name %}
+'link.pages-homepage': |2
+  \{\{ path('<front>') \}\}
+'header_title': |2
+  \{\{ 'Home'|t \}\}
+'header_rel': |2
+  home
+'img.logo.src': |2
+  \{\{ site_logo \}\}
+'img.logo.alt': |2
+  \{\{ system_site_name \}\}
+'site_name': |2
+  \{\{ site_name \}\}
+'site_slogan': |2
+  \{\{ site_slogan \}\}
+'/ content\?': |2
+  {% endblock %}
