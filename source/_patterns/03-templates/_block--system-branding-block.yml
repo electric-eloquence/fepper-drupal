@@ -2,7 +2,7 @@
   {% extends "block.html.twig" %}
 '# content\?': |2
   {% block content %}
-'# compounds-logo\?': |2
+'# img.logo': |2
   {% if site_logo %}
 '# homepage\?': |2
   {% if is_front %}
@@ -12,7 +12,7 @@
   {% endif %}
 '/ homepage\?': |2
   {% endif %}
-'/ compounds-logo\?': |2
+'/ img.logo': |2
   {% endif %}
 '# site_name\?': |2
   {% if site_name %}

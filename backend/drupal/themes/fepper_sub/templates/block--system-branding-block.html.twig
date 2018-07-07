@@ -4,10 +4,8 @@
   {% if site_logo %}
     {% if is_front %}{% if not site_name %}<h1>{% endif %}{% endif %}
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-  <img src="{{ site_logo }}" alt="{{ system_site_name }}" />
-
-</a>
-
+        <img src="{{ site_logo }}" alt="{{ system_site_name }}" />
+      </a>
     {% if is_front %}{% if not site_name %}</h1>{% endif %}{% endif %}
   {% endif %}
   {% if site_name %}
