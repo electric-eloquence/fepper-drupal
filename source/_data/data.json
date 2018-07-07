@@ -65,8 +65,8 @@
       "alt": "Rectangle"
     }
   },
-  "logo_title": "Home",
-  "logo_rel": "home",
+  "header_title": "Home",
+  "header_rel": "home",
   "headline": {
     "short": "Lorem ipsum dolor sit (37 characters)",
     "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
