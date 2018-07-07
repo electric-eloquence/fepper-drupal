@@ -34,7 +34,6 @@
   padding: 0.8rem;
 }
 .visually-hidden,
-[id^="block-fepper-"][id$="-branding"] a + a,
 .path-node [id^="block-fepper-"][id$="-page-title"],
 [id^="block-fepper-"][id$="-local-tasks"] [href="/user/login"],
 [id^="block-fepper-"][id$="-search"] h2 {
