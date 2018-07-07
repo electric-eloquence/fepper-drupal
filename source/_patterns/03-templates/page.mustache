@@ -2,9 +2,6 @@
 <div class="layout-container">
 
   <header class="header cf" role="banner">
-    {{# homepage? }}
-      <h1>
-    {{/ homepage? }}
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-header"',
@@ -18,9 +15,6 @@
       ) }}
     {{/ templates-region~~pages-new-install? }}
     {{{ page.header }}}
-    {{# homepage? }}
-      </h1>
-    {{/ homepage? }}
 
     {{# demo_site? }}
       {{> 03-templates/region(
