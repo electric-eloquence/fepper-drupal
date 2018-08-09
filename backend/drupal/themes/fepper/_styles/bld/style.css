@@ -1,42 +1,41 @@
 .cf::before,
-[id^="block-fepper-"][id$="-local-tasks"]::before,
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::before,
+[id^="block-"][id$="-local-tasks"]::before,
 [role="main"]::before,
 .layout-content::before,
 #region-highlighted::before,
-[id^="block-fepper-"][id$="-search"]::before,
-[id^="block-fepper-"][id$="-footer"]::before,
+[id^="block-"][id$="-footer"]::before,
 .cf::after,
-[id^="block-fepper-"][id$="-local-tasks"]::after,
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
+[id^="block-"][id$="-local-tasks"]::after,
 [role="main"]::after,
 .layout-content::after,
 #region-highlighted::after,
-[id^="block-fepper-"][id$="-search"]::after,
-[id^="block-fepper-"][id$="-footer"]::after {
+[id^="block-"][id$="-footer"]::after {
   content: " ";
   display: table;
 }
 .cf::after,
-[id^="block-fepper-"][id$="-local-tasks"]::after,
+section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
+[id^="block-"][id$="-local-tasks"]::after,
 [role="main"]::after,
 .layout-content::after,
 #region-highlighted::after,
-[id^="block-fepper-"][id$="-search"]::after,
-[id^="block-fepper-"][id$="-footer"]::after {
+[id^="block-"][id$="-footer"]::after {
   clear: both;
 }
 .lc,
 [role="main"],
-.layout-container > *:not(footer),
-[id^="block-"][id$="-fepperfooter"] {
+.layout-container > *:not(footer) {
   clear: both;
   max-width: 1152px;
   margin: 0 auto;
   padding: 0.8rem;
 }
 .visually-hidden,
-.path-node [id^="block-fepper-"][id$="-page-title"],
-[id^="block-fepper-"][id$="-local-tasks"] [href="/user/login"],
-[id^="block-fepper-"][id$="-search"] h2 {
+[id^="block-"][id*="-search"] > h2,
+[id^="block-"][id*="-main"] > h2,
+[id^="block-"][id$="-local-tasks"] [href="/user/login"] {
   position: absolute !important;
   overflow: hidden;
   width: 1px;
@@ -127,8 +126,8 @@ summary {
 .icon-envelope::before,
 .icon-arrow::before,
 #search-block-form .form-item-keys::after,
-[id^="block-"][id$="-searchform"] > h2 > a::before,
-[id^="block-"][id$="-mainnavigation"] > h2 > a::before {
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
   font-family: 'icons';
   speak: none;
   font-style: normal;
@@ -155,14 +154,14 @@ summary {
 }
 .icon-search::before,
 #search-block-form .form-item-keys::after,
-[id^="block-"][id$="-searchform"] > h2 > a::before {
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before {
   content: "\73";
 }
 .icon-play::before {
   content: "\61";
 }
 .icon-menu::before,
-[id^="block-"][id$="-mainnavigation"] > h2 > a::before {
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
   content: "\21";
 }
 .icon-arrow-left::before {
@@ -265,6 +264,14 @@ aside {
     display: none;
   }
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.4rem;
+}
 article h1,
 aside h1,
 nav h1,
@@ -288,7 +295,7 @@ h6 {
   font-size: 1em;
 }
 p {
-  margin-bottom: 1.6rem;
+  margin: 1.6rem 0;
 }
 a {
   color: #333;
@@ -303,7 +310,7 @@ a:focus {
 a.text,
 a.feed-icon,
 p a,
-*[property="schema:text"] a {
+[property="schema:text"] a {
   text-decoration: underline;
 }
 blockquote {
@@ -453,21 +460,22 @@ form:not(#search-block-form) [id^="edit-actions"] {
 }
 #search-block-form {
   background: rgba(255,255,255,0.95);
+  display: flex;
   float: right;
   margin: 0.8rem 0 0;
   overflow: hidden;
   position: relative;
 }
 #search-block-form .form-item-keys {
-  float: left;
   font-size: 1em;
   margin-bottom: 0;
+  position: relative;
 }
 #search-block-form .form-item-keys::after {
   color: #000;
   position: absolute;
-  top: 0.7em;
-  right: 1.1em;
+  top: 1.2rem;
+  right: -3.2rem;
 }
 #search-block-form input {
   background: transparent;
@@ -495,16 +503,19 @@ form:not(#search-block-form) [id^="edit-actions"] {
   margin: 0;
 }
 @media all and (max-width: 767px) {
-  [id^="block-"][id$="-searchform"] #search-block-form {
+  #region-primary-menu [id^="block-"][id*="-search"] #search-block-form {
     margin: 0.1rem 0 0;
     max-height: 0;
     position: absolute;
-    top: 5.4rem;
     right: 0;
+    top: 5.4rem;
     z-index: 2;
   }
-  [id^="block-"][id$="-searchform"].open #search-block-form {
+  #region-primary-menu [id^="block-"][id*="-search"].open #search-block-form {
     max-height: 100%;
+  }
+  #region-primary-menu [id^="block-"][id*="-search"].open.wide #search-block-form {
+    top: 8.2rem;
   }
   #search-block-form input {
     height: 3.7rem;
@@ -518,21 +529,12 @@ section[rel="schema:comment"] h2 {
   margin: 1.6rem 0 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] {
-  display: flex;
-  margin-top: 0.75em;
-  padding-bottom: 0.5em;
+  padding: 0.625em 0;
   position: relative;
-}
-section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
-  min-height: 11em;
-  width: 12em;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p {
   line-height: 1;
-  margin: 0 0 0 2px;
-}
-section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
-  padding-bottom: 0.5em;
+  margin: 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
   margin-top: 0.25em;
@@ -547,25 +549,19 @@ section[rel="schema:comment"] article[typeof="schema:Person"] img {
   margin-bottom: 0.5em;
   width: 6.25em;
 }
-section[rel="schema:comment"] span[rel="schema:author"],
-section[rel="schema:comment"] footer > a {
-  font-size: 0.75em;
+section[rel="schema:comment"] span[rel="schema:author"] {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
 }
 section[rel="schema:comment"] footer > a {
   display: block;
-  margin-left: 2px;
+  font-size: 0.75em;
   text-decoration: underline;
 }
-section[rel="schema:comment"] span[property="schema:name"] {
+section[rel="schema:comment"] [property="schema:name"] {
   font-weight: bold;
-}
-section[rel="schema:comment"] span[property="schema:name"]::before {
-  content: "\A";
-  white-space: pre;
-}
-section[rel="schema:comment"] span[property="schema:name"]::after {
-  content: "\A";
-  white-space: pre;
+  text-decoration: none;
 }
 section[rel="schema:comment"] div[property="schema:text"] p {
   margin-bottom: 0;
@@ -574,52 +570,72 @@ section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
   border-bottom: 1px solid #ddd;
 }
 section[rel="schema:comment"] .indented {
-  margin-left: 0.75em;
+  padding-left: 0.75em;
 }
 section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
   border-left: 1px solid #ddd;
 }
+section[rel="schema:comment"] > .indented {
+  border-top: 1px solid #ddd;
+}
 @media all and (max-width: 480px) {
   section[rel="schema:comment"] article[typeof="schema:Comment"] {
     display: block;
-    overflow: hidden;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-bottom: 0.5em;
-    min-height: 8.75rem;
-    position: relative;
-    width: auto;
+    width: 100%;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
-    margin: 0;
-    max-width: calc(100% - 8.75rem - 0.2rem);
+    max-width: calc(100% - 8.75rem - 0.4rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
   }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0.8rem 0 0;
+  }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer + div {
     width: auto;
   }
-  section[rel="schema:comment"] span[property="schema:name"]::before {
-    content: " ";
-  }
-  section[rel="schema:comment"] span[property="schema:name"]::after {
-    content: " ";
-  }
   section[rel="schema:comment"] article[typeof="schema:Person"] {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    float: left;
+    margin-right: 0.4rem;
   }
   section[rel="schema:comment"] article[typeof="schema:Person"] img {
     margin: 0;
   }
+  section[rel="schema:comment"] article[typeof="schema:Person"] + p {
+    float: left;
+  }
+  section[rel="schema:comment"] div[property="schema:text"] {
+    margin-top: 0.4rem;
+  }
   section[rel="schema:comment"] .indented article[typeof="schema:Comment"] > * {
-    margin-left: 2px;
+    margin-left: 0.2rem;
+  }
+}
+@media all and (min-width: 481px) {
+  section[rel="schema:comment"] article[typeof="schema:Comment"] {
+    display: flex;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer {
+    min-height: 11em;
+    width: 12em;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > footer > a {
+    margin-left: 0.2rem;
+  }
+  section[rel="schema:comment"] span[property="schema:name"]::before {
+    content: "\A";
+    white-space: pre;
+  }
+  section[rel="schema:comment"] span[property="schema:name"]::after {
+    content: "\A";
+    white-space: pre;
   }
 }
 .pager {
@@ -682,27 +698,29 @@ header.header {
     width: calc(1152px - 1.6rem);
   }
 }
-[id^="block-fepper-"][id$="-branding"] {
+[id^="block-"][id$="-branding"] {
   position: relative;
   z-index: 1;
 }
-[id^="block-fepper-"][id$="-branding"] img {
+[id^="block-"][id$="-branding"] h1 {
+  margin-bottom: 0;
+}
+[id^="block-"][id$="-branding"] img {
   float: left;
   margin: 0.8rem 0;
 }
 @media all and (max-width: 767px) {
-  [id^="block-fepper-"][id$="-branding"] img {
+  [id^="block-"][id$="-branding"] img {
     height: 3.7rem;
   }
 }
 [id="region-primary-menu"] nav,
 [id="region-secondary-menu"] nav {
   float: left;
-  padding-top: 1.2rem;
 }
 [id="region-primary-menu"] li,
 [id="region-secondary-menu"] li {
-  float: left;
+  float: none;
   margin-right: 0;
 }
 [id="region-primary-menu"] a,
@@ -711,6 +729,13 @@ header.header {
   padding: 0.4rem 1.6rem;
 }
 @media all and (min-width: 768px) {
+  [id="region-primary-menu"] nav > ul,
+  [id="region-secondary-menu"] nav > ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 5.600000000000001rem;
+  }
   [id="region-primary-menu"] .expanded > a::after,
   [id="region-secondary-menu"] .expanded > a::after {
     color: #808080;
@@ -759,17 +784,14 @@ header.header {
 [id^="block-"] > h2 > a {
   pointer-events: none;
 }
-[id^="block-"][id$="-searchform"] > h2,
-[id^="block-"][id$="-mainnavigation"] > h2 {
-  float: right;
+#region-primary-menu [id^="block-"][id*="-search"] > h2,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 {
   margin: 0;
-  position: relative;
-  z-index: 2;
+  z-index: 3;
 }
-[id^="block-"][id$="-searchform"] > h2 > a,
-[id^="block-"][id$="-mainnavigation"] > h2 > a {
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a {
   background: rgba(255,255,255,0.95);
-  border-left: 1px solid #ddd;
   color: transparent;
   cursor: pointer;
   width: 5.5rem;
@@ -779,80 +801,82 @@ header.header {
   pointer-events: auto;
   position: relative;
 }
-[id^="block-"][id$="-searchform"] > h2 > a::before,
-[id^="block-"][id$="-mainnavigation"] > h2 > a::before {
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
   color: #333;
   display: block;
   font-size: 2.1rem;
   padding: 1.7rem 1.6rem 1.6rem;
 }
-[id^="block-"][id$="-searchform"] > h2 > a:hover::before,
-[id^="block-"][id$="-mainnavigation"] > h2 > a:hover::before,
-[id^="block-"][id$="-searchform"] > h2 > a:focus::before,
-[id^="block-"][id$="-mainnavigation"] > h2 > a:focus::before {
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a:hover::before,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a:hover::before,
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a:focus::before,
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a:focus::before {
   color: #808080;
 }
-@media all and (min-width: 768px) {
-  [id^="block-"][id$="-searchform"] > h2 > a,
-  [id^="block-"][id$="-mainnavigation"] > h2 > a {
-    display: none;
+@media all and (max-width: 767px) {
+  #region-primary-menu [id^="block-"][id*="-search"] > h2,
+  #region-primary-menu [id^="block-"][id*="-main"] > h2 {
+    overflow: visible;
+    position: relative !important;
+    width: auto;
+    height: auto;
+    clip: auto;
   }
 }
-[id^="block-"][id$="-searchform"] {
+[id^="block-"][id*="-search"] {
   float: right;
 }
-.path-search [id^="block-"][id$="-searchform"] {
+.path-search [id^="block-"][id*="-search"] {
   display: none;
 }
 nav li,
-[id^="block-fepper-"][id$="-local-tasks"] li {
+[id^="block-"][id$="-local-tasks"] li {
   float: left;
   margin-right: 1em;
 }
-[id^="block-"][id$="-mainnavigation"] {
-  float: none;
-}
-[id^="block-"][id$="-mainnavigation"] a {
-  display: block;
-}
 @media all and (max-width: 767px) {
-  [id^="block-"][id$="-mainnavigation"] {
+  #region-primary-menu [id^="block-"][id*="-main"] {
+    float: right;
     padding-top: 0;
   }
-  [id^="block-"][id$="-mainnavigation"] > ul {
+  #region-primary-menu [id^="block-"][id*="-main"] > ul {
     background: rgba(255,255,255,0.95);
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    top: 0;
+    -webkit-transition: max-height 0.1s ease;
+    -moz-transition: max-height 0.1s ease;
+    -ms-transition: max-height 0.1s ease;
+    -o-transition: max-height 0.1s ease;
+    transition: max-height 0.1s ease;
+    top: 5.4rem;
     left: 0;
+    width: 100%;
     z-index: 1;
   }
-  [id^="block-"][id$="-mainnavigation"] li {
+  #region-primary-menu [id^="block-"][id*="-main"] li {
     border-top: 1px solid #ddd;
     float: none;
     margin-right: 0;
   }
-  [id^="block-"][id$="-mainnavigation"] li a {
+  #region-primary-menu [id^="block-"][id*="-main"] li a {
     display: table;
     padding: 0.8rem 1.6rem;
   }
-  [id^="block-"][id$="-mainnavigation"] li li {
+  #region-primary-menu [id^="block-"][id*="-main"] li li {
     padding-left: 2rem;
   }
-  [id^="block-"][id$="-mainnavigation"].open > ul {
+  #region-primary-menu [id^="block-"][id*="-main"].open > ul {
     border-bottom: 1px solid #ddd;
     max-height: 100%;
-    padding-top: 5.4rem;
-    width: 100%;
+  }
+  #region-primary-menu [id^="block-"][id*="-main"].open.wide > ul {
+    top: 8.2rem;
   }
 }
 @media all and (min-width: 768px) {
-  [id^="block-"][id$="-mainnavigation"] {
-    border-top: 1px solid #ddd;
-    display: inline-block;
-    margin-top: -0.1rem;
-    position: static;
+  [id^="block-"][id*="-main"] {
     width: auto;
     height: auto;
   }
@@ -860,9 +884,6 @@ nav li,
 [role="main"] {
   padding: 0.8rem;
   overflow: hidden;
-}
-.layout-sidebar-second h2 {
-  padding: 0 0 0.5em;
 }
 .layout-sidebar-second li {
   padding: 0.25em 0;
@@ -886,16 +907,15 @@ footer[role="contentinfo"] {
 footer[role="contentinfo"] a {
   color: #f9f9f9;
 }
-[id^="block-"][id$="-fepperfooter"] {
-  padding-top: 1.6rem;
+#region-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
-[id^="block-"][id$="-fepperfooter"] p {
-  margin-bottom: 0;
-}
-@media all and (min-width: 768px) {
-  [id^="block-"][id$="-fepperfooter"] p {
-    float: right;
-  }
+#region-footer > * {
+  padding: 0.8rem;
 }
 [role="article"] {
   margin-bottom: 1.6rem;
@@ -904,6 +924,22 @@ footer[role="contentinfo"] a {
   font-size: 0.9em;
   font-style: italic;
   margin-bottom: 0.5em;
+}
+#name-and-slogan {
+  float: left;
+  margin: 0.4em 1em;
+}
+#site-name {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+[id^="block-"][id$="-powered"] {
+  display: flex;
+  align-items: center;
+  float: left;
+  margin: 0 1em;
+  min-height: 5.600000000000001rem;
 }
 #region-highlighted {
   padding-top: 0;
@@ -957,10 +993,7 @@ footer[role="contentinfo"] a {
   font-size: 0.75em;
   font-weight: bold;
 }
-[id^="block-fepper-"][id$="-page-title"] {
-  width: 100%;
-}
-[id^="block-fepper-"][id$="-local-tasks"] {
+[id^="block-"][id$="-local-tasks"] {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
 }
@@ -976,7 +1009,7 @@ footer[role="contentinfo"] a {
 .path-search #edit-help-link {
   margin-top: 0.4rem;
 }
-[id^="block-fepper-"][id$="-footer"] {
+[id^="block-"][id$="-footer"] {
   clear: both;
   margin-top: 0.5em;
 }
@@ -986,7 +1019,7 @@ details {
 #edit-contact label {
   display: inline;
 }
-[id^="block-fepper-"][id$="-tools"] {
+[id^="block-"][id$="-tools"] {
   z-index: 1;
 }
 @media all and (max-width: 767px) {

@@ -1,2 +1,11 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Sub-theme implementation of a container used to wrap child elements.
+   *
+   * @see system/templates/container.html.twig
+   */
+  #}
 'fpo_template_content': |2
   \{\{ children \}\}

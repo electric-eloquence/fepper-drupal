@@ -11,17 +11,17 @@
 
 namespace Symfony\Component\ClassLoader;
 
+@trigger_error('The '.__NAMESPACE__.'\XcacheClassLoader class is deprecated since Symfony 3.3 and will be removed in 4.0. Use `composer install --apcu-autoloader` instead.', E_USER_DEPRECATED);
+
 /**
  * XcacheClassLoader implements a wrapping autoloader cached in XCache for PHP 5.3.
  *
  * It expects an object implementing a findFile method to find the file. This
  * allows using it as a wrapper around the other loaders of the component (the
- * ClassLoader and the UniversalClassLoader for instance) but also around any
- * other autoloaders following this convention (the Composer one for instance).
+ * ClassLoader for instance) but also around any other autoloaders following
+ * this convention (the Composer one for instance).
  *
  *     // with a Symfony autoloader
- *     use Symfony\Component\ClassLoader\ClassLoader;
- *
  *     $loader = new ClassLoader();
  *     $loader->addPrefix('Symfony\Component', __DIR__.'/component');
  *     $loader->addPrefix('Symfony',           __DIR__.'/framework');
@@ -45,23 +45,17 @@ namespace Symfony\Component\ClassLoader;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Kris Wallsmith <kris@symfony.com>
  * @author Kim Hemsø Rasmussen <kimhemsoe@gmail.com>
+ *
+ * @deprecated since version 3.3, to be removed in 4.0. Use `composer install --apcu-autoloader` instead.
  */
 class XcacheClassLoader
 {
     private $prefix;
-
-    /**
-     * A class loader object that implements the findFile() method.
-     *
-     * @var object
-     */
     private $decorated;
 
     /**
-     * Constructor.
-     *
-     * @param string $prefix    The XCache namespace prefix to use.
-     * @param object $decorated A class loader object that implements the findFile() method.
+     * @param string $prefix    The XCache namespace prefix to use
+     * @param object $decorated A class loader object that implements the findFile() method
      *
      * @throws \RuntimeException
      * @throws \InvalidArgumentException
@@ -126,7 +120,7 @@ class XcacheClassLoader
         if (xcache_isset($this->prefix.$class)) {
             $file = xcache_get($this->prefix.$class);
         } else {
-            $file = $this->decorated->findFile($class);
+            $file = $this->decorated->findFile($class) ?: null;
             xcache_set($this->prefix.$class, $file);
         }
 

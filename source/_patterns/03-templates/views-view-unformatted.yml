@@ -1,3 +1,12 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation to display a view of unformatted rows.
+   *
+   * @see views/templates/views-view-unformatted.html.twig
+   */
+  #}
 '# title': |2
   {% if title %}
 'title': |2

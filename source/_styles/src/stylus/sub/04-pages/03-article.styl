@@ -1,3 +1,10 @@
 [id^="block-"][id$="-views-block-content-recent-block-3"],
 .view-id-content_recent.view-display-id-page_1
   @extend .hoagies
+  @media all and (max-width: $bp-sm-max)
+    h2
+      text-align: center
+    article
+      > h2 + div > div
+        display: flex
+        justify-content: center

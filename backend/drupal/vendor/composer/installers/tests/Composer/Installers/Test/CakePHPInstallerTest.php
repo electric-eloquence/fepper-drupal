@@ -6,7 +6,6 @@ use Composer\Repository\RepositoryManager;
 use Composer\Repository\InstalledArrayRepository;
 use Composer\Package\Package;
 use Composer\Package\RootPackage;
-use Composer\Package\Link;
 use Composer\Package\Version\VersionParser;
 use Composer\Composer;
 use Composer\Config;
@@ -100,7 +99,7 @@ class CakePHPInstallerTest extends TestCase
 
         $this->setCakephpVersion($rm, '~8.8');
         $result = $installer->getLocations();
-        $this->assertEquals('vendor/{$vendor}/{$name}/', $result['plugin']);
+        $this->assertContains('vendor/{$vendor}/{$name}/', $result['plugin']);
     }
 
     protected function setCakephpVersion($rm, $version) {
