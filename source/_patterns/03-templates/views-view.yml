@@ -1,4 +1,13 @@
-'# content\?': |2
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation for main view template.
+   *
+   * @see views/templates/views-view.html.twig
+   */
+  #}
+'twig_set_classes': |2
   {%
     set classes = [
       'view-id-' ~ id,

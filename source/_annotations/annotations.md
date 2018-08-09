@@ -8,7 +8,7 @@
 # Mustache pattern.
 
 ---
-el: #block-mainnavigation
+el: #block-main-menu
 title: Navigation
 ---
 Navigation for responsive web experiences can be tricky. Large navigation menus 
@@ -21,7 +21,7 @@ menu anchor.
 ~*~
 
 ---
-el: #block-searchform
+el: #block-search
 title: Search
 ---
 Search is an incredibly important priority, especially for mobile. It is a great 

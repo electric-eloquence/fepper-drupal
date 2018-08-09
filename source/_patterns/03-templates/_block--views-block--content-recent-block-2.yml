@@ -1,3 +1,15 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Sub-theme implementation to display a block for a specific view.
+   *
+   * View name: content_recent.
+   * View display name: block_2.
+   *
+   * @see block/templates/block.html.twig
+   */
+  #}
 '# content\?': |2
   {% block content %}
 'fpo_template_content': |2
