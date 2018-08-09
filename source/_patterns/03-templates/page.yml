@@ -1,3 +1,12 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation to display a single page.
+   *
+   * @see system/templates/page.html.twig
+   */
+  #}
 'page.header': |2
   \{\{ page.header \}\}
 'page.primary_menu': |2

@@ -1,3 +1,15 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Sub-theme implementation to display a specific view.
+   *
+   * View name: content_recent.
+   * View display name: block_2.
+   *
+   * @see views/templates/views-view.html.twig
+   */
+  #}
 'fpo_template_content': |2
   \{\{ rows \}\}
 'empty': |2

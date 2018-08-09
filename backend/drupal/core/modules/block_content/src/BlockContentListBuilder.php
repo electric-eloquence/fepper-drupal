@@ -28,15 +28,4 @@ class BlockContentListBuilder extends EntityListBuilder {
     return $row + parent::buildRow($entity);
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getDefaultOperations(EntityInterface $entity) {
-    $operations = parent::getDefaultOperations($entity);
-    if (isset($operations['edit'])) {
-      $operations['edit']['query']['destination'] = $entity->url('collection');
-    }
-    return $operations;
-  }
-
 }

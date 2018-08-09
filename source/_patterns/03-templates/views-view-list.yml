@@ -1,3 +1,12 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation for a view template to display a list of rows.
+   *
+   * @see views/templates/views-view-list.html.twig
+   */
+  #}
 '# views-view-list_attributes': |2
   {% if attributes -%}
 'views-view-list_attributes': |2
