@@ -30,7 +30,7 @@ interface FieldItemListInterface extends ListInterface, AccessibleInterface {
   /**
    * Gets the entity that field belongs to.
    *
-   * @return \Drupal\Core\Entity\EntityInterface
+   * @return \Drupal\Core\Entity\FieldableEntityInterface
    *   The entity object.
    */
   public function getEntity();
@@ -181,7 +181,7 @@ interface FieldItemListInterface extends ListInterface, AccessibleInterface {
    * @see \Drupal\Core\Entity\EntityViewBuilderInterface::viewField()
    * @see \Drupal\Core\Field\FieldItemInterface::view()
    */
-  public function view($display_options = array());
+  public function view($display_options = []);
 
   /**
    * Populates a specified number of field items with valid sample data.

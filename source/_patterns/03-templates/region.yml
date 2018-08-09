@@ -1,3 +1,12 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation to display a region.
+   *
+   * @see system/templates/region.html.twig
+   */
+  #}
 '# content\?': |2
   {% set id = 'region-' ~ region|clean_class %}
   {% if content %}

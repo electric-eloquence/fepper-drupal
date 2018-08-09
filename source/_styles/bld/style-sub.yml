@@ -1,3 +1,0 @@
-# Configuring styles_dir locally, and not globally, because we don't want to
-# overwrite the base theme's style.css.
-styles_dir: drupal/themes/fepper_sub/_styles/bld

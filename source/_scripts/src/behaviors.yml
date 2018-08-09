@@ -1,0 +1,3 @@
+# behaviors.js goes in the base theme.
+# The rest of the source files go in the sub-theme, as configured in pref.yml.
+scripts_dir: drupal/themes/fepper/_scripts/src

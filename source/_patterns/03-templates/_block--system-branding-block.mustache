@@ -1,17 +1,32 @@
+{{{ twig_docblock }}}
 {{! extends block.html.twig }}
 
 {{# content? }}
   {{# img.logo }}
-    {{# homepage? }}{{^ site_name? }}<h1>{{/ site_name? }}{{/ homepage? }}
-      {{> 01-compounds/01-blocks/04-logo.mustache }}
-    {{# homepage? }}{{^ site_name? }}</h1>{{/ site_name? }}{{/ homepage? }}
+    {{# homepage? }}{{^ site_name? }}
+      {{^ page_title? }}<h1>{{/ page_title? }}
+    {{/ site_name? }}{{/ homepage? }}
+    {{> 01-compounds/01-blocks/04-logo.mustache }}
+    {{# homepage? }}{{^ site_name? }}
+      {{^ page_title? }}</h1>{{/ page_title? }}
+    {{/ site_name? }}{{/ homepage? }}
   {{/ img.logo }}
-  {{# site_name? }}
-    {{# homepage? }}<h1>{{/ homepage? }}
-      <a href="{{ link.pages-homepage }}" title="{{ header_title }}" rel="{{ header_rel }}">
-        {{ site_name }}
-      </a>
-    {{# homepage? }}</h1>{{/ homepage? }}
-  {{/ site_name? }}
-  {{ site_slogan }}
+  {{# site_name_or_site_slogan? }}
+    <div id="name-and-slogan">
+      {{# site_name? }}
+        {{^ page_title? }}{{# homepage? }}<h1 id="site-name">{{/ homepage? }}{{/ page_title? }}
+        {{# page_title_or_not_homepage? }}<div id="site-name">{{/ page_title_or_not_homepage? }}
+        <a href="{{ link.pages-homepage }}" title="{{ header_title }}" rel="{{ header_rel }}">
+          {{{ site_name }}}
+        </a>
+        {{^ page_title? }}{{# homepage? }}</h1>{{/ homepage? }}{{/ page_title? }}
+        {{# page_title_or_not_homepage? }}</div>{{/ page_title_or_not_homepage? }}
+      {{/ site_name? }}
+      {{# site_slogan? }}
+        <div id="site-slogan">
+          {{{ site_slogan }}}
+        </div>
+      {{/ site_slogan? }}
+    </div>
+  {{/ site_name_or_site_slogan? }}
 {{/ content? }}

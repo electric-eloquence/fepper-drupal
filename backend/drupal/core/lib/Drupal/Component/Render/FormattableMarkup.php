@@ -62,6 +62,13 @@ use Drupal\Component\Utility\UrlHelper;
 class FormattableMarkup implements MarkupInterface, \Countable {
 
   /**
+   * The string containing placeholders.
+   *
+   * @var string
+   */
+  protected $string;
+
+  /**
    * The arguments to replace placeholders with.
    *
    * @var array
@@ -147,7 +154,7 @@ class FormattableMarkup implements MarkupInterface, \Countable {
    *     A call like:
    *     @code
    *       $string = "%output_text";
-   *       $arguments = ['output_text' => 'text output here.'];
+   *       $arguments = ['%output_text' => 'text output here.'];
    *       $this->placeholderFormat($string, $arguments);
    *     @endcode
    *     makes the following HTML code:

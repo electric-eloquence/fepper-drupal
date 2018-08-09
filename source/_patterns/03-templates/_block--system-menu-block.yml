@@ -1,4 +1,13 @@
-'# content\?': |2
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation for a menu block.
+   *
+   * @see system/templates/block--system-menu-block.html.twig
+   */
+  #}
+'twig_set_heading_id': |2
   {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 'heading_id': |2
   \{\{ heading_id \}\}
@@ -11,7 +20,7 @@
 'title_prefix': |2
   \{\{ title_prefix \}\}
 'title_attributes': |2
-  \{\{ title_attributes \}\}
+  \{\{ title_attributes.setAttribute('id', heading_id) \}\}
 'title': |2
   \{\{ configuration.label \}\}
 'title_suffix': |2

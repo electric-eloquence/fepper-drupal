@@ -1,3 +1,4 @@
+{{{ twig_docblock }}}
 <!-- Begin region -->
 {{# content? }}
   <div {{{ region_attributes }}}>
@@ -24,13 +25,14 @@
 
     {{# templates-block--primary-menu? }}
       {{> 03-templates/block(
-        block_attributes: ' class="search-block-form" id="block-fepper-sub-searchform" role="search"',
-        title: 'Search form',
+        block_attributes: ' class="search-block-form" id="block-fepper-sub-search" role="search"',
+        title: 'Search',
         "compounds-search?": true
       ) }}
       {{> 03-templates/_block--system-menu-block(
-        block_attributes: ' id="block-fepper-sub-mainnavigation"',
+        block_attributes: ' id="block-fepper-sub-main-menu"',
         title: 'Main navigation',
+        title_attributes: ' class="visually-hidden" id="block-fepper-sub-main-menu"',
         "components-primary-nav?": true
       ) }}
     {{/ templates-block--primary-menu? }}

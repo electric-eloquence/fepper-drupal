@@ -11,10 +11,11 @@ footer[role="contentinfo"]
   width: 100%
   a
     color: $gray-light
-[id^="block-"][id$="-fepperfooter"]
-  @extend .lc
-  padding-top: $space
-  p
-    margin-bottom: 0
-    @media all and (min-width: $bp-med)
-      float: right
+#region-footer
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  height: 100%
+  > *
+    padding: $space-half
