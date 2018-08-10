@@ -588,6 +588,12 @@ section[rel="schema:comment"] > .indented {
     justify-content: flex-end;
     margin: 0 0.8rem 0 0;
   }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links li {
+    padding-right: 2.6rem;
+  }
+  section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links li:last-of-type {
+    padding-right: 0;
+  }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer + div {
     width: auto;
   }
