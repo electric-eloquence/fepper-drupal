@@ -1,0 +1,19 @@
+/**
+ * This file can be used to customize UI styles.
+ * It is referred to in the Pattern Lab documentation at https://patternlab.io/docs/pattern-states.html
+ * although this directory location differs from the documented location.
+ *
+ * Since the documentation refers specifically to pattern states, here are the default states, which can be copied as
+ * templates for new states, or can be directly overriden:
+.inprogress:before {
+  color: #FF4136 !important;
+}
+
+.inreview:before {
+  color: #FFCC00 !important;
+}
+
+.complete:before {
+  color: #2ECC40 !important;
+}
+*/
