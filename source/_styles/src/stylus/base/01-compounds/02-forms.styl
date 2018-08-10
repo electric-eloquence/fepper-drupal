@@ -92,14 +92,10 @@ form:not(#search-block-form)
         max-height: 0
         position: absolute
         right: 0
-        top: $nav-toggle-height
         z-index: 2
     [id^="block-"][id*="-search"].open
       #search-block-form
         max-height: 100%
-    [id^="block-"][id*="-search"].open.wide // Push an additional distance if footer menu is before branding.
-      #search-block-form
-        top: $nav-toggle-height + $footer-menu-height
   #search-block-form
     input
       height: 3.7rem

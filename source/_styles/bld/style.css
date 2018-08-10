@@ -499,14 +499,10 @@ form:not(#search-block-form) [id^="edit-actions"] {
     max-height: 0;
     position: absolute;
     right: 0;
-    top: 5.4rem;
     z-index: 2;
   }
   #region-primary-menu [id^="block-"][id*="-search"].open #search-block-form {
     max-height: 100%;
-  }
-  #region-primary-menu [id^="block-"][id*="-search"].open.wide #search-block-form {
-    top: 8.2rem;
   }
   #search-block-form input {
     height: 3.7rem;
@@ -848,7 +844,6 @@ nav li,
     -ms-transition: max-height 0.1s ease;
     -o-transition: max-height 0.1s ease;
     transition: max-height 0.1s ease;
-    top: 5.4rem;
     left: 0;
     width: 100%;
     z-index: 1;
@@ -868,9 +863,6 @@ nav li,
   #region-primary-menu [id^="block-"][id*="-main"].open > ul {
     border-bottom: 1px solid #ddd;
     max-height: 100%;
-  }
-  #region-primary-menu [id^="block-"][id*="-main"].open.wide > ul {
-    top: 8.2rem;
   }
 }
 @media all and (min-width: 768px) {
