@@ -5,6 +5,15 @@
 
     {{! BEGIN HEADER CONTENT }}
 
+    {{# templates-block--header~~pages-new-install? }}
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'block-fepper-sub-footer-menu',
+        block_attributes: ' id="block-fepper-sub-footer"',
+        title_attributes: ' class="visually-hidden" id="block-fepper-sub-footer-menu"',
+        title: 'Footer menu',
+        "components-footer-nav?": true
+      ) }}
+    {{/ templates-block--header~~pages-new-install? }}
     {{# templates-block--header? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-sub-branding"',
@@ -14,7 +23,13 @@
     {{# templates-block--header~~pages-new-install? }}
       {{> 03-templates/block(
         block_attributes: ' id="block-fepper-sub-branding"',
-        "compounds-logo?": true
+        "compounds-logo~~pages-new-install?": true
+      ) }}
+    {{/ templates-block--header~~pages-new-install? }}
+    {{# templates-block--header~~pages-new-install? }}
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-sub-powered" role="complementary"',
+        "compounds-powered-by?": true
       ) }}
     {{/ templates-block--header~~pages-new-install? }}
 
@@ -55,7 +70,7 @@
       {{> 03-templates/_block--system-menu-block(
         heading_id: 'block-fepper-sub-account-menu-menu',
         block_attributes: ' id="block-fepper-sub-account-menu"',
-        title_attributes: ' class="visually-hidden"',
+        title_attributes: ' class="visually-hidden" id="block-fepper-sub-account-menu-menu"',
         title: 'User account menu',
         "components-secondary-nav?": true
       ) }}
@@ -141,17 +156,6 @@
         block_attributes: ' class="search-block-form" id="block-fepper-sub-search" role="search"',
         title: 'Search',
         "compounds-search?": true
-      ) }}
-      {{> 03-templates/_block--system-menu-block(
-        heading_id: 'block-fepper-sub-footer-menu',
-        block_attributes: ' id="block-fepper-sub-footer"',
-        title_attributes: ' class="visually-hidden"',
-        title: 'Footer menu',
-        "components-footer-nav?": true
-      ) }}
-      {{> 03-templates/block(
-        block_attributes: ' id="block-fepper-sub-powered" role="complementary"',
-        "compounds-powered-by?": true
       ) }}
     {{/ templates-block--sidebar1~~pages-new-install? }}
 
