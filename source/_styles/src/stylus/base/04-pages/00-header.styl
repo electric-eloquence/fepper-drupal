@@ -138,7 +138,6 @@ nav,
         overflow: hidden
         position: absolute
         transition: max-height 0.1s ease
-        top: $nav-toggle-height
         left: 0
         width: 100%
         z-index: 1
@@ -155,9 +154,6 @@ nav,
         > ul
           border-bottom: 1px solid $gray-light-3
           max-height: 100%
-      &.open.wide
-        > ul
-          top: $nav-toggle-height + $footer-menu-height
   @media all and (min-width: $bp-med)
     width: auto
     height: auto
