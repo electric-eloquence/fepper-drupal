@@ -1,6 +1,6 @@
 /**
  * @file
- * Fepper theme-specific Drupal Behaviors.
+ * Fepper subtheme-specific Drupal Behaviors.
  */
 
 (function ($) {
