@@ -9,15 +9,17 @@
   function mobileNavToggle($togglerParent) {
     var $toggler = $togglerParent.find('> h2 > a');
 
-    $toggler.click(function (e) {
-      e.preventDefault();
+    if ($toggler.length) {
+      $toggler.click(function (e) {
+        e.preventDefault();
 
-      $togglerParent.toggleClass('open');
+        $togglerParent.toggleClass('open');
 
-      if (!$togglerParent.hasClass('open')) {
-        $toggler.blur();
-      }
-    });
+        if (!$togglerParent.hasClass('open')) {
+          $toggler.blur();
+        }
+      });
+    }
   }
 
   Drupal.behaviors.openToggle = {
@@ -30,13 +32,15 @@
 
         var $searchToggler = $searchBlock.find('> h2 > a');
 
-        $searchToggler.click(function () {
-          var searchBlockRect = $searchBlock[0].getBoundingClientRect();
+        if ($searchToggler.length) {
+          $searchToggler.click(function () {
+            var searchBlockRect = $searchBlock[0].getBoundingClientRect();
 
-          if ($searchBlock.hasClass('open')) {
-            $('#search-block-form', context).css('top', (searchBlockRect.top + searchBlockRect.height) + 'px');
-          }
-        });
+            if ($searchBlock.hasClass('open')) {
+              $('#search-block-form', context).css('top', (searchBlockRect.top + searchBlockRect.height) + 'px');
+            }
+          });
+        }
       }
 
       if ($mainMenuBlock.length) {
@@ -44,13 +48,15 @@
 
         var $mainMenuToggler = $mainMenuBlock.find('> h2 > a');
 
-        $mainMenuToggler.click(function () {
-          var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
+        if ($mainMenuToggler.length) {
+          $mainMenuToggler.click(function () {
+            var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
 
-          if ($mainMenuBlock.hasClass('open')) {
-            $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.top + mainMenuBlockRect.height) + 'px');
-          }
-        });
+            if ($mainMenuBlock.hasClass('open')) {
+              $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.top + mainMenuBlockRect.height) + 'px');
+            }
+          });
+        }
       }
     }
   };
