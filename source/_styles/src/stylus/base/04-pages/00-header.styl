@@ -93,10 +93,9 @@ header.header
         pointer-events: auto
         position: relative
         &::before
-          color: $gray-dark
+          content: ""
           display: block
-          font-size: 2.1rem
-          padding: ($space + 0.1rem) $space $space
+          padding: 1.1rem
         &:hover,
         &:focus
           &::before
@@ -114,8 +113,11 @@ header.header
   .path-search &
     display: none
   #region-primary-menu &
-    > h2 > a::before
-      @extend .icon-search::before
+    > h2 > a
+      padding: 1.7rem 1.6rem 1.6rem;
+      &::before
+        background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+        background-size: cover;
 // Navigation
 nav,
 [id^="block-"][id$="-local-tasks"]
@@ -126,8 +128,11 @@ nav,
   @extend .cf
 [id^="block-"][id*="-main"]
   #region-primary-menu &
-    > h2 > a::before
-      @extend .icon-menu::before
+    > h2 > a
+      padding: 1.7rem 1.6rem 1.6rem;
+      &::before
+        background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
+        background-size: cover;
   @media all and (max-width: $bp-sm-max)
     #region-primary-menu &
       float: right

@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="40" viewBox="0 0 140 40">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="140" height="40" viewBox="0 0 140 40">
   <rect x="0" y="0" width="140" height="40" style="fill:gray;" />
-  <text x="43" y="27" font-family="Helvetica" font-size="27px" font-weight="100" fill="white">logo</text>
+  <text
+    x="43"
+    y="27"
+    font-family="Helvetica, 'Liberation Sans', Roboto, sans-serif"
+    font-size="27"
+    font-weight="100"
+    fill="white">logo</text>
 </svg>
