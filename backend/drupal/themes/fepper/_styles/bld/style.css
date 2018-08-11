@@ -88,128 +88,12 @@ section,
 summary {
   display: block;
 }
-@font-face {
-  font-family: 'icons';
-  src: url("fonts/icons.eot");
-  src: url("fonts/icons.eot?#iefix") format("embedded-opentype"), url("fonts/icons.woff") format("woff"), url("fonts/icons.ttf") format("truetype"), url("fonts/icons.svg#icons") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-.icon-font,
-.icon-twitter::before,
-.icon-stumbleupon::before,
-.icon-pinterest::before,
-.icon-linkedin::before,
-.icon-google-plus::before,
-.icon-search::before,
-.icon-play::before,
-.icon-menu::before,
-.icon-arrow-left::before,
-.icon-arrow-right::before,
-.icon-bubble::before,
-.icon-facebook::before,
-.icon-feed::before,
-.icon-youtube::before,
-.icon-tag::before,
-.icon-tumblr::before,
-.icon-instagram::before,
-.icon-podcast::before,
-.icon-android::before,
-.icon-apple::before,
-.icon-envelope::before,
-.icon-arrow::before,
-#search-block-form .form-item-keys::after,
-#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before,
-#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
-  font-family: 'icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-.icon-twitter::before {
-  content: "\74";
-}
-.icon-stumbleupon::before {
-  content: "\75";
-}
-.icon-pinterest::before {
-  content: "\70";
-}
-.icon-linkedin::before {
-  content: "\69";
-}
-.icon-google-plus::before {
-  content: "\67";
-}
-.icon-search::before,
-#search-block-form .form-item-keys::after,
-#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before {
-  content: "\73";
-}
-.icon-play::before {
-  content: "\61";
-}
-.icon-menu::before,
-#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
-  content: "\21";
-}
-.icon-arrow-left::before {
-  content: "\23";
-}
-.icon-arrow-right::before {
-  content: "\24";
-}
-.icon-bubble::before {
-  content: "\25";
-}
-.icon-facebook::before {
-  content: "\66";
-}
-.icon-feed::before {
-  content: "\27";
-}
-.icon-youtube::before {
-  content: "\79";
-}
-.icon-tag::before {
-  content: "\28";
-}
-.icon-tumblr::before {
-  content: "\6d";
-}
-.icon-instagram::before {
-  content: "\22";
-}
-.icon-podcast::before {
-  content: "\26";
-}
-.icon-android::before {
-  content: "\29";
-}
-.icon-apple::before {
-  content: "\2a";
-}
-.icon-envelope::before {
-  content: "\2b";
-}
-.icon-arrow::before {
-  content: "\61";
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
 html {
   font-size: 62.5%;
 }
 body {
   background: #fff;
-  font: 1.6em/1.5 Helvetica, sans-serif;
+  font: 1.6em/1.5 Helvetica, "Liberation Sans", "Roboto", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333;
   min-width: 320px;
@@ -463,7 +347,10 @@ form:not(#search-block-form) [id^="edit-actions"] {
   position: relative;
 }
 #search-block-form .form-item-keys::after {
-  color: #000;
+  background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+  background-size: cover;
+  content: "";
+  padding: 0.7rem;
   position: absolute;
   top: 1.2rem;
   right: -3.2rem;
@@ -797,10 +684,9 @@ header.header {
 }
 #region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before,
 #region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
-  color: #333;
+  content: "";
   display: block;
-  font-size: 2.1rem;
-  padding: 1.7rem 1.6rem 1.6rem;
+  padding: 1.1rem;
 }
 #region-primary-menu [id^="block-"][id*="-search"] > h2 > a:hover::before,
 #region-primary-menu [id^="block-"][id*="-main"] > h2 > a:hover::before,
@@ -824,10 +710,24 @@ header.header {
 .path-search [id^="block-"][id*="-search"] {
   display: none;
 }
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a {
+  padding: 1.7rem 1.6rem 1.6rem;
+}
+#region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before {
+  background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+  background-size: cover;
+}
 nav li,
 [id^="block-"][id$="-local-tasks"] li {
   float: left;
   margin-right: 1em;
+}
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a {
+  padding: 1.7rem 1.6rem 1.6rem;
+}
+#region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
+  background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
+  background-size: cover;
 }
 @media all and (max-width: 767px) {
   #region-primary-menu [id^="block-"][id*="-main"] {
