@@ -52,15 +52,6 @@ GNU General Public License for more details.
 
 ### The Fepper theme for Drupal bundles the following third-party resources:
 
-#### IcoMoon icons
-
-Copyright Roonas
-
-* License: GPL / CC BY 4
-* License URI: http://www.gnu.org/licenses/gpl.html
-* License URI: https://creativecommons.org/licenses/by/4.0/
-* Source: https://icomoon.io
-
 #### Composite screenshot image
 
 Copyright: Alex Grichenko
