@@ -22,7 +22,7 @@
     }
   }
 
-  Drupal.behaviors.openToggle = {
+  Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
       var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
       var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
@@ -58,6 +58,19 @@
           });
         }
       }
+    }
+  };
+
+  Drupal.behaviors.resetSearchBlock = {
+    attach: function (context) {
+      $(window).resize(function () {
+        var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+
+        if ($searchBlock.length && $searchBlock.hasClass('open')) {
+          $searchBlock.removeClass('open');
+          $('#search-block-form', context).css('top', '0');
+        }
+      });
     }
   };
 })(jQuery);
