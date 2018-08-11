@@ -59,8 +59,10 @@ form:not(#search-block-form)
     margin-bottom: 0
     position: relative
     &::after
-      @extend .icon-search::before
-      color: $black
+      background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+      background-size: cover;
+      content: ""
+      padding: 0.7rem
       position: absolute
       top: 1.2rem
       right: -3.2rem
