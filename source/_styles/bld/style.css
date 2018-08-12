@@ -730,6 +730,9 @@ nav li,
   background-size: cover;
 }
 @media all and (max-width: 767px) {
+  [id^="block-"][id*="-main"] {
+    position: static;
+  }
   #region-primary-menu [id^="block-"][id*="-main"] {
     float: right;
     padding-top: 0;
