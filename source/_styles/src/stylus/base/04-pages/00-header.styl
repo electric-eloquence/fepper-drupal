@@ -134,6 +134,7 @@ nav,
         background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
         background-size: cover;
   @media all and (max-width: $bp-sm-max)
+    position: static // In order for the mobile nav to work while logged in.
     #region-primary-menu &
       float: right
       padding-top: 0
