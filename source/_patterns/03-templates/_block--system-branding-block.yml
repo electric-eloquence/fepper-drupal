@@ -1,0 +1,59 @@
+'twig_docblock': |2
+  {#
+  /**
+   * @file
+   * Fepper theme's implementation for a branding block.
+   *
+   * @see system/templates/block--system-branding-block.html.twig
+   */
+  #}
+'! extends block.html.twig': |2
+  {% extends "block.html.twig" %}
+'# content\?': |2
+  {% block content %}
+'# img.logo': |2
+  {% if site_logo %}
+'# homepage\?': |2
+  {% if is_front %}
+'\^ site_name\?': |2
+  {% if not site_name %}
+'\^ page_title\?': |2
+  {% if not page_title_block_enabled %}
+'/ page_title\?': |2
+  {% endif %}
+'/ site_name\?': |2
+  {% endif %}
+'/ homepage\?': |2
+  {% endif %}
+'link.pages-homepage': |2
+  \{\{ path('<front>') \}\}
+'header_title': |2
+  \{\{ 'Home'|t \}\}
+'header_rel': |2
+  home
+'img.logo.src': |2
+  \{\{ site_logo \}\}
+'img.logo.alt': |2
+  \{\{ system_site_name \}\}
+'/ img.logo': |2
+  {% endif %}
+'# site_name_or_site_slogan\?': |2
+  {% if site_name or site_slogan %}
+'# site_name\?': |2
+  {% if site_name %}
+'# page_title_or_not_homepage\?': |2
+  {% if page_title_block_enabled or not is_front %}
+'site_name': |2
+  \{\{ site_name \}\}
+'/ page_title_or_not_homepage\?': |2
+  {% endif %}
+'# site_slogan\?': |2
+  {% if site_slogan %}
+'site_slogan': |2
+  \{\{ site_slogan \}\}
+'/ site_slogan\?': |2
+  {% endif %}
+'/ site_name_or_site_slogan\?': |2
+  {% endif %}
+'/ content\?': |2
+  {% endblock %}

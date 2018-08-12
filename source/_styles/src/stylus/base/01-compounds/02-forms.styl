@@ -49,20 +49,23 @@ form:not(#search-block-form)
     position: relative
 #search-block-form
   background: $white-translucent
+  display: flex
   float: right
   margin: $space-half 0 0
   overflow: hidden
   position: relative
   .form-item-keys
-    float: left
     font-size: 1em
     margin-bottom: 0
+    position: relative
     &::after
-      @extend .icon-search::before
-      color: $black
+      background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+      background-size: cover;
+      content: ""
+      padding: 0.7rem
       position: absolute
-      top: 0.7em
-      right: 1.1em
+      top: 1.2rem
+      right: -3.2rem
   input
     background: transparent
     height: 4rem
@@ -83,15 +86,18 @@ form:not(#search-block-form)
   [id^="edit-actions"]
     float: left
     margin: 0
-  @media all and (max-width: $bp-sm-max)
-    [id^="block-"][id$="-searchform"] &
-      margin: 0.1rem 0 0
-      max-height: 0
-      position: absolute
-      top: $nav-toggle-height
-      right: 0
-      z-index: 2
-    [id^="block-"][id$="-searchform"].open &
-      max-height: 100%
+@media all and (max-width: $bp-sm-max)
+  #region-primary-menu
+    [id^="block-"][id*="-search"]
+      #search-block-form
+        margin: 0.1rem 0 0
+        max-height: 0
+        position: absolute
+        right: 0
+        z-index: 2
+    [id^="block-"][id*="-search"].open
+      #search-block-form
+        max-height: 100%
+  #search-block-form
     input
       height: 3.7rem

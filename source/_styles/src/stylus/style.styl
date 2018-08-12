@@ -9,7 +9,6 @@
 @import 'base/0-base/00-variables'
 @import 'base/0-base/01-helpers'
 @import 'base/0-base/02-reset'
-@import 'base/0-base/03-icons'
 @import 'base/0-base/04-global'
 
 // /////////////////////////////////////////////////////////////////////////////
@@ -40,9 +39,19 @@
 @import 'base/04-pages/03-article'
 
 // Only in Drupal, not Fepper.
-[id^="block-fepper-"][id$="-branding"]
-  a + a
-    @extend .visually-hidden
+#name-and-slogan
+  float: left
+  margin: 0.4em 1em
+#site-name
+  font-size: 2em
+  font-weight: bold
+  line-height: 1.2
+[id^="block-"][id$="-powered"]
+  display: flex
+  align-items: center
+  float: left
+  margin: 0 1em
+  min-height: $nav-toggle-height
 #region-highlighted
   @extend .cf
   padding-top: 0
@@ -80,11 +89,7 @@
 #breadcrumb
   font-size: 0.75em
   font-weight: bold
-[id^="block-fepper-"][id$="-page-title"]
-  width: 100%
-  .path-node &
-    @extend .visually-hidden
-[id^="block-fepper-"][id$="-local-tasks"]
+[id^="block-"][id$="-local-tasks"]
   padding-top: $space
   padding-bottom: $space
   [href="/user/login"]
@@ -98,11 +103,7 @@
     display: inline-block
   #edit-help-link
     margin-top: $space-quarter
-[id^="block-fepper-"][id$="-search"]
-  @extend .cf
-  h2
-    @extend .visually-hidden
-[id^="block-fepper-"][id$="-footer"]
+[id^="block-"][id$="-footer"]
   @extend .cf
   clear: both
   margin-top: 0.5em
@@ -110,7 +111,7 @@ details
   padding-bottom: $space
 #edit-contact label
   display: inline
-[id^="block-fepper-"][id$="-tools"]
+[id^="block-"][id$="-tools"]
   z-index: 1
 @media all and (max-width: $bp-sm-max)
   .skip-link

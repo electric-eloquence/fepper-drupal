@@ -19,6 +19,18 @@ function fepper_preprocess_block(&$variables) {
   catch (Exception $e) {
     $variables['is_front'] = FALSE;
   }
+
+  $config_page_title = \Drupal::config('block.block.fepper_page_title');
+  $config_system_site = \Drupal::config('system.site');
+
+  // Determine if the page title has been enabled as a block within a region at
+  // admin/structure/block. Possible values are 0 or 1.
+  $variables['page_title_block_enabled'] = $config_page_title->get('status');
+
+  // Set $variables['system_site_name'] to provide site name even when site_name
+  // has been switched off in the block configuration at
+  // admin/structure/block/manage/fepper_branding.
+  $variables['system_site_name'] = $config_system_site->get('name');
 }
 
 /**

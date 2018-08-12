@@ -6,3 +6,14 @@ base theme: false
 libraries:
   - fepper/global-styling
   - fepper/global-scripts
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: 'Footer'
+  breadcrumb: 'Breadcrumb'

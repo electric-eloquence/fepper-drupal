@@ -9,9 +9,12 @@ header.header
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
     width: "calc(%s - %s)" % ($max-width $space)
-[id^="block-fepper-"][id$="-branding"]
+[id^="block-"][id$="-branding"]
   position: relative
   z-index: 1
+  h1
+    margin: 0
+    padding: 0
   img
     float: left
     margin: $space-half 0
@@ -23,14 +26,19 @@ header.header
 [id="region-secondary-menu"]
   nav
     float: left
-    padding-top: $space-quarter * 3
   li
-    float: left
+    float: none
     margin-right: 0
   a
     display: block
     padding: $space-quarter $space
   @media all and (min-width: $bp-med)
+    nav
+      > ul
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        min-height: $nav-toggle-height + 0.2rem
     .expanded
       > a::after
         color: $gray
@@ -66,85 +74,92 @@ header.header
 [id^="block-"]
   > h2 > a
     pointer-events: none
-[id^="block-"][id$="-searchform"],
-[id^="block-"][id$="-mainnavigation"]
+[id^="block-"][id*="-search"],
+[id^="block-"][id*="-main"]
   > h2
-    float: right
-    margin: 0
-    position: relative
-    z-index: 2
-    > a
-      background: $white-translucent
-      border-left: 1px solid $gray-light-3
-      color: transparent
-      cursor: pointer
-      width: $nav-toggle-n-border
-      height: $nav-toggle-height
-      overflow: hidden
-      padding: 0
-      pointer-events: auto
-      position: relative
-      &::before
-        color: $gray-dark
-        display: block
-        font-size: 2.1rem
-        padding: ($space + 0.1rem) $space $space
-      &:hover,
-      &:focus
+    @extend .visually-hidden
+  #region-primary-menu &
+    > h2
+      margin: 0
+      z-index: 3
+      > a
+        background: $white-translucent
+        color: transparent
+        cursor: pointer
+        width: $nav-toggle-n-border
+        height: $nav-toggle-height
+        overflow: hidden
+        padding: 0
+        pointer-events: auto
+        position: relative
         &::before
-          color: $gray
-      @media all and (min-width: $bp-med)
-        display: none
+          content: ""
+          display: block
+          padding: 1.1rem
+        &:hover,
+        &:focus
+          &::before
+            color: $gray
+      @media all and (max-width: $bp-sm-max)
+        // Undo .visually-hidden.
+        overflow: visible
+        position: relative !important
+        width: auto
+        height: auto
+        clip: auto
 // Search Form
-[id^="block-"][id$="-searchform"]
+[id^="block-"][id*="-search"]
   float: right
   .path-search &
     display: none
-  > h2 > a::before
-    @extend .icon-search::before
+  #region-primary-menu &
+    > h2 > a
+      padding: 1.7rem 1.6rem 1.6rem;
+      &::before
+        background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
+        background-size: cover;
 // Navigation
 nav,
-[id^="block-fepper-"][id$="-local-tasks"]
+[id^="block-"][id$="-local-tasks"]
   li
     float: left
     margin-right: 1em
-[id^="block-fepper-"][id$="-local-tasks"]
+[id^="block-"][id$="-local-tasks"]
   @extend .cf
-[id^="block-"][id$="-mainnavigation"]
-  float: none
-  > h2 > a::before
-    @extend .icon-menu::before
-  a
-    display: block
+[id^="block-"][id*="-main"]
+  #region-primary-menu &
+    > h2 > a
+      padding: 1.7rem 1.6rem 1.6rem;
+      &::before
+        background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
+        background-size: cover;
   @media all and (max-width: $bp-sm-max)
-    padding-top: 0
-    > ul
-      background: $white-translucent
-      max-height: 0
-      overflow: hidden
-      position: absolute
-      top: 0
-      left: 0
-      z-index: 1
-    li
-      border-top: 1px solid $gray-light-3
-      float: none
-      margin-right: 0
-      a
-        display: table
-        padding: $space-half $space
-      li
-        padding-left: 2rem;
-    &.open
+    position: static // In order for the mobile nav to work while logged in.
+    #region-primary-menu &
+      float: right
+      padding-top: 0
       > ul
-        border-bottom: 1px solid $gray-light-3
-        max-height: 100%
-        padding-top: $nav-toggle-height
+        background: $white-translucent
+        max-height: 0
+        overflow: hidden
+        position: absolute
+        transition: max-height 0.1s ease
+        left: 0
         width: 100%
+        z-index: 1
+      li
+        border-top: 1px solid $gray-light-3
+        float: none
+        margin-right: 0
+        a
+          display: table
+          padding: $space-half $space
+        li
+          padding-left: 2rem;
+      &.open
+        > ul
+          border-bottom: 1px solid $gray-light-3
+          max-height: 100%
   @media all and (min-width: $bp-med)
-    border-top: 1px solid $gray-light-3
-    display: inline-block
-    margin-top: -0.1rem
-    position: static
     width: auto
     height: auto

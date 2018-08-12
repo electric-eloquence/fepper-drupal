@@ -1,0 +1,3 @@
+# style.css goes in the base theme.
+# The rest of the build files go in the sub-theme, as configured in pref.yml.
+styles_dir: drupal/themes/fepper/_styles/bld

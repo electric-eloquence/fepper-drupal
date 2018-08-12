@@ -4,18 +4,13 @@ section[rel="schema:comment"]
   h2
     margin: $space 0 0
   article[typeof="schema:Comment"]
-    display: flex
-    margin-top: 0.75em
-    padding-bottom: 0.5em
+    padding: 0.625em 0 // Padding instead of margin so borders appear when indented.
     position: relative
     > footer
-      min-height: 11em
-      width: 12em
       p
         line-height: 1
-        margin: 0 0 0 2px
+        margin: 0
     > div
-      padding-bottom: 0.5em
       .links
         margin-top: 0.25em
         margin-bottom: 0
@@ -27,62 +22,75 @@ section[rel="schema:comment"]
       border: 1px solid $gray-light-2
       margin-bottom: 0.5em
       width: 6.25em
-  span[rel="schema:author"],
-  footer > a
-    font-size: 0.75em
+  span[rel="schema:author"]
+    display: block
+    font-size: 1.2rem
+    line-height: 1.6rem
   footer > a
     display: block
-    margin-left: 2px
+    font-size: 0.75em
     text-decoration: underline
-  span[property="schema:name"]
+  [property="schema:name"]
     font-weight: bold
-    &::before
-      content: "\A"
-      white-space: pre
-    &::after
-      content: "\A"
-      white-space: pre
+    text-decoration: none
   div[property="schema:text"]
     p
       margin-bottom: 0
   article[typeof="schema:Comment"]:last-of-type
     border-bottom: 1px solid $gray-light-3
   .indented
-    margin-left: 0.75em
+    padding-left: 0.75em
     article[typeof="schema:Comment"]
       border-left: 1px solid $gray-light-3
+  > .indented
+    border-top: 1px solid $gray-light-3
   @media all and (max-width: $bp-xs-max)
     $img-size-xs = 8.75rem
     article[typeof="schema:Comment"]
       display: block
-      overflow: hidden
       > footer
-        display: flex
-        flex-direction: column
-        justify-content: flex-end
-        margin-bottom: 0.5em
-        min-height: $img-size-xs
-        position: relative
-        width: auto
+        @extend .cf
+        width: 100%
         p, a
-          margin: 0
-          max-width: "calc(100% - %s - 0.2rem)" % $img-size-xs
+          max-width: "calc(100% - %s - 0.4rem)" % $img-size-xs
       > div
         padding-bottom: 0
+        .links
+          display: flex
+          justify-content: flex-end
+          margin: 0 $space-half 0 0
+          li
+            padding-right: 2.6rem
+          li:last-of-type
+            padding-right: 0
       > footer + div
         width: auto
-    span[property="schema:name"]
-      &::before
-        content: " "
-      &::after
-        content: " "
     article[typeof="schema:Person"]
-      position: absolute
-      right: 0
-      bottom: 0
+      float: left
+      margin-right: 0.4rem
       img
         margin: 0
+    article[typeof="schema:Person"] + p
+      float: left
+    div[property="schema:text"]
+      margin-top: 0.4rem
     .indented
       article[typeof="schema:Comment"]
         > *
-          margin-left: 2px
+          margin-left: 0.2rem
+  @media all and (min-width: $bp-small)
+    article[typeof="schema:Comment"]
+      display: flex
+      > footer
+        min-height: 11em
+        width: 12em
+        p,
+        > a
+          margin-left: 0.2rem
+    span[property="schema:name"]
+      &::before
+        content: "\A"
+        white-space: pre
+      &::after
+        content: "\A"
+        white-space: pre

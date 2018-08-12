@@ -6,25 +6,71 @@
 (function ($) {
   'use strict';
 
-  function mobileNavToggle(toggleSelector, context) {
-    var $toggleSelector = $(toggleSelector, context);
-    var $toggler = $toggleSelector.find('> h2 > a');
+  function mobileNavToggle($togglerParent) {
+    var $toggler = $togglerParent.find('> h2 > a');
 
-    $toggler.click(function (e) {
-      e.preventDefault();
+    if ($toggler.length) {
+      $toggler.click(function (e) {
+        e.preventDefault();
 
-      $toggleSelector.toggleClass('open');
+        $togglerParent.toggleClass('open');
 
-      if (!$toggleSelector.hasClass('open')) {
-        $toggler.blur();
-      }
-    });
+        if (!$togglerParent.hasClass('open')) {
+          $toggler.blur();
+        }
+      });
+    }
   }
 
-  Drupal.behaviors.openToggle = {
+  Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
-      mobileNavToggle('div[id^="block-"][id$="-searchform"]', context);
-      mobileNavToggle('nav[id^="block-"][id$="-mainnavigation"]', context);
+      var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+      var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
+
+      if ($searchBlock.length) {
+        mobileNavToggle($searchBlock, context);
+
+        var $searchToggler = $searchBlock.find('> h2 > a');
+
+        if ($searchToggler.length) {
+          $searchToggler.click(function () {
+            var searchBlockRect = $searchBlock[0].getBoundingClientRect();
+
+            if ($searchBlock.hasClass('open')) {
+              $('#search-block-form', context).css('top', (searchBlockRect.top + searchBlockRect.height) + 'px');
+            }
+          });
+        }
+      }
+
+      if ($mainMenuBlock.length) {
+        mobileNavToggle($mainMenuBlock, context);
+
+        var $mainMenuToggler = $mainMenuBlock.find('> h2 > a');
+
+        if ($mainMenuToggler.length) {
+          $mainMenuToggler.click(function () {
+            var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
+
+            if ($mainMenuBlock.hasClass('open')) {
+              $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.top + mainMenuBlockRect.height) + 'px');
+            }
+          });
+        }
+      }
+    }
+  };
+
+  Drupal.behaviors.resetSearchBlock = {
+    attach: function (context) {
+      $(window).resize(function () {
+        var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+
+        if ($searchBlock.length && $searchBlock.hasClass('open')) {
+          $searchBlock.removeClass('open');
+          $('#search-block-form', context).css('top', '0');
+        }
+      });
     }
   };
 })(jQuery);

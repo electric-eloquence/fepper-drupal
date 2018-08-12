@@ -1,3 +1,11 @@
+{#
+/**
+ * @file
+ * Fepper theme's implementation to display a node.
+ *
+ * @see node/templates/node.html.twig
+ */
+#}
 <!-- Begin node -->
 <article {{ attributes }}>
 
@@ -24,7 +32,7 @@
     </footer>
   {% endif %}
 
-  <div {{ content_attributes }}>
+  <div role="content" {{ content_attributes }}>
 
     {{ content }}
 

@@ -1,3 +1,4 @@
+{{{ twig_docblock }}}
 <!-- Begin block -->
 <div {{{ block_attributes }}}>
 
@@ -12,8 +13,16 @@
     {{! BEGIN HEADER }}
 
     {{# compounds-logo? }}
-      {{> 01-compounds/01-blocks/04-logo }}
+      {{> 03-templates/_block--system-branding-block }}
     {{/ compounds-logo? }}
+    {{# compounds-logo~~pages-new-install? }}
+      {{> 03-templates/_block--system-branding-block(
+        "site_name_or_site_slogan?": true,
+        "site_name?": true,
+        "page_title_or_not_homepage?": true,
+        "compounds-logo?": true
+      ) }}
+    {{/ compounds-logo~~pages-new-install? }}
     {{# compounds-search? }}
       {{> 01-compounds/02-forms/00-search }}
     {{/ compounds-search? }}
