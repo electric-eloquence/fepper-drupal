@@ -561,11 +561,12 @@ header.header {
   background: #fff;
   border-bottom: 1px solid #ddd;
   padding: 0;
+  width: 100%;
 }
 @media all and (max-width: 767px) {
   header.header {
-    margin: 0 0 0 0.8rem;
-    width: calc(100% - 0.8rem);
+    margin: 0;
+    padding-left: 0.8rem;
   }
 }
 @media all and (min-width: 768px) and (max-width: 1152px) {
@@ -711,7 +712,7 @@ header.header {
   display: none;
 }
 #region-primary-menu [id^="block-"][id*="-search"] > h2 > a {
-  padding: 1.7rem 1.6rem 1.6rem;
+  padding: 1.6rem;
 }
 #region-primary-menu [id^="block-"][id*="-search"] > h2 > a::before {
   background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
@@ -723,7 +724,7 @@ nav li,
   margin-right: 1em;
 }
 #region-primary-menu [id^="block-"][id*="-main"] > h2 > a {
-  padding: 1.7rem 1.6rem 1.6rem;
+  padding: 1.6rem;
 }
 #region-primary-menu [id^="block-"][id*="-main"] > h2 > a::before {
   background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
