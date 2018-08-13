@@ -37,7 +37,7 @@
             var searchBlockRect = $searchBlock[0].getBoundingClientRect();
 
             if ($searchBlock.hasClass('open')) {
-              $('#search-block-form', context).css('top', (searchBlockRect.top + searchBlockRect.height) + 'px');
+              $('#search-block-form', context).css('top', (searchBlockRect.height + searchBlockRect.top) + 'px');
             }
           });
         }
@@ -53,7 +53,7 @@
             var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
 
             if ($mainMenuBlock.hasClass('open')) {
-              $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.top + mainMenuBlockRect.height) + 'px');
+              $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.height + mainMenuBlockRect.top) + 'px');
             }
           });
         }

@@ -26,7 +26,8 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
 }
 .lc,
 [role="main"],
-.layout-container > *:not(footer) {
+.layout-container > *:not(footer),
+.layout-container > footer > * {
   clear: both;
   max-width: 1152px;
   margin: 0 auto;
@@ -386,10 +387,10 @@ form:not(#search-block-form) [id^="edit-actions"] {
     max-height: 0;
     position: absolute;
     right: 0;
-    z-index: 2;
+    z-index: 3;
   }
   #region-primary-menu [id^="block-"][id*="-search"].open #search-block-form {
-    max-height: 100%;
+    max-height: none;
   }
   #search-block-form input {
     height: 3.7rem;
@@ -482,7 +483,7 @@ section[rel="schema:comment"] > .indented {
   }
   section[rel="schema:comment"] article[typeof="schema:Person"] {
     float: left;
-    margin-right: 0.4rem;
+    margin-right: 0.8rem;
   }
   section[rel="schema:comment"] article[typeof="schema:Person"] img {
     margin: 0;
@@ -766,7 +767,7 @@ nav li,
   }
   #region-primary-menu [id^="block-"][id*="-main"].open > ul {
     border-bottom: 1px solid #ddd;
-    max-height: 100%;
+    max-height: none;
   }
 }
 @media all and (min-width: 768px) {
@@ -809,7 +810,7 @@ footer[role="contentinfo"] a {
   height: 100%;
 }
 #region-footer > * {
-  padding: 0.8rem;
+  padding: 0.8rem 0;
 }
 [role="article"] {
   margin-bottom: 1.6rem;
