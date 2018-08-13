@@ -592,7 +592,7 @@ header.header {
 }
 @media all and (max-width: 767px) {
   [id^="block-"][id$="-branding"] img {
-    height: 3.7rem;
+    height: 3.8rem;
   }
 }
 [id="region-primary-menu"] nav,
