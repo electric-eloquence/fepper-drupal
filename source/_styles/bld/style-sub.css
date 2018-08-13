@@ -81,6 +81,11 @@
     text-align: center;
   }
 }
+@media all and (max-width: 480px) {
+  section[rel="schema:comment"] h2 {
+    text-align: center;
+  }
+}
 [id^="block-"][id*="-search"] > h2 > a,
 [id^="block-"][id*="-main"] > h2 > a {
   border-left: 1px solid #ddd;
