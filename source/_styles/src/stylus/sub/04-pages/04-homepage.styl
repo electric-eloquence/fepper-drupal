@@ -51,8 +51,6 @@
         background: $dimmer
         overflow: hidden
         padding: 0 $space-half
-        a
-          font-size: 1.8rem
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
       .views-field-title
         padding-top: 19%
@@ -96,17 +94,23 @@
         font-size: 1.8rem
         font-weight: bold
         line-height: 1.2
-    @media all and (max-width: $bp-sm-max)
+    @media all and (max-width: $bp-xs-max)
       .views-field-title
         text-align: center
     @media all and (min-width: $bp-med)
       padding-top: $space-half
       width: "calc(%s - (%s / 3))" % ($column-width-narrow $space-double)
-  @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-    // Hero and sub blocks
-    #block-fepper-sub-content,
-    #region-content > .views-row
-      width: calc(50% - 0.4rem)
+  // Hero and sub blocks
+  #block-fepper-sub-content,
+  #region-content > .views-row
+    @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
+      &
+        width: calc(50% - 0.4rem)
+    @media all and (max-width: $bp-sm-max)
+      .views-field-title
+        a
+          font-size: 1.7rem
+          line-height: 1.1
   @media all and (min-width: $bp-med)
     // Hoagies block
     .layout-sidebar-first
