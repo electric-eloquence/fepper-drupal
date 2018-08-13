@@ -33,7 +33,7 @@
   .hoagies [role="article"] > h2,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
   .view-id-content_recent.view-display-id-page_1 [role="article"] > h2 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 }
 @media all and (min-width: 481px) {
@@ -197,9 +197,6 @@
     overflow: hidden;
     padding: 0 0.8rem;
   }
-  .path-frontpage #block-fepper-sub-content .views-field-title a {
-    font-size: 1.8rem;
-  }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
   .path-frontpage #block-fepper-sub-content .views-field-title {
@@ -260,7 +257,7 @@
   font-weight: bold;
   line-height: 1.2;
 }
-@media all and (max-width: 767px) {
+@media all and (max-width: 480px) {
   .path-frontpage #region-content > .views-row .views-field-title {
     text-align: center;
   }
@@ -275,6 +272,13 @@
   .path-frontpage #block-fepper-sub-content,
   .path-frontpage #region-content > .views-row {
     width: calc(50% - 0.4rem);
+  }
+}
+@media all and (max-width: 767px) {
+  .path-frontpage #block-fepper-sub-content .views-field-title a,
+  .path-frontpage #region-content > .views-row .views-field-title a {
+    font-size: 1.7rem;
+    line-height: 1.1;
   }
 }
 @media all and (min-width: 768px) {
