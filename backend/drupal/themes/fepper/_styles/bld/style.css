@@ -431,7 +431,7 @@ section[rel="schema:comment"] span[rel="schema:author"] {
 }
 section[rel="schema:comment"] footer > a {
   display: block;
-  font-size: 0.75em;
+  font-size: 1.2rem;
   text-decoration: underline;
 }
 section[rel="schema:comment"] [property="schema:name"] {
@@ -916,6 +916,10 @@ details {
 }
 [id^="block-"][id$="-tools"] {
   z-index: 1;
+}
+.views-field-title {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 @media all and (max-width: 767px) {
   .skip-link {
