@@ -1,7 +1,10 @@
-<main>
+<main id="scraper" class="scraper">
+  <div id="message" class="message"></div>
+  <h1 id="scraper-heading" class="scraper-heading" style="display: none;">Fepper HTML Scraper</h1>
   <script>
     (() => {
       'use strict';
+
       /* We don't want these styles to get applied to View All because they get called last and take priority. */
       /* They will also break if the scrape directory is ever renamed. */
       /* But users choosing to change that are probably prepared to do their own styling. */
@@ -11,6 +14,15 @@
         link.href = '/fepper-core/style.css';
         link.media = 'all';
         document.getElementsByTagName('head')[0].appendChild(link);
+
+        window.onload = () => {
+          // Also, reveal the heading after the new styles load, so as to avoid the blink when applying new styles.
+          const scraperHeading = document.getElementById('scraper-heading');
+
+          if (scraperHeading) {
+            scraperHeading.style.display = 'block';
+          }
+        };
       }
     })();
   </script>
