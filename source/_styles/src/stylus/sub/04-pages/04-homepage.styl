@@ -14,15 +14,13 @@
     justify-content: space-between
   // Hero block
   #block-fepper-sub-content
-    margin-bottom: 0.5em
+    margin-bottom: $space-half
     img
       display: block
     .views-field-title
       a
         color: $white
         display: block
-        font-size: 2.4rem
-        font-weight: bold
         line-height: 1.2
     @media all and (max-width: $bp-xs-max)
       .views-field-title
@@ -32,7 +30,7 @@
         justify-content: center
         height: 8.7rem
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-      position: relative;
+      position: relative
       .views-field-field-image
         padding-top: 75%
         .field-content
@@ -51,8 +49,6 @@
         background: $dimmer
         overflow: hidden
         padding: 0 $space-half
-        a
-          font-size: 1.8rem
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
       .views-field-title
         padding-top: 19%
@@ -71,10 +67,10 @@
         left: 0
         width: 100%
         background: $dim
-        padding: 1.5em
+        padding: 2.8rem $space-half
   // Sub blocks
   #region-content > .views-row
-    margin-bottom: 0.5em
+    margin-bottom: $space-half
     position: relative
     .views-field-field-image
       min-height: 17rem
@@ -92,21 +88,26 @@
         background: rgba(0, 0, 0, 0.5)
         color: $white
         display: block
-        padding: 0.5em
-        font-size: 1.8rem
+        padding: 1.2rem 0.8rem
+        font-size: 2rem
         font-weight: bold
         line-height: 1.2
-    @media all and (max-width: $bp-sm-max)
+    @media all and (max-width: $bp-xs-max)
       .views-field-title
         text-align: center
     @media all and (min-width: $bp-med)
       padding-top: $space-half
       width: "calc(%s - (%s / 3))" % ($column-width-narrow $space-double)
-  @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-    // Hero and sub blocks
-    #block-fepper-sub-content,
-    #region-content > .views-row
+  // Hero and sub blocks
+  #block-fepper-sub-content,
+  #region-content > .views-row
+    @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
       width: calc(50% - 0.4rem)
+    @media all and (max-width: $bp-sm-max)
+      .views-field-title
+        a
+          font-size: 1.7rem
+          line-height: 1.1
   @media all and (min-width: $bp-med)
     // Hoagies block
     .layout-sidebar-first

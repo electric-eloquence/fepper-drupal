@@ -2,9 +2,10 @@ header.header
   background: $white
   border-bottom: 1px solid $gray-light-3
   padding: 0
+  width: 100%
   @media all and (max-width: $bp-sm-max)
-    margin: 0 0 0 $space-half
-    width: "calc(100% - %s)" % $space-half
+    margin: 0
+    padding-left: $space-half
   @media all and (min-width: $bp-med) and (max-width: $max-width)
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
@@ -19,7 +20,7 @@ header.header
     float: left
     margin: $space-half 0
     @media all and (max-width: $bp-sm-max)
-      height: 3.7rem
+      height: 3.8rem
 // Search and Navigation Forms
 // Need to lower specificity with an attribute match so these don't override other selections by attribute match.
 [id="region-primary-menu"],
@@ -114,10 +115,10 @@ header.header
     display: none
   #region-primary-menu &
     > h2 > a
-      padding: 1.7rem 1.6rem 1.6rem;
+      padding: 1.6rem
       &::before
-        background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
-        background-size: cover;
+        background: url("../../_assets/src/icon-search.svg") no-repeat 0 0
+        background-size: cover
 // Navigation
 nav,
 [id^="block-"][id$="-local-tasks"]
@@ -129,10 +130,10 @@ nav,
 [id^="block-"][id*="-main"]
   #region-primary-menu &
     > h2 > a
-      padding: 1.7rem 1.6rem 1.6rem;
+      padding: $space
       &::before
-        background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0;
-        background-size: cover;
+        background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0
+        background-size: cover
   @media all and (max-width: $bp-sm-max)
     position: static // In order for the mobile nav to work while logged in.
     #region-primary-menu &
@@ -155,11 +156,11 @@ nav,
           display: table
           padding: $space-half $space
         li
-          padding-left: 2rem;
+          padding-left: 2rem
       &.open
         > ul
           border-bottom: 1px solid $gray-light-3
-          max-height: 100%
+          max-height: none
   @media all and (min-width: $bp-med)
     width: auto
     height: auto

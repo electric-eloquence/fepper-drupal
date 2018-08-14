@@ -1,5 +1,8 @@
 // Hoagies
 .hoagies
+  [role="article"]
+    > h2
+      font-size: 2rem
   @media all and (max-width: $bp-xs-max)
     [role="article"]
       > div > div:first-of-type > a
@@ -8,14 +11,14 @@
   @media all and (max-width: $bp-sm-max)
     [role="article"]
       > h2
-        font-size: 1.8rem
+        font-size: 1.7rem
   @media all and (min-width: $bp-small)
     .item-list
-      margin-top: 0.5em
+      margin-top: $space-quarter
     .item-list li
       clear: both
       float: left
-      margin-bottom: $space-and-half
+      margin-bottom: $space
     [role="article"]
       > h2,
       [property="schema:text"],
