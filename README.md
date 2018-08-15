@@ -7,7 +7,7 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-#### This checkout of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
+#### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
 
 * [Main project](https://github.com/electric-eloquence/fepper)
 

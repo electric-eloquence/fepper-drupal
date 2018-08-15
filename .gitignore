@@ -1,4 +1,3 @@
-!/public/package-lock.json
 !/public/package.json
 !/source/_static/node_modules/
 .*.swp
@@ -9,6 +8,7 @@
 /conf.yml
 /install.log
 /npm-debug.log
+/package-lock.json
 /public/*
 ignore/
 node_modules/
