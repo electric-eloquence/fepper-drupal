@@ -462,7 +462,7 @@ section[rel="schema:comment"] > .indented {
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
-    max-width: calc(100% - 8.75rem - 0.4rem);
+    max-width: calc(100% - 8.75rem - 0.8rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
@@ -924,5 +924,10 @@ details {
 @media all and (max-width: 767px) {
   .skip-link {
     display: none;
+  }
+  .layout-sidebar-first .views-field-title,
+  .layout-sidebar-second .views-field-title {
+    font-size: 1em;
+    font-weight: normal;
   }
 }
