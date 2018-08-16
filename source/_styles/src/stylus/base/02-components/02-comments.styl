@@ -36,14 +36,11 @@ section[rel="schema:comment"]
   div[property="schema:text"]
     p
       margin-bottom: 0
-  article[typeof="schema:Comment"]:last-of-type
-    border-bottom: 1px solid $gray-light-3
   .indented
-    padding-left: 0.75em
-    article[typeof="schema:Comment"]
-      border-left: 1px solid $gray-light-3
-  > .indented
-    border-top: 1px solid $gray-light-3
+    border-bottom: 1px solid $gray-light-3
+    border-left: 1px solid $gray-light-3
+    margin-left: 0.75em
+    padding-bottom: 0.5em
   @media all and (max-width: $bp-xs-max)
     $img-size-xs = 8.75rem
     article[typeof="schema:Comment"]
