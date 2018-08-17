@@ -441,17 +441,11 @@ section[rel="schema:comment"] [property="schema:name"] {
 section[rel="schema:comment"] div[property="schema:text"] p {
   margin-bottom: 0;
 }
-section[rel="schema:comment"] article[typeof="schema:Comment"]:last-of-type {
-  border-bottom: 1px solid #ddd;
-}
 section[rel="schema:comment"] .indented {
-  padding-left: 0.75em;
-}
-section[rel="schema:comment"] .indented article[typeof="schema:Comment"] {
+  border-bottom: 1px solid #ddd;
   border-left: 1px solid #ddd;
-}
-section[rel="schema:comment"] > .indented {
-  border-top: 1px solid #ddd;
+  margin-left: 0.75em;
+  padding-bottom: 0.5em;
 }
 @media all and (max-width: 480px) {
   section[rel="schema:comment"] article[typeof="schema:Comment"] {
@@ -462,7 +456,7 @@ section[rel="schema:comment"] > .indented {
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer p,
   section[rel="schema:comment"] article[typeof="schema:Comment"] > footer a {
-    max-width: calc(100% - 8.75rem - 0.4rem);
+    max-width: calc(100% - 8.75rem - 0.8rem);
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
     padding-bottom: 0;
@@ -924,5 +918,10 @@ details {
 @media all and (max-width: 767px) {
   .skip-link {
     display: none;
+  }
+  .layout-sidebar-first .views-field-title,
+  .layout-sidebar-second .views-field-title {
+    font-size: 1em;
+    font-weight: normal;
   }
 }
