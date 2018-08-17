@@ -40,7 +40,7 @@ The theme has no menu or administerable settings.
 
 ## COPYRIGHT
 
-Copyright (C) 2017 - ∞ Electric Eloquence
+Copyright (C) 2017 Electric Eloquence
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
