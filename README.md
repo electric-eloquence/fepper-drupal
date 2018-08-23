@@ -7,38 +7,18 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-#### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
+### Downstream projects
 
-* [Main project](https://github.com/electric-eloquence/fepper)
-
-### Template Reuse
-The patterns in `source/03-templates` are parameterized to reuse templates in a 
-Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
-Fepper templates can be exported to Drupal with no further effort beyond running 
-`fp template`. Follow these rules when constructing new parameter keys and 
-values for template reuse:
-
-* The parameters are submitted within parentheses inside the Mustache inclusion 
-  tags.
-* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">
-  BEM-like</a> in syntax.
-* It should start with the target's significant identifier, usually a partial.
-* To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
-* Follow that with any nested element or any modifying term (in BEM syntax).
-* Follow that with `~~` and then the pattern ID of the original page or pattern 
-  at the top level of recursion.
-* Follow that with any nested element or any modifying term (in BEM syntax).
-* This type of parameter is usually a boolean. End the key with a `?` to follow 
-  Mustache's convention for 
-  <a href="https://mustache.github.io/mustache.5.html" target="_blank">
-  Non-False Values</a>.
-* Quoting of keys and values should follow 
-  <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
-* (Avoid quotes if you can.)
-* When quoting is necessary, to avoid escaping special characters in .mustache 
-  files, wrap parameter keys in double-quotes and values in single-quotes.
-* Consult the [Templater section](#templater) for additional documentation on 
-  configuring Mustache and YAML files to sync Fepper with Drupal.
+* [Fepper Base](https://github.com/electric-eloquence/fepper-base) - no 
+  unnecessary assets, styles, Pattern Lab demo, or `fp-stylus` extension.
+* [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) - 
+  templates configured for Drupal 8, along with a Drupal theme built to 
+  accommodate those templates.
+* [Fepper for Windows](https://github.com/electric-eloquence/fepper-windows) - 
+  scripted to run on Windows.
+* [Fepper for Wordpress](https://github.com/electric-eloquence/fepper-wordpress) 
+  \- templates configured for WordPress, along with a WordPress theme built to 
+  accommodate those templates.
 
 ### Table of contents
 
@@ -346,15 +326,13 @@ bp_xx_min = 0
 It cannot contain comments, semi-colons, curly braces, etc. It is 
 straightforward to import and use these variables in Stylus and JavaScript. PHP 
 must import them with `parse_ini_file()`. Fepper tries to be agnostic about CSS 
-processors and tries to keep the amount of NPMs to download to a minimum, so it 
-does not ship with Stylus (or any other CSS pre/post-processor) configured. 
-However, since Stylus allows for this easy sharing of variables, Fepper does 
-ship with a `source/_styles/src/stylus` directory. In order to compile it to 
-CSS in the `source/_styles/bld` directory, run `npm install` in the `extend` 
-directory. Then, uncomment the `stylus:`-prefixed tasks in `extend/contrib.js`. 
-The Stylus files are written in the terse, Python-like, indentation-based 
-syntax. However, the more verbose, CSS-like syntax (with curly braces, colons, 
-and semi-colons) is perfectly valid as well.
+processors and tries to keep the amount of NPMs to download to a minimum. 
+However, since Stylus allows for this easy sharing of variables, most Fepper 
+distros ship with the `fp-stylus` extension and a fully-populated 
+`source/_styles/src/stylus` directory. The Stylus files are written in the 
+terse, Python-like, indentation-based syntax. However, the more verbose, 
+CSS-like syntax (with curly braces, colons, and semi-colons) is perfectly valid 
+as well.
 
 The UI's viewport resizer buttons are dependent on the values in this file. The 
 default values will configure the XX, XS, SM, and MD buttons to resize the 
@@ -445,6 +423,8 @@ Contributed extensions:
 * Install and update contributed extensions with NPM in the `extend` directory.
 * Add the tasks to `extend/contrib.js` (and `extend/auxiliary/auxiliary_contrib.js` 
   if necessary) in order for Fepper to run them.
+* Contributed Fepper extensions can be found at https://www.npmjs.com/ by 
+  searching for "Fepper extension".
 
 Custom extensions:
 
@@ -460,6 +440,27 @@ Custom extensions:
 * The `fp` command is an alias for `gulp` (among other things). Any `fp` task 
   can be included in a custom task.
 * Fepper only supports gulp 3 syntax.
+
+Confs and prefs:
+
+You might need to access the values in `conf.yml` and `pref.yml` in order to 
+write custom tasks. They are exposed through `global.conf` and `global.pref` 
+respectively.
+
+The values in `patternlab-config.json` are exposed through `global.conf.ui`. One 
+thing to note is that all paths in `patternlab-config.json` will be converted to 
+absolute paths in `global.conf.ui`.
+
+`gulp.watch` will not work correctly with absolute paths. There are two 
+workarounds for this:
+
+* Hard-code a relative path as the first `gulp.watch` parameter. Pass an 
+  absolute path (from `global.conf.ui.paths` or otherwise) as the `options.cwd` 
+  value for the second parameter.
+* Pass a value from `global.conf.ui.pathsRelative` as the first parameter.
+  * `global.conf.ui.pathsRelative` stores relative versions of the values in 
+    `global.conf.ui.paths`.
+  * This will still probably require `options.cwd` in the second parameter.
 
 ### <a id="express-app"></a>Express App
 
