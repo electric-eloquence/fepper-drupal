@@ -60,22 +60,22 @@ Copyright: Alex Grichenko
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=50301&picture=sunrise-in-mountains
+* Source: https://www.publicdomainpictures.net/en/view-image.php?image=50301&picture=sunrise-in-mountains
 
 Copyright: Shaun Pierre
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=40694&picture=blue-mountains
+* Source:https://www.publicdomainpictures.net/en/view-image.php?image=40694&picture=blue-mountains
 
-Copyright: Public Domain Archive
+Copyright: Richard Moore
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://publicdomainarchive.com/winter-mountain-glacier-grey-blue/
+* Source: https://commons.wikimedia.org/wiki/File:Matanuska_Glacier_mouth.jpg
 
 Copyright: Alex Grichenko
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=55734&picture=night-sky-in-mountains
+* Source: https://www.publicdomainpictures.net/en/view-image.php?image=55734&picture=night-sky-in-mountains
