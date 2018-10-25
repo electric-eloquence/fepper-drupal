@@ -30,13 +30,12 @@ Drupal theme to match the look and feel of the Fepper frontend.
 * However, if you wish to replicate the look and feel of the Fepper demo site 
   ([as per the screenshot](https://raw.githubusercontent.com/electric-eloquence/fepper-drupal/dev/backend/drupal/themes/fepper/screenshot.png)), 
   you should follow the Fepper documentation on 
-  [importing the sample Drupal backend](https://github.com/electric-eloquence/fepper-drupal#drupal-install) 
-  mentioned earlier. This will serve as a starting point for further 
-  customization.
+  [importing the sample Drupal backend](https://github.com/electric-eloquence/fepper-drupal#drupal-install).
+  This will serve as a starting point for further customization.
 
 ## CONFIGURATION
 
-The theme has no menu or administerable settings.
+This theme has no menu or administerable settings.
 
 ## COPYRIGHT
 
@@ -60,22 +59,22 @@ Copyright: Alex Grichenko
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=50301&picture=sunrise-in-mountains
+* Source: https://www.publicdomainpictures.net/en/view-image.php?image=50301&picture=sunrise-in-mountains
 
 Copyright: Shaun Pierre
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=40694&picture=blue-mountains
+* Source:https://www.publicdomainpictures.net/en/view-image.php?image=40694&picture=blue-mountains
 
-Copyright: Public Domain Archive
+Copyright: Richard Moore
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://publicdomainarchive.com/winter-mountain-glacier-grey-blue/
+* Source: https://commons.wikimedia.org/wiki/File:Matanuska_Glacier_mouth.jpg
 
 Copyright: Alex Grichenko
 
 * License: CC0 1.0 Universal (CC0 1.0)
 * License URI: https://creativecommons.org/publicdomain/zero/1.0/
-* Source: http://www.publicdomainpictures.net/view-image.php?image=55734&picture=night-sky-in-mountains
+* Source: https://www.publicdomainpictures.net/en/view-image.php?image=55734&picture=night-sky-in-mountains
