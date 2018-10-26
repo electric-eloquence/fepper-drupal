@@ -121,8 +121,8 @@ values for template reuse:
 
 #### Windows install
 
-* Assumes you haven't checked out the Fepper-Windows project and just need to 
-  add the Windows scripts to your project.
+* Assumes you haven't checked out the Fepper for Windows project and just need 
+  to add the Windows scripts to your project.
 * Also assumes you have Node.js installed.
 * PowerShell >= 3.0 required.
 * Open PowerShell and enter `npm run install-windows`
@@ -158,6 +158,8 @@ processed and copied to the backend.
   * `fp ui:help` - print documentation of Fepper UI tasks. Any one of those 
     tasks is also runnable.
   * `fp version` - print versions of Fepper NPM, Fepper CLI, and Fepper UI.
+* Submitting any `fp` command with the `-d` or `--debug` switch will run it in 
+  `debug` mode.
 * If using Git for version control, directories named "ignore" will be ignored.
 
 ### <a id="update"></a>Update
@@ -290,18 +292,8 @@ INFORMATION CONTAINED WITHIN THE SOURCE CODE!
 <a href="https://www.npmjs.com/package/feplet" target="_blank">Feplet</a> 
 (.mustache) code can be viewed in the Fepper UI by clicking the eyeball icon in 
 the upper right, then clicking Code, and then clicking the Mustache tab in the 
-bottom pane. The partial tags are hot-linked, and if they are written in the 
-verbose syntax, clicking on them will open that .mustache file and display its 
-code in the Fepper UI, with its partial tags hot-linked as well.
-
-The partial tags must be coded in the verbose-pathed manner: 
-
-```
-{{> 02-components/00-global/00-header }}
-```
-
-The path must be correct; however, the `.mustache` extension is optional. The 
-default homepage contains working examples of browsable partial tags.
+bottom pane. Clicking the hot-linked area will open the pattern's .mustache file 
+and display its code in the Fepper UI, with its partial tags hot-linked as well.
 
 Fepper's implementation of Mustache is powered by the 
 <a href="https://www.npmjs.com/package/feplet" target="_blank">Feplet</a> 
@@ -385,7 +377,7 @@ means infinity.
 
 All aspects of the UI are available for customization. For example, the toolbar 
 can accept additions, modifications, and deletions per the needs of end users. 
-The UI is built by recursive, functional React calls. The recursion tree is 
+The UI is compiled by recursive, functional React calls. The recursion tree is 
 reflected by the directory structure containing the modules which compose the 
 UI. To override any given module, copy the directory structure leading to the 
 module from 
@@ -395,10 +387,37 @@ to `source/_ui/index/html`, respective to your implementation. Modifications to
 modules in that directory will override the corresponding modules in core. 
 Additions (so long as they are correctly nested) will also be recognized.
 
-While it is a better practice to componentize scripts this way, generic 
-modifications to UI JavaScript can be added to `source/_scripts/ui-extender.js`.
+A working example of UI customization can be found at 
+<a href="https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_ui/index/html/00-head/head.component.js" target="_blank">
+https&colon;//github.com/electric-eloquence/fepper-drupal/blob/dev/source/_ui/index/html/00-head/head.component.js</a>. 
+The Fepper for Drupal project overrides its HTML title to read "Fepper D8" 
+instead of "Fepper". In order to do so, it has the `head.component.js` module 
+nested in directories that correspond to the tags that nest the `head` HTML 
+element. Both `head.component.js` and its nesting directories must be named 
+similarly their corresponding elements. `.component.js` indicates that the file 
+is a module to be rendered by React. 
+<a href="https://reactjs.org/docs/dom-elements.html" target="_blank">
+It must export properties that `React.createElement()` understands</a>. 
+The numeric prefix to `00-head` orders it to precede `01-foot`, even though 
+"foot" precedes "head" alphabetically.
 
-Similarly, generic modifications to UI CSS can be added to 
+In this example, by allowing customizations in the `00-head` directory separate 
+from the core components, core updates will be respected for all components 
+except for the HTML head.
+
+Browser scripting and style customizations can (and should) be componentized 
+this way as well. While a head element is unlikely to have pertinent scripts or 
+styles, the UI's main element does have its scripts and styles componentized as 
+<a href="https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html/01-body/40-main" target="_blank">
+main.js and main.css in index/html/01-body/40-main</a>. A big advantage for 
+this type of componentization comes when elements are renamed or deleted. When 
+you rename or delete the element, are you _absolutely_ sure you'll rename or 
+delete for that element in some far-flung script or style file?
+
+Alas, no one should _force_ you to componentize this way. Generic modifications 
+to UI scripts can be added to `source/_scripts/ui-extender.js`.
+
+Similarly, generic modifications to UI styles can be added to 
 `source/_styles/pattern-scaffolding.css`. (The file is named this way to adhere 
 to <a href="https://patternlab.io/docs/pattern-states.html" target="_blank"> 
 the Pattern Lab documentation on pattern states</a>. It should not be relied on 
