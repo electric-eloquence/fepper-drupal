@@ -158,7 +158,7 @@ processed and copied to the backend.
   * `fp ui:help` - print documentation of Fepper UI tasks. Any one of those 
     tasks is also runnable.
   * `fp version` - print versions of Fepper NPM, Fepper CLI, and Fepper UI.
-* Entering a `-d` or `--debug` switch will run the command in `debug` mode.
+* Enter a `-d` or `--debug` switch to run the command in `debug` mode.
 * If using Git for version control, directories named "ignore" will be ignored.
 
 ### <a id="update"></a>Update
@@ -376,10 +376,10 @@ means infinity.
 
 All aspects of the UI are available for customization. For example, the toolbar 
 can accept additions, modifications, and deletions per the needs of end users. 
-The UI is compiled by recursive, functional React calls. The recursion tree is 
-reflected by the directory structure containing the modules which compose the 
-UI. To override any given module, copy the directory structure leading to the 
-module from 
+The UI markup is compiled by recursive, functional React calls. The recursion 
+tree is reflected by the directory structure containing the modules which 
+compose the UI. To override any given module, copy the directory structure 
+leading to the module from 
 <a href="https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html" target="_blank">
 https&colon;//github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html</a> 
 to `source/_ui/index/html`, respective to your implementation. Modifications to 
@@ -404,16 +404,16 @@ In this example, by allowing customizations in the `00-head` directory separate
 from the core components, core updates will be respected for all components 
 except for the HTML head.
 
-Browser scripting and style customizations can (and should) be componentized 
-this way as well. While a head element is unlikely to have pertinent scripts or 
+Browser JavaScript and CSS customizations can (and should) be componentized 
+this way as well. While a head element is unlikely to have associated scripts or 
 styles, the UI's main element does have its scripts and styles componentized as 
 <a href="https://github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/index/html/01-body/40-main" target="_blank">
-main.js and main.css in index/html/01-body/40-main</a>. A big advantage for 
-this type of componentization comes when elements are renamed or deleted. When 
-you rename or delete the element, are you _absolutely_ sure you'll rename or 
-delete for that element in some far-flung script or style file?
+`main.js` and `main.css` in `index/html/01-body/40-main`</a>. A big advantage 
+for this type of componentization comes when elements are renamed or deleted. 
+When you rename or delete the element, are you _absolutely_ sure you'll rename 
+or delete accordingly in some far-flung, monolithic script or style file?
 
-Alas, no one should _force_ you to componentize this way. Generic modifications 
+Alas, no one should be _forced_ to componentize this way. Generic modifications 
 to UI scripts can be added to `source/_scripts/ui-extender.js`.
 
 Similarly, generic modifications to UI styles can be added to 
@@ -432,7 +432,7 @@ View All styles can be added to regular pattern styles in `source/_styles`.
 You will need to compile the UI in order for the browser to pick up custom 
 changes to the UI:
 
-```
+```shell
 fp ui:compile
 ```
 
