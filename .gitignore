@@ -10,9 +10,6 @@
 /extend/
 /install.log
 /npm-debug.log
-/package-lock.json
-/patternlab-config.json
-/pref.yml
 /public/*
 /source/
 /source/_styles/src/*.css
