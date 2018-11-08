@@ -13,6 +13,6 @@
 /package-lock.json
 /patternlab-config.json
 /public/*
-/source/_styles/src/*.css
+/source/_styles/src/tmp/
 ignore/
 node_modules/
