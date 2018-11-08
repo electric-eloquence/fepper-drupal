@@ -3,7 +3,6 @@
 const spawnSync = require('child_process').spawnSync;
 const fs = require('fs-extra');
 const path = require('path');
-const yaml = require('js-yaml');
 
 const fepperNpmPath = path.resolve('node_modules', 'fepper');
 const excludesDir = path.resolve(fepperNpmPath, 'excludes');
@@ -30,26 +29,8 @@ if (!fs.existsSync(prefFile)) {
   fs.copySync(prefFileSrc, prefFile);
 }
 
-let conf = {};
-
-// Need to read conf.yml to get the "headed" conf.
-try {
-  let yml = fs.readFileSync(confFile, 'utf8');
-  conf = yaml.safeLoad(yml);
-}
-catch (err) {
-  // eslint-disable-next-line no-console
-  console.error(err);
-}
-
 const argv = [indexJs, 'install'];
-
-// The "headed" conf is for internal Fepper development only. Necessary when requiring fepper-npm with `npm link`.
-if (conf.headed) {
-  argv.push('headed');
-  argv.push(process.cwd());
-}
-
+const conf = {};
 const spawnedObj = spawnSync('node', argv, {stdio: 'inherit'});
 
 // Output to install.log.
