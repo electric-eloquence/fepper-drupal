@@ -7,9 +7,11 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-#### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate those templates.
+#### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
 
-* [Main project](https://github.com/electric-eloquence/fepper)
+#### To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
+
+* [Main project (Fepper without Drupal)](https://github.com/electric-eloquence/fepper)
 
 ### Template Reuse
 The patterns in `source/03-templates` are parameterized to reuse templates in a 
