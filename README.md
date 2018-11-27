@@ -111,7 +111,7 @@ values for template reuse:
   * After Node.js installation, double-click `fepper.vbs` again.
     * This will install <a href="https://www.npmjs.com/package/fepper-cli" target="_blank">
       fepper-cli</a>, which will give you the `fp` command.
-    * This will then install and launch Fepper.
+    * It will then install and launch Fepper.
 
 #### Drupal install
 
@@ -433,7 +433,7 @@ View All markup can also be overridden by copying the `.mustache` files in
 https&colon;//github.com/electric-eloquence/fepper-npm/tree/dev/ui/core/styleguide/viewall</a> 
 and pasting them to `source/_ui/viewall` (nested correctly). Modifications will 
 then be recognized and displayed in the UI. (No additions are allowed.) Custom 
-View All styles can be added to regular pattern styles in `source/_styles`.
+View All styles can be added to `source/_styles/pattern-scaffolding.css`.
 
 You will need to compile the UI in order for the browser to pick up custom 
 changes to the UI:
