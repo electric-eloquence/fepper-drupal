@@ -70,7 +70,7 @@ values for template reuse:
 #### System requirements
 
 * Unix-like or Windows OS.
-* Minimum supported Node.js version 8.5.0.
+* Minimum supported Node.js version 8.10.0.
 
 #### Simplest way to get started
 
