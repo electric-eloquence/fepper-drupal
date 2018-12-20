@@ -7,11 +7,11 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-[![Known Vulnerabilities](https://snyk.io/test/github/electric-eloquence/fepper/badge.svg)](https://snyk.io/test/github/electric-eloquence/fepper)
-[![Mac/Linux Build Status](https://img.shields.io/travis/electric-eloquence/fepper.svg)](https://travis-ci.org/electric-eloquence/fepper)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/e2tha-e/fepper.svg?label=appveyor)](https://ci.appveyor.com/project/e2tha-e/fepper)
+[![Known Vulnerabilities](https://snyk.io/test/github/electric-eloquence/fepper-drupal/badge.svg)](https://snyk.io/test/github/electric-eloquence/fepper-drupal)
+[![Mac/Linux Build Status](https://img.shields.io/travis/electric-eloquence/fepper-drupal.svg)](https://travis-ci.org/electric-eloquence/fepper-drupal)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/e2tha-e/fepper-drupal.svg?label=appveyor)](https://ci.appveyor.com/project/e2tha-e/fepper-drupal)
 ![Node Version](https://img.shields.io/node/v/fepper.svg)
-[![License](https://img.shields.io/github/license/electric-eloquence/fepper.svg)](https://raw.githubusercontent.com/electric-eloquence/fepper/release/LICENSE)
+[![License](https://img.shields.io/github/license/electric-eloquence/fepper-drupal.svg)](https://raw.githubusercontent.com/electric-eloquence/fepper-drupal/release/LICENSE)
 
 #### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
 
