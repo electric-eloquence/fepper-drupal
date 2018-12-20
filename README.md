@@ -7,6 +7,12 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
+[![Known Vulnerabilities](https://snyk.io/test/github/electric-eloquence/fepper/badge.svg)](https://snyk.io/test/github/electric-eloquence/fepper)
+[![Mac/Linux Build Status](https://img.shields.io/travis/electric-eloquence/fepper.svg)](https://travis-ci.org/electric-eloquence/fepper)
+[![Windows Build Status](https://img.shields.io/appveyor/ci/e2tha-e/fepper.svg?label=appveyor)](https://ci.appveyor.com/project/e2tha-e/fepper)
+![Node Version](https://img.shields.io/node/v/fepper.svg)
+[![License](https://img.shields.io/github/license/electric-eloquence/fepper.svg)](https://raw.githubusercontent.com/electric-eloquence/fepper/release/LICENSE)
+
 #### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
 
 #### To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
@@ -249,7 +255,7 @@ Follow these rules for setting up keys and values:
 * Delete the Feplet curly braces for keys.
 * Trim any exterior whitespace.
 * Leave other control structures within the key, e.g., !#/>^
-* Escape parentheses, carets, and question marks with a backslash.
+* Escape parentheses, carets, and question marks with backslashes.
 * Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, the numeral 2, and a 
   newline `: |2`
@@ -288,9 +294,9 @@ into the `webserved_dirs` block in `pref.yml`. Be sure these values are
 formatted as YAML array elements.
 
 > DO NOT INCLUDE DIRECTORIES WITH SOURCE CODE! MANY PUBLIC HOSTS DO NOT 
-PREPROCESS PHP AND OTHER PROGRAMMING LANGUAGES OUT OF THE BOX, SO ANY PUBLISHED 
-SOURCE CODE WILL BE RENDERED AS PLAIN TEXT! THIS WILL MAKE PUBLIC ANY SENSITIVE 
-INFORMATION CONTAINED WITHIN THE SOURCE CODE!
+  PREPROCESS PHP AND OTHER PROGRAMMING LANGUAGES OUT OF THE BOX, SO ANY 
+  PUBLISHED SOURCE CODE WILL BE RENDERED AS PLAIN TEXT! THIS WILL MAKE PUBLIC 
+  ANY SENSITIVE INFORMATION CONTAINED WITHIN THE SOURCE CODE!
 
 ### <a id="mustache-browser"></a>Mustache Browser
 
@@ -331,8 +337,6 @@ Otherwise, the Scraper will scrape all elements of that class or tag
 sequentially. Such a loosely targeted scrape will save many of the targeted 
 fields to a JSON file, but will only save the first instance of the target to a 
 Feplet (.mustache) file.
-
-You will probably need to allow pop-ups in order to submit.
 
 Upon submission, you should be able to review the scraped output on the 
 subsequent page. If the output looks correct, enter a filename and submit again. 
@@ -484,7 +488,9 @@ Custom extensions:
   instance will be independent of any other gulp instance on your system.
 * The `fp` command is an alias for `gulp` (among other things). Any `fp` task 
   can be included in a custom task.
-* Fepper only supports gulp 3 syntax.
+* Fepper only supports 
+  <a href="https://github.com/electric-eloquence/gulp#readme" target="_blank">gulp 3</a> 
+  syntax.
 
 Confs and prefs:
 

@@ -1,4 +1,12 @@
 language: node_js
+os:
+  - linux
+  - osx
 node_js:
-  - "stable"
   - "8.10.0"
+  - "10"
+  - "stable"
+branches:
+  only:
+  - master
+  - release
