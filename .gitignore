@@ -1,15 +1,14 @@
 !/public/package.json
 !/source/_static/node_modules/
+*.log
 .*.swp
 .DS_Store
 .publish/
 /.timestamp
 /backend/drupal/sites/default/files/
 /conf.yml
-/install.log
-/npm-debug.log
-/package-lock.json
 /public/*
 /source/_styles/src/tmp/
 ignore/
 node_modules/
+package-lock.json
