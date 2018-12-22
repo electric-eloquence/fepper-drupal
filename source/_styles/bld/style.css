@@ -94,7 +94,7 @@ html {
 }
 body {
   background: #fff;
-  font: 1.6em/1.5 Helvetica, "Liberation Sans", "Roboto", sans-serif;
+  font: 1.6em/1.5 Helvetica, "Nimbus Sans L", "Liberation Sans", Roboto, sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333;
   min-width: 320px;
