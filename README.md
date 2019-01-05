@@ -290,7 +290,7 @@ data parameters as follows:
 {{> 02-components/00-global/99-example(greeting: 'Hello', place: 'World') }}
 ```
 
-02-components/00-global/99-example.mustache:
+##### 02-components/00-global/99-example.mustache:
 
 ```
 {{ greeting }} {{ place }}
