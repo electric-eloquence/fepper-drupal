@@ -41,7 +41,7 @@ values for template reuse:
   <a href="https://mustache.github.io/mustache.5.html" target="_blank">
   Non-False Values</a>.
 * Quoting of keys and values should follow 
-  <a href="http://json5.org" target="_blank">JSON5 syntax</a>.
+  <a href="https://json5.org" target="_blank">JSON5 syntax</a>.
 * (Avoid quotes if you can.)
 * When quoting is necessary, to avoid escaping special characters in .mustache 
   files, wrap parameter keys in double-quotes and values in single-quotes.
