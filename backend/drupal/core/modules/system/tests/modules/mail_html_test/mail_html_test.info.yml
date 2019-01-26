@@ -1,0 +1,12 @@
+name: 'HTML mail test support'
+description: 'Test if HTML in mails works as expected.'
+type: module
+package: Testing
+# version: VERSION
+# core: 8.x
+
+# Information added by Drupal.org packaging script on 2019-01-16
+version: '8.6.7'
+core: '8.x'
+project: 'drupal'
+datestamp: 1547682295
