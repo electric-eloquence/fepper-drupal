@@ -1,9 +1,8 @@
-!/public/package.json
-!/source/_static/node_modules/
 *.log
+*.tmp*
+*~
 .*.swp
 .DS_Store
-.publish/
 /.timestamp
 /backend/drupal/modules/devel/
 /backend/drupal/sites/default/files/
@@ -11,7 +10,8 @@
 /extend/
 /patternlab-config.json
 /public/*
-/source/_styles/src/tmp/
+!/public/package.json
 ignore/
 node_modules/
+!/source/_static/node_modules/
 package-lock.json
