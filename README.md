@@ -15,9 +15,8 @@
 
 #### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
 
-#### To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
-
-* [Main project (Fepper without Drupal)](https://github.com/electric-eloquence/fepper)
+* To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
+* If you don't need to interface with Drupal, [click here for the main distro](https://github.com/electric-eloquence/fepper).
 
 ### Template Reuse
 The patterns in `source/03-templates` are parameterized to reuse templates in a 
