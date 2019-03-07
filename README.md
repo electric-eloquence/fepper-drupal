@@ -15,9 +15,8 @@
 
 #### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
 
-#### To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
-
-* [Main project (Fepper without Drupal)](https://github.com/electric-eloquence/fepper)
+* To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
+* If you don't need to interface with Drupal, [click here for the main distro](https://github.com/electric-eloquence/fepper).
 
 ### Template Reuse
 The patterns in `source/03-templates` are parameterized to reuse templates in a 
@@ -90,8 +89,8 @@ values for template reuse:
   * Double-click `fepper.command`.
   * If not already installed, this will install:
     * Node.js.
-    * <a href="https://www.npmjs.com/package/fepper-cli" target="_blank">
-      fepper-cli</a>, which will give you the `fp` command.
+    * <a href="https://www.npmjs.com/package/fepper-cli" target="_blank">fepper-cli</a>, 
+      which will give you the `fp` command.
   * If opening for the first time, macOS may warn that it can't be opened 
     because it is from an unidentified 
     developer.&nbsp;<a href="https://gist.github.com/e2tha-e/72364ca766cf5d2d1a732b6af4f3b7a8" target="_blank">*</a>
@@ -256,7 +255,7 @@ Follow these rules for setting up keys and values:
 
 * Delete the Feplet curly braces for keys.
 * Trim any exterior whitespace.
-* Leave other control structures within the key, e.g., !#/>^
+* Leave other control structures and spaces within the key, e.g., !#/>^
 * Escape parentheses, carets, and question marks with backslashes.
 * Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, the numeral 2, and a 
