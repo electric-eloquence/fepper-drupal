@@ -33,8 +33,8 @@ backend:
     # webserver.
     # - These directories will just be served; no syncing will occur with them
     #   unless they are also listed in synced_dirs. The files in webserved_dirs
-    #   can be browsed (or included) without having to copy them over into
-    #   Pattern Lab.
+    #   can be browsed (or included) without having to copy them over into the
+    #   Fepper frontend.
     # - Be sure a backend is plugged into Fepper.
     # - Create a list of relative paths which are to be served. Each path must
     #   contain the document root and the path from the document root to the
@@ -43,7 +43,7 @@ backend:
     # - To include the directories' files in your code (or to view them in a
     # - browser), enter the path without the document root. For example, if the
     #   setting is docroot/css, enter /css without docroot.
-    # - Do not use names that will collide with what's in Pattern Lab, i.e.
+    # - Do not use names that will collide with what's in the frontend, i.e.
     #   docroot/_assets, docroot/_scripts, etc.
     # - DO NOT INCLUDE DIRECTORIES WITH SOURCE CODE! GITHUB PAGES AND MANY OTHER
     #   PUBLIC HOSTS DO NOT PREPROCESS PHP AND OTHER PROGRAMMING LANGUAGES, SO
@@ -59,7 +59,14 @@ backend:
     - drupal/core/misc
 
 templater:
-  # By default, the Templater will not retain untranslated Mustache tags when
-  # translating to the backend's templating language. However, if the backend's
-  # templating language happens to be Mustache, set this value to true.
+  # By default, the Templater will not retain untranslated Feplet tags when
+  # translating to the backend's template language. However, if the backend's
+  # template language happens to be Feplet or Mustache, set this value to true.
   retain_mustache: false
+
+# The instance_file declares the class which defines the Fepper instance for
+# this project. If you wish to customize a subclass that inherits from the
+# default class, put the path to that file here. Make sure the path is relative
+# to this directory (the current working directory). This setting is safe to
+# delete. Fepper will instantiate the default class if it is missing.
+instance_file: node_modules/fepper/core/fepper.js
