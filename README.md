@@ -75,7 +75,7 @@ values for template reuse:
 #### System requirements
 
 * Unix-like or Windows OS.
-* Minimum supported Node.js version 8.10.0.
+* Minimum supported Node.js version 8.16.0.
 
 #### Simplest way to get started
 
@@ -468,7 +468,7 @@ The `extend` directory is purposed for extending Fepper's functionality.
 Extensions can be contributed or custom. The `extend` directory will not be 
 modified when updating Fepper.
 
-Contributed extensions:
+##### Contributed extensions:
 
 * Install and update contributed extensions with npm in the `extend` directory.
 * Add the tasks to `extend/contrib.js` (and `extend/auxiliary/auxiliary_contrib.js` 
@@ -477,7 +477,7 @@ Contributed extensions:
   <a href="https://www.npmjs.com/search?q=fepper%20extension" target="_blank">
   https://www.npmjs.com/search?q=fepper%20extension</a>
 
-Custom extensions:
+##### Custom extensions:
 
 * Write custom extensions in the `extend/custom` directory.
 * Extensions require a file ending in "~extend.js" in order for Fepper to 
@@ -488,13 +488,15 @@ Custom extensions:
   if necessary) in order for Fepper to run them.
 * Fepper runs a self-contained instance of gulp to manage tasks. This gulp 
   instance will be independent of any other gulp instance on your system.
+* For best results, set `const gulp = global.gulp`, not 
+  `const gulp = require('gulp')`.
 * The `fp` command is an alias for `gulp` (among other things). Any `fp` task 
   can be included in a custom task.
 * Fepper only supports 
   <a href="https://github.com/electric-eloquence/gulp#readme" target="_blank">gulp 3</a> 
   syntax.
 
-Confs and prefs:
+##### Confs and prefs:
 
 You might need to access the values in the `conf.yml` and `pref.yml` files in 
 order to write custom tasks. They are exposed through `global.conf` and 
@@ -505,23 +507,27 @@ Please note that all paths in `patternlab-config.json` will be converted to
 absolute paths in `global.conf.ui`. Relative paths can be accessed through 
 `global.conf.ui.pathsRelative`.
 
+##### Utilities:
+
 Common utilty functions for custom extensions are available from the
 <a href="https://www.npmjs.com/package/fepper-utils" target="_blank">Fepper Utils</a>
-npm. Its API documentation can be viewed by following 
-<a href="https://www.npmjs.com/package/fepper-utils" target="_blank">this link</a>.
+npm.
+
+##### Object-oriented Fepper:
 
 Beneath the gulp tasking system lies object-oriented Fepper. Running any `fp` 
 task instantiates the `Fepper` class. This instance is exposed through the 
 `global.fepper` object. By directly accessing the `Fepper` instance, you can run 
 any Fepper operation without gulp. Deeper within `Fepper` lies the `Patternlab` 
 class. By directly accessing `Patternlab`, you can run any Pattern Lab 
-operation without Fepper. The `Patternlab` instance is attached as 
+operation without Fepper. The `Patternlab` instance is attached to Fepper as 
 `global.fepper.ui.patternlab`. The `global.fepper` object can, of course, be 
 easily inspected in a console.
 
 If there is something you wish were different about the `Fepper` class, or any 
 of its member classes, you can inherit from the class, and make whatever changes 
-you wish, without worry that your changes will be wiped out by the next update.
+you wish, without worry that your changes will be overwritten by the next 
+update.
 
 Here is an example of overriding the `fp help` command:
 
