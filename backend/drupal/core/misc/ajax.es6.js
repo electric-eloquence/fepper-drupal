@@ -774,7 +774,7 @@
     // when there is a form such that this.$form.ajaxSubmit() is used instead of
     // $.ajax(). When there is no form and $.ajax() is used, beforeSerialize()
     // isn't called, but don't rely on that: explicitly check this.$form.
-    if (this.$form) {
+    if (this.$form && document.body.contains(this.$form.get(0))) {
       const settings = this.settings || drupalSettings;
       Drupal.detachBehaviors(this.$form.get(0), settings, 'serialize');
     }
@@ -1020,7 +1020,7 @@
     // attachBehaviors() called on the new content from processing the response
     // commands is not sufficient, because behaviors from the entire form need
     // to be reattached.
-    if (this.$form) {
+    if (this.$form && document.body.contains(this.$form.get(0))) {
       const settings = this.settings || drupalSettings;
       Drupal.attachBehaviors(this.$form.get(0), settings);
     }
@@ -1088,8 +1088,9 @@
     $(this.wrapper).show();
     // Re-enable the element.
     $(this.element).prop('disabled', false);
-    // Reattach behaviors, if they were detached in beforeSerialize().
-    if (this.$form) {
+    // Reattach behaviors, if they were detached in beforeSerialize(), and the
+    // form is still part of the document.
+    if (this.$form && document.body.contains(this.$form.get(0))) {
       const settings = this.settings || drupalSettings;
       Drupal.attachBehaviors(this.$form.get(0), settings);
     }
@@ -1333,6 +1334,26 @@
      */
     alert(ajax, response, status) {
       window.alert(response.text, response.title);
+    },
+
+    /**
+     * Command to provide triggers audio UAs to read the supplied text.
+     *
+     * @param {Drupal.Ajax} [ajax]
+     *   {@link Drupal.Ajax} object created by {@link Drupal.ajax}.
+     * @param {object} response
+     *   The JSON response from the Ajax request.
+     * @param {string} [response.text]
+     *   The text that will be read.
+     * @param {string} [response.priority]
+     *   An optional priority that will be used for the announcement.
+     */
+    announce(ajax, response) {
+      if (response.priority) {
+        Drupal.announce(response.text, response.priority);
+      } else {
+        Drupal.announce(response.text);
+      }
     },
 
     /**
