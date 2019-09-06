@@ -7,45 +7,24 @@
 
 <h2 align="center">A frontend prototyper tool for rapid prototyping of websites</h2>
 
-[![Known Vulnerabilities](https://snyk.io/test/github/electric-eloquence/fepper/badge.svg)](https://snyk.io/test/github/electric-eloquence/fepper)
-[![Mac/Linux Build Status](https://img.shields.io/travis/electric-eloquence/fepper.svg?label=mac%20%26%20linux)](https://travis-ci.org/electric-eloquence/fepper)
-[![Windows Build Status](https://img.shields.io/appveyor/ci/e2tha-e/fepper.svg?label=windows)](https://ci.appveyor.com/project/e2tha-e/fepper)
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![Mac/Linux Build Status][travis-image]][travis-url]
+[![Windows Build Status][appveyor-image]][appveyor-url]
 ![Node Version](https://img.shields.io/node/v/fepper.svg)
-[![License](https://img.shields.io/github/license/electric-eloquence/fepper-drupal.svg)](https://raw.githubusercontent.com/electric-eloquence/fepper-drupal/release/LICENSE)
+[![License][license-image]][license-url]
 
-#### This distribution of Fepper has templates configured for Drupal 8, along with a <a href="https://www.drupal.org/project/fepper" target="_blank">Drupal theme</a> built to accommodate these templates.
+### Downstream projects
 
-* To adapt this project to Drupal 7, please follow the instructions for <a href="https://github.com/electric-eloquence/fepper-drupal7-files" target="_blank">Fepper for Drupal 7</a>.
-* If you don't need to interface with Drupal, [click here for the main distro](https://github.com/electric-eloquence/fepper).
-
-### Template Reuse
-The patterns in `source/03-templates` are parameterized to reuse templates in a 
-Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
-Fepper templates can be exported to Drupal with no further effort beyond running 
-`fp template`. Follow these rules when constructing new parameter keys and 
-values for template reuse:
-
-* The parameters are submitted within parentheses inside the Mustache inclusion 
-  tags.
-* The parameter key should be <a href="http://getbem.com/naming/" target="_blank">
-  BEM-like</a> in syntax.
-* It should start with the target's significant identifier, usually a partial.
-* To ID this partial, use Pattern Lab's convention: `{type}-{pattern}`.
-* Follow that with any nested element or any modifying term (in BEM syntax).
-* Follow that with `~~` and then the pattern ID of the original page or pattern 
-  at the top level of recursion.
-* Follow that with any nested element or any modifying term (in BEM syntax).
-* This type of parameter is usually a boolean. End the key with a `?` to follow 
-  Mustache's convention for 
-  <a href="https://mustache.github.io/mustache.5.html" target="_blank">
-  Non-False Values</a>.
-* Quoting of keys and values should follow 
-  <a href="https://json5.org" target="_blank">JSON5 syntax</a>.
-* (Avoid quotes if you can.)
-* When quoting is necessary, to avoid escaping special characters in .mustache 
-  files, wrap parameter keys in double-quotes and values in single-quotes.
-* Consult the [Templater section](#templater) for additional documentation on 
-  configuring Mustache and YAML files to sync Fepper with Drupal.
+* [Fepper Base](https://github.com/electric-eloquence/fepper-base) - no 
+  unnecessary assets, styles, Pattern Lab demo, or 
+  <a href="https://www.npmjs.com/package/fp-stylus" target="_blank">fp-stylus</a> 
+  extension.
+* [Fepper for Drupal](https://github.com/electric-eloquence/fepper-drupal) - 
+  templates configured for Drupal, along with a Drupal theme built to 
+  accommodate those templates.
+* [Fepper for Wordpress](https://github.com/electric-eloquence/fepper-wordpress) 
+  \- templates configured for WordPress, along with a WordPress theme built to 
+  accommodate those templates.
 
 ### Table of contents
 
@@ -678,3 +657,15 @@ As a reminder, the viewport sizes can be customized in `source/_scripts/src/vari
 * <a href="https://mustache.github.io/mustache.5.html" target="_blank">
   Mustache</a>
 * <a href="https://www.npmjs.com/package/fepper-utils" target="_blank">Fepper Utils</a>
+
+[snyk-image]: https://snyk.io//test/github/electric-eloquence/fepper/master/badge.svg
+[snyk-url]: https://snyk.io//test/github/electric-eloquence/fepper/master
+
+[travis-image]: https://img.shields.io/travis/electric-eloquence/fepper.svg?label=mac%20%26%20linux
+[travis-url]: https://travis-ci.org/electric-eloquence/fepper
+
+[appveyor-image]: https://img.shields.io/appveyor/ci/e2tha-e/fepper.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/e2tha-e/fepper
+
+[license-image]: https://img.shields.io/github/license/electric-eloquence/fepper.svg
+[license-url]: https://raw.githubusercontent.com/electric-eloquence/fepper/master/LICENSE
