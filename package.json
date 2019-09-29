@@ -39,11 +39,11 @@
     "url": "https://github.com/electric-eloquence/fepper/issues"
   },
   "engines": {
-    "node": ">=8.16.0"
+    "node": ">=12.0.0"
   },
   "devDependencies": {
     "chai": "4.x",
-    "eslint": "5.x",
+    "eslint": "6.x",
     "fepper": "*",
     "fepper-utils": "*",
     "fs-extra": "^7.0.1",
