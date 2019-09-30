@@ -18,10 +18,17 @@ module.exports = {
 <link rel="stylesheet" href="{{ pathsPublic.css }}/pattern-scaffolding.css" media="all">
 {{! Namespace a window.FEPPER_UI object to contain globals. }}
 <script>window.FEPPER_UI = {};</script>
-{{! Load dependencies. }}
+{{! Load libraries. }}
+<script src="node_modules/feplet/dist/feplet.browser.min.js"></script>
+<script src="node_modules/he/he.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/fepper-ui/data/patternlab-data.js"></script>
-<script src="node_modules/fepper-ui/scripts/ui-functions.js"></script>
+<script src="node_modules/js-beautify/js/lib/beautify-html.js"></script>
+<script src="node_modules/mousetrap/mousetrap.min.js"></script>
+<script src="node_modules/prismjs/prism.js"></script>
+<script src="node_modules/redux/dist/redux.min.js"></script>
+<script src="node_modules/typeahead.js/dist/typeahead.bundle.min.js"></script>
+<script src="node_modules/universal-cookie/umd/universalCookie.min.js"></script>
+<script src="node_modules/wolfy87-eventemitter/EventEmitter.min.js"></script>
 <script src="{{ pathsPublic.js }}/src/variables.styl" type="text/javascript"></script>
 <script src="{{ pathsPublic.js }}/src/fepper-obj.js"></script>
 `
