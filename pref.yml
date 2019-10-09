@@ -1,4 +1,6 @@
 backend:
+  backend_dir: backend
+
   synced_dirs:
     # Relative paths to destination directories for code developed in Fepper.
     # - First, plug a backend into Fepper. Put the actual codebase or even just
