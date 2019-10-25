@@ -10,7 +10,7 @@
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 [![Mac/Linux Build Status][travis-image]][travis-url]
 [![Windows Build Status][appveyor-image]][appveyor-url]
-![Node Version](https://img.shields.io/node/v/fepper.svg)
+![Node Version][node-version-image]
 [![License][license-image]][license-url]
 
 ### BROWSER SUPPORT NOTICE!
@@ -694,11 +694,13 @@ As a reminder, the viewport sizes can be customized in `source/_scripts/src/vari
 [snyk-image]: https://snyk.io//test/github/electric-eloquence/fepper-drupal/master/badge.svg
 [snyk-url]: https://snyk.io//test/github/electric-eloquence/fepper-drupal/master
 
-[travis-image]: https://img.shields.io/travis/electric-eloquence/fepper-drupal.svg?label=mac%20%26%20linux
+[travis-image]: https://img.shields.io/travis/electric-eloquence/fepper-drupal/master.svg?label=mac%20%26%20linux
 [travis-url]: https://travis-ci.org/electric-eloquence/fepper-drupal
 
-[appveyor-image]: https://img.shields.io/appveyor/ci/e2tha-e/fepper-drupal.svg?label=windows
+[appveyor-image]: https://img.shields.io/appveyor/ci/e2tha-e/fepper-drupal/master.svg?label=windows
 [appveyor-url]: https://ci.appveyor.com/project/e2tha-e/fepper-drupal
+
+[node-version-image]: https://img.shields.io/node/v/fepper.svg
 
 [license-image]: https://img.shields.io/github/license/electric-eloquence/fepper-drupal.svg
 [license-url]: https://raw.githubusercontent.com/electric-eloquence/fepper-drupal/master/LICENSE
