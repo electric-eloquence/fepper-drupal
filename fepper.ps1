@@ -11,7 +11,7 @@ else
   $archMsi = "x64.msi"
 }
 
-$nodeVersion = "v12.14.0"
+$nodeVersion = "v12.15.0"
 $nodeMsi = "node-" + $nodeVersion + "-" + $archMsi
 $nodeMsiFull = $PSScriptRoot + "\" + $nodeMsi
 $whereNode = where.exe node
@@ -26,7 +26,6 @@ if ($whereNode -Like "*\node.exe")
   if (-Not (Test-Path node_modules))
   {
     echo "npm installing..."
-    npm install -g --production windows-build-tools --vs2015
     npm install -g fepper-cli
     npm install
   }

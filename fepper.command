@@ -6,7 +6,7 @@ cd $root_dir
 
 # Check if Node.js is installed. Install if it isn't.
 has_node=`which node`
-node_version="v12.14.0"
+node_version="v12.15.0"
 node_pkg="node-${node_version}.pkg"
 
 if [[ $has_node != *bin/node ]]; then
@@ -18,23 +18,6 @@ fi
 # Delete installer file.
 if [ -f $node_pkg ]; then
   rm $node_pkg
-fi
-
-# Check if Xcode command line developer tools are installed.
-command_line_tools=`ls /Library/Developer/CommandLineTools`
-
-if [[ $command_line_tools == "" ]]; then
-  xcodebuild_bin=`which xcodebuild`
-
-  # Prompt to install command line tools before continuing.
-  if [[ $xcodebuild_bin == "/usr/bin/xcodebuild" ]]; then
-    xcodebuild_version=`xcodebuild -version`
-
-    # Exit if xcodebuild does not return a version, meaning command line tools are not installed.
-    if [[ $xcodebuild_version == "" ]]; then
-      exit 126
-    fi
-  fi
 fi
 
 # Check if fepper-cli is installed. Install if it isn't.
