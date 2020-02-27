@@ -96,7 +96,7 @@
   }
 }
 @media all and (min-width: 768px) {
-  [role="main"] {
+  #main {
     display: flex;
     justify-content: space-between;
   }
@@ -147,7 +147,7 @@
     justify-content: center;
   }
 }
-.path-frontpage [role="main"] {
+.path-frontpage #main {
   flex-wrap: wrap;
 }
 .path-frontpage .layout-content {
