@@ -72,7 +72,6 @@
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] img,
   .view-id-content_recent.view-display-id-page_1 [role="article"] img {
     float: left;
-    height: auto;
     width: 33.333333333333336%;
   }
 }
