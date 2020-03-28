@@ -1,14 +1,14 @@
 .cf::before,
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::before,
 [id^="block-"][id$="-local-tasks"]::before,
-[role="main"]::before,
+#main::before,
 .layout-content::before,
 #region-highlighted::before,
 [id^="block-"][id$="-footer"]::before,
 .cf::after,
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
 [id^="block-"][id$="-local-tasks"]::after,
-[role="main"]::after,
+#main::after,
 .layout-content::after,
 #region-highlighted::after,
 [id^="block-"][id$="-footer"]::after {
@@ -18,14 +18,14 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
 .cf::after,
 section[rel="schema:comment"] article[typeof="schema:Comment"] > footer::after,
 [id^="block-"][id$="-local-tasks"]::after,
-[role="main"]::after,
+#main::after,
 .layout-content::after,
 #region-highlighted::after,
 [id^="block-"][id$="-footer"]::after {
   clear: both;
 }
 .lc,
-[role="main"],
+#main,
 .layout-container > *:not(footer),
 .layout-container > footer > * {
   clear: both;
@@ -237,6 +237,9 @@ img,
 video,
 object {
   max-width: 100%;
+}
+img {
+  height: auto;
 }
 .layout-container .alert-wrapper {
   padding-bottom: 0;
@@ -769,7 +772,7 @@ nav li,
     height: auto;
   }
 }
-[role="main"] {
+#main {
   padding: 0.8rem;
   overflow: hidden;
 }
