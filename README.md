@@ -695,14 +695,14 @@ As a reminder, the viewport sizes can be customized in `source/_scripts/src/vari
 [snyk-image]: https://snyk.io//test/github/electric-eloquence/fepper-drupal/master/badge.svg
 [snyk-url]: https://snyk.io//test/github/electric-eloquence/fepper-drupal/master
 
-[linux-image]: https://github.com/electric-eloquence/fepper/workflows/Linux%20build/badge.svg?branch=master
-[linux-url]: https://github.com/electric-eloquence/fepper/actions?query=workflow%3A"Linux+build"
+[linux-image]: https://github.com/electric-eloquence/fepper-drupal/workflows/Linux%20build/badge.svg?branch=master
+[linux-url]: https://github.com/electric-eloquence/fepper-drupal/actions?query=workflow%3A"Linux+build"
 
-[mac-image]: https://github.com/electric-eloquence/fepper/workflows/Mac%20build/badge.svg?branch=master
-[mac-url]: https://github.com/electric-eloquence/fepper/actions?query=workflow%3A"Mac+build"
+[mac-image]: https://github.com/electric-eloquence/fepper-drupal/workflows/Mac%20build/badge.svg?branch=master
+[mac-url]: https://github.com/electric-eloquence/fepper-drupal/actions?query=workflow%3A"Mac+build"
 
-[windows-image]: https://github.com/electric-eloquence/fepper/workflows/Windows%20build/badge.svg?branch=master
-[windows-url]: https://github.com/electric-eloquence/fepper/actions?query=workflow%3A"Windows+build"
+[windows-image]: https://github.com/electric-eloquence/fepper-drupal/workflows/Windows%20build/badge.svg?branch=master
+[windows-url]: https://github.com/electric-eloquence/fepper-drupal/actions?query=workflow%3A"Windows+build"
 
 [node-version-image]: https://img.shields.io/node/v/fepper.svg
 
