@@ -1,7 +1,7 @@
 <section rel="schema:comment">
   <h2>Comments</h2>
   {{# listItems.five }}
-    <a id="{{ id }}"></a>
+    <a id="comment-{{ listitem_id }}"></a>
     {{> 03-templates/comment(
       comment_attributes: ' class="js-comment" typeof="schema:Comment"',
       title_attributes: ' property="schema:name" datatype="" class="visually-hidden"',
