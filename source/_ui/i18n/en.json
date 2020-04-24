@@ -1,85 +1,168 @@
 {
-  "Nothing here yet!": "",
-  "Make sure there are patterns in source/_patterns": "",
-  "Run fp ui:compile": "",
-  "Run fp restart": "",
-  "Check the console for JavaScript errors": "",
-  "All": "",
-  "Size": "",
-  "W": "",
-  "Random": "",
-  "Disco": "",
-  "Grow": "",
-  "Search Patterns": "",
-  "View": "",
-  "Annotations": "",
-  "Code": "",
-  "Open in new window": "",
-  "Tools": "",
-  "Fepper Docs": "",
-  "Pattern Lab Docs": "",
-  "Keyboard Shortcuts": "",
-  "No Annotations": "",
-  "There are no annotations for this pattern": "",
-  "The state of": "",
-  "includes the following patterns": "",
-  "is included by the following patterns": "",
-  "Missing or malformed": "",
-  "Exiting!": "",
-  "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!": "",
-  "fepper-utils deepGet() requires a valid path parameter, e.g. deepGet(nest, 'egg.yolk')": "",
-  "extension contains invalid characters!": "",
-  "ERROR:": "",
-  "Missing an essential file from": "",
-  "Malformed": "",
-  "Found pattern-specific listitems.json for": "",
-  "There was an error parsing pattern-specific listitems.json for": "",
-  "Could not find optional user-defined header, usually found at": "",
-  "It was likely deleted": "",
-  "Could not find optional user-defined footer, usually found at": "",
-  "There is no public/index.html, which means the UI needs to be compiled": "",
-  "Please run fp ui:compile": "",
-  "The build used approximately": "",
-  "User Interface CLI": "",
-  "Use:": "",
-  "task": "",
-  "additional args": "",
-  "Tasks:": "",
-  "Build the patterns, outputting to the public directory": "",
-  "Delete all patterns in the public directory": "",
-  "Compile the user interface from its component parts": "",
-  "Copy frontend files (_assets, _scripts, _styles) to the public directory": "",
-  "Copy _styles to the public directory (for injection into browser without refresh)": "",
-  "Get more information about Fepper UI CLI commands": "",
-  "Invalid config object!": "",
-  "Found pseudo-pattern": "",
-  "variant of": "",
-  "Found new pattern": "",
-  "Found pattern-specific JSON data for": "",
-  "There was an error parsing pattern-specific JSON for": "",
-  "The partials list in viewall.mustache must have valid opening and closing tags!": "",
-  "There can be only one partials list in viewall.mustache!": "",
-  "is missing pattern": "",
-  "Listening on port": "",
-  "Running npm --global update on fepper-cli...": "",
-  "Running this command again as root/Administrator...": "",
-  "Running npm update in": "",
-  "Copied": "",
-  "to": "",
-  "Working directory changed to": "",
-  "Template": "",
-  "translated": "",
-  "Launch Fepper and open it in a browser": "",
-  "Build data.json from underscore-prefixed .json files": "",
-  "Copy assets, scripts, and styles to the backend": "",
-  "Do a one-off Fepper build to the public directory": "",
-  "Restart after shutdown, but without opening the browser": "",
-  "Generate a static site from the 04-pages directory": "",
-  "Combine frontend-copy and template tasks": "",
-  "Translate templates in 03-templates for the backend and copy them there": "",
-  "Compile the UI React components": "",
-  "Print UI tasks and descriptions": "",
-  "Update Fepper distro, Fepper CLI, Fepper NPM, Fepper UI, and Fepper extensions": "",
-  "Print versions of Fepper CLI, Fepper NPM, and Fepper UI": "",
-  "Print extension tasks and descriptions": ""
+  "Nothing here yet!":
+    "",
+  "Make sure there are patterns in source/_patterns":
+    "",
+  "Run fp ui:compile":
+    "",
+  "Run fp restart":
+    "",
+  "Check the console for JavaScript errors":
+    "",
+  "All":
+    "",
+  "Size":
+    "",
+  "W":
+    "",
+  "Random":
+    "",
+  "Disco":
+    "",
+  "Grow":
+    "",
+  "Search Patterns":
+    "",
+  "View":
+    "",
+  "Annotations":
+    "",
+  "Code":
+    "",
+  "Open in new window":
+    "",
+  "Tools":
+    "",
+  "Fepper Docs":
+    "",
+  "Pattern Lab Docs":
+    "",
+  "Keyboard Shortcuts":
+    "",
+  "No Annotations":
+    "",
+  "There are no annotations for this pattern":
+    "",
+  "The state of":
+    "",
+  "includes the following patterns":
+    "",
+  "is included by the following patterns":
+    "",
+  "Missing or malformed":
+    "",
+  "Exiting!":
+    "",
+  "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!":
+    "",
+  "fepper-utils deepGet() requires a valid path parameter, e.g. deepGet(nest, 'egg.yolk')":
+    "",
+  "extension contains invalid characters!":
+    "",
+  "ERROR:":
+    "",
+  "Missing an essential file from":
+    "",
+  "Malformed":
+    "",
+  "Found pattern-specific listitems.json for":
+    "",
+  "There was an error parsing pattern-specific listitems.json for":
+    "",
+  "Could not find optional user-defined header, usually found at":
+    "",
+  "It was likely deleted":
+    "",
+  "Could not find optional user-defined footer, usually found at":
+    "",
+  "There is no public/index.html, which means the UI needs to be compiled":
+    "",
+  "Please run fp ui:compile":
+    "",
+  "The build used approximately":
+    "",
+  "User Interface CLI":
+    "",
+  "Use:":
+    "",
+  "task":
+    "",
+  "additional args":
+    "",
+  "Tasks:":
+    "",
+  "Build the patterns, outputting to the public directory":
+    "",
+  "Delete all patterns in the public directory":
+    "",
+  "Compile the user interface from its component parts":
+    "",
+  "Copy frontend files (_assets, _scripts, _styles) to the public directory":
+    "",
+  "Copy _styles to the public directory (for injection into browser without refresh)":
+    "",
+  "Get more information about Fepper UI CLI commands":
+    "",
+  "Invalid config object!":
+    "",
+  "Found pseudo-pattern":
+    "",
+  "variant of":
+    "",
+  "Found new pattern":
+    "",
+  "Found pattern-specific JSON data for":
+    "",
+  "There was an error parsing pattern-specific JSON for":
+    "",
+  "The partials list in viewall.mustache must have valid opening and closing tags!":
+    "",
+  "There can be only one partials list in viewall.mustache!":
+    "",
+  "is missing pattern":
+    "",
+  "Listening on port":
+    "",
+  "Running npm --global update on fepper-cli...":
+    "",
+  "Running this command again as root/Administrator...":
+    "",
+  "Running npm update in":
+    "",
+  "Copied":
+    "",
+  "to":
+    "",
+  "Working directory changed to":
+    "",
+  "Template":
+    "",
+  "translated":
+    "",
+  "Launch Fepper and open it in a browser":
+    "",
+  "Build data.json from underscore-prefixed .json files":
+    "",
+  "Copy assets, scripts, and styles to the backend":
+    "",
+  "Do a one-off Fepper build to the public directory":
+    "",
+  "Restart after shutdown, but without opening the browser":
+    "",
+  "Generate a static site from the 04-pages directory":
+    "",
+  "Combine frontend-copy and template tasks":
+    "",
+  "Translate templates in 03-templates for the backend and copy them there":
+    "",
+  "Compile the UI React components":
+    "",
+  "Print UI tasks and descriptions":
+    "",
+  "Update Fepper distro, Fepper CLI, Fepper NPM, Fepper UI, and Fepper extensions":
+    "",
+  "Print versions of Fepper CLI, Fepper NPM, and Fepper UI":
+    "",
+  "Print extension tasks and descriptions":
+    ""
 }
