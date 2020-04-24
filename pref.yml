@@ -72,3 +72,5 @@ templater:
 # to this directory (the current working directory). This setting is safe to
 # delete. Fepper will instantiate the default class if it is missing.
 instance_file: node_modules/fepper/core/fepper.js
+
+lang: en
