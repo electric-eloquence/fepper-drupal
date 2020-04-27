@@ -95,7 +95,7 @@
     "",
   "Delete all patterns in the public directory":
     "",
-  "Compile the user interface from its component parts":
+  "Compile the user interface from its components":
     "",
   "Copy frontend files (_assets, _scripts, _styles) to the public directory":
     "",
@@ -145,7 +145,7 @@
     "",
   "Copy assets, scripts, and styles to the backend":
     "",
-  "Do a one-off Fepper build to the public directory":
+  "Output a new build to the public directory":
     "",
   "Restart after shutdown, but without opening the browser":
     "",
