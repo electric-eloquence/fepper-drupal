@@ -1,15 +1,11 @@
 {
-  "Nothing here yet!":
+  "View":
     "",
-  "Make sure there are patterns in source/_patterns":
+  "Annotations":
     "",
-  "Run fp ui:compile":
+  "Code":
     "",
-  "Run fp restart":
-    "",
-  "Check the console for JavaScript errors":
-    "",
-  "All":
+  "Open in new window":
     "",
   "Size":
     "",
@@ -21,16 +17,6 @@
     "",
   "Grow":
     "",
-  "Search Patterns":
-    "",
-  "View":
-    "",
-  "Annotations":
-    "",
-  "Code":
-    "",
-  "Open in new window":
-    "",
   "Tools":
     "",
   "Fepper Docs":
@@ -39,9 +25,19 @@
     "",
   "Keyboard Shortcuts":
     "",
-  "No Annotations":
+  "Search Patterns":
     "",
-  "There are no annotations for this pattern":
+  "All":
+    "",
+  "Nothing here yet!":
+    "",
+  "Make sure there are patterns in source/_patterns":
+    "",
+  "Run fp ui:compile":
+    "",
+  "Run fp restart":
+    "",
+  "Check the console for JavaScript errors":
     "",
   "The state of":
     "",
@@ -49,37 +45,31 @@
     "",
   "is included by the following patterns":
     "",
-  "Missing or malformed":
+  "No Annotations":
     "",
-  "Exiting!":
-    "",
-  "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!":
-    "",
-  "fepper-utils deepGet() requires a valid path parameter, e.g. deepGet(nest, 'egg.yolk')":
-    "",
-  "extension contains invalid characters!":
+  "There are no annotations for this pattern":
     "",
   "ERROR:":
     "",
-  "Missing an essential file from":
+  "Missing or malformed %s":
     "",
-  "Malformed":
+  "Missing an essential file from %s":
     "",
-  "Found pattern-specific listitems.json for":
+  "Malformed %s":
     "",
-  "There was an error parsing pattern-specific listitems.json for":
+  "Found pattern-specific listitems.json for %s":
     "",
-  "Could not find optional user-defined header, usually found at":
+  "There was an error parsing pattern-specific listitems.json for %s":
     "",
-  "It was likely deleted":
+  "Could not find optional user-defined header, usually found at %s":
     "",
-  "Could not find optional user-defined footer, usually found at":
+  "Could not find optional user-defined footer, usually found at %s":
     "",
   "There is no public/index.html, which means the UI needs to be compiled":
     "",
   "Please run fp ui:compile":
     "",
-  "The build used approximately":
+  "The build used approximately %s":
     "",
   "User Interface CLI":
     "",
@@ -95,7 +85,7 @@
     "",
   "Delete all patterns in the public directory":
     "",
-  "Compile the user interface from its component parts":
+  "Compile the user interface from its components":
     "",
   "Copy frontend files (_assets, _scripts, _styles) to the public directory":
     "",
@@ -105,35 +95,33 @@
     "",
   "Invalid config object!":
     "",
-  "Found pseudo-pattern":
+  "Found pseudo-pattern %s - variant of %s":
     "",
-  "variant of":
+  "Found new pattern %s":
     "",
-  "Found new pattern":
+  "Found pattern-specific JSON data for %s":
     "",
-  "Found pattern-specific JSON data for":
-    "",
-  "There was an error parsing pattern-specific JSON for":
+  "There was an error parsing pattern-specific JSON for %s":
     "",
   "The partials list in viewall.mustache must have valid opening and closing tags!":
     "",
   "There can be only one partials list in viewall.mustache!":
     "",
-  "is missing pattern":
+  "%s is missing pattern %s":
     "",
-  "Listening on port":
+  "Listening on port %s":
     "",
   "Running npm --global update on fepper-cli...":
     "",
   "Running this command again as root/Administrator...":
     "",
-  "Running npm update in":
+  "Running npm update in %s...":
     "",
   "Copied":
     "",
   "to":
     "",
-  "Working directory changed to":
+  "Working directory changed to %s":
     "",
   "Template":
     "",
@@ -145,7 +133,7 @@
     "",
   "Copy assets, scripts, and styles to the backend":
     "",
-  "Do a one-off Fepper build to the public directory":
+  "Output a new build to the public directory":
     "",
   "Restart after shutdown, but without opening the browser":
     "",
@@ -153,7 +141,7 @@
     "",
   "Combine frontend-copy and template tasks":
     "",
-  "Translate templates in 03-templates for the backend and copy them there":
+  "Translate templates in 03-templates for the backend, and copy them there":
     "",
   "Compile the UI React components":
     "",
@@ -164,5 +152,13 @@
   "Print versions of Fepper CLI, Fepper NPM, and Fepper UI":
     "",
   "Print extension tasks and descriptions":
+    "",
+  "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!":
+    "",
+  "Exiting!":
+    "",
+  "fepper-utils deepGet() requires a valid path parameter, e.g. deepGet(nest, 'egg.yolk')":
+    "",
+  "%s extension contains invalid characters!":
     ""
 }
