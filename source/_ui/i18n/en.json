@@ -81,7 +81,7 @@
     "",
   "Tasks:":
     "",
-  "Build the patterns, outputting to the public directory":
+  "Build the patterns and output them to the public directory":
     "",
   "Delete all patterns in the public directory":
     "",
@@ -89,7 +89,7 @@
     "",
   "Copy frontend files (_assets, _scripts, _styles) to the public directory":
     "",
-  "Copy _styles to the public directory (for injection into browser without refresh)":
+  "Copy _styles to the public directory (for injection into the browser without a refresh)":
     "",
   "Get more information about Fepper UI CLI commands":
     "",
@@ -107,7 +107,7 @@
     "",
   "There can be only one partials list in viewall.mustache!":
     "",
-  "%s is missing pattern %s":
+  "%s is missing partial %s":
     "",
   "Listening on port %s":
     "",
@@ -141,17 +141,17 @@
     "",
   "Combine frontend-copy and template tasks":
     "",
-  "Translate templates in 03-templates for the backend, and copy them there":
+  "Translate templates in 03-templates for the backend, and output them there":
     "",
   "Compile the UI React components":
     "",
-  "Print UI tasks and descriptions":
+  "Print UI tasks and their descriptions":
     "",
   "Update Fepper distro, Fepper CLI, Fepper NPM, Fepper UI, and Fepper extensions":
     "",
-  "Print versions of Fepper CLI, Fepper NPM, and Fepper UI":
+  "Print the versions of Fepper CLI, Fepper NPM, and Fepper UI":
     "",
-  "Print extension tasks and descriptions":
+  "Print extension tasks and their descriptions":
     "",
   "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!":
     "",
