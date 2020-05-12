@@ -19,13 +19,13 @@
     "",
   "Tools":
     "",
-  "Fepper Docs":
+  "Fepper docs":
     "",
-  "Pattern Lab Docs":
+  "Pattern Lab docs":
     "",
-  "Keyboard Shortcuts":
+  "Keyboard shortcuts":
     "",
-  "Search Patterns":
+  "Search patterns":
     "",
   "All":
     "",
@@ -49,9 +49,9 @@
     "",
   "There are no annotations for this pattern":
     "",
-  "ERROR:":
+  "ERROR":
     "",
-  "Missing or malformed %s":
+  "Missing or malformed %s!":
     "",
   "Missing an essential file from %s":
     "",
@@ -95,6 +95,8 @@
     "",
   "Invalid config object!":
     "",
+  "View All":
+    "",
   "Found pseudo-pattern %s - variant of %s":
     "",
   "Found new pattern %s":
@@ -111,21 +113,35 @@
     "",
   "Listening on port %s":
     "",
+  "Cannot GET %s":
+    "",
+  "SUCCESS":
+    "",
+  "Refresh the browser to check that your template appears under the &quot;Scrape&quot; menu.":
+    "",
+  "WARNING":
+    "",
+  "The HTML at that URL and selector contains code (probably SVG or XML) defined outside the HTML spec. This will prevent Fepper from writing its data into a JSON file.":
+    "",
+  "Invalid filename!":
+    "",
+  "The HTML at that URL and selector could not be parsed. Make sure it is well formed and syntactically correct.":
+    "",
+  "The HTML at that URL and selector could not be parsed. Make sure that they are reachable and syntactically correct.":
+    "",
+  "Incorrect submission!":
+    "",
   "Running npm --global update on fepper-cli...":
     "",
   "Running this command again as root/Administrator...":
     "",
   "Running npm update in %s...":
     "",
-  "Copied":
-    "",
-  "to":
+  "Copied %s to %s":
     "",
   "Working directory changed to %s":
     "",
-  "Template":
-    "",
-  "translated":
+  "Template %s translated":
     "",
   "Launch Fepper and open it in a browser":
     "",
@@ -152,6 +168,44 @@
   "Print the versions of Fepper CLI, Fepper NPM, and Fepper UI":
     "",
   "Print extension tasks and their descriptions":
+    "",
+  "Fepper HTML Scraper":
+    "",
+  "You can only use the HTML Scraper on the machine that is running this Fepper instance!":
+    "",
+  "If you <em>are</em> on this machine, you may need to resync this browser with Fepper.":
+    "",
+  "Please go to the command line and quit this Fepper instance. Then run <code>fp</code> (not <code>fp restart</code>).":
+    "",
+  "URL:":
+    "",
+  "Target Selector:":
+    "",
+  "Submit":
+    "",
+  "Help":
+    "",
+  "Hide":
+    "",
+  "Use this tool to scrape and import Mustache templates and JSON data files from actual web pages, preferably the actual backend CMS that Fepper is prototyping for. Simply enter the URL of the page you wish to scrape. Then, enter the CSS selector you wish to target (prepended with &quot;#&quot; for IDs and &quot;.&quot; for classes). Classnames and tagnames may be appended with array index notation ([n]). Otherwise, the Scraper will scrape all elements of that class or tag sequentially. Such a loosely targeted scrape will save many of the targeted fields to the JSON file, but will only save the first instance of the target to a Mustache template.":
+    "",
+  "Upon submit, you should be able to review the scraped output on the subsequent page. If the output looks correct, enter a filename and submit again. The Scraper will save Mustache and JSON files by that name in your patterns&apos; scrape directory, also viewable under the Scrape menu of the toolbar. The Scraper will correctly indent the Mustache code. However, the JSON parsing requires a conversion from HTML to XHTML, so don&apos;t expect an exact copy of the HTML structure of the source HTML.":
+    "",
+  "Does this HTML look right?":
+    "",
+  "Yes, import into Fepper.":
+    "",
+  "Enter a filename to save this under (extension not necessary):":
+    "",
+  "Otherwise, correct the URL and Target Selector and submit again.":
+    "",
+  "To open the UI, click here:":
+    "",
+  "To halt Fepper, go to the command prompt where Fepper is running and press ctrl+c.":
+    "",
+  "The following documentation is also available in Fepper&apos;s README.md:":
+    "",
+  "Too many requests per minute!":
     "",
   "Fepper cannot find the directory in which to start working! You may need to submit it as a constructor argument!":
     "",
