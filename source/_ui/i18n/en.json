@@ -127,7 +127,7 @@
     "",
   "The HTML at that URL and selector could not be parsed. Make sure it is well formed and syntactically correct.":
     "",
-  "The HTML at that URL and selector could not be parsed. Make sure that they are reachable and syntactically correct.":
+  "The HTML at that URL and selector could not be scraped. Make sure that they are reachable and syntactically correct.":
     "",
   "Incorrect submission!":
     "",
@@ -179,7 +179,7 @@
     "",
   "URL:":
     "",
-  "Target Selector:":
+  "Selector:":
     "",
   "Submit":
     "",
@@ -197,7 +197,7 @@
     "",
   "Enter a filename to save this under (extension not necessary):":
     "",
-  "Otherwise, correct the URL and Target Selector and submit again.":
+  "Otherwise, correct the URL and selector and submit again.":
     "",
   "To open the UI, click here:":
     "",
