@@ -127,7 +127,7 @@
     "",
   "The HTML at that URL and selector could not be parsed. Make sure it is well formed and syntactically correct.":
     "",
-  "The HTML at that URL and selector could not be parsed. Make sure that they are reachable and syntactically correct.":
+  "The HTML at that URL and selector could not be scraped. Make sure that they are reachable and syntactically correct.":
     "",
   "Incorrect submission!":
     "",
