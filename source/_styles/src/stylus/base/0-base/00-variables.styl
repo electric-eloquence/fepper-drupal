@@ -40,10 +40,13 @@ $bp-small = $bp-xs-max + 1px
 $bp-sm-max = unit(bp_sm_max, px) // From source/_scripts/src/variables.styl
 $bp-med = $bp-sm-max + 1px
 $bp-md-max = unit(bp_md_max, px) // From source/_scripts/src/variables.styl
+$bp-large = $bp-md-max + 1px
 
 // Measurements
 $nav-toggle-height = 5.4rem
 $nav-toggle-n-border = $nav-toggle-height + 0.1rem
-$column-width-narrow = (100% / 3)
-$column-width-wide = 2 * $column-width-narrow
+$column-width-one-quarter = (100% / 4)
+$column-width-one-third = (100% / 3)
+$column-width-three-quarters = 3 * $column-width-one-quarter
+$column-width-two-thirds = 2 * $column-width-one-third
 $footer-menu-height = 2.8rem
