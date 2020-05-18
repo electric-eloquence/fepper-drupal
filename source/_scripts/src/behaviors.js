@@ -37,7 +37,7 @@
             var searchBlockRect = $searchBlock[0].getBoundingClientRect();
 
             if ($searchBlock.hasClass('open')) {
-              $('#search-block-form', context).css('top', (searchBlockRect.height + searchBlockRect.top) + 'px');
+              $('#search-block-form', context).css('top', searchBlockRect.bottom + 'px');
             }
           });
         }
@@ -53,7 +53,7 @@
             var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
 
             if ($mainMenuBlock.hasClass('open')) {
-              $mainMenuBlock.children('ul').css('top', (mainMenuBlockRect.height + mainMenuBlockRect.top) + 'px');
+              $mainMenuBlock.children('ul').css('top', mainMenuBlockRect.bottom + 'px');
             }
           });
         }
@@ -65,10 +65,16 @@
     attach: function (context) {
       $(window).resize(function () {
         var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+        var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
 
-        if ($searchBlock.length && $searchBlock.hasClass('open')) {
+        if ($searchBlock.length) {
           $searchBlock.removeClass('open');
           $('#search-block-form', context).css('top', '0');
+        }
+
+        if ($mainMenuBlock.length) {
+          $mainMenuBlock.removeClass('open');
+          $mainMenuBlock.children('ul').css('top', '0');
         }
       });
     }

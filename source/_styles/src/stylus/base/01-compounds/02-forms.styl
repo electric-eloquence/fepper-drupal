@@ -62,24 +62,25 @@ form:not(#search-block-form)
       background: url("../../_assets/src/icon-search.svg") no-repeat 0 0
       background-size: cover
       content: ""
-      padding: 0.7rem
+      padding: 0.5625em
       position: absolute
-      top: 1.2rem
-      right: -3.2rem
+      top: 0.6875em
+      right: -2em
   input
     background: transparent
-    height: 4rem
-    &[id=^="edit-keys"]
-      width: 11.5em
+    height: 2.5em
+    &[id^="edit-keys"]
+      width: 13.5em
+      @media all and (min-width: $bp-med) and (max-width: $bp-md-max)
+        width: 11.4375em
     &[id^="edit-submit"]
       border: 1px solid $gray
       border-left: 0
       color: transparent
-      font-size: 0.85em
       padding-right: 0
       padding-left: 0
       position: relative
-      width: 5rem
+      width: 3.125em
       z-index: 1
       &:hover
         background: rgba(0, 0, 0, 0.3)
@@ -98,6 +99,3 @@ form:not(#search-block-form)
     [id^="block-"][id*="-search"].open
       #search-block-form
         max-height: none
-  #search-block-form
-    input
-      height: 3.7rem

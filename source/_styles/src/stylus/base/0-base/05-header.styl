@@ -6,7 +6,7 @@ header.header
   @media all and (max-width: $bp-sm-max)
     margin: 0
     padding-left: $space-half
-  @media all and (min-width: $bp-med) and (max-width: $max-width)
+  @media all and (min-width: $bp-med)
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
     width: "calc(%s - %s)" % ($max-width $space)
@@ -154,7 +154,7 @@ nav,
         margin-right: 0
         a
           display: table
-          padding: $space-half $space
+          padding: 0.7rem $space
         li
           padding-left: 2rem
       &.open
