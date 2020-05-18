@@ -89,9 +89,6 @@
     display: flex;
     justify-content: space-between;
   }
-  .path-node .layout-content {
-    padding-right: 1.6rem;
-  }
   .layout-content,
   .layout-sidebar-first {
     flex-grow: 1;
@@ -300,6 +297,11 @@
 @media all and (min-width: 1025px) {
   .path-frontpage .layout-sidebar-first {
     width: 75%;
+  }
+}
+@media all and (min-width: 768px) {
+  .path-node .layout-content {
+    padding-right: 1.6rem;
   }
 }
 [id^="block-"][id$="-views-block-content-recent-block-1"] .views-field-title {
