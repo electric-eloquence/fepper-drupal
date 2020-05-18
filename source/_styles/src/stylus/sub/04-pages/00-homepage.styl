@@ -97,7 +97,7 @@
         text-align: center
     @media all and (min-width: $bp-med)
       padding-top: $space-half
-      width: "calc(%s - (%s / 3))" % ($column-width-narrow $space-double)
+      width: "calc(%s - (%s / 3))" % ($column-width-one-third $space-double)
   // Hero and sub blocks
   #block-fepper-sub-content,
   #region-content > .views-row
@@ -108,7 +108,9 @@
         a
           font-size: 1.7rem
           line-height: 1.1
-  @media all and (min-width: $bp-med)
-    // Hoagies block
-    .layout-sidebar-first
-      width: $column-width-wide
+  // Hoagies block
+  .layout-sidebar-first
+    @media all and (min-width: $bp-med)
+      width: $column-width-two-thirds
+    @media all and (min-width: $bp-large)
+      width: $column-width-three-quarters

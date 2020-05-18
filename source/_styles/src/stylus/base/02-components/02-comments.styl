@@ -1,3 +1,5 @@
+$img-size = 5em
+$meta-width = 17rem
 section[rel="schema:comment"]
   border-top: 1px solid $gray-light-3
   margin-top: 2em
@@ -7,29 +9,29 @@ section[rel="schema:comment"]
     padding: 0.625em 0 // Padding instead of margin so borders appear when indented.
     position: relative
     > footer
+      line-height: 1.6rem
       p
-        line-height: 1
         margin: 0
+      > a
+        display: block
+        font-size: 1.2rem
+        text-decoration: underline
     > div
+      position: relative
       .links
         margin-top: 0.25em
         margin-bottom: 0
-    > footer + div
-      width: calc(100% - 12em)
   article[typeof="schema:Person"]
-    img
+    img,
+    svg
       display: block
       border: 1px solid $gray-light-2
-      margin-bottom: 0.5em
-      width: 6.25em
+      margin-bottom: 0.25em
+      width: $img-size
+      height: $img-size
   span[rel="schema:author"]
     display: block
     font-size: 1.2rem
-    line-height: 1.6rem
-  footer > a
-    display: block
-    font-size: 1.2rem
-    text-decoration: underline
   [property="schema:name"]
     font-weight: bold
     text-decoration: none
@@ -42,14 +44,15 @@ section[rel="schema:comment"]
     margin-left: 0.75em
     padding-bottom: 0.5em
   @media all and (max-width: $bp-xs-max)
-    $img-size-xs = 8.75rem
     article[typeof="schema:Comment"]
-      display: block
       > footer
-        @extend .cf
-        width: 100%
-        p, a
-          max-width: "calc(100% - %s - %s)" % ($img-size-xs $space-half)
+        display: flex
+        flex-flow: column wrap
+        justify-content: center
+        height: $img-size
+        > p,
+        > a
+          width: "calc(100% - %s - %s)" % ($img-size $space-half)
       > div
         padding-bottom: 0
         .links
@@ -60,30 +63,22 @@ section[rel="schema:comment"]
             padding-right: 2.6rem
           li:last-of-type
             padding-right: 0
-      > footer + div
-        width: auto
     article[typeof="schema:Person"]
-      float: left
       margin-right: $space-half
-      img
-        margin: 0
-    article[typeof="schema:Person"] + p
-      float: left
+      img,
+      svg
+        margin-bottom: 0
     div[property="schema:text"]
       margin-top: 0.4rem
-    .indented
-      article[typeof="schema:Comment"]
-        > *
-          margin-left: 0.2rem
   @media all and (min-width: $bp-small)
     article[typeof="schema:Comment"]
       display: flex
       > footer
         min-height: 11em
-        width: 12em
-        p,
-        > a
-          margin-left: 0.2rem
+        padding-right: $space
+        width: $meta-width
+      > div
+        width: "calc(100% - %s)" % $meta-width
     span[property="schema:name"]
       &::before
         content: "\A"
