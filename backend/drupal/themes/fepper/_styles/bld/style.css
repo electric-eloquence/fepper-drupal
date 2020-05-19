@@ -486,10 +486,12 @@ article ol {
 }
 img,
 video,
-object {
+object,
+svg {
   max-width: 100%;
 }
-img {
+img,
+svg {
   height: auto;
 }
 .layout-container .alert-wrapper {
@@ -685,7 +687,6 @@ section[rel="schema:comment"] article[typeof="schema:Person"] svg {
   border: 1px solid #eee;
   margin-bottom: 0.25em;
   width: 5em;
-  height: 5em;
 }
 section[rel="schema:comment"] span[rel="schema:author"] {
   display: block;
