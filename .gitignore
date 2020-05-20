@@ -12,7 +12,7 @@
 /pref.yml
 /public/*
 !/public/package.json
-/source/
+/source
 ignore/
 node_modules/
 !/source/_static/node_modules/
