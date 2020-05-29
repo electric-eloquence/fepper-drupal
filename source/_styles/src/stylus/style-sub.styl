@@ -29,3 +29,12 @@
 // /////////////////////////////////////////////////////////////////////////////
 @import 'sub/04-pages/00-homepage'
 @import 'sub/04-pages/02-article'
+
+// Only in Drupal, not Fepper.
+#site-name
+  @media all and (min-width: $bp-med)
+    margin-top: 0
+[id^="block-"][id$="-footer"]
+  #region-header &
+    @media all and (min-width: $bp-med)
+      margin-top: $space-half

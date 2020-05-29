@@ -2,7 +2,7 @@
   clear: both
   display: flex
   justify-content: center
-  padding-bottom: 1em
+  margin-bottom: 1em
   .pager__items
     display: flex
     flex-wrap: wrap
@@ -10,17 +10,19 @@
   li
     border-right: 1px solid $gray-light-2
     float: none
-    margin-right: 0
+    padding-right: 0
+    // Using padding for a tag to increase tappable area when the link is a numeral.
+    a
+      padding: 0 0.75em
     &:last-child
       border: 0
-  a
-    padding: $space 1.2rem
-  @media all and (max-width: $bp-sx-max)
-    .pager__items
-      width: 18rem
-  @media all and (max-width: $bp-sm-max)
-    a
-      padding: 1.6rem 1.0rem
+  @media all and (max-width: $bp-xs-max)
+    li:first-child
+      a
+        padding-left: 0
+    li:last-child
+      a
+        padding-right: 0
   @media all and (min-width: $bp-med)
     justify-content: flex-start
     .pager__items

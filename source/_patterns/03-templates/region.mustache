@@ -39,11 +39,6 @@
     {{! BEGIN PRIMARY MENU CONTENT }}
 
     {{# templates-block--primary-menu? }}
-      {{> 03-templates/block(
-        block_attributes: ' class="search-block-form" id="block-fepper-sub-search" role="search"',
-        title: 'Search',
-        "compounds-search?": true
-      ) }}
       {{> 03-templates/_block--system-menu-block(
         heading_id: 'block-fepper-sub-main-menu-menu',
         block_attributes: ' id="block-fepper-sub-main-menu"',
@@ -67,6 +62,13 @@
 
     {{! BEGIN SECONDARY MENU CONTENT }}
 
+    {{# templates-block--secondary-menu? }}
+      {{> 03-templates/block(
+        block_attributes: ' class="search-block-form" id="block-fepper-sub-search" role="search"',
+        title: 'Search',
+        "compounds-search?": true
+      ) }}
+    {{/ templates-block--secondary-menu? }}
     {{# templates-block--secondary-menu~~pages-new-install? }}
       {{> 03-templates/_block--system-menu-block(
         heading_id: 'block-fepper-sub-account-menu-menu',
@@ -83,11 +85,8 @@
     {{! BEGIN BREADCRUMBS CONTENT }}
 
     {{# templates-block--breadcrumbs~~pages-new-install? }}
-      {{> 03-templates/_block--system-menu-block(
-        heading_id: 'system-breadcrumb',
-        block_attributes: ' id="block-fepper-sub-main-menu"',
-        title_attributes: ' class="visually-hidden"',
-        title: 'Breadcrumb',
+      {{> 03-templates/block(
+        block_attributes: ' id="block-fepper-sub-breadcrumbs"',
         "components-breadcrumbs?": true
       ) }}
     {{/ templates-block--breadcrumbs~~pages-new-install? }}
@@ -167,14 +166,16 @@
 
     {{# templates-block--sidebar2~~pages-article? }}
       {{> 03-templates/block(
-        block_attributes: ' class="views-element-container" id="block-views-block-content-recent-block-1"',
-        "components-related-posts?": true
+        block_attributes: ' class="views-element-container" id="block-fepper-sub-views-block-content-recent-block-1"',
+        title: 'Recent posts',
+        "templates-views-view~~templates-block--sidebar2__posts?": true
       ) }}
     {{/ templates-block--sidebar2~~pages-article? }}
     {{# templates-block--sidebar2? }}
       {{> 03-templates/block(
-        block_attributes: ' class="container" id="block-views-block-comments-recent-block-1"',
-        "components-recent-comments?": true
+        block_attributes: ' class="views-element-container" id="block-fepper-sub-views-block-comments-recent-block-1"',
+        title: 'Recent comments',
+        "templates-views-view~~templates-block--sidebar2__comments?": true
       ) }}
     {{/ templates-block--sidebar2? }}
 

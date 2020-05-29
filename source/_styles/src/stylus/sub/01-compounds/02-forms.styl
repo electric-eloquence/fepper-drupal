@@ -1,5 +1,16 @@
-@media all and (max-width: $bp-sm-max)
-  #region-primary-menu
+#region-secondary-menu
+  #search-block-form
+    .form-item-keys
+      margin-bottom: 0
+  @media all and (max-width: $bp-sm-max)
+    padding: 0
+    [id^="block-"][id*="-search"]
+      #search-block-form
+        margin: 0.1rem 0 0
+        max-height: 0
+        position: absolute
+        right: 0
+        z-index: 5
     [id^="block-"][id*="-search"].open
       #search-block-form
-        top: 5.4rem
+        max-height: none
