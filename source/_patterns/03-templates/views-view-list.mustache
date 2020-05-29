@@ -19,6 +19,20 @@
         {{> 03-templates/__views-view-list__row("templates-node~~pages-blog?": true) }}
       {{/ latest_posts }}
     {{/ templates-views-view-list__row~~pages-blog? }}
+    {{# templates-views-view-list__row~~templates-block--sidebar2__posts? }}
+      {{# latest_posts }}
+        {{> 03-templates/__views-view-list__row(
+          "elements-content-list-item~~templates-block--sidebar2__posts?": true
+        ) }}
+      {{/ latest_posts }}
+    {{/ templates-views-view-list__row~~templates-block--sidebar2__posts? }}
+    {{# templates-views-view-list__row~~templates-block--sidebar2__comments? }}
+      {{# listItems.five }}
+        {{> 03-templates/__views-view-list__row(
+          "elements-content-list-item~~templates-block--sidebar2__comments?": true
+        ) }}
+      {{/ listItems.five }}
+    {{/ templates-views-view-list__row~~templates-block--sidebar2__comments? }}
     {{{ fpo_template_content }}}
 
   </{{ list_type }}>

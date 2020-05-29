@@ -6,14 +6,26 @@
  * @see node/templates/node.html.twig
  */
 #}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
 <!-- Begin node -->
-<article {{ attributes }}>
+<article {{ attributes.addClass(classes) }}>
 
   {{ title_prefix }}
   {% if page %}
-    <h1 {{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h1>
+    {% if not page_title_block_enabled %}
+      <h1 {{ title_attributes }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h1>
+    {% endif %}
   {% endif %}
   {% if not page %}
     <h2 {{ title_attributes }}>

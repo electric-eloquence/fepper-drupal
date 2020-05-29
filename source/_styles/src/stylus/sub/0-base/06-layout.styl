@@ -1,19 +1,47 @@
-@media all and (max-width: $bp-xs-max)
-  .layout-sidebar-second
-    text-align: center
-@media all and (min-width: $bp-med)
-  #main
+#main
+  @media all and (min-width: $bp-med)
     display: flex
     justify-content: space-between
-  .layout-content,
-  .layout-sidebar-first
+.layout-content,
+.layout-sidebar-first
+  @media all and (min-width: $bp-med)
     flex-grow: 1
-    width: $column-width-two-thirds
-  .layout-sidebar-second
-    width: $column-width-one-third
-    padding: 0 0 0 $space
-@media all and (min-width: $bp-large)
-  .layout-content
-    width: $column-width-three-quarters
-  .layout-sidebar-second
-    width: $column-width-one-quarter
+    width: $column-width-two-thirds + "%"
+.layout-content
+  @media all and (min-width: $bp-large)
+    width: $column-width-three-quarters + "%"
+.layout-sidebar-first.no-sidebar-second,
+.layout-sidebar-second
+  @media all and (min-width: $bp-med)
+    padding-left: $space
+.layout-sidebar-first.no-sidebar-second
+  .path-frontpage &
+    @media all and (min-width: $bp-med)
+      padding-left: 0
+.layout-sidebar-second
+  @media all and (max-width: $bp-xs-max)
+    text-align: center
+  @media all and (min-width: $bp-med)
+    width: $column-width-one-third + "%"
+  @media all and (min-width: $bp-large)
+    width: $column-width-one-quarter + "%"
+[id^="block-"][id$="-views-block-content-recent-block-1"]
+  .views-field-title
+    font-size: 1.6rem
+    font-weight: normal
+    @media all and (max-width: $bp-sm-max)
+      font-size: 1.4rem
+[id^="block-"][id$="-views-block-content-recent-block-3"],
+.view-id-content_recent.view-display-id-page_1
+  @extend .hoagies
+  @media all and (max-width: $bp-xs-max)
+    h1,
+    h2
+      text-align: center
+    article
+      > [role="content"] > div
+        display: flex
+        justify-content: center
+[id^="block-"][id$="-page-title"]
+  @media all and (min-width: $bp-small)
+    margin-right: $space

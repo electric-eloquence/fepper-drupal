@@ -1,10 +1,9 @@
 $img-size = 5em
 $meta-width = 17rem
 section[rel="schema:comment"]
-  border-top: 1px solid $gray-light-3
-  margin-top: 2em
-  h2
-    margin: $space 0 0
+  border-top: 1px solid $gray-light-2
+  margin-top: 1.5em
+  padding-top: 1em
   article[typeof="schema:Comment"]
     padding: 0.625em 0 // Padding instead of margin so borders appear when indented.
     position: relative
@@ -19,17 +18,19 @@ section[rel="schema:comment"]
     > div
       position: relative
       .links
+        display: flex
         margin-top: 0.25em
         margin-bottom: 0
+        li
+          padding-right: 2.6rem
   article[typeof="schema:Person"]
     img,
     svg
       display: block
-      border: 1px solid $gray-light-2
+      border: 1px solid $gray-light-1
       margin-bottom: 0.25em
       width: $img-size
   span[rel="schema:author"]
-    display: block
     font-size: 1.2rem
   [property="schema:name"]
     font-weight: bold
@@ -38,8 +39,8 @@ section[rel="schema:comment"]
     p
       margin-bottom: 0
   .indented
-    border-bottom: 1px solid $gray-light-3
-    border-left: 1px solid $gray-light-3
+    border-bottom: 1px solid $gray-light-2
+    border-left: 1px solid $gray-light-2
     margin-left: 0.75em
     padding-bottom: 0.5em
   @media all and (max-width: $bp-xs-max)
@@ -55,11 +56,8 @@ section[rel="schema:comment"]
       > div
         padding-bottom: 0
         .links
-          display: flex
           justify-content: flex-end
           margin: 0 $space-half 0 0
-          li
-            padding-right: 2.6rem
           li:last-of-type
             padding-right: 0
     article[typeof="schema:Person"]
@@ -67,8 +65,6 @@ section[rel="schema:comment"]
       img,
       svg
         margin-bottom: 0
-    div[property="schema:text"]
-      margin-top: 0.4rem
   @media all and (min-width: $bp-small)
     article[typeof="schema:Comment"]
       display: flex
@@ -78,6 +74,7 @@ section[rel="schema:comment"]
         width: $meta-width
       > div
         width: "calc(100% - %s)" % $meta-width
+    a[property="schema:name"],
     span[property="schema:name"]
       &::before
         content: "\A"

@@ -6,6 +6,8 @@ use Composer\IO\IOInterface;
 
 /**
  * Manage the .gitignore file.
+ *
+ * @internal
  */
 class ManageGitIgnore {
 
@@ -59,7 +61,7 @@ class ManageGitIgnore {
         if (!$is_tracked && $scaffoldResult->isManaged()) {
           $dir = realpath(dirname($path));
           $name = basename($path);
-          $add_to_git_ignore[$dir][] = $name;
+          $add_to_git_ignore[$dir][] = '/' . $name;
         }
       }
     }

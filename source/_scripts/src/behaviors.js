@@ -26,6 +26,7 @@
     attach: function (context) {
       var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
       var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
+      var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
 
       if ($searchBlock.length) {
         mobileNavToggle($searchBlock, context);
@@ -54,6 +55,32 @@
 
             if ($mainMenuBlock.hasClass('open')) {
               $mainMenuBlock.children('ul').css('top', mainMenuBlockRect.bottom + 'px');
+
+              if ($userAccountBlock.length) {
+                $userAccountBlock.removeClass('open');
+                $userAccountBlock.children('ul').css('top', '0');
+              }
+            }
+          });
+        }
+      }
+
+      if ($userAccountBlock.length) {
+        mobileNavToggle($userAccountBlock, context);
+
+        var $userAccountToggler = $userAccountBlock.find('> h2 > a');
+
+        if ($userAccountToggler.length) {
+          $userAccountToggler.click(function () {
+            var userAccountBlockRect = $userAccountBlock[0].getBoundingClientRect();
+
+            if ($userAccountBlock.hasClass('open')) {
+              $userAccountBlock.children('ul').css('top', userAccountBlockRect.bottom + 'px');
+
+              if ($mainMenuBlock.length) {
+                $mainMenuBlock.removeClass('open');
+                $mainMenuBlock.children('ul').css('top', '0');
+              }
             }
           });
         }
@@ -61,11 +88,12 @@
     }
   };
 
-  Drupal.behaviors.resetSearchBlock = {
+  Drupal.behaviors.resetMobileNavBlocks = {
     attach: function (context) {
       $(window).resize(function () {
         var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
         var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
+        var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
 
         if ($searchBlock.length) {
           $searchBlock.removeClass('open');
@@ -75,6 +103,11 @@
         if ($mainMenuBlock.length) {
           $mainMenuBlock.removeClass('open');
           $mainMenuBlock.children('ul').css('top', '0');
+        }
+
+        if ($userAccountBlock.length) {
+          $userAccountBlock.removeClass('open');
+          $userAccountBlock.children('ul').css('top', '0');
         }
       });
     }
