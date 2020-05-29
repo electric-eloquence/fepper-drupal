@@ -1,0 +1,42 @@
+.path-frontpage
+  .layout-content
+    border-bottom: 2px solid $gray-light-1
+    margin-bottom: 1em
+    padding: 0 0 1.5em
+// ////////////////////////////////////////////////////////////////////////////////////////
+// The following rules only pertain to the demo site being used with the base Fepper theme.
+// ////////////////////////////////////////////////////////////////////////////////////////
+  [id^="block-"][id$="content"]:first-child,
+  [id^="block-"][id*="-views-block-content-recent-block"] .views-row,
+  #region-content > .views-row
+    margin-bottom: $space-half
+  [id^="block-"][id$="content"]:first-child .views-field-title
+    background: $dim
+    padding: 1.2rem 0.8rem
+    a
+      color: $white
+      display: block
+  [id^="block-"][id*="-views-block-content-recent-block"],
+  #region-content >
+    .views-row
+      .views-field-title
+        a
+          background: $dim
+          color: $white
+          display: block
+          padding: 1.2rem 0.8rem
+  #region-content .views-row .views-field-title
+    font-weight: bold
+    line-height: 1.2
+  [id^="block-"][id*="-views-block-content-recent-block"]
+    .views-field-field-image
+      overflow: hidden
+      padding-top: 56.25%
+      position: relative
+      .field-content
+        position: absolute
+        margin-top: -37.5%
+        top: 50%
+.path-frontpage #region-content .views-row .views-field-title,
+.view-id-content_recent [role="article"] > h2 // Also on the Blog page.
+  font-size: 1.25em

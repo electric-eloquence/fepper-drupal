@@ -23,3 +23,27 @@ $fepper_ini = drupal_get_path('theme', 'fepper_sub') . '/_scripts/src/variables.
 if (file_exists($fepper_ini)) {
   $GLOBALS['config']['fepper'] = parse_ini_file($fepper_ini);
 }
+
+/**
+ * Implements hook_preprocess_block() for block content.
+ */
+function fepper_sub_preprocess_block(&$variables) {
+  // Determine if the page title has been enabled as a block within a region at
+  // admin/structure/block. Possible values are 0 or 1.
+  // If it has been enabled, the Fepper Sub theme will not put an h1 tag in the
+  // site branding block because the page title block is meant to render the h1.
+  $config_page_title = \Drupal::config('block.block.fepper_sub_page_title');
+  $variables['page_title_block_enabled'] = $config_page_title->get('status');
+}
+
+/**
+ * Implements hook_preprocess_node() for node content.
+ */
+function fepper_sub_preprocess_node(&$variables) {
+  // Determine if the page title has been enabled as a block within a region at
+  // admin/structure/block. Possible values are 0 or 1.
+  // If it has been enabled, the Fepper Sub theme will not wrap the node title
+  // in an h1 because the page title block is meant to render the h1.
+  $config_page_title = \Drupal::config('block.block.fepper_sub_page_title');
+  $variables['page_title_block_enabled'] = $config_page_title->get('status');
+}

@@ -80,9 +80,13 @@ const FILE_NOT_EXECUTABLE = 128;
  * Loads .install files for installed modules to initialize the update system.
  */
 function drupal_load_updates() {
+  /** @var \Drupal\Core\Extension\ModuleExtensionList $extension_list_module */
+  $extension_list_module = \Drupal::service('extension.list.module');
   foreach (drupal_get_installed_schema_version(NULL, FALSE, TRUE) as $module => $schema_version) {
-    if ($schema_version > -1) {
-      module_load_install($module);
+    if ($extension_list_module->exists($module) && !$extension_list_module->checkIncompatibility($module)) {
+      if ($schema_version > -1) {
+        module_load_install($module);
+      }
     }
   }
 }
@@ -166,7 +170,7 @@ function drupal_get_database_types() {
   $drivers = [];
 
   // The internal database driver name is any valid PHP identifier.
-  $mask = '/^' . DRUPAL_PHP_FUNCTION_PATTERN . '$/';
+  $mask = ExtensionDiscovery::PHP_FUNCTION_PATTERN;
   /** @var \Drupal\Core\File\FileSystemInterface $file_system */
   $file_system = \Drupal::service('file_system');
   $files = $file_system->scanDirectory(DRUPAL_ROOT . '/core/lib/Drupal/Core/Database/Driver', $mask, ['recurse' => FALSE]);
