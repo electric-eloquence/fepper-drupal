@@ -16,7 +16,7 @@
   {{{ attachment_before }}}
 
 
-  {{! BEGIN VIEWS ROWS }}
+  {{! BEGIN VIEWS ROW CONTAINERS }}
 
   {{# templates-views-view-unformatted~~pages-homepage__hero? }}
     {{> 03-templates/views-view-unformatted(
@@ -35,9 +35,21 @@
       "templates-views-view-list__row~~pages-blog?": true
     ) }}
   {{/ templates-views-view-list~~pages-blog? }}
+  {{# templates-views-view-list~~templates-block--sidebar2__posts? }}
+    {{> 03-templates/views-view-list(
+      views-view-list_attributes: ' class="item-list"',
+      "templates-views-view-list__row~~templates-block--sidebar2__posts?": true
+    ) }}
+  {{/ templates-views-view-list~~templates-block--sidebar2__posts? }}
+  {{# templates-views-view-list~~templates-block--sidebar2__comments? }}
+    {{> 03-templates/views-view-list(
+      views-view-list_attributes: ' class="item-list"',
+      "templates-views-view-list__row~~templates-block--sidebar2__comments?": true
+    ) }}
+  {{/ templates-views-view-list~~templates-block--sidebar2__comments? }}
   {{{ fpo_template_content }}}
 
-  {{! END VIEWS ROWS }}
+  {{! END VIEWS ROW CONTAINERS }}
 
 
   {{# pages-new-install? }}

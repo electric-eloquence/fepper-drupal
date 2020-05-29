@@ -1,8 +1,7 @@
 header.header
   background: $white
-  border-bottom: 1px solid $gray-light-3
+  border-bottom: 1px solid $gray-light-2
   padding: 0
-  width: 100%
   @media all and (max-width: $bp-sm-max)
     margin: 0
     padding-left: $space-half
@@ -10,157 +9,77 @@ header.header
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
     width: "calc(%s - %s)" % ($max-width $space)
-[id^="block-"][id$="-branding"]
-  position: relative
-  z-index: 1
-  h1
-    margin: 0
-    padding: 0
-  img
+#region-header
+  margin: $space-half 0 0
+  padding-right: $space-half
+  @media all and (min-width: $bp-med)
     float: left
-    margin: $space-half 0
-    @media all and (max-width: $bp-sm-max)
-      height: 3.8rem
-// Search and Navigation Forms
 // Need to lower specificity with an attribute match so these don't override other selections by attribute match.
 [id="region-primary-menu"],
 [id="region-secondary-menu"]
-  nav
-    float: left
-  li
-    float: none
-    margin-right: 0
-  a
-    display: block
-    padding: $space-quarter $space
-  @media all and (min-width: $bp-med)
-    nav
-      > ul
-        display: flex
-        flex-wrap: wrap
-        align-items: center
-        min-height: $nav-toggle-height + 0.2rem
-    .expanded
-      > a::after
-        color: $gray
-        content: "▼"
-        font-size: 0.75em
-        margin-left: $space-half
-      ul
-        li
-          float: none
-          border: 1px solid $gray-light-2
-          border-bottom: 0
-          &:last-child
-            border-bottom: 1px solid $gray-light-2
-      &:hover
-        ul
-          max-height: 100%
-    nav > ul > .expanded > ul
-      background: $white-translucent
-      max-height: 0
-      position: absolute
-      overflow: hidden
-      transition: max-height 0.3s ease
-      z-index: 2
-      > .expanded li
-        border-right: 0
-        border-bottom: 0
-        border-left: 0
-        padding-left: 1rem
+  margin-top: $space-half
 [id="region-secondary-menu"]
-  li:first-child
-    a
-      padding-left: 0
-[id^="block-"]
-  > h2 > a
-    pointer-events: none
+  float: right
 [id^="block-"][id*="-search"],
 [id^="block-"][id*="-main"]
   > h2
-    @extend .visually-hidden
-  #region-primary-menu &
-    > h2
-      margin: 0
-      z-index: 3
-      > a
-        background: $white-translucent
-        color: transparent
-        cursor: pointer
-        width: $nav-toggle-n-border
-        height: $nav-toggle-height
-        overflow: hidden
-        padding: 0
-        pointer-events: auto
-        position: relative
-        &::before
-          content: ""
-          display: block
-          padding: 1.1rem
-        &:hover,
-        &:focus
-          &::before
-            color: $gray
-      @media all and (max-width: $bp-sm-max)
-        // Undo .visually-hidden.
-        overflow: visible
-        position: relative !important
-        width: auto
-        height: auto
-        clip: auto
+    line-height: 1
+    margin: 0
+    padding: 0
+    a
+      color: transparent
+[id^="block-"][id*="-search"] > h2
+  font-size: 0
+[id^="block-"][id*="-main"] > h2
+  font-size: $space-half
+// Use more general matching to select blocks with the word "branding" in the name, i.e. do not include a hyphen along
+// with "branding". This is to select both custom blocks as well as the system branding block.
+[id^="block-"][id*="branding"]
+  h1,
+  p
+    margin: 0
+    padding: 0
+  > div
+    > a,
+    > h1:first-child a,
+    > p:first-child a
+      display: table
+    > a,
+    > h1,
+    > p
+      &:first-child
+        @media all and (min-width: $bp-med)
+          display: inline-block
+  @media all and (min-width: $bp-med)
+    img
+      margin-right: $space-quarter
+    > div:last-child
+      margin-right: $space-half
 // Search Form
 [id^="block-"][id*="-search"]
   float: right
+  margin-left: 7rem
   .path-search &
     display: none
-  #region-primary-menu &
-    > h2 > a
-      padding: 1.6rem
-      &::before
-        background: url("../../_assets/src/icon-search.svg") no-repeat 0 0
-        background-size: cover
-// Navigation
+  [id="region-secondary-menu"] &
+    margin-left: 0
+// Main Navigation
+[id^="block-"][id*="-main"]
+  @media all and (max-width: $bp-xs-max)
+    > ul
+      clear: both
+// General Navigation
 nav,
 [id^="block-"][id$="-local-tasks"]
   li
     float: left
-    margin-right: 1em
-[id^="block-"][id$="-local-tasks"]
-  @extend .cf
-[id^="block-"][id*="-main"]
-  #region-primary-menu &
-    > h2 > a
-      padding: $space
-      &::before
-        background: url("../../_assets/src/icon-menu.svg") no-repeat 0 0
-        background-size: cover
-  @media all and (max-width: $bp-sm-max)
-    position: static // In order for the mobile nav to work while logged in.
-    #region-primary-menu &
-      float: right
-      padding-top: 0
-      > ul
-        background: $white-translucent
-        max-height: 0
-        overflow: hidden
-        position: absolute
-        transition: max-height 0.1s ease
-        left: 0
-        width: 100%
-        z-index: 1
-      li
-        border-top: 1px solid $gray-light-3
-        float: none
-        margin-right: 0
-        a
-          display: table
-          padding: 0.7rem $space
-        li
-          padding-left: 2rem
-      &.open
-        > ul
-          border-bottom: 1px solid $gray-light-3
-          max-height: none
+    padding-right: 1em
+// Override nav padding.
+[id^="block-"][id*="-account"]
   @media all and (min-width: $bp-med)
-    width: auto
-    height: auto
+    li:last-child
+      padding-right: 0
+#region-breadcrumb,
+#breadcrumb
+  li
+    padding-right: 0

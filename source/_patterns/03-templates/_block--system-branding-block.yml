@@ -9,6 +9,12 @@
   #}
 '! extends block.html.twig': |2
   {% extends "block.html.twig" %}
+'twig_comment': |2
+  {# This div is here to match the nesting structure of a custom block
+  that copies this block but with a forced h1 tag. That is, the logic herein does
+  not render an h1 despite our best efforts, and a custom block is necessary to
+  replace this block for search engine optimization. Be sure to name the custom
+  block with the word "branding" in it so it picks up this block's CSS. #}
 '# content\?': |2
   {% block content %}
 '# img.logo': |2
@@ -37,8 +43,6 @@
   \{\{ system_site_name \}\}
 '/ img.logo': |2
   {% endif %}
-'# site_name_or_site_slogan\?': |2
-  {% if site_name or site_slogan %}
 '# site_name\?': |2
   {% if site_name %}
 '# page_title_or_not_homepage\?': |2
@@ -52,8 +56,6 @@
 'site_slogan': |2
   \{\{ site_slogan \}\}
 '/ site_slogan\?': |2
-  {% endif %}
-'/ site_name_or_site_slogan\?': |2
   {% endif %}
 '/ content\?': |2
   {% endblock %}

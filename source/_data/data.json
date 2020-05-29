@@ -71,44 +71,6 @@
     "short": "Lorem ipsum dolor sit (37 characters)",
     "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
   },
-  "recent_comments": {
-    "ul_items": [
-      {
-        "item": "<span class=\"views-field views-field-subject\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Sugar plum wafer soufflé ice…</a></span></span><span class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></span>"
-      },
-      {
-        "item": "<span class=\"views-field views-field-subject\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Fizzle crazy tortor. Sed…</a></span></span><span class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></span>"
-      },
-      {
-        "item": "<span class=\"views-field views-field-subject\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Like button audience…</a></span></span><span class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></span>"
-      },
-      {
-        "item": "<span class=\"views-field views-field-subject\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Especially dogs. Dogs are…</a></span></span><span class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></span>"
-      },
-      {
-        "item": "<span class=\"views-field views-field-subject\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">I find your lack of faith…</a></span></span><span class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></span>"
-      }
-    ]
-  },
-  "related_posts": {
-    "ul_items": [
-      {
-        "item": "<div class=\"views-field views-field-title\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Top 10 mountain ranges for hiking</a></span></div><div class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></div>"
-      },
-      {
-        "item": "<div class=\"views-field views-field-title\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Extreme climbing tips</a></span></div><div class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></div>"
-      },
-      {
-        "item": "<div class=\"views-field views-field-title\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Stream hiking</a></span></div><div class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></div>"
-      },
-      {
-        "item": "<div class=\"views-field views-field-title\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Explore hiking trails</a></span></div><div class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></div>"
-      },
-      {
-        "item": "<div class=\"views-field views-field-title\"><span class=\"field-content\"><a href=\"#\" hreflang=\"en\">Navigate the Allegheny River</a></span></div><div class=\"views-field views-field-changed\"><span class=\"field-content\">2 weeks 6 days ago</span></div>"
-      }
-    ]
-  },
   "pagination": {
     "list_attributes": " class=\"pager__items js-pager__items\"",
     "ul_items": [
@@ -172,6 +134,78 @@
     ]
   },
   "list_type": "ul",
+  "latest_posts": [
+    {
+      "url": "../04-pages-02-articles-00-article-4/04-pages-02-articles-00-article-4.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-river.jpg",
+          "alt": "Allegheny River"
+        }
+      },
+      "article_title": "Navigate the Allegheny River",
+      "excerpt": {
+        "medium": "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
+      },
+      "timestamp": "1 week 1 day ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-5/04-pages-02-articles-00-article-5.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-ivy.jpg",
+          "alt": "Ivy"
+        }
+      },
+      "article_title": "How to detect and avoid poison ivy",
+      "excerpt": {
+        "medium": "Toxicodendron radicans, commonly known as poison ivy is a poisonous North American plant that is well known for its production of urushiol"
+      },
+      "timestamp": "1 week 2 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-6/04-pages-02-articles-00-article-6.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-yosemite.jpg",
+          "alt": "Yosemite"
+        }
+      },
+      "article_title": "Top 10 hiking mountains",
+      "excerpt": {
+        "medium": "Yosemite National Park is a United States National Park spanning eastern portions of Tuolumne, Mariposa and Madera counties in the central eastern portion of the U.S. state of California."
+      },
+      "timestamp": "1 week 3 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-7/04-pages-02-articles-00-article-7.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-fire.jpg",
+          "alt": "Fire"
+        }
+      },
+      "article_title": "How to build a campfire",
+      "excerpt": {
+        "medium": "A campfire is a fire lit at a campsite, to serve the following functions: light, warmth, a beacon, an insect and/or apex predator deterrent, to cook, and for a psychological sense of security. "
+      },
+      "timestamp": "1 week 4 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-8/04-pages-02-articles-00-article-8.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-gear.jpg",
+          "alt": "Camping Gear"
+        }
+      },
+      "article_title": "Pick the right camping gear",
+      "excerpt": {
+        "medium": "The equipment used in camping varies with the particular type of camping. For instance, in survival camping the equipment consists of small items which have the purpose of helping the camper in providing food, heat and safety."
+      },
+      "timestamp": "1 week 5 days ago"
+    }
+  ],
   "bp_lg_max": "-1",
   "bp_md_max": "1024",
   "bp_sm_max": "767",

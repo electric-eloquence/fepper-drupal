@@ -36,22 +36,28 @@
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Pages.
 // /////////////////////////////////////////////////////////////////////////////
+@import 'base/04-pages/00-homepage'
 @import 'base/04-pages/02-article'
 
 // Only in Drupal, not Fepper.
-#name-and-slogan
-  float: left
-  margin: 0.4em 1em
-#site-name
-  font-size: 2em
+#region-secondary-menu
+  padding-top: 0
+  padding-bottom: 0
+#region-primary-menu
+  padding-bottom: 0
+#region-primary-menu + #region-secondary-menu
+  padding-top: 0
+#region-breadcrumb,
+#breadcrumb
+  font-size: 0.875em
   font-weight: bold
-  line-height: 1.2
-[id^="block-"][id$="-powered"]
-  display: flex
-  align-items: center
-  float: left
-  margin: 0 1em
-  min-height: $nav-toggle-height
+  li
+    margin-right: 0
+    &::before
+      content: "  \BB "
+      white-space: pre
+    &:first-child::before
+      content: none
 #region-highlighted
   @extend .cf
   padding-top: 0
@@ -78,49 +84,57 @@
     border-color: #ed541d
     &, & a
       color: #f00
-#region-primary-menu
-  padding-bottom: 0
-#region-secondary-menu
-  padding-top: 0
-  padding-bottom: 0
-#region-primary-menu + #region-secondary-menu
-  padding-top: 0
-#region-breadcrumb,
-#breadcrumb
-  font-size: 0.75em
-  font-weight: bold
+// By default, this contains the contact link.
+// For whatever reason, by default, Drupal places this in the header.
+// We only need these styles when this is in the header.
+[id^="block-"][id$="-footer"]
+  #region-header &
+    @extend .cf
+    > *
+      display: block
 [id^="block-"][id$="-local-tasks"]
-  padding-top: $space
-  padding-bottom: $space
+  @extend .cf
+  margin-top: $space
+  margin-bottom: $space
   [href="/user/login"]
     @extend .visually-hidden
-.no-sidebar-second
-  width: 100% !important
-.path-search
-  h2
-    margin: $space-and-half 0
-  #search-form > *
-    display: inline-block
-  #edit-help-link
-    margin-top: $space-quarter
-[id^="block-"][id$="-footer"]
-  @extend .cf
-  clear: both
-  margin-top: 0.5em
-details
-  padding-bottom: $space
-#edit-contact label
-  display: inline
+[id^="block-"][id$="-powered"]
+  font-size: 0.875em
 [id^="block-"][id$="-tools"]
   z-index: 1
-.views-field-title
-  font-size: 1.5em
+#edit-contact label
+  display: inline
+#site-name
+  font-size: 2em
   font-weight: bold
-@media all and (max-width: $bp-sm-max)
-  .skip-link
+  line-height: 1.25
+  margin-top: 0.2em
+  @media all and (min-width: $bp-med)
+    display: inline-block
+    vertical-align: text-bottom
+.no-sidebar-second
+  width: 100% !important
+  #edit-advanced
+    display: block
+    summary
+      cursor: pointer
+  #edit-help-link
+    margin-top: $space-quarter
+  #search-form > *
+    display: inline-block
+.path-contact,
+.path-user
+  [id^="block-"][id$="-content"]
+    margin-bottom: $space
+.path-search
+  details:hover
+    color: $gray
+  form,
+  form + h3,
+  [id^="block-"][id$="-content"] ol
+    margin-bottom: $space
+  [id^="block-"][id$="-content"] h2 + ol li
+    margin: $space 0
+.skip-link
+  @media all and (max-width: $bp-sm-max)
     display: none
-  .layout-sidebar-first,
-  .layout-sidebar-second
-    .views-field-title
-      font-size: 1em
-      font-weight: normal
