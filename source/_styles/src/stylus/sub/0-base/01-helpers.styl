@@ -14,7 +14,7 @@
         max-width: 22.5rem
   @media all and (min-width: $bp-small)
     [role="article"]
-      width: 100vw
+      width: "calc(100vw - %s)" % $space
     .item-list
       @extend .cf
       padding-top: $space-quarter
