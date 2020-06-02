@@ -24,7 +24,7 @@
 
   Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
-      var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+      var $searchBlock = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
       var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
       var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
 
@@ -91,7 +91,7 @@
   Drupal.behaviors.resetMobileNavBlocks = {
     attach: function (context) {
       $(window).resize(function () {
-        var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
+        var $searchBlock = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
         var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
         var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
 

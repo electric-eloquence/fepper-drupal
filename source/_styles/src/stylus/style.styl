@@ -51,6 +51,9 @@
 #breadcrumb
   font-size: 0.875em
   font-weight: bold
+  ol
+    display: flex
+    flex-wrap: wrap
   li
     margin-right: 0
     &::before
@@ -84,24 +87,42 @@
     border-color: #ed541d
     &, & a
       color: #f00
-// By default, this contains the contact link.
+// By default, the "footer" block contains the contact link.
 // For whatever reason, by default, Drupal places this in the header.
-// We only need these styles when this is in the header.
-[id^="block-"][id$="-footer"]
-  #region-header &
-    @extend .cf
-    > *
-      display: block
+// We only need these styles when the "footer" block is in the header.
+#region-header [id^="block-"][id$="-footer"]
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  @media all and (min-width: $bp-med)
+    margin-top: $space-half
 [id^="block-"][id$="-local-tasks"]
-  @extend .cf
   margin-top: $space
   margin-bottom: $space
-  [href="/user/login"]
-    @extend .visually-hidden
+  > ul
+    display: flex
+    flex-wrap: wrap
+    li
+      border-bottom: 1px solid $gray-light-2
+      margin-bottom: 0.25em
+      padding: 0 0.25em
+      a
+        background-color: $gray-light-2
+        border-radius: 0.25em 0.25em 0 0
+        border-top: 1px solid $gray-light-2
+        border-right: 1px solid $gray-light-2
+        border-left: 1px solid $gray-light-2
+        display: block
+        padding: 0 0.5em
+        &.is-active
+          background-color: $white
+          pointer-events: none
 [id^="block-"][id$="-powered"]
   font-size: 0.875em
 [id^="block-"][id$="-tools"]
   z-index: 1
+  ul
+    list-style: disc
 #edit-contact label
   display: inline
 #site-name
@@ -127,14 +148,18 @@
   [id^="block-"][id$="-content"]
     margin-bottom: $space
 .path-search
-  details:hover
+  details summary:hover
     color: $gray
+    cursor: pointer
   form,
   form + h3,
   [id^="block-"][id$="-content"] ol
     margin-bottom: $space
   [id^="block-"][id$="-content"] h2 + ol li
     margin: $space 0
+  [id^="block-"][id$="-content"] p:nth-of-type(2)
+    font-size: 0.875em
+    margin-top: 0.5em
 .skip-link
   @media all and (max-width: $bp-sm-max)
     display: none
