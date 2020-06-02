@@ -1,5 +1,5 @@
 form > div
-  margin-bottom: $space
+  margin-bottom: 1em
 form ol, form ul
   list-style: none
   margin-left: 0
@@ -86,3 +86,19 @@ form:not(#search-block-form)
   [id^="edit-actions"]
     float: left
     margin: 0
+#region-secondary-menu
+  #search-block-form
+    .form-item-keys
+      margin-bottom: 0
+  @media all and (max-width: $bp-sm-max)
+    padding: 0
+    [id^="block-"][id*="-search"]
+      #search-block-form
+        margin: 0.1rem 0 0
+        max-height: 0
+        position: absolute
+        right: 0
+        z-index: 5
+    [id^="block-"][id*="-search"].open
+      #search-block-form
+        max-height: none
