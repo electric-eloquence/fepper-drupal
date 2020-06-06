@@ -9,7 +9,7 @@
 <!-- Begin page -->
 <div class="layout-container">
 
-  <header class="header cf" role="banner">
+  <header id="header" class="header cf" role="banner">
     {{ page.header }}
 
     {{ page.secondary_menu }}
@@ -45,7 +45,7 @@
   </main>
 
   {% if page.footer %}
-    <footer role="contentinfo">
+    <footer id="footer" role="contentinfo">
       {{ page.footer }}
     </footer>
   {% endif %}
