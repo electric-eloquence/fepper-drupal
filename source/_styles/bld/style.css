@@ -155,8 +155,7 @@ h5 {
 h6 {
   font-size: 1em;
 }
-.path-search p,
-#region-footer p {
+.path-search p {
   margin: 0;
 }
 .item-list .node--view-mode-teaser p {
@@ -278,7 +277,6 @@ header.header {
   }
   [id="region-primary-menu"] .expanded > a::after,
   [id="region-secondary-menu"] .expanded > a::after {
-    color: #808080;
     content: "▼";
     font-size: 0.75em;
     margin-left: 0.8rem;
@@ -349,12 +347,12 @@ header.header {
   background: rgba(255,255,255,0.95);
   color: transparent;
   cursor: pointer;
-  width: 5.5rem;
-  height: 5.4rem;
   overflow: hidden;
-  padding: 1.6rem;
+  padding: 1rem;
   pointer-events: auto;
   position: relative;
+  width: 4.3rem;
+  height: 4.3rem;
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:active,
 [id^="block-"][id*="-main"] > h2 > a:active,
@@ -369,7 +367,20 @@ header.header {
   display: block;
   padding: 1.1rem;
 }
+#region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:hover::before,
+[id^="block-"][id*="-main"] > h2 > a:hover::before,
+[id^="block-"][id*="-account"] > h2 > a:hover::before,
+#region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:focus::before,
+[id^="block-"][id*="-main"] > h2 > a:focus::before,
+[id^="block-"][id*="-account"] > h2 > a:focus::before {
+  filter: invert(50%);
+}
 @media all and (max-width: 767px) {
+  #region-secondary-menu [id^="block-"][id*="-search"],
+  [id^="block-"][id*="-main"],
+  [id^="block-"][id*="-account"] {
+    position: static;
+  }
   #region-secondary-menu [id^="block-"][id*="-search"] > h2,
   [id^="block-"][id*="-main"] > h2,
   [id^="block-"][id*="-account"] > h2 {
@@ -381,10 +392,6 @@ header.header {
   }
 }
 @media all and (max-width: 767px) {
-  [id^="block-"][id*="-main"],
-  [id^="block-"][id*="-account"] {
-    position: static;
-  }
   [id^="block-"][id*="-main"] > ul,
   [id^="block-"][id*="-account"] > ul {
     background: rgba(255,255,255,0.95);
@@ -396,18 +403,19 @@ header.header {
     -ms-transition: max-height 0.1s ease;
     -o-transition: max-height 0.1s ease;
     transition: max-height 0.1s ease;
+    top: 5.5rem;
     left: 0;
     width: 100%;
     z-index: 4;
   }
   [id^="block-"][id*="-main"] li,
   [id^="block-"][id*="-account"] li {
-    border-top: 1px solid #ddd;
     float: none;
     padding-right: 0;
   }
   [id^="block-"][id*="-main"] li a,
   [id^="block-"][id*="-account"] li a {
+    border-bottom: 1px solid #ddd;
     padding: 0.7rem 1.6rem;
   }
   [id^="block-"][id*="-main"] li a:active,
@@ -420,7 +428,6 @@ header.header {
   }
   [id^="block-"][id*="-main"].open > ul,
   [id^="block-"][id*="-account"].open > ul {
-    border-bottom: 1px solid #ddd;
     max-height: none;
   }
 }
@@ -439,7 +446,6 @@ header.header {
 @media all and (max-width: 767px) {
   [id^="block-"][id*="-account"] {
     margin-top: 0;
-    position: static;
   }
   [id^="block-"][id*="-account"] > ul {
     text-align: right;
@@ -517,21 +523,12 @@ nav li {
   display: block;
 }
 footer[role="contentinfo"] {
-  background: #131313;
-  color: #fff;
   overflow: hidden;
   height: 5rem;
-  line-height: 1.2;
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-}
-footer[role="contentinfo"] a {
-  color: #f9f9f9;
-}
-#region-footer {
-  height: 100%;
 }
 blockquote {
   border-left: 1px solid #808080;
@@ -750,9 +747,9 @@ form:not(#search-block-form) [id^="edit-actions"] {
     padding: 0;
   }
   #region-secondary-menu [id^="block-"][id*="-search"] #search-block-form {
-    margin: 0.1rem 0 0;
     max-height: 0;
     position: absolute;
+    top: 5.5rem;
     right: 0;
     z-index: 5;
   }
@@ -871,6 +868,7 @@ section[rel="schema:comment"] .indented {
   display: flex;
   justify-content: center;
   margin-bottom: 1em;
+  padding-top: 1em;
 }
 .pager .pager__items {
   display: flex;
@@ -879,6 +877,9 @@ section[rel="schema:comment"] .indented {
 }
 .pager .is-active {
   font-weight: bold;
+}
+.pager .is-active a {
+  pointer-events: none;
 }
 .pager li {
   border-right: 1px solid #ddd;
@@ -906,11 +907,6 @@ section[rel="schema:comment"] .indented {
   .pager .pager__items {
     justify-content: flex-start;
   }
-}
-.path-frontpage .layout-content {
-  border-bottom: 2px solid #eee;
-  margin-bottom: 1em;
-  padding: 0 0 1.5em;
 }
 [id^="block-"][id$="content"]:first-child,
 [id^="block-"][id*="-views-block-content-recent-block"] .views-row,
