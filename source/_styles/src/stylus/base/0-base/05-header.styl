@@ -39,7 +39,6 @@ header.header
         align-items: center
     .expanded
       > a::after
-        color: $gray
         content: "▼"
         font-size: 0.75em
         margin-left: $space-half
@@ -88,12 +87,12 @@ header.header
       background: $white-translucent
       color: transparent
       cursor: pointer
-      width: $nav-toggle-n-border
-      height: $nav-toggle-height
       overflow: hidden
-      padding: $space
+      padding: 1rem
       pointer-events: auto
       position: relative
+      width: 4.3rem
+      height: 4.3rem
       &:active
         background-color: $gray-light-1
       &::before
@@ -101,7 +100,12 @@ header.header
         content: ""
         display: block
         padding: 1.1rem
-    @media all and (max-width: $bp-sm-max)
+      &:hover::before,
+      &:focus::before
+        filter: invert(50%)
+  @media all and (max-width: $bp-sm-max)
+    position: static // In order for the mobile nav to work while logged in.
+    > h2
       // Undo .visually-hidden.
       overflow: visible
       position: relative !important
@@ -111,21 +115,21 @@ header.header
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
   @media all and (max-width: $bp-sm-max)
-    position: static // In order for the mobile nav to work while logged in.
     > ul
       background: $white-translucent
       max-height: 0
       overflow: hidden
       position: absolute
       transition: max-height 0.1s ease
+      top: $nav-toggle-n-border
       left: 0
       width: 100%
       z-index: 4
     li
-      border-top: 1px solid $gray-light-2
       float: none
       padding-right: 0
       a
+        border-bottom: 1px solid $gray-light-2
         padding: 0.7rem $space
         &:active
           background-color: $gray-light-1
@@ -133,7 +137,6 @@ header.header
         padding-left: 1.2rem
     &.open
       > ul
-        border-bottom: 1px solid $gray-light-2
         max-height: none
 // Search form.
 #region-secondary-menu [id^="block-"][id*="-search"]
@@ -153,7 +156,6 @@ header.header
       background-image: url("../../_assets/src/icon-avatar.svg")
   @media all and (max-width: $bp-sm-max)
     margin-top: 0
-    position: static // In order for the mobile nav to work while logged in.
     > ul
       text-align: right
 [id^="block-"]

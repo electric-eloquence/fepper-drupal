@@ -2,7 +2,7 @@
 <!-- Begin page -->
 <div class="layout-container">
 
-  <header class="header cf" role="banner">
+  <header id="header" class="header cf" role="banner">
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-header"',
@@ -136,7 +136,7 @@
   </main>
 
   {{# footer? }}
-    <footer role="contentinfo">
+    <footer id="footer" role="contentinfo">
       {{> 03-templates/region(
         region_attributes: ' id="region-footer"',
         "templates-block--footer?": true

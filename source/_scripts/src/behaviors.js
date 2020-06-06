@@ -24,6 +24,8 @@
 
   Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
+      var $body = $('body', context);
+      var $header = $('.header', context);
       var $searchBlock = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
       var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
       var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
@@ -35,10 +37,13 @@
 
         if ($searchToggler.length) {
           $searchToggler.click(function () {
-            var searchBlockRect = $searchBlock[0].getBoundingClientRect();
-
             if ($searchBlock.hasClass('open')) {
-              $('#search-block-form', context).css('top', searchBlockRect.bottom + 'px');
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $('#search-block-form', context).css('top', cssTop);
+            }
+            else {
+              $('#search-block-form', context).css('top', '');
             }
           });
         }
@@ -51,15 +56,18 @@
 
         if ($mainMenuToggler.length) {
           $mainMenuToggler.click(function () {
-            var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
-
             if ($mainMenuBlock.hasClass('open')) {
-              $mainMenuBlock.children('ul').css('top', mainMenuBlockRect.bottom + 'px');
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $mainMenuBlock.children('ul').css('top', cssTop);
 
               if ($userAccountBlock.length) {
                 $userAccountBlock.removeClass('open');
-                $userAccountBlock.children('ul').css('top', '0');
+                $userAccountBlock.children('ul').css('top', '');
               }
+            }
+            else {
+              $mainMenuBlock.children('ul').css('top', '');
             }
           });
         }
@@ -72,15 +80,18 @@
 
         if ($userAccountToggler.length) {
           $userAccountToggler.click(function () {
-            var userAccountBlockRect = $userAccountBlock[0].getBoundingClientRect();
-
             if ($userAccountBlock.hasClass('open')) {
-              $userAccountBlock.children('ul').css('top', userAccountBlockRect.bottom + 'px');
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $userAccountBlock.children('ul').css('top', cssTop);
 
               if ($mainMenuBlock.length) {
                 $mainMenuBlock.removeClass('open');
-                $mainMenuBlock.children('ul').css('top', '0');
+                $mainMenuBlock.children('ul').css('top', '');
               }
+            }
+            else {
+              $userAccountBlock.children('ul').css('top', '');
             }
           });
         }
@@ -97,18 +108,39 @@
 
         if ($searchBlock.length) {
           $searchBlock.removeClass('open');
-          $('#search-block-form', context).css('top', '0');
+          $('#search-block-form', context).css('top', '');
         }
 
         if ($mainMenuBlock.length) {
           $mainMenuBlock.removeClass('open');
-          $mainMenuBlock.children('ul').css('top', '0');
+          $mainMenuBlock.children('ul').css('top', '');
         }
 
         if ($userAccountBlock.length) {
           $userAccountBlock.removeClass('open');
-          $userAccountBlock.children('ul').css('top', '0');
+          $userAccountBlock.children('ul').css('top', '');
         }
+      });
+    }
+  };
+
+  Drupal.behaviors.resetFooterHeight = {
+    attach: function (context) {
+      function resetFooterHeight() {
+        var $body = $('body', context);
+        var $footer = $('footer[role="contentinfo"]', context);
+
+        $footer.css('height', 'auto');
+
+        var footerHeight = $footer.length ? $footer.outerHeight() + 'px' : '';
+
+        $body.css('padding-bottom', footerHeight);
+      }
+
+      resetFooterHeight();
+
+      $(window).resize(function () {
+        resetFooterHeight();
       });
     }
   };
