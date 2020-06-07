@@ -24,18 +24,6 @@
   margin: 0 auto;
   padding: 0.8rem;
 }
-.visually-hidden,
-#region-secondary-menu [id^="block-"][id*="-search"] > h2,
-[id^="block-"][id*="-main"] > h2,
-[id^="block-"][id*="-account"] > h2 {
-  position: absolute !important;
-  overflow: hidden;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-}
 html {
   box-sizing: border-box;
 }
@@ -186,6 +174,16 @@ aside {
 .hidden {
   display: none !important;
   visibility: hidden !important;
+}
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
 }
 .right {
   float: right;
@@ -381,14 +379,12 @@ header.header {
   [id^="block-"][id*="-account"] {
     position: static;
   }
+}
+@media all and (min-width: 768px) {
   #region-secondary-menu [id^="block-"][id*="-search"] > h2,
   [id^="block-"][id*="-main"] > h2,
   [id^="block-"][id*="-account"] > h2 {
-    overflow: visible;
-    position: relative !important;
-    width: auto;
-    height: auto;
-    clip: auto;
+    display: none;
   }
 }
 @media all and (max-width: 767px) {
