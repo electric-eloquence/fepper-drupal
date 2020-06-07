@@ -80,7 +80,6 @@ header.header
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
   > h2
-    @extend .visually-hidden
     margin: 0
     z-index: 3
     > a
@@ -105,13 +104,9 @@ header.header
         filter: invert(50%)
   @media all and (max-width: $bp-sm-max)
     position: static // In order for the mobile nav to work while logged in.
+  @media all and (min-width: $bp-med)
     > h2
-      // Undo .visually-hidden.
-      overflow: visible
-      position: relative !important
-      width: auto
-      height: auto
-      clip: auto
+      display: none
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
   @media all and (max-width: $bp-sm-max)
