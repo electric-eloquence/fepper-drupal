@@ -108,6 +108,11 @@
     min-height: 4rem;
   }
 }
+#region-secondary-menu [id^="block-"][id*="-search"] > h2,
+[id^="block-"][id*="-main"] > h2,
+[id^="block-"][id*="-account"] > h2 {
+  padding: 0;
+}
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
 [id^="block-"][id*="-main"] > h2 > a,
 [id^="block-"][id*="-account"] > h2 > a {
