@@ -273,6 +273,12 @@ header.header {
     flex-wrap: wrap;
     align-items: center;
   }
+  [id="region-primary-menu"] .expanded > a:hover + ul,
+  [id="region-secondary-menu"] .expanded > a:hover + ul,
+  [id="region-primary-menu"] .expanded > a:focus + ul,
+  [id="region-secondary-menu"] .expanded > a:focus + ul {
+    max-height: 100%;
+  }
   [id="region-primary-menu"] .expanded > a::after,
   [id="region-secondary-menu"] .expanded > a::after {
     content: "▼";
@@ -290,10 +296,6 @@ header.header {
   [id="region-primary-menu"] .expanded ul li:last-child,
   [id="region-secondary-menu"] .expanded ul li:last-child {
     border-bottom: 1px solid #eee;
-  }
-  [id="region-primary-menu"] .expanded:hover ul,
-  [id="region-secondary-menu"] .expanded:hover ul {
-    max-height: 100%;
   }
   [id="region-primary-menu"] nav > ul > .expanded > ul,
   [id="region-secondary-menu"] nav > ul > .expanded > ul {
@@ -337,6 +339,7 @@ header.header {
 [id^="block-"][id*="-main"] > h2,
 [id^="block-"][id*="-account"] > h2 {
   margin: 0;
+  padding: 0;
   z-index: 3;
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
@@ -728,7 +731,8 @@ form:not(#search-block-form) [id^="edit-actions"] {
   width: 3.125em;
   z-index: 1;
 }
-#search-block-form input[id^="edit-submit"]:hover {
+#search-block-form input[id^="edit-submit"]:hover,
+#search-block-form input[id^="edit-submit"]:focus {
   background: rgba(0,0,0,0.3);
 }
 #search-block-form [id^="edit-actions"] {
@@ -1099,7 +1103,8 @@ section[rel="schema:comment"] .indented {
 .path-user [id^="block-"][id$="-content"] {
   margin-bottom: 1.6rem;
 }
-.path-search details summary:hover {
+.path-search details summary:hover,
+.path-search details summary:focus {
   color: #808080;
   cursor: pointer;
 }

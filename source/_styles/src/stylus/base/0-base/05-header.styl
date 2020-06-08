@@ -38,10 +38,15 @@ header.header
         flex-wrap: wrap
         align-items: center
     .expanded
-      > a::after
-        content: "▼"
-        font-size: 0.75em
-        margin-left: $space-half
+      > a
+        &:hover,
+        &:focus
+          & + ul
+            max-height: 100%
+        &::after
+          content: "▼"
+          font-size: 0.75em
+          margin-left: $space-half
       ul
         li
           float: none
@@ -51,9 +56,6 @@ header.header
           padding-left: 1.2rem
           &:last-child
             border-bottom: 1px solid $gray-light-1
-      &:hover
-        ul
-          max-height: 100%
     nav > ul > .expanded > ul
       background: $white-translucent
       max-height: 0
@@ -81,6 +83,7 @@ header.header
 [id^="block-"][id*="-account"]
   > h2
     margin: 0
+    padding: 0
     z-index: 3
     > a
       background: $white-translucent
