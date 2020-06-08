@@ -148,9 +148,11 @@
   [id^="block-"][id$="-content"]
     margin-bottom: $space
 .path-search
-  details summary:hover
-    color: $gray
-    cursor: pointer
+  details summary
+    &:hover,
+    &:focus
+      color: $gray
+      cursor: pointer
   form,
   form + h3,
   [id^="block-"][id$="-content"] ol
