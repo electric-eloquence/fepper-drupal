@@ -38,6 +38,14 @@ function fepper_preprocess_block(&$variables) {
   if ($variables['plugin_id'] == 'system_branding_block') {
     $variables['#cache']['max-age'] = 0;
   }
+
+  if (
+    $variables['plugin_id'] == 'system_menu_block:account' ||
+    $variables['plugin_id'] == 'system_menu_block:main' ||
+    $variables['plugin_id'] == 'system_menu_block:search'
+  ) {
+    $variables['configuration']['label_display'] = 1;
+  }
 }
 
 /**
