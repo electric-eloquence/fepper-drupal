@@ -6,11 +6,13 @@
 #region-secondary-menu [id^="block-"][id*="-search"],
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
-  > h2 > a
-    border-left: 1px solid $gray-light-2
-    padding: $space
-    width: $nav-toggle-n-border
-    height: $nav-toggle-height
+  > h2
+    padding: 0
+    > a
+      border-left: 1px solid $gray-light-2
+      padding: $space
+      width: $nav-toggle-n-border
+      height: $nav-toggle-height
 // Use more general matching to select custom blocks with the word "branding" in the name, with the intent to override
 // the system block. (Do not include a hyphen in the matching criteria for "branding".)
 [id^="block-"][id*="branding"]
