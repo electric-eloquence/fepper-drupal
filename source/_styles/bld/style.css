@@ -175,16 +175,6 @@ aside {
   display: none !important;
   visibility: hidden !important;
 }
-.visually-hidden {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  pointer-events: none !important;
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-}
 .right {
   float: right;
   padding: 0 0 1.6rem 1.6rem;
@@ -384,9 +374,9 @@ header.header {
   }
 }
 @media all and (min-width: 768px) {
-  #region-secondary-menu [id^="block-"][id*="-search"] > h2,
-  [id^="block-"][id*="-main"] > h2,
-  [id^="block-"][id*="-account"] > h2 {
+  #region-secondary-menu [id^="block-"][id*="-search"] .hidden-link,
+  [id^="block-"][id*="-main"] .hidden-link,
+  [id^="block-"][id*="-account"] .hidden-link {
     display: none;
   }
 }
@@ -449,15 +439,6 @@ header.header {
   [id^="block-"][id*="-account"] > ul {
     text-align: right;
   }
-}
-[id^="block-"] > h2 > a {
-  pointer-events: none;
-}
-[id^="block-"][id*="-search"] > h2 {
-  font-size: 0;
-}
-[id^="block-"][id*="-main"] > h2 {
-  font-size: 0.8rem;
 }
 [id^="block-"][id*="branding"] h1,
 [id^="block-"][id*="branding"] p {

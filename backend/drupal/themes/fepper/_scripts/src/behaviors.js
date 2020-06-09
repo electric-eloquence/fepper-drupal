@@ -26,18 +26,66 @@
     attach: function (context) {
       var $body = $('body', context);
       var $header = $('.header', context);
-      var $searchBlock = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
-      var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
-      var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
+      var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
+      var $blockMainMenu = $('nav[id^="block-"][id$="-main-menu"]', context);
+      var $blockSearch = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
 
-      if ($searchBlock.length) {
-        mobileNavToggle($searchBlock, context);
+      if ($blockAccountMenu.length) {
+        mobileNavToggle($blockAccountMenu, context);
 
-        var $searchToggler = $searchBlock.find('> h2 > a');
+        var $togglerAccountMenu = $blockAccountMenu.find('> h2 > a');
 
-        if ($searchToggler.length) {
-          $searchToggler.click(function () {
-            if ($searchBlock.hasClass('open')) {
+        if ($togglerAccountMenu.length) {
+          $togglerAccountMenu.click(function () {
+            if ($blockAccountMenu.hasClass('open')) {
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $blockAccountMenu.children('ul').css('top', cssTop);
+
+              if ($blockMainMenu.length) {
+                $blockMainMenu.removeClass('open');
+                $blockMainMenu.children('ul').css('top', '');
+              }
+            }
+            else {
+              $blockAccountMenu.children('ul').css('top', '');
+            }
+          });
+        }
+      }
+
+      if ($blockMainMenu.length) {
+        mobileNavToggle($blockMainMenu, context);
+
+        var $togglerMainMenu = $blockMainMenu.find('> h2 > a');
+
+        if ($togglerMainMenu.length) {
+          $togglerMainMenu.click(function () {
+            if ($blockMainMenu.hasClass('open')) {
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $blockMainMenu.children('ul').css('top', cssTop);
+
+              if ($blockAccountMenu.length) {
+                $blockAccountMenu.removeClass('open');
+                $blockAccountMenu.children('ul').css('top', '');
+              }
+            }
+            else {
+              $blockMainMenu.children('ul').css('top', '');
+            }
+          });
+        }
+      }
+
+      if ($blockSearch.length) {
+        mobileNavToggle($blockSearch, context);
+
+        var $togglerSearch = $blockSearch.find('> h2 > a');
+
+        if ($togglerSearch.length) {
+          $togglerSearch.click(function () {
+            if ($blockSearch.hasClass('open')) {
               var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
 
               $('#search-block-form', context).css('top', cssTop);
@@ -48,77 +96,29 @@
           });
         }
       }
-
-      if ($mainMenuBlock.length) {
-        mobileNavToggle($mainMenuBlock, context);
-
-        var $mainMenuToggler = $mainMenuBlock.find('> h2 > a');
-
-        if ($mainMenuToggler.length) {
-          $mainMenuToggler.click(function () {
-            if ($mainMenuBlock.hasClass('open')) {
-              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
-
-              $mainMenuBlock.children('ul').css('top', cssTop);
-
-              if ($userAccountBlock.length) {
-                $userAccountBlock.removeClass('open');
-                $userAccountBlock.children('ul').css('top', '');
-              }
-            }
-            else {
-              $mainMenuBlock.children('ul').css('top', '');
-            }
-          });
-        }
-      }
-
-      if ($userAccountBlock.length) {
-        mobileNavToggle($userAccountBlock, context);
-
-        var $userAccountToggler = $userAccountBlock.find('> h2 > a');
-
-        if ($userAccountToggler.length) {
-          $userAccountToggler.click(function () {
-            if ($userAccountBlock.hasClass('open')) {
-              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
-
-              $userAccountBlock.children('ul').css('top', cssTop);
-
-              if ($mainMenuBlock.length) {
-                $mainMenuBlock.removeClass('open');
-                $mainMenuBlock.children('ul').css('top', '');
-              }
-            }
-            else {
-              $userAccountBlock.children('ul').css('top', '');
-            }
-          });
-        }
-      }
     }
   };
 
   Drupal.behaviors.resetMobileNavBlocks = {
     attach: function (context) {
       $(window).resize(function () {
-        var $searchBlock = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
-        var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
-        var $userAccountBlock = $('nav[id^="block-"][id$="-account-menu"]', context);
+        var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
+        var $blockMainMenu = $('nav[id^="block-"][id$="-main-menu"]', context);
+        var $blockSearch = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
 
-        if ($searchBlock.length) {
-          $searchBlock.removeClass('open');
+        if ($blockAccountMenu.length) {
+          $blockAccountMenu.removeClass('open');
+          $blockAccountMenu.children('ul').css('top', '');
+        }
+
+        if ($blockMainMenu.length) {
+          $blockMainMenu.removeClass('open');
+          $blockMainMenu.children('ul').css('top', '');
+        }
+
+        if ($blockSearch.length) {
+          $blockSearch.removeClass('open');
           $('#search-block-form', context).css('top', '');
-        }
-
-        if ($mainMenuBlock.length) {
-          $mainMenuBlock.removeClass('open');
-          $mainMenuBlock.children('ul').css('top', '');
-        }
-
-        if ($userAccountBlock.length) {
-          $userAccountBlock.removeClass('open');
-          $userAccountBlock.children('ul').css('top', '');
         }
       });
     }

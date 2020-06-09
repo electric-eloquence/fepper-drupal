@@ -4,7 +4,15 @@
 
   {{{ title_prefix }}}
   {{# title }}
-    <h2 {{{ title_attributes }}}><a href="#">{{{ title }}}</a></h2>
+    <h2 {{{ title_attributes }}}>
+      {{# hidden_link_condition }}
+        <a href="#" class="hidden-link"></a><span class="visually-hidden">
+      {{/ hidden_link_condition }}
+      {{{ title }}}
+      {{# hidden_link_condition }}
+        </span>
+      {{/ hidden_link_condition }}
+    </h2>
   {{/ title }}
   {{{ title_suffix }}}
 
