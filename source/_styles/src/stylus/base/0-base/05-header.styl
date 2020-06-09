@@ -108,7 +108,7 @@ header.header
   @media all and (max-width: $bp-sm-max)
     position: static // In order for the mobile nav to work while logged in.
   @media all and (min-width: $bp-med)
-    > h2
+    .hidden-link
       display: none
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
@@ -156,13 +156,6 @@ header.header
     margin-top: 0
     > ul
       text-align: right
-[id^="block-"]
-  > h2 > a
-    pointer-events: none
-[id^="block-"][id*="-search"] > h2
-  font-size: 0
-[id^="block-"][id*="-main"] > h2
-  font-size: $space-half
 // Use more general matching to select blocks with the word "branding" in the name, i.e. do not include a hyphen along
 // with "branding". This is to select both custom blocks as well as the system branding block.
 [id^="block-"][id*="branding"]

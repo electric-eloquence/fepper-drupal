@@ -20,6 +20,10 @@
   {% if label %}
 'title_attributes': |2
   \{\{ title_attributes \}\}
+'# hidden_link_condition': |2
+  {% if plugin_id == 'search_form_block' %}
+'/ hidden_link_condition': |2
+  {% endif %}
 'title': |2
   \{\{ label \}\}
 '/ title': |2
