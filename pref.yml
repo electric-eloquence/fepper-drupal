@@ -59,6 +59,7 @@ backend:
     - drupal/core/assets/vendor/domready
     - drupal/core/assets/vendor/jquery
     - drupal/core/misc
+    - drupal/core/modules/system/css/components
 
 templater:
   # By default, the Templater will not retain untranslated Feplet tags when
