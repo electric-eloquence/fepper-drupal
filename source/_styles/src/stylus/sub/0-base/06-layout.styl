@@ -7,7 +7,6 @@
   @media all and (min-width: $bp-med)
     flex-grow: 1
     width: $column-width-two-thirds + "%"
-.layout-content
   @media all and (min-width: $bp-large)
     width: $column-width-three-quarters + "%"
 .layout-sidebar-first,
@@ -25,6 +24,11 @@
     width: $column-width-one-third + "%"
   @media all and (min-width: $bp-large)
     width: $column-width-one-quarter + "%"
+[id^="block-"][id$="-content"]
+  @media all and (min-width: $bp-med)
+    .path-node &,
+    .path-search &
+      padding-right: $space
 [id^="block-"][id$="-views-block-content-recent-block-1"]
   .views-field-title
     font-size: 1.6rem

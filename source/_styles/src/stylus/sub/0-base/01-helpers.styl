@@ -3,6 +3,8 @@
   [role="article"]
     > h2
       font-size: 1.25em
+      margin-top: 0
+      padding-top: 0
     [property="schema:text"],
     [property="text"]
       p
@@ -13,32 +15,24 @@
         display: block
         max-width: 22.5rem
   @media all and (min-width: $bp-small)
-    [role="article"]
-      width: "calc(100vw - %s)" % $space
     .item-list
       @extend .cf
       padding-top: $space-quarter
-    .item-list li
-      clear: both
-      float: left
-      margin-bottom: $space
+      li
+        clear: both
+        float: left
+        margin-bottom: $space
     [role="article"]
       > h2,
       [property="schema:text"],
       [property="text"]
         float: right
         margin-top: 0
-        padding: 0 1.6rem
+        padding-left: $space
         width: $column-width-three-quarters + "%"
       img
         float: left
         width: $column-width-one-quarter + "%"
-  @media all and (min-width: $bp-med) and (max-width: $bp-md-max)
-    [role="article"]
-      width: "%svw" % $column-width-two-thirds
-  @media all and (min-width: $bp-large) and (max-width: $max-width)
-    [role="article"]
-      width: "%svw" % $column-width-three-quarters
-  @media all and (min-width: $max-width)
-    [role="article"]
-      width: ($column-width-three-quarters / 100) * $max-width
+  @media all and (min-width: $bp-med)
+    .item-list
+      padding-right: $space
