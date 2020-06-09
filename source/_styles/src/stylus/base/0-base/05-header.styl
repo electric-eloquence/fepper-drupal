@@ -38,15 +38,14 @@ header.header
         flex-wrap: wrap
         align-items: center
     .expanded
-      > a
-        &:hover,
-        &:focus
-          & + ul
-            max-height: 100%
-        &::after
-          content: "▼"
-          font-size: 0.75em
-          margin-left: $space-half
+      &:hover > a,
+      > a:focus
+        + ul
+          max-height: 100%
+      > a::after
+        content: "▼"
+        font-size: 0.75em
+        margin-left: $space-half
       ul
         li
           float: none
