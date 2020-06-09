@@ -263,8 +263,8 @@ header.header {
     flex-wrap: wrap;
     align-items: center;
   }
-  [id="region-primary-menu"] .expanded > a:hover + ul,
-  [id="region-secondary-menu"] .expanded > a:hover + ul,
+  [id="region-primary-menu"] .expanded:hover > a + ul,
+  [id="region-secondary-menu"] .expanded:hover > a + ul,
   [id="region-primary-menu"] .expanded > a:focus + ul,
   [id="region-secondary-menu"] .expanded > a:focus + ul {
     max-height: 100%;
