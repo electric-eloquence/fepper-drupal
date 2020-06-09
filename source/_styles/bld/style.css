@@ -317,11 +317,6 @@ header.header {
     float: right;
   }
 }
-@media all and (min-width: 768px) {
-  [id="region-primary-menu"] {
-    margin-top: 0.8rem;
-  }
-}
 [id="region-secondary-menu"] {
   float: right;
 }
@@ -339,11 +334,11 @@ header.header {
   color: transparent;
   cursor: pointer;
   overflow: hidden;
-  padding: 1rem;
+  padding: 0.9rem;
   pointer-events: auto;
   position: relative;
-  width: 4.3rem;
-  height: 4.3rem;
+  width: 4rem;
+  height: 4rem;
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:active,
 [id^="block-"][id*="-main"] > h2 > a:active,
@@ -422,20 +417,17 @@ header.header {
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a::before {
   background-image: url("../../_assets/src/icon-search.svg");
+  filter: invert(20%);
 }
 [id^="block-"][id*="-main"] > h2 > a::before {
   background-image: url("../../_assets/src/icon-menu.svg");
-}
-[id^="block-"][id*="-account"] {
-  margin-top: 0.8rem;
+  filter: invert(20%);
 }
 [id^="block-"][id*="-account"] > h2 > a::before {
   background-image: url("../../_assets/src/icon-avatar.svg");
+  filter: invert(20%);
 }
 @media all and (max-width: 767px) {
-  [id^="block-"][id*="-account"] {
-    margin-top: 0;
-  }
   [id^="block-"][id*="-account"] > ul {
     text-align: right;
   }
@@ -455,6 +447,7 @@ header.header {
   [id^="block-"][id*="branding"] > div > h1:first-child,
   [id^="block-"][id*="branding"] > div > p:first-child {
     display: inline-block;
+    vertical-align: bottom;
   }
 }
 @media all and (min-width: 768px) {
@@ -681,15 +674,6 @@ form:not(#search-block-form) [id^="edit-actions"] {
   font-size: 1em;
   position: relative;
 }
-#search-block-form .form-item-keys::after {
-  background: url("../../_assets/src/icon-search.svg") no-repeat 0 0;
-  background-size: cover;
-  content: "";
-  padding: 0.5625em;
-  position: absolute;
-  top: 0.6875em;
-  right: -2em;
-}
 #search-block-form input {
   background: transparent;
   height: 2.5em;
@@ -703,6 +687,8 @@ form:not(#search-block-form) [id^="edit-actions"] {
   }
 }
 #search-block-form input[id^="edit-submit"] {
+  background: url("../../_assets/src/icon-search.svg") no-repeat 50% 45%;
+  background-size: 35%;
   border: 1px solid #808080;
   border-left: 0;
   color: transparent;
@@ -714,7 +700,10 @@ form:not(#search-block-form) [id^="edit-actions"] {
 }
 #search-block-form input[id^="edit-submit"]:hover,
 #search-block-form input[id^="edit-submit"]:focus {
-  background: rgba(0,0,0,0.3);
+  filter: invert(50%);
+}
+#search-block-form input[id^="edit-submit"]:active {
+  background-color: rgba(0,0,0,0.1);
 }
 #search-block-form [id^="edit-actions"] {
   float: left;
@@ -808,7 +797,7 @@ section[rel="schema:comment"] .indented {
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
     justify-content: flex-end;
-    margin: 0 0.8rem 0 0;
+    margin-right: 0.8rem;
   }
   section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links li:last-of-type {
     padding-right: 0;
@@ -1010,11 +999,6 @@ section[rel="schema:comment"] .indented {
   flex-wrap: wrap;
   align-items: center;
 }
-@media all and (min-width: 768px) {
-  #region-header [id^="block-"][id$="-footer"] {
-    margin-top: 0.8rem;
-  }
-}
 [id^="block-"][id$="-local-tasks"] {
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
@@ -1057,12 +1041,10 @@ section[rel="schema:comment"] .indented {
   font-size: 2em;
   font-weight: bold;
   line-height: 1.25;
-  margin-top: 0.2em;
 }
 @media all and (min-width: 768px) {
   #site-name {
     display: inline-block;
-    vertical-align: text-bottom;
   }
 }
 .no-sidebar-second {

@@ -73,8 +73,6 @@ header.header
   float: left
   @media all and (max-width: $bp-sm-max)
     float: right
-  @media all and (min-width: $bp-med)
-    margin-top: $space-half
 [id="region-secondary-menu"]
   float: right
 #region-secondary-menu [id^="block-"][id*="-search"],
@@ -89,11 +87,11 @@ header.header
       color: transparent
       cursor: pointer
       overflow: hidden
-      padding: 1rem
+      padding: 0.9rem
       pointer-events: auto
       position: relative
-      width: 4.3rem
-      height: 4.3rem
+      width: 4rem
+      height: 4rem
       &:active
         background-color: $gray-light-1
       &::before
@@ -140,19 +138,20 @@ header.header
   > h2 > a
     &::before
       background-image: url("../../_assets/src/icon-search.svg")
+      filter: invert(20%)
 // Main navigation.
 [id^="block-"][id*="-main"]
   > h2 > a
     &::before
       background-image: url("../../_assets/src/icon-menu.svg")
+      filter: invert(20%)
 // User account menu.
 [id^="block-"][id*="-account"]
-  margin-top: $space-half
   > h2 > a
     &::before
       background-image: url("../../_assets/src/icon-avatar.svg")
+      filter: invert(20%)
   @media all and (max-width: $bp-sm-max)
-    margin-top: 0
     > ul
       text-align: right
 // Use more general matching to select blocks with the word "branding" in the name, i.e. do not include a hyphen along
@@ -173,6 +172,7 @@ header.header
       &:first-child
         @media all and (min-width: $bp-med)
           display: inline-block
+          vertical-align: bottom
   @media all and (min-width: $bp-med)
     img
       margin-right: $space-half
