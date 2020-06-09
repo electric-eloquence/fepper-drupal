@@ -21,6 +21,10 @@
   \{\{ title_prefix \}\}
 'title_attributes': |2
   \{\{ title_attributes.setAttribute('id', heading_id) \}\}
+'# hidden_link_condition': |2
+  {% if plugin_id == 'system_menu_block:account' or plugin_id == 'system_menu_block:main' %}
+'/ hidden_link_condition': |2
+  {% endif %}
 'title': |2
   \{\{ configuration.label \}\}
 'title_suffix': |2
