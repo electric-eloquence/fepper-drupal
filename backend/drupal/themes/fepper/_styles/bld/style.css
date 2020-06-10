@@ -278,14 +278,15 @@ header.header {
   [id="region-primary-menu"] .expanded ul li,
   [id="region-secondary-menu"] .expanded ul li {
     float: none;
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
     border-bottom: 0;
+    min-width: 11rem;
     padding-right: 1.2rem;
     padding-left: 1.2rem;
   }
   [id="region-primary-menu"] .expanded ul li:last-child,
   [id="region-secondary-menu"] .expanded ul li:last-child {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ddd;
   }
   [id="region-primary-menu"] nav > ul > .expanded > ul,
   [id="region-secondary-menu"] nav > ul > .expanded > ul {
@@ -334,11 +335,11 @@ header.header {
   color: transparent;
   cursor: pointer;
   overflow: hidden;
-  padding: 0.9rem;
+  padding: 1.2rem;
   pointer-events: auto;
   position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 4.6rem;
+  height: 4.6rem;
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:active,
 [id^="block-"][id*="-main"] > h2 > a:active,
@@ -448,6 +449,11 @@ header.header {
   [id^="block-"][id*="branding"] > div > p:first-child {
     display: inline-block;
     vertical-align: bottom;
+  }
+}
+@media all and (max-width: 767px) {
+  [id^="block-"][id*="branding"] img {
+    height: 3.8rem;
   }
 }
 @media all and (min-width: 768px) {
@@ -696,14 +702,13 @@ form:not(#search-block-form) [id^="edit-actions"] {
   padding-left: 0;
   position: relative;
   width: 3.125em;
-  z-index: 1;
 }
 #search-block-form input[id^="edit-submit"]:hover,
 #search-block-form input[id^="edit-submit"]:focus {
   filter: invert(50%);
 }
 #search-block-form input[id^="edit-submit"]:active {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.2);
 }
 #search-block-form [id^="edit-actions"] {
   float: left;
