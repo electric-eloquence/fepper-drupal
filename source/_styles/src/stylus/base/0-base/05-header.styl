@@ -49,12 +49,13 @@ header.header
       ul
         li
           float: none
-          border: 1px solid $gray-light-1
+          border: 1px solid $gray-light-2
           border-bottom: 0
+          min-width: 11rem
           padding-right: 1.2rem
           padding-left: 1.2rem
           &:last-child
-            border-bottom: 1px solid $gray-light-1
+            border-bottom: 1px solid $gray-light-2
     nav > ul > .expanded > ul
       background: $white-translucent
       max-height: 0
@@ -87,11 +88,11 @@ header.header
       color: transparent
       cursor: pointer
       overflow: hidden
-      padding: 0.9rem
+      padding: 1.2rem
       pointer-events: auto
       position: relative
-      width: 4rem
-      height: 4rem
+      width: 4.6rem
+      height: 4.6rem
       &:active
         background-color: $gray-light-1
       &::before
@@ -173,8 +174,10 @@ header.header
         @media all and (min-width: $bp-med)
           display: inline-block
           vertical-align: bottom
-  @media all and (min-width: $bp-med)
-    img
+  img
+    @media all and (max-width: $bp-sm-max)
+      height: 3.8rem
+    @media all and (min-width: $bp-med)
       margin-right: $space-half
 // Search Form
 [id^="block-"][id*="-search"]
