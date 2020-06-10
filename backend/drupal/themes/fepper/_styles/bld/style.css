@@ -1071,11 +1071,6 @@ section[rel="schema:comment"] .indented {
 .path-user [id^="block-"][id$="-content"] {
   margin-bottom: 1.6rem;
 }
-.path-search details summary:hover,
-.path-search details summary:focus {
-  color: #808080;
-  cursor: pointer;
-}
 .path-search form,
 .path-search form + h3,
 .path-search [id^="block-"][id$="-content"] ol {
@@ -1087,6 +1082,32 @@ section[rel="schema:comment"] .indented {
 .path-search [id^="block-"][id$="-content"] p:nth-of-type(2) {
   font-size: 0.875em;
   margin-top: 0.5em;
+}
+.path-search details {
+  margin-top: 0.5em;
+}
+.path-search details summary:hover,
+.path-search details summary:focus {
+  color: #808080;
+  cursor: pointer;
+}
+.path-search details fieldset[id^="edit-"][id$="-fieldset"] {
+  margin: 0.5em 0;
+}
+.path-search details legend {
+  font-weight: bold;
+}
+.path-search details #edit-type--wrapper legend {
+  font-weight: normal;
+}
+.path-search details #edit-language--wrapper legend {
+  display: none;
+}
+.path-search details .form-item label {
+  padding: 0;
+}
+.path-search details .criterion .form-item > * {
+  display: inline-block;
 }
 @media all and (max-width: 767px) {
   .skip-link {

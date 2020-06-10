@@ -144,11 +144,6 @@
   [id^="block-"][id$="-content"]
     margin-bottom: $space
 .path-search
-  details summary
-    &:hover,
-    &:focus
-      color: $gray
-      cursor: pointer
   form,
   form + h3,
   [id^="block-"][id$="-content"] ol
@@ -158,6 +153,26 @@
   [id^="block-"][id$="-content"] p:nth-of-type(2)
     font-size: 0.875em
     margin-top: 0.5em
+  details
+    margin-top: 0.5em
+    summary
+      &:hover,
+      &:focus
+        color: $gray
+        cursor: pointer
+    fieldset[id^="edit-"][id$="-fieldset"]
+      margin: 0.5em 0
+    legend
+      font-weight: bold
+    #edit-type--wrapper legend
+      font-weight: normal
+    #edit-language--wrapper legend
+      display: none
+    .form-item label
+      padding: 0
+    .criterion
+      .form-item > *
+        display: inline-block
 .skip-link
   @media all and (max-width: $bp-sm-max)
     display: none
