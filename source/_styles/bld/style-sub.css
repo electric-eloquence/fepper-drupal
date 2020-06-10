@@ -25,8 +25,6 @@
 [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
 .view-id-content_recent.view-display-id-page_1 [role="article"] > h2 {
   font-size: 1.25em;
-  margin-top: 0;
-  padding-top: 0;
 }
 .hoagies [role="article"] [property="schema:text"] p,
 [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="schema:text"] p,
@@ -68,7 +66,7 @@
   .view-id-content_recent.view-display-id-page_1 [role="article"] [property="text"] {
     float: right;
     margin-top: 0;
-    padding-left: 1.6rem;
+    padding: 0 0 0 1.6rem;
     width: 75%;
   }
   .hoagies [role="article"] img,
@@ -98,11 +96,6 @@
   padding: 1.6rem;
   width: 5.5rem;
   height: 5.4rem;
-}
-@media all and (max-width: 767px) {
-  [id^="block-"][id*="branding"] img {
-    height: 3.8rem;
-  }
 }
 @media all and (min-width: 768px) {
   #main {
