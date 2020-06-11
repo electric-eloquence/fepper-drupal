@@ -205,7 +205,7 @@
   }
 }
 footer[role="contentinfo"] {
-  background: #131313;
+  background-color: #131313;
   color: #fff;
 }
 footer[role="contentinfo"] a {
@@ -301,7 +301,7 @@ footer[role="contentinfo"] a {
 }
 @media all and (max-width: 767px) {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
-    background: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.8);
     overflow: hidden;
     padding: 0 0.8rem;
   }

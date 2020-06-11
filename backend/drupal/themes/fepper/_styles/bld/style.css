@@ -107,7 +107,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  background: #fff;
+  background-color: #fff;
   font: 1.6em/1.5 Helvetica, "Nimbus Sans L", "Liberation Sans", Roboto, sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333;
@@ -204,7 +204,7 @@ aside {
   }
 }
 header.header {
-  background: #fff;
+  background-color: #fff;
   border-bottom: 1px solid #ddd;
   padding: 0;
 }
@@ -290,7 +290,7 @@ header.header {
   }
   [id="region-primary-menu"] nav > ul > .expanded > ul,
   [id="region-secondary-menu"] nav > ul > .expanded > ul {
-    background: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.95);
     max-height: 0;
     padding-top: 0;
     margin-top: 0.8rem;
@@ -338,7 +338,7 @@ header.header {
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
 [id^="block-"][id*="-main"] > h2 > a,
 [id^="block-"][id*="-account"] > h2 > a {
-  background: rgba(255,255,255,0.95);
+  background-color: rgba(255,255,255,0.95);
   color: transparent;
   cursor: pointer;
   overflow: hidden;
@@ -351,7 +351,7 @@ header.header {
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:active,
 [id^="block-"][id*="-main"] > h2 > a:active,
 [id^="block-"][id*="-account"] > h2 > a:active {
-  background: #eee;
+  background-color: #eee;
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a::before,
 [id^="block-"][id*="-main"] > h2 > a::before,
@@ -386,7 +386,7 @@ header.header {
 @media all and (max-width: 767px) {
   [id^="block-"][id*="-main"] > ul,
   [id^="block-"][id*="-account"] > ul {
-    background: rgba(255,255,255,0.95);
+    background-color: rgba(255,255,255,0.95);
     max-height: 0;
     overflow: hidden;
     position: absolute;
@@ -412,7 +412,7 @@ header.header {
   }
   [id^="block-"][id*="-main"] li a:active,
   [id^="block-"][id*="-account"] li a:active {
-    background: #eee;
+    background-color: #eee;
   }
   [id^="block-"][id*="-main"] li li,
   [id^="block-"][id*="-account"] li li {
@@ -588,12 +588,12 @@ svg {
   text-align: center;
   padding: 1.6rem;
   border: 1px solid #808080;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
 }
 .alert-error {
   color: #f00;
   border-color: #f00;
-  background: #ffbebe;
+  background-color: #ffbebe;
 }
 form > div {
   margin-bottom: 1em;
@@ -642,7 +642,7 @@ textarea {
 button,
 input[type="submit"] {
   padding: 0.8rem;
-  background: #333;
+  background-color: #333;
   border: 1px solid #808080;
   border-radius: 0;
   color: #fff;
@@ -672,13 +672,13 @@ input[type="search"]::-webkit-search-decoration {
   }
 }
 form:not(#search-block-form) [id^="edit-actions"] {
-  background: transparent;
+  background-color: transparent;
   color: #808080;
   padding: 0;
   position: relative;
 }
 #search-block-form {
-  background: rgba(255,255,255,0.95);
+  background-color: rgba(255,255,255,0.95);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -688,7 +688,7 @@ form:not(#search-block-form) [id^="edit-actions"] {
   position: relative;
 }
 #search-block-form input {
-  background: transparent;
+  background-color: transparent;
   height: 2.5em;
 }
 #search-block-form input[id^="edit-keys"] {
@@ -897,7 +897,7 @@ section[rel="schema:comment"] .indented {
   position: relative;
 }
 .path-frontpage [id^="block-"][id$="content"]:first-child .views-field-title {
-  background: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.5);
   bottom: 0;
   left: 0;
   padding: 1.2rem 0.8rem;
@@ -910,7 +910,7 @@ section[rel="schema:comment"] .indented {
 }
 .path-frontpage [id^="block-"][id*="-views-block-content-recent-block"] .views-row .views-field-title a,
 .path-frontpage #region-content > .views-row .views-field-title a {
-  background: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.5);
   bottom: 0;
   left: 0;
   color: #fff;
