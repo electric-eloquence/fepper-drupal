@@ -6,7 +6,11 @@
     [property="schema:text"],
     [property="text"]
       p
-        margin: 0
+        margin: $space-quarter 0
+      p:first-child
+        margin-top: 0
+      p:last-child
+        margin-bottom: 0
   @media all and (max-width: $bp-xs-max)
     [role="article"]
       > div > div:first-of-type > a
@@ -17,8 +21,8 @@
       @extend .cf
       padding-top: $space-quarter
       li
+        @extend .cf
         clear: both
-        float: left
         margin-bottom: $space
     [role="article"]
       > h2,
