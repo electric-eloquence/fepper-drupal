@@ -298,12 +298,6 @@ footer[role="contentinfo"] a {
     top: 0;
     left: 0;
   }
-  .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
 }
 @media all and (max-width: 767px) {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
@@ -318,8 +312,8 @@ footer[role="contentinfo"] a {
   }
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title .field-content {
     display: block;
-    position: absolute;
     top: 50%;
+    bottom: auto;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -337,10 +331,6 @@ footer[role="contentinfo"] a {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     font-size: 1.5em;
     padding: 2.8rem 0.8rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
@@ -357,9 +347,6 @@ footer[role="contentinfo"] a {
   z-index: 0;
 }
 .path-frontpage #region-content > .views-row .views-field-title {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
 }
 @media all and (max-width: 480px) {
