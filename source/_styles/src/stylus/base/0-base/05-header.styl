@@ -22,14 +22,12 @@ header.header
 #region-header [id^="block-"][id$="-footer"]
   a
     display: block
-    padding-top: 0.2rem
-    padding-bottom: 0.2rem
+    padding: 0.2rem 0
 [id="region-primary-menu"],
 [id="region-secondary-menu"]
   @media all and (max-width: $bp-sm-max)
     margin: 0
   @media all and (min-width: $bp-med)
-    margin-bottom: $space-half
     li
       padding-left: 1em
     nav
@@ -38,10 +36,6 @@ header.header
         flex-wrap: wrap
         align-items: center
     .expanded
-      &:hover > a,
-      > a:focus
-        + ul
-          max-height: 100%
       > a::after
         content: "▼"
         font-size: 0.75em
@@ -52,19 +46,30 @@ header.header
           border: 1px solid $gray-light-2
           border-bottom: 0
           min-width: 11rem
-          padding-right: 1.2rem
-          padding-left: 1.2rem
+          padding: 0 1.2rem
           &:last-child
             border-bottom: 1px solid $gray-light-2
-    nav > ul > .expanded > ul
-      background: $white-translucent
-      max-height: 0
-      position: absolute
-      overflow: hidden
-      transition: max-height 0.3s ease
-      z-index: 2
-      > .expanded
-        li
+        a
+          padding: 0.15rem 0 // This makes expanded menu horizontal borders align with header border bottom.
+    nav > ul > .expanded
+      &:hover > a,
+      > a:focus
+        + ul
+          // Margin and padding must be switched from unhovered/unfocused state
+          // so unexpanded items don't interfere with expanded items.
+          margin-top: 0
+          max-height: 100%
+          padding-top: $space-half
+      > ul
+        background: $white-translucent
+        max-height: 0
+        padding-top: 0
+        margin-top: $space-half
+        overflow: hidden
+        position: absolute
+        transition: max-height 0.3s ease
+        z-index: 2
+        > .expanded li
           border-right: 0
           border-bottom: 0
           border-left: 0
@@ -74,6 +79,8 @@ header.header
   float: left
   @media all and (max-width: $bp-sm-max)
     float: right
+  @media all and (min-width: $bp-med)
+    margin: $space-half 0
 [id="region-secondary-menu"]
   float: right
 #region-secondary-menu [id^="block-"][id*="-search"],
@@ -88,10 +95,10 @@ header.header
       color: transparent
       cursor: pointer
       overflow: hidden
-      padding: 1.2rem
+      padding: 1.2rem 0.9rem
       pointer-events: auto
       position: relative
-      width: 4.6rem
+      width: 4rem
       height: 4.6rem // This is the height of the header when the demo site uses the base theme.
       &:active
         background-color: $gray-light-1

@@ -40,13 +40,6 @@
 @import 'base/04-pages/02-article'
 
 // Only in Drupal, not Fepper.
-#region-secondary-menu
-  padding-top: 0
-  padding-bottom: 0
-#region-primary-menu
-  padding-bottom: 0
-#region-primary-menu + #region-secondary-menu
-  padding-top: 0
 #region-breadcrumb,
 #breadcrumb
   font-size: 0.875em
@@ -140,16 +133,13 @@
   #search-form > *
     display: inline-block
 .path-contact,
+.path-search,
 .path-user
   [id^="block-"][id$="-content"]
-    margin-bottom: $space
+    margin-bottom: 1em
 .path-search
-  form,
-  form + h3,
-  [id^="block-"][id$="-content"] ol
-    margin-bottom: $space
-  [id^="block-"][id$="-content"] h2 + ol li
-    margin: $space 0
+  [id^="block-"][id$="-content"] > *:not(nav) > li
+    margin: 1em 0
   [id^="block-"][id$="-content"] p:nth-of-type(2)
     font-size: 0.875em
     margin-top: 0.5em
