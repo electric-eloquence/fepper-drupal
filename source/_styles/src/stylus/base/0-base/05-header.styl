@@ -1,5 +1,5 @@
 header.header
-  background: $white
+  background-color: $white
   border-bottom: 1px solid $gray-light-2
   padding: 0
   @media all and (max-width: $bp-sm-max)
@@ -61,7 +61,7 @@ header.header
           max-height: 100%
           padding-top: $space-half
       > ul
-        background: $white-translucent
+        background-color: $white-translucent
         max-height: 0
         padding-top: 0
         margin-top: $space-half
@@ -91,7 +91,7 @@ header.header
     padding: 0
     z-index: 3
     > a
-      background: $white-translucent
+      background-color: $white-translucent
       color: transparent
       cursor: pointer
       overflow: hidden
@@ -101,7 +101,7 @@ header.header
       width: 4rem
       height: 4.6rem // This is the height of the header when the demo site uses the base theme.
       &:active
-        background: $gray-light-1
+        background-color: $gray-light-1
       &::before
         background-size: cover
         content: ""
@@ -119,7 +119,7 @@ header.header
 [id^="block-"][id*="-account"]
   @media all and (max-width: $bp-sm-max)
     > ul
-      background: $white-translucent
+      background-color: $white-translucent
       max-height: 0
       overflow: hidden
       position: absolute
@@ -135,7 +135,7 @@ header.header
         border-bottom: 1px solid $gray-light-2
         padding: 0.7rem $space
         &:active
-          background: $gray-light-1
+          background-color: $gray-light-1
       li
         padding-left: 1.2rem
     &.open
