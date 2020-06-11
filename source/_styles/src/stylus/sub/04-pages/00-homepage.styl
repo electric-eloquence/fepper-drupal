@@ -37,11 +37,6 @@
           position: absolute
           top: 0
           left: 0
-      .views-field-title
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
     @media all and (max-width: $bp-sm-max)
       .views-field-title
         background: $dimmer
@@ -52,8 +47,8 @@
         padding-top: 19%
         .field-content
           display: block
-          position: absolute
           top: 50%
+          bottom: auto
           transform: translateY(-50%)
     @media all and (min-width: $bp-med)
       position: relative
@@ -62,10 +57,6 @@
       .views-field-title
         font-size: 1.5em
         padding: 2.8rem $space-half
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
   // Reset hero settings if content block is not configured as hero.
   #region-content #block-fepper-sub-content:last-child
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
@@ -78,9 +69,6 @@
       position: relative
       z-index: 0
     .views-field-title
-      position: absolute
-      bottom: 0
-      left: 0
       width: 100%
     @media all and (max-width: $bp-xs-max)
       .views-field-title
