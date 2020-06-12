@@ -35,30 +35,6 @@
 .view-id-content_recent.view-display-id-page_1 [role="article"] > h2 {
   font-size: 1.25em;
 }
-.hoagies [role="article"] [property="schema:text"] p,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="schema:text"] p,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="schema:text"] p,
-.hoagies [role="article"] [property="text"] p,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="text"] p,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="text"] p {
-  margin: 0.4rem 0;
-}
-.hoagies [role="article"] [property="schema:text"] p:first-child,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="schema:text"] p:first-child,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="schema:text"] p:first-child,
-.hoagies [role="article"] [property="text"] p:first-child,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="text"] p:first-child,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="text"] p:first-child {
-  margin-top: 0;
-}
-.hoagies [role="article"] [property="schema:text"] p:last-child,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="schema:text"] p:last-child,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="schema:text"] p:last-child,
-.hoagies [role="article"] [property="text"] p:last-child,
-[id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="text"] p:last-child,
-.view-id-content_recent.view-display-id-page_1 [role="article"] [property="text"] p:last-child {
-  margin-bottom: 0;
-}
 @media all and (max-width: 480px) {
   .hoagies [role="article"] > div > div:first-of-type > a,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > div > div:first-of-type > a,
@@ -105,11 +81,6 @@
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list,
   .view-id-content_recent.view-display-id-page_1 .item-list {
     padding-right: 1.6rem;
-  }
-}
-@media all and (min-width: 768px) {
-  header.header {
-    padding-top: 0.8rem;
   }
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
