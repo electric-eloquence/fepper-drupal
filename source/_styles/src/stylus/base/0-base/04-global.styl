@@ -45,8 +45,15 @@ a.feed-icon,
 p a,
 [property="schema:text"] a
   text-decoration: underline
-[property="schema:text"]
+[property="schema:text"],
+[property="text"]
   margin-top: $space-quarter
+  p
+    margin: $space-quarter 0
+  p:first-child
+    margin-top: 0
+  p:last-child
+    margin-bottom: 0
 aside
   margin-bottom: $space
 // Completely remove from the flow and screen readers.
