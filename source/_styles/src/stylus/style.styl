@@ -80,13 +80,6 @@
     border-color: #ed541d
     &, & a
       color: #f00
-// By default, the "footer" block contains the contact link.
-// For whatever reason, by default, Drupal places this in the header.
-// We only need these styles when the "footer" block is in the header.
-#region-header [id^="block-"][id$="-footer"]
-  display: flex
-  flex-wrap: wrap
-  align-items: center
 [id^="block-"][id$="-local-tasks"]
   margin-top: $space
   margin-bottom: $space
@@ -122,6 +115,7 @@
   line-height: 1.25
   @media all and (min-width: $bp-med)
     display: inline-block
+    vertical-align: bottom
 .no-sidebar-second
   width: 100% !important
   #edit-advanced
