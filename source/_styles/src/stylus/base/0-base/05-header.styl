@@ -1,3 +1,4 @@
+$menu-margin = 1.1rem
 header.header
   background-color: $white
   border-bottom: 1px solid $gray-light-2
@@ -6,7 +7,6 @@ header.header
     margin: 0
     padding-left: $space-half
   @media all and (min-width: $bp-med)
-    padding-top: $space-half
     width: "calc(100% - %s)" % $space
   @media all and (min-width: $max-width)
     width: "calc(%s - %s)" % ($max-width $space)
@@ -16,13 +16,24 @@ header.header
   @media all and (min-width: $bp-med)
     float: left
     margin: 0
+  // By default, the "footer" block contains the contact link.
+  // For whatever reason, by default, Drupal places this in the header.
+  // We only need these styles when the "footer" block is in the header.
+  [id^="block-"][id$="-footer"]
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+#region-header [id^="block-"][id$="-footer"],
+#region-secondary-menu [id^="block-"][id$="-account-menu"]
+    @media all and (min-width: $bp-med)
+      margin-top: $menu-margin
 // Need to lower specificity with an attribute match so these don't override other selections by attribute match.
 [id="region-primary-menu"],
 [id="region-secondary-menu"],
 #region-header [id^="block-"][id$="-footer"]
   a
     display: block
-    padding: 0.2rem 0
+    padding: 0 0 0.2rem
 [id="region-primary-menu"],
 [id="region-secondary-menu"]
   @media all and (max-width: $bp-sm-max)
@@ -38,6 +49,7 @@ header.header
     .expanded
       > a::after
         content: "▼"
+        filter: invert(20%)
         font-size: 0.75em
         margin-left: $space-half
       ul
@@ -50,7 +62,7 @@ header.header
           &:last-child
             border-bottom: 1px solid $gray-light-2
         a
-          padding: 0.15rem 0 // This makes expanded menu horizontal borders align with header border bottom.
+          padding: 0 0 0.1rem // This makes expanded menu horizontal borders align with header border bottom.
     nav > ul > .expanded
       &:hover > a,
       > a:focus
@@ -59,12 +71,12 @@ header.header
           // so unexpanded items don't interfere with expanded items.
           margin-top: 0
           max-height: 100%
-          padding-top: $space-half
+          padding-top: $menu-margin
       > ul
         background-color: $white-translucent
         max-height: 0
         padding-top: 0
-        margin-top: $space-half
+        margin-top: $menu-margin
         overflow: hidden
         position: absolute
         transition: max-height 0.3s ease
@@ -80,7 +92,7 @@ header.header
   @media all and (max-width: $bp-sm-max)
     float: right
   @media all and (min-width: $bp-med)
-    margin: $space-half 0
+    margin: $menu-margin 0
 [id="region-secondary-menu"]
   float: right
 #region-secondary-menu [id^="block-"][id*="-search"],
@@ -171,16 +183,12 @@ header.header
     padding: 0
   > div
     > a,
-    > h1:first-child a,
-    > p:first-child a
-      display: table
-    > a,
     > h1,
     > p
       &:first-child
         @media all and (min-width: $bp-med)
           display: inline-block
-          vertical-align: bottom
+          vertical-align: top
   img
     @media all and (max-width: $bp-sm-max)
       height: 3.8rem

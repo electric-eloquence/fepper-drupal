@@ -29,8 +29,8 @@
         align-items: center
         justify-content: center
         height: 8.7rem
+        position: static
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-      position: relative
       .views-field-field-image
         padding-top: 75%
         .field-content
@@ -48,10 +48,9 @@
         .field-content
           display: block
           top: 50%
-          bottom: auto
+          position: absolute
           transform: translateY(-50%)
     @media all and (min-width: $bp-med)
-      position: relative
       .views-field-field-image
         min-height: 7.68rem
       .views-field-title
