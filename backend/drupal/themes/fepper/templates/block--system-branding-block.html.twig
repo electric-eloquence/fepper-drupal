@@ -18,9 +18,10 @@ block with the word "branding" in it so it picks up this block's CSS. #}
       {% if is_front %}{% if not site_name %}
         {% if not page_title_block_enabled %}<h1>{% endif %}
       {% endif %}{% endif %}
-      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" id="logo">
         <img src="{{ site_logo }}" alt="{{ system_site_name }}" />
       </a>
+
       {% if is_front %}{% if not site_name %}
         {% if not page_title_block_enabled %}</h1>{% endif %}
       {% endif %}{% endif %}
