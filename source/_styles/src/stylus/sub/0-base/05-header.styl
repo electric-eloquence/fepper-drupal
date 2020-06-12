@@ -1,11 +1,6 @@
-#region-header
+header.header
   @media all and (min-width: $bp-med)
-    margin-bottom: $space-half
-// Need to lower specificity with an attribute match so these don't override other selections by attribute match.
-[id="region-primary-menu"]
-  @media all and (min-width: $bp-med)
-    margin-top: 0
-    min-height: 4rem
+    padding-top: $space-half
 #region-secondary-menu [id^="block-"][id*="-search"],
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]

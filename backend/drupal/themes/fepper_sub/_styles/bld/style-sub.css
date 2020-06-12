@@ -108,14 +108,8 @@
   }
 }
 @media all and (min-width: 768px) {
-  #region-header {
-    margin-bottom: 0.8rem;
-  }
-}
-@media all and (min-width: 768px) {
-  [id="region-primary-menu"] {
-    margin-top: 0;
-    min-height: 4rem;
+  header.header {
+    padding-top: 0.8rem;
   }
 }
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
@@ -284,12 +278,10 @@ footer[role="contentinfo"] a {
     align-items: center;
     justify-content: center;
     height: 8.7rem;
+    position: static;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-  .path-frontpage #region-content #block-fepper-sub-content:first-child {
-    position: relative;
-  }
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-field-image {
     padding-top: 75%;
   }
@@ -313,7 +305,7 @@ footer[role="contentinfo"] a {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title .field-content {
     display: block;
     top: 50%;
-    bottom: auto;
+    position: absolute;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -322,9 +314,6 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (min-width: 768px) {
-  .path-frontpage #region-content #block-fepper-sub-content:first-child {
-    position: relative;
-  }
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-field-image {
     min-height: 7.68rem;
   }
@@ -376,10 +365,5 @@ footer[role="contentinfo"] a {
 @media all and (min-width: 768px) {
   #site-name {
     margin-top: 0;
-  }
-}
-@media all and (min-width: 768px) {
-  #region-header [id^="block-"][id$="-footer"] {
-    margin-top: 0.8rem;
   }
 }
