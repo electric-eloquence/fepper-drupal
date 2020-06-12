@@ -266,7 +266,7 @@ footer[role="contentinfo"] a {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     background-color: rgba(0,0,0,0.8);
     overflow: hidden;
-    padding: 0 0.8rem;
+    padding: 0;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
@@ -276,6 +276,7 @@ footer[role="contentinfo"] a {
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title .field-content {
     display: block;
     top: 50%;
+    padding: 0 0.8rem;
     position: absolute;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
