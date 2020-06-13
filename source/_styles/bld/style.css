@@ -342,16 +342,20 @@ header.header {
   margin: 0;
   padding: 0;
 }
+@media all and (min-width: 768px) {
+  [id^="block-"][id*="branding"] > div > *:first-child {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
 @media all and (max-width: 767px) {
   #logo img {
     height: 3.8rem;
   }
 }
 @media all and (min-width: 768px) {
-  #logo {
-    display: inline-block;
+  #logo img {
     margin: 0.8rem 0.8rem 0 0;
-    vertical-align: top;
   }
 }
 [id^="block-"][id*="-search"] {
@@ -863,9 +867,6 @@ section[rel="schema:comment"] .indented {
 @media all and (min-width: 768px) {
   [id="region-primary-menu"] [id^="block-"][id$="-main-menu"] {
     margin: 1.1rem 0;
-  }
-  [id="region-primary-menu"] [id^="block-"][id$="-main-menu"] > ul {
-    min-height: 3.4rem;
   }
 }
 .pager {

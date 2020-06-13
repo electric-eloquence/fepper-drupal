@@ -212,6 +212,11 @@ footer[role="contentinfo"] a {
     text-align: center;
   }
 }
+@media all and (min-width: 768px) {
+  [id="region-primary-menu"] [id^="block-"][id$="-main-menu"] > ul {
+    min-height: 3.4rem;
+  }
+}
 .path-frontpage #main {
   flex-wrap: wrap;
 }
