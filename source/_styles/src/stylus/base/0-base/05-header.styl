@@ -90,14 +90,15 @@ header.header
   p
     margin: 0
     padding: 0
-#logo
+  @media all and (min-width: $bp-med)
+    > div > *:first-child
+      display: inline-block
+      vertical-align: top
+#logo img
   @media all and (max-width: $bp-sm-max)
-    img
       height: 3.8rem
   @media all and (min-width: $bp-med)
-    display: inline-block
     margin: $space-half $space-half 0 0
-    vertical-align: top
 // Search Form
 [id^="block-"][id*="-search"]
   float: right
