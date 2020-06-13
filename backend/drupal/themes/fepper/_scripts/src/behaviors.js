@@ -22,6 +22,14 @@
     }
   }
 
+  Drupal.behaviors.closeExpandedMenuOnTablet = {
+    attach: function (context) {
+      // On wider mobile viewports (phablets and tablets), touching ".expanded" links will expand nested menus.
+      // The following listener removes the focus from those links, thereby closing their expanded menus.
+      $('body', context).click(function () {});
+    }
+  };
+
   Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
       var $body = $('body', context);
