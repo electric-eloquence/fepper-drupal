@@ -758,9 +758,8 @@ section[rel="schema:comment"] .indented {
     margin-bottom: 1.1rem;
   }
 }
-nav[role="navigation"]:not(.pager) >ul li a {
+nav[role="navigation"]:not(.pager) > ul li a {
   display: block;
-  padding: 0.1rem 0;
 }
 @media all and (min-width: 768px) {
   nav[role="navigation"]:not(.pager) .expanded > a::after {
@@ -786,6 +785,9 @@ nav[role="navigation"]:not(.pager) >ul li a {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+  }
+  nav[role="navigation"]:not(.pager) > ul li a {
+    padding: 0.1rem 0;
   }
   nav[role="navigation"]:not(.pager) > ul > .expanded:hover > a + ul,
   nav[role="navigation"]:not(.pager) > ul > .expanded > a:focus + ul {
