@@ -1,27 +1,24 @@
-$menu-margin = 1.1rem
-// Need to lower specificity with an attribute match so these don't override other selections by attribute match.
-#region-header [id^="block-"][id$="-footer"],
-#region-secondary-menu [id^="block-"][id$="-account-menu"]
-  @media all and (min-width: $bp-med)
-    margin-top: $menu-margin
-[id="region-primary-menu"],
-[id="region-secondary-menu"],
-#region-header [id^="block-"][id$="-footer"]
-  a
-    display: block
-    padding: 0.1rem 0
-[id="region-primary-menu"],
-[id="region-secondary-menu"]
-  @media all and (max-width: $bp-sm-max)
-    margin: 0
+#region-primary-menu,
+#region-secondary-menu
   @media all and (min-width: $bp-med)
     li
       padding-left: 1em
-    nav
-      > ul
-        display: flex
-        flex-wrap: wrap
-        align-items: center
+// By default, the "footer" block contains the contact link.
+// For whatever reason, by default, Drupal places this in the header.
+// We only need these styles when the "footer" block is in the header.
+#region-header [id^="block-"][id$="-footer"],
+#region-primary-menu [id^="block-"][id$="-main-menu"],
+#region-secondary-menu [id^="block-"][id$="-account-menu"]
+  @media all and (min-width: $bp-med)
+    margin-top: $menu-margin
+#region-primary-menu [id^="block-"][id$="-main-menu"]
+  @media all and (min-width: $bp-med)
+    margin-bottom: $menu-margin
+nav[role="navigation"]:not(.pager)
+  >ul li a
+    display: block
+    padding: 0.1rem 0
+  @media all and (min-width: $bp-med)
     .expanded
       > a::after
         content: "▼"
@@ -39,28 +36,32 @@ $menu-margin = 1.1rem
             border-bottom: 1px solid $gray-light-2
         a
           padding: 0.05rem 0 // This makes expanded menu horizontal borders align with header border bottom.
-    nav > ul > .expanded
-      &:hover > a,
-      > a:focus
-        + ul
-          // Margin and padding must be switched from unhovered/unfocused state
-          // so unexpanded items don't interfere with expanded items.
-          margin-top: 0
-          max-height: 100%
-          padding-top: $menu-margin
-      > ul
-        background-color: $white-translucent
-        max-height: 0
-        padding-top: 0
-        margin-top: $menu-margin
-        overflow: hidden
-        position: absolute
-        transition: max-height 0.3s ease
-        z-index: 2
-        > .expanded li
-          border-right: 0
-          border-bottom: 0
-          border-left: 0
+    > ul
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      > .expanded
+        &:hover > a,
+        > a:focus
+          + ul
+            // Margin and padding must be switched from unhovered/unfocused state
+            // so unexpanded items don't interfere with expanded items.
+            margin-top: 0
+            max-height: 100%
+            padding-top: $menu-margin
+        > ul
+          background-color: $white-translucent
+          max-height: 0
+          padding-top: 0
+          margin-top: $menu-margin
+          overflow: hidden
+          position: absolute
+          transition: max-height 0.3s ease
+          z-index: 2
+          > .expanded li
+            border-right: 0
+            border-bottom: 0
+            border-left: 0
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
   @media all and (max-width: $bp-sm-max)
@@ -87,10 +88,6 @@ $menu-margin = 1.1rem
     &.open
       > ul
         max-height: none
-[id="region-primary-menu"]
-  [id^="block-"][id$="-main-menu"]
-    @media all and (min-width: $bp-med)
-      margin: $menu-margin 0
 .pager
   clear: both
   display: flex
@@ -102,6 +99,7 @@ $menu-margin = 1.1rem
     flex-wrap: wrap
     justify-content: center
   .is-active
+    color: $black
     font-weight: bold
     a
       pointer-events: none
