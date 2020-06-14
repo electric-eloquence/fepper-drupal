@@ -15,9 +15,8 @@
   @media all and (min-width: $bp-med)
     margin-bottom: $menu-margin
 nav[role="navigation"]:not(.pager)
-  >ul li a
+  > ul li a
     display: block
-    padding: 0.1rem 0
   @media all and (min-width: $bp-med)
     .expanded
       > a::after
@@ -40,6 +39,8 @@ nav[role="navigation"]:not(.pager)
       display: flex
       flex-wrap: wrap
       align-items: center
+      li a
+        padding: 0.1rem 0
       > .expanded
         &:hover > a,
         > a:focus
