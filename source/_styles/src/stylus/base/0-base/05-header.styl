@@ -11,17 +11,11 @@ header.header
     width: "calc(%s - %s)" % ($max-width $space)
 #region-header
   float: left
-  margin: $space-half $space-half 0 0
+  @media all and (max-width: $bp-sm-max)
+    margin: $space-half $space-half 0 0
   @media all and (min-width: $bp-med)
     float: left
     margin: 0
-  // By default, the "footer" block contains the contact link.
-  // For whatever reason, by default, Drupal places this in the header.
-  // We only need these styles when the "footer" block is in the header.
-  [id^="block-"][id$="-footer"]
-    display: flex
-    flex-wrap: wrap
-    align-items: center
 // Need to lower specificity with an attribute match so these don't override other selections by attribute match.
 [id="region-primary-menu"]
   @media all and (max-width: $bp-sm-max)
@@ -41,6 +35,7 @@ header.header
       background-color: $white-translucent
       color: transparent
       cursor: pointer
+      display: block
       overflow: hidden
       padding: 1.2rem 0.9rem
       pointer-events: auto
@@ -59,9 +54,6 @@ header.header
         filter: invert(50%)
   @media all and (max-width: $bp-sm-max)
     position: static // In order for the mobile nav to work while logged in.
-  @media all and (min-width: $bp-med)
-    .hidden-link
-      display: none
 // Search form.
 #region-secondary-menu [id^="block-"][id*="-search"]
   > h2 > a
@@ -96,7 +88,7 @@ header.header
       vertical-align: top
 #logo img
   @media all and (max-width: $bp-sm-max)
-      height: 3.8rem
+    height: 3.8rem
   @media all and (min-width: $bp-med)
     margin: $space-half $space-half 0 0
 // Search Form
@@ -123,3 +115,6 @@ nav li
 #breadcrumb
   li
     padding-right: 0
+.hidden-link
+  @media all and (min-width: $bp-med)
+    display: none !important
