@@ -14,7 +14,9 @@
 #region-primary-menu [id^="block-"][id$="-main-menu"]
   @media all and (min-width: $bp-med)
     margin-bottom: $menu-margin
-nav[role="navigation"]:not(.pager)
+[id^="block-"][id$="-footer"],
+[id^="block-"][id$="-main-menu"],
+[id^="block-"][id$="-account-menu"]
   > ul li a
     display: block
   @media all and (min-width: $bp-med)

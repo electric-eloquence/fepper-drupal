@@ -758,44 +758,64 @@ section[rel="schema:comment"] .indented {
     margin-bottom: 1.1rem;
   }
 }
-nav[role="navigation"]:not(.pager) > ul li a {
+[id^="block-"][id$="-footer"] > ul li a,
+[id^="block-"][id$="-main-menu"] > ul li a,
+[id^="block-"][id$="-account-menu"] > ul li a {
   display: block;
 }
 @media all and (min-width: 768px) {
-  nav[role="navigation"]:not(.pager) .expanded > a::after {
+  [id^="block-"][id$="-footer"] .expanded > a::after,
+  [id^="block-"][id$="-main-menu"] .expanded > a::after,
+  [id^="block-"][id$="-account-menu"] .expanded > a::after {
     content: "▼";
     filter: invert(20%);
     font-size: 0.75em;
     margin-left: 0.8rem;
   }
-  nav[role="navigation"]:not(.pager) .expanded ul li {
+  [id^="block-"][id$="-footer"] .expanded ul li,
+  [id^="block-"][id$="-main-menu"] .expanded ul li,
+  [id^="block-"][id$="-account-menu"] .expanded ul li {
     float: none;
     border: 1px solid #ddd;
     border-bottom: 0;
     min-width: 11rem;
     padding: 0 1.2rem;
   }
-  nav[role="navigation"]:not(.pager) .expanded ul li:last-child {
+  [id^="block-"][id$="-footer"] .expanded ul li:last-child,
+  [id^="block-"][id$="-main-menu"] .expanded ul li:last-child,
+  [id^="block-"][id$="-account-menu"] .expanded ul li:last-child {
     border-bottom: 1px solid #ddd;
   }
-  nav[role="navigation"]:not(.pager) .expanded ul a {
+  [id^="block-"][id$="-footer"] .expanded ul a,
+  [id^="block-"][id$="-main-menu"] .expanded ul a,
+  [id^="block-"][id$="-account-menu"] .expanded ul a {
     padding: 0.05rem 0;
   }
-  nav[role="navigation"]:not(.pager) > ul {
+  [id^="block-"][id$="-footer"] > ul,
+  [id^="block-"][id$="-main-menu"] > ul,
+  [id^="block-"][id$="-account-menu"] > ul {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
   }
-  nav[role="navigation"]:not(.pager) > ul li a {
+  [id^="block-"][id$="-footer"] > ul li a,
+  [id^="block-"][id$="-main-menu"] > ul li a,
+  [id^="block-"][id$="-account-menu"] > ul li a {
     padding: 0.1rem 0;
   }
-  nav[role="navigation"]:not(.pager) > ul > .expanded:hover > a + ul,
-  nav[role="navigation"]:not(.pager) > ul > .expanded > a:focus + ul {
+  [id^="block-"][id$="-footer"] > ul > .expanded:hover > a + ul,
+  [id^="block-"][id$="-main-menu"] > ul > .expanded:hover > a + ul,
+  [id^="block-"][id$="-account-menu"] > ul > .expanded:hover > a + ul,
+  [id^="block-"][id$="-footer"] > ul > .expanded > a:focus + ul,
+  [id^="block-"][id$="-main-menu"] > ul > .expanded > a:focus + ul,
+  [id^="block-"][id$="-account-menu"] > ul > .expanded > a:focus + ul {
     margin-top: 0;
     max-height: 100%;
     padding-top: 1.1rem;
   }
-  nav[role="navigation"]:not(.pager) > ul > .expanded > ul {
+  [id^="block-"][id$="-footer"] > ul > .expanded > ul,
+  [id^="block-"][id$="-main-menu"] > ul > .expanded > ul,
+  [id^="block-"][id$="-account-menu"] > ul > .expanded > ul {
     background-color: rgba(255,255,255,0.95);
     max-height: 0;
     padding-top: 0;
@@ -809,7 +829,9 @@ nav[role="navigation"]:not(.pager) > ul li a {
     transition: max-height 0.3s ease;
     z-index: 2;
   }
-  nav[role="navigation"]:not(.pager) > ul > .expanded > ul > .expanded li {
+  [id^="block-"][id$="-footer"] > ul > .expanded > ul > .expanded li,
+  [id^="block-"][id$="-main-menu"] > ul > .expanded > ul > .expanded li,
+  [id^="block-"][id$="-account-menu"] > ul > .expanded > ul > .expanded li {
     border-right: 0;
     border-bottom: 0;
     border-left: 0;
@@ -1063,7 +1085,6 @@ nav[role="navigation"]:not(.pager) > ul li a {
 @media all and (min-width: 768px) {
   #site-name {
     display: inline-block;
-    vertical-align: bottom;
   }
 }
 .no-sidebar-second {
