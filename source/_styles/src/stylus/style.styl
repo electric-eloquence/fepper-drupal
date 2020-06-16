@@ -36,22 +36,24 @@
 // /////////////////////////////////////////////////////////////////////////////
 // Styles specific to Pages.
 // /////////////////////////////////////////////////////////////////////////////
+@import 'base/04-pages/00-homepage'
 @import 'base/04-pages/02-article'
 
 // Only in Drupal, not Fepper.
-#name-and-slogan
-  float: left
-  margin: 0.4em 1em
-#site-name
-  font-size: 2em
+#region-breadcrumb,
+#breadcrumb
+  font-size: 0.875em
   font-weight: bold
-  line-height: 1.2
-[id^="block-"][id$="-powered"]
-  display: flex
-  align-items: center
-  float: left
-  margin: 0 1em
-  min-height: $nav-toggle-height
+  ol
+    display: flex
+    flex-wrap: wrap
+  li
+    margin-right: 0
+    &::before
+      content: "  \BB "
+      white-space: pre
+    &:first-child::before
+      content: none
 #region-highlighted
   @extend .cf
   padding-top: 0
@@ -78,49 +80,83 @@
     border-color: #ed541d
     &, & a
       color: #f00
-#region-primary-menu
-  padding-bottom: 0
-#region-secondary-menu
-  padding-top: 0
-  padding-bottom: 0
-#region-primary-menu + #region-secondary-menu
-  padding-top: 0
-#region-breadcrumb,
-#breadcrumb
-  font-size: 0.75em
-  font-weight: bold
 [id^="block-"][id$="-local-tasks"]
-  padding-top: $space
-  padding-bottom: $space
-  [href="/user/login"]
-    @extend .visually-hidden
-.no-sidebar-second
-  width: 100% !important
-.path-search
-  h2
-    margin: $space-and-half 0
-  #search-form > *
-    display: inline-block
-  #edit-help-link
-    margin-top: $space-quarter
-[id^="block-"][id$="-footer"]
-  @extend .cf
-  clear: both
-  margin-top: 0.5em
-details
-  padding-bottom: $space
-#edit-contact label
-  display: inline
+  margin-top: $space
+  margin-bottom: $space
+  > ul
+    display: flex
+    flex-wrap: wrap
+    li
+      border-bottom: 1px solid $gray-light-2
+      margin-bottom: 0.25em
+      padding: 0 0.25em
+      a
+        background-color: $gray-light-2
+        border-radius: 0.25em 0.25em 0 0
+        border-top: 1px solid $gray-light-2
+        border-right: 1px solid $gray-light-2
+        border-left: 1px solid $gray-light-2
+        display: block
+        padding: 0 0.5em
+        &.is-active
+          background-color: $white
+          pointer-events: none
+[id^="block-"][id$="-powered"]
+  font-size: 0.875em
 [id^="block-"][id$="-tools"]
   z-index: 1
-.views-field-title
-  font-size: 1.5em
+  ul
+    list-style: disc
+#edit-contact label
+  display: inline
+#site-name
+  font-size: 2em
   font-weight: bold
-@media all and (max-width: $bp-sm-max)
-  .skip-link
-    display: none
-  .layout-sidebar-first,
-  .layout-sidebar-second
-    .views-field-title
-      font-size: 1em
+  line-height: 1.25
+  margin-top: $space-half
+  @media all and (min-width: $bp-med)
+    display: inline-block
+.no-sidebar-second
+  width: 100% !important
+  #edit-advanced
+    display: block
+    summary
+      cursor: pointer
+  #edit-help-link
+    margin-top: $space-quarter
+  #search-form > *
+    display: inline-block
+.path-contact,
+.path-search,
+.path-user
+  [id^="block-"][id$="-content"]
+    margin-bottom: 1em
+.path-search
+  [id^="block-"][id$="-content"] > *:not(nav) > li
+    margin: 1em 0
+  [id^="block-"][id$="-content"] p:nth-of-type(2)
+    font-size: 0.875em
+    margin-top: 0.5em
+  details
+    margin-top: 0.5em
+    summary
+      &:hover,
+      &:focus
+        color: $gray
+        cursor: pointer
+    fieldset[id^="edit-"][id$="-fieldset"]
+      margin: 0.5em 0
+    legend
+      font-weight: bold
+    #edit-type--wrapper legend
       font-weight: normal
+    #edit-language--wrapper legend
+      display: none
+    .form-item label
+      padding: 0
+    .criterion
+      .form-item > *
+        display: inline-block
+.skip-link
+  @media all and (max-width: $bp-sm-max)
+    display: none

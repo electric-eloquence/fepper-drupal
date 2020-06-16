@@ -22,38 +22,84 @@
     }
   }
 
+  Drupal.behaviors.closeExpandedMenuOnTablet = {
+    attach: function (context) {
+      // On wider mobile viewports (phablets and tablets), touching ".expanded" links will expand nested menus.
+      // The following listener removes the focus from those links, thereby closing their expanded menus.
+      $('body', context).click(function () {});
+    }
+  };
+
   Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
-      var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
-      var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
+      var $body = $('body', context);
+      var $header = $('.header', context);
+      var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
+      var $blockMainMenu = $('nav[id^="block-"][id$="-main-menu"]', context);
+      var $blockSearch = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
 
-      if ($searchBlock.length) {
-        mobileNavToggle($searchBlock, context);
+      if ($blockAccountMenu.length) {
+        mobileNavToggle($blockAccountMenu, context);
 
-        var $searchToggler = $searchBlock.find('> h2 > a');
+        var $togglerAccountMenu = $blockAccountMenu.find('> h2 > a');
 
-        if ($searchToggler.length) {
-          $searchToggler.click(function () {
-            var searchBlockRect = $searchBlock[0].getBoundingClientRect();
+        if ($togglerAccountMenu.length) {
+          $togglerAccountMenu.click(function () {
+            if ($blockAccountMenu.hasClass('open')) {
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
 
-            if ($searchBlock.hasClass('open')) {
-              $('#search-block-form', context).css('top', searchBlockRect.bottom + 'px');
+              $blockAccountMenu.children('ul').css('top', cssTop);
+
+              if ($blockMainMenu.length) {
+                $blockMainMenu.removeClass('open');
+                $blockMainMenu.children('ul').css('top', '');
+              }
+            }
+            else {
+              $blockAccountMenu.children('ul').css('top', '');
             }
           });
         }
       }
 
-      if ($mainMenuBlock.length) {
-        mobileNavToggle($mainMenuBlock, context);
+      if ($blockMainMenu.length) {
+        mobileNavToggle($blockMainMenu, context);
 
-        var $mainMenuToggler = $mainMenuBlock.find('> h2 > a');
+        var $togglerMainMenu = $blockMainMenu.find('> h2 > a');
 
-        if ($mainMenuToggler.length) {
-          $mainMenuToggler.click(function () {
-            var mainMenuBlockRect = $mainMenuBlock[0].getBoundingClientRect();
+        if ($togglerMainMenu.length) {
+          $togglerMainMenu.click(function () {
+            if ($blockMainMenu.hasClass('open')) {
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
 
-            if ($mainMenuBlock.hasClass('open')) {
-              $mainMenuBlock.children('ul').css('top', mainMenuBlockRect.bottom + 'px');
+              $blockMainMenu.children('ul').css('top', cssTop);
+
+              if ($blockAccountMenu.length) {
+                $blockAccountMenu.removeClass('open');
+                $blockAccountMenu.children('ul').css('top', '');
+              }
+            }
+            else {
+              $blockMainMenu.children('ul').css('top', '');
+            }
+          });
+        }
+      }
+
+      if ($blockSearch.length) {
+        mobileNavToggle($blockSearch, context);
+
+        var $togglerSearch = $blockSearch.find('> h2 > a');
+
+        if ($togglerSearch.length) {
+          $togglerSearch.click(function () {
+            if ($blockSearch.hasClass('open')) {
+              var cssTop = 'calc(' + $body.css('padding-top') + ' + ' + $header.outerHeight() + 'px)';
+
+              $('#search-block-form', context).css('top', cssTop);
+            }
+            else {
+              $('#search-block-form', context).css('top', '');
             }
           });
         }
@@ -61,21 +107,48 @@
     }
   };
 
-  Drupal.behaviors.resetSearchBlock = {
+  Drupal.behaviors.resetMobileNavBlocks = {
     attach: function (context) {
       $(window).resize(function () {
-        var $searchBlock = $('div[id^="block-"][id$="-search"]', context);
-        var $mainMenuBlock = $('nav[id^="block-"][id$="-main-menu"]', context);
+        var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
+        var $blockMainMenu = $('nav[id^="block-"][id$="-main-menu"]', context);
+        var $blockSearch = $('#region-secondary-menu div[id^="block-"][id$="-search"]', context);
 
-        if ($searchBlock.length) {
-          $searchBlock.removeClass('open');
-          $('#search-block-form', context).css('top', '0');
+        if ($blockAccountMenu.length) {
+          $blockAccountMenu.removeClass('open');
+          $blockAccountMenu.children('ul').css('top', '');
         }
 
-        if ($mainMenuBlock.length) {
-          $mainMenuBlock.removeClass('open');
-          $mainMenuBlock.children('ul').css('top', '0');
+        if ($blockMainMenu.length) {
+          $blockMainMenu.removeClass('open');
+          $blockMainMenu.children('ul').css('top', '');
         }
+
+        if ($blockSearch.length) {
+          $blockSearch.removeClass('open');
+          $('#search-block-form', context).css('top', '');
+        }
+      });
+    }
+  };
+
+  Drupal.behaviors.resetFooterHeight = {
+    attach: function (context) {
+      function resetFooterHeight() {
+        var $body = $('body', context);
+        var $footer = $('footer[role="contentinfo"]', context);
+
+        $footer.css('height', 'auto');
+
+        var footerHeight = $footer.length ? $footer.outerHeight() + 'px' : '';
+
+        $body.css('padding-bottom', footerHeight);
+      }
+
+      resetFooterHeight();
+
+      $(window).resize(function () {
+        resetFooterHeight();
       });
     }
   };

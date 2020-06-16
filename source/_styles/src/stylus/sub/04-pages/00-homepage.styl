@@ -2,26 +2,26 @@
   #main
     flex-wrap: wrap
   .layout-content
-    border-bottom: 2px solid $gray-light-2
-    margin-bottom: $space-double
-    padding: 0 0 $space-double
+    border-bottom: 1px solid $gray-light-2
+    margin-bottom: 1em
+    padding: 0 0 1.5em
     width: 100%
-    @media all and (min-width: $bp-med)
-      margin-bottom: 2.0rem
   #region-content
     display: flex
     flex-wrap: wrap
     justify-content: space-between
-  // Hero block
-  #block-fepper-sub-content
-    margin-bottom: $space-half
+  // Hero and sub blocks
+  #block-fepper-sub-content:first-child,
+  #region-content > .views-row
     img
       display: block
-    .views-field-title
-      a
-        color: $white
-        display: block
-        line-height: 1.2
+    @media all and (max-width: $bp-sm-max)
+      .views-field-title
+        line-height: 1.1
+    @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
+      width: calc(50% - 0.4rem)
+  // Hero block
+  #region-content #block-fepper-sub-content:first-child
     @media all and (max-width: $bp-xs-max)
       .views-field-title
         display: flex
@@ -29,88 +29,59 @@
         align-items: center
         justify-content: center
         height: 8.7rem
+        position: static
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-      position: relative
       .views-field-field-image
         padding-top: 75%
         .field-content
           position: absolute
           top: 0
           left: 0
-      .views-field-title
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
-        a
-          color: $white
     @media all and (max-width: $bp-sm-max)
       .views-field-title
-        background: $dimmer
+        background-color: $dimmer
         overflow: hidden
-        padding: 0 $space-half
+        padding: 0
     @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
       .views-field-title
         padding-top: 19%
         .field-content
           display: block
-          position: absolute
           top: 50%
+          padding: 0 $space-half
+          position: absolute
           transform: translateY(-50%)
     @media all and (min-width: $bp-med)
-      position: relative
       .views-field-field-image
         min-height: 7.68rem
       .views-field-title
-        position: absolute
-        bottom: 0
-        left: 0
-        width: 100%
-        background: $dim
+        font-size: 1.5em
         padding: 2.8rem $space-half
+  // Reset hero settings if content block is not configured as hero.
+  #region-content #block-fepper-sub-content:last-child
+    @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
+      width: auto
   // Sub blocks
   #region-content > .views-row
-    margin-bottom: $space-half
     position: relative
     .views-field-field-image
       min-height: 17rem
       position: relative
       z-index: 0
-      img
-        display: block
     .views-field-title
-      position: absolute
-      bottom: 0
-      left: 0
       width: 100%
-      color: $white
-      a
-        background: rgba(0, 0, 0, 0.5)
-        color: $white
-        display: block
-        padding: 1.2rem 0.8rem
-        font-size: 2rem
-        font-weight: bold
-        line-height: 1.2
     @media all and (max-width: $bp-xs-max)
       .views-field-title
         text-align: center
     @media all and (min-width: $bp-med)
       padding-top: $space-half
-      width: "calc(%s - (%s / 3))" % ($column-width-one-third $space-double)
-  // Hero and sub blocks
-  #block-fepper-sub-content,
-  #region-content > .views-row
-    @media all and (min-width: $bp-small) and (max-width: $bp-sm-max)
-      width: calc(50% - 0.4rem)
-    @media all and (max-width: $bp-sm-max)
-      .views-field-title
-        a
-          font-size: 1.7rem
-          line-height: 1.1
+      width: "calc(%s% - (%s / 3))" % ($column-width-one-third $space-double)
   // Hoagies block
   .layout-sidebar-first
     @media all and (min-width: $bp-med)
-      width: $column-width-two-thirds
+      width: $column-width-two-thirds + "%"
     @media all and (min-width: $bp-large)
-      width: $column-width-three-quarters
+      width: $column-width-three-quarters + "%"
+  article
+    h2
+      font-size: 1.25em

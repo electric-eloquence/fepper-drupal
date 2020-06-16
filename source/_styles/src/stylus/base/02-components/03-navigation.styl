@@ -1,26 +1,127 @@
+#region-primary-menu,
+#region-secondary-menu
+  @media all and (min-width: $bp-med)
+    li
+      padding-left: 1em
+// By default, the "footer" block contains the contact link.
+// For whatever reason, by default, Drupal places this in the header.
+// We only need these styles when the "footer" block is in the header.
+#region-header [id^="block-"][id$="-footer"],
+#region-primary-menu [id^="block-"][id$="-main-menu"],
+#region-secondary-menu [id^="block-"][id$="-account-menu"]
+  @media all and (min-width: $bp-med)
+    margin-top: $menu-margin
+#region-primary-menu [id^="block-"][id$="-main-menu"]
+  @media all and (min-width: $bp-med)
+    margin-bottom: $menu-margin
+[id^="block-"][id$="-footer"],
+[id^="block-"][id$="-main-menu"],
+[id^="block-"][id$="-account-menu"]
+  > ul li a
+    display: block
+  @media all and (min-width: $bp-med)
+    .expanded
+      > a::after
+        content: "▼"
+        filter: invert(20%)
+        font-size: 0.75em
+        margin-left: $space-half
+      ul
+        li
+          float: none
+          border: 1px solid $gray-light-2
+          border-bottom: 0
+          min-width: 11rem
+          padding: 0 1.2rem
+          &:last-child
+            border-bottom: 1px solid $gray-light-2
+        a
+          padding: 0.05rem 0 // This makes expanded menu horizontal borders align with header border bottom.
+    > ul
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      li a
+        padding: 0.1rem 0
+      > .expanded
+        &:hover > a,
+        > a:focus
+          + ul
+            // Margin and padding must be switched from unhovered/unfocused state
+            // so unexpanded items don't interfere with expanded items.
+            margin-top: 0
+            max-height: 100%
+            padding-top: $menu-margin
+        > ul
+          background-color: $white-translucent
+          max-height: 0
+          padding-top: 0
+          margin-top: $menu-margin
+          overflow: hidden
+          position: absolute
+          transition: max-height 0.3s ease
+          z-index: 2
+          > .expanded li
+            border-right: 0
+            border-bottom: 0
+            border-left: 0
+[id^="block-"][id*="-main"],
+[id^="block-"][id*="-account"]
+  @media all and (max-width: $bp-sm-max)
+    > ul
+      background-color: $white-translucent
+      max-height: 0
+      overflow: hidden
+      position: absolute
+      transition: max-height 0.1s ease
+      top: $nav-toggle-n-border
+      left: 0
+      width: 100%
+      z-index: 4
+    li
+      float: none
+      padding-right: 0
+      a
+        border-bottom: 1px solid $gray-light-2
+        padding: 0.7rem $space
+        &:active
+          background-color: $gray-light-1
+      li
+        padding-left: 1.2rem
+    &.open
+      > ul
+        max-height: none
 .pager
   clear: both
   display: flex
   justify-content: center
-  padding-bottom: 1em
+  margin-bottom: 1em
+  padding-top: 1em
   .pager__items
     display: flex
     flex-wrap: wrap
     justify-content: center
+  .is-active
+    color: $black
+    font-weight: bold
+    a
+      pointer-events: none
   li
     border-right: 1px solid $gray-light-2
     float: none
-    margin-right: 0
+    padding-right: 0
+    a
+      // Using padding for a tag to increase tappable area when the link is a numeral.
+      padding: 0 0.75em
     &:last-child
       border: 0
-  a
-    padding: $space 1.2rem
-  @media all and (max-width: $bp-sx-max)
-    .pager__items
-      width: 18rem
-  @media all and (max-width: $bp-sm-max)
-    a
-      padding: 1.6rem 1.0rem
+  @media all and (max-width: $bp-xs-max)
+    li:first-child
+      a
+        padding-left: 0
+    li:last-child
+      a
+        padding-right: 0
   @media all and (min-width: $bp-med)
     justify-content: flex-start
     .pager__items

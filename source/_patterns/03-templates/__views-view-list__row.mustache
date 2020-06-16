@@ -9,6 +9,12 @@
     {{> 03-templates/node(
       node_attributes: ' role="article" typeof="schema:Article"',
       "compounds-block-media~~pages-blog?": true
-    ) }}
-{{/ templates-node~~pages-blog? }}
+      ) }}
+  {{/ templates-node~~pages-blog? }}
+  {{# elements-content-list-item~~templates-block--sidebar2__posts? }}
+    {{> 00-elements/01-lists/02-content-list-item }}
+  {{/ elements-content-list-item~~templates-block--sidebar2__posts? }}
+  {{# elements-content-list-item~~templates-block--sidebar2__comments? }}
+    {{> 00-elements/01-lists/02-content-list-item }}
+  {{/ elements-content-list-item~~templates-block--sidebar2__comments? }}
 </li>

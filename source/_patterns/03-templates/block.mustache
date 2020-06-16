@@ -4,7 +4,15 @@
 
   {{{ title_prefix }}}
   {{# title }}
-    <h2 {{{ title_attributes }}}><a href="#">{{{ title }}}</a></h2>
+    <h2 {{{ title_attributes }}}>
+      {{# hidden_link_condition }}
+        <a href="#" class="hidden-link"></a><span class="visually-hidden">
+      {{/ hidden_link_condition }}
+      {{{ title }}}
+      {{# hidden_link_condition }}
+        </span>
+      {{/ hidden_link_condition }}
+    </h2>
   {{/ title }}
   {{{ title_suffix }}}
 
@@ -28,6 +36,20 @@
     {{/ compounds-search? }}
 
     {{! END HEADER }}
+
+
+    {{! BEGIN BREADCRUMBS }}
+
+    {{# components-breadcrumbs? }}
+      {{> 03-templates/_block--system-menu-block(
+        heading_id: 'system-breadcrumb',
+        title_attributes: ' class="visually-hidden" id="system-breadcrumb"',
+        title: 'Breadcrumb',
+        "components-breadcrumbs?": true
+      )}}
+    {{/ components-breadcrumbs? }}
+
+    {{! END BREADCRUMBS }}
 
 
     {{! BEGIN HOMEPAGE }}
@@ -60,12 +82,6 @@
         "components-article?": true
       ) }}
     {{/ templates-node~~pages-article? }}
-    {{# components-related-posts? }}
-      {{> 02-components/01-sections/01-related-posts }}
-    {{/ components-related-posts? }}
-    {{# components-recent-comments? }}
-      {{> 02-components/01-sections/00-recent-comments }}
-    {{/ components-recent-comments? }}
 
     {{! END ARTICLE }}
 
@@ -90,6 +106,24 @@
     {{/ compounds-powered-by? }}
 
     {{! END NEW INSTALL }}
+
+
+    {{! BEGIN SIDEBAR2 VIEWS }}
+
+    {{# templates-views-view~~templates-block--sidebar2__posts? }}
+      {{> 03-templates/views-view(
+        views-view_attributes: ' class="view-id-content_recent view-display-id-block_1"',
+        "templates-views-view-list~~templates-block--sidebar2__posts?": true
+      ) }}
+    {{/ templates-views-view~~templates-block--sidebar2__posts? }}
+    {{# templates-views-view~~templates-block--sidebar2__comments? }}
+      {{> 03-templates/views-view(
+        views-view_attributes: ' class="view-id-comments_recent view-display-id-block_1"',
+        "templates-views-view-list~~templates-block--sidebar2__comments?": true
+      ) }}
+    {{/ templates-views-view~~templates-block--sidebar2__comments? }}
+
+    {{! END SIDEBAR2 VIEWS }}
 
 
     {{! BEGIN FOOTER }}

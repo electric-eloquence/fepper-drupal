@@ -1,7 +1,7 @@
 html
   font-size: (100 / 1.6)%
 body
-  background: $white
+  background-color: $white
   font: 1.6em/1.5 $font-primary
   -webkit-text-size-adjust: 100%
   color: $gray-dark
@@ -11,6 +11,49 @@ body
   position: relative
   @media all and (max-width: $bp-sm-max)
     font-size: 1.4em
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0.4rem 0
+  padding: 0.4rem 0 0
+h1, h2
+  line-height: 1.2
+h4
+  font-size: 1.1em
+h5
+  font-size: 1.0625em
+h6
+  font-size: 1em
+p
+  .path-search &
+    margin: 0
+  .node--view-mode-teaser &
+    .item-list &
+      margin: 0
+a
+  color: $gray-dark
+  text-decoration: none
+  outline: 0
+  &:hover, &:focus
+    color: $gray
+.text a,
+a.text,
+a.feed-icon,
+p a,
+[property="schema:text"] a
+  text-decoration: underline
+[property="schema:text"],
+[property="text"]
+  margin-top: $space-quarter
+  p
+    margin: $space-quarter 0
+  p:first-child
+    margin-top: 0
+  p:last-child
+    margin-bottom: 0
 aside
   margin-bottom: $space
 // Completely remove from the flow and screen readers.

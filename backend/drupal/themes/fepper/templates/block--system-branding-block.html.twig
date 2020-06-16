@@ -9,33 +9,36 @@
 {% extends "block.html.twig" %}
 
 {% block content %}
-  {% if site_logo %}
-    {% if is_front %}{% if not site_name %}
-      {% if not page_title_block_enabled %}<h1>{% endif %}
-    {% endif %}{% endif %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+  <div> {# This div is here to match the nesting structure of a custom block
+that copies this block but with a forced h1 tag. That is, the logic herein does
+not render an h1 despite our best efforts, and a custom block is necessary to
+replace this block for search engine optimization. Be sure to name the custom
+block with the word "branding" in it so it picks up this block's CSS. #}
+    {% if site_logo %}
+      {% if is_front %}{% if not site_name %}
+        {% if not page_title_block_enabled %}<h1>{% endif %}
+      {% endif %}{% endif %}
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" id="logo">
         <img src="{{ site_logo }}" alt="{{ system_site_name }}" />
       </a>
-    {% if is_front %}{% if not site_name %}
-      {% if not page_title_block_enabled %}</h1>{% endif %}
-    {% endif %}{% endif %}
-  {% endif %}
-  {% if site_name or site_slogan %}
-    <div id="name-and-slogan">
-      {% if site_name %}
-        {% if not page_title_block_enabled %}{% if is_front %}<h1 id="site-name">{% endif %}{% endif %}
-        {% if page_title_block_enabled or not is_front %}<div id="site-name">{% endif %}
-        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-          {{ site_name }}
-        </a>
-        {% if not page_title_block_enabled %}{% if is_front %}</h1>{% endif %}{% endif %}
-        {% if page_title_block_enabled or not is_front %}</div>{% endif %}
-      {% endif %}
-      {% if site_slogan %}
-        <div id="site-slogan">
-          {{ site_slogan }}
-        </div>
-      {% endif %}
-    </div>
-  {% endif %}
+
+      {% if is_front %}{% if not site_name %}
+        {% if not page_title_block_enabled %}</h1>{% endif %}
+      {% endif %}{% endif %}
+    {% endif %}
+    {% if site_name %}
+      {% if not page_title_block_enabled %}{% if is_front %}<h1 id="site-name">{% endif %}{% endif %}
+      {% if page_title_block_enabled or not is_front %}<div id="site-name">{% endif %}
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        {{ site_name }}
+      </a>
+      {% if not page_title_block_enabled %}{% if is_front %}</h1>{% endif %}{% endif %}
+      {% if page_title_block_enabled or not is_front %}</div>{% endif %}
+    {% endif %}
+    {% if site_slogan %}
+      <div id="site-slogan">
+        {{ site_slogan }}
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}

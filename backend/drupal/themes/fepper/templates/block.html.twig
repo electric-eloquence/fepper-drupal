@@ -16,7 +16,15 @@
 
   {{ title_prefix }}
   {% if label %}
-    <h2 {{ title_attributes }}><a href="#">{{ label }}</a></h2>
+    <h2 {{ title_attributes }}>
+      {% if plugin_id == 'search_form_block' %}
+        <a href="#" class="hidden-link"></a><span class="visually-hidden">
+      {% endif %}
+      {{ label }}
+      {% if plugin_id == 'search_form_block' %}
+        </span>
+      {% endif %}
+    </h2>
   {% endif %}
   {{ title_suffix }}
 

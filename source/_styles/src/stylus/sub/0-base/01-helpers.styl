@@ -2,31 +2,31 @@
 .hoagies
   [role="article"]
     > h2
-      font-size: 2rem
+      font-size: 1.25em
   @media all and (max-width: $bp-xs-max)
     [role="article"]
       > div > div:first-of-type > a
         display: block
         max-width: 22.5rem
-  @media all and (max-width: $bp-sm-max)
-    [role="article"]
-      > h2
-        font-size: 1.7rem
   @media all and (min-width: $bp-small)
     .item-list
+      @extend .cf
       padding-top: $space-quarter
-    .item-list li
-      clear: both
-      float: left
-      margin-bottom: $space
+      li
+        @extend .cf
+        clear: both
+        margin-bottom: $space
     [role="article"]
       > h2,
       [property="schema:text"],
       [property="text"]
         float: right
         margin-top: 0
-        padding: 0 1.6rem
-        width: $column-width-three-quarters
+        padding: 0 0 0 $space
+        width: $column-width-three-quarters + "%"
       img
         float: left
-        width: $column-width-one-quarter
+        width: $column-width-one-quarter + "%"
+  @media all and (min-width: $bp-med)
+    .item-list
+      padding-right: $space
