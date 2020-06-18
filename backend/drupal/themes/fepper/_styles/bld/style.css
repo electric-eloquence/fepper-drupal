@@ -165,20 +165,20 @@ p a,
 [property="schema:text"] a {
   text-decoration: underline;
 }
-[property="schema:text"],
-[property="text"] {
-  margin-top: 0.4rem;
+.node--view-mode-teaser [property="schema:text"],
+.node--view-mode-teaser [property="text"] {
+  margin-top: 0.25em;
 }
-[property="schema:text"] p,
-[property="text"] p {
-  margin: 0.4rem 0;
+.node--view-mode-teaser [property="schema:text"] p,
+.node--view-mode-teaser [property="text"] p {
+  margin: 0.25em 0;
 }
-[property="schema:text"] p:first-child,
-[property="text"] p:first-child {
+.node--view-mode-teaser [property="schema:text"] p:first-child,
+.node--view-mode-teaser [property="text"] p:first-child {
   margin-top: 0;
 }
-[property="schema:text"] p:last-child,
-[property="text"] p:last-child {
+.node--view-mode-teaser [property="schema:text"] p:last-child,
+.node--view-mode-teaser [property="text"] p:last-child {
   margin-bottom: 0;
 }
 aside {
@@ -429,7 +429,7 @@ ul.text,
 ol.text,
 article ul,
 article ol {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1em;
 }
 .text ul ul,
 .text ol ul,
@@ -463,6 +463,9 @@ article ul {
 ol.text,
 article ol {
   list-style: decimal;
+}
+ul.links.inline {
+  margin-top: 0.25em;
 }
 img,
 video,
@@ -659,7 +662,6 @@ section[rel="schema:comment"] article[typeof="schema:Comment"] > div {
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links {
   display: flex;
-  margin-top: 0.25em;
   margin-bottom: 0;
 }
 section[rel="schema:comment"] article[typeof="schema:Comment"] > div .links li {
@@ -1097,7 +1099,7 @@ section[rel="schema:comment"] .indented {
   cursor: pointer;
 }
 .no-sidebar-second #edit-help-link {
-  margin-top: 0.4rem;
+  margin-top: 0.25em;
 }
 .no-sidebar-second #search-form > * {
   display: inline-block;
