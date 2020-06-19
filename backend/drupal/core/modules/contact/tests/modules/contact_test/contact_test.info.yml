@@ -7,7 +7,7 @@ core: 8.x
 dependencies:
   - drupal:contact
 
-# Information added by Drupal.org packaging script on 2020-05-20
-version: '8.8.6'
+# Information added by Drupal.org packaging script on 2020-06-17
+version: '8.9.1'
 project: 'drupal'
-datestamp: 1589989103
+datestamp: 1592418285
