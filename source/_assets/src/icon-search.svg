@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
-  <circle cx="85" cy="85" r="65" stroke-width="25" fill="none" stroke="#000000" />
-  <circle cx="146" cy="146" r="10" fill="#000000" />
-  <polygon points="138.7,152.9 183,205.6 205.6,183 152.9,138.7" fill="#000000" />
-  <circle cx="195" cy="195" r="16" fill="#000000" />
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <circle cx="75" cy="75" r="60" stroke-width="24" fill="none" stroke="#000000" />
+  <circle cx="131" cy="131" r="9" fill="#000000" />
+  <polygon points="124.5,137.25 170,191.25 191.25,170 137.25,124.5" fill="#000000" />
+  <circle cx="180" cy="180" r="15" fill="#000000" />
 </svg>
