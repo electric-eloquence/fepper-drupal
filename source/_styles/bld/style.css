@@ -770,8 +770,7 @@ section[rel="schema:comment"] .indented {
   [id^="block-"][id$="-main-menu"] .expanded > a::after,
   [id^="block-"][id$="-account-menu"] .expanded > a::after {
     content: "▼";
-    filter: invert(20%);
-    font-size: 0.75em;
+    font-size: 0.5625em;
     margin-left: 0.8rem;
   }
   [id^="block-"][id$="-footer"] .expanded ul li,
