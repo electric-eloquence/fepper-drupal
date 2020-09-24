@@ -49,9 +49,11 @@ header.header
         content: ""
         display: block
         padding: 1.1rem
-      &:hover::before,
       &:focus::before
         filter: invert(50%)
+      @media (hover: hover)
+        &:hover::before
+          filter: invert(50%)
   @media all and (max-width: $bp-sm-max)
     position: static // In order for the mobile nav to work while logged in.
 // Search form.

@@ -43,7 +43,6 @@
       li a
         padding: 0.1rem 0
       > .expanded
-        &:hover > a,
         > a:focus
           + ul
             // Margin and padding must be switched from unhovered/unfocused state
@@ -64,6 +63,14 @@
             border-right: 0
             border-bottom: 0
             border-left: 0
+        @media (hover: hover)
+          &:hover > a
+            + ul
+              // Margin and padding must be switched from unhovered/unfocused state
+              // so unexpanded items don't interfere with expanded items.
+              margin-top: 0
+              max-height: 100%
+              padding-top: $menu-margin
 [id^="block-"][id*="-main"],
 [id^="block-"][id*="-account"]
   @media all and (max-width: $bp-sm-max)

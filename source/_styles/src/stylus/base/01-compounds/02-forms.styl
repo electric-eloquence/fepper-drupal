@@ -74,11 +74,13 @@ form:not(#search-block-form)
       padding-left: 0
       position: relative
       width: 3.125em
-      &:hover,
       &:focus
         filter: invert(50%)
       &:active
         background-color: rgba(0, 0, 0, 0.2)
+      @media (hover: hover)
+        &:hover
+          filter: invert(50%)
   [id^="edit-actions"]
     float: left
     margin: 0
