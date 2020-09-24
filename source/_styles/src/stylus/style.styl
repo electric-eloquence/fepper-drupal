@@ -140,10 +140,13 @@
   details
     margin-top: 0.5em
     summary
-      &:hover,
       &:focus
         color: $gray
         cursor: pointer
+      @media (hover: hover)
+        &:hover
+          color: $gray
+          cursor: pointer
     fieldset[id^="edit-"][id$="-fieldset"]
       margin: 0.5em 0
     legend
