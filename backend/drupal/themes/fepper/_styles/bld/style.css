@@ -154,9 +154,13 @@ a {
   text-decoration: none;
   outline: 0;
 }
-a:hover,
 a:focus {
   color: #808080;
+}
+@media (hover: hover) {
+  a:hover {
+    color: #808080;
+  }
 }
 .text a,
 a.text,
@@ -298,13 +302,17 @@ header.header {
   display: block;
   padding: 1.1rem;
 }
-#region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:hover::before,
-[id^="block-"][id*="-main"] > h2 > a:hover::before,
-[id^="block-"][id*="-account"] > h2 > a:hover::before,
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:focus::before,
 [id^="block-"][id*="-main"] > h2 > a:focus::before,
 [id^="block-"][id*="-account"] > h2 > a:focus::before {
   filter: invert(50%);
+}
+@media (hover: hover) {
+  #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a:hover::before,
+  [id^="block-"][id*="-main"] > h2 > a:hover::before,
+  [id^="block-"][id*="-account"] > h2 > a:hover::before {
+    filter: invert(50%);
+  }
 }
 @media all and (max-width: 767px) {
   #region-secondary-menu [id^="block-"][id*="-search"],
@@ -608,12 +616,16 @@ form:not(#search-block-form) [id^="edit-actions"] {
   position: relative;
   width: 3.125em;
 }
-#search-block-form input[id^="edit-submit"]:hover,
 #search-block-form input[id^="edit-submit"]:focus {
   filter: invert(50%);
 }
 #search-block-form input[id^="edit-submit"]:active {
   background-color: rgba(0,0,0,0.2);
+}
+@media (hover: hover) {
+  #search-block-form input[id^="edit-submit"]:hover {
+    filter: invert(50%);
+  }
 }
 #search-block-form [id^="edit-actions"] {
   float: left;
@@ -804,9 +816,6 @@ section[rel="schema:comment"] .indented {
   [id^="block-"][id$="-account-menu"] > ul li a {
     padding: 0.1rem 0;
   }
-  [id^="block-"][id$="-footer"] > ul > .expanded:hover > a + ul,
-  [id^="block-"][id$="-main-menu"] > ul > .expanded:hover > a + ul,
-  [id^="block-"][id$="-account-menu"] > ul > .expanded:hover > a + ul,
   [id^="block-"][id$="-footer"] > ul > .expanded > a:focus + ul,
   [id^="block-"][id$="-main-menu"] > ul > .expanded > a:focus + ul,
   [id^="block-"][id$="-account-menu"] > ul > .expanded > a:focus + ul {
@@ -836,6 +845,15 @@ section[rel="schema:comment"] .indented {
     border-right: 0;
     border-bottom: 0;
     border-left: 0;
+  }
+}
+@media all and (min-width: 768px) and (hover: hover) {
+  [id^="block-"][id$="-footer"]:hover > a + ul,
+  [id^="block-"][id$="-main-menu"]:hover > a + ul,
+  [id^="block-"][id$="-account-menu"]:hover > a + ul {
+    margin-top: 0;
+    max-height: 100%;
+    padding-top: 1.1rem;
   }
 }
 @media all and (max-width: 767px) {
@@ -1118,10 +1136,15 @@ section[rel="schema:comment"] .indented {
 .path-search details {
   margin-top: 0.5em;
 }
-.path-search details summary:hover,
 .path-search details summary:focus {
   color: #808080;
   cursor: pointer;
+}
+@media (hover: hover) {
+  .path-search details summary:hover {
+    color: #808080;
+    cursor: pointer;
+  }
 }
 .path-search details fieldset[id^="edit-"][id$="-fieldset"] {
   margin: 0.5em 0;
