@@ -848,9 +848,9 @@ section[rel="schema:comment"] .indented {
   }
 }
 @media all and (min-width: 768px) and (hover: hover) {
-  [id^="block-"][id$="-footer"]:hover > a + ul,
-  [id^="block-"][id$="-main-menu"]:hover > a + ul,
-  [id^="block-"][id$="-account-menu"]:hover > a + ul {
+  [id^="block-"][id$="-footer"] > ul > .expanded:hover > a + ul,
+  [id^="block-"][id$="-main-menu"] > ul > .expanded:hover > a + ul,
+  [id^="block-"][id$="-account-menu"] > ul > .expanded:hover > a + ul {
     margin-top: 0;
     max-height: 100%;
     padding-top: 1.1rem;
