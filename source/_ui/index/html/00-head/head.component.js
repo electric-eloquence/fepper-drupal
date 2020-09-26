@@ -30,7 +30,6 @@ module.exports = {
 <script src="node_modules/universal-cookie/umd/universalCookie.min.js"></script>
 <script src="node_modules/wolfy87-eventemitter/EventEmitter.min.js"></script>
 <script src="{{ pathsPublic.js }}/src/variables.styl" type="text/javascript"></script>
-<script src="{{ pathsPublic.js }}/src/fepper-obj.js"></script>
 `
   }
 };
