@@ -35,8 +35,10 @@
     "node": ">=12.0.0"
   },
   "devDependencies": {
-    "fepper": "^0.37.1",
-    "fepper-utils": "^1.4.0",
+    "chai": "4.x",
+    "eslint": "7.x",
+    "fepper": "*",
+    "fepper-utils": "*",
     "fs-extra": "^8.1.0",
     "gulp": "https://github.com/electric-eloquence/gulp/tarball/v3-lts",
     "husky": "4.x",
