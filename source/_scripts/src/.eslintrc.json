@@ -1,0 +1,11 @@
+{
+  "env": {
+    "browser": true,
+    "node": false
+  },
+  "globals": {
+    "$": true,
+    "Drupal": true,
+    "jQuery": true
+  }
+}
