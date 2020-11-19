@@ -6,12 +6,8 @@
 /.timestamp
 /backend/drupal/sites/default/files/
 /conf.yml
-/extend/
-/patternlab-config.json
-/pref.yml
 /public/*
 !/public/package.json
-/source
 ignore/
 node_modules/
 !/source/_static/node_modules/
