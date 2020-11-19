@@ -2,15 +2,11 @@
 .*.swp
 .DS_Store
 .publish/
-/backend/*
+/backend/drupal/sites/default/files/
 /conf.yml
-/extend/
 /install.log
 /npm-debug.log
-/patternlab-config.json
-/pref.yml
 /public/*
-/source/
 ignore/
 node_modules/
 package-lock.json
