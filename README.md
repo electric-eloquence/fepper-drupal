@@ -1,7 +1,7 @@
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/electric-eloquence/fepper-npm/master/excludes/fepper-branding.png"
-    alt="Fepper"
+    alt="Fepper for Drupal"
   >
 </p>
 
@@ -73,7 +73,7 @@ values for template reuse:
 #### Simplest way to get started
 
 * Download the 
-  <a href="https://github.com/electric-eloquence/fepper/releases/latest" target="_blank">
+  <a href="https://github.com/electric-eloquence/fepper-drupal/releases/latest" target="_blank">
   latest release</a>.
 
 #### Main install
@@ -106,13 +106,18 @@ values for template reuse:
 * Start editing files in `source`. Changes should automatically appear in the 
   browser.
 
-#### Base install
+#### Drupal install
 
-* Comes with no unnecessary assets, styles, or Pattern Lab demo.
-* Node.js must be installed beforehand.
-* `npm install -g fepper-cli`
-* `npm run install-base`
-* `fp`
+* To install the included Drupal backend, restore the MySQL dump 
+  `fepper-drupal-mysqldump.sql`.
+* Update the `$databases` settings in `backend/drupal/sites/default/settings.php` 
+  to reflect your own database settings.
+* Configure `d8.local` to be the hostname in your web server configs.
+* Configure `backend/drupal` (correctly pathed) to be the document root for this 
+  host.
+* Restart the web server.
+* Open http://d8.local in a browser.
+* Log into Drupal with `admin:admin`
 
 #### Windows install
 
