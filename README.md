@@ -1,7 +1,7 @@
 <p align="center">
   <img
     src="https://raw.githubusercontent.com/electric-eloquence/fepper-npm/master/excludes/fepper-branding.png"
-    alt="Fepper"
+    alt="Fepper for Drupal"
   >
 </p>
 
@@ -66,7 +66,7 @@ values for template reuse:
 
 #### Simplest way to get started
 * Download the 
-  <a href="https://github.com/electric-eloquence/fepper/releases/latest" target="_blank">
+  <a href="https://github.com/electric-eloquence/fepper-drupal/releases/latest" target="_blank">
   latest release</a>.
 
 #### Main install
