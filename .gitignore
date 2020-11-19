@@ -4,14 +4,11 @@
 .DS_Store
 .publish/
 /.timestamp
-/backend/drupal/modules/devel/
 /backend/drupal/sites/default/files/
 /conf.yml
-/extend/
 /install.log
 /npm-debug.log
 /public/*
-/source/
 /source/_styles/src/tmp/
 ignore/
 node_modules/
