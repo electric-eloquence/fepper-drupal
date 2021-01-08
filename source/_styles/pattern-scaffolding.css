@@ -1,19 +1,29 @@
 /**
- * This file can be used to customize UI styles.
- * It is referred to in the Pattern Lab documentation at https://patternlab.io/docs/pattern-states.html
- * although this directory location differs from the documented location.
+ * This file is referred to in the Pattern Lab documentation at https://patternlab.io/docs/pattern-states.html as the
+ * place to customize pattern states.
  *
- * Since the documentation refers specifically to pattern states, here are the default states, which can be copied as
- * templates for new states, or can be directly overriden:
-.inprogress:before {
+ * In addition, this file can be used to customize UI styles, as well as View All styles.
+ */
+
+/* Pattern State bullet. */
+.sg-pattern-state::after {
+  content: "\25CF";
+  font-weight: normal;
+  margin-left: 0.4rem;
+  text-decoration: none;
+}
+
+/* In Progress state. */
+.inprogress::after {
   color: #FF4136 !important;
 }
 
-.inreview:before {
+/* In Review state. */
+.inreview::after {
   color: #FFCC00 !important;
 }
 
-.complete:before {
+/* Complete state. */
+.complete::after {
   color: #2ECC40 !important;
 }
-*/
