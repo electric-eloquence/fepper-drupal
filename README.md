@@ -22,11 +22,12 @@
 ### Template Reuse
 The patterns in `source/03-templates` are parameterized to reuse templates in a 
 Drupal-like manner. The recursion paths match those in Drupal, and as such, the 
-Fepper templates can be exported to Drupal with no further effort beyond running 
+<a href="https://www.npmjs.com/package/feplet" target="_blank">Feplet</a> 
+templates can be exported to Drupal with no further effort beyond running 
 `fp template`. Follow these rules when constructing new parameter keys and 
 values for template reuse:
 
-* The parameters are submitted within parentheses inside the Mustache inclusion 
+* The parameters are submitted within parentheses inside the Feplet inclusion 
   tags.
 * The parameter key should be <a href="http://getbem.com/naming/" target="_blank">
   BEM-like</a> in syntax.
