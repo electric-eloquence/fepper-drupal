@@ -8,36 +8,36 @@
    */
   #}
 'page.header': |2
-  \{\{ page.header \}\}
+  {{ page.header }}
 'page.primary_menu': |2
-  \{\{ page.primary_menu \}\}
+  {{ page.primary_menu }}
 'page.secondary_menu': |2
-  \{\{ page.secondary_menu \}\}
+  {{ page.secondary_menu }}
 'page.breadcrumb': |2
-  \{\{ page.breadcrumb \}\}
+  {{ page.breadcrumb }}
 'page.highlighted': |2
-  \{\{ page.highlighted \}\}
+  {{ page.highlighted }}
 'page.help': |2
-  \{\{ page.help \}\}
+  {{ page.help }}
 'fpo_template_content': |2
-  \{\{ page.content \}\}
-'# sidebar_first\?': |2
+  {{ page.content }}
+'# sidebar_first?': |2
   {% if page.sidebar_first %}
 'conditional_class': |2
   {% if page.sidebar_second is empty %}no-sidebar-second{% endif %}
 'page.sidebar_first': |2
-  \{\{ page.sidebar_first \}\}
-'/ sidebar_first\?': |2
+  {{ page.sidebar_first }}
+'/ sidebar_first?': |2
   {% endif %}
-'# sidebar_second\?': |2
+'# sidebar_second?': |2
   {% if page.sidebar_second %}
 'page.sidebar_second': |2
-  \{\{ page.sidebar_second \}\}
-'/ sidebar_second\?': |2
+  {{ page.sidebar_second }}
+'/ sidebar_second?': |2
   {% endif %}
-'# footer\?': |2
+'# footer?': |2
   {% if page.footer %}
 'page.footer': |2
-  \{\{ page.footer \}\}
-'/ footer\?': |2
+  {{ page.footer }}
+'/ footer?': |2
   {% endif %}

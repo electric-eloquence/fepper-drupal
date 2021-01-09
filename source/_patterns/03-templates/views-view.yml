@@ -16,38 +16,38 @@
     ]
   %}
 'views-view_attributes': |2
-  \{\{ attributes.addClass(classes) \}\}
+  {{ attributes.addClass(classes) }}
 'title_prefix': |2
-  \{\{ title_prefix \}\}
+  {{ title_prefix }}
 'title': |2
-  \{\{ title \}\}
+  {{ title }}
 'title_suffix': |2
-  \{\{ title_suffix \}\}
+  {{ title_suffix }}
 '# header': |2
   {% if header %}
 'header': |2
-  \{\{ header \}\}
+  {{ header }}
 '/ header': |2
   {% endif %}
 'exposed': |2
-  \{\{ exposed \}\}
+  {{ exposed }}
 'attachment_before': |2
-  \{\{ attachment_before \}\}
+  {{ attachment_before }}
 'fpo_template_content': |2
-  \{\{ rows \}\}
+  {{ rows }}
 'empty': |2
-  \{\{ empty \}\}
+  {{ empty }}
 '> 02-components/03-navigation/01-pagination': |2
-  \{\{ pager \}\}
+  {{ pager }}
 'attachment_after': |2
-  \{\{ attachment_after \}\}
+  {{ attachment_after }}
 '> 01-compounds/00-text/03-more-link': |2
-  \{\{ more \}\}
+  {{ more }}
 '# footer': |2
   {% if footer %}
 'footer': |2
-  \{\{ footer \}\}
+  {{ footer }}
 '/ footer': |2
   {% endif %}
 'feed_icons': |2
-  \{\{ feed_icons \}\}
+  {{ feed_icons }}

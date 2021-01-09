@@ -13,26 +13,26 @@
    */
   #}
 'block_attributes': |2
-  \{\{ attributes \}\}
+  {{ attributes }}
 'title_prefix': |2
-  \{\{ title_prefix \}\}
+  {{ title_prefix }}
 '# title': |2
   {% if label %}
 'title_attributes': |2
-  \{\{ title_attributes \}\}
+  {{ title_attributes }}
 '# hidden_link_condition': |2
   {% if plugin_id == 'search_form_block' %}
 '/ hidden_link_condition': |2
   {% endif %}
 'title': |2
-  \{\{ label \}\}
+  {{ label }}
 '/ title': |2
   {% endif %}
 'title_suffix': |2
-  \{\{ title_suffix \}\}
-'# content\?': |2
+  {{ title_suffix }}
+'# content?': |2
   {% block content %}
 'fpo_template_content': |2
-  \{\{ content \}\}
-'/ content\?': |2
+  {{ content }}
+'/ content?': |2
   {% endblock %}
