@@ -11,6 +11,6 @@
    */
   #}
 'fpo_template_content': |2
-  \{\{ rows \}\}
+  {{ rows }}
 'empty': |2
-  \{\{ empty \}\}
+  {{ empty }}

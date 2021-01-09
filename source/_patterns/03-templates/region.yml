@@ -7,12 +7,12 @@
    * @see system/templates/region.html.twig
    */
   #}
-'# content\?': |2
+'# content?': |2
   {% set id = 'region-' ~ region|clean_class %}
   {% if content %}
 'region_attributes': |2
-  \{\{ attributes.setAttribute('id', id) \}\}
+  {{ attributes.setAttribute('id', id) }}
 'fpo_template_content': |2
-  \{\{ content \}\}
-'/ content\?': |2
+  {{ content }}
+'/ content?': |2
   {% endif %}
