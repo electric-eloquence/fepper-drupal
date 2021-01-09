@@ -124,7 +124,6 @@ values for template reuse:
 
 #### Drupal install
 
-<<<<<<< HEAD
 * To install the included Drupal backend, restore the MySQL dump 
   `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` 
@@ -135,15 +134,6 @@ values for template reuse:
 * Restart the web server.
 * Open http://d8.local in a browser.
 * Log into Drupal with `admin:admin`
-=======
-* Comes with no unnecessary assets, styles, demo website, or 
-  <a href="https://www.npmjs.com/package/fp-stylus" target="_blank">fp-stylus</a> 
-  extension.
-* Node.js must be installed beforehand.
-* `npm install -g fepper-cli`
-* `npm run install-base`
-* `fp`
->>>>>>> 4be7b4f29bd018706ee1de4b5cf3e42d0c3ae5d5
 
 #### Post-install
 
