@@ -44,10 +44,10 @@ values for template reuse:
 * Quoting of keys and values should follow 
   <a href="https://json5.org" target="_blank">JSON5 syntax</a>.
 * (Avoid quotes if you can.)
-* When quoting is necessary, to avoid escaping special characters in .mustache 
-  files, wrap parameter keys in double-quotes and values in single-quotes.
+* When quoting is necessary, to avoid escaping special characters, wrap 
+  parameter keys in double-quotes and values in single-quotes.
 * Consult the [Templater section](#templater) for additional documentation on 
-  configuring Mustache and YAML files to sync Fepper with Drupal.
+  configuring Feplet and YAML files to sync Fepper with Drupal.
 
 ### Table of contents
 
