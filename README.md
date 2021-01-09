@@ -44,10 +44,10 @@ values for template reuse:
 * Quoting of keys and values should follow 
   <a href="https://json5.org" target="_blank">JSON5 syntax</a>.
 * (Avoid quotes if you can.)
-* When quoting is necessary, to avoid escaping special characters in .mustache 
-  files, wrap parameter keys in double-quotes and values in single-quotes.
+* When quoting is necessary, to avoid escaping special characters, wrap 
+  parameter keys in double-quotes and values in single-quotes.
 * Consult the [Templater section](#templater) for additional documentation on 
-  configuring Mustache and YAML files to sync Fepper with Drupal.
+  configuring Feplet and YAML files to sync Fepper with Drupal.
 
 ### Table of contents
 
@@ -315,14 +315,10 @@ Follow these rules for setting up keys and values:
 * Delete the Feplet curly braces for keys.
 * Trim any exterior whitespace.
 * Leave other control structures and spaces within the key, e.g. !#/>^
-* Escape parentheses, carets, and question marks with backslashes.
 * Wrap the key in single quotes.
 * Follow the closing quote with a colon, space, pipe, the numeral 2, and a 
   newline `: |2`
 * Indent each line of the value by at least two spaces.
-* When translating to a language with double-curly braces for tags (as per the 
-  example), the double-curly braces must be escaped with a backslash per curly 
-  brace.
 
 Run `fp syncback` or `fp template`. 
 
