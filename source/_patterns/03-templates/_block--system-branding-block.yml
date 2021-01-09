@@ -15,47 +15,47 @@
   not render an h1 despite our best efforts, and a custom block is necessary to
   replace this block for search engine optimization. Be sure to name the custom
   block with the word "branding" in it so it picks up this block's CSS. #}
-'# content\?': |2
+'# content?': |2
   {% block content %}
 '# img.logo': |2
   {% if site_logo %}
-'# homepage\?': |2
+'# homepage?': |2
   {% if is_front %}
-'\^ site_name\?': |2
+'^ site_name?': |2
   {% if not site_name %}
-'\^ page_title\?': |2
+'^ page_title?': |2
   {% if not page_title_block_enabled %}
-'/ page_title\?': |2
+'/ page_title?': |2
   {% endif %}
-'/ site_name\?': |2
+'/ site_name?': |2
   {% endif %}
-'/ homepage\?': |2
+'/ homepage?': |2
   {% endif %}
 'link.pages-homepage': |2
-  \{\{ path('<front>') \}\}
+  {{ path('<front>') }}
 'header_title': |2
-  \{\{ 'Home'|t \}\}
+  {{ 'Home'|t }}
 'header_rel': |2
   home
 'img.logo.src': |2
-  \{\{ site_logo \}\}
+  {{ site_logo }}
 'img.logo.alt': |2
-  \{\{ system_site_name \}\}
+  {{ system_site_name }}
 '/ img.logo': |2
   {% endif %}
-'# site_name\?': |2
+'# site_name?': |2
   {% if site_name %}
-'# page_title_or_not_homepage\?': |2
+'# page_title_or_not_homepage?': |2
   {% if page_title_block_enabled or not is_front %}
 'site_name': |2
-  \{\{ site_name \}\}
-'/ page_title_or_not_homepage\?': |2
+  {{ site_name }}
+'/ page_title_or_not_homepage?': |2
   {% endif %}
-'# site_slogan\?': |2
+'# site_slogan?': |2
   {% if site_slogan %}
 'site_slogan': |2
-  \{\{ site_slogan \}\}
-'/ site_slogan\?': |2
+  {{ site_slogan }}
+'/ site_slogan?': |2
   {% endif %}
-'/ content\?': |2
+'/ content?': |2
   {% endblock %}

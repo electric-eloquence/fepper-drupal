@@ -10,22 +10,22 @@
 '# views-view-list_attributes': |2
   {% if attributes -%}
 'views-view-list_attributes': |2
-  \{\{ attributes \}\}
+  {{ attributes }}
 '/ views-view-list_attributes': |2
   {% endif %}
 '# title': |2
   {% if title %}
 'title': |2
-  \{\{ title \}\}
+  {{ title }}
 '/ title': |2
   {% endif %}
 'list_type': |2
-  \{\{ list.type \}\}
+  {{ list.type }}
 'list_attributes': |2
-  \{\{ list.attributes \}\}
+  {{ list.attributes }}
 'fpo_template_content': |2
   {% for row in rows %}
-    <li \{\{ row.attributes \}\}>
-      \{\{ row.content \}\}
+    <li {{ row.attributes }}>
+      {{ row.content }}
     </li>
   {% endfor %}
