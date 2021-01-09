@@ -41,11 +41,6 @@ values for template reuse:
   Mustache's convention for 
   <a href="https://mustache.github.io/mustache.5.html" target="_blank">
   Non-False Values</a>.
-* Quoting of keys and values should follow 
-  <a href="https://json5.org" target="_blank">JSON5 syntax</a>.
-* (Avoid quotes if you can.)
-* When quoting is necessary, to avoid escaping special characters, wrap 
-  parameter keys in double-quotes and values in single-quotes.
 * Consult the [Templater section](#templater) for additional documentation on 
   configuring Feplet and YAML files to sync Fepper with Drupal.
 

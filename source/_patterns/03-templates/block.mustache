@@ -25,10 +25,10 @@
     {{/ compounds-logo? }}
     {{# compounds-logo~~pages-new-install? }}
       {{> 03-templates/_block--system-branding-block(
-        "site_name_or_site_slogan?": true,
-        "site_name?": true,
-        "page_title_or_not_homepage?": true,
-        "compounds-logo?": true
+        site_name_or_site_slogan?: true,
+        site_name?: true,
+        page_title_or_not_homepage?: true,
+        compounds-logo?: true
       ) }}
     {{/ compounds-logo~~pages-new-install? }}
     {{# compounds-search? }}
@@ -45,7 +45,7 @@
         heading_id: 'system-breadcrumb',
         title_attributes: ' class="visually-hidden" id="system-breadcrumb"',
         title: 'Breadcrumb',
-        "components-breadcrumbs?": true
+        components-breadcrumbs?: true
       )}}
     {{/ components-breadcrumbs? }}
 
@@ -55,10 +55,10 @@
     {{! BEGIN HOMEPAGE }}
 
     {{# templates-container~~pages-homepage__hero? }}
-      {{> 03-templates/container("templates-views-view~~pages-homepage__hero?": true) }}
+      {{> 03-templates/container(templates-views-view~~pages-homepage__hero?: true) }}
     {{/ templates-container~~pages-homepage__hero? }}
     {{# templates-container~~pages-homepage__hoagies? }}
-      {{> 03-templates/container("templates-views-view~~pages-homepage__hoagies?": true) }}
+      {{> 03-templates/container(templates-views-view~~pages-homepage__hoagies?: true) }}
     {{/ templates-container~~pages-homepage__hoagies? }}
 
     {{! END HOMEPAGE }}
@@ -67,7 +67,7 @@
     {{! BEGIN BLOG }}
 
     {{# templates-container~~pages-blog? }}
-      {{> 03-templates/container("templates-views-view~~pages-blog?": true) }}
+      {{> 03-templates/container(templates-views-view~~pages-blog?: true) }}
     {{/ templates-container~~pages-blog? }}
 
     {{! END BLOG }}
@@ -78,8 +78,8 @@
     {{# templates-node~~pages-article? }}
       {{> 03-templates/node(
         node_attributes: ' role="article" typeof="schema:Article"',
-        "view_mode_full?": true,
-        "components-article?": true
+        view_mode_full?: true,
+        components-article?: true
       ) }}
     {{/ templates-node~~pages-article? }}
 
@@ -98,7 +98,7 @@
     {{# views-view~~pages-new-install? }}
       {{> 03-templates/views-view(
         views-view_attributes: ' class="view-id-frontpage view-display-id-page_1"',
-        "pages-new-install?": true
+        pages-new-install?: true
       ) }}
     {{/ views-view~~pages-new-install? }}
     {{# compounds-powered-by? }}
@@ -113,13 +113,13 @@
     {{# templates-views-view~~templates-block--sidebar2__posts? }}
       {{> 03-templates/views-view(
         views-view_attributes: ' class="view-id-content_recent view-display-id-block_1"',
-        "templates-views-view-list~~templates-block--sidebar2__posts?": true
+        templates-views-view-list~~templates-block--sidebar2__posts?: true
       ) }}
     {{/ templates-views-view~~templates-block--sidebar2__posts? }}
     {{# templates-views-view~~templates-block--sidebar2__comments? }}
       {{> 03-templates/views-view(
         views-view_attributes: ' class="view-id-comments_recent view-display-id-block_1"',
-        "templates-views-view-list~~templates-block--sidebar2__comments?": true
+        templates-views-view-list~~templates-block--sidebar2__comments?: true
       ) }}
     {{/ templates-views-view~~templates-block--sidebar2__comments? }}
 
