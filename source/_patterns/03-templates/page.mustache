@@ -6,13 +6,13 @@
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-header"',
-        "templates-block--header?": true
+        templates-block--header?: true
       ) }}
     {{/ demo_site? }}
     {{# templates-region~~pages-new-install? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-header"',
-        "templates-block--header~~pages-new-install?": true
+        templates-block--header~~pages-new-install?: true
       ) }}
     {{/ templates-region~~pages-new-install? }}
     {{{ page.header }}}
@@ -20,13 +20,13 @@
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-secondary-menu"',
-        "templates-block--secondary-menu?": true
+        templates-block--secondary-menu?: true
       ) }}
     {{/ demo_site? }}
     {{# templates-region~~pages-new-install? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-secondary-menu"',
-        "templates-block--secondary-menu~~pages-new-install?": true
+        templates-block--secondary-menu~~pages-new-install?: true
       ) }}
     {{/ templates-region~~pages-new-install? }}
     {{{ page.secondary_menu }}}
@@ -34,13 +34,13 @@
     {{# demo_site? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-primary-menu"',
-        "templates-block--primary-menu?": true
+        templates-block--primary-menu?: true
       ) }}
     {{/ demo_site? }}
     {{# templates-region~~pages-new-install? }}
       {{> 03-templates/region(
         region_attributes: ' id="region-primary-menu"',
-        "templates-block--primary-menu~~pages-new-install?": true
+        templates-block--primary-menu~~pages-new-install?: true
       ) }}
     {{/ templates-region~~pages-new-install? }}
     {{{ page.primary_menu }}}
@@ -49,14 +49,14 @@
   {{# templates-region~~pages-new-install? }}
     {{> 03-templates/region(
       region_attributes: ' id="region-breadcrumb"',
-      "templates-block--breadcrumbs~~pages-new-install?": true
+      templates-block--breadcrumbs~~pages-new-install?: true
     ) }}
   {{/ templates-region~~pages-new-install? }}
   {{{ page.breadcrumb }}}
 
   {{> 03-templates/region(
     region_attributes: ' id="region-highlighted"',
-    "compounds-alert--alert?": true
+    compounds-alert--alert?: true
   ) }}
   {{{ page.highlighted }}}
 
@@ -69,25 +69,25 @@
       {{# templates-region~~pages-homepage? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main~~pages-homepage?": true
+          templates-block--main~~pages-homepage?: true
         ) }}
       {{/ templates-region~~pages-homepage? }}
       {{# templates-region~~pages-blog? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main~~pages-blog?": true
+          templates-block--main~~pages-blog?: true
         ) }}
       {{/ templates-region~~pages-blog? }}
       {{# templates-region~~pages-article? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main~~pages-article?": true
+          templates-block--main~~pages-article?: true
         ) }}
       {{/ templates-region~~pages-article? }}
       {{# templates-region~~pages-new-install? }}
         {{> 03-templates/region(
           region_attributes: ' id="region-content"',
-          "templates-block--main~~pages-new-install?": true
+          templates-block--main~~pages-new-install?: true
         ) }}
       {{/ templates-region~~pages-new-install? }}
       {{{ fpo_template_content }}}
@@ -98,13 +98,13 @@
         {{# templates-region~~pages-homepage? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-first"',
-            "templates-block--sidebar1~~pages-homepage?": true
+            templates-block--sidebar1~~pages-homepage?: true
           ) }}
         {{/ templates-region~~pages-homepage? }}
         {{# templates-region~~pages-new-install? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-first"',
-            "templates-block--sidebar1~~pages-new-install?": true
+            templates-block--sidebar1~~pages-new-install?: true
           ) }}
         {{/ templates-region~~pages-new-install? }}
         {{{ page.sidebar_first }}}
@@ -116,17 +116,17 @@
         {{# templates-region~~pages-article? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-second"',
-            "templates-block--sidebar2~~pages-article?": true
+            templates-block--sidebar2~~pages-article?: true
           ) }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-second"',
-            "templates-block--sidebar2?": true
+            templates-block--sidebar2?: true
           ) }}
         {{/ templates-region~~pages-article? }}
         {{^ templates-region~~pages-article? }}
           {{> 03-templates/region(
             region_attributes: ' id="region-sidebar-second"',
-            "templates-block--sidebar2?": true
+            templates-block--sidebar2?: true
           ) }}
         {{/ templates-region~~pages-article? }}
         {{{ page.sidebar_second }}}
@@ -139,7 +139,7 @@
     <footer id="footer" role="contentinfo">
       {{> 03-templates/region(
         region_attributes: ' id="region-footer"',
-        "templates-block--footer?": true
+        templates-block--footer?: true
       ) }}
       {{{ page.footer }}}
     </footer>
