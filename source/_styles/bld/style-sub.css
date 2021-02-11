@@ -1,23 +1,3 @@
-
-/* line 297 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/style-sub.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/extend/node_modules/stylus/lib/functions/index.styl */
-
-/* line 6 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/extend/node_modules/stylus/lib/functions/index.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_scripts/src/variables.styl */
-
-/* line 50 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_scripts/src/variables.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/00-variables.styl */
-
-/* line 45 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/00-variables.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
-
-/* line 3 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
 .cf::before,
 .dagwood .item-list::before,
 .dagwood .item-list li::before,
@@ -35,8 +15,6 @@
   content: " ";
   display: table;
 }
-
-/* line 6 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
 .cf::after,
 .dagwood .item-list::after,
 .dagwood .item-list li::after,
@@ -46,34 +24,18 @@
 .view-id-content_recent.view-display-id-page_1 .item-list li::after {
   clear: both;
 }
-
-/* line 9 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
 .lc {
   clear: both;
   max-width: 1152px;
   margin: 0 auto;
   padding: 0.8rem;
 }
-
-/* line 32 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/base/0-base/01-helpers.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 3 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
 .dagwood [role="article"] > h2,
 [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
 .view-id-content_recent.view-display-id-page_1 [role="article"] > h2 {
   font-size: 1.25em;
 }
 @media all and (max-width: 480px) {
-
-/* line 7 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 8 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood [role="article"] > div > div:first-of-type > a,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > div > div:first-of-type > a,
   .view-id-content_recent.view-display-id-page_1 [role="article"] > div > div:first-of-type > a {
@@ -82,25 +44,17 @@
   }
 }
 @media all and (min-width: 481px) {
-
-/* line 12 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood .item-list,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list,
   .view-id-content_recent.view-display-id-page_1 .item-list {
     padding-top: 0.4rem;
   }
-
-/* line 15 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood .item-list li,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list li,
   .view-id-content_recent.view-display-id-page_1 .item-list li {
     clear: both;
     margin-bottom: 1.6rem;
   }
-
-/* line 19 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 20 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood [role="article"] > h2,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
   .view-id-content_recent.view-display-id-page_1 [role="article"] > h2,
@@ -115,8 +69,6 @@
     padding: 0 0 0 1.6rem;
     width: 75%;
   }
-
-/* line 27 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood [role="article"] img,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] img,
   .view-id-content_recent.view-display-id-page_1 [role="article"] img {
@@ -125,22 +77,12 @@
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 31 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
   .dagwood .item-list,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list,
   .view-id-content_recent.view-display-id-page_1 .item-list {
     padding-right: 1.6rem;
   }
 }
-
-/* line 8 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/01-helpers.styl */
-
-/* line 32 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/05-header.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/05-header.styl */
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/05-header.styl */
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
 [id^="block-"][id*="-main"] > h2 > a,
 [id^="block-"][id*="-account"] > h2 > a {
@@ -149,25 +91,13 @@
   width: 5.5rem;
   height: 5.4rem;
 }
-
-/* line 32 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/05-header.styl */
-
-/* line 32 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 768px) {
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   #main {
     display: flex;
     justify-content: space-between;
   }
 }
-
-/* line 5 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 768px) {
-
-/* line 7 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-content,
   .layout-sidebar-first {
     flex-grow: 1;
@@ -175,261 +105,149 @@
   }
 }
 @media all and (min-width: 1025px) {
-
-/* line 10 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-content,
   .layout-sidebar-first {
     width: 75%;
   }
 }
-
-/* line 12 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 768px) {
-
-/* line 14 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-sidebar-first,
   .layout-sidebar-second {
     padding-left: 1.6rem;
   }
 }
-
-/* line 16 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
-
-/* line 17 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 768px) {
-
-/* line 18 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .path-frontpage .layout-sidebar-first {
     padding-left: 0;
   }
 }
-
-/* line 20 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (max-width: 480px) {
-
-/* line 21 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-sidebar-second {
     text-align: center;
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 23 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-sidebar-second {
     width: 33.333333333333336%;
   }
 }
 @media all and (min-width: 1025px) {
-
-/* line 25 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .layout-sidebar-second {
     width: 25%;
   }
 }
-
-/* line 27 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 768px) {
-
-/* line 29 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   .path-node [id^="block-"][id$="-content"],
   .path-search [id^="block-"][id$="-content"] {
     padding-right: 1.6rem;
   }
 }
-
-/* line 32 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
-
-/* line 33 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 [id^="block-"][id$="-views-block-content-recent-block-1"] .views-field-title {
   font-size: 1.6rem;
   font-weight: normal;
 }
 @media all and (max-width: 767px) {
-
-/* line 36 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   [id^="block-"][id$="-views-block-content-recent-block-1"] .views-field-title {
     font-size: 1.4rem;
   }
 }
-
-/* line 38 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (max-width: 480px) {
-
-/* line 42 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   [id^="block-"][id$="-views-block-content-recent-block-3"] h1,
   .view-id-content_recent.view-display-id-page_1 h1,
   [id^="block-"][id$="-views-block-content-recent-block-3"] h2,
   .view-id-content_recent.view-display-id-page_1 h2 {
     text-align: center;
   }
-
-/* line 45 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
-
-/* line 46 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   [id^="block-"][id$="-views-block-content-recent-block-3"] article > [role="content"] > div,
   .view-id-content_recent.view-display-id-page_1 article > [role="content"] > div {
     display: flex;
     justify-content: center;
   }
 }
-
-/* line 49 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
 @media all and (min-width: 481px) {
-
-/* line 50 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
   [id^="block-"][id$="-page-title"] {
     margin-right: 1.6rem;
   }
 }
-
-/* line 18 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/06-layout.styl */
-
-/* line 51 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
 footer[role="contentinfo"] {
   background-color: #131313;
   color: #fff;
 }
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
 footer[role="contentinfo"] a {
   color: #f9f9f9;
 }
-
-/* line 6 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
 [id^="block-"][id$="-fepperfooter"] {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
-/* line 11 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
 [id^="block-"][id$="-fepperfooter"] > div {
   width: 100%;
 }
-
-/* line 13 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
 [id^="block-"][id$="-fepperfooter"] p {
   margin: 0.5rem 0;
 }
 @media all and (max-width: 480px) {
-
-/* line 15 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
   [id^="block-"][id$="-fepperfooter"] {
     text-align: center;
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 17 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
   [id^="block-"][id$="-fepperfooter"] {
     text-align: right;
   }
 }
-
-/* line 5 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/0-base/07-footer.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/01-compounds/00-text.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/01-compounds/00-text.styl */
 .item-list + a {
   display: block;
   font-style: italic;
 }
 @media all and (max-width: 480px) {
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/01-compounds/00-text.styl */
   .item-list + a {
     text-align: center;
   }
 }
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/01-compounds/00-text.styl */
-
-/* line 5 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/02-comments.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/02-comments.styl */
 @media all and (max-width: 480px) {
-
-/* line 3 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/02-comments.styl */
   section[rel="schema:comment"] h2 {
     text-align: center;
   }
 }
-
-/* line 5 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/02-comments.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
-
-/* line 3 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
 @media all and (min-width: 768px) {
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
   [id="region-primary-menu"] [id^="block-"][id$="-main-menu"] > ul {
     min-height: 3.4rem;
   }
 }
-
-/* line 87 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/02-components/03-navigation.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
-
-/* line 1 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
-
-/* line 2 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #main {
   flex-wrap: wrap;
 }
-
-/* line 4 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage .layout-content {
   border-bottom: 1px solid #ddd;
   margin-bottom: 1em;
   padding: 0 0 1.5em;
   width: 100%;
 }
-
-/* line 9 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #region-content {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
-/* line 14 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
-
-/* line 16 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #block-fepper-sub-content:first-child img,
 .path-frontpage #region-content > .views-row img {
   display: block;
 }
 @media all and (max-width: 767px) {
-
-/* line 19 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #block-fepper-sub-content:first-child .views-field-title,
   .path-frontpage #region-content > .views-row .views-field-title {
     line-height: 1.1;
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-
-/* line 21 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #block-fepper-sub-content:first-child,
   .path-frontpage #region-content > .views-row {
     width: calc(50% - 0.4rem);
   }
 }
-
-/* line 24 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 @media all and (max-width: 480px) {
-
-/* line 26 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     display: flex;
     flex-direction: column;
@@ -440,13 +258,9 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-
-/* line 34 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-field-image {
     padding-top: 75%;
   }
-
-/* line 36 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-field-image .field-content {
     position: absolute;
     top: 0;
@@ -454,8 +268,6 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (max-width: 767px) {
-
-/* line 41 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     background-color: rgba(0,0,0,0.8);
     overflow: hidden;
@@ -463,13 +275,9 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (min-width: 481px) and (max-width: 767px) {
-
-/* line 46 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     padding-top: 19%;
   }
-
-/* line 48 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title .field-content {
     display: block;
     top: 50%;
@@ -483,87 +291,55 @@ footer[role="contentinfo"] a {
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 55 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-field-image {
     min-height: 7.68rem;
   }
-
-/* line 57 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:first-child .views-field-title {
     font-size: 1.5em;
     padding: 2.8rem 0.8rem;
   }
 }
-
-/* line 61 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 @media all and (min-width: 481px) and (max-width: 767px) {
-
-/* line 62 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content #block-fepper-sub-content:last-child {
     width: auto;
   }
 }
-
-/* line 65 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #region-content > .views-row {
   position: relative;
 }
-
-/* line 67 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #region-content > .views-row .views-field-field-image {
   min-height: 17rem;
   position: relative;
   z-index: 0;
 }
-
-/* line 71 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage #region-content > .views-row .views-field-title {
   width: 100%;
 }
 @media all and (max-width: 480px) {
-
-/* line 74 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content > .views-row .views-field-title {
     text-align: center;
   }
 }
 @media all and (min-width: 768px) {
-
-/* line 76 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage #region-content > .views-row {
     padding-top: 0.8rem;
     width: calc(33.333333333333336% - (3.2rem / 3));
   }
 }
-
-/* line 80 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 @media all and (min-width: 768px) {
-
-/* line 81 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage .layout-sidebar-first {
     width: 66.66666666666667%;
   }
 }
 @media all and (min-width: 1025px) {
-
-/* line 83 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
   .path-frontpage .layout-sidebar-first {
     width: 75%;
   }
 }
-
-/* line 85 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
-
-/* line 86 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/sub/04-pages/00-homepage.styl */
 .path-frontpage article h2 {
   font-size: 1.25em;
 }
-
-/* line 33 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/style-sub.styl */
 @media all and (min-width: 768px) {
-
-/* line 34 : /Users/ee/Sites/Vagrant/VHosts/electric-eloquence/fepper-drupal-dev/source/_styles/src/stylus/style-sub.styl */
   #site-name {
     margin-top: 0;
   }
