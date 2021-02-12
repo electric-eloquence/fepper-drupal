@@ -11,6 +11,63 @@
   "site_name": "Fepper Theme",
   "sidebar_second?": true,
   "url": "#",
+  "comment_placeholders": [
+    {
+      "svg_fill": "Magenta",
+      "name": {
+        "first": "Siguror",
+        "last": "Hanigan"
+      },
+      "article_title": "Veggies sunt bona vobis…",
+      "description": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://veggieipsum.com"
+    },
+    {
+      "svg_fill": "Lime",
+      "name": {
+        "first": "Teun",
+        "last": "Richard"
+      },
+      "article_title": "Bacon ipsum dolor sit amet…",
+      "description": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://baconipsum.com/"
+    },
+    {
+      "svg_fill": "LightBlue",
+      "name": {
+        "first": "Freyr",
+        "last": "Hines"
+      },
+      "article_title": "Webtwo ipsum dolor sit amet…",
+      "description": "Wufoo diigo grockit sifteo divvyshot, unigo zooomr revver. Edmodo appjet joyent skype bubbli jajah zoodles joukuu xobni hojoki edmodo appjet, mozy mzinga akismet yuntaa joost yuntaa geni tivo insala yoono chumby, grockit sococo loopt zanga etsy cloudera koofers empressr jiglu blippy. Omgpop lanyrd joukuu sococo zimbra airbnb movity jibjab, foodzie.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://web20ipsum.com"
+    },
+    {
+      "svg_fill": "Green",
+      "name": {
+        "first": "Matthias",
+        "last": "Macguinness"
+      },
+      "article_title": "Carrot cake fruitcake dessert…",
+      "description": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://cupcakeipsum.com/"
+    },
+    {
+      "svg_fill": "Salmon",
+      "name": {
+        "first": "Aquila",
+        "last": "Achterkamp"
+      },
+      "article_title": "Cauliflower cream cheese…",
+      "description": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://www.cheeseipsum.co.uk/"
+    }
+  ],
   "ul_items": [
     {
       "item": "This is a list item in an unordered list"
