@@ -1,16 +1,10 @@
 {
   "content?": true,
-  "description": "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
-  "excerpt": {
-    "short": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  "homepage": "04-pages-00-homepage-00-homepage",
   "html_title": "Fepper D8",
   "site_name": "Fepper Theme",
   "sidebar_second?": true,
   "url": "#",
+  "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "comment_placeholders": [
     {
       "svg_fill": "Magenta",
@@ -19,7 +13,7 @@
         "last": "Hanigan"
       },
       "article_title": "Veggies sunt bona vobis…",
-      "description": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
+      "comment_body": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
       "timestamp": "2 weeks 6 days ago",
       "source": "http://veggieipsum.com"
     },
@@ -30,7 +24,7 @@
         "last": "Richard"
       },
       "article_title": "Bacon ipsum dolor sit amet…",
-      "description": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
+      "comment_body": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
       "timestamp": "2 weeks 6 days ago",
       "source": "http://baconipsum.com/"
     },
@@ -41,7 +35,7 @@
         "last": "Hines"
       },
       "article_title": "Neosemanticist cultural theory in the works of Smith",
-      "description": "Smith and cultural precapitalist theory. \“Sexual identity is intrinsically impossible,\” says Marx. But several deappropriations concerning the semiotic paradigm of context may be found. In the works of Smith, a predominant concept is the concept of neocultural reality.",
+      "comment_body": "Smith and cultural precapitalist theory. “Sexual identity is intrinsically impossible,” says Marx. But several deappropriations concerning the semiotic paradigm of context may be found. In the works of Smith, a predominant concept is the concept of neocultural reality.",
       "timestamp": "2 weeks 6 days ago",
       "source": "http://www.elsewhere.org/pomo/"
     },
@@ -52,7 +46,7 @@
         "last": "Macguinness"
       },
       "article_title": "Carrot cake fruitcake dessert…",
-      "description": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
+      "comment_body": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
       "timestamp": "2 weeks 6 days ago",
       "source": "http://cupcakeipsum.com/"
     },
@@ -63,7 +57,7 @@
         "last": "Achterkamp"
       },
       "article_title": "Cauliflower cream cheese…",
-      "description": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
+      "comment_body": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
       "timestamp": "2 weeks 6 days ago",
       "source": "http://www.cheeseipsum.co.uk/"
     }
