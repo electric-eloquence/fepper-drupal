@@ -1,3 +1,5 @@
 {
-  "headline": "Lorem ipsum dolor sit"
+  "headline": "Lorem ipsum dolor sit",
+  "header_title": "Home",
+  "header_rel": "home"
 }

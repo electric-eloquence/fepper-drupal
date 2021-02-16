@@ -58,9 +58,9 @@
       "alt": "Rectangle"
     }
   },
+  "headline": "Lorem ipsum dolor sit",
   "header_title": "Home",
   "header_rel": "home",
-  "headline": "Lorem ipsum dolor sit",
   "unordered": {
     "list_attributes": " class=\"text\""
   },
