@@ -1,12 +1,5 @@
 {
   "content?": true,
-  "description": "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
-  "excerpt": {
-    "short": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
-    "medium": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "long": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  "homepage": "04-pages-00-homepage-00-homepage",
   "html_title": "Fepper D8",
   "site_name": "Fepper Theme",
   "sidebar_second?": true,
@@ -65,12 +58,73 @@
       "alt": "Rectangle"
     }
   },
+  "headline": "Lorem ipsum dolor sit",
   "header_title": "Home",
   "header_rel": "home",
-  "headline": {
-    "short": "Lorem ipsum dolor sit (37 characters)",
-    "medium": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
+  "unordered": {
+    "list_attributes": " class=\"text\""
   },
+  "ordered": {
+    "list_attributes": " class=\"text\""
+  },
+  "comment_body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "comment_placeholders": [
+    {
+      "svg_fill": "Magenta",
+      "name": {
+        "first": "Siguror",
+        "last": "Hanigan"
+      },
+      "article_title": "Veggies sunt bona vobis…",
+      "comment_body": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://veggieipsum.com"
+    },
+    {
+      "svg_fill": "Lime",
+      "name": {
+        "first": "Teun",
+        "last": "Richard"
+      },
+      "article_title": "Bacon ipsum dolor sit amet…",
+      "comment_body": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://baconipsum.com"
+    },
+    {
+      "svg_fill": "LightBlue",
+      "name": {
+        "first": "Freyr",
+        "last": "Hines"
+      },
+      "article_title": "Neosemanticist cultural theory in…",
+      "comment_body": "Smith and cultural precapitalist theory: “Sexual identity is intrinsically impossible,” says Marx. But several deappropriations concerning the semiotic paradigm of context may be found. In the works of Smith, a predominant concept is the concept of neocultural reality.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://www.elsewhere.org/pomo/"
+    },
+    {
+      "svg_fill": "Green",
+      "name": {
+        "first": "Matthias",
+        "last": "Macguinness"
+      },
+      "article_title": "Carrot cake fruitcake dessert…",
+      "comment_body": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://cupcakeipsum.com"
+    },
+    {
+      "svg_fill": "Salmon",
+      "name": {
+        "first": "Aquila",
+        "last": "Achterkamp"
+      },
+      "article_title": "Cauliflower cream cheese…",
+      "comment_body": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
+      "timestamp": "2 weeks 6 days ago",
+      "source": "http://www.cheeseipsum.co.uk"
+    }
+  ],
   "pagination": {
     "list_attributes": " class=\"pager__items js-pager__items\"",
     "ul_items": [
@@ -134,6 +188,7 @@
     ]
   },
   "list_type": "ul",
+  "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   "latest_posts": [
     {
       "url": "../04-pages-02-articles-00-article-4/04-pages-02-articles-00-article-4.html",
@@ -144,9 +199,7 @@
         }
       },
       "article_title": "Navigate the Allegheny River",
-      "excerpt": {
-        "medium": "The Allegheny River is a principal tributary of the Ohio River; it is located in the Eastern United States. The Allegheny River joins with the Monongahela River to form the Ohio River at the Point of Point State Park in Downtown Pittsburgh, Pennsylvania."
-      },
+      "excerpt": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
       "timestamp": "1 week 1 day ago"
     },
     {
@@ -158,9 +211,7 @@
         }
       },
       "article_title": "How to detect and avoid poison ivy",
-      "excerpt": {
-        "medium": "Toxicodendron radicans, commonly known as poison ivy is a poisonous North American plant that is well known for its production of urushiol"
-      },
+      "excerpt": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
       "timestamp": "1 week 2 days ago"
     },
     {
@@ -172,9 +223,7 @@
         }
       },
       "article_title": "Top 10 hiking mountains",
-      "excerpt": {
-        "medium": "Yosemite National Park is a United States National Park spanning eastern portions of Tuolumne, Mariposa and Madera counties in the central eastern portion of the U.S. state of California."
-      },
+      "excerpt": "Smith and cultural precapitalist theory. “Sexual identity is intrinsically impossible,” says Marx. But several deappropriations concerning the semiotic paradigm of context may be found. In the works of Smith, a predominant concept is the concept of neocultural reality.",
       "timestamp": "1 week 3 days ago"
     },
     {
@@ -186,9 +235,7 @@
         }
       },
       "article_title": "How to build a campfire",
-      "excerpt": {
-        "medium": "A campfire is a fire lit at a campsite, to serve the following functions: light, warmth, a beacon, an insect and/or apex predator deterrent, to cook, and for a psychological sense of security. "
-      },
+      "excerpt": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
       "timestamp": "1 week 4 days ago"
     },
     {
@@ -200,9 +247,7 @@
         }
       },
       "article_title": "Pick the right camping gear",
-      "excerpt": {
-        "medium": "The equipment used in camping varies with the particular type of camping. For instance, in survival camping the equipment consists of small items which have the purpose of helping the camper in providing food, heat and safety."
-      },
+      "excerpt": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
       "timestamp": "1 week 5 days ago"
     }
   ],
