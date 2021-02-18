@@ -1,0 +1,65 @@
+{
+  "excerpt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  "latest_posts": [
+    {
+      "url": "../04-pages-02-articles-00-article-4/04-pages-02-articles-00-article-4.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-river.jpg",
+          "alt": "Allegheny River"
+        }
+      },
+      "article_title": "Navigate the Allegheny River",
+      "excerpt": "Mung bean squash sorrel taro coriander collard greens gumbo bitterleaf tomato. Taro water chestnut celtuce turnip yarrow celery endive scallion black-eyed pea onion. Aubergine dulse turnip greens mustard salsify garlic soybean parsley bitterleaf desert raisin courgette.",
+      "timestamp": "1 week 1 day ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-5/04-pages-02-articles-00-article-5.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-ivy.jpg",
+          "alt": "Ivy"
+        }
+      },
+      "article_title": "How to detect and avoid poison ivy",
+      "excerpt": "Boudin sausage jerky pastrami ground round salami biltong. Sausage fatback strip steak doner pork loin, pork belly drumstick ham short loin hamburger shankle. Short ribs sirloin rump tri-tip beef biltong. Meatball pig salami, jowl pork loin fatback short loin drumstick andouille.",
+      "timestamp": "1 week 2 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-6/04-pages-02-articles-00-article-6.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-yosemite.jpg",
+          "alt": "Yosemite"
+        }
+      },
+      "article_title": "Top 10 hiking mountains",
+      "excerpt": "Smith and cultural precapitalist theory. “Sexual identity is intrinsically impossible,” says Marx. But several deappropriations concerning the semiotic paradigm of context may be found. In the works of Smith, a predominant concept is the concept of neocultural reality.",
+      "timestamp": "1 week 3 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-7/04-pages-02-articles-00-article-7.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-fire.jpg",
+          "alt": "Fire"
+        }
+      },
+      "article_title": "How to build a campfire",
+      "excerpt": "Sugar plum wafer soufflé ice cream. Wafer topping biscuit pie gummi bears topping. Gummies toffee powder applicake oat cake cookie. Bear claw candy tootsie roll fruitcake danish applicake candy canes macaroon. Liquorice tiramisu danish cotton candy gummies. Tiramisu dessert gummi bears macaroon sweet roll jelly-o gummi bears marzipan.",
+      "timestamp": "1 week 4 days ago"
+    },
+    {
+      "url": "../04-pages-02-articles-00-article-8/04-pages-02-articles-00-article-8.html",
+      "img": {
+        "square": {
+          "src": "../../_assets/src/thumb-square-gear.jpg",
+          "alt": "Camping Gear"
+        }
+      },
+      "article_title": "Pick the right camping gear",
+      "excerpt": "Queso caerphilly cheesecake. Parmesan chalk and cheese port-salut port-salut babybel cottage cheese cheesy grin pepper jack. Croque monsieur paneer st. agur blue cheese emmental airedale monterey jack bavarian bergkase cheese triangles. Halloumi parmesan.",
+      "timestamp": "1 week 5 days ago"
+    }
+  ]
+}

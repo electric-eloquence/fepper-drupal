@@ -1,13 +1,13 @@
 .cf::before,
-.hoagies .item-list::before,
-.hoagies .item-list li::before,
+.dagwood .item-list::before,
+.dagwood .item-list li::before,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list::before,
 .view-id-content_recent.view-display-id-page_1 .item-list::before,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list li::before,
 .view-id-content_recent.view-display-id-page_1 .item-list li::before,
 .cf::after,
-.hoagies .item-list::after,
-.hoagies .item-list li::after,
+.dagwood .item-list::after,
+.dagwood .item-list li::after,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list::after,
 .view-id-content_recent.view-display-id-page_1 .item-list::after,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list li::after,
@@ -16,8 +16,8 @@
   display: table;
 }
 .cf::after,
-.hoagies .item-list::after,
-.hoagies .item-list li::after,
+.dagwood .item-list::after,
+.dagwood .item-list li::after,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list::after,
 .view-id-content_recent.view-display-id-page_1 .item-list::after,
 [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list li::after,
@@ -30,13 +30,13 @@
   margin: 0 auto;
   padding: 0.8rem;
 }
-.hoagies [role="article"] > h2,
+.dagwood [role="article"] > h2,
 [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
 .view-id-content_recent.view-display-id-page_1 [role="article"] > h2 {
   font-size: 1.25em;
 }
 @media all and (max-width: 480px) {
-  .hoagies [role="article"] > div > div:first-of-type > a,
+  .dagwood [role="article"] > div > div:first-of-type > a,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > div > div:first-of-type > a,
   .view-id-content_recent.view-display-id-page_1 [role="article"] > div > div:first-of-type > a {
     display: block;
@@ -44,24 +44,24 @@
   }
 }
 @media all and (min-width: 481px) {
-  .hoagies .item-list,
+  .dagwood .item-list,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list,
   .view-id-content_recent.view-display-id-page_1 .item-list {
     padding-top: 0.4rem;
   }
-  .hoagies .item-list li,
+  .dagwood .item-list li,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list li,
   .view-id-content_recent.view-display-id-page_1 .item-list li {
     clear: both;
     margin-bottom: 1.6rem;
   }
-  .hoagies [role="article"] > h2,
+  .dagwood [role="article"] > h2,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] > h2,
   .view-id-content_recent.view-display-id-page_1 [role="article"] > h2,
-  .hoagies [role="article"] [property="schema:text"],
+  .dagwood [role="article"] [property="schema:text"],
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="schema:text"],
   .view-id-content_recent.view-display-id-page_1 [role="article"] [property="schema:text"],
-  .hoagies [role="article"] [property="text"],
+  .dagwood [role="article"] [property="text"],
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] [property="text"],
   .view-id-content_recent.view-display-id-page_1 [role="article"] [property="text"] {
     float: right;
@@ -69,7 +69,7 @@
     padding: 0 0 0 1.6rem;
     width: 75%;
   }
-  .hoagies [role="article"] img,
+  .dagwood [role="article"] img,
   [id^="block-"][id$="-views-block-content-recent-block-3"] [role="article"] img,
   .view-id-content_recent.view-display-id-page_1 [role="article"] img {
     float: left;
@@ -77,7 +77,7 @@
   }
 }
 @media all and (min-width: 768px) {
-  .hoagies .item-list,
+  .dagwood .item-list,
   [id^="block-"][id$="-views-block-content-recent-block-3"] .item-list,
   .view-id-content_recent.view-display-id-page_1 .item-list {
     padding-right: 1.6rem;
