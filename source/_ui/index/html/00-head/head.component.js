@@ -13,16 +13,15 @@ module.exports = {
 {{! Handle the viewport. }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{! Load the UI styles. }}
-<link rel="stylesheet" href="node_modules/fepper-ui/styles/ui.css" media="all">
-<link rel="stylesheet" href="node_modules/fepper-ui/styles/prism-typeahead.css" media="all">
-<link rel="stylesheet" href="{{ pathsPublic.css }}/pattern-scaffolding.css" media="all">
+<link rel="stylesheet" href="node_modules/fepper-ui/styles/prism-twilight.css">
+<link rel="stylesheet" href="node_modules/fepper-ui/styles/ui.css">
+<link rel="stylesheet" href="{{ pathsPublic.css }}/pattern-scaffolding.css">
 {{! Namespace a window.FEPPER_UI object to contain globals. }}
 <script>window.FEPPER_UI = {};</script>
 {{! Load libraries. }}
 <script src="node_modules/feplet/dist/feplet.browser.min.js"></script>
 <script src="node_modules/he/he.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/js-beautify/js/lib/beautify-html.js"></script>
 <script src="node_modules/mousetrap/mousetrap.min.js"></script>
 <script src="node_modules/prismjs/prism.js"></script>
 <script src="node_modules/redux/dist/redux.min.js"></script>
