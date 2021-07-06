@@ -53,11 +53,11 @@ values for template reuse:
 * [Global Data](#global-data)
 * [Partial Data](#partial-data)
 * [Markdown Content](#markdown-content)
+* [Code Viewer](#code-viewer)
 * [Static Site Generator](#static-site-generator)
 * [The Backend](#the-backend)
 * [Templater](#templater)
 * [Webserved Directories](#webserved-directories)
-* [Mustache Browser](#mustache-browser)
 * [HTML Scraper](#html-scraper)
 * [variables.styl](#variables.styl)
 * [UI Customization](#ui-customization)
@@ -251,6 +251,19 @@ the `.mustache` file like so:
 When creating `.md` files for pseudo-patterns, replace the `.json` extension 
 while leaving the rest of the filename intact.
 
+### <a id="code-viewer"></a>Code Viewer
+
+<a href="https://www.npmjs.com/package/feplet" target="_blank">Feplet</a> 
+(.mustache) code can be viewed in the Fepper UI by clicking the eyeball icon in 
+the upper right and then clicking Code. The Code Viewer will then be opened, 
+displaying the Feplet code of the pattern, and the partials tags within will be 
+hot-linked to open their respective patterns in the main panel of the Fepper UI. 
+
+If the pattern has an associated `.md` file, its Markdown code can be viewed by 
+clicking the "Markdown" tab. The Markdown can even be edited in the Code Viewer. 
+If the project was set up with Git, the Markdown edits can be version controlled 
+within the Code Viewer as well.
+
 ### <a id="static-site-generator"></a>Static Site Generator
 
 Running `fp static` will generate a complete static site based on the files in 
@@ -376,14 +389,6 @@ formatted as YAML array elements.
   PREPROCESSED! IF A STATIC SITE IS GENERATED, OR THE EXPRESS APP PUBLICLY 
   SERVED, SOURCE CODE WILL BE RENDERED AS PLAIN TEXT! THIS WILL MAKE PUBLIC ANY 
   SENSITIVE INFORMATION CONTAINED WITHIN!
-
-### <a id="mustache-browser"></a>Mustache Browser
-
-<a href="https://www.npmjs.com/package/feplet" target="_blank">Feplet</a> 
-(.mustache) code can be viewed in the Fepper UI by clicking the eyeball icon in 
-the upper right and then clicking Code. The Code Viewer will then be opened, 
-displaying the Feplet code of the pattern, and the partials tags within will be 
-hot-linked to open their respective patterns in the main panel of the Fepper UI.
 
 ### <a id="html-scraper"></a>HTML Scraper
 
@@ -648,10 +653,11 @@ please open an issue</a>.
 
 ### <a id="express-app"></a>Express App
 
-Fepper exposes its <a href="https://expressjs.com/" target="_blank">Express</a> application through the `global.expressApp` object. 
-This object can be overridden with custom routes and middleware via the 
-`custom:tcp-ip` (or `contrib:tcp-ip`) extension task. Initialization of 
-`global.expressApp` occurs before this task, and listening occurs afterward.
+Fepper exposes its <a href="https://expressjs.com/" target="_blank">Express</a> 
+application through the `global.expressApp` object. This object can be 
+overridden with custom routes and middleware via the `custom:tcp-ip` (or 
+`contrib:tcp-ip`) extension task. Initialization of `global.expressApp` occurs 
+before this task, and listening occurs afterward.
 
 `global.expressApp` is a direct reference to `global.fepper.tcpIp.fpExpress.app`.
 
