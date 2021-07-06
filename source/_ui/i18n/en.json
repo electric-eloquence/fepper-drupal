@@ -41,9 +41,25 @@
     "",
   "included by":
     "",
-  "Copy path":
+  "Click to copy path":
     "",
-  "Copied!":
+  "Browse Fepper's Mustache templates":
+    "",
+  "Edit this pattern's Markdown content":
+    "",
+  "Time-travel through Fepper's application states":
+    "",
+  "Download and upload revisions to this project":
+    "",
+  "There is no .md file associated with this pattern.":
+    "",
+  "Please refer to <a href=\"/readme#markdown-content\" target=\"_blank\">the docs</a> for additional information.":
+    "",
+  "Edit":
+    "",
+  "Save Markdown content":
+    "",
+  "Save":
     "",
   "No Annotations":
     "",
@@ -167,7 +183,7 @@
     "",
   "Fepper HTML Scraper":
     "",
-  "You can only use the HTML Scraper on the machine that is running this Fepper instance!":
+  "You can only use the %s on the machine that is running this Fepper instance!":
     "",
   "If you <em>are</em> on this machine, you may need to resync this browser with Fepper.":
     "",
