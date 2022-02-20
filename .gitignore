@@ -3,7 +3,7 @@
 *~
 .*.swp
 .DS_Store
-/.timestamp
+/.timestamp*
 /backend/drupal/sites/default/files/
 /conf.yml
 /public/*
