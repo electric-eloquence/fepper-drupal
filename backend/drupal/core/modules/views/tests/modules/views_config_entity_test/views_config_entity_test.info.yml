@@ -2,9 +2,4 @@ name: 'views_config_entity_test'
 description: 'Adds a Config Entity with views data'
 type: module
 package: Testing
-# version: VERSION
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326
+version: VERSION

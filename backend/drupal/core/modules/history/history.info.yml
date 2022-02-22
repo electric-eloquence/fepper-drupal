@@ -2,12 +2,6 @@ name: History
 type: module
 description: 'Records which user has read which content.'
 package: Core
-# version: VERSION
-core: 8.x
+version: VERSION
 dependencies:
   - drupal:node
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326

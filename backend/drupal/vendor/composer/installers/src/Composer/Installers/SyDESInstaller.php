@@ -13,7 +13,9 @@ class SyDESInstaller extends BaseInstaller
      *
      * Strip `sydes-` prefix and a trailing '-theme' or '-module' from package name if present.
      *
-     * {@inerhitDoc}
+     * @param array @vars
+     *
+     * @return array
      */
     public function inflectPackageVars($vars)
     {

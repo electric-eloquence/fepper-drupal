@@ -1,13 +1,7 @@
 name: 'Field API Test'
 type: module
 description: 'Support module for the Field API tests.'
-core: 8.x
 package: Testing
-# version: VERSION
+version: VERSION
 dependencies:
   - drupal:entity_test
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326

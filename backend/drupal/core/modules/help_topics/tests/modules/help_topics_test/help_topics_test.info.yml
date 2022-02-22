@@ -4,9 +4,5 @@ name: 'ABC Help Test'
 type: module
 description: 'Support module for help testing.'
 package: Testing
-core: 8.x
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326
+dependencies:
+  - drupal:help_topics
