@@ -12,7 +12,9 @@ class CockpitInstaller extends BaseInstaller
      *
      * Strip `module-` prefix from package name.
      *
-     * {@inheritDoc}
+     * @param array @vars
+     *
+     * @return array
      */
     public function inflectPackageVars($vars)
     {

@@ -1,12 +1,8 @@
 name: Testing
 type: module
-description: 'Provides a framework for unit and functional testing.'
+description: 'Obsolete. SimpleTest has been removed from core.'
+lifecycle: obsolete
+lifecycle_link: 'https://www.drupal.org/about/core/policies/core-change-policies/deprecated-and-obsolete-modules-and-themes#s-simpletest'
 package: Core
-# version: VERSION
-core: 8.x
-configure: simpletest.settings
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326
+version: VERSION
+hidden: true

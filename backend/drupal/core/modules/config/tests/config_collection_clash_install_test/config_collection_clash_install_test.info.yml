@@ -3,12 +3,6 @@
 name: 'Config collection clash test module'
 type: module
 package: Testing
-# version: VERSION
-core: 8.x
+version: VERSION
 dependencies:
   - drupal:config_collection_install_test
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326
