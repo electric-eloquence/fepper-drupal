@@ -124,11 +124,11 @@ values for template reuse:
   `fepper-drupal-mysqldump.sql`.
 * Update the `$databases` settings in `backend/drupal/sites/default/settings.php` 
   to reflect your own database settings.
-* Configure `d8.local` to be the hostname in your web server configs.
+* Configure `d9.local` to be the hostname in your web server configs.
 * Configure `backend/drupal` (correctly pathed) to be the document root for this 
   host.
 * Restart the web server.
-* Open http://d8.local in a browser.
+* Open http://d9.local in a browser.
 * Log into Drupal with `admin:admin`
 
 #### Post-install
@@ -510,10 +510,10 @@ Additions (so long as they are correctly nested) will also be recognized.
 A working example of UI customization can be found at 
 <a href="https://github.com/electric-eloquence/fepper-drupal/blob/dev/source/_ui/index/html/00-head/head.component.js" target="_blank">
 https&colon;//github.com/electric-eloquence/fepper-drupal/blob/dev/source/_ui/index/html/00-head/head.component.js</a>. 
-The Fepper for Drupal project overrides its HTML title to read "Fepper D8" 
-instead of "Fepper". In order to do so, it has the `head.component.js` module 
-nested in directories that correspond to the tags that nest the `head` HTML 
-element. Both `head.component.js` and its nesting directories must be named 
+The Fepper for Drupal project overrides its HTML title to read "Fepper for 
+Drupal" instead of "Fepper". In order to do so, it has the `head.component.js` 
+module nested in directories that correspond to the tags that nest the `head` 
+HTML element. Both `head.component.js` and its nesting directories must be named 
 similarly to their corresponding elements. `.component.js` indicates that the 
 file is a module to be rendered by React. 
 <a href="https://reactjs.org/docs/dom-elements.html" target="_blank">

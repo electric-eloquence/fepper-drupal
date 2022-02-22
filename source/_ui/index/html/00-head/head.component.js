@@ -2,7 +2,7 @@ module.exports = {
   id: 'patternlab-head',
   dangerouslySetInnerHTML: {
     __html: `
-<title id="title">Fepper D8</title>
+<title id="title">Fepper for Drupal</title>
 <meta charset="utf-8">
 {{! Never cache patterns. }}
 <meta http-equiv="cache-control" content="max-age=0">
@@ -13,7 +13,7 @@ module.exports = {
 {{! Handle the viewport. }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {{! Load the UI styles. }}
-<link rel="stylesheet" href="node_modules/fepper-ui/styles/prism-twilight.css">
+<link rel="stylesheet" href="webserved/prism-twilight.css">
 <link rel="stylesheet" href="node_modules/fepper-ui/styles/ui.css">
 <link rel="stylesheet" href="{{ pathsPublic.css }}/pattern-scaffolding.css">
 {{! Namespace a window.FEPPER_UI object to contain globals. }}
@@ -23,7 +23,6 @@ module.exports = {
 <script src="node_modules/he/he.js"></script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/mousetrap/mousetrap.min.js"></script>
-<script src="node_modules/prismjs/prism.js"></script>
 <script src="node_modules/redux/dist/redux.min.js"></script>
 <script src="node_modules/typeahead.js/dist/typeahead.bundle.min.js"></script>
 <script src="node_modules/universal-cookie/umd/universalCookie.min.js"></script>
