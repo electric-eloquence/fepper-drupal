@@ -2,7 +2,7 @@ module.exports = {
   id: 'patternlab-head',
   dangerouslySetInnerHTML: {
     __html: `
-<title id="title">Fepper D8</title>
+<title id="title">Fepper for Drupal</title>
 <meta charset="utf-8">
 {{! Never cache patterns. }}
 <meta http-equiv="cache-control" content="max-age=0">
