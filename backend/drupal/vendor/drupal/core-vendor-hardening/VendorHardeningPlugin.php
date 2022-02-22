@@ -43,7 +43,7 @@ class VendorHardeningPlugin implements PluginInterface, EventSubscriberInterface
   /**
    * Configuration.
    *
-   * @var \Drupal\Composer\Plugin\VendorHardening\Config
+   * @var \Drupal\Composer\VendorHardening\Config
    */
   protected $config;
 

@@ -1,11 +1,5 @@
 name: Testing site config
 type: profile
 description: 'Minimal profile for testing with default site config.'
-# version: VERSION
-core: 8.x
+version: VERSION
 hidden: true
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326

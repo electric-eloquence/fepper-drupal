@@ -2,13 +2,7 @@ name: Statistics
 type: module
 description: 'Logs content statistics for your site.'
 package: Core
-# version: VERSION
-core: 8.x
+version: VERSION
 configure: statistics.settings
 dependencies:
   - drupal:node
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326

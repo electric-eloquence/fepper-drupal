@@ -2,12 +2,6 @@ name: Migrate Drupal
 type: module
 description: 'Contains migrations from older Drupal versions.'
 package: Migration
-# version: VERSION
-core: 8.x
+version: VERSION
 dependencies:
   - drupal:migrate
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326

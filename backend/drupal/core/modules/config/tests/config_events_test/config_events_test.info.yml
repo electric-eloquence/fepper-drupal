@@ -1,10 +1,4 @@
 name: 'Configuration events test'
 type: module
 package: Testing
-# version: VERSION
-core: 8.x
-
-# Information added by Drupal.org packaging script on 2021-01-20
-version: '8.9.13'
-project: 'drupal'
-datestamp: 1611162326
+version: VERSION
