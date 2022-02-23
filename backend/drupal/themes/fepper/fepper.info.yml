@@ -1,6 +1,7 @@
 name: Fepper
 type: theme
 description: 'A Drupal theme for Fepper.'
+core_version_requirement: ^9
 base theme: false
 libraries:
   - fepper/global-styling
