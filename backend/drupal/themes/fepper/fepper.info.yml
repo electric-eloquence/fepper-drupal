@@ -1,8 +1,7 @@
 name: Fepper
 type: theme
 description: 'A Drupal theme for Fepper.'
-core: 9.x
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 base theme: false
 libraries:
   - fepper/global-styling
