@@ -2,7 +2,9 @@
 import { Plugin } from 'ckeditor5/src/core';
 
 /**
- * @internal
+ * Adds Drupal-specific attributes to the CKEditor 5 image element.
+ *
+ * @private
  */
 export default class DrupalImageUploadEditing extends Plugin {
   /**
@@ -13,14 +15,10 @@ export default class DrupalImageUploadEditing extends Plugin {
     const imageUploadEditing = editor.plugins.get('ImageUploadEditing');
     imageUploadEditing.on('uploadComplete', (evt, { data, imageElement }) => {
       editor.model.change((writer) => {
-        writer.setAttribute(
-          'dataEntityUuid',
-          data.dataEntityUuid,
-          imageElement,
-        );
+        writer.setAttribute('dataEntityUuid', data.response.uuid, imageElement);
         writer.setAttribute(
           'dataEntityType',
-          data.dataEntityType,
+          data.response.entity_type,
           imageElement,
         );
       });
