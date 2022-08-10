@@ -8,6 +8,7 @@
 /conf.yml
 /public/*
 !/public/package.json
+!/public/test/
 ignore/
 node_modules/
 !/source/_static/node_modules/
