@@ -262,7 +262,6 @@ abstract class KernelTestBase extends TestCase implements ServiceProviderInterfa
    * @internal
    */
   protected function bootEnvironment() {
-    $this->streamWrappers = [];
     \Drupal::unsetContainer();
 
     $this->classLoader = require $this->root . '/autoload.php';
@@ -660,20 +659,6 @@ abstract class KernelTestBase extends TestCase implements ServiceProviderInterfa
     $this->classLoader = NULL;
     $this->vfsRoot = NULL;
     $this->configImporter = NULL;
-
-    // Free up memory: Custom test class properties.
-    // Note: Private properties cannot be cleaned up.
-    $rc = new \ReflectionClass(__CLASS__);
-    $blacklist = [];
-    foreach ($rc->getProperties() as $property) {
-      $blacklist[$property->name] = $property->getDeclaringClass()->name;
-    }
-    $rc = new \ReflectionClass($this);
-    foreach ($rc->getProperties(\ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED) as $property) {
-      if (!$property->isStatic() && !isset($blacklist[$property->name])) {
-        $this->{$property->name} = NULL;
-      }
-    }
 
     // Clean FileCache cache.
     FileCache::reset();

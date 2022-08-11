@@ -33,13 +33,12 @@ class DisplayTest extends ViewTestBase {
    */
   protected $defaultTheme = 'stark';
 
-  protected function setUp($import_test_views = TRUE): void {
-    parent::setUp();
+  protected function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
+    parent::setUp($import_test_views, $modules);
 
     $this->enableViewsTestModule();
 
-    $this->adminUser = $this->drupalCreateUser(['administer views']);
-    $this->drupalLogin($this->adminUser);
+    $this->drupalLogin($this->drupalCreateUser(['administer views']));
 
     // Create 10 nodes.
     for ($i = 0; $i <= 10; $i++) {

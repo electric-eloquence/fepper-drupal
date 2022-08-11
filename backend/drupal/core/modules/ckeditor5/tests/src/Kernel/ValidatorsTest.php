@@ -45,7 +45,6 @@ class ValidatorsTest extends KernelTestBase {
     'ckeditor5_plugin_conditions_test',
     'editor',
     'filter',
-    'filter_test',
     'media',
     'media_library',
     'views',
@@ -543,33 +542,6 @@ class ValidatorsTest extends KernelTestBase {
       ],
       'violations' => [],
     ];
-    $data['INVALID: forbidden tags'] = [
-      'settings' => [
-        'toolbar' => [
-          'items' => [],
-        ],
-        'plugins' => [],
-      ],
-      'image_upload' => [
-        'status' => FALSE,
-      ],
-      'filters' => [
-        'filter_test_restrict_tags_and_attributes' => [
-          'id' => 'filter_test_restrict_tags_and_attributes',
-          'provider' => 'filter_test',
-          'status' => TRUE,
-          'weight' => 0,
-          'settings' => [
-            'restrictions' => [
-              'forbidden_tags' => ['p' => FALSE],
-            ],
-          ],
-        ],
-      ],
-      'violations' => [
-        '' => 'CKEditor 5 needs at least the &lt;p&gt; and &lt;br&gt; tags to be allowed to be able to function. They are forbidden by the "<em class="placeholder">Tag and attribute restricting filter</em>" (<em class="placeholder">filter_test_restrict_tags_and_attributes</em>) filter.',
-      ],
-    ];
     $restricted_html_format_filters = Yaml::parseFile(__DIR__ . '/../../../../../profiles/standard/config/install/filter.format.restricted_html.yml')['filters'];
     $data['INVALID: the default restricted_html text format'] = [
       'settings' => [
@@ -752,7 +724,7 @@ class ValidatorsTest extends KernelTestBase {
               // Tag + attributes; all supported by an ineligible disabled
               // plugin (has no toolbar item, has conditions).
               '<img src>',
-              // Tag + attributes; all supported by disabled plugin.
+              // Tag + attributes; attributes supported by disabled plugin.
               '<code class="language-*">',
               // Tag + attributes; tag already supported by enabled plugin,
               // attributes supported by disabled plugin
@@ -760,6 +732,9 @@ class ValidatorsTest extends KernelTestBase {
               // Tag + attributes; tag already supported by enabled plugin,
               // attribute not supported by no plugin.
               '<a hreflang>',
+              // Tag-only; supported by no plugin (only attributes on tag
+              // supported by a plugin).
+              '<span>',
             ],
           ],
         ],
@@ -772,7 +747,7 @@ class ValidatorsTest extends KernelTestBase {
         'settings.plugins.ckeditor5_sourceEditing.allowed_tags.0' => 'The following tag(s) are already supported by enabled plugins and should not be added to the Source Editing "Manually editable HTML tags" field: <em class="placeholder">Bold (&lt;strong&gt;)</em>.',
         'settings.plugins.ckeditor5_sourceEditing.allowed_tags.1' => 'The following tag(s) are already supported by available plugins and should not be added to the Source Editing "Manually editable HTML tags" field. Instead, enable the following plugins to support these tags: <em class="placeholder">Table (&lt;table&gt;)</em>.',
         'settings.plugins.ckeditor5_sourceEditing.allowed_tags.3' => 'The following attribute(s) are already supported by enabled plugins and should not be added to the Source Editing "Manually editable HTML tags" field: <em class="placeholder">Language (&lt;span lang&gt;)</em>.',
-        'settings.plugins.ckeditor5_sourceEditing.allowed_tags.5' => 'The following tag(s) are already supported by available plugins and should not be added to the Source Editing "Manually editable HTML tags" field. Instead, enable the following plugins to support these tags: <em class="placeholder">Code Block (&lt;code class=&quot;language-*&quot;&gt;)</em>.',
+        'settings.plugins.ckeditor5_sourceEditing.allowed_tags.5' => 'The following attribute(s) are already supported by available plugins and should not be added to the Source Editing "Manually editable HTML tags" field. Instead, enable the following plugins to support these attributes: <em class="placeholder">Code Block (&lt;code class=&quot;language-*&quot;&gt;)</em>.',
         'settings.plugins.ckeditor5_sourceEditing.allowed_tags.6' => 'The following attribute(s) are already supported by available plugins and should not be added to the Source Editing "Manually editable HTML tags" field. Instead, enable the following plugins to support these attributes: <em class="placeholder">Alignment (&lt;h2 class=&quot;text-align-center&quot;&gt;)</em>.',
       ],
     ];
@@ -784,7 +759,6 @@ class ValidatorsTest extends KernelTestBase {
             'bold',
             'italic',
             'sourceEditing',
-            'textPartLanguage',
           ],
         ],
         'plugins' => [
@@ -796,9 +770,6 @@ class ValidatorsTest extends KernelTestBase {
               'heading5',
               'heading6',
             ],
-          ],
-          'ckeditor5_language' => [
-            'language_list' => 'un',
           ],
           'ckeditor5_sourceEditing' => [
             'allowed_tags' => [
