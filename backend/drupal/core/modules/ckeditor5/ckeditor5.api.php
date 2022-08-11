@@ -68,6 +68,7 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
  *     library: MODULE_NAME/ckeditor5.marquee
  *     elements:
  *       - <marquee>
+ *       - <marquee behavior>
  * @endcode
  *
  * Declared as an Annotation:
@@ -82,7 +83,7 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
  *  *   drupal = @DrupalAspectsOfCKEditor5Plugin(
  *  *     label = @Translation("Marquee"),
  *  *     library = "MODULE_NAME/ckeditor5.marquee"
- *  *     elements = { "<marquee>" },
+ *  *     elements = { "<marquee>", "<marquee behavior>" },
  *  *   )
  *  * )
  *  * /
@@ -125,6 +126,14 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
  *   explicitly enabled in any plugin. i.e. if only '<p>', '<h3>' and '<h2>'
  *   tags are allowed, then '<$text-container data-something>' will allow the
  *   'data-something' attribute for '<p>', '<h3>' and '<h2>' tags.
+ *   Note that while the syntax is the same, some extra nuance is needed:
+ *   although this syntax can be used to create an attribute on an element, f.e.
+ *   (['<marquee behavior>']) creating the `behavior` attribute on `<marquee>`,
+ *   the tag itself must be creatable as well (['<marquee>']). If a plugin wants
+ *   the tag and attribute to be created, list both:
+ *   (['<marquee>', '<marquee behavior>']). Validation logic ensures that a
+ *   plugin supporting only the creation of attributes cannot be enabled if the
+ *   tag cannot be created via itself or through another CKEditor 5 plugin.
  * - drupal.toolbar_items: List of toolbar items the plugin provides. Keyed by a
  *   machine name and the value being a pair defining the label:
  *   @code
@@ -136,7 +145,7 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
  *   @encode
  * - drupal.conditions: Conditions required for the plugin to load (other than
  *   module dependencies, which are defined by the 'provider' property).
- *   Conditions can check for three different things:
+ *   Conditions can check for five different things:
  *   - 'toolbarItem': a toolbar item that must be enabled
  *   - 'filter': a filter that must be enabled
  *   - 'imageUploadStatus': TRUE if image upload must be enabled, FALSE if it
@@ -144,6 +153,10 @@ use Drupal\ckeditor5\Plugin\CKEditor5PluginDefinition;
  *   - 'requiresConfiguration': a subset of the configuration for this plugin
  *      that must match (exactly)
  *   - 'plugins': a list of CKEditor 5 Drupal plugin IDs that must be enabled
+ *   Plugins requiring more complex conditions, such as requiring multiple
+ *   toolbar items or multiple filters, have not yet been identified. If this
+ *   need arises, see
+ *   https://www.drupal.org/docs/drupal-apis/ckeditor-5-api/overview#conditions.
  *
  * All of these can be defined in YAML or annotations. A given plugin should
  * choose one or the other, as a definition can't parse both at once.

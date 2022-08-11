@@ -267,13 +267,6 @@ class FilterHtml extends FilterBase {
       }
       $tag = $node->tagName;
       if ($node->hasAttributes()) {
-        // This tag has a notation like "<foo *>", to indicate all attributes
-        // are allowed.
-        if ($node->hasAttribute($star_protector)) {
-          $restrictions['allowed'][$tag] = TRUE;
-          continue;
-        }
-
         // Mark the tag as allowed, assigning TRUE for each attribute name if
         // all values are allowed, or an array of specific allowed values.
         $restrictions['allowed'][$tag] = [];
@@ -292,7 +285,7 @@ class FilterHtml extends FilterBase {
           // allowed attribute values with a wildcard. A wildcard by itself
           // would mean allowing all possible attribute values. But in that
           // case, one would not specify an attribute value at all.
-          $allowed_attribute_values = array_filter($allowed_attribute_values, function ($value) use ($star_protector) {
+          $allowed_attribute_values = array_filter($allowed_attribute_values, function ($value) {
             return $value !== '*';
           });
 

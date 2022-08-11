@@ -587,6 +587,7 @@ class MediaTest extends WebDriverTestBase {
     $this->assertVisibleBalloon('[aria-label="Drupal Media toolbar"]');
 
     // Type into the widget's caption element.
+    $this->selectTextInsideElement('.drupal-media figcaption');
     $figcaption->setValue('Llamas are the most awesome ever');
     $editor_dom = $this->getEditorDataAsDom();
     $this->assertEquals('Llamas are the most awesome ever', $editor_dom->getElementsByTagName('drupal-media')->item(0)->getAttribute('data-caption'));
@@ -1228,13 +1229,22 @@ class MediaTest extends WebDriverTestBase {
     $editor->setSettings([
       'toolbar' => [
         'items' => [
+          'heading',
           'sourceEditing',
           'simpleBox',
         ],
       ],
       'plugins' => [
+        'ckeditor5_heading' => [
+          'enabled_headings' => [
+            'heading1',
+          ],
+        ],
         'ckeditor5_sourceEditing' => [
-          'allowed_tags' => [],
+          'allowed_tags' => [
+            '<div>',
+            '<section>',
+          ],
         ],
         'media_media' => [
           'allow_view_mode_override' => TRUE,

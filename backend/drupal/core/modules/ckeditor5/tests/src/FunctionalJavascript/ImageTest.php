@@ -148,7 +148,7 @@ class ImageTest extends CKEditor5TestBase {
     // Run test cases in a single test to make the test run faster.
     $attributes_to_retain = [
       '-none-' => 'inline',
-      'data-caption="test caption ðŸ¦™"' => 'block',
+      'data-caption="test caption 🦙"' => 'block',
       'data-align="left"' => 'inline',
     ];
 
@@ -168,8 +168,10 @@ class ImageTest extends CKEditor5TestBase {
           "<p>$img_tag</p>",
           $expected_upcast_behavior_when_wrapped_in_block_element === 'inline' ? "<p>$img_tag</p>" : $img_tag,
         ],
-        // Image tag wrapped with an unallowed paragraph-like element. When
-        // inline is the expected upcast behavior the wrapping is expected.
+        // Image tag wrapped with an unallowed paragraph-like element (<div).
+        // When inline is the expected upcast behavior, it will wrap in <p>
+        // because it still must wrap in a paragraph-like element, and <p> is
+        // available to be that element.
         [
           "<div>$img_tag</div>",
           $expected_upcast_behavior_when_wrapped_in_block_element === 'inline' ? "<p>$img_tag</p>" : $img_tag,

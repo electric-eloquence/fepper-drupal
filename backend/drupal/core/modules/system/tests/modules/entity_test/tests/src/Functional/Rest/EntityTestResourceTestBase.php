@@ -2,11 +2,11 @@
 
 namespace Drupal\Tests\entity_test\Functional\Rest;
 
-use Drupal\Tests\rest\Functional\EntityResource\EntityResourceTestBase;
+use Drupal\Tests\rest\Functional\EntityResource\ConfigEntityResourceTestBase;
 use Drupal\Tests\system\Functional\Entity\Traits\EntityDefinitionTestTrait;
 use Drupal\user\Entity\User;
 
-abstract class EntityTestResourceTestBase extends EntityResourceTestBase {
+abstract class EntityTestResourceTestBase extends ConfigEntityResourceTestBase {
 
   use EntityDefinitionTestTrait;
 
@@ -26,9 +26,23 @@ abstract class EntityTestResourceTestBase extends EntityResourceTestBase {
   protected static $patchProtectedFieldNames = [];
 
   /**
+   * The state object.
+   *
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
    * @var \Drupal\entity_test\Entity\EntityTest
    */
   protected $entity;
+
+  /**
+   * The entity definition update manager.
+   *
+   * @var \Drupal\Core\Entity\EntityDefinitionUpdateManagerInterface
+   */
+  protected $entityDefinitionUpdateManager;
 
   /**
    * {@inheritdoc}

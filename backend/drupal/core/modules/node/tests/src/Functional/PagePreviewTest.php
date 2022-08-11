@@ -45,7 +45,16 @@ class PagePreviewTest extends NodeTestBase {
   ];
 
   /**
-   * {@inheritdoc}
+   * The theme to install as the default for testing.
+   *
+   * @var string
+   *
+   * @todo The fact that PagePreviewTest::testPagePreview() makes assertions
+   *   related to the node type being used for a body class makes Stark a bad
+   *   fit as a base theme. Change the default theme to Starterkit once it is
+   *   stable.
+   *
+   * @see https://www.drupal.org/project/drupal/issues/3274077
    */
   protected $defaultTheme = 'classy';
 
@@ -55,6 +64,13 @@ class PagePreviewTest extends NodeTestBase {
    * @var string
    */
   protected $fieldName;
+
+  /**
+   * A term.
+   *
+   * @var \Drupal\taxonomy\Entity\Term
+   */
+  protected $term;
 
   protected function setUp(): void {
     parent::setUp();
@@ -77,13 +93,11 @@ class PagePreviewTest extends NodeTestBase {
     ]);
     $vocabulary->save();
 
-    $this->vocabulary = $vocabulary;
-
     // Add a term to the vocabulary.
     $term = Term::create([
       'name' => $this->randomMachineName(),
       'description' => $this->randomMachineName(),
-      'vid' => $this->vocabulary->id(),
+      'vid' => $vocabulary->id(),
       'langcode' => LanguageInterface::LANGCODE_NOT_SPECIFIED,
     ]);
     $term->save();
@@ -113,7 +127,7 @@ class PagePreviewTest extends NodeTestBase {
     $this->fieldName = mb_strtolower($this->randomMachineName());
     $handler_settings = [
       'target_bundles' => [
-        $this->vocabulary->id() => $this->vocabulary->id(),
+        $vocabulary->id() => $vocabulary->id(),
       ],
       'auto_create' => TRUE,
     ];
