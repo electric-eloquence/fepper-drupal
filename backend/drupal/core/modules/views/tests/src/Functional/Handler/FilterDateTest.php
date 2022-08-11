@@ -43,8 +43,18 @@ class FilterDateTest extends ViewTestBase {
    */
   public $dateFormatter;
 
-  protected function setUp($import_test_views = TRUE): void {
-    parent::setUp($import_test_views);
+  /**
+   * @var array
+   */
+  protected $nodes;
+
+  /**
+   * @var array
+   */
+  protected $map;
+
+  protected function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
+    parent::setUp($import_test_views, $modules);
     $this->dateFormatter = $this->container->get('date.formatter');
 
     // Add a date field so we can test datetime handling.

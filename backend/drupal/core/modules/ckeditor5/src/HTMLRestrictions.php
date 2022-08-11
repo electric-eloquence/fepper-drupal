@@ -347,6 +347,14 @@ final class HTMLRestrictions {
       throw new \DomainException('text formats with only filters that forbid tags rather than allowing tags are not yet supported.');
     }
 
+    // When allowing all tags on an attribute, transform FilterHtml output from
+    // ['tag' => ['*'=> TRUE]] to ['tag' => TRUE]
+    foreach ($restrictions['allowed'] as $element => $attributes) {
+      if (is_array($attributes) && isset($attributes['*']) && $attributes['*'] === TRUE) {
+        $restrictions['allowed'][$element] = TRUE;
+      }
+    }
+
     $allowed = $restrictions['allowed'];
 
     return new self($allowed);
@@ -396,6 +404,14 @@ final class HTMLRestrictions {
       if (isset($allowed_elements[$processed])) {
         $allowed_elements[$original] = $allowed_elements[$processed];
         unset($allowed_elements[$processed]);
+      }
+    }
+
+    // When allowing all tags on an attribute, transform FilterHtml output from
+    // ['tag' => ['*'=> TRUE]] to ['tag' => TRUE]
+    foreach ($allowed_elements as $element => $attributes) {
+      if (is_array($attributes) && isset($attributes['*']) && $attributes['*'] === TRUE) {
+        $allowed_elements[$element] = TRUE;
       }
     }
 
@@ -894,6 +910,33 @@ final class HTMLRestrictions {
     return new self(array_filter($this->elements, function (string $tag_name) {
       return !self::isWildcardTag($tag_name);
     }, ARRAY_FILTER_USE_KEY));
+  }
+
+  /**
+   * Gets the subset of plain tags (no attributes) from allowed elements.
+   *
+   * @return \Drupal\ckeditor5\HTMLRestrictions
+   *   The subset of the given set of HTML restrictions.
+   */
+  public function getPlainTagsSubset(): HTMLRestrictions {
+    // This implicitly excludes wildcard tags and the global attribute `*` tag
+    // because they always have attributes specified.
+    return new self(array_filter($this->elements, function ($value) {
+      return $value === FALSE;
+    }));
+  }
+
+  /**
+   * Extracts the subset of plain tags (attributes omitted) from allowed elements.
+   *
+   * @return \Drupal\ckeditor5\HTMLRestrictions
+   *   The extracted subset of the given set of HTML restrictions.
+   */
+  public function extractPlainTagsSubset(): HTMLRestrictions {
+    // Ignore the global attribute `*` HTML tag: that is by definition not a
+    // plain tag.
+    $plain_tags = array_diff(array_keys($this->getConcreteSubset()->getAllowedElements()), ['*']);
+    return new self(array_fill_keys($plain_tags, FALSE));
   }
 
   /**

@@ -35,6 +35,11 @@ class EntityValidationTest extends EntityKernelTestBase {
   protected $entityFieldText;
 
   /**
+   * @var array
+   */
+  protected $cachedDiscoveries;
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
@@ -52,7 +57,7 @@ class EntityValidationTest extends EntityKernelTestBase {
     $this->installEntitySchema('entity_test_mulrev_changed');
 
     // Create the test field.
-    module_load_install('entity_test');
+    $this->container->get('module_handler')->loadInclude('entity_test', 'install');
     entity_test_install();
 
     // Install required default configuration for filter module.
