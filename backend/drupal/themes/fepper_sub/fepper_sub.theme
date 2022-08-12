@@ -19,7 +19,8 @@
 // $config['fepper']['bp_xx_max'] = 320;
 // $config['fepper']['bp_xx_min'] = 0;
 */
-$fepper_ini = drupal_get_path('theme', 'fepper_sub') . '/_scripts/src/variables.styl';
+$path_to_fepper_sub = \Drupal::service('extension.path.resolver')->getPath('theme', 'fepper_sub');
+$fepper_ini = $path_to_fepper_sub . '/_scripts/src/variables.styl';
 if (file_exists($fepper_ini)) {
   $GLOBALS['config']['fepper'] = parse_ini_file($fepper_ini);
 }
