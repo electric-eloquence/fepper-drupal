@@ -375,7 +375,6 @@ header.header {
 #block-fepper-sub-search,
 #region-sidebar-first [id^="block-"][id*="-search"] {
   float: right;
-  margin-left: 7rem;
 }
 @media all and (max-width: 480px) {
   [id^="block-"][id*="-main"] > ul {
