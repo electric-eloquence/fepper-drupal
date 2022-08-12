@@ -95,8 +95,6 @@ header.header
     margin: $space-half $space-half 0 0
 // Search Form
 [id^="block-"][id*="-search"]
-  float: right
-  margin-left: 7rem
   .path-search &
     display: none
   [id="region-secondary-menu"] &
@@ -104,6 +102,10 @@ header.header
       margin-left: 0
     @media all and (min-width: $bp-med)
       margin: $space-half 0 0
+#block-fepper-sub-search,
+#region-sidebar-first [id^="block-"][id*="-search"]
+  float: right
+  margin-left: 7rem
 // Main Navigation
 [id^="block-"][id*="-main"]
   @media all and (max-width: $bp-xs-max)

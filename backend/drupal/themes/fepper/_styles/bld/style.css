@@ -359,10 +359,6 @@ header.header {
     margin: 0.8rem 0.8rem 0 0;
   }
 }
-[id^="block-"][id*="-search"] {
-  float: right;
-  margin-left: 7rem;
-}
 .path-search [id^="block-"][id*="-search"] {
   display: none;
 }
@@ -375,6 +371,11 @@ header.header {
   [id="region-secondary-menu"] [id^="block-"][id*="-search"] {
     margin: 0.8rem 0 0;
   }
+}
+#block-fepper-sub-search,
+#region-sidebar-first [id^="block-"][id*="-search"] {
+  float: right;
+  margin-left: 7rem;
 }
 @media all and (max-width: 480px) {
   [id^="block-"][id*="-main"] > ul {
@@ -583,29 +584,29 @@ form:not(#search-block-form) [id^="edit-actions"] {
   padding: 0;
   position: relative;
 }
-#search-block-form {
+[id^="search-block-form"] {
   background-color: rgba(255,255,255,0.95);
   display: flex;
   overflow: hidden;
   position: relative;
 }
-#search-block-form .form-item-keys {
+[id^="search-block-form"] .form-item-keys {
   font-size: 1em;
   position: relative;
 }
-#search-block-form input {
+[id^="search-block-form"] input {
   background-color: transparent;
   height: 2.5em;
 }
-#search-block-form input[id^="edit-keys"] {
+[id^="search-block-form"] input[id^="edit-keys"] {
   width: 13.5em;
 }
 @media all and (min-width: 768px) and (max-width: 1024px) {
-  #search-block-form input[id^="edit-keys"] {
+  [id^="search-block-form"] input[id^="edit-keys"] {
     width: 11.4375em;
   }
 }
-#search-block-form input[id^="edit-submit"] {
+[id^="search-block-form"] input[id^="edit-submit"] {
   background: url("../../_assets/src/icon-search.svg") no-repeat 50% 45%;
   background-size: 35%;
   border: 1px solid #808080;
@@ -616,36 +617,36 @@ form:not(#search-block-form) [id^="edit-actions"] {
   position: relative;
   width: 3.125em;
 }
-#search-block-form input[id^="edit-submit"]:focus {
+[id^="search-block-form"] input[id^="edit-submit"]:focus {
   filter: invert(50%);
 }
-#search-block-form input[id^="edit-submit"]:active {
+[id^="search-block-form"] input[id^="edit-submit"]:active {
   background-color: rgba(0,0,0,0.2);
 }
 @media (hover: hover) {
-  #search-block-form input[id^="edit-submit"]:hover {
+  [id^="search-block-form"] input[id^="edit-submit"]:hover {
     filter: invert(50%);
   }
 }
-#search-block-form [id^="edit-actions"] {
+[id^="search-block-form"] [id^="edit-actions"] {
   float: left;
   margin: 0;
 }
-#region-secondary-menu #search-block-form .form-item-keys {
+#region-secondary-menu [id^="search-block-form"] .form-item-keys {
   margin-bottom: 0;
 }
 @media all and (max-width: 767px) {
   #region-secondary-menu {
     padding: 0;
   }
-  #region-secondary-menu [id^="block-"][id*="-search"] #search-block-form {
+  #region-secondary-menu [id^="block-"][id*="-search"] [id^="search-block-form"] {
     max-height: 0;
     position: absolute;
     top: 5.5rem;
     right: 0;
     z-index: 5;
   }
-  #region-secondary-menu [id^="block-"][id*="-search"].open #search-block-form {
+  #region-secondary-menu [id^="block-"][id*="-search"].open [id^="search-block-form"] {
     max-height: none;
   }
 }
