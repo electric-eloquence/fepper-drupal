@@ -95,13 +95,19 @@ header.header
     margin: $space-half $space-half 0 0
 // Search Form
 [id^="block-"][id*="-search"]
-  float: right
-  margin-left: 7rem
   .path-search &
     display: none
-  [id="region-secondary-menu"] &
+  #region-primary-menu &
+    margin-top: 0.8rem
+    > form > div
+      margin-bottom: 0
     @media all and (max-width: $bp-sm-max)
-      margin-left: 0
+      float: left
+  #region-secondary-menu &,
+  #region-sidebar-first &
+    float: right
+    + *
+      clear: both
     @media all and (min-width: $bp-med)
       margin: $space-half 0 0
 // Main Navigation
