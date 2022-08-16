@@ -49,7 +49,7 @@ form:not(#search-block-form)
     color: $gray
     padding: 0
     position: relative
-#search-block-form
+[id^="search-block-form"]
   background-color: $white-translucent
   display: flex
   overflow: hidden
@@ -85,18 +85,18 @@ form:not(#search-block-form)
     float: left
     margin: 0
 #region-secondary-menu
-  #search-block-form
+  [id^="search-block-form"]
     .form-item-keys
       margin-bottom: 0
   @media all and (max-width: $bp-sm-max)
     padding: 0
     [id^="block-"][id*="-search"]
-      #search-block-form
+      [id^="search-block-form"]
         max-height: 0
         position: absolute
         top: $nav-toggle-n-border
         right: 0
         z-index: 5
     [id^="block-"][id*="-search"].open
-      #search-block-form
+      [id^="search-block-form"]
         max-height: none
