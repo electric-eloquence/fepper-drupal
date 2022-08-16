@@ -12,8 +12,13 @@
   @media all and (min-width: $bp-med)
     margin-top: $menu-margin
 #region-primary-menu [id^="block-"][id$="-main-menu"]
+  @media all and (max-width: $bp-sm-max)
+    float: right
   @media all and (min-width: $bp-med)
     margin-bottom: $menu-margin
+#region-secondary-menu [id^="block-"][id$="-account-menu"]
+  @media all and (min-width: $bp-med)
+    float: right
 [id^="block-"][id$="-footer"],
 [id^="block-"][id$="-main-menu"],
 [id^="block-"][id$="-account-menu"]

@@ -83,6 +83,8 @@
     padding-right: 1.6rem;
   }
 }
+#block-fepper-sub-search > h2 > a,
+float: right > h2 > a,
 #region-secondary-menu [id^="block-"][id*="-search"] > h2 > a,
 [id^="block-"][id*="-main"] > h2 > a,
 [id^="block-"][id*="-account"] > h2 > a {
