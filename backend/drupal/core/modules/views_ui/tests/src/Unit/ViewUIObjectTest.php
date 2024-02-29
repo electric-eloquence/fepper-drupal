@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\views_ui\Unit;
 
 use Drupal\Core\Language\LanguageInterface;
@@ -85,7 +87,7 @@ class ViewUIObjectTest extends UnitTestCase {
     $account = $this->createMock('Drupal\Core\Session\AccountInterface');
     $account->expects($this->exactly(2))
       ->method('id')
-      ->will($this->returnValue(1));
+      ->willReturn(1);
 
     $container = new ContainerBuilder();
     $container->set('current_user', $account);
@@ -114,10 +116,6 @@ class ViewUIObjectTest extends UnitTestCase {
    * Tests serialization of the ViewUI object.
    */
   public function testSerialization() {
-    // Set a container so the DependencySerializationTrait has it.
-    $container = new ContainerBuilder();
-    \Drupal::setContainer($container);
-
     $storage = new View([], 'view');
     $executable = $this->getMockBuilder('Drupal\views\ViewExecutable')
       ->disableOriginalConstructor()

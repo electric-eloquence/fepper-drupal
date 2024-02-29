@@ -22,14 +22,14 @@ function views_views_data() {
   $data['views']['table']['group'] = t('Global');
   $data['views']['table']['join'] = [
   // #global is a special flag which allows a table to appear all the time.
-  '#global' => [],
+    '#global' => [],
   ];
 
   $data['views']['random'] = [
-  'title' => t('Random'),
-  'help' => t('Randomize the display order.'),
-  'sort' => [
-    'id' => 'random',
+    'title' => t('Random'),
+    'help' => t('Randomize the display order.'),
+    'sort' => [
+      'id' => 'random',
     ],
   ];
 
@@ -116,7 +116,7 @@ function views_views_data() {
   ];
 
   $data['views']['combine'] = [
-   'title' => t('Combine fields filter'),
+    'title' => t('Combine fields filter'),
     'help' => t('Combine multiple fields together and search by them.'),
     'filter' => [
       'id' => 'combine',
@@ -520,7 +520,7 @@ function views_field_default_views_data(FieldStorageConfigInterface $field_stora
     }
     else {
       $group = t('@group (historical data)', ['@group' => $group_name]);
-      $field_alias = $field_name . '-revision_id';
+      $field_alias = $field_name . '__revision_id';
     }
 
     $data[$table_alias][$field_alias] = [
@@ -578,7 +578,7 @@ function views_field_default_views_data(FieldStorageConfigInterface $field_stora
       'field_name' => $field_name,
       'entity_type' => $entity_type_id,
       // Provide a real field for group by.
-      'real field' => $field_alias . '_' . $real_field,
+      'real field' => $field_name . '_' . $real_field,
       'additional fields' => $add_fields,
       // Default the element type to div, let the UI change it if necessary.
       'element type' => 'div',

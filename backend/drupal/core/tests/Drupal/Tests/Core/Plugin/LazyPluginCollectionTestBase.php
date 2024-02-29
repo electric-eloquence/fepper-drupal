@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Plugin;
 
 use Drupal\Core\Plugin\DefaultLazyPluginCollection;
@@ -43,11 +45,16 @@ abstract class LazyPluginCollectionTestBase extends UnitTestCase {
     'apple' => ['id' => 'apple', 'key' => 'value'],
   ];
 
-  protected function setUp() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
+    parent::setUp();
+
     $this->pluginManager = $this->createMock('Drupal\Component\Plugin\PluginManagerInterface');
     $this->pluginManager->expects($this->any())
       ->method('getDefinitions')
-      ->will($this->returnValue($this->getPluginDefinitions()));
+      ->willReturn($this->getPluginDefinitions());
 
   }
 
@@ -104,7 +111,7 @@ abstract class LazyPluginCollectionTestBase extends UnitTestCase {
     $mock = $this->createMock('Drupal\Component\Plugin\PluginInspectionInterface');
     $mock->expects($this->any())
       ->method('getPluginId')
-      ->will($this->returnValue($plugin_id));
+      ->willReturn($plugin_id);
     return $mock;
   }
 

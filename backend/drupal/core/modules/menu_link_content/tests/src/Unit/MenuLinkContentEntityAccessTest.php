@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\menu_link_content\Unit;
 
 use Drupal\Core\Access\AccessManagerInterface;
@@ -36,7 +38,7 @@ class MenuLinkContentEntityAccessTest extends UnitTestCase {
     $language = $this->createMock(LanguageInterface::class);
     $language->expects($this->any())
       ->method('getId')
-      ->will($this->returnValue('de'));
+      ->willReturn('de');
 
     $entity = $this->createMock(ContentEntityInterface::class);
     $entity->expects($this->any())

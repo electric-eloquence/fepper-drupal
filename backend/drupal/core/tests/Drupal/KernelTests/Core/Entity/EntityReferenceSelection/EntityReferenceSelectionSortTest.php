@@ -23,17 +23,21 @@ class EntityReferenceSelectionSortTest extends EntityKernelTestBase {
    */
   protected static $modules = ['node'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
     // Create an Article node type.
     $article = NodeType::create([
       'type' => 'article',
+      'name' => 'Article',
     ]);
     $article->save();
 
     // Test as a non-admin.
-    $normal_user = $this->createUser([], ['access content']);
+    $normal_user = $this->createUser(['access content']);
     \Drupal::currentUser()->setAccount($normal_user);
   }
 

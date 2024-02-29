@@ -172,7 +172,7 @@ class MailManager extends DefaultPluginManager implements MailManagerInterface {
    */
   public function mail($module, $key, $to, $langcode, $params = [], $reply = NULL, $send = TRUE) {
     // Mailing can invoke rendering (e.g., generating URLs, replacing tokens),
-    // but e-mails are not HTTP responses: they're not cached, they don't have
+    // but emails are not HTTP responses: they're not cached, they don't have
     // attachments. Therefore we perform mailing inside its own render context,
     // to ensure it doesn't leak into the render context for the HTTP response
     // to the current request.
@@ -309,10 +309,10 @@ class MailManager extends DefaultPluginManager implements MailManagerInterface {
         if (!$message['result']) {
           $this->loggerFactory->get('mail')
             ->error('Error sending email (from %from to %to with reply-to %reply).', [
-            '%from' => $message['from'],
-            '%to' => $message['to'],
-            '%reply' => $message['reply-to'] ? $message['reply-to'] : $this->t('not set'),
-          ]);
+              '%from' => $message['from'],
+              '%to' => $message['to'],
+              '%reply' => $message['reply-to'] ? $message['reply-to'] : $this->t('not set'),
+            ]);
           $error_message = $params['_error_message'] ?? $this->t('Unable to send email. Contact the site administrator if the problem persists.');
           if ($error_message) {
             $this->messenger()->addError($error_message);

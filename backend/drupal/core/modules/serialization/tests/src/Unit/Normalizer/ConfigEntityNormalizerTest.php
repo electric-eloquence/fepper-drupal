@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\serialization\Unit\Normalizer;
 
 use Drupal\Core\Config\Entity\ConfigEntityTypeInterface;
@@ -42,7 +44,7 @@ class ConfigEntityNormalizerTest extends UnitTestCase {
     $config_entity = $this->createMock('Drupal\Core\Config\Entity\ConfigEntityInterface');
     $config_entity->expects($this->once())
       ->method('toArray')
-      ->will($this->returnValue($test_export_properties));
+      ->willReturn($test_export_properties);
 
     $this->assertSame(['test' => 'test'], $normalizer->normalize($config_entity));
   }

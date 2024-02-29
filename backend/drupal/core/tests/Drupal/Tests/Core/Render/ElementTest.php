@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Render;
 
 use Drupal\Core\Access\AccessResult;
@@ -188,6 +190,29 @@ class ElementTest extends UnitTestCase {
   public function providerTestIsEmpty() {
     return [
       [[], TRUE],
+      [['#attached' => []], FALSE],
+      [['#cache' => []], TRUE],
+      [['#weight' => []], TRUE],
+      // Variations.
+      [['#attached' => [], '#cache' => []], FALSE],
+      [['#attached' => [], '#weight' => []], FALSE],
+      [['#attached' => [], '#weight' => [], '#cache' => []], FALSE],
+      [['#cache' => [], '#weight' => []], TRUE],
+      [['#cache' => [], '#weight' => [], '#any_other_property' => []], FALSE],
+      [
+        [
+          '#attached' => [],
+          '#weight' => [],
+          '#cache' => [],
+          '#any_other_property' => [],
+        ],
+        FALSE,
+      ],
+      // Cover sorting.
+      [['#cache' => [], '#weight' => [], '#attached' => []], FALSE],
+      [['#cache' => [], '#weight' => []], TRUE],
+      [['#weight' => [], '#cache' => []], TRUE],
+
       [['#cache' => []], TRUE],
       [['#cache' => ['tags' => ['foo']]], TRUE],
       [['#cache' => ['contexts' => ['bar']]], TRUE],

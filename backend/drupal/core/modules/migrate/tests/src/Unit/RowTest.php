@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\migrate\Unit;
 
 use Drupal\migrate\Plugin\MigrateIdMapInterface;
@@ -236,29 +238,29 @@ class RowTest extends UnitTestCase {
   public function testMultipleSourceIdValues() {
     // Set values in same order as ids.
     $multi_source_ids = $this->testSourceIds + [
-        'vid' => 'Node revision',
-        'type' => 'Node type',
-        'langcode' => 'Node language',
-      ];
+      'vid' => 'Node revision',
+      'type' => 'Node type',
+      'langcode' => 'Node language',
+    ];
     $multi_source_ids_values = $this->testValues + [
-        'vid' => 1,
-        'type' => 'page',
-        'langcode' => 'en',
-      ];
+      'vid' => 1,
+      'type' => 'page',
+      'langcode' => 'en',
+    ];
     $row = new Row($multi_source_ids_values, $multi_source_ids);
     $this->assertSame(array_keys($multi_source_ids), array_keys($row->getSourceIdValues()));
 
     // Set values in different order.
     $multi_source_ids = $this->testSourceIds + [
-        'vid' => 'Node revision',
-        'type' => 'Node type',
-        'langcode' => 'Node language',
-      ];
+      'vid' => 'Node revision',
+      'type' => 'Node type',
+      'langcode' => 'Node language',
+    ];
     $multi_source_ids_values = $this->testValues + [
-        'langcode' => 'en',
-        'type' => 'page',
-        'vid' => 1,
-      ];
+      'langcode' => 'en',
+      'type' => 'page',
+      'vid' => 1,
+    ];
     $row = new Row($multi_source_ids_values, $multi_source_ids);
     $this->assertSame(array_keys($multi_source_ids), array_keys($row->getSourceIdValues()));
   }
@@ -361,7 +363,7 @@ class RowTest extends UnitTestCase {
    * @param array $expected_values
    *   An array of expected values.
    *
-   * @covers::getMultiple
+   * @covers ::getMultiple
    * @dataProvider getMultipleDataProvider
    */
   public function testGetMultiple(array $keys, array $expected_values) {

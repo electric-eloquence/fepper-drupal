@@ -4,6 +4,7 @@ namespace Drupal\Tests\user\Functional;
 
 use Drupal\Core\Flood\DatabaseBackend;
 use Drupal\Core\Test\AssertMailTrait;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\user\Controller\UserAuthenticationController;
@@ -106,6 +107,8 @@ class UserLoginHttpTest extends BrowserTestBase {
 
     // Enable serialization so we have access to additional formats.
     $this->container->get('module_installer')->install(['serialization']);
+    $this->rebuildAll();
+
     $this->doTestLogin('json');
     $this->doTestLogin('xml');
   }
@@ -243,6 +246,7 @@ class UserLoginHttpTest extends BrowserTestBase {
 
     // Enable serialization so we have access to additional formats.
     $this->container->get('module_installer')->install(['serialization']);
+    $this->rebuildAll();
 
     $this->doTestPasswordReset('json', $account);
     $this->doTestPasswordReset('xml', $account);
@@ -530,21 +534,50 @@ class UserLoginHttpTest extends BrowserTestBase {
     $response = $this->passwordRequest([], $format);
     $this->assertHttpResponseWithMessage($response, 400, 'Missing credentials.name or credentials.mail', $format);
 
-    $response = $this->passwordRequest(['name' => 'dramallama'], $format);
-    $this->assertHttpResponseWithMessage($response, 400, 'Unrecognized username or email address.', $format);
+    $response = $this->passwordRequest(['name' => 'drama llama'], $format);
+    $this->assertEquals(200, $response->getStatusCode());
 
     $response = $this->passwordRequest(['mail' => 'llama@drupal.org'], $format);
-    $this->assertHttpResponseWithMessage($response, 400, 'Unrecognized username or email address.', $format);
+    $this->assertEquals(200, $response->getStatusCode());
 
     $account
       ->block()
       ->save();
 
     $response = $this->passwordRequest(['name' => $account->getAccountName()], $format);
-    $this->assertHttpResponseWithMessage($response, 400, 'The user has not been activated or is blocked.', $format);
+    $this->assertEquals(200, $response->getStatusCode());
+
+    // Check that the proper warning has been logged.
+    $arguments = [
+      '%identifier' => $account->getAccountName(),
+    ];
+    $logged = Database::getConnection()->select('watchdog')
+      ->fields('watchdog', ['variables'])
+      ->condition('type', 'user')
+      ->condition('message', 'Unable to send password reset email for blocked or not yet activated user %identifier.')
+      ->orderBy('wid', 'DESC')
+      ->range(0, 1)
+      ->execute()
+      ->fetchField();
+    $this->assertEquals(serialize($arguments), $logged);
 
     $response = $this->passwordRequest(['mail' => $account->getEmail()], $format);
-    $this->assertHttpResponseWithMessage($response, 400, 'The user has not been activated or is blocked.', $format);
+    $this->assertEquals(200, $response->getStatusCode());
+
+    // Check that the proper warning has been logged.
+    $arguments = [
+      '%identifier' => $account->getEmail(),
+    ];
+
+    $logged = Database::getConnection()->select('watchdog')
+      ->fields('watchdog', ['variables'])
+      ->condition('type', 'user')
+      ->condition('message', 'Unable to send password reset email for blocked or not yet activated user %identifier.')
+      ->orderBy('wid', 'DESC')
+      ->range(0, 1)
+      ->execute()
+      ->fetchField();
+    $this->assertEquals(serialize($arguments), $logged);
 
     $account
       ->activate()
@@ -572,6 +605,7 @@ class UserLoginHttpTest extends BrowserTestBase {
     $resetURL = $urls[0];
     $this->drupalGet($resetURL);
     $this->submitForm([], 'Log in');
+    $this->assertSession()->pageTextContains('You have just used your one-time login link. It is no longer necessary to use this link to log in. It is recommended that you set your password.');
   }
 
 }

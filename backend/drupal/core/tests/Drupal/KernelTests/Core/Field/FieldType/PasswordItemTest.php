@@ -91,7 +91,7 @@ class PasswordItemTest extends FieldKernelTestBase {
 
     // The string starts with the portable password string and is a hash of an
     // empty string.
-    $this->assertStringStartsWith('$S$', $entity->test_field->value);
+    $this->assertStringStartsWith('$2y$', $entity->test_field->value);
     $this->assertTrue($this->container->get('password')->check('', $entity->test_field->value));
   }
 
@@ -108,7 +108,7 @@ class PasswordItemTest extends FieldKernelTestBase {
 
     // The string starts with the portable password string and is a hash of an
     // empty string.
-    $this->assertStringStartsWith('$S$', $entity->test_field->value);
+    $this->assertStringStartsWith('$2y$', $entity->test_field->value);
     $this->assertTrue($this->container->get('password')->check('', $entity->test_field->value));
   }
 
@@ -155,7 +155,7 @@ class PasswordItemTest extends FieldKernelTestBase {
     $entity->test_field = '     ';
     $entity->save();
 
-    // @todo Fix this bug in https://www.drupal.org/project/i/3238399.
+    // @todo Fix this bug in https://www.drupal.org/project/drupal/issues/3238399.
     $this->assertSame('     ', $entity->test_field->value);
   }
 

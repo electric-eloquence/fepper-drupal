@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\config\Unit\Menu;
 
 use Drupal\Tests\Core\Menu\LocalTaskIntegrationTestBase;
@@ -11,6 +13,9 @@ use Drupal\Tests\Core\Menu\LocalTaskIntegrationTestBase;
  */
 class ConfigLocalTasksTest extends LocalTaskIntegrationTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     $this->directoryList = ['config' => 'core/modules/config'];
     parent::setUp();

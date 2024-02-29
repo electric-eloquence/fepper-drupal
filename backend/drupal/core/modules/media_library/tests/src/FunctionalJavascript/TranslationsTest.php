@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_library\FunctionalJavascript;
 
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
@@ -7,7 +9,7 @@ use Drupal\file\Entity\File;
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\media\Entity\Media;
-use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
+use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
 use Drupal\Tests\media\Traits\MediaTypeCreationTrait;
 use Drupal\Tests\TestFileCreationTrait;
 
@@ -18,7 +20,7 @@ use Drupal\Tests\TestFileCreationTrait;
  */
 class TranslationsTest extends WebDriverTestBase {
 
-  use EntityReferenceTestTrait;
+  use EntityReferenceFieldCreationTrait;
   use MediaTypeCreationTrait;
   use TestFileCreationTrait;
 
@@ -37,7 +39,7 @@ class TranslationsTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
@@ -127,7 +129,7 @@ class TranslationsTest extends WebDriverTestBase {
     // regardless of the interface language.
     $this->drupalGet('nl/admin/content/media-grid');
     $assert_session->elementsCount('css', '.js-media-library-item', 6);
-    $media_items = $page->findAll('css', '.media-library-item__name');
+    $media_items = $page->findAll('css', '.js-media-library-item-preview + div');
     $media_names = [];
     foreach ($media_items as $media_item) {
       $media_names[] = $media_item->getText();
@@ -138,7 +140,7 @@ class TranslationsTest extends WebDriverTestBase {
 
     $this->drupalGet('es/admin/content/media-grid');
     $assert_session->elementsCount('css', '.js-media-library-item', 6);
-    $media_items = $page->findAll('css', '.media-library-item__name');
+    $media_items = $page->findAll('css', '.js-media-library-item-preview + div');
     $media_names = [];
     foreach ($media_items as $media_item) {
       $media_names[] = $media_item->getText();
@@ -153,7 +155,7 @@ class TranslationsTest extends WebDriverTestBase {
     $assert_session->elementExists('css', '.js-media-library-open-button[name^="field_media"]')->click();
     $assert_session->waitForText('Add or select media');
     $assert_session->elementsCount('css', '.js-media-library-item', 4);
-    $media_items = $page->findAll('css', '.media-library-item__name');
+    $media_items = $page->findAll('css', '.js-media-library-item-preview + div');
     $media_names = [];
     foreach ($media_items as $media_item) {
       $media_names[] = $media_item->getText();
@@ -166,7 +168,7 @@ class TranslationsTest extends WebDriverTestBase {
     $assert_session->elementExists('css', '.js-media-library-open-button[name^="field_media"]')->click();
     $assert_session->waitForText('Add or select media');
     $assert_session->elementsCount('css', '.js-media-library-item', 4);
-    $media_items = $page->findAll('css', '.media-library-item__name');
+    $media_items = $page->findAll('css', '.js-media-library-item-preview + div');
     $media_names = [];
     foreach ($media_items as $media_item) {
       $media_names[] = $media_item->getText();

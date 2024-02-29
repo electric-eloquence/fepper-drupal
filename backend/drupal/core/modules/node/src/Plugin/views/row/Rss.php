@@ -5,8 +5,7 @@ namespace Drupal\node\Plugin\views\row;
 use Drupal\views\Plugin\views\row\RssPluginBase;
 
 /**
- * Plugin which performs a node_view on the resulting object
- * and formats it as an RSS item.
+ * Performs a node_view on the resulting object and formats it as an RSS item.
  *
  * @ViewsRow(
  *   id = "node_rss",
@@ -29,10 +28,8 @@ class Rss extends RssPluginBase {
 
   /**
    * The base field for this row plugin.
-   *
-   * @var string
    */
-  public $base_field = 'nid';
+  public string $base_field = 'nid';
 
   /**
    * Stores the nodes loaded with preRender.
@@ -116,19 +113,13 @@ class Rss extends RssPluginBase {
     $build = \Drupal::entityTypeManager()
       ->getViewBuilder('node')
       ->view($node, $build_mode);
+    // Add rss key to cache to differentiate this from other caches.
+    $build['#cache']['keys'][] = 'view_rss';
+
     unset($build['#theme']);
 
     if (!empty($node->rss_namespaces)) {
       $this->view->style_plugin->namespaces = array_merge($this->view->style_plugin->namespaces, $node->rss_namespaces);
-    }
-    elseif (function_exists('rdf_get_namespaces')) {
-      // Merge RDF namespaces in the XML namespaces in case they are used
-      // further in the RSS content.
-      $xml_rdf_namespaces = [];
-      foreach (rdf_get_namespaces() as $prefix => $uri) {
-        $xml_rdf_namespaces['xmlns:' . $prefix] = $uri;
-      }
-      $this->view->style_plugin->namespaces += $xml_rdf_namespaces;
     }
 
     $item = new \stdClass();

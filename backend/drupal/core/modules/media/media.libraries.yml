@@ -32,9 +32,19 @@ filter.caption:
   dependencies:
     - filter/caption
 
+# Despite the name, this is actually not specific to CKEditor 4, and can be
+# used by all text editor plugins.
 media_embed_ckeditor_theme:
   version: VERSION
   js:
     js/media_embed_ckeditor.theme.js: {}
   dependencies:
     - core/drupal
+
+drupal.media-icon:
+  version: VERSION
+  css:
+    theme:
+      css/media.icon.theme.css: {}
+  dependencies:
+    - field_ui/drupal.field_ui.manage_fields

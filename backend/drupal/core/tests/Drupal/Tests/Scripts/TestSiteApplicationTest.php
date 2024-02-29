@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Scripts;
 
 use Drupal\Component\FileSystem\FileSystem;
@@ -42,43 +44,28 @@ class TestSiteApplicationTest extends UnitTestCase {
     parent::setUp();
     $php_executable_finder = new PhpExecutableFinder();
     $this->php = $php_executable_finder->find();
-    $this->root = dirname(substr(__DIR__, 0, -strlen(__NAMESPACE__)), 2);
   }
 
   /**
    * @coversNothing
    */
   public function testInstallWithNonExistingFile() {
-
-    // Create a connection to the DB configured in SIMPLETEST_DB.
-    $connection = Database::getConnection('default', $this->addTestDatabase(''));
-    $table_count = count($connection->schema()->findTables('%'));
-
     $command_line = $this->php . ' core/scripts/test-site.php install --setup-file "this-class-does-not-exist" --db-url "' . getenv('SIMPLETEST_DB') . '"';
     $process = Process::fromShellCommandline($command_line, $this->root);
     $process->run();
 
     $this->assertStringContainsString('The file this-class-does-not-exist does not exist.', $process->getErrorOutput());
-    $this->assertSame(1, $process->getExitCode());
-    $this->assertCount($table_count, $connection->schema()->findTables('%'), 'No additional tables created in the database');
   }
 
   /**
    * @coversNothing
    */
   public function testInstallWithFileWithNoClass() {
-
-    // Create a connection to the DB configured in SIMPLETEST_DB.
-    $connection = Database::getConnection('default', $this->addTestDatabase(''));
-    $table_count = count($connection->schema()->findTables('%'));
-
     $command_line = $this->php . ' core/scripts/test-site.php install --setup-file core/tests/fixtures/empty_file.php.module --db-url "' . getenv('SIMPLETEST_DB') . '"';
     $process = Process::fromShellCommandline($command_line, $this->root);
     $process->run();
 
     $this->assertStringContainsString('The file core/tests/fixtures/empty_file.php.module does not contain a class', $process->getErrorOutput());
-    $this->assertSame(1, $process->getExitCode());
-    $this->assertCount($table_count, $connection->schema()->findTables('%'), 'No additional tables created in the database');
   }
 
   /**
@@ -87,10 +74,6 @@ class TestSiteApplicationTest extends UnitTestCase {
   public function testInstallWithNonSetupClass() {
     $this->markTestIncomplete('Fix this test in https://www.drupal.org/project/drupal/issues/2962157.');
 
-    // Create a connection to the DB configured in SIMPLETEST_DB.
-    $connection = Database::getConnection('default', $this->addTestDatabase(''));
-    $table_count = count($connection->schema()->findTables('%'));
-
     // Use __FILE__ to test absolute paths.
     $command_line = $this->php . ' core/scripts/test-site.php install --setup-file "' . __FILE__ . '" --db-url "' . getenv('SIMPLETEST_DB') . '"';
     $process = Process::fromShellCommandline($command_line, $this->root, ['COLUMNS' => PHP_INT_MAX]);
@@ -98,8 +81,6 @@ class TestSiteApplicationTest extends UnitTestCase {
 
     $this->assertStringContainsString('The class Drupal\Tests\Scripts\TestSiteApplicationTest contained in', $process->getErrorOutput());
     $this->assertStringContainsString('needs to implement \Drupal\TestSite\TestSetupInterface', $process->getErrorOutput());
-    $this->assertSame(1, $process->getExitCode());
-    $this->assertCount($table_count, $connection->schema()->findTables('%'), 'No additional tables created in the database');
   }
 
   /**

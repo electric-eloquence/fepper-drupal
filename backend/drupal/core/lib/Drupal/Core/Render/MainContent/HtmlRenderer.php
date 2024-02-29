@@ -108,7 +108,7 @@ class HtmlRenderer implements MainContentRendererInterface {
    * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
    *   The theme manager.
    */
-  public function __construct(TitleResolverInterface $title_resolver, PluginManagerInterface $display_variant_manager, EventDispatcherInterface $event_dispatcher, ModuleHandlerInterface $module_handler, RendererInterface $renderer, RenderCacheInterface $render_cache, array $renderer_config, ThemeManagerInterface $theme_manager = NULL) {
+  public function __construct(TitleResolverInterface $title_resolver, PluginManagerInterface $display_variant_manager, EventDispatcherInterface $event_dispatcher, ModuleHandlerInterface $module_handler, RendererInterface $renderer, RenderCacheInterface $render_cache, array $renderer_config, ThemeManagerInterface $theme_manager) {
     $this->titleResolver = $title_resolver;
     $this->displayVariantManager = $display_variant_manager;
     $this->eventDispatcher = $event_dispatcher;
@@ -116,10 +116,6 @@ class HtmlRenderer implements MainContentRendererInterface {
     $this->renderer = $renderer;
     $this->renderCache = $render_cache;
     $this->rendererConfig = $renderer_config;
-    if ($theme_manager === NULL) {
-      @trigger_error('Calling ' . __METHOD__ . ' without the $theme_manager argument is deprecated in drupal:9.1.0 and will be required in drupal:10.0.0. See https://www.drupal.org/node/3159762', E_USER_DEPRECATED);
-      $theme_manager = \Drupal::service('theme.manager');
-    }
     $this->themeManager = $theme_manager;
   }
 
@@ -223,6 +219,7 @@ class HtmlRenderer implements MainContentRendererInterface {
       $event = new PageDisplayVariantSelectionEvent('simple_page', $route_match);
       $this->eventDispatcher->dispatch($event, RenderEvents::SELECT_PAGE_DISPLAY_VARIANT);
       $variant_id = $event->getPluginId();
+      $variant_configuration = $event->getPluginConfiguration();
 
       // We must render the main content now already, because it might provide a
       // title. We set its $is_root_call parameter to FALSE, to ensure
@@ -248,15 +245,14 @@ class HtmlRenderer implements MainContentRendererInterface {
       $title = $get_title($main_content);
 
       // Instantiate the page display, and give it the main content.
-      $page_display = $this->displayVariantManager->createInstance($variant_id);
+      $page_display = $this->displayVariantManager->createInstance($variant_id, $variant_configuration);
       if (!$page_display instanceof PageVariantInterface) {
         throw new \LogicException('Cannot render the main content for this page because the provided display variant does not implement PageVariantInterface.');
       }
       $page_display
         ->setMainContent($main_content)
         ->setTitle($title)
-        ->addCacheableDependency($event)
-        ->setConfiguration($event->getPluginConfiguration());
+        ->addCacheableDependency($event);
       // Some display variants need to be passed an array of contexts with
       // values because they can't get all their contexts globally. For example,
       // in Page Manager, you can create a Page which has a specific static
@@ -285,7 +281,9 @@ class HtmlRenderer implements MainContentRendererInterface {
     }
 
     // Allow hooks to add attachments to $page['#attached'].
-    $this->invokePageAttachmentHooks($page);
+    $this->renderer->executeInRenderContext(new RenderContext(), function () use (&$page) {
+      $this->invokePageAttachmentHooks($page);
+    });
 
     return [$page, $title];
   }

@@ -47,7 +47,7 @@ class BlockComponentRenderArray implements EventSubscriberInterface {
   /**
    * {@inheritdoc}
    */
-  public static function getSubscribedEvents() {
+  public static function getSubscribedEvents(): array {
     $events[LayoutBuilderEvents::SECTION_COMPONENT_BUILD_RENDER_ARRAY] = ['onBuildRender', 100];
     return $events;
   }
@@ -124,6 +124,7 @@ class BlockComponentRenderArray implements EventSubscriberInterface {
         '#plugin_id' => $block->getPluginId(),
         '#base_plugin_id' => $block->getBaseId(),
         '#derivative_plugin_id' => $block->getDerivativeId(),
+        '#in_preview' => $event->inPreview(),
         '#weight' => $event->getComponent()->getWeight(),
       ];
 

@@ -2,11 +2,13 @@
 
 namespace Drupal\book\Plugin\Block;
 
+use Drupal\Core\Block\Attribute\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\book\BookManagerInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -14,13 +16,12 @@ use Drupal\Core\Entity\EntityStorageInterface;
 
 /**
  * Provides a 'Book navigation' block.
- *
- * @Block(
- *   id = "book_navigation",
- *   admin_label = @Translation("Book navigation"),
- *   category = @Translation("Menus")
- * )
  */
+#[Block(
+  id: "book_navigation",
+  admin_label: new TranslatableMarkup("Book navigation"),
+  category: new TranslatableMarkup("Menus")
+)]
 class BookNavigationBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
@@ -105,7 +106,7 @@ class BookNavigationBlock extends BlockBase implements ContainerFactoryPluginInt
       '#options' => $options,
       '#default_value' => $this->configuration['block_mode'],
       '#description' => $this->t("If <em>Show block on all pages</em> is selected, the block will contain the automatically generated menus for all of the site's books. If <em>Show block only on book pages</em> is selected, the block will contain only the one menu corresponding to the current page's book. In this case, if the current page is not in a book, no block will be displayed. The <em>Page specific visibility settings</em> or other visibility settings can be used in addition to selectively display this block."),
-      ];
+    ];
 
     return $form;
   }

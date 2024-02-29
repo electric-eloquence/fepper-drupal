@@ -27,6 +27,9 @@ class PathNoCanonicalLinkTest extends KernelTestBase {
     'system',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -34,7 +37,7 @@ class PathNoCanonicalLinkTest extends KernelTestBase {
     $this->installEntitySchema('entity_test_mul');
 
     // Adding german language.
-    ConfigurableLanguage::create(['id' => 'de'])->save();
+    ConfigurableLanguage::createFromLangcode('de')->save();
 
     $this->config('language.types')->setData([
       'configurable' => ['language_interface'],

@@ -76,7 +76,7 @@ class DatabaseQueue implements ReliableQueueInterface, QueueGarbageCollectionInt
    * @param $data
    *   Arbitrary data to be associated with the new task in the queue.
    *
-   * @return
+   * @return int|string
    *   A unique ID if the item was successfully created and was (best effort)
    *   added to the queue, otherwise FALSE. We don't guarantee the item was
    *   committed to disk etc, but as far as we know, the item is now in the
@@ -333,12 +333,14 @@ class DatabaseQueue implements ReliableQueueInterface, QueueGarbageCollectionInt
           'not null' => TRUE,
           'default' => 0,
           'description' => 'Timestamp when the claim lease expires on the item.',
+          'size' => 'big',
         ],
         'created' => [
           'type' => 'int',
           'not null' => TRUE,
           'default' => 0,
           'description' => 'Timestamp when the item was created.',
+          'size' => 'big',
         ],
       ],
       'primary key' => ['item_id'],

@@ -13,8 +13,7 @@ use Drupal\Core\Entity\Display\EntityDisplayInterface;
 abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDisplayInterface {
 
   /**
-   * The 'mode' for runtime EntityDisplay objects used to render entities with
-   * arbitrary display options rather than a configured view mode or form mode.
+   * The mode used to render entities with arbitrary display options.
    *
    * @todo Prevent creation of a mode with this ID
    *   https://www.drupal.org/node/2410727
@@ -57,8 +56,10 @@ abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDispl
   protected $mode = self::CUSTOM_MODE;
 
   /**
-   * Whether this display is enabled or not. If the entity (form) display
-   * is disabled, we'll fall back to the 'default' display.
+   * Whether this display is enabled or not.
+   *
+   * If the entity (form) display is disabled, we'll fall back to the 'default'
+   * display.
    *
    * @var bool
    */
@@ -79,8 +80,10 @@ abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDispl
   protected $hidden = [];
 
   /**
-   * The original view or form mode that was requested (case of view/form modes
-   * being configured to fall back to the 'default' display).
+   * The original view or form mode that was requested.
+   *
+   * Case of view/form modes being configured to fall back to the 'default'
+   * display.
    *
    * @var string
    */
@@ -113,6 +116,13 @@ abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDispl
    * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
+
+  /**
+   * A boolean indicating whether or not this display has been initialized.
+   *
+   * @var bool
+   */
+  protected $initialized = FALSE;
 
   /**
    * {@inheritdoc}
@@ -153,7 +163,8 @@ abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDispl
    */
   protected function init() {
     // Only populate defaults for "official" view modes and form modes.
-    if ($this->mode !== static::CUSTOM_MODE) {
+    if (!$this->initialized && $this->mode !== static::CUSTOM_MODE) {
+      $this->initialized = TRUE;
       $default_region = $this->getDefaultRegion();
       // Fill in defaults for extra fields.
       $context = $this->displayContext == 'view' ? 'display' : $this->displayContext;
@@ -543,6 +554,8 @@ abstract class EntityDisplayBase extends ConfigEntityBase implements EntityDispl
     // __wakeup(). Because of the way __sleep() works, the data has to be
     // present in the object to be included in the serialized values.
     $keys[] = '_serializedKeys';
+    // Keep track of the initialization status.
+    $keys[] = 'initialized';
     $this->_serializedKeys = $keys;
     return $keys;
   }

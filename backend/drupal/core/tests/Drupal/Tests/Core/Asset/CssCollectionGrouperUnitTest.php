@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Asset;
 
 use Drupal\Core\Asset\CssCollectionGrouper;
@@ -19,6 +21,9 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
    */
   protected $grouper;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -37,7 +42,6 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'media' => 'all',
         'preprocess' => TRUE,
         'data' => 'core/modules/system/system.base.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
         'basename' => 'system.base.css',
       ],
       'js.module.css' => [
@@ -47,17 +51,15 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'media' => 'all',
         'preprocess' => TRUE,
         'data' => 'core/modules/system/js.module.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
         'basename' => 'js.module.css',
       ],
       'jquery.ui.core.css' => [
         'group' => -100,
         'type' => 'file',
         'weight' => 0.004,
-        'media' => 'all',
+        'media' => 'screen',
         'preprocess' => TRUE,
         'data' => 'core/misc/ui/themes/base/jquery.ui.core.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
         'basename' => 'jquery.ui.core.css',
       ],
       'field.css' => [
@@ -67,7 +69,6 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'media' => 'all',
         'preprocess' => TRUE,
         'data' => 'core/modules/field/theme/field.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
         'basename' => 'field.css',
       ],
       'external.css' => [
@@ -77,7 +78,6 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'media' => 'all',
         'preprocess' => TRUE,
         'data' => 'http://example.com/external.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
         'basename' => 'external.css',
       ],
       'elements.css' => [
@@ -86,8 +86,7 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'type' => 'file',
         'weight' => 0.001,
         'preprocess' => TRUE,
-        'data' => 'core/themes/bartik/css/base/elements.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
+        'data' => 'core/themes/example/css/base/elements.css',
         'basename' => 'elements.css',
       ],
       'print.css' => [
@@ -96,8 +95,7 @@ class CssCollectionGrouperUnitTest extends UnitTestCase {
         'type' => 'file',
         'weight' => 0.003,
         'preprocess' => TRUE,
-        'data' => 'core/themes/bartik/css/print.css',
-        'browsers' => ['IE' => TRUE, '!IE' => TRUE],
+        'data' => 'core/themes/example/css/print.css',
         'basename' => 'print.css',
       ],
     ];

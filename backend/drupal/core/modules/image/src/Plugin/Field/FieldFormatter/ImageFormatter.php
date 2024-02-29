@@ -22,9 +22,6 @@ use Drupal\Core\Cache\Cache;
  *   label = @Translation("Image"),
  *   field_types = {
  *     "image"
- *   },
- *   quickedit = {
- *     "editor" = "image"
  *   }
  * )
  */
@@ -75,14 +72,10 @@ class ImageFormatter extends ImageFormatterBase {
    * @param \Drupal\Core\File\FileUrlGeneratorInterface $file_url_generator
    *   The file URL generator.
    */
-  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, AccountInterface $current_user, EntityStorageInterface $image_style_storage, FileUrlGeneratorInterface $file_url_generator = NULL) {
+  public function __construct($plugin_id, $plugin_definition, FieldDefinitionInterface $field_definition, array $settings, $label, $view_mode, array $third_party_settings, AccountInterface $current_user, EntityStorageInterface $image_style_storage, FileUrlGeneratorInterface $file_url_generator) {
     parent::__construct($plugin_id, $plugin_definition, $field_definition, $settings, $label, $view_mode, $third_party_settings);
     $this->currentUser = $current_user;
     $this->imageStyleStorage = $image_style_storage;
-    if (!$file_url_generator) {
-      @trigger_error('Calling ImageFormatter::__construct() without the $file_url_generator argument is deprecated in drupal:9.3.0 and the $file_url_generator argument will be required in drupal:10.0.0. See https://www.drupal.org/node/2940031', E_USER_DEPRECATED);
-      $file_url_generator = \Drupal::service('file_url_generator');
-    }
     $this->fileUrlGenerator = $file_url_generator;
   }
 
@@ -129,24 +122,24 @@ class ImageFormatter extends ImageFormatterBase {
       Url::fromRoute('entity.image_style.collection')
     );
     $element['image_style'] = [
-      '#title' => t('Image style'),
+      '#title' => $this->t('Image style'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('image_style'),
-      '#empty_option' => t('None (original image)'),
+      '#empty_option' => $this->t('None (original image)'),
       '#options' => $image_styles,
       '#description' => $description_link->toRenderable() + [
         '#access' => $this->currentUser->hasPermission('administer image styles'),
       ],
     ];
     $link_types = [
-      'content' => t('Content'),
-      'file' => t('File'),
+      'content' => $this->t('Content'),
+      'file' => $this->t('File'),
     ];
     $element['image_link'] = [
-      '#title' => t('Link image to'),
+      '#title' => $this->t('Link image to'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('image_link'),
-      '#empty_option' => t('Nothing'),
+      '#empty_option' => $this->t('Nothing'),
       '#options' => $link_types,
     ];
 
@@ -189,15 +182,15 @@ class ImageFormatter extends ImageFormatterBase {
     // their styles in code.
     $image_style_setting = $this->getSetting('image_style');
     if (isset($image_styles[$image_style_setting])) {
-      $summary[] = t('Image style: @style', ['@style' => $image_styles[$image_style_setting]]);
+      $summary[] = $this->t('Image style: @style', ['@style' => $image_styles[$image_style_setting]]);
     }
     else {
-      $summary[] = t('Original image');
+      $summary[] = $this->t('Original image');
     }
 
     $link_types = [
-      'content' => t('Linked to content'),
-      'file' => t('Linked to file'),
+      'content' => $this->t('Linked to content'),
+      'file' => $this->t('Linked to file'),
     ];
     // Display this setting only if image is linked.
     $image_link_setting = $this->getSetting('image_link');

@@ -2,7 +2,6 @@
 
 namespace Drupal\Tests\system\Functional\Module;
 
-use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Config\InstallStorage;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Config\FileStorage;
@@ -24,7 +23,10 @@ abstract class ModuleTestBase extends BrowserTestBase {
 
   protected $adminUser;
 
-  protected function setUp() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
     parent::setUp();
 
     $this->adminUser = $this->drupalCreateUser([
@@ -49,7 +51,7 @@ abstract class ModuleTestBase extends BrowserTestBase {
         $tables_exist = FALSE;
       }
     }
-    $this->assertTrue($tables_exist, new FormattableMarkup('All database tables defined by the @module module exist.', ['@module' => $module]));
+    $this->assertTrue($tables_exist, "All database tables defined by the $module module exist.");
   }
 
   /**
@@ -67,7 +69,7 @@ abstract class ModuleTestBase extends BrowserTestBase {
         $tables_exist = TRUE;
       }
     }
-    $this->assertFalse($tables_exist, new FormattableMarkup('None of the database tables defined by the @module module exist.', ['@module' => $module]));
+    $this->assertFalse($tables_exist, "None of the database tables defined by the $module module exist.");
   }
 
   /**
@@ -104,11 +106,11 @@ abstract class ModuleTestBase extends BrowserTestBase {
       // All configuration in a module's config/install directory should depend
       // on the module as it must be removed on uninstall or the module will not
       // be re-installable.
-      $this->assertTrue(strpos($name, $module . '.') === 0 || isset($module_config_dependencies[$name]), "Configuration $name provided by $module in its config/install directory does not depend on it.");
+      $this->assertTrue(str_starts_with($name, $module . '.') || isset($module_config_dependencies[$name]), "Configuration $name provided by $module in its config/install directory does not depend on it.");
     }
     // Verify that all configuration has been installed (which means that $names
     // is empty).
-    $this->assertEmpty($names, new FormattableMarkup('All default configuration of @module module found.', ['@module' => $module]));
+    $this->assertEmpty($names, "All default configuration of $module module found.");
   }
 
   /**
@@ -119,7 +121,7 @@ abstract class ModuleTestBase extends BrowserTestBase {
    */
   public function assertNoModuleConfig($module) {
     $names = \Drupal::configFactory()->listAll($module . '.');
-    $this->assertEmpty($names, new FormattableMarkup('No configuration found for @module module.', ['@module' => $module]));
+    $this->assertEmpty($names, "No configuration found for $module module.");
   }
 
   /**
@@ -134,12 +136,12 @@ abstract class ModuleTestBase extends BrowserTestBase {
     $this->rebuildContainer();
     foreach ($modules as $module) {
       if ($enabled) {
-        $message = 'Module "@module" is enabled.';
+        $message = 'Module "%s" is enabled.';
       }
       else {
-        $message = 'Module "@module" is not enabled.';
+        $message = 'Module "%s" is not enabled.';
       }
-      $this->assertEquals($enabled, $this->container->get('module_handler')->moduleExists($module), new FormattableMarkup($message, ['@module' => $module]));
+      $this->assertEquals($enabled, $this->container->get('module_handler')->moduleExists($module), sprintf($message, $module));
     }
   }
 

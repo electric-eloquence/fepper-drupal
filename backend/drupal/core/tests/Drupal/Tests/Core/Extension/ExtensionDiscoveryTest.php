@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Extension;
 
 use Drupal\Component\FileCache\FileCacheFactory;
+use Drupal\Core\Extension\Discovery\RecursiveExtensionFilterIterator;
 use Drupal\Core\Extension\Extension;
 use Drupal\Core\Extension\ExtensionDiscovery;
 use Drupal\Tests\UnitTestCase;
@@ -127,6 +130,13 @@ class ExtensionDiscoveryTest extends UnitTestCase {
       'core/profiles/minimal/minimal.info.yml' => [
         'type' => 'profile',
       ],
+      'core/themes/test_theme/test_theme.info.yml' => [
+        'type' => 'theme',
+      ],
+      // Override the core instance of the 'test_theme' theme.
+      'sites/default/themes/test_theme/test_theme.info.yml' => [
+        'type' => 'theme',
+      ],
       // Override the core instance of the 'minimal' profile.
       'sites/default/profiles/minimal/minimal.info.yml' => [
         'type' => 'profile',
@@ -141,13 +151,6 @@ class ExtensionDiscoveryTest extends UnitTestCase {
       'core/modules/user/user.info.yml' => [],
       'profiles/other_profile/modules/other_profile_nested_module/other_profile_nested_module.info.yml' => [],
       'core/modules/system/system.info.yml' => [],
-      'core/themes/seven/seven.info.yml' => [
-        'type' => 'theme',
-      ],
-      // Override the core instance of the 'seven' theme.
-      'sites/default/themes/seven/seven.info.yml' => [
-        'type' => 'theme',
-      ],
       'modules/devel/devel.info.yml' => [],
       'modules/poorly_placed_theme/poorly_placed_theme.info.yml' => [
         'type' => 'theme',
@@ -201,6 +204,18 @@ class ExtensionDiscoveryTest extends UnitTestCase {
     else {
       $filesystem_structure[$piece] = $content;
     }
+  }
+
+  /**
+   * Tests deprecated iterator.
+   *
+   * @covers \Drupal\Core\Extension\Discovery\RecursiveExtensionFilterIterator
+   * @group legacy
+   */
+  public function testDeprecatedIterator(): void {
+    $this->expectDeprecation('The Drupal\Core\Extension\Discovery\RecursiveExtensionFilterIterator is deprecated in drupal:10.2.0 and is removed from drupal:11.0.0. Use \Drupal\Core\Extension\Discovery\RecursiveExtensionFilterCallback instead. See https://www.drupal.org/node/3343023');
+    $recursive_extension_filter_iterator = new RecursiveExtensionFilterIterator(new \RecursiveDirectoryIterator('.'));
+    $this->assertInstanceOf(RecursiveExtensionFilterIterator::class, $recursive_extension_filter_iterator);
   }
 
 }

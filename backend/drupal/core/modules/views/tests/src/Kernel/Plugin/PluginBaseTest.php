@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\views\Tests\Plugin\PluginBaseTest.
- */
-
 namespace Drupal\Tests\views\Kernel\Plugin;
 
 use Drupal\Core\Render\RenderContext;
@@ -24,6 +19,9 @@ class PluginBaseTest extends KernelTestBase {
    */
   protected $testPluginBase;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->testPluginBase = new TestPluginBase();

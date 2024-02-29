@@ -23,6 +23,9 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -92,6 +95,9 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->fieldExists('Weight');
     $assert_session->pageTextContains($edit_help_text);
 
+    $this->submitForm([], 'Reset to alphabetical');
+    $assert_session->statusCodeEquals(200);
+
     // Visit vocabulary overview without terms. 'Add term' should be shown.
     $this->drupalGet('admin/structure/taxonomy/manage/' . $vocabulary2_id . '/overview');
     $assert_session->statusCodeEquals(200);
@@ -115,6 +121,7 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->linkNotExists('Edit');
     $assert_session->linkNotExists('Delete');
     $assert_session->buttonNotExists('Save');
+    $assert_session->buttonNotExists('Reset to alphabetical');
     $assert_session->pageTextContains('Weight');
     $assert_session->fieldNotExists('Weight');
     $assert_session->linkNotExists('Add term');
@@ -144,6 +151,9 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->linkNotExists('Add term');
     $assert_session->pageTextContains($edit_help_text);
 
+    $this->submitForm([], 'Reset to alphabetical');
+    $assert_session->statusCodeEquals(200);
+
     // Visit vocabulary overview without terms. 'Add term' should not be shown.
     $this->drupalGet('admin/structure/taxonomy/manage/' . $vocabulary2_id . '/overview');
     $assert_session->statusCodeEquals(200);
@@ -163,6 +173,7 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->linkExists('Delete');
     $assert_session->linkNotExists('Add term');
     $assert_session->buttonNotExists('Save');
+    $assert_session->buttonNotExists('Reset to alphabetical');
     $assert_session->pageTextContains('Weight');
     $assert_session->fieldNotExists('Weight');
     $assert_session->pageTextContains($no_edit_help_text);
@@ -191,6 +202,8 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->pageTextContains('Weight');
     $assert_session->fieldExists('Weight');
     $assert_session->pageTextContains($edit_help_text);
+    $this->submitForm([], 'Reset to alphabetical');
+    $assert_session->statusCodeEquals(200);
 
     // Visit vocabulary overview without terms. 'Add term' should not be shown.
     $this->drupalGet('admin/structure/taxonomy/manage/' . $vocabulary2_id . '/overview');
@@ -212,6 +225,7 @@ class VocabularyPermissionsTest extends TaxonomyTestBase {
     $assert_session->linkNotExists('Delete');
     $assert_session->linkExists('Add term');
     $assert_session->buttonNotExists('Save');
+    $assert_session->buttonNotExists('Reset to alphabetical');
     $assert_session->pageTextContains('Weight');
     $assert_session->fieldNotExists('Weight');
     $assert_session->pageTextContains($no_edit_help_text);

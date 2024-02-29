@@ -44,11 +44,9 @@
 }
 .toolbar .toolbar-bar .toolbar-tab > .toolbar-item:hover,
 .toolbar .toolbar-bar .toolbar-tab > .toolbar-item:focus {
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.125) 20%, transparent 200%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.125) 20%, transparent 200%);
 }
 .toolbar .toolbar-bar .toolbar-tab > .toolbar-item.is-active {
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
   background-image: linear-gradient(rgba(255, 255, 255, 0.25) 20%, transparent 200%);
 }
 
@@ -85,7 +83,8 @@
 .toolbar .toolbar-tray-horizontal .toolbar-tray {
   background-color: #f5f5f5;
 }
-.toolbar-tray a {
+.toolbar-tray a,
+.toolbar-tray a:visited {
   padding: 1em 1.3333em;
   cursor: pointer;
   text-decoration: none;

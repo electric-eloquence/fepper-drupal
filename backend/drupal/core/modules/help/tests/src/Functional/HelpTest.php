@@ -21,19 +21,20 @@ class HelpTest extends BrowserTestBase {
    *
    * @var array
    */
-  protected static $modules = ['help_test', 'help_page_test'];
+  protected static $modules = [
+    'block_content',
+    'breakpoint',
+    'editor',
+    'help',
+    'help_page_test',
+    'help_test',
+    'history',
+  ];
 
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'stark';
-
-  /**
-   * Use the Standard profile to test help implementations of many core modules.
-   *
-   * @var string
-   */
-  protected $profile = 'standard';
+  protected $defaultTheme = 'claro';
 
   /**
    * The admin user that will be created.
@@ -45,12 +46,15 @@ class HelpTest extends BrowserTestBase {
    */
   protected $anyUser;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
     // Create users.
     $this->adminUser = $this->drupalCreateUser([
-      'access administration pages',
+      'access help pages',
       'view the administration theme',
       'administer permissions',
     ]);
@@ -101,7 +105,7 @@ class HelpTest extends BrowserTestBase {
     $page_text = $this->getTextContent();
     $start = strpos($page_text, 'Module overviews');
     $pos = $start;
-    $list = ['Block', 'Breakpoint', 'Custom Block', 'History', 'Text Editor'];
+    $list = ['Block', 'Block Content', 'Breakpoint', 'History', 'Text Editor'];
     foreach ($list as $name) {
       $this->assertSession()->linkExists($name);
       $new_pos = strpos($page_text, $name, $start);
@@ -126,6 +130,7 @@ class HelpTest extends BrowserTestBase {
       $this->assertSession()->pageTextNotContains('This page shows you all available administration tasks for each module.');
     }
 
+    $module_list = \Drupal::service('extension.list.module');
     foreach ($this->getModuleList() as $module => $name) {
       // View module help page.
       $this->drupalGet('admin/help/' . $module);
@@ -133,8 +138,11 @@ class HelpTest extends BrowserTestBase {
       if ($response == 200) {
         $this->assertSession()->titleEquals("$name | Drupal");
         $this->assertEquals($name, $this->cssSelect('h1.page-title')[0]->getText(), "$module heading was displayed");
-        $info = \Drupal::service('extension.list.module')->getExtensionInfo($module);
-        $admin_tasks = system_get_module_admin_tasks($module, $info);
+        $info = $module_list->getExtensionInfo($module);
+        $admin_tasks = \Drupal::service('system.module_admin_links_helper')->getModuleAdminLinks($module);
+        if ($module_permissions_link = \Drupal::service('user.module_permissions_link_helper')->getModulePermissionsLink($module, $info['name'])) {
+          $admin_tasks["user.admin_permissions.{$module}"] = $module_permissions_link;
+        }
         if (!empty($admin_tasks)) {
           $this->assertSession()->pageTextContains($name . ' administration pages');
         }
@@ -149,6 +157,12 @@ class HelpTest extends BrowserTestBase {
         // Ensure there are no double escaped '&' or '<' characters.
         $this->assertSession()->assertNoEscaped('&amp;');
         $this->assertSession()->assertNoEscaped('&lt;');
+
+        // The help for CKEditor 5 intentionally has escaped '<' so leave this
+        // iteration before the assertion below.
+        if ($module === 'ckeditor5') {
+          continue;
+        }
         // Ensure there are no escaped '<' characters.
         $this->assertSession()->assertNoEscaped('<');
       }

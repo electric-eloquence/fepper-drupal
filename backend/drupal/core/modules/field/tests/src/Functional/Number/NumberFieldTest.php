@@ -11,6 +11,7 @@ use Drupal\Tests\BrowserTestBase;
  * Tests the creation of numeric fields.
  *
  * @group field
+ * @group #slow
  */
 class NumberFieldTest extends BrowserTestBase {
 
@@ -26,6 +27,9 @@ class NumberFieldTest extends BrowserTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->drupalLogin($this->drupalCreateUser([
@@ -44,7 +48,7 @@ class NumberFieldTest extends BrowserTestBase {
    */
   public function testNumberDecimalField() {
     // Create a field with settings to validate.
-    $field_name = mb_strtolower($this->randomMachineName());
+    $field_name = $this->randomMachineName();
     FieldStorageConfig::create([
       'field_name' => $field_name,
       'entity_type' => 'entity_test',
@@ -135,7 +139,7 @@ class NumberFieldTest extends BrowserTestBase {
     $maximum = rand(2000, 4000);
 
     // Create a field with settings to validate.
-    $field_name = mb_strtolower($this->randomMachineName());
+    $field_name = $this->randomMachineName();
     $storage = FieldStorageConfig::create([
       'field_name' => $field_name,
       'entity_type' => 'entity_test',
@@ -280,6 +284,17 @@ class NumberFieldTest extends BrowserTestBase {
     // Verify that the "content" attribute has been set to the value of the
     // field, and the prefix is being displayed.
     $this->assertSession()->elementTextContains('xpath', '//div[@content="' . $integer_value . '"]', 'ThePrefix' . $integer_value);
+
+    $field_configuration_url = 'entity_test/structure/entity_test/fields/entity_test.entity_test.' . $field_name;
+    $this->drupalGet($field_configuration_url);
+
+    // Tests Number validation messages.
+    $edit = [
+      'settings[min]' => 10,
+      'settings[max]' => 8,
+    ];
+    $this->submitForm($edit, 'Save settings');
+    $this->assertSession()->pageTextContains("The minimum value must be less than or equal to {$edit['settings[max]']}.");
   }
 
   /**
@@ -287,7 +302,7 @@ class NumberFieldTest extends BrowserTestBase {
    */
   public function testNumberFloatField() {
     // Create a field with settings to validate.
-    $field_name = mb_strtolower($this->randomMachineName());
+    $field_name = $this->randomMachineName();
     FieldStorageConfig::create([
       'field_name' => $field_name,
       'entity_type' => 'entity_test',
@@ -380,7 +395,7 @@ class NumberFieldTest extends BrowserTestBase {
    */
   public function testCreateNumberFloatField() {
     // Create a float field.
-    $field_name = mb_strtolower($this->randomMachineName());
+    $field_name = $this->randomMachineName();
     FieldStorageConfig::create([
       'field_name' => $field_name,
       'entity_type' => 'entity_test',
@@ -405,7 +420,7 @@ class NumberFieldTest extends BrowserTestBase {
    */
   public function testCreateNumberDecimalField() {
     // Create a decimal field.
-    $field_name = mb_strtolower($this->randomMachineName());
+    $field_name = $this->randomMachineName();
     FieldStorageConfig::create([
       'field_name' => $field_name,
       'entity_type' => 'entity_test',

@@ -6,8 +6,7 @@ use Drupal\Tests\BrowserTestBase;
 use Drupal\block\Entity\Block;
 
 /**
- * Tests that an active block assigned to a non-existing region triggers the
- * warning message and is disabled.
+ * Tests that blocks assigned to invalid regions are disabled with a warning.
  *
  * @group block
  */
@@ -25,6 +24,9 @@ class BlockInvalidRegionTest extends BrowserTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     // Create an admin user.

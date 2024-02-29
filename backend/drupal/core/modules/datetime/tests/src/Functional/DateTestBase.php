@@ -88,7 +88,7 @@ abstract class DateTestBase extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $web_user = $this->drupalCreateUser([
@@ -99,6 +99,8 @@ abstract class DateTestBase extends BrowserTestBase {
       'administer content types',
       'bypass node access',
       'administer node fields',
+      'administer node form display',
+      'administer node display',
     ]);
     $this->drupalLogin($web_user);
 
@@ -112,8 +114,8 @@ abstract class DateTestBase extends BrowserTestBase {
    * Creates a date test field.
    */
   protected function createField() {
-    $field_name = mb_strtolower($this->randomMachineName());
-    $field_label = Unicode::ucfirst(mb_strtolower($this->randomMachineName()));
+    $field_name = $this->randomMachineName();
+    $field_label = Unicode::ucfirst($this->randomMachineName());
     $type = $this->getTestFieldType();
     $widget_type = $formatter_type = $type . '_default';
 

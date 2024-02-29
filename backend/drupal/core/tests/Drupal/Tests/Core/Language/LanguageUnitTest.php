@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Language;
 
 use Drupal\Core\Language\Language;
@@ -63,7 +65,7 @@ class LanguageUnitTest extends UnitTestCase {
     $container->expects($this->any())
       ->method('get')
       ->with('language.default')
-      ->will($this->returnValue($language_default));
+      ->willReturn($language_default);
     \Drupal::setContainer($container);
 
     $language = new Language(['id' => $this->randomMachineName(2)]);

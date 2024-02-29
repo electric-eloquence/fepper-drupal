@@ -20,6 +20,9 @@ class EntityTypeConstraintValidatorTest extends EntityKernelTestBase {
 
   protected static $modules = ['node', 'field', 'user'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->typedData = $this->container->get('typed_data_manager');
@@ -53,7 +56,7 @@ class EntityTypeConstraintValidatorTest extends EntityKernelTestBase {
 
     // Make sure the information provided by a violation is correct.
     $violation = $violations[0];
-    $this->assertEquals(t('The entity must be of type %type.', ['%type' => $entity_type]), $violation->getMessage(), 'The message for invalid value is correct.');
+    $this->assertEquals(sprintf('The entity must be of type %s.', $entity_type), $violation->getMessage(), 'The message for invalid value is correct.');
     $this->assertEquals($typed_data, $violation->getRoot(), 'Violation root is correct.');
     $this->assertEquals($account, $violation->getInvalidValue(), 'The invalid value is set correctly in the violation.');
   }

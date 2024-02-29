@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\forum\Unit\Breadcrumb;
 
 use Drupal\Core\Cache\Cache;
@@ -57,7 +59,7 @@ class ForumListingBreadcrumbBuilderTest extends UnitTestCase {
     $route_match = $this->createMock('Drupal\Core\Routing\RouteMatchInterface');
     $route_match->expects($this->once())
       ->method('getRouteName')
-      ->will($this->returnValue($route_name));
+      ->willReturn($route_name);
     $route_match->expects($this->any())
       ->method('getParameter')
       ->willReturnMap($parameter_map);
@@ -196,7 +198,7 @@ class ForumListingBreadcrumbBuilderTest extends UnitTestCase {
     $route_match->expects($this->exactly(2))
       ->method('getParameter')
       ->with('taxonomy_term')
-      ->will($this->returnValue($forum_listing));
+      ->willReturn($forum_listing);
 
     // First test.
     $expected1 = [

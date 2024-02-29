@@ -19,6 +19,9 @@ class VocabularyLanguageTest extends TaxonomyTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -47,7 +50,7 @@ class VocabularyLanguageTest extends TaxonomyTestBase {
     $this->assertSession()->fieldExists('edit-langcode');
 
     // Create the vocabulary.
-    $vid = mb_strtolower($this->randomMachineName());
+    $vid = $this->randomMachineName();
     $edit['name'] = $this->randomMachineName();
     $edit['description'] = $this->randomMachineName();
     $edit['langcode'] = 'aa';
@@ -76,7 +79,7 @@ class VocabularyLanguageTest extends TaxonomyTestBase {
     // the terms are saved.
     $edit = [
       'name' => $this->randomMachineName(),
-      'vid' => mb_strtolower($this->randomMachineName()),
+      'vid' => $this->randomMachineName(),
       'default_language[langcode]' => 'bb',
       'default_language[language_alterable]' => TRUE,
     ];

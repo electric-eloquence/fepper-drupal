@@ -129,7 +129,7 @@ class FilterAdminTest extends BrowserTestBase {
     // Add text format.
     $this->drupalGet('admin/config/content/formats');
     $this->clickLink('Add text format');
-    $format_id = mb_strtolower($this->randomMachineName());
+    $format_id = $this->randomMachineName();
     $name = $this->randomMachineName();
     $edit = [
       'format' => $format_id,
@@ -224,12 +224,7 @@ class FilterAdminTest extends BrowserTestBase {
     $this->drupalGet('admin/config/content/formats/manage/' . $restricted);
     // Check that the allowed HTML tag was added and the string reformatted.
     $this->assertSession()->fieldValueEquals('filters[filter_html][settings][allowed_html]', "<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <quote>");
-
-    $elements = $this->xpath('//select[@name=:first]/following::select[@name=:second]', [
-      ':first' => 'filters[' . $first_filter . '][weight]',
-      ':second' => 'filters[' . $second_filter . '][weight]',
-    ]);
-    $this->assertNotEmpty($elements, 'Order confirmed in admin interface.');
+    $this->assertSession()->elementExists('xpath', "//select[@name='filters[" . $first_filter . "][weight]']/following::select[@name='filters[" . $second_filter . "][weight]']");
 
     // Reorder filters.
     $edit = [];
@@ -240,12 +235,7 @@ class FilterAdminTest extends BrowserTestBase {
     $this->drupalGet('admin/config/content/formats/manage/' . $restricted);
     $this->assertSession()->fieldValueEquals('filters[' . $second_filter . '][weight]', 1);
     $this->assertSession()->fieldValueEquals('filters[' . $first_filter . '][weight]', 2);
-
-    $elements = $this->xpath('//select[@name=:first]/following::select[@name=:second]', [
-      ':first' => 'filters[' . $second_filter . '][weight]',
-      ':second' => 'filters[' . $first_filter . '][weight]',
-    ]);
-    $this->assertNotEmpty($elements, 'Reorder confirmed in admin interface.');
+    $this->assertSession()->elementExists('xpath', "//select[@name='filters[" . $second_filter . "][weight]']/following::select[@name='filters[" . $first_filter . "][weight]']");
 
     $filter_format = FilterFormat::load($restricted);
     foreach ($filter_format->filters() as $filter_name => $filter) {
@@ -258,7 +248,7 @@ class FilterAdminTest extends BrowserTestBase {
 
     // Add format.
     $edit = [];
-    $edit['format'] = mb_strtolower($this->randomMachineName());
+    $edit['format'] = $this->randomMachineName();
     $edit['name'] = $this->randomMachineName();
     $edit['roles[' . RoleInterface::AUTHENTICATED_ID . ']'] = 1;
     $edit['filters[' . $second_filter . '][status]'] = TRUE;
@@ -422,14 +412,17 @@ class FilterAdminTest extends BrowserTestBase {
    */
   public function testDisabledFormat() {
     // Create a node type and add a standard body field.
-    $node_type = NodeType::create(['type' => mb_strtolower($this->randomMachineName())]);
+    $node_type = NodeType::create([
+      'type' => $this->randomMachineName(),
+      'name' => $this->randomString(),
+    ]);
     $node_type->save();
     node_add_body_field($node_type, $this->randomString());
 
     // Create a text format with a filter that returns a static string.
     $format = FilterFormat::create([
       'name' => $this->randomString(),
-      'format' => $format_id = mb_strtolower($this->randomMachineName()),
+      'format' => $format_id = $this->randomMachineName(),
     ]);
     $format->setFilterConfig('filter_static_text', ['status' => TRUE]);
     $format->save();

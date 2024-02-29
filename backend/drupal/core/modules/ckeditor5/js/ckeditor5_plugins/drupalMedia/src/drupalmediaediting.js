@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/* cspell:words insertdrupalmedia drupalmediaediting insertdrupalmediacommand drupalmediametadatarepository */
+/* cspell:ignore insertdrupalmedia drupalmediaediting insertdrupalmediacommand drupalmediametadatarepository */
 
 import { Plugin } from 'ckeditor5/src/core';
 import { toWidget, Widget } from 'ckeditor5/src/widget';
@@ -27,15 +27,26 @@ export default class DrupalMediaEditing extends Plugin {
     return [Widget];
   }
 
-  /**
-   * @inheritdoc
-   */
-  init() {
+  constructor(editor) {
+    super(editor);
+
     this.attrs = {
       drupalMediaAlt: 'alt',
       drupalMediaEntityType: 'data-entity-type',
       drupalMediaEntityUuid: 'data-entity-uuid',
     };
+    this.converterAttributes = [
+      'drupalMediaEntityUuid',
+      'drupalElementStyleViewMode',
+      'drupalMediaEntityType',
+      'drupalMediaAlt',
+    ];
+  }
+
+  /**
+   * @inheritdoc
+   */
+  init() {
     const options = this.editor.config.get('drupalMedia');
     if (!options) {
       return;
@@ -47,7 +58,7 @@ export default class DrupalMediaEditing extends Plugin {
       themeError ||
       `
       <p>${Drupal.t(
-        'An error occurred while trying to preview the media. Please save your work and reload this page.',
+        'An error occurred while trying to preview the media. Save your work and reload this page.',
       )}<p>
     `;
 
@@ -196,10 +207,7 @@ export default class DrupalMediaEditing extends Plugin {
   _defineSchema() {
     const schema = this.editor.model.schema;
     schema.register('drupalMedia', {
-      allowWhere: '$block',
-      isObject: true,
-      isContent: true,
-      isBlock: true,
+      inheritAllFrom: '$blockObject',
       allowAttributes: Object.keys(this.attrs),
     });
     // Register `<drupal-media>` as a block element in the DOM converter. This
@@ -360,13 +368,9 @@ export default class DrupalMediaEditing extends Plugin {
 
         // List all attributes that should trigger re-rendering of the
         // preview.
-        dispatcher.on('attribute:drupalMediaEntityUuid:drupalMedia', converter);
-        dispatcher.on(
-          'attribute:drupalElementStyleViewMode:drupalMedia',
-          converter,
-        );
-        dispatcher.on('attribute:drupalMediaEntityType:drupalMedia', converter);
-        dispatcher.on('attribute:drupalMediaAlt:drupalMedia', converter);
+        this.converterAttributes.forEach((attribute) => {
+          dispatcher.on(`attribute:${attribute}:drupalMedia`, converter);
+        });
 
         return dispatcher;
       });

@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\Core\DependencyInjection\Compiler\TaggedHandlersPassTest.
- */
+declare(strict_types=1);
 
 namespace Drupal\Tests\Core\DependencyInjection\Compiler;
 
@@ -131,7 +128,7 @@ class TaggedHandlersPassTest extends UnitTestCase {
    *
    * @covers ::process
    */
-  public function testserviceIdProcess() {
+  public function testServiceIdProcess() {
     $container = $this->buildContainer();
     $container
       ->register('consumer_id', __NAMESPACE__ . '\ValidConsumer')
@@ -188,7 +185,7 @@ class TaggedHandlersPassTest extends UnitTestCase {
    *
    * @covers ::process
    */
-  public function testserviceIdProcessPriority() {
+  public function testServiceIdProcessPriority() {
     $container = $this->buildContainer();
     $container
       ->register('consumer_id', __NAMESPACE__ . '\ValidConsumer')
@@ -324,9 +321,9 @@ class TaggedHandlersPassTest extends UnitTestCase {
     $container
       ->register('handler1', __NAMESPACE__ . '\ValidHandler')
       ->addTag('consumer_id', [
-          'extra1' => 'extra1',
-          'extra2' => 'extra2',
-        ]);
+        'extra1' => 'extra1',
+        'extra2' => 'extra2',
+      ]);
 
     $handler_pass = new TaggedHandlersPass();
     $handler_pass->process($container);
@@ -401,8 +398,7 @@ class TaggedHandlersPassTest extends UnitTestCase {
   }
 
   /**
-   * Tests consumer method with priority and extra parameters in different
-   * order.
+   * Tests consumer method with varying order of priority and extra parameters.
    *
    * @covers ::process
    */

@@ -41,8 +41,9 @@ class Query extends QueryBase implements QueryInterface {
   protected $sqlFields = [];
 
   /**
-   * An array of strings added as to the group by, keyed by the string to avoid
-   * duplicates.
+   * An array of strings for the SQL 'group by' operation.
+   *
+   * Array is keyed by the string to avoid duplicates.
    *
    * @var array
    */
@@ -137,8 +138,7 @@ class Query extends QueryBase implements QueryInterface {
     }
 
     if (is_null($this->accessCheck)) {
-      $this->accessCheck = TRUE;
-      @trigger_error('Relying on entity queries to check access by default is deprecated in drupal:9.2.0 and an error will be thrown from drupal:10.0.0. Call \Drupal\Core\Entity\Query\QueryInterface::accessCheck() with TRUE or FALSE to specify whether access should be checked. See https://www.drupal.org/node/3201242', E_USER_DEPRECATED);
+      throw new QueryException('Entity queries must explicitly set whether the query should be access checked or not. See Drupal\Core\Entity\Query\QueryInterface::accessCheck().');
     }
     if ($this->accessCheck) {
       $this->sqlQuery->addTag($this->entityTypeId . '_access');
@@ -263,7 +263,7 @@ class Query extends QueryBase implements QueryInterface {
    */
   protected function result() {
     if ($this->count) {
-      return $this->sqlQuery->countQuery()->execute()->fetchField();
+      return (int) $this->sqlQuery->countQuery()->execute()->fetchField();
     }
     // Return a keyed array of results. The key is either the revision_id or
     // the entity_id depending on whether the entity type supports revisions.

@@ -10,8 +10,7 @@ use Drupal\user\Entity\User;
 use Drupal\field\Entity\FieldStorageConfig;
 
 /**
- * Tests node_access and select queries with node_access tag functionality with
- * multiple languages with node_access_test_language which is language-aware.
+ * Tests multilingual node access with a language-aware module.
  *
  * @group node
  */
@@ -45,6 +44,9 @@ class NodeAccessLanguageAwareTest extends NodeAccessTestBase {
    */
   protected $webUser;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 

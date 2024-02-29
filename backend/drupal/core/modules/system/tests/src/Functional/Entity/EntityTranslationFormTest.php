@@ -29,6 +29,9 @@ class EntityTranslationFormTest extends BrowserTestBase {
 
   protected $langcodes;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     // Enable translations for the test entity type.
@@ -87,7 +90,7 @@ class EntityTranslationFormTest extends BrowserTestBase {
     $this->drupalGet('admin/structure/types/manage/page');
     $edit = ['language_configuration[language_alterable]' => TRUE, 'language_configuration[langcode]' => LanguageInterface::LANGCODE_NOT_SPECIFIED];
     $this->drupalGet('admin/structure/types/manage/page');
-    $this->submitForm($edit, 'Save content type');
+    $this->submitForm($edit, 'Save');
     $this->assertSession()->pageTextContains("The content type Basic page has been updated.");
 
     // Create a node with language.

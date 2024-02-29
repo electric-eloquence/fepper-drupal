@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\ckeditor5\FunctionalJavascript;
 
 // cspell:ignore sourceediting
@@ -17,7 +19,7 @@ class AdminUiTest extends CKEditor5TestBase {
    */
   protected static $modules = [
     'media_library',
-    'ckeditor',
+    'editor_test',
     'ckeditor5_incompatible_filter_test',
   ];
 
@@ -28,60 +30,43 @@ class AdminUiTest extends CKEditor5TestBase {
     $page = $this->getSession()->getPage();
     $assert_session = $this->assertSession();
     $this->addNewTextFormat($page, $assert_session);
-    $this->addNewTextFormat($page, $assert_session, 'ckeditor');
+    $this->addNewTextFormat($page, $assert_session, 'unicorn');
 
     $this->drupalGet('admin/config/content/formats/manage/ckeditor5');
-    $number_ajax_instances_before = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
 
     // Enable media embed to trigger an AJAX rebuild.
     $this->assertTrue($page->hasUncheckedField('filters[media_embed][status]'));
+    $this->assertNoAjaxRequestTriggered();
     $page->checkField('filters[media_embed][status]');
-    $this->assertNotEmpty($assert_session->waitForElement('css', '.ajax-progress-throbber'));
-    $assert_session->assertWaitOnAjaxRequest();
-    $assert_session->responseContains('Media types selectable in the Media Library');
-    $assert_session->assertWaitOnAjaxRequest();
-    $number_ajax_instances_after = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
-
-    // After the rebuild, there should be more AJAX instances.
-    $this->assertGreaterThan($number_ajax_instances_before, $number_ajax_instances_after);
+    $assert_session->assertExpectedAjaxRequest(1);
 
     // Perform the same steps as above with CKEditor, and confirm AJAX callbacks
     // are not triggered on settings changes.
-    $this->drupalGet('admin/config/content/formats/manage/ckeditor');
-    $number_ajax_instances_before = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
+    $this->drupalGet('admin/config/content/formats/manage/unicorn');
 
     // Enable media embed to confirm a format not using CKEditor 5 will not
     // trigger an AJAX rebuild.
     $this->assertTrue($page->hasUncheckedField('filters[media_embed][status]'));
     $page->checkField('filters[media_embed][status]');
-    $this->assertEmpty($assert_session->waitForElement('css', '.ajax-progress-throbber'));
-    $assert_session->assertWaitOnAjaxRequest();
-    $assert_session->responseContains('Media types selectable in the Media Library');
-    $assert_session->assertWaitOnAjaxRequest();
-
-    $number_ajax_instances_after = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
-    $this->assertSame($number_ajax_instances_before, $number_ajax_instances_after);
+    $this->assertNoAjaxRequestTriggered();
 
     // Confirm that AJAX updates happen when attempting to switch to CKEditor 5,
     // even if prevented from doing so by validation.
     $this->drupalGet('admin/config/content/formats/add');
-    $page->fillField('name', 'trigger validator');
-    $assert_session->waitForText('Machine name');
-    $page->checkField('roles[authenticated]');
+    $this->assertFalse($assert_session->elementExists('css', '#edit-name-machine-name-suffix')->isVisible());
+    $name_field = $page->findField('name');
+    $name_field->setValue('trigger validator');
+    $this->assertTrue($assert_session->elementExists('css', '#edit-name-machine-name-suffix')->isVisible());
 
     // Enable a filter that is incompatible with CKEditor 5, so validation is
     // triggered when attempting to switch.
     $incompatible_filter_name = 'filters[filter_incompatible][status]';
-    $number_ajax_instances_before = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
     $this->assertTrue($page->hasUncheckedField($incompatible_filter_name));
     $page->checkField($incompatible_filter_name);
-    $this->assertEmpty($assert_session->waitForElement('css', '.ajax-progress-throbber'));
-    $assert_session->assertWaitOnAjaxRequest();
-    $number_ajax_instances_after = $this->getSession()->evaluateScript('Drupal.ajax.instances.length');
-    $this->assertSame($number_ajax_instances_before, $number_ajax_instances_after);
+    $this->assertNoAjaxRequestTriggered();
 
     $page->selectFieldOption('editor[editor]', 'ckeditor5');
-    $assert_session->assertWaitOnAjaxRequest();
+    $assert_session->assertExpectedAjaxRequest(1);
 
     $filter_warning = 'CKEditor 5 only works with HTML-based text formats. The "A TYPE_MARKUP_LANGUAGE filter incompatible with CKEditor 5" (filter_incompatible) filter implies this text format is not HTML anymore.';
 
@@ -94,19 +79,70 @@ class AdminUiTest extends CKEditor5TestBase {
     // been corrected.
     $this->assertTrue($page->hasCheckedField($incompatible_filter_name));
     $page->uncheckField($incompatible_filter_name);
-    $this->assertNotEmpty($assert_session->waitForElement('css', '.ajax-progress-throbber'));
-    $assert_session->assertWaitOnAjaxRequest();
+    $assert_session->assertExpectedAjaxRequest(2);
     $assert_session->pageTextNotContains($filter_warning);
   }
 
   /**
-   * CKEditor5's filter UI modifications should not break it for other editors.
+   * Asserts that no (new) AJAX requests were triggered.
+   *
+   * @param int $expected_cumulative_ajax_request_count
+   *   The number of expected observed XHR requests since the page was loaded.
+   */
+  protected function assertNoAjaxRequestTriggered(int $expected_cumulative_ajax_request_count = 0): void {
+    // In case of no requests triggered at all yet.
+    if ($expected_cumulative_ajax_request_count === 0) {
+      $result = $this->getSession()->evaluateScript(<<<JS
+      (function() {
+        return window.drupalCumulativeXhrCount;
+      }())
+JS);
+      $this->assertSame(0, $result);
+    }
+    else {
+      // In case of the non-first AJAX request, ensure that no AJAX requests are
+      // in progress.
+      try {
+        $this->assertSession()->assertWaitOnAjaxRequest(500);
+      }
+      catch (\RuntimeException $e) {
+        throw new \LogicException(sprintf('This call to %s claims there no AJAX request was triggered, but this is wrong: %s.', __METHOD__, $e->getMessage()));
+      }
+      catch (\LogicException $e) {
+        // This is the intent: ::assertWaitOnAjaxRequest() should detect an
+        // "incorrect" call, because this assertion is asserting *no* AJAX
+        // requests have been triggered.
+        assert(str_contains($e->getMessage(), 'Unnecessary'));
+
+        $result = $this->getSession()->evaluateScript(<<<JS
+        (function() {
+          return window.drupalCumulativeXhrCount;
+        }())
+JS);
+        $this->assertSame($expected_cumulative_ajax_request_count, $result);
+      }
+    }
+
+    // Now that there definitely is no more AJAX request in progress, count the
+    // number of actual XHR requests, ensure they match.
+    $javascript = <<<JS
+(function(){
+  return window.performance
+    .getEntries()
+    .filter(entry => entry.initiatorType === 'xmlhttprequest')
+    .length
+})()
+JS;
+    $this->assertSame($expected_cumulative_ajax_request_count, $this->getSession()->evaluateScript($javascript));
+  }
+
+  /**
+   * CKEditor 5's filter UI modifications should not break it for other editors.
    */
   public function testUnavailableFiltersHiddenWhenSwitching() {
     $page = $this->getSession()->getPage();
     $assert_session = $this->assertSession();
-    $this->createNewTextFormat($page, $assert_session, 'ckeditor');
-    $assert_session->assertWaitOnAjaxRequest();
+    $this->createNewTextFormat($page, $assert_session, 'unicorn');
     $assert_session->pageTextNotContains('Filter settings');
 
     // Switching to CKEditor 5 should keep the filter settings hidden.
@@ -123,8 +159,6 @@ class AdminUiTest extends CKEditor5TestBase {
     $assert_session = $this->assertSession();
 
     $this->createNewTextFormat($page, $assert_session);
-
-    $assert_session->assertWaitOnAjaxRequest();
 
     $media_tab = $page->find('css', '[href^="#edit-filters-media-embed-settings"]');
     $this->assertFalse($media_tab->isVisible(), 'Media filter settings should not be present because media filter is not enabled');
@@ -169,7 +203,6 @@ class AdminUiTest extends CKEditor5TestBase {
     // validation error.
     $assert_session->waitForText('Source editing');
     $page->find('css', '[href^="#edit-editor-settings-plugins-ckeditor5-sourceediting"]')->click();
-    $assert_session->assertWaitOnAjaxRequest();
     $assert_session->waitForText('Manually editable HTML tags');
     $source_edit_tags_field = $assert_session->fieldExists('editor[settings][plugins][ckeditor5_sourceEditing][allowed_tags]');
     $source_edit_tags_field->setValue('<strong>');
@@ -195,7 +228,6 @@ class AdminUiTest extends CKEditor5TestBase {
     $assert_session = $this->assertSession();
 
     $this->createNewTextFormat($page, $assert_session);
-    $assert_session->assertWaitOnAjaxRequest();
 
     // The default toolbar only enables the configurable heading plugin and the
     // non-configurable bold and italic plugins.
@@ -240,7 +272,6 @@ class AdminUiTest extends CKEditor5TestBase {
     $assert_session = $this->assertSession();
 
     $this->createNewTextFormat($page, $assert_session);
-    $assert_session->assertWaitOnAjaxRequest();
 
     // The language plugin config form should not be present.
     $assert_session->elementNotExists('css', '[data-drupal-selector="edit-editor-settings-plugins-ckeditor5-language"]');

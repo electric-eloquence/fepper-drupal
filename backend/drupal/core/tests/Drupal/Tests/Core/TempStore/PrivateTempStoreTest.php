@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\TempStore;
 
-use Drupal\Core\Http\RequestStack;
 use Drupal\Core\TempStore\Lock;
 use Drupal\Tests\UnitTestCase;
 use Drupal\Core\TempStore\PrivateTempStore;
 use Drupal\Core\TempStore\TempStoreException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * @coversDefaultClass \Drupal\Core\TempStore\PrivateTempStore
@@ -127,7 +129,7 @@ class PrivateTempStoreTest extends UnitTestCase {
     $this->lock->expects($this->exactly(2))
       ->method('acquire')
       ->with('1:test')
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->lock->expects($this->once())
       ->method('wait')
       ->with('1:test');
@@ -148,7 +150,7 @@ class PrivateTempStoreTest extends UnitTestCase {
     $this->lock->expects($this->once())
       ->method('acquire')
       ->with('1:test')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
     $this->lock->expects($this->never())
       ->method('wait');
     $this->lock->expects($this->once())
@@ -175,10 +177,10 @@ class PrivateTempStoreTest extends UnitTestCase {
 
     $metadata = $this->tempStore->getMetadata('test');
     $this->assertInstanceOf(Lock::class, $metadata);
-    $this->assertObjectHasAttribute('ownerId', $metadata);
-    $this->assertObjectHasAttribute('updated', $metadata);
+    $this->assertObjectHasProperty('ownerId', $metadata);
+    $this->assertObjectHasProperty('updated', $metadata);
     // Data should get removed.
-    $this->assertObjectNotHasAttribute('data', $metadata);
+    $this->assertObjectNotHasProperty('data', $metadata);
 
     $this->assertNull($this->tempStore->getMetadata('test'));
   }
@@ -192,11 +194,11 @@ class PrivateTempStoreTest extends UnitTestCase {
     $this->keyValue->expects($this->once())
       ->method('get')
       ->with('1:test')
-      ->will($this->returnValue($this->ownObject));
+      ->willReturn($this->ownObject);
     $this->lock->expects($this->once())
       ->method('acquire')
       ->with('1:test')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
     $this->lock->expects($this->never())
       ->method('wait');
     $this->lock->expects($this->once())
@@ -219,11 +221,11 @@ class PrivateTempStoreTest extends UnitTestCase {
     $this->keyValue->expects($this->once())
       ->method('get')
       ->with('1:test')
-      ->will($this->returnValue($this->ownObject));
+      ->willReturn($this->ownObject);
     $this->lock->expects($this->exactly(2))
       ->method('acquire')
       ->with('1:test')
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->lock->expects($this->once())
       ->method('wait')
       ->with('1:test');
@@ -244,7 +246,7 @@ class PrivateTempStoreTest extends UnitTestCase {
     $this->lock->expects($this->once())
       ->method('acquire')
       ->with('1:test_2')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $this->keyValue->expects($this->exactly(3))
       ->method('get')

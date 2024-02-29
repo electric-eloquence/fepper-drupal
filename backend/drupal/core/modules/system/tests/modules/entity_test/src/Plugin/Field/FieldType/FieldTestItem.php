@@ -16,7 +16,6 @@ use Drupal\Core\TypedData\TypedDataInterface;
  *   id = "field_test",
  *   label = @Translation("Test field item"),
  *   description = @Translation("A field containing a plain string value."),
- *   category = @Translation("Field"),
  * )
  */
 class FieldTestItem extends FieldItemBase {
@@ -32,8 +31,6 @@ class FieldTestItem extends FieldItemBase {
    * {@inheritdoc}
    */
   public static function propertyDefinitions(FieldStorageDefinitionInterface $field_definition) {
-    // This is called very early by the user entity roles field. Prevent
-    // early t() calls by using the TranslatableMarkup.
     $properties['value'] = DataDefinition::create('string')
       ->setLabel(new TranslatableMarkup('Test value'))
       ->setRequired(TRUE);

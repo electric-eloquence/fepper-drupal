@@ -17,6 +17,8 @@ use Drupal\Core\Database\Query\SelectInterface;
  */
 class MenuTreeStorage implements MenuTreeStorageInterface {
 
+  use MenuLinkFieldDefinitions;
+
   /**
    * The maximum depth of a menu links tree.
    */
@@ -72,35 +74,6 @@ class MenuTreeStorage implements MenuTreeStorageInterface {
    * @var array
    */
   protected $serializedFields;
-
-  /**
-   * List of plugin definition fields.
-   *
-   * @todo Decide how to keep these field definitions in sync.
-   *   https://www.drupal.org/node/2302085
-   *
-   * @see \Drupal\Core\Menu\MenuLinkManager::$defaults
-   *
-   * @var array
-   */
-  protected $definitionFields = [
-    'menu_name',
-    'route_name',
-    'route_parameters',
-    'url',
-    'title',
-    'description',
-    'parent',
-    'weight',
-    'options',
-    'expanded',
-    'enabled',
-    'provider',
-    'metadata',
-    'class',
-    'form_class',
-    'id',
-  ];
 
   /**
    * Constructs a new \Drupal\Core\Menu\MenuTreeStorage.
@@ -310,8 +283,8 @@ class MenuTreeStorage implements MenuTreeStorageInterface {
       }
     }
 
-    $transaction = $this->connection->startTransaction();
     try {
+      $transaction = $this->connection->startTransaction();
       if (!$original) {
         // Generate a new mlid.
         // @todo Remove the 'return' option in Drupal 11.
@@ -334,7 +307,9 @@ class MenuTreeStorage implements MenuTreeStorageInterface {
       $this->updateParentalStatus($link);
     }
     catch (\Exception $e) {
-      $transaction->rollBack();
+      if (isset($transaction)) {
+        $transaction->rollBack();
+      }
       throw $e;
     }
     return $affected_menus;
@@ -1196,11 +1171,11 @@ class MenuTreeStorage implements MenuTreeStorageInterface {
   /**
    * Determines fields that are part of the plugin definition.
    *
-   * @return array
+   * @return string[]
    *   The list of the subset of fields that are part of the plugin definition.
    */
   protected function definitionFields() {
-    return $this->definitionFields;
+    return array_keys($this->defaults);
   }
 
   /**

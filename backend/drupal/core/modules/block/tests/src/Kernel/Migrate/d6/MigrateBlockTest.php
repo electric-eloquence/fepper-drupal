@@ -23,7 +23,6 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
     'block_content',
     'taxonomy',
     'node',
-    'book',
     'forum',
     'path_alias',
     'statistics',
@@ -36,14 +35,14 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
     parent::setUp();
 
     // Install the themes used for this test.
-    $this->container->get('theme_installer')->install(['bartik', 'test_theme']);
-
     $this->installEntitySchema('block_content');
+    $this->container->get('theme_installer')->install(['olivero', 'test_theme']);
+
     $this->installConfig(['block_content']);
 
-    // Set Bartik as the default public theme.
+    // Set Olivero as the default public theme.
     $config = $this->config('system.theme');
-    $config->set('default', 'bartik');
+    $config->set('default', 'olivero');
     $config->save();
 
     $this->executeMigrations([
@@ -97,7 +96,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
    */
   public function testBlockMigration() {
     $blocks = Block::loadMultiple();
-    $this->assertCount(14, $blocks);
+    $this->assertCount(25, $blocks);
 
     // Check user blocks.
     $visibility = [
@@ -113,7 +112,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'provider' => 'user',
       'label_display' => '0',
     ];
-    $this->assertEntity('user', $visibility, 'sidebar_first', 'bartik', -10, $settings);
+    $this->assertEntity('user', $visibility, 'sidebar', 'olivero', -10, $settings);
 
     $visibility = [];
     $settings = [
@@ -125,7 +124,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'expand_all_items' => FALSE,
       'depth' => 0,
     ];
-    $this->assertEntity('user_1', $visibility, 'sidebar_first', 'bartik', -11, $settings);
+    $this->assertEntity('user_1', $visibility, 'sidebar', 'olivero', -11, $settings);
 
     $visibility = [
       'user_role' => [
@@ -146,7 +145,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'label_display' => '0',
       'items_per_page' => '5',
     ];
-    $this->assertEntity('user_2', $visibility, 'sidebar_second', 'bartik', -11, $settings);
+    $this->assertEntity('user_2', $visibility, 'sidebar', 'olivero', -11, $settings);
 
     $visibility = [
       'user_role' => [
@@ -167,7 +166,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'label_display' => '0',
       'items_per_page' => '10',
     ];
-    $this->assertEntity('user_3', $visibility, 'sidebar_second', 'bartik', -10, $settings);
+    $this->assertEntity('user_3', $visibility, 'sidebar', 'olivero', -10, $settings);
 
     // Check system block.
     $visibility = [
@@ -183,7 +182,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'provider' => 'system',
       'label_display' => '0',
     ];
-    $this->assertEntity('system', $visibility, 'footer_fifth', 'bartik', -5, $settings);
+    $this->assertEntity('system', $visibility, 'footer_top', 'olivero', -5, $settings);
 
     // Check menu blocks.
     $settings = [
@@ -192,7 +191,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'provider' => 'core',
       'label_display' => '0',
     ];
-    $this->assertEntity('menu', [], 'header', 'bartik', -5, $settings);
+    $this->assertEntity('menu', [], 'header', 'olivero', -5, $settings);
 
     // Check aggregator block.
     $settings = [
@@ -203,17 +202,17 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'block_count' => 7,
       'feed' => '5',
     ];
-    $this->assertEntity('aggregator', [], 'sidebar_second', 'bartik', -2, $settings);
+    $this->assertEntity('aggregator', [], 'sidebar', 'olivero', -2, $settings);
 
     // Check book block.
     $settings = [
-      'id' => 'book_navigation',
+      'id' => 'broken',
       'label' => '',
-      'provider' => 'book',
+      'provider' => 'core',
       'label_display' => '0',
       'block_mode' => 'book pages',
     ];
-    $this->assertEntity('book', [], 'sidebar_second', 'bartik', -4, $settings);
+    $this->assertEntity('book', [], 'sidebar', 'olivero', -4, $settings);
 
     // Check forum block settings.
     $settings = [
@@ -226,7 +225,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
         'administrative' => '1',
       ],
     ];
-    $this->assertEntity('forum', [], 'sidebar_first', 'bartik', -8, $settings);
+    $this->assertEntity('forum', [], 'sidebar', 'olivero', -8, $settings);
 
     $settings = [
       'id' => 'forum_new_block',
@@ -238,7 +237,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
         'administrative' => '1',
       ],
     ];
-    $this->assertEntity('forum_1', [], 'sidebar_first', 'bartik', -9, $settings);
+    $this->assertEntity('forum_1', [], 'sidebar', 'olivero', -9, $settings);
 
     // Check statistic block settings.
     $settings = [
@@ -250,9 +249,9 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'top_all_num' => 8,
       'top_last_num' => 9,
     ];
-    $this->assertEntity('statistics', [], 'sidebar_second', 'bartik', 0, $settings);
+    $this->assertEntity('statistics', [], 'sidebar', 'olivero', 0, $settings);
 
-    // Check custom blocks.
+    // Check content blocks.
     $visibility = [
       'request_path' => [
         'id' => 'request_path',
@@ -269,7 +268,7 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
       'info' => '',
       'view_mode' => 'full',
     ];
-    $this->assertEntity('block', $visibility, 'content', 'bartik', 0, $settings);
+    $this->assertEntity('block', $visibility, 'content', 'olivero', 0, $settings);
 
     $visibility = [
       'request_path' => [
@@ -302,14 +301,17 @@ class MigrateBlockTest extends MigrateDrupal6TestBase {
     ];
     $this->assertEntity('block_2', [], 'right', 'test_theme', -7, $settings);
 
-    // Custom block with php code is not migrated.
+    // Content block with php code is not migrated.
     $block = Block::load('block_3');
     $this->assertNotInstanceOf(Block::class, $block);
 
     // Check migrate messages.
     $messages = iterator_to_array($this->getMigration('d6_block')->getIdMap()->getMessages());
-    $this->assertCount(2, $messages);
-    $this->assertSame($messages[1]->message, 'Schema errors for block.block.aggregator with the following errors: block.block.aggregator:settings.block_count missing schema, block.block.aggregator:settings.feed missing schema');
+    $this->assertCount(4, $messages);
+    $this->assertSame($messages[0]->message, 'Schema errors for block.block.block_1 with the following errors: 0 [dependencies.theme.0] Theme &#039;bluemarine&#039; is not installed.');
+    $this->assertSame($messages[1]->message, "d6_block:visibility: The block with bid '13' from module 'block' will have no PHP or request_path visibility configuration.");
+    $this->assertSame($messages[2]->message, 'Schema errors for block.block.aggregator with the following errors: block.block.aggregator:settings.block_count missing schema, block.block.aggregator:settings.feed missing schema, 0 [settings.block_count] &#039;block_count&#039; is not a supported key., 1 [settings.feed] &#039;feed&#039; is not a supported key.');
+    $this->assertSame($messages[3]->message, 'Schema errors for block.block.book with the following errors: block.block.book:settings.block_mode missing schema, 0 [settings.block_mode] &#039;block_mode&#039; is not a supported key.');
   }
 
 }

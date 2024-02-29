@@ -237,7 +237,7 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
    * indicated by MSGSTR or MSGSTR_ARR followed immediately by an MSGID or
    * MSGCTXT (when items closely follow each other).
    *
-   * @return
+   * @return bool|null
    *   FALSE if an error was logged, NULL otherwise. The errors are considered
    *   non-blocking, so reading can continue, while the errors are collected
    *   for later presentation.
@@ -349,7 +349,7 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
         $quoted = $this->parseQuoted($line);
         if ($quoted === FALSE) {
           // The message id must be wrapped in quotes.
-          $this->errors[] = new FormattableMarkup('The translation stream %uri contains an error: invalid format for "msgid" on line %line.', $log_vars, $log_vars);
+          $this->errors[] = new FormattableMarkup('The translation stream %uri contains an error: invalid format for "msgid" on line %line.', $log_vars);
           return FALSE;
         }
 
@@ -401,14 +401,14 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
         }
 
         // Ensure the plurality is terminated.
-        if (strpos($line, ']') === FALSE) {
+        if (!str_contains($line, ']')) {
           $this->errors[] = new FormattableMarkup('The translation stream %uri contains an error: invalid format for "msgstr[]" on line %line.', $log_vars);
           return FALSE;
         }
 
         // Extract the plurality.
-        $frombracket = strstr($line, '[');
-        $this->currentPluralIndex = substr($frombracket, 1, strpos($frombracket, ']') - 1);
+        $from_bracket = strstr($line, '[');
+        $this->currentPluralIndex = substr($from_bracket, 1, strpos($from_bracket, ']') - 1);
 
         // Skip to the next whitespace and trim away any further whitespace,
         // bringing $line to the message text only.
@@ -544,8 +544,9 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
    * @param $string
    *   A string specified with enclosing quotes.
    *
-   * @return
-   *   The string parsed from inside the quotes.
+   * @return bool|string
+   *   The string parsed from inside the quotes. False when the syntax is
+   *   invalid.
    */
   public function parseQuoted($string) {
     if (substr($string, 0, 1) != substr($string, -1, 1)) {
@@ -574,7 +575,7 @@ class PoStreamReader implements PoStreamInterface, PoReaderInterface {
    * @param $comment
    *   An array of strings containing a comment.
    *
-   * @return
+   * @return string
    *   Short one-string version of the comment.
    */
   private function shortenComments($comment) {

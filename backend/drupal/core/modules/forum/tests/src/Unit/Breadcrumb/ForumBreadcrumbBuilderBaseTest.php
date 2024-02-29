@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\forum\Unit\Breadcrumb;
 
 use Drupal\Core\Cache\Cache;
@@ -60,7 +62,6 @@ class ForumBreadcrumbBuilderBaseTest extends UnitTestCase {
     // Test that the constructor made a config object with our info in it.
     $reflector = new \ReflectionClass($builder);
     $ref_property = $reflector->getProperty('config');
-    $ref_property->setAccessible(TRUE);
     $config = $ref_property->getValue($builder);
     $this->assertEquals('IAmATestValue', $config->get('IAmATestKey'));
   }
@@ -92,16 +93,16 @@ class ForumBreadcrumbBuilderBaseTest extends UnitTestCase {
     $vocab_storage = $this->createMock('Drupal\Core\Entity\EntityStorageInterface');
     $vocab_storage->expects($this->any())
       ->method('load')
-      ->will($this->returnValueMap([
+      ->willReturnMap([
         ['forums', $prophecy->reveal()],
-      ]));
+      ]);
 
     $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);
     $entity_type_manager->expects($this->any())
       ->method('getStorage')
-      ->will($this->returnValueMap([
+      ->willReturnMap([
         ['taxonomy_vocabulary', $vocab_storage],
-      ]));
+      ]);
 
     $config_factory = $this->getConfigFactoryStub(
       [

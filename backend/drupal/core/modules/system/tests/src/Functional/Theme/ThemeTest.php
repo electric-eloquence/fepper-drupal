@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Route;
  * Tests low-level theme functions.
  *
  * @group Theme
+ * @group #slow
  */
 class ThemeTest extends BrowserTestBase {
 
@@ -23,7 +24,7 @@ class ThemeTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * {@inheritdoc}
@@ -42,7 +43,7 @@ class ThemeTest extends BrowserTestBase {
    */
   public function testPreprocessForSuggestions() {
     // Test with both an unprimed and primed theme registry.
-    drupal_theme_rebuild();
+    \Drupal::service('theme.registry')->reset();
     for ($i = 0; $i < 2; $i++) {
       $this->drupalGet('theme-test/suggestion');
       $this->assertSession()->pageTextContains('Theme hook implementor=theme-test--suggestion.html.twig. Foo=template_preprocess_theme_test');
@@ -149,8 +150,7 @@ class ThemeTest extends BrowserTestBase {
    */
   public function testPreprocessHtml() {
     $this->drupalGet('');
-    $attributes = $this->xpath('/body[@theme_test_page_variable="Page variable is an array."]');
-    $this->assertCount(1, $attributes, 'In template_preprocess_html(), the page variable is still an array (not rendered yet).');
+    $this->assertSession()->elementsCount('xpath', '/body[@theme_test_page_variable="Page variable is an array."]', 1);
     $this->assertSession()->pageTextContains('theme test page bottom markup');
   }
 
@@ -179,7 +179,7 @@ class ThemeTest extends BrowserTestBase {
   public function testSuggestionPreprocessForDefaults() {
     $this->config('system.theme')->set('default', 'test_theme')->save();
     // Test with both an unprimed and primed theme registry.
-    drupal_theme_rebuild();
+    \Drupal::service('theme.registry')->reset();
     for ($i = 0; $i < 2; $i++) {
       $this->drupalGet('theme-test/preprocess-suggestions');
       $items = $this->cssSelect('.suggestion');

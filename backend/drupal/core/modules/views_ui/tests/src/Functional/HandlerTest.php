@@ -94,7 +94,7 @@ class HandlerTest extends UITestBase {
   /**
    * Tests UI CRUD.
    */
-  public function testUICRUD() {
+  public function testUiCrud() {
     $handler_types = ViewExecutable::getHandlerTypes();
     foreach ($handler_types as $type => $type_info) {
       // Test adding handlers.
@@ -298,8 +298,7 @@ class HandlerTest extends UITestBase {
    * @internal
    */
   public function assertNoDuplicateField(string $field_name, string $entity_type): void {
-    $elements = $this->xpath('//td[.=:entity_type]/preceding-sibling::td[@class="title" and .=:title]', [':title' => $field_name, ':entity_type' => $entity_type]);
-    $this->assertCount(1, $elements, $field_name . ' appears just once in ' . $entity_type . '.');
+    $this->assertSession()->elementsCount('xpath', '//td[.="' . $entity_type . '"]/preceding-sibling::td[@class="title" and .="' . $field_name . '"]', 1);
   }
 
 }

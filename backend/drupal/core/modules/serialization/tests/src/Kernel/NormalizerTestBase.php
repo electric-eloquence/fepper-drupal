@@ -26,7 +26,10 @@ abstract class NormalizerTestBase extends KernelTestBase {
     'user',
   ];
 
-  protected function setUp() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
     parent::setUp();
 
     $this->installEntitySchema('entity_test_mulrev');

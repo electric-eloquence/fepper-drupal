@@ -45,14 +45,14 @@ class DistributionProfileTranslationTest extends InstallerTestBase {
         'name' => 'My Distribution',
         'langcode' => $this->langcode,
         'install' => [
-          'theme' => 'bartik',
+          'theme' => 'claro',
         ],
       ],
     ];
     // File API functions are not available yet.
-    $path = $this->root . DIRECTORY_SEPARATOR . $this->siteDirectory . '/profiles/my_distro';
+    $path = $this->root . DIRECTORY_SEPARATOR . $this->siteDirectory . '/profiles/my_distribution';
     mkdir($path, 0777, TRUE);
-    file_put_contents("$path/my_distro.info.yml", Yaml::encode($this->info));
+    file_put_contents("$path/my_distribution.info.yml", Yaml::encode($this->info));
 
     // Place a custom local translation in the translations directory.
     mkdir($this->root . '/' . $this->siteDirectory . '/files/translations', 0777, TRUE);
@@ -84,8 +84,7 @@ class DistributionProfileTranslationTest extends InstallerTestBase {
     $this->translations['Save and continue'] = 'Save and continue de';
 
     // Check the language direction.
-    $direction = current($this->xpath('/@dir'))->getText();
-    $this->assertEquals('ltr', $direction);
+    $this->assertSession()->elementTextEquals('xpath', '/@dir', 'ltr');
 
     // Verify that the distribution name appears.
     $this->assertSession()->pageTextContains($this->info['distribution']['name']);
@@ -123,13 +122,13 @@ class DistributionProfileTranslationTest extends InstallerTestBase {
    *   Contents for the test .po file.
    */
   protected function getPo($langcode) {
-    return <<<ENDPO
+    return <<<PO
 msgid ""
 msgstr ""
 
 msgid "Save and continue"
 msgstr "Save and continue $langcode"
-ENDPO;
+PO;
   }
 
 }

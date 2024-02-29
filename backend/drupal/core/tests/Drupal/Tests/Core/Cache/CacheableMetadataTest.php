@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Cache;
 
 use Drupal\Core\Cache\Cache;
@@ -129,7 +131,7 @@ class CacheableMetadataTest extends UnitTestCase {
       [300, FALSE],
       [[], TRUE],
       [8.0, TRUE],
-   ];
+    ];
   }
 
   /**

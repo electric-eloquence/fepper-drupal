@@ -26,7 +26,7 @@ class FieldRenderedEntityTranslationTest extends ViewTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * {@inheritdoc}
@@ -50,7 +50,7 @@ class FieldRenderedEntityTranslationTest extends ViewTestBase {
 
     $node_type = $this->entityTypeManager->getStorage('node_type')->create([
       'type' => 'article',
-      'label' => 'Article',
+      'name' => 'Article',
     ]);
     $node_type->save();
 

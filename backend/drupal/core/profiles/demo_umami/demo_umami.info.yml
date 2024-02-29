@@ -8,7 +8,7 @@ install:
   - big_pipe
   - block
   - breakpoint
-  - ckeditor
+  - ckeditor5
   - config
   - contextual
   - contact
@@ -29,15 +29,14 @@ install:
   - dynamic_page_cache
   - taxonomy
   - dblog
+  - sdc
   - search
   - shortcut
   - toolbar
   - field_ui
   - file
-  - rdf
   - views
   - views_ui
-  - tour
   - automated_cron
   - responsive_image
   - content_moderation
@@ -46,6 +45,7 @@ install:
   - locale
   - config_translation
   - content_translation
+  - announcements_feed
 themes:
   - claro
   - umami

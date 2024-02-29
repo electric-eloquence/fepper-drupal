@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
@@ -17,6 +19,7 @@ class LayoutBuilderToolbarTest extends WebDriverTestBase {
   protected static $modules = [
     'block',
     'node',
+    'field_ui',
     'layout_builder',
     'node',
     'toolbar',
@@ -25,7 +28,7 @@ class LayoutBuilderToolbarTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * {@inheritdoc}
