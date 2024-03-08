@@ -512,7 +512,8 @@ svg {
   border-color: #f00;
   background-color: #ffbebe;
 }
-form > div {
+form > *,
+form > * > div {
   margin-bottom: 1em;
 }
 form ol,
@@ -528,6 +529,10 @@ fieldset {
 label {
   display: block;
   padding-bottom: 0.4rem;
+}
+label,
+summary {
+  font-weight: bold;
 }
 button,
 input,
