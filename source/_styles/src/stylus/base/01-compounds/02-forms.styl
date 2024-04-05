@@ -12,6 +12,11 @@ label
   display: block
   padding-bottom: $space-quarter
 label,
+div
+  .container-inline &
+    @media all and (max-width: $bp-sm-max)
+      display: block
+label,
 summary
   font-weight: bold
 button, input, select, textarea

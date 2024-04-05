@@ -530,6 +530,12 @@ label {
   display: block;
   padding-bottom: 0.4rem;
 }
+@media all and (max-width: 767px) {
+  .container-inline label,
+  .container-inline div {
+    display: block;
+  }
+}
 label,
 summary {
   font-weight: bold;
