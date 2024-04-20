@@ -1196,6 +1196,12 @@ section[rel="schema:comment"] .indented {
 .path-search details .criterion .form-item > * {
   display: inline-block;
 }
+.js-form-type-checkbox {
+  display: flex;
+}
+.js-form-type-checkbox label {
+  padding: unset;
+}
 @media all and (max-width: 767px) {
   .skip-link {
     display: none;
