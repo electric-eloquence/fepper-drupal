@@ -887,6 +887,11 @@ section[rel="schema:comment"] .indented {
     max-height: 100%;
     padding-top: 1.1rem;
   }
+  .user-logged-in [id^="block-"][id$="-footer"] > ul > .expanded:hover > a + ul,
+  .user-logged-in [id^="block-"][id$="-main-menu"] > ul > .expanded:hover > a + ul,
+  .user-logged-in [id^="block-"][id$="-account-menu"] > ul > .expanded:hover > a + ul {
+    overflow: visible;
+  }
 }
 @media all and (max-width: 767px) {
   [id^="block-"][id*="-main"] > ul,
