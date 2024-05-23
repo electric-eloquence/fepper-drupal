@@ -255,16 +255,7 @@ header.header {
     margin: 0;
   }
 }
-@media all and (max-width: 767px) {
-  [id="region-primary-menu"] {
-    float: right;
-  }
-}
-@media all and (min-width: 768px) {
-  [id="region-primary-menu"] {
-    float: left;
-  }
-}
+[id="region-primary-menu"],
 [id="region-secondary-menu"] {
   float: right;
 }
