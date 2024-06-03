@@ -13,8 +13,10 @@ const confFileSrc = path.resolve(excludesDir, confFile);
 
 let binGulp = path.resolve(binPath, 'gulp');
 
+// eslint-disable-next-line
+console.dir(process.env, {depth: null});
 // Spawn gulp.cmd if Windows and not BASH.
-if (process.env.ComSpec && process.env.ComSpec.toLowerCase() === 'c:\\windows\\system32\\cmd.exe') {
+if (process.env.OS === 'Windows_NT') {
   binGulp = path.resolve(binPath, 'gulp.cmd');
 }
 
