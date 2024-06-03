@@ -18,6 +18,8 @@ console.dir(process.env, {depth: null});
 // Spawn gulp.cmd if Windows and not BASH.
 if (process.env.OS === 'Windows_NT') {
   binGulp = path.resolve(binPath, 'gulp.cmd');
+  // eslint-disable-next-line
+  console.warn(binPath, binGulp);
 }
 
 if (!fs.existsSync(confFile)) {
@@ -44,6 +46,8 @@ const spawnedObj = spawnSync(binGulp, argv.concat(['install']), {stdio: 'inherit
 // Output to install.log.
 const installLog = 'install.log';
 
+// eslint-disable-next-line
+console.dir(spawnedObj, {depth: null});
 if (spawnedObj.stderr) {
   fs.appendFileSync(installLog, `${spawnedObj.stderr}\n`);
 }
