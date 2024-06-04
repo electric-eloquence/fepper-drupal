@@ -13,13 +13,9 @@ const confFileSrc = path.resolve(excludesDir, confFile);
 
 let binGulp = path.resolve(binPath, 'gulp');
 
-// eslint-disable-next-line
-console.dir(process.env, {depth: null});
 // Spawn gulp.cmd if Windows and not BASH.
-if (process.env.OS === 'Windows_NT') {
+if (process.env.ComSpec && process.env.ComSpec.toLowerCase() === 'c:\\windows\\system32\\cmd.exe') {
   binGulp = path.resolve(binPath, 'gulp.cmd');
-  // eslint-disable-next-line
-  console.warn(binPath, binGulp);
 }
 
 if (!fs.existsSync(confFile)) {
@@ -41,13 +37,11 @@ if (!fs.existsSync(prefFile)) {
 }
 
 const argv = ['--gulpfile', taskerPath];
-const spawnedObj = spawnSync(binGulp, argv.concat(['install']), {shell: true, stdio: 'inherit'});
+const spawnedObj = spawnSync(binGulp, argv.concat(['install']), {stdio: 'inherit'});
 
 // Output to install.log.
 const installLog = 'install.log';
 
-// eslint-disable-next-line
-console.dir(spawnedObj, {depth: null});
 if (spawnedObj.stderr) {
   fs.appendFileSync(installLog, `${spawnedObj.stderr}\n`);
 }
@@ -64,5 +58,5 @@ if (conf.ui && conf.ui.paths && conf.ui.paths.source && conf.ui.paths.source.roo
 }
 
 if (sourceDirContent.length) {
-  spawnSync(binGulp, argv.concat(['ui:compile']), {shell: true, stdio: 'inherit'});
+  spawnSync(binGulp, argv.concat(['ui:compile']), {stdio: 'inherit'});
 }
