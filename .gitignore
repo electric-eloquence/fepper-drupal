@@ -11,6 +11,7 @@
 /patternlab-config.json
 /public/*
 !/public/package.json
+!/public/static/
 !/public/test/
 ignore/
 node_modules/
