@@ -170,14 +170,19 @@ class BigPipeTest extends BrowserTestBase {
     ]);
     $this->assertBigPipePlaceholders([
       $cases['html']->bigPipePlaceholderId                             => Json::encode($cases['html']->embeddedAjaxResponseCommands),
+      $cases['edge_case__html_non_lazy_builder_suspend']->bigPipePlaceholderId => Json::encode($cases['edge_case__html_non_lazy_builder_suspend']->embeddedAjaxResponseCommands),
       $cases['edge_case__html_non_lazy_builder']->bigPipePlaceholderId => Json::encode($cases['edge_case__html_non_lazy_builder']->embeddedAjaxResponseCommands),
       $cases['exception__lazy_builder']->bigPipePlaceholderId          => NULL,
       $cases['exception__embedded_response']->bigPipePlaceholderId     => NULL,
     ], [
       0 => $cases['edge_case__html_non_lazy_builder']->bigPipePlaceholderId,
-      // The 'html' case contains the 'status messages' placeholder, which is
+      // The suspended placeholder is replaced after the non-suspended
+      // placeholder even though it appears first in the page.
+      // @see Drupal\big_pipe\Render\BigPipe\Render::sendPlaceholders()
+      1 => $cases['edge_case__html_non_lazy_builder_suspend']->bigPipePlaceholderId,
+       // The 'html' case contains the 'status messages' placeholder, which is
       // always rendered last.
-      1 => $cases['html']->bigPipePlaceholderId,
+      2 => $cases['html']->bigPipePlaceholderId,
     ]);
 
     $this->assertSession()->responseContains('</body>');
@@ -207,7 +212,7 @@ class BigPipeTest extends BrowserTestBase {
     $this->config('system.logging')->set('error_level', ERROR_REPORTING_DISPLAY_VERBOSE)->save();
     $this->drupalGet(Url::fromRoute('big_pipe_test'));
     // The 'edge_case__html_exception' case throws an exception.
-    $this->assertSession()->pageTextContains('The website encountered an unexpected error. Please try again later');
+    $this->assertSession()->pageTextContains('The website encountered an unexpected error. Try again later');
     $this->assertSession()->pageTextContains('You are not allowed to say llamas are not cool!');
     // Check that stop signal and closing body tag are absent.
     $this->assertSession()->responseNotContains(BigPipe::STOP_SIGNAL);
@@ -279,7 +284,7 @@ class BigPipeTest extends BrowserTestBase {
     $this->config('system.logging')->set('error_level', ERROR_REPORTING_DISPLAY_VERBOSE)->save();
     $this->drupalGet(Url::fromRoute('big_pipe_test'));
     // The 'edge_case__html_exception' case throws an exception.
-    $this->assertSession()->pageTextContains('The website encountered an unexpected error. Please try again later');
+    $this->assertSession()->pageTextContains('The website encountered an unexpected error. Try again later');
     $this->assertSession()->pageTextContains('You are not allowed to say llamas are not cool!');
     $this->assertSession()->responseNotContains('</body>');
     // The exception is expected. Do not interpret it as a test failure.
@@ -301,6 +306,7 @@ class BigPipeTest extends BrowserTestBase {
     // @see performMetaRefresh()
 
     $this->drupalGet(Url::fromRoute('big_pipe_test_multi_occurrence'));
+    // cspell:disable-next-line
     $big_pipe_placeholder_id = 'callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages&amp;args%5B0%5D&amp;token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA';
     $expected_placeholder_replacement = '<script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="' . $big_pipe_placeholder_id . '">';
     $this->assertSession()->pageTextContains('The count is 1.');
@@ -370,19 +376,19 @@ class BigPipeTest extends BrowserTestBase {
     $placeholder_replacement_positions = [];
     foreach ($expected_big_pipe_placeholders as $big_pipe_placeholder_id => $expected_ajax_response) {
       // Verify expected placeholder.
-      $expected_placeholder_html = '<span data-big-pipe-placeholder-id="' . $big_pipe_placeholder_id . '"></span>';
+      $expected_placeholder_html = '<span data-big-pipe-placeholder-id="' . $big_pipe_placeholder_id . '">';
       $this->assertSession()->responseContains($expected_placeholder_html);
       $pos = strpos($this->getSession()->getPage()->getContent(), $expected_placeholder_html);
       $placeholder_positions[$pos] = $big_pipe_placeholder_id;
       // Verify expected placeholder replacement.
       $expected_placeholder_replacement = '<script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="' . $big_pipe_placeholder_id . '">';
-      $result = $this->xpath('//script[@data-big-pipe-replacement-for-placeholder-with-id=:id]', [':id' => Html::decodeEntities($big_pipe_placeholder_id)]);
+      $xpath = '//script[@data-big-pipe-replacement-for-placeholder-with-id="' . Html::decodeEntities($big_pipe_placeholder_id) . '"]';
       if ($expected_ajax_response === NULL) {
-        $this->assertCount(0, $result);
+        $this->assertSession()->elementNotExists('xpath', $xpath);
         $this->assertSession()->responseNotContains($expected_placeholder_replacement);
         continue;
       }
-      $this->assertEquals($expected_ajax_response, trim($result[0]->getText()));
+      $this->assertSession()->elementTextContains('xpath', $xpath, $expected_ajax_response);
       $this->assertSession()->responseContains($expected_placeholder_replacement);
       $pos = strpos($this->getSession()->getPage()->getContent(), $expected_placeholder_replacement);
       $placeholder_replacement_positions[$pos] = $big_pipe_placeholder_id;
@@ -414,9 +420,9 @@ class BigPipeTest extends BrowserTestBase {
     array_unshift($expected_stream_order, BigPipe::START_SIGNAL);
     array_push($expected_stream_order, BigPipe::STOP_SIGNAL);
     $actual_stream_order = $placeholder_replacement_positions + [
-        $start_signal_position => BigPipe::START_SIGNAL,
-        $stop_signal_position => BigPipe::STOP_SIGNAL,
-      ];
+      $start_signal_position => BigPipe::START_SIGNAL,
+      $stop_signal_position => BigPipe::STOP_SIGNAL,
+    ];
     ksort($actual_stream_order, SORT_NUMERIC);
     $this->assertEquals($expected_stream_order, array_values($actual_stream_order));
   }

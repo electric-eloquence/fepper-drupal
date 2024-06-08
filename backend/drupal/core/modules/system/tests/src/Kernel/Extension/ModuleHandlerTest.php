@@ -2,7 +2,7 @@
 
 namespace Drupal\Tests\system\Kernel\Extension;
 
-use Drupal\Component\Render\FormattableMarkup;
+use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Extension\MissingDependencyException;
 use Drupal\Core\Extension\ModuleUninstallValidatorException;
 use Drupal\Core\Extension\ProfileExtensionList;
@@ -70,7 +70,7 @@ class ModuleHandlerTest extends KernelTestBase {
   protected function assertModuleList(array $expected_values, string $condition): void {
     $expected_values = array_values(array_unique($expected_values));
     $enabled_modules = array_keys($this->container->get('module_handler')->getModuleList());
-    $this->assertEquals($expected_values, $enabled_modules, new FormattableMarkup('@condition: extension handler returns correct results', ['@condition' => $condition]));
+    $this->assertEquals($expected_values, $enabled_modules, "$condition: extension handler returns correct results");
   }
 
   /**
@@ -250,7 +250,7 @@ class ModuleHandlerTest extends KernelTestBase {
     $this->installSchema('user', 'users_data');
     $entity_types = \Drupal::entityTypeManager()->getDefinitions();
     foreach ($entity_types as $entity_type) {
-      if ('entity_test' == $entity_type->getProvider()) {
+      if ($entity_type instanceof ContentEntityTypeInterface && 'entity_test' == $entity_type->getProvider()) {
         $this->installEntitySchema($entity_type->id());
       }
     }
@@ -332,10 +332,10 @@ class ModuleHandlerTest extends KernelTestBase {
   public function testThemeMetaData() {
     // Generate the list of available themes.
     $themes = \Drupal::service('theme_handler')->rebuildThemeData();
-    // Check that the mtime field exists for the bartik theme.
-    $this->assertNotEmpty($themes['bartik']->info['mtime'], 'The bartik.info.yml file modification time field is present.');
+    // Check that the mtime field exists for the olivero theme.
+    $this->assertNotEmpty($themes['olivero']->info['mtime'], 'The olivero.info.yml file modification time field is present.');
     // Use 0 if mtime isn't present, to avoid an array index notice.
-    $test_mtime = !empty($themes['bartik']->info['mtime']) ? $themes['bartik']->info['mtime'] : 0;
+    $test_mtime = !empty($themes['olivero']->info['mtime']) ? $themes['olivero']->info['mtime'] : 0;
     // Ensure the mtime field contains a number that is greater than zero.
     $this->assertIsNumeric($test_mtime);
     $this->assertGreaterThan(0, $test_mtime);

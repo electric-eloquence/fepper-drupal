@@ -23,9 +23,6 @@ use Drupal\Core\Utility\LinkGeneratorInterface;
  *   label = @Translation("Responsive image"),
  *   field_types = {
  *     "image",
- *   },
- *   quickedit = {
- *     "editor" = "image"
  *   }
  * )
  */
@@ -118,6 +115,9 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
     return [
       'responsive_image_style' => '',
       'image_link' => '',
+      'image_loading' => [
+        'attribute' => 'lazy',
+      ],
     ] + parent::defaultSettings();
   }
 
@@ -125,6 +125,8 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
    * {@inheritdoc}
    */
   public function settingsForm(array $form, FormStateInterface $form_state) {
+    $elements = parent::settingsForm($form, $form_state);
+
     $responsive_image_options = [];
     $responsive_image_styles = $this->responsiveImageStyleStorage->loadMultiple();
     uasort($responsive_image_styles, '\Drupal\responsive_image\Entity\ResponsiveImageStyle::sort');
@@ -137,7 +139,7 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
     }
 
     $elements['responsive_image_style'] = [
-      '#title' => t('Responsive image style'),
+      '#title' => $this->t('Responsive image style'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('responsive_image_style') ?: NULL,
       '#required' => TRUE,
@@ -145,18 +147,41 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
       '#description' => [
         '#markup' => $this->linkGenerator->generate($this->t('Configure Responsive Image Styles'), new Url('entity.responsive_image_style.collection')),
         '#access' => $this->currentUser->hasPermission('administer responsive image styles'),
-        ],
+      ],
+    ];
+
+    $image_loading = $this->getSetting('image_loading');
+    $elements['image_loading'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Image loading'),
+      '#weight' => 10,
+      '#description' => $this->t('Lazy render images with native image loading attribute (<em>loading="lazy"</em>). This improves performance by allowing browsers to lazily load images. See <a href="@url">Lazy loading</a>.', [
+        '@url' => 'https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading#images_and_iframes',
+      ]),
+    ];
+    $loading_attribute_options = [
+      'lazy' => $this->t('Lazy'),
+      'eager' => $this->t('Eager'),
+    ];
+    $elements['image_loading']['attribute'] = [
+      '#title' => $this->t('Lazy loading attribute'),
+      '#type' => 'select',
+      '#default_value' => $image_loading['attribute'],
+      '#options' => $loading_attribute_options,
+      '#description' => $this->t('Select the lazy loading attribute for images. <a href=":link">Learn more.</a>', [
+        ':link' => 'https://html.spec.whatwg.org/multipage/urls-and-fetching.html#lazy-loading-attributes',
+      ]),
     ];
 
     $link_types = [
-      'content' => t('Content'),
-      'file' => t('File'),
+      'content' => $this->t('Content'),
+      'file' => $this->t('File'),
     ];
     $elements['image_link'] = [
-      '#title' => t('Link image to'),
+      '#title' => $this->t('Link image to'),
       '#type' => 'select',
       '#default_value' => $this->getSetting('image_link'),
-      '#empty_option' => t('Nothing'),
+      '#empty_option' => $this->t('Nothing'),
       '#options' => $link_types,
     ];
 
@@ -171,11 +196,11 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
 
     $responsive_image_style = $this->responsiveImageStyleStorage->load($this->getSetting('responsive_image_style'));
     if ($responsive_image_style) {
-      $summary[] = t('Responsive image style: @responsive_image_style', ['@responsive_image_style' => $responsive_image_style->label()]);
+      $summary[] = $this->t('Responsive image style: @responsive_image_style', ['@responsive_image_style' => $responsive_image_style->label()]);
 
       $link_types = [
-        'content' => t('Linked to content'),
-        'file' => t('Linked to file'),
+        'content' => $this->t('Linked to content'),
+        'file' => $this->t('Linked to file'),
       ];
       // Display this setting only if image is linked.
       if (isset($link_types[$this->getSetting('image_link')])) {
@@ -183,10 +208,15 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
       }
     }
     else {
-      $summary[] = t('Select a responsive image style.');
+      $summary[] = $this->t('Select a responsive image style.');
     }
 
-    return $summary;
+    $image_loading = $this->getSetting('image_loading');
+    $summary[] = $this->t('Loading attribute: @attribute', [
+      '@attribute' => $image_loading['attribute'],
+    ]);
+
+    return array_merge($summary, parent::settingsSummary());
   }
 
   /**
@@ -238,6 +268,9 @@ class ResponsiveImageFormatter extends ImageFormatterBase {
       $item = $file->_referringItem;
       $item_attributes = $item->_attributes;
       unset($item->_attributes);
+
+      $image_loading_settings = $this->getSetting('image_loading');
+      $item_attributes['loading'] = $image_loading_settings['attribute'];
 
       $elements[$delta] = [
         '#theme' => 'responsive_image_formatter',

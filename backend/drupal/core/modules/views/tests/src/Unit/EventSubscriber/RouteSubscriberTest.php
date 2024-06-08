@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\views\Unit\EventSubscriber\RouteSubscriberTest.
- */
+declare(strict_types=1);
 
 namespace Drupal\Tests\views\Unit\EventSubscriber;
 
@@ -28,9 +25,9 @@ class RouteSubscriberTest extends UnitTestCase {
   protected $entityTypeManager;
 
   /**
-   * The mocked view storage.
+   * The mocked config entity storage.
    *
-   * @var \Drupal\views\ViewStorage|\PHPUnit\Framework\MockObject\MockObject
+   * @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface|\PHPUnit\Framework\MockObject\MockObject
    */
   protected $viewStorage;
 
@@ -48,7 +45,12 @@ class RouteSubscriberTest extends UnitTestCase {
    */
   protected $state;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->entityTypeManager = $this->createMock(EntityTypeManagerInterface::class);
     $this->viewStorage = $this->getMockBuilder('Drupal\Core\Config\Entity\ConfigEntityStorage')
       ->disableOriginalConstructor()
@@ -56,7 +58,7 @@ class RouteSubscriberTest extends UnitTestCase {
     $this->entityTypeManager->expects($this->any())
       ->method('getStorage')
       ->with('view')
-      ->will($this->returnValue($this->viewStorage));
+      ->willReturn($this->viewStorage);
     $this->state = $this->createMock('\Drupal\Core\State\StateInterface');
     $this->routeSubscriber = new TestRouteSubscriber($this->entityTypeManager, $this->state);
   }
@@ -69,10 +71,10 @@ class RouteSubscriberTest extends UnitTestCase {
 
     $display_1->expects($this->once())
       ->method('collectRoutes')
-      ->will($this->returnValue(['test_id.page_1' => 'views.test_id.page_1']));
+      ->willReturn(['test_id.page_1' => 'views.test_id.page_1']);
     $display_2->expects($this->once())
       ->method('collectRoutes')
-      ->will($this->returnValue(['test_id.page_2' => 'views.test_id.page_2']));
+      ->willReturn(['test_id.page_2' => 'views.test_id.page_2']);
 
     $this->routeSubscriber->routes();
 
@@ -94,7 +96,7 @@ class RouteSubscriberTest extends UnitTestCase {
     $route_2 = new Route('test_route/example', ['_controller' => 'Drupal\Tests\Core\Controller\TestController']);
     $collection->add('test_route_2', $route_2);
 
-    $route_event = new RouteBuildEvent($collection, 'views');
+    $route_event = new RouteBuildEvent($collection);
 
     [$display_1, $display_2] = $this->setupMocks();
 
@@ -152,14 +154,14 @@ class RouteSubscriberTest extends UnitTestCase {
       ->getMock();
     $this->viewStorage->expects($this->any())
       ->method('load')
-      ->will($this->returnValue($view));
+      ->willReturn($view);
 
     $view->expects($this->any())
       ->method('getExecutable')
-      ->will($this->returnValue($executable));
+      ->willReturn($executable);
     $view->expects($this->any())
       ->method('id')
-      ->will($this->returnValue('test_id'));
+      ->willReturn('test_id');
     $executable->storage = $view;
 
     $executable->expects($this->any())

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Config;
 
 use Drupal\Core\Config\ImmutableConfig;
@@ -19,6 +21,9 @@ class ImmutableConfigTest extends UnitTestCase {
    */
   protected $config;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $storage = $this->createMock('Drupal\Core\Config\StorageInterface');

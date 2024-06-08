@@ -101,7 +101,10 @@ abstract class GenericCacheBackendUnitTestBase extends KernelTestBase {
     return $this->cachebackends[$bin];
   }
 
-  protected function setUp() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
     $this->cachebackends = [];
     $this->defaultValue = $this->randomMachineName(10);
 
@@ -110,7 +113,10 @@ abstract class GenericCacheBackendUnitTestBase extends KernelTestBase {
     $this->setUpCacheBackend();
   }
 
-  protected function tearDown() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function tearDown(): void {
     // Destruct the registered backend, each test will get a fresh instance,
     // properly emptying it here ensure that on persistent data backends they
     // will come up empty the next test.
@@ -433,8 +439,18 @@ abstract class GenericCacheBackendUnitTestBase extends KernelTestBase {
   }
 
   /**
-   * Tests Drupal\Core\Cache\CacheBackendInterface::delete() and
-   * Drupal\Core\Cache\CacheBackendInterface::deleteMultiple().
+   * @covers \Drupal\Core\Cache\ApcuBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\BackendChain::deleteMultiple
+   * @covers \Drupal\Core\Cache\ChainedFastBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\DatabaseBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\MemoryBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\PhpBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\ApcuBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\BackendChain::deleteMultiple
+   * @covers \Drupal\Core\Cache\ChainedFastBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\DatabaseBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\MemoryBackend::deleteMultiple
+   * @covers \Drupal\Core\Cache\PhpBackend::deleteMultiple
    */
   public function testDeleteMultiple() {
     $backend = $this->getCacheBackend();
@@ -500,8 +516,18 @@ abstract class GenericCacheBackendUnitTestBase extends KernelTestBase {
   }
 
   /**
-   * Tests Drupal\Core\Cache\CacheBackendInterface::invalidate() and
-   * Drupal\Core\Cache\CacheBackendInterface::invalidateMultiple().
+   * @covers \Drupal\Core\Cache\ApcuBackend::getMultiple
+   * @covers \Drupal\Core\Cache\BackendChain::getMultiple
+   * @covers \Drupal\Core\Cache\ChainedFastBackend::getMultiple
+   * @covers \Drupal\Core\Cache\DatabaseBackend::getMultiple
+   * @covers \Drupal\Core\Cache\MemoryBackend::getMultiple
+   * @covers \Drupal\Core\Cache\PhpBackend::getMultiple
+   * @covers \Drupal\Core\Cache\ApcuBackend::invalidateMultiple
+   * @covers \Drupal\Core\Cache\BackendChain::invalidateMultiple
+   * @covers \Drupal\Core\Cache\ChainedFastBackend::invalidateMultiple
+   * @covers \Drupal\Core\Cache\DatabaseBackend::invalidateMultiple
+   * @covers \Drupal\Core\Cache\MemoryBackend::invalidateMultiple
+   * @covers \Drupal\Core\Cache\PhpBackend::invalidateMultiple
    */
   public function testInvalidate() {
     $backend = $this->getCacheBackend();

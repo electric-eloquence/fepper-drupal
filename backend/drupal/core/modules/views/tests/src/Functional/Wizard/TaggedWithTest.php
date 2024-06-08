@@ -6,7 +6,7 @@ use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
+use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
 
 /**
  * Tests the ability of the views wizard to create views filtered by taxonomy.
@@ -15,7 +15,7 @@ use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
  */
 class TaggedWithTest extends WizardTestBase {
 
-  use EntityReferenceTestTrait;
+  use EntityReferenceFieldCreationTrait;
 
   /**
    * Modules to enable.
@@ -71,6 +71,9 @@ class TaggedWithTest extends WizardTestBase {
    */
   protected $tagField;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp($import_test_views = TRUE, $modules = []): void {
     parent::setUp($import_test_views, $modules);
 
@@ -153,7 +156,7 @@ class TaggedWithTest extends WizardTestBase {
     $this->submitForm($view1, 'Update "of type" choice');
     // Now resubmit the entire form to the same URL.
     $view1['label'] = $this->randomMachineName(16);
-    $view1['id'] = strtolower($this->randomMachineName(16));
+    $view1['id'] = $this->randomMachineName(16);
     $view1['description'] = $this->randomMachineName(16);
     $view1['show[tagged_with]'] = 'tag1';
     $view1['page[create]'] = 1;
@@ -176,7 +179,7 @@ class TaggedWithTest extends WizardTestBase {
     $this->submitForm($view2, 'Update "of type" choice');
     $this->assertSession()->statusCodeEquals(200);
     $view2['label'] = $this->randomMachineName(16);
-    $view2['id'] = strtolower($this->randomMachineName(16));
+    $view2['id'] = $this->randomMachineName(16);
     $view2['description'] = $this->randomMachineName(16);
     $view2['show[tagged_with]'] = 'tag2';
     $view2['page[create]'] = 1;
@@ -269,10 +272,10 @@ class TaggedWithTest extends WizardTestBase {
     $view['show[type]'] = $this->nodeTypeWithTags->id();
     $this->drupalGet('admin/structure/views/add');
     $this->submitForm($view, 'Update "of type" choice');
-    $this->assertNotEmpty($this->xpath($tags_xpath));
+    $this->assertSession()->elementExists('xpath', $tags_xpath);
     $view['show[type]'] = $this->nodeTypeWithoutTags->id();
     $this->submitForm($view, 'Update "of type" choice (2)');
-    $this->assertNotEmpty($this->xpath($tags_xpath));
+    $this->assertSession()->elementExists('xpath', $tags_xpath);
     $this->submitForm(['show[tagged_with]' => 'term1'], 'Save and edit');
     $this->assertSession()->statusCodeEquals(200);
     $this->getSession()->getPage()->hasContent('Has taxonomy term (= term1)');

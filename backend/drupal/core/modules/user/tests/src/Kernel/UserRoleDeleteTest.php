@@ -22,6 +22,9 @@ class UserRoleDeleteTest extends KernelTestBase {
    */
   protected static $modules = ['system', 'user', 'field'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('user');
@@ -91,13 +94,13 @@ class UserRoleDeleteTest extends KernelTestBase {
 
     /** @var \Drupal\node\NodeTypeInterface $node_type */
     $node_type = NodeType::create([
-      'type' => mb_strtolower($this->randomMachineName()),
+      'type' => $this->randomMachineName(),
       'name' => $this->randomString(),
     ]);
     $node_type->save();
     // Create a new text format to be used by role $role.
     $format = FilterFormat::create([
-      'format' => mb_strtolower($this->randomMachineName()),
+      'format' => $this->randomMachineName(),
       'name' => $this->randomString(),
     ]);
     $format->save();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_library\FunctionalJavascript;
 
 /**
@@ -13,6 +15,11 @@ class MediaOverviewTest extends MediaLibraryTestBase {
    * {@inheritdoc}
    */
   protected static $modules = ['block'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
@@ -64,7 +71,7 @@ class MediaOverviewTest extends MediaLibraryTestBase {
     $assert_session->linkExists('Table');
 
     // We should see the table view and a link to add media.
-    $assert_session->elementExists('css', '.view-media .views-table');
+    $assert_session->elementExists('css', '[data-drupal-selector="views-form-media-media-page-list"] table');
     $assert_session->linkExists('Add media');
 
     // Go to the grid display for the rest of the test.
@@ -78,8 +85,12 @@ class MediaOverviewTest extends MediaLibraryTestBase {
     $assert_session->pageTextContains('Dog');
     $assert_session->pageTextContains('Turtle');
 
-    // Verify that the media name does not contain a link.
-    $assert_session->elementNotExists('css', '.media-library-item__name a');
+    // Verify that the media name does not contain a link. The selector is
+    // tricky, so start by asserting ".js-media-library-item-preview + div"
+    // can select a div containing a media name.
+    $assert_session->elementExists('css', '.js-media-library-item-preview + div:contains("Dog")');
+    $assert_session->elementExists('css', '.js-media-library-item-preview + div:contains("Turtle")');
+    $assert_session->elementNotExists('css', '.js-media-library-item-preview + div a');
     // Verify that there are links to edit and delete media items.
     $assert_session->linkExists('Edit Dog');
     $assert_session->linkExists('Delete Turtle');
@@ -97,6 +108,10 @@ class MediaOverviewTest extends MediaLibraryTestBase {
     // Test that selecting elements as a part of bulk operations works.
     $page->selectFieldOption('Media type', '- Any -');
     $assert_session->elementExists('css', '#views-exposed-form-media-library-page')->submit();
+    $this->waitForText('Dog');
+
+    // Select the "Delete media" action.
+    $page->selectFieldOption('Action', 'Delete media');
     $this->waitForText('Dog');
 
     // This tests that anchor tags clicked inside the preview are suppressed.

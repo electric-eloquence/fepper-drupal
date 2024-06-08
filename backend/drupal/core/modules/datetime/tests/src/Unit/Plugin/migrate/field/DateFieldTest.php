@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\datetime\Unit\Plugin\migrate\field;
 
 use Drupal\datetime\Plugin\migrate\field\DateField;
@@ -55,7 +57,7 @@ class DateFieldTest extends UnitTestCase {
     $migration->expects($this->once())
       ->method('mergeProcessOfProperty')
       ->with('field_date', $pipeline)
-      ->will($this->returnValue($migration));
+      ->willReturn($migration);
 
     $plugin = new DateField([], '', []);
     $plugin->defineValueProcessPipeline($migration, 'field_date', $data);

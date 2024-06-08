@@ -11,76 +11,52 @@
  */
 
 .menu--sidebar {
-  list-style: none
+  list-style: none;
 }
 
 .menu--sidebar .menu {
-    list-style: none;
-  }
+  list-style: none;
+}
 
 .menu--sidebar .menu--level-1 {
-    margin: 0;
-  }
-
-[dir="ltr"] .menu--sidebar .menu__link {
-    padding-left: 0
-}
-
-[dir="rtl"] .menu--sidebar .menu__link {
-    padding-right: 0
-}
-
-[dir="ltr"] .menu--sidebar .menu__link {
-    padding-right: 0
-}
-
-[dir="rtl"] .menu--sidebar .menu__link {
-    padding-left: 0
+  margin: 0;
 }
 
 .menu--sidebar .menu__link {
-    position: relative;
-    display: block;
-    padding-top: 0.84375rem;
-    padding-bottom: 0.84375rem;
-    font-family: "Lora", "georgia", serif;
-    font-size: 1.125rem
+  position: relative;
+  display: block;
+  padding-block: var(--sp0-75);
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
 
-    /* Bottom divider line. */
-  }
-
-[dir="ltr"] .menu--sidebar .menu__link:after {
-      left: 0
+  /* Bottom divider line. */
 }
 
-[dir="rtl"] .menu--sidebar .menu__link:after {
-      right: 0
+.menu--sidebar .menu__link::after {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  width: var(--sp4);
+  height: 0;
+  content: "";
+  border-block-start: solid 2px var(--color--gray-95);
 }
-
-.menu--sidebar .menu__link:after {
-      position: absolute;
-      bottom: 0;
-      width: 4.5rem;
-      height: 0;
-      content: "";
-      border-top: solid 2px #e7edf1;
-    }
 
 .menu--sidebar .menu__link--link {
-    text-decoration: none;
-    color: #0d1214;
-    font-weight: 600
-  }
-
-.menu--sidebar .menu__link--link:hover {
-      color: #2494db;
-    }
-
-.menu--sidebar {
-
-  /* No bottom divider line for last menu item. */
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: var(--color-text-neutral-loud);
+  font-weight: 600;
 }
 
-.menu--sidebar .menu__item--level-1:last-child > .menu__link:last-child:after, .menu--sidebar .menu__item--level-1:last-child > .menu__item--level-2:last-child > .menu__link:last-child:after {
-      content: none;
-    }
+.menu--sidebar .menu__link--link:hover {
+  color: var(--color--primary-50);
+}
+
+/* No bottom divider line for last menu item. */
+
+:is(.menu--sidebar .menu__item--level-1:last-child > .menu__link:last-child, .menu--sidebar .menu__item--level-1:last-child > .menu__item--level-2:last-child > .menu__link:last-child)::after {
+  content: none;
+}

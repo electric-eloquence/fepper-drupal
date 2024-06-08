@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
+use Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay;
 use Drupal\Tests\contextual\FunctionalJavascript\ContextualLinkClickTrait;
 
 /**
@@ -13,13 +16,6 @@ use Drupal\Tests\contextual\FunctionalJavascript\ContextualLinkClickTrait;
 class MoveBlockFormTest extends WebDriverTestBase {
 
   use ContextualLinkClickTrait;
-
-  /**
-   * Path prefix for the field UI for the test bundle.
-   *
-   * @var string
-   */
-  const FIELD_UI_PREFIX = 'admin/structure/types/manage/bundle_with_section_field';
 
   /**
    * {@inheritdoc}
@@ -34,7 +30,7 @@ class MoveBlockFormTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * {@inheritdoc}
@@ -44,21 +40,25 @@ class MoveBlockFormTest extends WebDriverTestBase {
     $page = $this->getSession()->getPage();
     $assert_session = $this->assertSession();
 
+    // @todo The Layout Builder UI relies on local tasks; fix in
+    //   https://www.drupal.org/project/drupal/issues/2917777.
+    $this->drupalPlaceBlock('local_tasks_block');
+
     $this->createContentType(['type' => 'bundle_with_section_field']);
+    LayoutBuilderEntityViewDisplay::load('node.bundle_with_section_field.default')
+      ->enableLayoutBuilder()
+      ->setOverridable()
+      ->save();
+    $this->createNode([
+      'type' => 'bundle_with_section_field',
+    ]);
 
     $this->drupalLogin($this->drupalCreateUser([
       'configure any layout',
-      'administer node display',
-      'administer node fields',
       'access contextual links',
     ]));
 
-    // Enable layout builder.
-    $this->drupalGet(static::FIELD_UI_PREFIX . '/display/default');
-    $this->submitForm(['layout[enabled]' => TRUE], 'Save');
-    $page->clickLink('Manage layout');
-    $assert_session->addressEquals(static::FIELD_UI_PREFIX . '/display/default/layout');
-
+    $this->drupalGet('node/1/layout');
     $expected_block_order = [
       '.block-extra-field-blocknodebundle-with-section-fieldlinks',
       '.block-field-blocknodebundle-with-section-fieldbody',
@@ -98,6 +98,7 @@ class MoveBlockFormTest extends WebDriverTestBase {
    */
   public function testMoveBlock() {
     $page = $this->getSession()->getPage();
+    $assert_session = $this->assertSession();
 
     // Reorder body field in current region.
     $this->openBodyMoveForm(1, 'content', ['Links', 'Body (current)']);
@@ -109,7 +110,7 @@ class MoveBlockFormTest extends WebDriverTestBase {
     ];
     $this->assertRegionBlocksOrder(1, 'content', $expected_block_order);
     $page->pressButton('Save layout');
-    $page->clickLink('Manage layout');
+    $page->clickLink('Layout');
     $this->assertRegionBlocksOrder(1, 'content', $expected_block_order);
 
     // Move the body block into the first region above existing block.
@@ -128,7 +129,7 @@ class MoveBlockFormTest extends WebDriverTestBase {
     // Ensure the body block is no longer in the content region.
     $this->assertRegionBlocksOrder(1, 'content', ['.block-extra-field-blocknodebundle-with-section-fieldlinks']);
     $page->pressButton('Save layout');
-    $page->clickLink('Manage layout');
+    $page->clickLink('Layout');
     $this->assertRegionBlocksOrder(0, 'first', $expected_block_order);
 
     // Move into the second region that has no existing blocks.
@@ -137,6 +138,47 @@ class MoveBlockFormTest extends WebDriverTestBase {
     $this->assertBlockTable(['Body (current)']);
     $page->pressButton('Move');
     $this->assertRegionBlocksOrder(0, 'second', ['.block-field-blocknodebundle-with-section-fieldbody']);
+
+    // The weight element uses -10 to 10 by default, which can cause bugs.
+    // Add 25 'Powered by Drupal' blocks to a new section.
+    $page->clickLink('Add section');
+    $assert_session->waitForElementVisible('css', '#drupal-off-canvas');
+    $assert_session->assertWaitOnAjaxRequest();
+    $page->clickLink('One column');
+    $assert_session->assertWaitOnAjaxRequest();
+    $this->assertNotEmpty($assert_session->waitForElementVisible('css', 'input[value="Add section"]'));
+    $page->pressButton('Add section');
+    $assert_session->assertNoElementAfterWait('css', '#drupal-off-canvas');
+    $large_block_number = 25;
+    for ($i = 0; $i < $large_block_number; $i++) {
+      $assert_session->elementExists('css', '[data-layout-delta="0"].layout--onecol [data-region="content"] .layout-builder__add-block')->click();
+      $this->assertNotEmpty($assert_session->waitForElementVisible('css', '#drupal-off-canvas a:contains("Powered by Drupal")'));
+      $assert_session->assertWaitOnAjaxRequest();
+      $page->clickLink('Powered by Drupal');
+      $this->assertNotEmpty($assert_session->waitForElementVisible('css', 'input[value="Add block"]'));
+      $assert_session->assertWaitOnAjaxRequest();
+      $page->pressButton('Add block');
+      $assert_session->assertNoElementAfterWait('css', '#drupal-off-canvas');
+    }
+    $first_region_block_locator = '[data-layout-delta="0"].layout--onecol [data-region="content"] [data-layout-block-uuid]';
+    $assert_session->elementsCount('css', $first_region_block_locator, $large_block_number);
+
+    // Move the Body block to the end of the new section.
+    $this->openBodyMoveForm(1, 'second', ['Body (current)']);
+    $page->selectFieldOption('Region', '0:content');
+    $expected_block_table = array_fill(0, $large_block_number, 'Powered by Drupal');
+    $expected_block_table[] = 'Body (current)';
+    $this->assertBlockTable($expected_block_table);
+    $expected_block_table = array_fill(0, $large_block_number - 1, 'Powered by Drupal');
+    $expected_block_table[] = 'Body (current)*';
+    $expected_block_table[] = 'Powered by Drupal';
+    $this->moveBlockWithKeyboard('up', 'Body', $expected_block_table);
+    $page->pressButton('Move');
+    $assert_session->assertNoElementAfterWait('css', '#drupal-off-canvas');
+    // Get all blocks currently in the region.
+    $blocks = $page->findAll('css', $first_region_block_locator);
+    // The second to last $block should be the body.
+    $this->assertTrue($blocks[count($blocks) - 2]->hasClass('block-field-blocknodebundle-with-section-fieldbody'));
   }
 
   /**

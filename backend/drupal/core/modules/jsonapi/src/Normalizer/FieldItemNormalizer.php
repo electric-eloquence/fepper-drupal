@@ -7,11 +7,13 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Field\FieldItemInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\TypedData\FieldItemDataDefinitionInterface;
+use Drupal\Core\TypedData\DataDefinitionInterface;
 use Drupal\Core\TypedData\TypedDataInternalPropertiesHelper;
 use Drupal\jsonapi\Normalizer\Value\CacheableNormalization;
 use Drupal\jsonapi\ResourceType\ResourceType;
 use Drupal\serialization\Normalizer\CacheableNormalizerInterface;
 use Drupal\serialization\Normalizer\SerializedColumnNormalizerTrait;
+use Symfony\Component\Serializer\Exception\UnexpectedValueException;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 
 /**
@@ -26,13 +28,6 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterface {
 
   use SerializedColumnNormalizerTrait;
-
-  /**
-   * The interface or class that this Normalizer supports.
-   *
-   * @var string
-   */
-  protected $supportedInterfaceOrClass = FieldItemInterface::class;
 
   /**
    * The entity type manager.
@@ -59,7 +54,7 @@ class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterfac
    * cacheability in mind, and hence bubbles cacheability out of band. This must
    * catch it, and pass it to the value object that JSON:API uses.
    */
-  public function normalize($field_item, $format = NULL, array $context = []) {
+  public function normalize($field_item, $format = NULL, array $context = []): array|string|int|float|bool|\ArrayObject|NULL {
     assert($field_item instanceof FieldItemInterface);
     /** @var \Drupal\Core\TypedData\TypedDataInterface $property */
     $values = [];
@@ -89,7 +84,7 @@ class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterfac
   /**
    * {@inheritdoc}
    */
-  public function denormalize($data, $class, $format = NULL, array $context = []) {
+  public function denormalize($data, $class, $format = NULL, array $context = []): mixed {
     $item_definition = $context['field_definition']->getItemDefinition();
     assert($item_definition instanceof FieldItemDataDefinitionInterface);
 
@@ -128,6 +123,46 @@ class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterfac
 
     $data_internal = [];
     if (!empty($property_definitions)) {
+      $writable_properties = array_keys(array_filter($property_definitions, function (DataDefinitionInterface $data_definition) : bool {
+        return !$data_definition->isReadOnly();
+      }));
+      $invalid_property_names = [];
+      foreach ($data as $property_name => $property_value) {
+        if (!isset($property_definitions[$property_name])) {
+          $alt = static::getAlternatives($property_name, $writable_properties);
+          $invalid_property_names[$property_name] = reset($alt);
+        }
+      }
+      if (!empty($invalid_property_names)) {
+        $suggestions = array_values(array_filter($invalid_property_names));
+        // Only use the "Did you mean"-style error message if there is a
+        // suggestion for every invalid property name.
+        if (count($suggestions) === count($invalid_property_names)) {
+          $format = count($invalid_property_names) === 1
+            ? "The property '%s' does not exist on the '%s' field of type '%s'. Did you mean '%s'?"
+            : "The properties '%s' do not exist on the '%s' field of type '%s'. Did you mean '%s'?";
+          throw new UnexpectedValueException(sprintf(
+            $format,
+            implode("', '", array_keys($invalid_property_names)),
+            $item_definition->getFieldDefinition()->getName(),
+            $item_definition->getFieldDefinition()->getType(),
+            implode("', '", $suggestions)
+          ));
+        }
+        else {
+          $format = count($invalid_property_names) === 1
+            ? "The property '%s' does not exist on the '%s' field of type '%s'. Writable properties are: '%s'."
+            : "The properties '%s' do not exist on the '%s' field of type '%s'. Writable properties are: '%s'.";
+          throw new UnexpectedValueException(sprintf(
+            $format,
+            implode("', '", array_keys($invalid_property_names)),
+            $item_definition->getFieldDefinition()->getName(),
+            $item_definition->getFieldDefinition()->getType(),
+            implode("', '", $writable_properties)
+          ));
+        }
+      }
+
       foreach ($data as $property_name => $property_value) {
         $property_value_class = $property_definitions[$property_name]->getClass();
         $data_internal[$property_name] = $denormalize_property($property_name, $property_value, $property_value_class, $format, $context);
@@ -138,6 +173,37 @@ class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterfac
     }
 
     return $data_internal;
+  }
+
+  /**
+   * Provides alternatives for a given array and key.
+   *
+   * @param string $search_key
+   *   The search key to get alternatives for.
+   * @param array $keys
+   *   The search space to search for alternatives in.
+   *
+   * @return string[]
+   *   An array of strings with suitable alternatives.
+   *
+   * @see \Drupal\Component\DependencyInjection\Container::getAlternatives()
+   */
+  private static function getAlternatives(string $search_key, array $keys) : array {
+    // $search_key is user input and could be longer than the 255 string length
+    // limit of levenshtein().
+    if (strlen($search_key) > 255) {
+      return [];
+    }
+
+    $alternatives = [];
+    foreach ($keys as $key) {
+      $lev = levenshtein($search_key, $key);
+      if ($lev <= strlen($search_key) / 3 || str_contains($key, $search_key)) {
+        $alternatives[] = $key;
+      }
+    }
+
+    return $alternatives;
   }
 
   /**
@@ -171,7 +237,18 @@ class FieldItemNormalizer extends NormalizerBase implements DenormalizerInterfac
    * {@inheritdoc}
    */
   public function hasCacheableSupportsMethod(): bool {
+    @trigger_error(__METHOD__ . '() is deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use getSupportedTypes() instead. See https://www.drupal.org/node/3359695', E_USER_DEPRECATED);
+
     return TRUE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSupportedTypes(?string $format): array {
+    return [
+      FieldItemInterface::class => TRUE,
+    ];
   }
 
 }

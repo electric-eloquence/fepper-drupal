@@ -62,12 +62,16 @@ class CommentTranslationUITest extends ContentTranslationUITestBase {
     'comment',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     $this->entityTypeId = 'comment';
     $this->bundle = 'comment_article';
     $this->testLanguageSelector = FALSE;
     $this->subject = $this->randomMachineName();
     parent::setUp();
+    $this->doSetup();
   }
 
   /**

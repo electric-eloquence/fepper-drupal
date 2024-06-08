@@ -55,7 +55,9 @@ class UserFieldsAccessChangeTest extends UserTestBase {
   }
 
   /**
-   * Tests the user name formatter shows a link to the user when there is
+   * Test user name link.
+   *
+   * Tests that the user name formatter shows a link to the user when there is
    * access but not otherwise.
    */
   public function testUserNameLink() {
@@ -70,15 +72,13 @@ class UserFieldsAccessChangeTest extends UserTestBase {
     // No access, so no link.
     $this->drupalGet('test_user_fields_access');
     $this->assertSession()->pageTextContains($test_user->getAccountName());
-    $result = $this->xpath($xpath);
-    $this->assertCount(0, $result, 'User is not a link');
+    $this->assertSession()->elementNotExists('xpath', $xpath);
 
     // Assign sub-admin role to grant extra access.
     $user = $this->drupalCreateUser(['sub-admin']);
     $this->drupalLogin($user);
     $this->drupalGet('test_user_fields_access');
-    $result = $this->xpath($xpath);
-    $this->assertCount(1, $result, 'User is a link');
+    $this->assertSession()->elementsCount('xpath', $xpath, 1);
   }
 
 }

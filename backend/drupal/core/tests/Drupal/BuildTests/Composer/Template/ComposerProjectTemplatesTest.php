@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\BuildTests\Composer\Template;
 
 use Composer\Json\JsonFile;
 use Composer\Semver\VersionParser;
-use Drupal\BuildTests\Framework\BuildTestBase;
+use Drupal\BuildTests\Composer\ComposerBuildTestBase;
 use Drupal\Composer\Composer;
 
 /**
- * Demonstrate that Composer project templates are buildable as patched.
+ * Demonstrate that Composer project templates can be built as patched.
  *
  * We have to use the packages.json fixture so that Composer will use the
  * in-codebase version of the project template.
@@ -22,10 +24,8 @@ use Drupal\Composer\Composer;
  *
  * @group #slow
  * @group Template
- *
- * @requires externalCommand composer
  */
-class ComposerProjectTemplatesTest extends BuildTestBase {
+class ComposerProjectTemplatesTest extends ComposerBuildTestBase {
 
   /**
    * The minimum stability requirement for dependencies.
@@ -143,7 +143,7 @@ class ComposerProjectTemplatesTest extends BuildTestBase {
    */
   public function testVerifyTemplateTestProviderIsAccurate() {
     $root = $this->getDrupalRoot();
-    $data = $this->provideTemplateCreateProject($root);
+    $data = $this->provideTemplateCreateProject();
 
     // Find all the templates.
     $template_files = Composer::composerSubprojectPaths($root, 'Template');
@@ -238,15 +238,15 @@ class ComposerProjectTemplatesTest extends BuildTestBase {
     $repository_path = $this->getWorkspaceDirectory() . '/test_repository/packages.json';
     $this->makeTestPackage($repository_path, $simulated_core_version);
 
-    $installed_composer_json = $this->getWorkspaceDirectory() . '/testproject/composer.json';
-    $autoloader = $this->getWorkspaceDirectory() . '/testproject' . $docroot_dir . '/autoload.php';
+    $installed_composer_json = $this->getWorkspaceDirectory() . '/test_project/composer.json';
+    $autoloader = $this->getWorkspaceDirectory() . '/test_project' . $docroot_dir . '/autoload.php';
     $this->assertFileDoesNotExist($autoloader);
 
-    $this->executeCommand("COMPOSER_HOME=$composer_home COMPOSER_ROOT_VERSION=$simulated_core_version composer create-project --no-ansi $project testproject $simulated_core_version -vvv --repository $repository_path");
+    $this->executeCommand("COMPOSER_HOME=$composer_home COMPOSER_ROOT_VERSION=$simulated_core_version composer create-project --no-ansi $project test_project $simulated_core_version -vvv --repository $repository_path");
     $this->assertCommandSuccessful();
     // Check the output of the project creation for the absence of warnings
     // about any non-allowed composer plugins.
-    // Note: There are different warnings for unallowed composer plugins
+    // Note: There are different warnings for disallowed composer plugins
     // depending on running in non-interactive mode or not. It seems the Drupal
     // CI environment always forces composer commands to run in the
     // non-interactive mode. The only thing these messages have in common is the
@@ -295,26 +295,6 @@ class ComposerProjectTemplatesTest extends BuildTestBase {
         }
       }
     }
-  }
-
-  /**
-   * Assert that the VERSION constant in Drupal.php is the expected value.
-   *
-   * @param string $expectedVersion
-   *   The expected version.
-   * @param string $dir
-   *   The path to the site root.
-   *
-   * @internal
-   */
-  protected function assertDrupalVersion(string $expectedVersion, string $dir): void {
-    $drupal_php_path = $dir . '/core/lib/Drupal.php';
-    $this->assertFileExists($drupal_php_path);
-
-    // Read back the Drupal version that was set and assert it matches expectations.
-    $this->executeCommand("php -r 'include \"$drupal_php_path\"; print \Drupal::VERSION;'");
-    $this->assertCommandSuccessful();
-    $this->assertCommandOutputContains($expectedVersion);
   }
 
   /**

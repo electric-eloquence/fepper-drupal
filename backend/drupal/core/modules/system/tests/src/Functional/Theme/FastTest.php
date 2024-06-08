@@ -3,6 +3,7 @@
 namespace Drupal\Tests\system\Functional\Theme;
 
 use Drupal\Tests\BrowserTestBase;
+use Drupal\user\Entity\User;
 
 /**
  * Tests autocompletion not loading registry.
@@ -28,8 +29,11 @@ class FastTest extends BrowserTestBase {
    *
    * @var \Drupal\user\Entity\User
    */
-  protected $account;
+  protected User $account;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->account = $this->drupalCreateUser(['access user profiles']);

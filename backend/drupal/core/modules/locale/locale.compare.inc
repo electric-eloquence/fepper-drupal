@@ -174,11 +174,8 @@ function locale_translation_default_translation_server() {
  *
  * @param array $projects
  *   Array of project names to check. Defaults to all translatable projects.
- * @param string $langcodes
+ * @param array $langcodes
  *   Array of language codes. Defaults to all translatable languages.
- *
- * @return array
- *   Available sources indexed by project and language.
  *
  * @todo Return batch or NULL.
  */
@@ -191,7 +188,7 @@ function locale_translation_check_projects($projects = [], $langcodes = []) {
   else {
     // Retrieve and save the status of local translations only.
     locale_translation_check_projects_local($projects, $langcodes);
-    \Drupal::state()->set('locale.translation_last_checked', REQUEST_TIME);
+    \Drupal::state()->set('locale.translation_last_checked', \Drupal::time()->getRequestTime());
   }
 }
 
@@ -205,7 +202,7 @@ function locale_translation_check_projects($projects = [], $langcodes = []) {
  *
  * @param array $projects
  *   Array of project names to check. Defaults to all translatable projects.
- * @param string $langcodes
+ * @param array $langcodes
  *   Array of language codes. Defaults to all translatable languages.
  */
 function locale_translation_check_projects_batch($projects = [], $langcodes = []) {
@@ -253,8 +250,7 @@ function locale_translation_batch_status_build($projects = [], $langcodes = []) 
 }
 
 /**
- * Helper function to construct batch operations checking remote translation
- * status.
+ * Constructs batch operations for checking remote translation status.
  *
  * @param array $projects
  *   Array of project names to be processed.
@@ -271,7 +267,8 @@ function _locale_translation_batch_status_operations($projects, $langcodes, $opt
 
   foreach ($projects as $project) {
     foreach ($langcodes as $langcode) {
-      // Check status of local and remote translation sources.
+      // Check version and status translation sources.
+      $operations[] = ['locale_translation_batch_version_check', [$project, $langcode]];
       $operations[] = ['locale_translation_batch_status_check', [$project, $langcode, $options]];
     }
   }

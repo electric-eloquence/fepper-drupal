@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\user\Unit\Plugin\views\field;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
@@ -33,26 +35,26 @@ class UserBulkFormTest extends UnitTestCase {
       $action = $this->createMock('\Drupal\system\ActionConfigEntityInterface');
       $action->expects($this->any())
         ->method('getType')
-        ->will($this->returnValue('user'));
+        ->willReturn('user');
       $actions[$i] = $action;
     }
 
     $action = $this->createMock('\Drupal\system\ActionConfigEntityInterface');
     $action->expects($this->any())
       ->method('getType')
-      ->will($this->returnValue('node'));
+      ->willReturn('node');
     $actions[] = $action;
 
     $entity_storage = $this->createMock('Drupal\Core\Entity\EntityStorageInterface');
     $entity_storage->expects($this->any())
       ->method('loadMultiple')
-      ->will($this->returnValue($actions));
+      ->willReturn($actions);
 
     $entity_type_manager = $this->createMock(EntityTypeManagerInterface::class);
     $entity_type_manager->expects($this->once())
       ->method('getStorage')
       ->with('action')
-      ->will($this->returnValue($entity_storage));
+      ->willReturn($entity_storage);
 
     $entity_repository = $this->createMock(EntityRepositoryInterface::class);
 
@@ -66,7 +68,7 @@ class UserBulkFormTest extends UnitTestCase {
     $views_data->expects($this->any())
       ->method('get')
       ->with('users')
-      ->will($this->returnValue(['table' => ['entity type' => 'user']]));
+      ->willReturn(['table' => ['entity type' => 'user']]);
     $container = new ContainerBuilder();
     $container->set('views.views_data', $views_data);
     $container->set('string_translation', $this->getStringTranslationStub());
@@ -76,7 +78,7 @@ class UserBulkFormTest extends UnitTestCase {
     $storage->expects($this->any())
       ->method('get')
       ->with('base_table')
-      ->will($this->returnValue('users'));
+      ->willReturn('users');
 
     $executable = $this->getMockBuilder('Drupal\views\ViewExecutable')
       ->disableOriginalConstructor()
@@ -94,7 +96,6 @@ class UserBulkFormTest extends UnitTestCase {
     $user_bulk_form->init($executable, $display, $options);
 
     $reflected_actions = (new \ReflectionObject($user_bulk_form))->getProperty('actions');
-    $reflected_actions->setAccessible(TRUE);
     $this->assertEquals(array_slice($actions, 0, -1, TRUE), $reflected_actions->getValue($user_bulk_form));
   }
 

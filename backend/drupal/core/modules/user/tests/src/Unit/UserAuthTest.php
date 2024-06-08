@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\user\Unit;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -12,6 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * @coversDefaultClass \Drupal\user\UserAuth
@@ -65,6 +68,8 @@ class UserAuthTest extends UnitTestCase {
    * {@inheritdoc}
    */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->userStorage = $this->createMock('Drupal\Core\Entity\EntityStorageInterface');
 
     /** @var \Drupal\Core\Entity\EntityTypeManagerInterface|\PHPUnit\Framework\MockObject\MockObject $entity_type_manager */
@@ -72,7 +77,7 @@ class UserAuthTest extends UnitTestCase {
     $entity_type_manager->expects($this->any())
       ->method('getStorage')
       ->with('user')
-      ->will($this->returnValue($this->userStorage));
+      ->willReturn($this->userStorage);
 
     $this->passwordService = $this->createMock('Drupal\Core\Password\PasswordInterface');
 
@@ -121,7 +126,7 @@ class UserAuthTest extends UnitTestCase {
     $this->userStorage->expects($this->once())
       ->method('loadByProperties')
       ->with(['name' => $this->username])
-      ->will($this->returnValue([]));
+      ->willReturn([]);
 
     $this->assertFalse($this->userAuth->authenticate($this->username, $this->password));
   }
@@ -135,12 +140,12 @@ class UserAuthTest extends UnitTestCase {
     $this->userStorage->expects($this->once())
       ->method('loadByProperties')
       ->with(['name' => $this->username])
-      ->will($this->returnValue([$this->testUser]));
+      ->willReturn([$this->testUser]);
 
     $this->passwordService->expects($this->once())
       ->method('check')
       ->with($this->password, $this->testUser->getPassword())
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
 
     $this->assertFalse($this->userAuth->authenticate($this->username, $this->password));
   }
@@ -153,17 +158,17 @@ class UserAuthTest extends UnitTestCase {
   public function testAuthenticateWithCorrectPassword() {
     $this->testUser->expects($this->once())
       ->method('id')
-      ->will($this->returnValue(1));
+      ->willReturn(1);
 
     $this->userStorage->expects($this->once())
       ->method('loadByProperties')
       ->with(['name' => $this->username])
-      ->will($this->returnValue([$this->testUser]));
+      ->willReturn([$this->testUser]);
 
     $this->passwordService->expects($this->once())
       ->method('check')
       ->with($this->password, $this->testUser->getPassword())
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $this->assertSame(1, $this->userAuth->authenticate($this->username, $this->password));
   }
@@ -180,17 +185,17 @@ class UserAuthTest extends UnitTestCase {
   public function testAuthenticateWithZeroPassword() {
     $this->testUser->expects($this->once())
       ->method('id')
-      ->will($this->returnValue(2));
+      ->willReturn(2);
 
     $this->userStorage->expects($this->once())
       ->method('loadByProperties')
       ->with(['name' => $this->username])
-      ->will($this->returnValue([$this->testUser]));
+      ->willReturn([$this->testUser]);
 
     $this->passwordService->expects($this->once())
       ->method('check')
       ->with(0, 0)
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $this->assertSame(2, $this->userAuth->authenticate($this->username, 0));
   }
@@ -203,7 +208,7 @@ class UserAuthTest extends UnitTestCase {
   public function testAuthenticateWithCorrectPasswordAndNewPasswordHash() {
     $this->testUser->expects($this->once())
       ->method('id')
-      ->will($this->returnValue(1));
+      ->willReturn(1);
     $this->testUser->expects($this->once())
       ->method('setPassword')
       ->with($this->password);
@@ -213,16 +218,16 @@ class UserAuthTest extends UnitTestCase {
     $this->userStorage->expects($this->once())
       ->method('loadByProperties')
       ->with(['name' => $this->username])
-      ->will($this->returnValue([$this->testUser]));
+      ->willReturn([$this->testUser]);
 
     $this->passwordService->expects($this->once())
       ->method('check')
       ->with($this->password, $this->testUser->getPassword())
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
     $this->passwordService->expects($this->once())
       ->method('needsRehash')
       ->with($this->testUser->getPassword())
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $this->assertSame(1, $this->userAuth->authenticate($this->username, $this->password));
   }
@@ -257,15 +262,12 @@ class UserAuthTest extends UnitTestCase {
       ->method('remove')
       ->with('check_logged_in');
 
-    $event_mock = $this->createMock(ResponseEvent::class);
-    $event_mock
-      ->expects($this->once())
-      ->method('getResponse')
-      ->willReturn($response);
-    $event_mock
-      ->expects($this->exactly(3))
-      ->method('getRequest')
-      ->willReturn($request);
+    $event = new ResponseEvent(
+      $this->createMock(HttpKernelInterface::class),
+      $request,
+      HttpKernelInterface::MAIN_REQUEST,
+      $response
+    );
 
     $request
       ->setSession($session_mock);
@@ -275,9 +277,59 @@ class UserAuthTest extends UnitTestCase {
       ->disableOriginalConstructor()
       ->onlyMethods([])
       ->getMock()
-      ->addCheckToUrl($event_mock);
+      ->addCheckToUrl($event);
 
     $this->assertSame("$frontend_url?check_logged_in=1", $response->getTargetUrl());
+  }
+
+  /**
+   * Tests the auth that ends in a redirect from subdomain with a fragment to TLD.
+   */
+  public function testAddCheckToUrlForTrustedRedirectResponseWithFragment(): void {
+    $site_domain = 'site.com';
+    $frontend_url = "https://$site_domain";
+    $backend_url = "https://api.$site_domain";
+    $request = Request::create($backend_url);
+    $response = new TrustedRedirectResponse($frontend_url . '#a_fragment');
+
+    $request_context = $this->createMock(RequestContext::class);
+    $request_context
+      ->method('getCompleteBaseUrl')
+      ->willReturn($backend_url);
+
+    $container = new ContainerBuilder();
+    $container->set('router.request_context', $request_context);
+    \Drupal::setContainer($container);
+
+    $session_mock = $this->createMock(SessionInterface::class);
+    $session_mock
+      ->expects($this->once())
+      ->method('has')
+      ->with('check_logged_in')
+      ->willReturn(TRUE);
+    $session_mock
+      ->expects($this->once())
+      ->method('remove')
+      ->with('check_logged_in');
+
+    $event = new ResponseEvent(
+      $this->createMock(HttpKernelInterface::class),
+      $request,
+      HttpKernelInterface::MAIN_REQUEST,
+      $response
+    );
+
+    $request
+      ->setSession($session_mock);
+
+    $this
+      ->getMockBuilder(Cookie::class)
+      ->disableOriginalConstructor()
+      ->onlyMethods([])
+      ->getMock()
+      ->addCheckToUrl($event);
+
+    $this->assertSame("$frontend_url?check_logged_in=1#a_fragment", $response->getTargetUrl());
   }
 
 }

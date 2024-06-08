@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Config\Entity;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
@@ -51,12 +53,14 @@ class EntityDisplayModeBaseUnitTest extends UnitTestCase {
    * {@inheritdoc}
    */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->entityType = $this->randomMachineName();
 
     $this->entityInfo = $this->createMock('\Drupal\Core\Entity\EntityTypeInterface');
     $this->entityInfo->expects($this->any())
       ->method('getProvider')
-      ->will($this->returnValue('entity'));
+      ->willReturn('entity');
 
     $this->entityTypeManager = $this->createMock(EntityTypeManagerInterface::class);
 
@@ -78,7 +82,7 @@ class EntityDisplayModeBaseUnitTest extends UnitTestCase {
     $target_entity_type = $this->createMock('\Drupal\Core\Entity\EntityTypeInterface');
     $target_entity_type->expects($this->any())
       ->method('getProvider')
-      ->will($this->returnValue('test_module'));
+      ->willReturn('test_module');
     $values = ['targetEntityType' => $target_entity_type_id];
 
     $this->entityTypeManager->expects($this->exactly(2))
@@ -113,7 +117,6 @@ class EntityDisplayModeBaseUnitTest extends UnitTestCase {
 
     // Gain access to the protected property.
     $property = new \ReflectionProperty($mock, 'targetEntityType');
-    $property->setAccessible(TRUE);
     // Set the property to a known state.
     $property->setValue($mock, $bad_target);
 
@@ -140,7 +143,6 @@ class EntityDisplayModeBaseUnitTest extends UnitTestCase {
 
     // Gain access to the protected property.
     $property = new \ReflectionProperty($mock, 'targetEntityType');
-    $property->setAccessible(TRUE);
     // Set the property to a known state.
     $property->setValue($mock, $target);
 

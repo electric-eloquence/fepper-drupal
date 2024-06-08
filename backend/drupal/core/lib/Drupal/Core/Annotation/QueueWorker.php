@@ -31,6 +31,8 @@ use Drupal\Component\Annotation\Plugin;
  * @see \Drupal\Core\Queue\QueueWorkerManager
  * @see plugin_api
  *
+ * @ingroup queue
+ *
  * @Annotation
  */
 class QueueWorker extends Plugin {
@@ -45,22 +47,21 @@ class QueueWorker extends Plugin {
   /**
    * The human-readable title of the plugin.
    *
-   * @ingroup plugin_translatable
-   *
    * @var \Drupal\Core\Annotation\Translation
+   *
+   * @ingroup plugin_translatable
    */
   public $title;
 
   /**
-   * An associative array containing an optional key.
-   *
-   * This property is optional and it does not need to be declared.
-   *
-   * Available keys:
-   * - time (optional): How much time Drupal cron should spend on calling this
-   *   worker in seconds. Defaults to 15.
+   * An optional associative array of settings for cron.
    *
    * @var array
+   *   The array has one key, time, which is set to the time Drupal cron should
+   *   spend on calling this worker in seconds. The default is set in
+   *   \Drupal\Core\Queue\QueueWorkerManager::processDefinition().
+   *
+   * @see \Drupal\Core\Queue\QueueWorkerManager::processDefinition()
    */
   public $cron;
 

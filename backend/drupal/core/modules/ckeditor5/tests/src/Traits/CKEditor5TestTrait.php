@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\ckeditor5\Traits;
 
 use Behat\Mink\Element\NodeElement;
@@ -132,6 +134,26 @@ JS;
       ->find('xpath', "//button[span[text()='$name']]");
     $this->assertNotEmpty($button);
     return $button;
+  }
+
+  /**
+   * Selects text inside an element.
+   *
+   * @param string $selector
+   *   A CSS selector for the element which contents should be selected.
+   */
+  protected function selectTextInsideElement(string $selector): void {
+    $javascript = <<<JS
+(function() {
+  const el = document.querySelector(".ck-editor__main $selector");
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+})();
+JS;
+    $this->getSession()->evaluateScript($javascript);
   }
 
 }

@@ -66,7 +66,7 @@ class ViewsListTest extends UITestBase {
     $limit = 51;
     $values = $this->config('views.view.test_view_storage')->get();
     for ($i = 1; $i <= $limit - $views; $i++) {
-      $values['id'] = 'test_view_storage_new' . $i;
+      $values['id'] = $values['label'] = 'test_view_storage_new' . $i;
       unset($values['uuid']);
       $created = View::create($values);
       $created->save();
@@ -74,7 +74,7 @@ class ViewsListTest extends UITestBase {
     $this->drupalGet('admin/structure/views');
 
     // Check that all the rows are listed.
-    $this->assertCount($limit, $this->xpath('//tbody/tr[contains(@class,"views-ui-list-enabled")]'));
+    $this->assertSession()->elementsCount('xpath', '//tbody/tr[contains(@class,"views-ui-list-enabled")]', $limit);
   }
 
 }

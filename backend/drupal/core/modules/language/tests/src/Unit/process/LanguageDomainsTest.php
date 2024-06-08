@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\language\Unit\process;
 
 use Drupal\language\Plugin\migrate\process\LanguageDomains;
@@ -32,7 +34,7 @@ class LanguageDomainsTest extends MigrateProcessTestCase {
     // to return TRUE to be able to test the process.
     $this->row->expects($this->once())
       ->method('getSourceProperty')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     // The language_domains plugin use $base_url to fill empty domains.
     global $base_url;

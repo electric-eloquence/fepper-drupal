@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\Unit;
 
 use Drupal\block_content\Access\RefinableDependentAccessInterface;
@@ -120,6 +122,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
       '#base_plugin_id' => 'block_plugin_id',
       '#derivative_plugin_id' => NULL,
       'content' => $block_content,
+      '#in_preview' => FALSE,
     ];
 
     $expected_build_with_expected_cache = $expected_build + [
@@ -195,6 +198,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
       '#base_plugin_id' => 'block_plugin_id',
       '#derivative_plugin_id' => NULL,
       'content' => $block_content,
+      '#in_preview' => FALSE,
     ];
 
     $expected_cache = $expected_build + [
@@ -324,6 +328,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
       '#attributes' => [
         'data-layout-content-preview-placeholder-label' => $placeholder_label,
       ],
+      '#in_preview' => TRUE,
     ];
 
     $expected_cache = $expected_build + [
@@ -332,6 +337,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
         'tags' => ['test'],
         'max-age' => 0,
       ],
+      '#in_preview' => TRUE,
     ];
 
     $subscriber->onBuildRender($event);
@@ -355,7 +361,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
     $block->getPluginId()->willReturn('block_plugin_id');
     $block->getBaseId()->willReturn('block_plugin_id');
     $block->getDerivativeId()->willReturn(NULL);
-    $block->getPluginDefinition()->willReturn(['admin_label' => 'adminlabel']);
+    $block->getPluginDefinition()->willReturn(['admin_label' => 'admin']);
     $placeholder_string = 'The placeholder string';
     $block->getPreviewFallbackString()->willReturn($placeholder_string);
 
@@ -383,6 +389,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
       '#attributes' => [
         'data-layout-content-preview-placeholder-label' => $placeholder_string,
       ],
+      '#in_preview' => TRUE,
     ];
     $expected_build['content']['#markup'] = $placeholder_string;
 
@@ -392,6 +399,7 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
         'tags' => ['test'],
         'max-age' => 0,
       ],
+      '#in_preview' => TRUE,
     ];
 
     $subscriber->onBuildRender($event);
@@ -477,12 +485,12 @@ class BlockComponentRenderArrayTest extends UnitTestCase {
     $expected_build = [];
 
     $expected_cache = $expected_build + [
-        '#cache' => [
-          'contexts' => [],
-          'tags' => ['empty_build_cache_test', 'test'],
-          'max-age' => -1,
-        ],
-      ];
+      '#cache' => [
+        'contexts' => [],
+        'tags' => ['empty_build_cache_test', 'test'],
+        'max-age' => -1,
+      ],
+    ];
 
     $subscriber->onBuildRender($event);
     $result = $event->getBuild();

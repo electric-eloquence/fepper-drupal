@@ -120,7 +120,7 @@ class CommentNonNodeTest extends BrowserTestBase {
    * @return \Drupal\comment\CommentInterface
    *   The new comment entity.
    */
-  public function postComment(EntityInterface $entity, $comment, $subject = '', $contact = NULL) {
+  public function postComment(?EntityInterface $entity, $comment, $subject = '', $contact = NULL) {
     $edit = [];
     $edit['comment_body[0][value]'] = $comment;
 
@@ -277,8 +277,6 @@ class CommentNonNodeTest extends BrowserTestBase {
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->fieldNotExists('edit-default-value-input-comment-und-0-status-0');
     // Test that field to change cardinality is not available.
-    $this->drupalGet('entity_test/structure/entity_test/fields/entity_test.entity_test.comment/storage');
-    $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->fieldNotExists('cardinality_number');
     $this->assertSession()->fieldNotExists('cardinality');
 
@@ -286,8 +284,7 @@ class CommentNonNodeTest extends BrowserTestBase {
 
     // Test breadcrumb on comment add page.
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment');
-    $xpath = '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a';
-    $this->assertEquals($this->entity->label(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to node title on comment reply page.');
+    $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $this->entity->label());
 
     // Post a comment.
     /** @var \Drupal\comment\CommentInterface $comment1 */
@@ -296,18 +293,27 @@ class CommentNonNodeTest extends BrowserTestBase {
 
     // Test breadcrumb on comment reply page.
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment/' . $comment1->id());
-    $xpath = '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a';
-    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment title on comment reply page.');
+    $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $comment1->getSubject());
 
     // Test breadcrumb on comment edit page.
     $this->drupalGet('comment/' . $comment1->id() . '/edit');
-    $xpath = '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a';
-    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment subject on edit page.');
+    $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $comment1->getSubject());
 
     // Test breadcrumb on comment delete page.
     $this->drupalGet('comment/' . $comment1->id() . '/delete');
-    $xpath = '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a';
-    $this->assertEquals($comment1->getSubject(), current($this->xpath($xpath))->getText(), 'Last breadcrumb item is equal to comment subject on delete confirm page.');
+    $this->assertSession()->elementTextEquals('xpath', '//nav[@aria-labelledby="system-breadcrumb"]/ol/li[last()]/a', $comment1->getSubject());
+
+    // Test threading replying to comment #1 creating comment #1_2.
+    $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment/' . $comment1->id());
+    $comment1_2 = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName());
+    $this->assertTrue($this->commentExists($comment1_2, TRUE), 'Comment #1_2. Reply found.');
+    $this->assertEquals('01.00/', $comment1_2->getThread());
+
+    // Test nested threading replying to comment #1_2 creating comment #1_2_3.
+    $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment/' . $comment1_2->id());
+    $comment1_2_3 = $this->postComment(NULL, $this->randomMachineName(), $this->randomMachineName());
+    $this->assertTrue($this->commentExists($comment1_2_3, TRUE), 'Comment #1_2_3. Reply found.');
+    $this->assertEquals('01.00.00/', $comment1_2_3->getThread());
 
     // Unpublish the comment.
     $this->performCommentOperation($comment1, 'unpublish');
@@ -436,10 +442,10 @@ class CommentNonNodeTest extends BrowserTestBase {
     $this->fieldUIAddNewField('entity_test/structure/entity_test', 'foobar', 'Foobar', 'comment', $storage_edit);
 
     // Add a third comment field.
-    $this->fieldUIAddNewField('entity_test/structure/entity_test', 'barfoo', 'BarFoo', 'comment', $storage_edit);
+    $this->fieldUIAddNewField('entity_test/structure/entity_test', 'bar_foo', 'Bar_Foo', 'comment', $storage_edit);
 
     // Check the field contains the correct comment type.
-    $field_storage = FieldStorageConfig::load('entity_test.field_barfoo');
+    $field_storage = FieldStorageConfig::load('entity_test.field_bar_foo');
     $this->assertInstanceOf(FieldStorageConfig::class, $field_storage);
     $this->assertEquals('foobar', $field_storage->getSetting('comment_type'));
     $this->assertEquals(1, $field_storage->getCardinality());
@@ -450,11 +456,11 @@ class CommentNonNodeTest extends BrowserTestBase {
     $new_entity = EntityTest::create($data);
     $new_entity->save();
     $this->drupalGet('entity_test/manage/' . $new_entity->id() . '/edit');
-    $this->assertSession()->checkboxNotChecked('edit-field-foobar-0-status-1');
     $this->assertSession()->checkboxChecked('edit-field-foobar-0-status-2');
-    $this->assertSession()->fieldNotExists('edit-field-foobar-0-status-0');
+    $this->assertSession()->checkboxNotChecked('edit-field-foobar-0-status-0');
+    $this->assertSession()->fieldNotExists('edit-field-foobar-0-status-1');
 
-    // @todo Check proper url and form https://www.drupal.org/node/2458323
+    // @todo Check proper URL and form https://www.drupal.org/node/2458323
     $this->drupalGet('comment/reply/entity_test/comment/' . $new_entity->id());
     $this->assertSession()->fieldNotExists('subject[0][value]');
     $this->assertSession()->fieldNotExists('comment_body[0][value]');
@@ -471,7 +477,7 @@ class CommentNonNodeTest extends BrowserTestBase {
 
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment');
     $this->assertSession()->fieldValueEquals('comment_body[0][value]', '');
-    $this->fieldUIDeleteField('admin/structure/comment/manage/comment', 'comment.comment.comment_body', 'Comment', 'Comment settings');
+    $this->fieldUIDeleteField('admin/structure/comment/manage/comment', 'comment.comment.comment_body', 'Comment', 'Comment settings', 'comment type');
     $this->drupalGet('comment/reply/entity_test/' . $this->entity->id() . '/comment');
     $this->assertSession()->fieldNotExists('comment_body[0][value]');
     // Set subject field to autogenerate it.
@@ -493,9 +499,9 @@ class CommentNonNodeTest extends BrowserTestBase {
     // Visit the Field UI field add page.
     $this->drupalGet('entity_test_string_id/structure/entity_test/fields/add-field');
     // Ensure field isn't shown for string IDs.
-    $this->assertSession()->optionNotExists('edit-new-storage-type', 'comment');
+    $this->assertSession()->elementNotExists('css', "[name='new_storage_type'][value='comment']");
     // Ensure a core field type shown.
-    $this->assertSession()->optionExists('edit-new-storage-type', 'boolean');
+    $this->assertSession()->elementExists('css', "[name='new_storage_type'][value='boolean']");
 
     // Attempt to add a comment-type referencing this entity-type.
     $this->drupalGet('admin/structure/comment/types/add');
@@ -510,9 +516,38 @@ class CommentNonNodeTest extends BrowserTestBase {
     // Visit the Field UI field add page.
     $this->drupalGet('entity_test_no_id/structure/entity_test/fields/add-field');
     // Ensure field isn't shown for empty IDs.
-    $this->assertSession()->optionNotExists('edit-new-storage-type', 'comment');
+    $this->assertSession()->elementNotExists('css', "[name='new_storage_type'][value='comment']");
     // Ensure a core field type shown.
-    $this->assertSession()->optionExists('edit-new-storage-type', 'boolean');
+    $this->assertSession()->elementExists('css', "[name='new_storage_type'][value='boolean']");
+  }
+
+  /**
+   * Ensures that comment settings are not required.
+   */
+  public function testCommentSettingsNotRequired() {
+    $limited_user = $this->drupalCreateUser([
+      'administer entity_test fields',
+    ]);
+    $this->drupalLogin($limited_user);
+    $this->drupalGet('entity_test/structure/entity_test/fields/entity_test.entity_test.comment');
+
+    // Change the comments to be displayed as hidden by default.
+    $edit = [
+      'default_value_input[comment][0][status]' => CommentItemInterface::HIDDEN,
+      'settings[anonymous]' => CommentInterface::ANONYMOUS_MAY_CONTACT,
+    ];
+    $this->submitForm($edit, 'Save settings');
+
+    // Ensure that the comment settings field is not required and can be saved
+    // with the default value.
+    $this->drupalLogin($this->adminUser);
+    $this->drupalGet('/entity_test/add');
+    $this->assertSession()->checkboxChecked('edit-comment-0-status-0');
+    $edit = [
+      "name[0][value]" => 'Comment test',
+    ];
+    $this->submitForm($edit, 'Save');
+    $this->assertSession()->pageTextContains('entity_test 2 has been created.');
   }
 
 }

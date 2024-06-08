@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_library\FunctionalJavascript;
 
 use Drupal\user\Entity\Role;
@@ -11,6 +13,11 @@ use Drupal\user\RoleInterface;
  * @group media_library
  */
 class WidgetAnonymousTest extends MediaLibraryTestBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}

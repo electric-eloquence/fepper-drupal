@@ -14,6 +14,9 @@ class DuplicateTest extends UITestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
     parent::setUp($import_test_views, $modules);
 
@@ -33,13 +36,13 @@ class DuplicateTest extends UITestBase {
 
     // Generate random label and id for new view.
     $view['label'] = $this->randomMachineName(255);
-    $view['id'] = strtolower($this->randomMachineName(128));
+    $view['id'] = $this->randomMachineName(128);
 
     // Duplicate view.
     $this->drupalGet('admin/structure/views/view/' . $random_view['id'] . '/duplicate');
     $this->submitForm($view, 'Duplicate');
 
-    // Assert that the page url is correct.
+    // Assert that the page URL is correct.
     $this->assertSession()->addressEquals('admin/structure/views/view/' . $view['id']);
 
     // Assert that the page title is correctly displayed.

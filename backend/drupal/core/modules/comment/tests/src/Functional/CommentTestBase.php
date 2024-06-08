@@ -54,7 +54,10 @@ abstract class CommentTestBase extends BrowserTestBase {
    */
   protected $node;
 
-  protected function setUp() {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
     parent::setUp();
 
     // Create an article content type only if it does not yet exist, so that
@@ -78,7 +81,7 @@ abstract class CommentTestBase extends BrowserTestBase {
       // permission is granted.
       'access user profiles',
       'access content',
-     ]);
+    ]);
     $this->webUser = $this->drupalCreateUser([
       'access comments',
       'post comments',

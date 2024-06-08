@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\Core\Menu\LocalActionManagerTest.
- */
+declare(strict_types=1);
 
 namespace Drupal\Tests\Core\Menu;
 
@@ -23,6 +20,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
+use Prophecy\Prophet;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface;
@@ -107,6 +105,8 @@ class LocalActionManagerTest extends UnitTestCase {
    * {@inheritdoc}
    */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->argumentResolver = $this->createMock('\Symfony\Component\HttpKernel\Controller\ArgumentResolverInterface');
     $this->request = $this->createMock('Symfony\Component\HttpFoundation\Request');
     $this->routeProvider = $this->createMock('Drupal\Core\Routing\RouteProviderInterface');
@@ -146,7 +146,7 @@ class LocalActionManagerTest extends UnitTestCase {
     $this->argumentResolver->expects($this->once())
       ->method('getArguments')
       ->with($this->request, [$local_action, 'getTitle'])
-      ->will($this->returnValue(['test']));
+      ->willReturn(['test']);
 
     $this->localActionManager->getTitle($local_action);
   }
@@ -159,31 +159,31 @@ class LocalActionManagerTest extends UnitTestCase {
   public function testGetActionsForRoute($route_appears, array $plugin_definitions, array $expected_actions) {
     $this->discovery->expects($this->any())
       ->method('getDefinitions')
-      ->will($this->returnValue($plugin_definitions));
+      ->willReturn($plugin_definitions);
     $map = [];
     foreach ($plugin_definitions as $plugin_id => $plugin_definition) {
       $plugin = $this->createMock('Drupal\Core\Menu\LocalActionInterface');
       $plugin->expects($this->any())
         ->method('getRouteName')
-        ->will($this->returnValue($plugin_definition['route_name']));
+        ->willReturn($plugin_definition['route_name']);
       $plugin->expects($this->any())
         ->method('getRouteParameters')
-        ->will($this->returnValue($plugin_definition['route_parameters'] ?? []));
+        ->willReturn($plugin_definition['route_parameters'] ?? []);
       $plugin->expects($this->any())
         ->method('getTitle')
-        ->will($this->returnValue($plugin_definition['title']));
+        ->willReturn($plugin_definition['title']);
       $this->argumentResolver->expects($this->any())
         ->method('getArguments')
         ->with($this->request, [$plugin, 'getTitle'])
-        ->will($this->returnValue([]));
+        ->willReturn([]);
 
       $plugin->expects($this->any())
         ->method('getWeight')
-        ->will($this->returnValue($plugin_definition['weight']));
+        ->willReturn($plugin_definition['weight']);
       $this->argumentResolver->expects($this->any())
         ->method('getArguments')
         ->with($this->request, [$plugin, 'getTitle'])
-        ->will($this->returnValue([]));
+        ->willReturn([]);
       $map[] = [$plugin_id, [], $plugin];
     }
     $this->factory->expects($this->any())
@@ -193,8 +193,8 @@ class LocalActionManagerTest extends UnitTestCase {
     $this->assertEquals($expected_actions, $this->localActionManager->getActionsForRoute($route_appears));
   }
 
-  public function getActionsForRouteProvider() {
-    $cache_contexts_manager = $this->prophesize(CacheContextsManager::class);
+  public static function getActionsForRouteProvider() {
+    $cache_contexts_manager = (new Prophet())->prophesize(CacheContextsManager::class);
     $cache_contexts_manager->assertValidTokens(Argument::any())
       ->willReturn(TRUE);
 
@@ -394,7 +394,7 @@ class TestLocalActionManager extends LocalActionManager {
     $this->routeMatch = $route_match;
     $this->moduleHandler = $module_handler;
     $this->alterInfo('menu_local_actions');
-    $this->setCacheBackend($cache_backend, 'local_action_plugins', ['local_action']);
+    $this->setCacheBackend($cache_backend, 'local_action_plugins');
   }
 
 }

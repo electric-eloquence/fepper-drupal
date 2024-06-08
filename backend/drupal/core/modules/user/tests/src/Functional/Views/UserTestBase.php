@@ -31,7 +31,10 @@ abstract class UserTestBase extends ViewTestBase {
    */
   protected $nodes = [];
 
-  protected function setUp($import_test_views = TRUE, $modules = ['user_test_views']) {
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp($import_test_views = TRUE, $modules = ['user_test_views']): void {
     parent::setUp($import_test_views, $modules);
 
     $this->users[] = $this->drupalCreateUser();

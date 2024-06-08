@@ -6,6 +6,7 @@ use Drupal\Core\Url;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\language\Entity\ConfigurableLanguage;
+use Drupal\Tests\language\Traits\LanguageTestTrait;
 
 /**
  * Tests the untranslatable fields behaviors.
@@ -13,6 +14,8 @@ use Drupal\language\Entity\ConfigurableLanguage;
  * @group content_translation
  */
 class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendingRevisionTestBase {
+
+  use LanguageTestTrait;
 
   /**
    * {@inheritdoc}
@@ -29,14 +32,11 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
    */
   protected function setUp(): void {
     parent::setUp();
+    $this->doSetup();
 
     // Configure one field as untranslatable.
     $this->drupalLogin($this->administrator);
-    $edit = [
-      'settings[' . $this->entityTypeId . '][' . $this->bundle . '][fields][' . $this->fieldName . ']' => 0,
-    ];
-    $this->drupalGet('admin/config/regional/content-language');
-    $this->submitForm($edit, 'Save configuration');
+    static::setFieldTranslatable($this->entityTypeId, $this->bundle, $this->fieldName, FALSE);
 
     /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager */
     $entity_field_manager = $this->container->get('entity_field.manager');
@@ -88,9 +88,9 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
     $en_edit_url = $entity->toUrl('edit-form');
     $this->drupalGet($en_edit_url);
     $field_xpath = '//input[@name="' . $this->fieldName . '[0][value]"]';
-    $this->assertNotEmpty($this->xpath($field_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
     $clue_xpath = '//label[@for="edit-' . strtr($this->fieldName, '_', '-') . '-0-value"]/span[text()="(all languages)"]';
-    $this->assertEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementNotExists('xpath', $clue_xpath);
     $this->assertSession()->pageTextContains('Untranslatable-but-visible test field');
 
     // Add a translation and check that the untranslatable field widget is
@@ -102,20 +102,20 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
       'target' => 'it',
     ]);
     $this->drupalGet($add_url);
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertNotEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementExists('xpath', $clue_xpath);
     $this->assertSession()->pageTextContains('Untranslatable-but-visible test field');
     $this->submitForm([], 'Save');
 
     // Check that the widget is displayed along with its clue in the edit form
     // for both languages.
     $this->drupalGet($en_edit_url);
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertNotEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementExists('xpath', $clue_xpath);
     $it_edit_url = $entity->toUrl('edit-form', ['language' => ConfigurableLanguage::load('it')]);
     $this->drupalGet($it_edit_url);
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertNotEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementExists('xpath', $clue_xpath);
 
     // Configure untranslatable field widgets to be hidden on non-default
     // language edit forms.
@@ -128,22 +128,19 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
     // but no clue is displayed.
     $this->drupalGet($en_edit_url);
     $field_xpath = '//input[@name="' . $this->fieldName . '[0][value]"]';
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementNotExists('xpath', $clue_xpath);
     $this->assertSession()->pageTextContains('Untranslatable-but-visible test field');
 
     // Verify no widget is displayed on the non-default language edit form.
     $this->drupalGet($it_edit_url);
-    $this->assertEmpty($this->xpath($field_xpath));
-    $this->assertEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementNotExists('xpath', $field_xpath);
+    $this->assertSession()->elementNotExists('xpath', $clue_xpath);
     $this->assertSession()->pageTextContains('Untranslatable-but-visible test field');
 
     // Verify a warning is displayed.
     $this->assertSession()->statusMessageContains('Fields that apply to all languages are hidden to avoid conflicting changes.', 'warning');
-    $edit_path = $entity->toUrl('edit-form')->toString();
-    $link_xpath = '//a[@href=:edit_path and text()="Edit them on the original language form"]';
-    $elements = $this->xpath($link_xpath, [':edit_path' => $edit_path]);
-    $this->assertNotEmpty($elements);
+    $this->assertSession()->elementExists('xpath', '//a[@href="' . $entity->toUrl('edit-form')->toString() . '" and text()="Edit them on the original language form"]');
 
     // Configure untranslatable field widgets to be displayed on non-default
     // language edit forms.
@@ -153,23 +150,22 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
     // Check that the widget is displayed along with its clue in the edit form
     // for both languages.
     $this->drupalGet($en_edit_url);
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertNotEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementExists('xpath', $clue_xpath);
     $this->drupalGet($it_edit_url);
-    $this->assertNotEmpty($this->xpath($field_xpath));
-    $this->assertNotEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementExists('xpath', $field_xpath);
+    $this->assertSession()->elementExists('xpath', $clue_xpath);
 
     // Enable content moderation and verify that widgets are hidden despite them
     // being configured to be displayed.
     $this->enableContentModeration();
     $this->drupalGet($it_edit_url);
-    $this->assertEmpty($this->xpath($field_xpath));
-    $this->assertEmpty($this->xpath($clue_xpath));
+    $this->assertSession()->elementNotExists('xpath', $field_xpath);
+    $this->assertSession()->elementNotExists('xpath', $clue_xpath);
 
     // Verify a warning is displayed.
     $this->assertSession()->statusMessageContains('Fields that apply to all languages are hidden to avoid conflicting changes.', 'warning');
-    $elements = $this->xpath($link_xpath, [':edit_path' => $edit_path]);
-    $this->assertNotEmpty($elements);
+    $this->assertSession()->elementExists('xpath', '//a[@href="' . $entity->toUrl('edit-form')->toString() . '" and text()="Edit them on the original language form"]');
 
     // Verify that checkboxes on the language content settings page are checked
     // and disabled for moderated bundles.
@@ -180,6 +176,13 @@ class ContentTranslationUntranslatableFieldsTest extends ContentTranslationPendi
     $this->submitForm([$settings_key => 0], 'Save configuration');
     $this->assertSession()->fieldValueEquals($field_name, 1);
     $this->assertSession()->fieldDisabled($field_name);
+
+    // Verify that the untranslatable fields warning message is not displayed
+    // when submitting.
+    $this->drupalGet($it_edit_url);
+    $this->assertSession()->pageTextContains('Fields that apply to all languages are hidden to avoid conflicting changes.');
+    $this->submitForm([], 'Save (this translation)');
+    $this->assertSession()->pageTextNotContains('Fields that apply to all languages are hidden to avoid conflicting changes.');
   }
 
 }

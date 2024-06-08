@@ -7,12 +7,14 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\Entity\NodeType;
 use Drupal\comment\Entity\Comment;
 use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\Tests\BrowserTestBase;
 
 /**
  * Tests forum module uninstallation.
  *
  * @group forum
+ * @group #slow
  */
 class ForumUninstallTest extends BrowserTestBase {
 
@@ -120,7 +122,7 @@ class ForumUninstallTest extends BrowserTestBase {
       'type' => 'forum',
     ];
     $this->drupalGet('admin/structure/types/add');
-    $this->submitForm($edit, 'Save content type');
+    $this->submitForm($edit, 'Save');
     $this->assertTrue((bool) NodeType::load('forum'), 'Node type with machine forum created.');
     $this->drupalGet('admin/structure/types/manage/forum');
     $this->clickLink('Delete');
@@ -157,6 +159,25 @@ class ForumUninstallTest extends BrowserTestBase {
     // Ensure that uninstallation succeeds even if the field has already been
     // deleted manually beforehand.
     $this->container->get('module_installer')->uninstall(['forum']);
+  }
+
+  /**
+   * Tests uninstallation of forum module when vocabulary is deleted.
+   */
+  public function testForumUninstallWithoutForumVocabulary() {
+    $this->drupalLogin($this->rootUser);
+    Vocabulary::load('forums')->delete();
+
+    // Now attempt to uninstall forum.
+    $this->drupalGet('admin/modules/uninstall');
+    $this->assertSession()->responseNotContains('The website encountered an unexpected error. Try again later');
+    $this->assertSession()->statusCodeEquals(200);
+
+    // Assert forum is no longer required.
+    $this->assertSession()->fieldExists('uninstall[forum]');
+
+    $this->drupalGet('admin/modules/uninstall');
+    $this->submitForm(['uninstall[forum]' => 1], 'Uninstall');
   }
 
 }

@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\ckeditor5\FunctionalJavascript;
 
 use Drupal\ckeditor5\Plugin\Editor\CKEditor5;
 use Drupal\editor\Entity\Editor;
 use Drupal\filter\Entity\FilterFormat;
+use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\Tests\ckeditor5\Traits\CKEditor5TestTrait;
 use Symfony\Component\Validator\ConstraintViolation;
 
@@ -14,7 +17,7 @@ use Symfony\Component\Validator\ConstraintViolation;
  * @group ckeditor5
  * @internal
  */
-class TableTest extends CKEditor5TestBase {
+class TableTest extends WebDriverTestBase {
 
   use CKEditor5TestTrait;
 
@@ -53,8 +56,13 @@ class TableTest extends CKEditor5TestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
+
+    $this->drupalCreateContentType(['type' => 'page']);
 
     FilterFormat::create([
       'format' => 'test_format',
@@ -166,11 +174,14 @@ class TableTest extends CKEditor5TestBase {
     $caption_button->click();
     $caption = $assert_session->waitForElementVisible('css', 'figure.table > figcaption');
     $this->assertEmpty($caption->getText());
-    $this->getSession()->getDriver()->executeScript("document.querySelector('figure.table > figcaption').innerText = '$this->captionText'");
+    $caption->setValue($this->captionText);
     $this->assertEquals($this->captionText, $caption->getText());
 
     // Update table cell content.
-    $this->getSession()->getDriver()->executeScript("document.querySelector('.ck-editor__nested-editable .ck-table-bogus-paragraph').innerText = '$this->tableCellText'");
+    $table_cell = $assert_session->waitForElement('css', '.ck-editor__nested-editable .ck-table-bogus-paragraph');
+    $this->assertNotEmpty($table_cell);
+    $table_cell->click();
+    $table_cell->setValue($this->tableCellText);
     $table_cell = $page->find('css', 'figure.table > table > tbody > tr > td');
     $this->assertEquals($this->tableCellText, $table_cell->getText());
 

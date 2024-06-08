@@ -613,7 +613,7 @@ function hook_field_views_data_alter(array &$data, \Drupal\field\FieldStorageCon
 function hook_field_views_data_views_data_alter(array &$data, \Drupal\field\FieldStorageConfigInterface $field) {
   $field_name = $field->getName();
   $data_key = 'field_data_' . $field_name;
-  $entity_type_id = $field->entity_type;
+  $entity_type_id = $field->getTargetEntityTypeId();
   $entity_type = \Drupal::entityTypeManager()->getDefinition($entity_type_id);
   $pseudo_field_name = 'reverse_' . $field_name . '_' . $entity_type_id;
   [$label] = views_entity_field_label($entity_type_id, $field_name);
@@ -661,7 +661,7 @@ function hook_views_query_substitutions(ViewExecutable $view) {
   // Example from views_views_query_substitutions().
   return [
     '***CURRENT_VERSION***' => \Drupal::VERSION,
-    '***CURRENT_TIME***' => REQUEST_TIME,
+    '***CURRENT_TIME***' => \Drupal::time()->getRequestTime(),
     '***LANGUAGE_language_content***' => \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT)->getId(),
     PluginBase::VIEWS_QUERY_LANGUAGE_SITE_DEFAULT => \Drupal::languageManager()->getDefaultLanguage()->getId(),
   ];

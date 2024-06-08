@@ -4,7 +4,7 @@ namespace Drupal\Tests\migrate_drupal_ui\Functional\d7;
 
 use Drupal\Tests\migrate_drupal_ui\Functional\NoMultilingualReviewPageTestBase;
 
-// cspell:ignore Filefield Multiupload Imagefield
+// cspell:ignore Filefield Multiupload Imagefield rulesets
 
 /**
  * Tests Drupal 7 upgrade without translations.
@@ -19,12 +19,10 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
-    'book',
     'config_translation',
     'content_translation',
     'datetime_range',
     'file',
-    'forum',
     'language',
     'migrate_drupal_ui',
     'statistics',
@@ -37,9 +35,6 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
   protected function setUp(): void {
     parent::setUp();
     $this->loadFixture($this->getModulePath('migrate_drupal') . '/tests/fixtures/drupal7.php');
-
-    // @todo Remove this in https://www.drupal.org/node/3267515
-    \Drupal::service('module_installer')->uninstall(['rdf']);
   }
 
   /**
@@ -56,7 +51,6 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
     return [
       'Block',
       'Block languages',
-      'Book',
       'Bulk Export',
       'Chaos Tools (CTools) AJAX Example',
       'Chaos tools',
@@ -85,7 +79,6 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
       'Field SQL storage',
       'File',
       'Filter',
-      'Forum',
       'Image',
       'Internationalization',
       'Link',
@@ -156,13 +149,14 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
   protected function getMissingPaths() {
     return [
       'Aggregator',
+      'Book',
       'Breakpoints',
-      // @todo Remove Color in https://www.drupal.org/project/drupal/issues/3270899
       'Color',
       'Contact translation',
       'Entity Translation Menu',
       'Entity Translation Upgrade',
       'FlexSlider Picture',
+      'Forum',
       'Multilingual content',
       'Multilingual forum',
       'Multilingual select',
@@ -184,6 +178,7 @@ class NoMultilingualReviewPageTest extends NoMultilingualReviewPageTestBase {
       // These modules are in the missing path list because they are installed
       // on the source site but they are not installed on the destination site.
       'Syslog',
+      // @todo Remove tracker in https://www.drupal.org/project/drupal/issues/3261452
       'Tracker',
       'Update manager',
     ];

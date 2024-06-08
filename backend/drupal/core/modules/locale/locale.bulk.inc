@@ -275,6 +275,7 @@ function locale_translate_batch_import($file, array $options, &$context) {
  */
 function locale_translate_batch_import_save($context) {
   if (isset($context['results']['files'])) {
+    $request_time = \Drupal::time()->getRequestTime();
     foreach ($context['results']['files'] as $file) {
       // Update the file history if both project and version are known. This
       // table is used by the automated translation update function which tracks
@@ -282,7 +283,7 @@ function locale_translate_batch_import_save($context) {
       // translation files are not tracked and are therefore not stored in this
       // table.
       if ($file->project && $file->version) {
-        $file->last_checked = REQUEST_TIME;
+        $file->last_checked = $request_time;
         locale_translation_update_file_history($file);
       }
     }
@@ -307,7 +308,7 @@ function locale_translate_batch_refresh(&$context) {
       foreach ($context['results']['stats'] as $report) {
         $strings[] = $report['strings'];
       }
-      $strings = array_merge([], ...$strings);
+      $strings = array_merge(...$strings);
     }
     if ($strings) {
       // Initialize multi-step string refresh.
@@ -537,14 +538,19 @@ function locale_translate_delete_translation_files(array $projects = [], array $
  * @param array $components
  *   (optional) Array of component lists indexed by type. If not present or it
  *   is an empty array, it will update all components.
+ * @param bool $update_default_config_langcodes
+ *   Determines whether default configuration langcodes should be updated. This
+ *   Should only happen during site and extension install.
  *
  * @return array
  *   The batch definition.
  */
-function locale_config_batch_update_components(array $options, array $langcodes = [], array $components = []) {
+function locale_config_batch_update_components(array $options, array $langcodes = [], array $components = [], bool $update_default_config_langcodes = FALSE) {
   $langcodes = $langcodes ? $langcodes : array_keys(\Drupal::languageManager()->getLanguages());
   if ($langcodes && $names = Locale::config()->getComponentNames($components)) {
-    return locale_config_batch_build($names, $langcodes, $options);
+    // If the component list is empty we need to ensure that all configuration
+    // in the default collection is using the site's default langcode.
+    return locale_config_batch_build($names, $langcodes, $options, $update_default_config_langcodes);
   }
 }
 
@@ -559,19 +565,27 @@ function locale_config_batch_update_components(array $options, array $langcodes 
  *   (optional) An array with options that can have the following elements:
  *   - 'finish_feedback': Whether or not to give feedback to the user when the
  *     batch is finished. Defaults to TRUE.
+ * @param bool $update_default_config_langcodes
+ *   Determines whether default configuration langcodes should be updated. This
+ *   Should only happen during site and extension install.
  *
  * @return array
  *   The batch definition.
  *
  * @see locale_config_batch_refresh_name()
  */
-function locale_config_batch_build(array $names, array $langcodes, array $options = []) {
+function locale_config_batch_build(array $names, array $langcodes, array $options = [], bool $update_default_config_langcodes = FALSE) {
   $options += ['finish_feedback' => TRUE];
   $batch_builder = (new BatchBuilder())
     ->setFile(\Drupal::service('extension.list.module')->getPath('locale') . '/locale.bulk.inc')
     ->setTitle(t('Updating configuration translations'))
     ->setInitMessage(t('Starting configuration update'))
     ->setErrorMessage(t('Error updating configuration translations'));
+
+  if ($update_default_config_langcodes && \Drupal::languageManager()->getDefaultLanguage()->getId() !== 'en') {
+    $batch_builder->addOperation('locale_config_batch_set_config_langcodes');
+  }
+
   $i = 0;
   $batch_names = [];
   foreach ($names as $name) {
@@ -598,6 +612,20 @@ function locale_config_batch_build(array $names, array $langcodes, array $option
 /**
  * Implements callback_batch_operation().
  *
+ * Updates default configuration when new modules or themes are installed.
+ *
+ * @param array|\ArrayAccess $context
+ *   The batch context.
+ */
+function locale_config_batch_set_config_langcodes(&$context) {
+  Locale::config()->updateDefaultConfigLangcodes();
+  $context['finished'] = 1;
+  $context['message'] = t('Updated default configuration to %langcode', ['%langcode' => \Drupal::languageManager()->getDefaultLanguage()->getId()]);
+}
+
+/**
+ * Implements callback_batch_operation().
+ *
  * Performs configuration translation refresh.
  *
  * @param array $names
@@ -610,14 +638,14 @@ function locale_config_batch_build(array $names, array $langcodes, array $option
  * @see locale_config_batch_build()
  */
 function locale_config_batch_refresh_name(array $names, array $langcodes, &$context) {
-  if (!isset($context['result']['stats']['config'])) {
-    $context['result']['stats']['config'] = 0;
+  if (!isset($context['results']['stats']['config'])) {
+    $context['results']['stats']['config'] = 0;
   }
-  $context['result']['stats']['config'] += Locale::config()->updateConfigTranslations($names, $langcodes);
+  $context['results']['stats']['config'] += Locale::config()->updateConfigTranslations($names, $langcodes);
   foreach ($names as $name) {
-    $context['result']['names'][] = $name;
+    $context['results']['names'][] = $name;
   }
-  $context['result']['langcodes'] = $langcodes;
+  $context['results']['langcodes'] = $langcodes;
   $context['finished'] = 1;
 }
 

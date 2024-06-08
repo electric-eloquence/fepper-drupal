@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Plugin\Discovery;
 
 use Drupal\Core\StringTranslation\TranslatableMarkup;
@@ -32,6 +34,9 @@ class YamlDiscoveryTest extends UnitTestCase {
     'test_2' => 'test_2_b',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 

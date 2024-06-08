@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\block\Unit\Plugin\DisplayVariant;
 
 use Drupal\Core\Cache\CacheableMetadata;
@@ -219,7 +221,7 @@ class BlockPageVariantTest extends UnitTestCase {
     }
     $this->blockViewBuilder->expects($this->exactly($visible_block_count))
       ->method('view')
-      ->will($this->returnValue([]));
+      ->willReturn([]);
     $this->blockRepository->expects($this->once())
       ->method('getVisibleBlocksPerRegion')
       ->willReturnCallback(function (&$cacheable_metadata) use ($blocks) {

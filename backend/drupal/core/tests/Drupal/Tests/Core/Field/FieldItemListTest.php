@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Field;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
@@ -47,7 +49,7 @@ class FieldItemListTest extends UnitTestCase {
     $field_storage_definition = $this->createMock('Drupal\Core\Field\FieldStorageDefinitionInterface');
     $field_storage_definition->expects($this->any())
       ->method('getPropertyDefinitions')
-      ->will($this->returnValue($property_definitions));
+      ->willReturn($property_definitions);
     $field_definition = $this->createMock('Drupal\Core\Field\FieldDefinitionInterface');
     $field_definition->expects($this->any())
       ->method('getFieldStorageDefinition')
@@ -193,7 +195,7 @@ class FieldItemListTest extends UnitTestCase {
     $field_storage_definition = $this->createMock('Drupal\Core\Field\FieldStorageDefinitionInterface');
     $field_storage_definition->expects($this->any())
       ->method('getPropertyDefinitions')
-      ->will($this->returnValue($property_definitions));
+      ->willReturn($property_definitions);
 
     $field_definition = $this->createMock(FieldDefinitionInterface::class);
     $field_definition->expects($this->any())
@@ -251,7 +253,7 @@ class FieldItemListTest extends UnitTestCase {
     $field_storage_definition = $this->createMock('Drupal\Core\Field\FieldStorageDefinitionInterface');
     $field_storage_definition->expects($this->any())
       ->method('getPropertyDefinitions')
-      ->will($this->returnValue($property_definitions));
+      ->willReturn($property_definitions);
     $field_definition = $this->createMock('Drupal\Core\Field\FieldDefinitionInterface');
     $field_definition->expects($this->any())
       ->method('getFieldStorageDefinition')

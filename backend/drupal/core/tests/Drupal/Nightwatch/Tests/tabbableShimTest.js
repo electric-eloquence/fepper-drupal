@@ -58,13 +58,13 @@ const tabbableTestScenarios = [
   },
   {
     element:
-      '<details><summary>I am not :tabbable because IE does not support it</summary>This is unfortunate</details>',
-    tabbable: 0,
+      '<details><summary>Summary is now tabbable because IE is not supported anymore</summary>Hooray</details>',
+    tabbable: 1,
   },
   {
     element:
-      '<details>A details without a summary should also not be :tabbable</details>',
-    tabbable: 0,
+      '<details>A details without a summary should be :tabbable</details>',
+    tabbable: 1,
   },
   {
     element: '<ul><li>List item</li></ul>',
@@ -258,17 +258,7 @@ const dialogIntegrationTestScenarios = [
 module.exports = {
   '@tags': ['core'],
   before(browser) {
-    browser.drupalInstall().drupalLoginAsAdmin(() => {
-      browser
-        .drupalRelativeURL('/admin/modules')
-        .setValue('input[type="search"]', 'Tabbable Shim Test')
-        .waitForElementVisible(
-          'input[name="modules[tabbable_shim_test][enable]"]',
-          1000,
-        )
-        .click('input[name="modules[tabbable_shim_test][enable]"]')
-        .click('input[type="submit"]');
-    });
+    browser.drupalInstall().drupalInstallModule('tabbable_shim_test');
   },
   after(browser) {
     browser.drupalUninstall();
@@ -305,7 +295,7 @@ module.exports = {
       );
     });
     browser.assert.deprecationErrorExists(
-      'The :tabbable selector is deprecated in Drupal 9.2.0 and will be removed in Drupal 10.0.0. Use the core/tabbable library instead. See https://www.drupal.org/node/3183730',
+      'The :tabbable selector is deprecated in Drupal 9.2.0 and will be removed in Drupal 11.0.0. Use the core/tabbable library instead. See https://www.drupal.org/node/3183730',
     );
     browser.drupalLogAndEnd({ onlyOnError: false });
   },
@@ -338,7 +328,7 @@ module.exports = {
       );
     });
     browser.assert.deprecationErrorExists(
-      'The :tabbable selector is deprecated in Drupal 9.2.0 and will be removed in Drupal 10.0.0. Use the core/tabbable library instead. See https://www.drupal.org/node/3183730',
+      'The :tabbable selector is deprecated in Drupal 9.2.0 and will be removed in Drupal 11.0.0. Use the core/tabbable library instead. See https://www.drupal.org/node/3183730',
     );
     browser.drupalLogAndEnd({ onlyOnError: false });
   },

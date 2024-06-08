@@ -4,6 +4,7 @@ namespace Drupal\KernelTests\Core\Theme;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
 use Drupal\Core\Extension\ExtensionNameLengthException;
+use Drupal\Core\Extension\ExtensionNameReservedException;
 use Drupal\Core\Extension\MissingDependencyException;
 use Drupal\Core\Extension\ModuleUninstallValidatorException;
 use Drupal\Core\Extension\Exception\UnknownExtensionException;
@@ -13,6 +14,7 @@ use Drupal\KernelTests\KernelTestBase;
  * Tests installing and uninstalling of themes.
  *
  * @group Extension
+ * @group #slow
  */
 class ThemeInstallerTest extends KernelTestBase {
 
@@ -34,6 +36,9 @@ class ThemeInstallerTest extends KernelTestBase {
       ->register('router.dumper', 'Drupal\Core\Routing\NullMatcherDumper');
   }
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installConfig(['system']);
@@ -140,12 +145,30 @@ class ThemeInstallerTest extends KernelTestBase {
   }
 
   /**
+   * Tests installing a theme with the same name as an enabled module.
+   */
+  public function testInstallThemeSameNameAsModule() {
+    $name = 'name_collision_test';
+
+    // Install and uninstall the theme.
+    $this->themeInstaller()->install([$name]);
+    $this->themeInstaller()->uninstall([$name]);
+
+    // Install the module, then the theme.
+    $this->moduleInstaller()->install([$name]);
+    $message = "Theme name {$name} is already in use by an installed module.";
+    $this->expectException(ExtensionNameReservedException::class);
+    $this->expectExceptionMessage($message);
+    $this->themeInstaller()->install([$name]);
+  }
+
+  /**
    * Tests installing a theme with unmet module dependencies.
    *
    * @dataProvider providerTestInstallThemeWithUnmetModuleDependencies
    */
   public function testInstallThemeWithUnmetModuleDependencies($theme_name, $installed_modules, $message) {
-    $this->container->get('module_installer')->install($installed_modules);
+    $this->moduleInstaller()->install($installed_modules);
     $themes = $this->themeHandler()->listInfo();
     $this->assertEmpty($themes);
     $this->expectException(MissingDependencyException::class);
@@ -156,7 +179,7 @@ class ThemeInstallerTest extends KernelTestBase {
   /**
    * Tests trying to install a deprecated theme.
    *
-   * @covers ::install
+   * @covers \Drupal\Core\Extension\ThemeInstaller::install
    *
    * @group legacy
    */
@@ -216,13 +239,13 @@ class ThemeInstallerTest extends KernelTestBase {
     $name = 'test_theme_depending_on_modules';
     $themes = $this->themeHandler()->listInfo();
     $this->assertArrayNotHasKey($name, $themes);
-    $this->container->get('module_installer')->install(['test_module_required_by_theme', 'test_another_module_required_by_theme']);
+    $this->moduleInstaller()->install(['test_module_required_by_theme', 'test_another_module_required_by_theme']);
     $this->themeInstaller()->install([$name]);
     $themes = $this->themeHandler()->listInfo();
     $this->assertArrayHasKey($name, $themes);
     $this->expectException(ModuleUninstallValidatorException::class);
     $this->expectExceptionMessage('The following reasons prevent the modules from being uninstalled: Required by the theme: Test Theme Depending on Modules');
-    $this->container->get('module_installer')->uninstall(['test_module_required_by_theme']);
+    $this->moduleInstaller()->uninstall(['test_module_required_by_theme']);
   }
 
   /**
@@ -230,7 +253,7 @@ class ThemeInstallerTest extends KernelTestBase {
    */
   public function testUninstallDefault() {
     $name = 'stark';
-    $other_name = 'bartik';
+    $other_name = 'olivero';
     $this->themeInstaller()->install([$name, $other_name]);
     $this->config('system.theme')->set('default', $name)->save();
 
@@ -239,7 +262,7 @@ class ThemeInstallerTest extends KernelTestBase {
     $this->assertTrue(isset($themes[$other_name]));
 
     try {
-      $message = 'ThemeInstaller::uninstall() throws InvalidArgumentException upon disabling default theme.';
+      $message = 'ThemeInstaller::uninstall() throws InvalidArgumentException upon uninstalling default theme.';
       $this->themeInstaller()->uninstall([$name]);
       $this->fail($message);
     }
@@ -257,7 +280,7 @@ class ThemeInstallerTest extends KernelTestBase {
    */
   public function testUninstallAdmin() {
     $name = 'stark';
-    $other_name = 'bartik';
+    $other_name = 'olivero';
     $this->themeInstaller()->install([$name, $other_name]);
     $this->config('system.theme')->set('admin', $name)->save();
 
@@ -333,17 +356,8 @@ class ThemeInstallerTest extends KernelTestBase {
     $themes = $this->themeHandler()->listInfo();
     $this->assertEmpty(array_keys($themes));
 
-    try {
-      $message = 'ThemeInstaller::uninstall() throws UnknownExtensionException upon uninstalling a non-existing theme.';
-      $this->themeInstaller()->uninstall([$name]);
-      $this->fail($message);
-    }
-    catch (\Exception $e) {
-      $this->assertInstanceOf(UnknownExtensionException::class, $e);
-    }
-
-    $themes = $this->themeHandler()->listInfo();
-    $this->assertEmpty(array_keys($themes));
+    $this->expectException(UnknownExtensionException::class);
+    $this->themeInstaller()->uninstall([$name]);
   }
 
   /**
@@ -375,14 +389,10 @@ class ThemeInstallerTest extends KernelTestBase {
   public function testUninstallNotInstalled() {
     $name = 'test_basetheme';
 
-    try {
-      $message = 'ThemeInstaller::uninstall() throws UnknownExtensionException upon uninstalling a theme that is not installed.';
-      $this->themeInstaller()->uninstall([$name]);
-      $this->fail($message);
-    }
-    catch (\Exception $e) {
-      $this->assertInstanceOf(UnknownExtensionException::class, $e);
-    }
+    $themes = $this->themeHandler()->listInfo();
+    $this->assertEmpty(array_keys($themes));
+    $this->expectException(UnknownExtensionException::class);
+    $this->themeInstaller()->uninstall([$name]);
   }
 
   /**
@@ -391,7 +401,7 @@ class ThemeInstallerTest extends KernelTestBase {
    * @see module_test_system_info_alter()
    */
   public function testThemeInfoAlter() {
-    $name = 'seven';
+    $name = 'stark';
     $this->container->get('state')->set('module_test.hook_system_info_alter', TRUE);
 
     $this->themeInstaller()->install([$name]);

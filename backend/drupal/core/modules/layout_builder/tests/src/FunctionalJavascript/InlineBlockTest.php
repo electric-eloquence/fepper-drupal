@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\FunctionalJavascript;
 
 use Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay;
@@ -9,13 +11,21 @@ use Drupal\node\Entity\Node;
  * Tests that the inline block feature works correctly.
  *
  * @group layout_builder
+ * @group #slow
  */
 class InlineBlockTest extends InlineBlockTestBase {
 
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
+
+  /**
+   * {@inheritdoc}
+   */
+  protected static $modules = [
+    'field_ui',
+  ];
 
   /**
    * Tests adding and editing of inline blocks.
@@ -548,7 +558,7 @@ class InlineBlockTest extends InlineBlockTestBase {
     $page->clickLink('Add block');
     $assert_session->assertWaitOnAjaxRequest();
     // Confirm that with no block content types the link does not appear.
-    $assert_session->linkNotExists('Create custom block');
+    $assert_session->linkNotExists('Create content block');
 
     $this->createBlockContentType('basic', 'Basic block');
 
@@ -556,10 +566,10 @@ class InlineBlockTest extends InlineBlockTestBase {
     // Add a basic block with the body field set.
     $page->clickLink('Add block');
     $assert_session->assertWaitOnAjaxRequest();
-    // Confirm with only 1 type the "Create custom block" link goes directly t
+    // Confirm with only 1 type the "Create content block" link goes directly t
     // block add form.
     $assert_session->linkNotExists('Basic block');
-    $this->clickLink('Create custom block');
+    $this->clickLink('Create content block');
     $assert_session->assertWaitOnAjaxRequest();
     $assert_session->fieldExists('Title');
 
@@ -568,12 +578,12 @@ class InlineBlockTest extends InlineBlockTestBase {
     $this->drupalGet($layout_default_path);
     // Add a basic block with the body field set.
     $page->clickLink('Add block');
-    // Confirm that, when more than 1 type exists, "Create custom block" shows a
+    // Confirm that, when more than 1 type exists, "Create content block" shows a
     // list of block types.
     $assert_session->assertWaitOnAjaxRequest();
     $assert_session->linkNotExists('Basic block');
     $assert_session->linkNotExists('Advanced block');
-    $this->clickLink('Create custom block');
+    $this->clickLink('Create content block');
     $assert_session->assertWaitOnAjaxRequest();
     $assert_session->fieldNotExists('Title');
     $assert_session->linkExists('Basic block');
@@ -585,7 +595,7 @@ class InlineBlockTest extends InlineBlockTestBase {
   }
 
   /**
-   * Tests the 'create and edit custom blocks' permission to add a new block.
+   * Tests the 'create and edit content blocks' permission to add a new block.
    */
   public function testAddInlineBlocksPermission() {
     LayoutBuilderEntityViewDisplay::load('node.bundle_with_section_field.default')
@@ -602,10 +612,10 @@ class InlineBlockTest extends InlineBlockTestBase {
       $page->clickLink('Add block');
       $this->assertNotEmpty($assert_session->waitForElementVisible('css', '#drupal-off-canvas .block-categories'));
       if ($expected) {
-        $assert_session->linkExists('Create custom block');
+        $assert_session->linkExists('Create content block');
       }
       else {
-        $assert_session->linkNotExists('Create custom block');
+        $assert_session->linkNotExists('Create content block');
       }
     };
 
@@ -660,6 +670,45 @@ class InlineBlockTest extends InlineBlockTestBase {
     $assert($permissions, FALSE);
     $permissions[] = 'create and edit custom blocks';
     $assert($permissions, TRUE);
+  }
+
+  /**
+   * Test editing inline blocks when the parent has been reverted.
+   */
+  public function testInlineBlockParentRevert() {
+    $this->drupalLogin($this->drupalCreateUser([
+      'access contextual links',
+      'configure any layout',
+      'administer node display',
+      'administer node fields',
+      'administer nodes',
+      'bypass node access',
+      'create and edit custom blocks',
+    ]));
+    $display = \Drupal::service('entity_display.repository')->getViewDisplay('node', 'bundle_with_section_field');
+    $display->enableLayoutBuilder()->setOverridable()->save();
+    $test_node = $this->createNode([
+      'title' => 'test node',
+      'type' => 'bundle_with_section_field',
+    ]);
+
+    $this->drupalGet("node/{$test_node->id()}/layout");
+    $this->addInlineBlockToLayout('Example block', 'original content');
+    $this->assertSaveLayout();
+    $original_content_revision_id = Node::load($test_node->id())->getLoadedRevisionId();
+
+    $this->drupalGet("node/{$test_node->id()}/layout");
+    $this->configureInlineBlock('original content', 'updated content');
+    $this->assertSaveLayout();
+
+    $this->drupalGet("node/{$test_node->id()}/revisions/$original_content_revision_id/revert");
+    $this->submitForm([], 'Revert');
+    $this->drupalGet("node/{$test_node->id()}/layout");
+    $this->configureInlineBlock('original content', 'second updated content');
+    $this->assertSaveLayout();
+
+    $this->drupalGet($test_node->toUrl());
+    $this->assertSession()->pageTextContains('second updated content');
   }
 
 }

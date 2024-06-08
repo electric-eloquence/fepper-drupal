@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Enhancer;
 
 use Drupal\Core\Entity\EntityInterface;
@@ -16,7 +18,7 @@ use Symfony\Component\Routing\Route;
 class EntityRevisionRouteEnhancerTest extends UnitTestCase {
 
   /**
-   * @var \Drupal\Core\Routing\RouteEnhancer\EntityRevisionRouteEnhancer
+   * @var \Drupal\Core\Routing\Enhancer\EntityRevisionRouteEnhancer
    */
   protected $routeEnhancer;
 

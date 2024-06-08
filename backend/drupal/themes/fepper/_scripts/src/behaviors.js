@@ -24,14 +24,28 @@
 
   Drupal.behaviors.closeExpandedMenuOnTablet = {
     attach: function (context) {
+      var $html = $('html', context);
+
+      if ($html.data('closeExpandedMenuOnTabletAttached')) {
+        return;
+      }
+
       // On wider mobile viewports (phablets and tablets), touching ".expanded" links will expand nested menus.
       // The following listener removes the focus from those links, thereby closing their expanded menus.
       $('body', context).click(function () {});
+
+      $html.data('closeExpandedMenuOnTabletAttached', true);
     }
   };
 
   Drupal.behaviors.toggleMobileNav = {
     attach: function (context) {
+      var $html = $('html', context);
+
+      if ($html.data('toggleMobileNavAttached')) {
+        return;
+      }
+
       var $body = $('body', context);
       var $header = $('.header', context);
       var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
@@ -104,11 +118,19 @@
           });
         }
       }
+
+      $html.data('toggleMobileNavAttached', true);
     }
   };
 
   Drupal.behaviors.resetMobileNavBlocks = {
     attach: function (context) {
+      var $html = $('html', context);
+
+      if ($html.data('resetMobileNavBlocksAttached')) {
+        return;
+      }
+
       $(window).resize(function () {
         var $blockAccountMenu = $('nav[id^="block-"][id$="-account-menu"]', context);
         var $blockMainMenu = $('nav[id^="block-"][id$="-main-menu"]', context);
@@ -129,11 +151,19 @@
           $('#search-block-form', context).css('top', '');
         }
       });
+
+      $html.data('resetMobileNavBlocksAttached', true);
     }
   };
 
   Drupal.behaviors.resetFooterHeight = {
     attach: function (context) {
+      var $html = $('html', context);
+
+      if ($html.data('resetFooterHeightAttached')) {
+        return;
+      }
+
       function resetFooterHeight() {
         var $body = $('body', context);
         var $footer = $('footer[role="contentinfo"]', context);
@@ -150,6 +180,8 @@
       $(window).resize(function () {
         resetFooterHeight();
       });
+
+      $html.data('resetFooterHeightAttached', true);
     }
   };
 })(jQuery);
