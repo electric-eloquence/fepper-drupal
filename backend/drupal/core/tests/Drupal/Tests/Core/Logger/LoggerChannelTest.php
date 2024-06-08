@@ -1,9 +1,6 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\Tests\Core\Logger\LoggerChannelTest.
- */
+declare(strict_types=1);
 
 namespace Drupal\Tests\Core\Logger;
 
@@ -137,14 +134,14 @@ class LoggerChannelTest extends UnitTestCase {
     $account_mock = $this->createMock('Drupal\Core\Session\AccountInterface');
     $account_mock->expects($this->any())
       ->method('id')
-      ->will($this->returnValue(1));
+      ->willReturn(1);
 
     $request_mock = $this->getMockBuilder('Symfony\Component\HttpFoundation\Request')
       ->onlyMethods(['getClientIp'])
       ->getMock();
     $request_mock->expects($this->any())
       ->method('getClientIp')
-      ->will($this->returnValue('127.0.0.1'));
+      ->willReturn('127.0.0.1');
     $request_mock->headers = $this->createMock('Symfony\Component\HttpFoundation\ParameterBag');
 
     // No request or account.
@@ -192,7 +189,7 @@ class NaughtyRecursiveLogger implements LoggerInterface {
     $this->channel = $channel;
   }
 
-  public function log($level, $message, array $context = []) {
+  public function log($level, string|\Stringable $message, array $context = []): void {
     $this->channel->log(rand(0, 7), $message, $context);
   }
 

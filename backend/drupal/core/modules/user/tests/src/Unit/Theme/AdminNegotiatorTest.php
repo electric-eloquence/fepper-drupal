@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\user\Unit\Theme;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -35,7 +37,7 @@ class AdminNegotiatorTest extends UnitTestCase {
    */
   public function getThemes() {
     return [
-      ['seven', 'seven'],
+      ['claro', 'claro'],
       [NULL, NULL],
       ['', NULL],
     ];

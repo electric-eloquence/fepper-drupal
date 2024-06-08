@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Controller;
 
 use Drupal\Tests\UnitTestCase;
@@ -18,7 +20,12 @@ class ControllerBaseTest extends UnitTestCase {
    */
   protected $controllerBase;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->controllerBase = $this->getMockForAbstractClass('Drupal\Core\Controller\ControllerBase');
   }
 
@@ -39,11 +46,10 @@ class ControllerBaseTest extends UnitTestCase {
     $container->expects($this->once())
       ->method('get')
       ->with('config.factory')
-      ->will($this->returnValue($config_factory));
+      ->willReturn($config_factory);
     \Drupal::setContainer($container);
 
     $config_method = new \ReflectionMethod('Drupal\Core\Controller\ControllerBase', 'config');
-    $config_method->setAccessible(TRUE);
 
     // Call config twice to ensure that the container is just called once.
     $config = $config_method->invoke($this->controllerBase, 'config_name');

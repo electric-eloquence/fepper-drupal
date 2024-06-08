@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\ParamConverter;
 
 use Drupal\Core\ParamConverter\ParamConverterManager;
@@ -132,7 +134,7 @@ class ParamConverterManagerTest extends UnitTestCase {
     $converter->expects($this->any())
       ->method('applies')
       ->with($this->anything(), 'id', $this->anything())
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
     $this->manager->addConverter($converter, 'applied');
 
     $route = new Route($path);
@@ -194,7 +196,7 @@ class ParamConverterManagerTest extends UnitTestCase {
     $converter->expects($this->any())
       ->method('convert')
       ->with(1, $this->isType('array'), 'id', $this->isType('array'))
-      ->will($this->returnValue('something_better!'));
+      ->willReturn('something_better!');
     $this->manager->addConverter($converter, 'test_convert');
 
     $result = $this->manager->convert($defaults);
@@ -240,7 +242,7 @@ class ParamConverterManagerTest extends UnitTestCase {
     $converter->expects($this->any())
       ->method('convert')
       ->with(1, $this->isType('array'), 'id', $this->isType('array'))
-      ->will($this->returnValue(NULL));
+      ->willReturn(NULL);
     $this->manager->addConverter($converter, 'test_convert');
 
     $this->expectException(ParamNotConvertedException::class);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\field\Unit;
 
 use Drupal\Component\Uuid\UuidInterface;
@@ -68,11 +70,11 @@ class FieldStorageConfigAccessControlHandlerTest extends UnitTestCase {
     $this->anon
       ->expects($this->any())
       ->method('hasPermission')
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->anon
       ->expects($this->any())
       ->method('id')
-      ->will($this->returnValue(0));
+      ->willReturn(0);
 
     $this->member = $this->createMock(AccountInterface::class);
     $this->member
@@ -84,23 +86,23 @@ class FieldStorageConfigAccessControlHandlerTest extends UnitTestCase {
     $this->member
       ->expects($this->any())
       ->method('id')
-      ->will($this->returnValue(2));
+      ->willReturn(2);
 
     $storageType = $this->createMock(ConfigEntityTypeInterface::class);
     $storageType
       ->expects($this->any())
       ->method('getProvider')
-      ->will($this->returnValue('field'));
+      ->willReturn('field');
     $storageType
       ->expects($this->any())
       ->method('getConfigPrefix')
-      ->will($this->returnValue('field.storage'));
+      ->willReturn('field.storage');
 
     $entityType = $this->createMock(ConfigEntityTypeInterface::class);
     $entityType
       ->expects($this->any())
       ->method('getProvider')
-      ->will($this->returnValue('node'));
+      ->willReturn('node');
     $entityType
       ->expects($this->any())
       ->method('getConfigPrefix')
@@ -110,7 +112,7 @@ class FieldStorageConfigAccessControlHandlerTest extends UnitTestCase {
     $this->moduleHandler
       ->expects($this->any())
       ->method('invokeAll')
-      ->will($this->returnValue([]));
+      ->willReturn([]);
 
     $storage_access_control_handler = new FieldStorageConfigAccessControlHandler($storageType);
     $storage_access_control_handler->setModuleHandler($this->moduleHandler);

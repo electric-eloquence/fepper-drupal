@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Session;
 
 use Drupal\Component\Utility\Crypt;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\PermissionsHashGenerator;
 use Drupal\Core\Site\Settings;
 use Drupal\Tests\UnitTestCase;
+use Drupal\user\RoleStorageInterface;
 
 /**
  * @coversDefaultClass \Drupal\Core\Session\PermissionsHashGenerator
@@ -96,7 +100,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
       ->getMock();
     $this->account2->expects($this->any())
       ->method('getRoles')
-      ->will($this->returnValue($roles_1));
+      ->willReturn($roles_1);
     $this->account2->expects($this->any())
       ->method('id')
       ->willReturn(2);
@@ -109,7 +113,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
       ->getMock();
     $this->account3->expects($this->any())
       ->method('getRoles')
-      ->will($this->returnValue($roles_3));
+      ->willReturn($roles_3);
     $this->account3->expects($this->any())
       ->method('id')
       ->willReturn(3);
@@ -122,7 +126,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
       ->getMock();
     $this->account2Updated->expects($this->any())
       ->method('getRoles')
-      ->will($this->returnValue($roles_2_updated));
+      ->willReturn($roles_2_updated);
     $this->account2Updated->expects($this->any())
       ->method('id')
       ->willReturn(2);
@@ -135,15 +139,27 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
       ->getMock();
     $this->privateKey->expects($this->any())
       ->method('get')
-      ->will($this->returnValue($random));
+      ->willReturn($random);
     $this->cache = $this->getMockBuilder('Drupal\Core\Cache\CacheBackendInterface')
       ->disableOriginalConstructor()
       ->getMock();
     $this->staticCache = $this->getMockBuilder('Drupal\Core\Cache\CacheBackendInterface')
       ->disableOriginalConstructor()
       ->getMock();
+    $entityTypeManager = $this->getMockBuilder(EntityTypeManagerInterface::class)
+      ->disableOriginalConstructor()
+      ->getMock();
 
-    $this->permissionsHash = new PermissionsHashGenerator($this->privateKey, $this->cache, $this->staticCache);
+    $roleStorage = $this->getMockBuilder(RoleStorageInterface::class)
+      ->disableOriginalConstructor()
+      ->getMock();
+
+    $entityTypeManager->expects($this->any())
+      ->method('getStorage')
+      ->with('user_role')
+      ->willReturn($roleStorage);
+
+    $this->permissionsHash = new PermissionsHashGenerator($this->privateKey, $this->cache, $this->staticCache, $entityTypeManager);
   }
 
   /**
@@ -178,7 +194,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
     $this->staticCache->expects($this->once())
       ->method('get')
       ->with($expected_cid)
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->staticCache->expects($this->once())
       ->method('set')
       ->with($expected_cid, $this->isType('string'));
@@ -186,7 +202,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
     $this->cache->expects($this->once())
       ->method('get')
       ->with($expected_cid)
-      ->will($this->returnValue($mock_cache));
+      ->willReturn($mock_cache);
     $this->cache->expects($this->never())
       ->method('set');
 
@@ -206,7 +222,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
     $this->staticCache->expects($this->once())
       ->method('get')
       ->with($expected_cid)
-      ->will($this->returnValue($mock_cache));
+      ->willReturn($mock_cache);
     $this->staticCache->expects($this->never())
       ->method('set');
 
@@ -228,7 +244,7 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
     $this->staticCache->expects($this->once())
       ->method('get')
       ->with($expected_cid)
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->staticCache->expects($this->once())
       ->method('set')
       ->with($expected_cid, $this->isType('string'));
@@ -236,27 +252,12 @@ class PermissionsHashGeneratorTest extends UnitTestCase {
     $this->cache->expects($this->once())
       ->method('get')
       ->with($expected_cid)
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
     $this->cache->expects($this->once())
       ->method('set')
       ->with($expected_cid, $this->isType('string'));
 
     $this->permissionsHash->generate($this->account2);
-  }
-
-}
-
-namespace Drupal\Core\Session;
-
-// @todo remove once user_role_permissions() can be injected.
-if (!function_exists('user_role_permissions')) {
-
-  function user_role_permissions(array $roles) {
-    $role_permissions = [];
-    foreach ($roles as $rid) {
-      $role_permissions[$rid] = [];
-    }
-    return $role_permissions;
   }
 
 }

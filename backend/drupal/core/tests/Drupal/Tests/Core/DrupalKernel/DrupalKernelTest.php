@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\DrupalKernel;
 
 use Drupal\Core\DrupalKernel;
+use Drupal\Core\Test\TestKernel;
+use Drupal\Tests\Core\DependencyInjection\Fixture\BarClass;
 use Drupal\Tests\UnitTestCase;
 use org\bovigo\vfs\vfsStream;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +40,6 @@ class DrupalKernelTest extends UnitTestCase {
     $request->server->set('SERVER_NAME', $server_name);
 
     $method = new \ReflectionMethod('Drupal\Core\DrupalKernel', 'setupTrustedHosts');
-    $method->setAccessible(TRUE);
     $valid_host = $method->invoke(NULL, $request, $trusted_host_patterns);
 
     $this->assertSame($expected, $valid_host, $message);
@@ -136,6 +139,19 @@ EOD;
     $this->assertEquals('sites/example', DrupalKernel::findSitePath($request, FALSE, $vfs_root->url('drupal_root')));
   }
 
+  /**
+   * @covers ::getServiceIdMapping
+   * @group legacy
+   */
+  public function testGetServiceIdMapping() {
+    $this->expectDeprecation("Drupal\Core\DrupalKernel::getServiceIdMapping() is deprecated in drupal:9.5.1 and is removed from drupal:11.0.0. Use the 'Drupal\Component\DependencyInjection\ReverseContainer' service instead. See https://www.drupal.org/node/3327942");
+    $this->expectDeprecation("Drupal\Core\DrupalKernel::collectServiceIdMapping() is deprecated in drupal:9.5.1 and is removed from drupal:11.0.0. Use the 'Drupal\Component\DependencyInjection\ReverseContainer' service instead. See https://www.drupal.org/node/3327942");
+    $service = new BarClass();
+    $container = TestKernel::setContainerWithKernel();
+    $container->set('bar', $service);
+    $this->assertEquals($container->get('kernel')->getServiceIdMapping()[$container->generateServiceIdHash($service)], 'bar');
+  }
+
 }
 
 /**
@@ -154,7 +170,7 @@ class FakeAutoloader {
   }
 
   /**
-   * Unregisters this instance as an autoloader.
+   * Deregisters this instance as an autoloader.
    */
   public function unregister() {
     spl_autoload_unregister([$this, 'loadClass']);
@@ -163,8 +179,7 @@ class FakeAutoloader {
   /**
    * Loads the given class or interface.
    *
-   * @return null
-   *   This class never loads.
+   * This class never loads.
    */
   public function loadClass() {
     return NULL;
@@ -173,8 +188,7 @@ class FakeAutoloader {
   /**
    * Finds a file by class name while caching lookups to APC.
    *
-   * @return null
-   *   This class never finds.
+   * This class never finds.
    */
   public function findFile() {
     return NULL;

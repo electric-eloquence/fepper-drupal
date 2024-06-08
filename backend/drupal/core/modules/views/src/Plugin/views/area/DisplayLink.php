@@ -129,10 +129,10 @@ class DisplayLink extends AreaPluginBase {
     // recommend keeping the display options equal, we do not want to enforce
     // this.
     $unequal_options = [
-      'filters' => t('Filter criteria'),
-      'sorts' => t('Sort criteria'),
-      'pager' => t('Pager'),
-      'arguments' => t('Contextual filters'),
+      'filters' => $this->t('Filter criteria'),
+      'sorts' => $this->t('Sort criteria'),
+      'pager' => $this->t('Pager'),
+      'arguments' => $this->t('Contextual filters'),
     ];
     foreach (array_keys($unequal_options) as $option) {
       if ($this->hasEqualOptions($linked_display_id, $option)) {
@@ -141,7 +141,7 @@ class DisplayLink extends AreaPluginBase {
     }
 
     if ($unequal_options) {
-      $warning = $this->t('%current_display: The link in the %area area points to the %linked_display display which uses different settings than the %current_display display for: %unequal_options. To make sure users see the exact same result when clicking the link, please check that the settings are the same.', [
+      $warning = $this->t('%current_display: The link in the %area area points to the %linked_display display which uses different settings than the %current_display display for: %unequal_options. To make sure users see the exact same result when clicking the link, check that the settings are the same.', [
         '%current_display' => $this->displayHandler->display['display_title'],
         '%area' => $this->areaType,
         '%linked_display' => $this->view->displayHandlers->get($linked_display_id)->display['display_title'],

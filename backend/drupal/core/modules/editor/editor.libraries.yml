@@ -5,9 +5,7 @@ drupal.editor.admin:
   dependencies:
     - core/jquery
     - core/once
-    - core/jquery.once.bc
     - core/drupal
-    - core/drupal.array.includes
 
 drupal.editor:
   version: VERSION
@@ -18,7 +16,6 @@ drupal.editor:
     - core/drupal
     - core/drupalSettings
     - core/once
-    - core/jquery.once.bc
     - core/drupal.dialog
 
 drupal.editor.dialog:
@@ -28,15 +25,5 @@ drupal.editor.dialog:
   dependencies:
     - core/jquery
     - core/drupal.dialog
-    - core/drupal.ajax
-    - core/drupalSettings
-
-quickedit.inPlaceEditor.formattedText:
-  version: VERSION
-  js:
-    js/editor.formattedTextEditor.js: { attributes: { defer: true } }
-  dependencies:
-    - quickedit/quickedit
-    - editor/drupal.editor
     - core/drupal.ajax
     - core/drupalSettings

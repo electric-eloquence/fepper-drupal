@@ -22,6 +22,7 @@ class ContentTranslationOutdatedRevisionTranslationTest extends ContentTranslati
    */
   protected function setUp(): void {
     parent::setUp();
+    $this->doSetup();
     $this->enableContentModeration();
   }
 
@@ -39,7 +40,8 @@ class ContentTranslationOutdatedRevisionTranslationTest extends ContentTranslati
     $entity = $this->storage->load($id);
 
     // Add a published Italian translation.
-    $add_translation_url = Url::fromRoute("entity.{$this->entityTypeId}.content_translation_add", [
+    $add_translation_url = Url::fromRoute("entity.{$this->entityTypeId}.content_translation_add",
+      [
         $entity->getEntityTypeId() => $id,
         'source' => 'en',
         'target' => 'it',
@@ -58,7 +60,8 @@ class ContentTranslationOutdatedRevisionTranslationTest extends ContentTranslati
     $this->submitForm($edit, 'Save (this translation)');
 
     // Add a published French translation.
-    $add_translation_url = Url::fromRoute("entity.{$this->entityTypeId}.content_translation_add", [
+    $add_translation_url = Url::fromRoute("entity.{$this->entityTypeId}.content_translation_add",
+      [
         $entity->getEntityTypeId() => $id,
         'source' => 'en',
         'target' => 'fr',

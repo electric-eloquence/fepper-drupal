@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Component\Utility;
 
 use Drupal\Component\Utility\NestedArray;
@@ -33,7 +35,7 @@ class NestedArrayTest extends TestCase {
 
     // Create a form structure with a nested element.
     $this->form['details']['element'] = [
-     '#value' => 'Nested element',
+      '#value' => 'Nested element',
     ];
 
     // Set up parent array.

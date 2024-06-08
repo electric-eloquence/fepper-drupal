@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\media_library\FunctionalJavascript;
 
 use Drupal\media\Entity\Media;
@@ -19,6 +21,11 @@ class WidgetOEmbedTest extends MediaLibraryTestBase {
    * {@inheritdoc}
    */
   protected static $modules = ['media_test_oembed'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
 
   /**
    * {@inheritdoc}
@@ -77,6 +84,10 @@ class WidgetOEmbedTest extends MediaLibraryTestBase {
     // consistently match their label's "for" attribute.
     $assert_session->assertWaitOnAjaxRequest();
     $this->waitForText('The media item has been created but has not yet been saved.');
+    // There is no other selected media and this is not the advanced ui.
+    // Assert that the Additional selected media element does not appear.
+    $assert_session->pageTextNotContains('Additional selected media');
+    $assert_session->elementNotExists('css', '[data-drupal-selector="edit-selection"]');
     // Assert the name field contains the remote video title.
     $assert_session->fieldValueEquals('Name', $youtube_title);
     $this->pressSaveButton();
@@ -137,7 +148,9 @@ class WidgetOEmbedTest extends MediaLibraryTestBase {
     $assert_session->assertWaitOnAjaxRequest();
     $this->waitForText('The media item has been created but has not yet been saved.');
     $page->fillField('Name', 'Custom video title');
-    $assert_session->elementNotExists('css', '.media-library-add-form__selected-media');
+    // The non-advanced ui should not show the Additional selected media.
+    $assert_session->pageTextNotContains('Additional selected media');
+    $assert_session->elementNotExists('css', '[data-drupal-selector="edit-selection"]');
     $this->pressSaveButton();
 
     // Load the created media item.
@@ -258,6 +271,9 @@ class WidgetOEmbedTest extends MediaLibraryTestBase {
     // consistently match their label's "for" attribute.
     $assert_session->assertWaitOnAjaxRequest();
     $this->waitForText('The media item has been created but has not yet been saved.');
+    // Assert that Additional selected media does not appear.
+    $assert_session->pageTextNotContains('Additional selected media');
+    $assert_session->elementNotExists('css', '[data-drupal-selector="edit-selection"]');
     // Assert the name field contains the remote video title.
     $assert_session->fieldValueEquals('Name', $youtube_title);
     $this->saveAnd('select');
@@ -317,6 +333,9 @@ class WidgetOEmbedTest extends MediaLibraryTestBase {
     // consistently match their label's "for" attribute.
     $assert_session->assertWaitOnAjaxRequest();
     $this->waitForText('The media item has been created but has not yet been saved.');
+    // The advanced ui should show the Additional selected media.
+    $assert_session->pageTextContains('Additional selected media');
+    $assert_session->elementExists('css', '[data-drupal-selector="edit-selection"]');
     $page->fillField('Name', 'Custom video title');
     $assert_session->checkboxChecked("Select $youtube_title", $this->getSelectionArea());
     $this->saveAnd('select');

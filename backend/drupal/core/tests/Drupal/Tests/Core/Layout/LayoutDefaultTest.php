@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Layout;
 
 use Drupal\Core\Layout\LayoutDefault;
@@ -30,6 +32,7 @@ class LayoutDefaultTest extends UnitTestCase {
       ],
     ]);
     $expected += [
+      '#in_preview' => FALSE,
       '#settings' => [
         'label' => '',
       ],

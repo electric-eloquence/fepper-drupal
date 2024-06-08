@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\PageCache;
 
 use Drupal\Core\PageCache\RequestPolicyInterface;
@@ -19,7 +21,12 @@ class CommandLineOrUnsafeMethodTest extends UnitTestCase {
    */
   protected $policy;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
+    parent::setUp();
+
     // Note that it is necessary to partially mock the class under test in
     // order to disable the isCli-check.
     $this->policy = $this->getMockBuilder('Drupal\Core\PageCache\RequestPolicy\CommandLineOrUnsafeMethod')
@@ -36,7 +43,7 @@ class CommandLineOrUnsafeMethodTest extends UnitTestCase {
   public function testHttpMethod($expected_result, $method) {
     $this->policy->expects($this->once())
       ->method('isCli')
-      ->will($this->returnValue(FALSE));
+      ->willReturn(FALSE);
 
     $request = Request::create('/', $method);
     $actual_result = $this->policy->check($request);
@@ -70,7 +77,7 @@ class CommandLineOrUnsafeMethodTest extends UnitTestCase {
   public function testIsCli() {
     $this->policy->expects($this->once())
       ->method('isCli')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $request = Request::create('/', 'GET');
     $actual_result = $this->policy->check($request);

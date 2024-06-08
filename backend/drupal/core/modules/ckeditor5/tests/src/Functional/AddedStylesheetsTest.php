@@ -7,6 +7,7 @@ use Drupal\editor\Entity\Editor;
 use Drupal\filter\Entity\FilterFormat;
 use Drupal\Tests\BrowserTestBase;
 use Drupal\user\RoleInterface;
+use Drupal\user\Entity\User;
 use Symfony\Component\Validator\ConstraintViolation;
 
 /**
@@ -34,14 +35,14 @@ class AddedStylesheetsTest extends BrowserTestBase {
    *
    * @var \Drupal\editor\Entity\Editor
    */
-  protected $editor;
+  protected Editor $editor;
 
   /**
    * The admin user.
    *
    * @var \Drupal\user\Entity\User
    */
-  protected $adminUser;
+  protected User $adminUser;
 
   /**
    * {@inheritdoc}
@@ -83,6 +84,7 @@ class AddedStylesheetsTest extends BrowserTestBase {
       'use text format llama',
       'administer themes',
       'view the administration theme',
+      'administer filters',
     ]);
     $this->drupalLogin($this->adminUser);
   }
@@ -95,12 +97,17 @@ class AddedStylesheetsTest extends BrowserTestBase {
 
     /** @var \Drupal\Core\Extension\ThemeInstallerInterface $theme_installer */
     $theme_installer = \Drupal::service('theme_installer');
-    $theme_installer->install(['test_ckeditor_stylesheets_relative', 'seven']);
-    $this->config('system.theme')->set('admin', 'seven')->save();
+    $theme_installer->install(['test_ckeditor_stylesheets_relative', 'claro']);
+    $this->config('system.theme')->set('admin', 'claro')->save();
     $this->config('node.settings')->set('use_admin_theme', TRUE)->save();
 
     $this->drupalGet('node/add/article');
     $assert_session->responseNotContains('test_ckeditor_stylesheets_relative/css/yokotsoko.css');
+
+    // Confirm that the missing ckeditor5-stylesheets configuration can be
+    // bypassed.
+    $this->drupalGet('admin/config/content/formats/manage/llama');
+    $assert_session->pageTextNotContains('ckeditor_stylesheets configured without a corresponding ckeditor5-stylesheets configuration.');
 
     // Install a theme with ckeditor5-stylesheets configured. Do this manually
     // to confirm `library_info` cache tags are invalidated.

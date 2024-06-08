@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\views\Unit\Plugin\area;
 
 use Drupal\Tests\UnitTestCase;
@@ -55,7 +57,7 @@ class ViewTest extends UnitTestCase {
       ->willReturnMap([
         ['this', $view_this],
         ['other', $view_other],
-    ]);
+      ]);
     $this->viewHandler->view->storage = $view_this;
 
     $this->viewHandler->options['view_to_insert'] = 'other:default';

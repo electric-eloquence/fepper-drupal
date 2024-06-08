@@ -8,7 +8,9 @@ use Drupal\Core\StringTranslation\TranslatableMarkup;
 /**
  * Database installer structure.
  *
- * Defines basic Drupal requirements for databases.
+ * Defines basic Drupal requirements for databases connecting via PDO.
+ * Every database driver implementation must provide a concrete implementation
+ * of it to support special handling required by that database.
  */
 abstract class Tasks {
 
@@ -67,6 +69,10 @@ abstract class Tasks {
         'Drupal can use DROP TABLE database commands.',
         'Failed to <strong>DROP</strong> a test table from your database server. We tried dropping a table with the command %query and the server reported the following error %error.',
       ],
+    ],
+    [
+      'function'    => 'checkJsonSupport',
+      'arguments'   => [],
     ],
   ];
 
@@ -291,8 +297,6 @@ abstract class Tasks {
     ];
 
     global $install_state;
-    // @todo https://www.drupal.org/project/drupal/issues/3110839 remove PHP 7.4
-    //   work around and add a better message for the migrate UI.
     $profile = $install_state['parameters']['profile'] ?? NULL;
     $db_prefix = ($profile == 'standard') ? 'drupal_' : $profile . '_';
     $form['advanced_options']['prefix'] = [
@@ -386,6 +390,18 @@ abstract class Tasks {
    */
   protected function getConnection() {
     return Database::getConnection();
+  }
+
+  /**
+   * Checks the database json support.
+   */
+  protected function checkJsonSupport() {
+    if ($this->getConnection()->hasJson()) {
+      $this->pass(t('Database connection supports the JSON type.'));
+    }
+    else {
+      $this->fail(t('<a href="https://www.drupal.org/docs/system-requirements">Database connection does not support JSON.</a>'));
+    }
   }
 
 }

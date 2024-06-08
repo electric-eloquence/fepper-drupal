@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Access;
 
 use Drupal\Core\Site\Settings;
@@ -67,12 +69,12 @@ class CsrfTokenGeneratorTest extends UnitTestCase {
     $key = Crypt::randomBytesBase64();
     $this->privateKey->expects($this->any())
       ->method('get')
-      ->will($this->returnValue($key));
+      ->willReturn($key);
 
     $seed = Crypt::randomBytesBase64();
     $this->sessionMetadata->expects($this->any())
       ->method('getCsrfTokenSeed')
-      ->will($this->returnValue($seed));
+      ->willReturn($seed);
   }
 
   /**
@@ -97,11 +99,11 @@ class CsrfTokenGeneratorTest extends UnitTestCase {
     $key = Crypt::randomBytesBase64();
     $this->privateKey->expects($this->any())
       ->method('get')
-      ->will($this->returnValue($key));
+      ->willReturn($key);
 
     $this->sessionMetadata->expects($this->once())
       ->method('getCsrfTokenSeed')
-      ->will($this->returnValue(NULL));
+      ->willReturn(NULL);
 
     $this->sessionMetadata->expects($this->once())
       ->method('setCsrfTokenSeed')

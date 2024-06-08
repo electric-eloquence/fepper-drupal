@@ -24,12 +24,22 @@ namespace Drupal\Component\Diff\Engine;
  * @author Geoffrey T. Dairiki, Tim Starling
  * @private
  * @subpackage DifferenceEngine
+ *
+ * @deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use
+ *   sebastianbergmann/diff instead.
+ *
+ * @see https://www.drupal.org/node/3337942
  */
+#[\AllowDynamicProperties]
 class DiffEngine {
 
   const USE_ASSERTS = FALSE;
 
   const MAX_XREF_LENGTH = 10000;
+
+  public function __construct() {
+    @trigger_error('Drupal\Component\Diff\Engine\DiffEngine is deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use sebastianbergmann/diff instead. See https://www.drupal.org/node/3337942', E_USER_DEPRECATED);
+  }
 
   public function diff($from_lines, $to_lines) {
 

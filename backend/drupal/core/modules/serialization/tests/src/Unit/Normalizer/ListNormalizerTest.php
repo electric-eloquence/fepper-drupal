@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\serialization\Unit\Normalizer;
 
 use Drupal\Core\TypedData\DataDefinition;
@@ -43,13 +45,18 @@ class ListNormalizerTest extends UnitTestCase {
    */
   protected $typedData;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
+    parent::setUp();
+
     // Mock the TypedDataManager to return a TypedDataInterface mock.
     $this->typedData = $this->createMock('Drupal\Core\TypedData\TypedDataInterface');
     $typed_data_manager = $this->createMock(TypedDataManagerInterface::class);
     $typed_data_manager->expects($this->any())
       ->method('getPropertyInstance')
-      ->will($this->returnValue($this->typedData));
+      ->willReturn($this->typedData);
 
     // Set up a mock container as ItemList() will call for the 'typed_data_manager'
     // service.
@@ -59,7 +66,7 @@ class ListNormalizerTest extends UnitTestCase {
     $container->expects($this->any())
       ->method('get')
       ->with($this->equalTo('typed_data_manager'))
-      ->will($this->returnValue($typed_data_manager));
+      ->willReturn($typed_data_manager);
 
     \Drupal::setContainer($container);
 

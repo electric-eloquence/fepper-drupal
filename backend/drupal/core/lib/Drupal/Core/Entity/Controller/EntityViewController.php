@@ -147,7 +147,6 @@ class EntityViewController implements ContainerInjectionInterface, TrustedCallba
           'rel' => 'canonical',
           'href' => $url->toString(),
         ],
-        TRUE,
       ];
 
       // Set the non-aliased canonical path as a default shortlink.
@@ -156,7 +155,6 @@ class EntityViewController implements ContainerInjectionInterface, TrustedCallba
           'rel' => 'shortlink',
           'href' => $url->setOption('alias', TRUE)->toString(),
         ],
-        TRUE,
       ];
 
       // Since this generates absolute URLs, it can only be cached "per site".
@@ -186,8 +184,14 @@ class EntityViewController implements ContainerInjectionInterface, TrustedCallba
    *
    * @return array
    *   A render array.
+   *
+   * @deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use
+   *   \Drupal\Core\Entity\Controller\EntityRevisionViewController instead.
+   *
+   * @see https://www.drupal.org/node/3314346
    */
   public function viewRevision(EntityInterface $_entity_revision, $view_mode = 'full') {
+    @trigger_error(__METHOD__ . ' is deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use \Drupal\Core\Entity\Controller\EntityRevisionViewController instead. See https://www.drupal.org/node/3314346', E_USER_DEPRECATED);
     return $this->view($_entity_revision, $view_mode);
   }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Cache;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
@@ -33,7 +35,7 @@ class CacheFactoryTest extends UnitTestCase {
     $builtin_default_backend_factory->expects($this->once())
       ->method('get')
       ->with('render')
-      ->will($this->returnValue($render_bin));
+      ->willReturn($render_bin);
 
     $actual_bin = $cache_factory->get('render');
     $this->assertSame($render_bin, $actual_bin);
@@ -63,7 +65,7 @@ class CacheFactoryTest extends UnitTestCase {
     $custom_default_backend_factory->expects($this->once())
       ->method('get')
       ->with('render')
-      ->will($this->returnValue($render_bin));
+      ->willReturn($render_bin);
 
     $actual_bin = $cache_factory->get('render');
     $this->assertSame($render_bin, $actual_bin);
@@ -99,7 +101,7 @@ class CacheFactoryTest extends UnitTestCase {
     $custom_default_backend_factory->expects($this->once())
       ->method('get')
       ->with('render')
-      ->will($this->returnValue($render_bin));
+      ->willReturn($render_bin);
 
     $actual_bin = $cache_factory->get('render');
     $this->assertSame($render_bin, $actual_bin);
@@ -139,7 +141,7 @@ class CacheFactoryTest extends UnitTestCase {
     $custom_render_backend_factory->expects($this->once())
       ->method('get')
       ->with('render')
-      ->will($this->returnValue($render_bin));
+      ->willReturn($render_bin);
 
     $actual_bin = $cache_factory->get('render');
     $this->assertSame($render_bin, $actual_bin);

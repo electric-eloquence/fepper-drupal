@@ -255,16 +255,7 @@ header.header {
     margin: 0;
   }
 }
-@media all and (max-width: 767px) {
-  [id="region-primary-menu"] {
-    float: right;
-  }
-}
-@media all and (min-width: 768px) {
-  [id="region-primary-menu"] {
-    float: left;
-  }
-}
+[id="region-primary-menu"],
 [id="region-secondary-menu"] {
   float: right;
 }
@@ -512,7 +503,8 @@ svg {
   border-color: #f00;
   background-color: #ffbebe;
 }
-form > div {
+form > *,
+form > * > div {
   margin-bottom: 1em;
 }
 form ol,
@@ -528,6 +520,16 @@ fieldset {
 label {
   display: block;
   padding-bottom: 0.4rem;
+}
+@media all and (max-width: 767px) {
+  .container-inline label,
+  .container-inline div {
+    display: block;
+  }
+}
+label,
+summary {
+  font-weight: bold;
 }
 button,
 input,
@@ -876,6 +878,11 @@ section[rel="schema:comment"] .indented {
     max-height: 100%;
     padding-top: 1.1rem;
   }
+  .user-logged-in [id^="block-"][id$="-footer"] > ul > .expanded:hover > a + ul,
+  .user-logged-in [id^="block-"][id$="-main-menu"] > ul > .expanded:hover > a + ul,
+  .user-logged-in [id^="block-"][id$="-account-menu"] > ul > .expanded:hover > a + ul {
+    overflow: visible;
+  }
 }
 @media all and (max-width: 767px) {
   [id^="block-"][id*="-main"] > ul,
@@ -1184,6 +1191,12 @@ section[rel="schema:comment"] .indented {
 }
 .path-search details .criterion .form-item > * {
   display: inline-block;
+}
+.js-form-type-checkbox {
+  display: flex;
+}
+.js-form-type-checkbox label {
+  padding: unset;
 }
 @media all and (max-width: 767px) {
   .skip-link {

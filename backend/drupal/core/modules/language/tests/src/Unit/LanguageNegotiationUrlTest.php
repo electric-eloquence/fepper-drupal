@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\language\Unit;
 
 use Drupal\Core\Cache\Cache;
@@ -18,22 +20,23 @@ class LanguageNegotiationUrlTest extends UnitTestCase {
 
   protected $languageManager;
   protected $user;
-  protected $languages;
+  protected array $languages;
 
   /**
    * {@inheritdoc}
    */
   protected function setUp(): void {
+    parent::setUp();
 
     // Set up some languages to be used by the language-based path processor.
     $language_de = $this->createMock('\Drupal\Core\Language\LanguageInterface');
     $language_de->expects($this->any())
       ->method('getId')
-      ->will($this->returnValue('de'));
+      ->willReturn('de');
     $language_en = $this->createMock('\Drupal\Core\Language\LanguageInterface');
     $language_en->expects($this->any())
       ->method('getId')
-      ->will($this->returnValue('en'));
+      ->willReturn('en');
     $languages = [
       'de' => $language_de,
       'en' => $language_en,
@@ -45,7 +48,7 @@ class LanguageNegotiationUrlTest extends UnitTestCase {
       ->getMock();
     $language_manager->expects($this->any())
       ->method('getLanguages')
-      ->will($this->returnValue($languages));
+      ->willReturn($languages);
     $this->languageManager = $language_manager;
 
     // Create a user stub.
@@ -69,7 +72,10 @@ class LanguageNegotiationUrlTest extends UnitTestCase {
   public function testPathPrefix($prefix, $prefixes, $expected_langcode) {
     $this->languageManager->expects($this->any())
       ->method('getCurrentLanguage')
-      ->will($this->returnValue($this->languages[(in_array($expected_langcode, ['en', 'de'])) ? $expected_langcode : 'en']));
+      ->willReturn($this->languages[(in_array($expected_langcode, [
+        'en',
+        'de',
+      ])) ? $expected_langcode : 'en']);
 
     $config = $this->getConfigFactoryStub([
       'language.negotiation' => [
@@ -158,7 +164,7 @@ class LanguageNegotiationUrlTest extends UnitTestCase {
   public function testDomain($http_host, $domains, $expected_langcode) {
     $this->languageManager->expects($this->any())
       ->method('getCurrentLanguage')
-      ->will($this->returnValue($this->languages['en']));
+      ->willReturn($this->languages['en']);
 
     $config = $this->getConfigFactoryStub([
       'language.negotiation' => [

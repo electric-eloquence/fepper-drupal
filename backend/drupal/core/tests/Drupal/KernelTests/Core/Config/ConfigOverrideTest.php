@@ -18,6 +18,9 @@ class ConfigOverrideTest extends KernelTestBase {
    */
   protected static $modules = ['system', 'config_test'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installConfig(['system']);
@@ -38,7 +41,7 @@ class ConfigOverrideTest extends KernelTestBase {
     // contain these values.
     $overrides['config_test.system']['foo'] = 'overridden';
     $overrides['config_test.system']['baz'] = 'injected';
-    $overrides['config_test.system']['404'] = 'derp';
+    $overrides['config_test.system']['404'] = 'something';
     $GLOBALS['config'] = $overrides;
 
     $this->installConfig(['config_test']);
@@ -93,7 +96,7 @@ class ConfigOverrideTest extends KernelTestBase {
     $sync = $this->container->get('config.storage.sync');
     $expected_new_data = [
       'foo' => 'barbar',
-      '404' => 'herpderp',
+      '404' => 'try again',
     ];
     $sync->write('config_test.system', $expected_new_data);
 

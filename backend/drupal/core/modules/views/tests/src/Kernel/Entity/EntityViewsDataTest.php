@@ -284,6 +284,7 @@ class EntityViewsDataTest extends KernelTestBase {
 
     $this->assertEquals('entity_test_mulrev', $data['entity_test_mulrev_property_revision']['table']['entity type']);
     $this->assertEquals('Entity test revision', $data['entity_test_mulrev_revision']['table']['group']);
+    $this->assertTrue($data['entity_test_mulrev_revision']['table']['entity revision']);
     $this->assertEquals('entity_test', $data['entity_test']['table']['provider']);
 
     // Ensure the join information is set up properly.
@@ -340,6 +341,7 @@ class EntityViewsDataTest extends KernelTestBase {
 
     $this->assertEquals('entity_test_mulrev', $data['entity_test_mulrev_property_revision']['table']['entity type']);
     $this->assertEquals('Entity test revision', $data['entity_test_mulrev_revision']['table']['group']);
+    $this->assertTrue($data['entity_test_mulrev_revision']['table']['entity revision']);
     $this->assertEquals('entity_test', $data['entity_test']['table']['provider']);
 
     // Ensure the join information is set up properly.
@@ -418,7 +420,8 @@ class EntityViewsDataTest extends KernelTestBase {
     $this->assertEquals([
       'left_field' => 'id',
       'field' => 'entity_id',
-      'extra' => [[
+      'extra' => [
+        [
           'field' => 'deleted',
           'value' => 0,
           'numeric' => TRUE,
@@ -506,7 +509,8 @@ class EntityViewsDataTest extends KernelTestBase {
     $this->assertEquals([
       'left_field' => 'id',
       'field' => 'entity_id',
-      'extra' => [[
+      'extra' => [
+        [
           'field' => 'deleted',
           'value' => 0,
           'numeric' => TRUE,
@@ -636,7 +640,8 @@ class EntityViewsDataTest extends KernelTestBase {
     $this->assertEquals([
       'left_field' => 'id',
       'field' => 'entity_id',
-      'extra' => [[
+      'extra' => [
+        [
           'field' => 'deleted',
           'value' => 0,
           'numeric' => TRUE,
@@ -649,7 +654,8 @@ class EntityViewsDataTest extends KernelTestBase {
     $this->assertEquals([
       'left_field' => 'revision_id',
       'field' => 'entity_id',
-      'extra' => [[
+      'extra' => [
+        [
           'field' => 'deleted',
           'value' => 0,
           'numeric' => TRUE,

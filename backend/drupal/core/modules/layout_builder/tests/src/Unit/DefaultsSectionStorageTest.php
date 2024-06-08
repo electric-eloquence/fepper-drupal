@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\Unit;
 
 use Drupal\Core\DependencyInjection\ContainerBuilder;
@@ -9,6 +11,7 @@ use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Plugin\Context\ContextDefinition;
 use Drupal\Core\Plugin\Context\ContextInterface;
 use Drupal\Core\Plugin\Context\EntityContextDefinition;
@@ -95,8 +98,8 @@ class DefaultsSectionStorageTest extends UnitTestCase {
     $this->assertSame('value 1', $this->plugin->getThirdPartySetting('the_module', 'the_key'));
 
     // When the section list is updated, also update the result returned.
-    $section_list->setThirdPartySetting('the_module', 'the_key', 'value 2')->shouldBeCalled()->will(function ($args) {
-      $this->getThirdPartySetting('the_module', 'the_key', NULL)->willReturn($args[2]);
+    $section_list->setThirdPartySetting('the_module', 'the_key', 'value 2')->shouldBeCalled()->will(function (array $args) use ($section_list) {
+      $section_list->getThirdPartySetting('the_module', 'the_key', NULL)->willReturn($args[2]);
     });
 
     // Update the plugin value.
@@ -133,7 +136,6 @@ class DefaultsSectionStorageTest extends UnitTestCase {
     }
 
     $method = new \ReflectionMethod($this->plugin, 'extractEntityFromRoute');
-    $method->setAccessible(TRUE);
     $result = $method->invoke($this->plugin, $value, $defaults);
     if ($success) {
       $this->assertEquals('the_return_value', $result);
@@ -209,7 +211,6 @@ class DefaultsSectionStorageTest extends UnitTestCase {
     $this->entityTypeManager->getStorage('entity_view_display')->willReturn($entity_storage->reveal());
 
     $method = new \ReflectionMethod($this->plugin, 'extractEntityFromRoute');
-    $method->setAccessible(TRUE);
     $result = $method->invoke($this->plugin, $value, []);
     $this->assertSame($expected, $result);
   }
@@ -220,6 +221,12 @@ class DefaultsSectionStorageTest extends UnitTestCase {
    * @covers \Drupal\layout_builder\Routing\LayoutBuilderRoutesTrait::buildLayoutRoutes
    */
   public function testBuildRoutes() {
+    $module_handler = $this->prophesize(ModuleHandlerInterface::class);
+    $module_handler->moduleExists('field_ui')->willReturn(TRUE);
+    $container = new ContainerBuilder();
+    $container->set('module_handler', $module_handler->reveal());
+    \Drupal::setContainer($container);
+
     $entity_types = [];
 
     $not_fieldable = $this->prophesize(EntityTypeInterface::class);
@@ -403,6 +410,21 @@ class DefaultsSectionStorageTest extends UnitTestCase {
     $this->plugin->buildRoutes($collection);
     $this->assertEquals($expected, $collection->all());
     $this->assertSame(array_keys($expected), array_keys($collection->all()));
+  }
+
+  /**
+   * @covers ::buildRoutes
+   */
+  public function testBuildRoutesNoFieldUi() {
+    $module_handler = $this->prophesize(ModuleHandlerInterface::class);
+    $module_handler->moduleExists('field_ui')->willReturn(FALSE);
+    $container = new ContainerBuilder();
+    $container->set('module_handler', $module_handler->reveal());
+    \Drupal::setContainer($container);
+
+    $collection = new RouteCollection();
+    $this->plugin->buildRoutes($collection);
+    $this->assertEmpty($collection->all());
   }
 
 }

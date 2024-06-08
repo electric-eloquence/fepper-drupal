@@ -20,25 +20,25 @@ class CommentPreviewTest extends CommentTestBase {
   }
 
   /**
-   * The profile to install as a basis for testing.
+   * Modules to install.
    *
-   * Using the standard profile to test user picture display in comments.
-   *
-   * @var string
+   * @var array
    */
-  protected $profile = 'standard';
+  protected static $modules = ['olivero_test', 'test_user_config'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'olivero';
 
   /**
    * Tests comment preview.
    */
   public function testCommentPreview() {
-    // As admin user, configure comment settings.
-    $this->drupalLogin($this->adminUser);
     $this->setCommentPreview(DRUPAL_OPTIONAL);
     $this->setCommentForm(TRUE);
     $this->setCommentSubject(TRUE);
     $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Comment paging changed.');
-    $this->drupalLogout();
 
     // Log in as web user.
     $this->drupalLogin($this->webUser);
@@ -91,13 +91,10 @@ class CommentPreviewTest extends CommentTestBase {
    * Tests comment preview.
    */
   public function testCommentPreviewDuplicateSubmission() {
-    // As admin user, configure comment settings.
-    $this->drupalLogin($this->adminUser);
     $this->setCommentPreview(DRUPAL_OPTIONAL);
     $this->setCommentForm(TRUE);
     $this->setCommentSubject(TRUE);
     $this->setCommentSettings('default_mode', CommentManagerInterface::COMMENT_MODE_THREADED, 'Comment paging changed.');
-    $this->drupalLogout();
 
     // Log in as web user.
     $this->drupalLogin($this->webUser);
@@ -121,8 +118,7 @@ class CommentPreviewTest extends CommentTestBase {
     // Store the content of this page.
     $this->submitForm([], 'Save');
     $this->assertSession()->pageTextContains('Your comment has been posted.');
-    $elements = $this->xpath('//section[contains(@class, "comments")]/article');
-    $this->assertCount(1, $elements);
+    $this->assertSession()->elementsCount('xpath', '//section[contains(@class, "comments")]/article', 1);
 
     // Go back and re-submit the form.
     $this->getSession()->getDriver()->back();

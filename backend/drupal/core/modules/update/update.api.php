@@ -110,11 +110,11 @@ function hook_update_status_alter(&$projects) {
  * @param string $project
  *   The short name of the project that has been downloaded.
  * @param string $archive_file
- *   The filename of the unextracted archive.
+ *   The filename of the un-extracted archive.
  * @param string $directory
  *   The directory that the archive was extracted into.
  *
- * @return
+ * @return array
  *   If there are any problems, return an array of error messages. If there are
  *   no problems, return an empty array.
  *

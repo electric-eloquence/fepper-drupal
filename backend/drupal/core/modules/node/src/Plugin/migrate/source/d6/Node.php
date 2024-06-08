@@ -11,6 +11,8 @@ use Drupal\migrate\Row;
 use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+// cspell:ignore cnfi tnid
+
 /**
  * Drupal 6 node source from database.
  *
@@ -107,19 +109,19 @@ class Node extends DrupalSqlBase {
     $this->handleTranslations($query);
 
     $query->fields('n', [
-        'nid',
-        'type',
-        'language',
-        'status',
-        'created',
-        'changed',
-        'comment',
-        'promote',
-        'moderate',
-        'sticky',
-        'tnid',
-        'translate',
-      ])
+      'nid',
+      'type',
+      'language',
+      'status',
+      'created',
+      'changed',
+      'comment',
+      'promote',
+      'moderate',
+      'sticky',
+      'tnid',
+      'translate',
+    ])
       ->fields('nr', [
         'title',
         'body',

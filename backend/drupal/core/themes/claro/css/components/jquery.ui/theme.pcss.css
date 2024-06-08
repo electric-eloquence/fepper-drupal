@@ -4,8 +4,6 @@
  * Overrides /core/assets/vendor/jquery.ui/themes/base/theme.css.
  */
 
-@import "../../base/variables.pcss.css";
-
 /**
  * Component containers
  */
@@ -49,12 +47,10 @@
 .ui-state-disabled,
 .ui-widget-content .ui-state-disabled {
   opacity: 0.35;
-  filter: alpha(opacity=35);
 }
 .ui-priority-secondary,
 .ui-widget-content .ui-priority-secondary {
   opacity: 0.7;
-  filter: alpha(opacity=70);
 }
 
 /**

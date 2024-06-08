@@ -31,13 +31,16 @@ class UserAdminLanguageTest extends BrowserTestBase {
    *
    * @var array
    */
-  protected static $modules = ['user', 'language', 'language_test'];
+  protected static $modules = ['user', 'language', 'language_test', 'user_language_test'];
 
   /**
    * {@inheritdoc}
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     // User to add and remove language.
@@ -152,6 +155,13 @@ class UserAdminLanguageTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('Language negotiation method: language-user-admin');
     $this->drupalGet('xx/' . $path);
     $this->assertSession()->pageTextContains('Language negotiation method: language-user-admin');
+
+    // Make sure 'language-user-admin' plugin does not fail when a route is
+    // restricted to POST requests and language negotiation with the admin
+    // language method is used.
+    $this->drupalGet('/user-language-test/form');
+    $this->submitForm([], 'Send');
+    $this->assertSession()->statusCodeEquals(200);
 
     // Unset the preferred language code for the user.
     $edit = [];

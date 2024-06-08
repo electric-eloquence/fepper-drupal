@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\views\Unit\Plugin\views\display;
 
 use Drupal\Tests\UnitTestCase;
@@ -44,7 +46,7 @@ class BlockTest extends UnitTestCase {
     $this->executable->expects($this->any())
       ->method('setDisplay')
       ->with('block_1')
-      ->will($this->returnValue(TRUE));
+      ->willReturn(TRUE);
 
     $this->blockDisplay = $this->executable->display_handler = $this->getMockBuilder('Drupal\views\Plugin\views\display\Block')
       ->disableOriginalConstructor()
@@ -67,7 +69,7 @@ class BlockTest extends UnitTestCase {
 
     $this->blockPlugin->expects($this->once())
       ->method('getConfiguration')
-      ->will($this->returnValue(['items_per_page' => 'none']));
+      ->willReturn(['items_per_page' => 'none']);
 
     $this->blockDisplay->preBlockBuild($this->blockPlugin);
   }
@@ -82,7 +84,7 @@ class BlockTest extends UnitTestCase {
 
     $this->blockPlugin->expects($this->once())
       ->method('getConfiguration')
-      ->will($this->returnValue(['items_per_page' => 5]));
+      ->willReturn(['items_per_page' => 5]);
 
     $this->blockDisplay->preBlockBuild($this->blockPlugin);
   }

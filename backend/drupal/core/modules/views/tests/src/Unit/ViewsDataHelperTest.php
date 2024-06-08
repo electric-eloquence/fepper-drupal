@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\views\Unit;
 
 use Drupal\Tests\UnitTestCase;
@@ -44,7 +46,7 @@ class ViewsDataHelperTest extends UnitTestCase {
       ->getMock();
     $views_data->expects($this->once())
       ->method('getAll')
-      ->will($this->returnValue($this->viewsData()));
+      ->willReturn($this->viewsData());
 
     $data_helper = new ViewsDataHelper($views_data);
 

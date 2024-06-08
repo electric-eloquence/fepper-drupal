@@ -3,6 +3,7 @@
 namespace Drupal\KernelTests\Core\Entity;
 
 use Drupal\Core\Database\Database;
+use Drupal\Core\Entity\Query\QueryException;
 use Drupal\entity_test\Entity\EntityTest;
 use Drupal\entity_test\Entity\EntityTestMulRev;
 use Drupal\field\Entity\FieldConfig;
@@ -10,8 +11,10 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\language\Entity\ConfigurableLanguage;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
-use Drupal\Tests\field\Traits\EntityReferenceTestTrait;
+use Drupal\Tests\field\Traits\EntityReferenceFieldCreationTrait;
 use Symfony\Component\HttpFoundation\Request;
+
+// cspell:ignore merhaba siema xsiemax
 
 /**
  * Tests Entity Query functionality.
@@ -20,7 +23,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class EntityQueryTest extends EntityKernelTestBase {
 
-  use EntityReferenceTestTrait;
+  use EntityReferenceFieldCreationTrait;
 
   /**
    * Modules to enable.
@@ -62,6 +65,9 @@ class EntityQueryTest extends EntityKernelTestBase {
    */
   protected $storage;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -69,8 +75,8 @@ class EntityQueryTest extends EntityKernelTestBase {
 
     $this->installConfig(['language']);
 
-    $figures = mb_strtolower($this->randomMachineName());
-    $greetings = mb_strtolower($this->randomMachineName());
+    $figures = $this->randomMachineName();
+    $greetings = $this->randomMachineName();
     foreach ([$figures => 'shape', $greetings => 'text'] as $field_name => $field_type) {
       $field_storage = FieldStorageConfig::create([
         'field_name' => $field_name,
@@ -98,24 +104,34 @@ class EntityQueryTest extends EntityKernelTestBase {
       $bundles[] = $bundle;
     }
     // Each unit is a list of field name, langcode and a column-value array.
-    $units[] = [$figures, 'en', [
+    $units[] = [$figures, 'en',
+      [
         'color' => 'red',
         'shape' => 'triangle',
       ],
     ];
-    $units[] = [$figures, 'en', [
+    $units[] = [
+      $figures,
+      'en',
+      [
         'color' => 'blue',
         'shape' => 'circle',
       ],
     ];
     // To make it easier to test sorting, the greetings get formats according
     // to their langcode.
-    $units[] = [$greetings, 'tr', [
+    $units[] = [
+      $greetings,
+      'tr',
+      [
         'value' => 'merhaba',
         'format' => 'format-tr',
       ],
     ];
-    $units[] = [$greetings, 'pl', [
+    $units[] = [
+      $greetings,
+      'pl',
+      [
         'value' => 'siema',
         'format' => 'format-pl',
       ],
@@ -178,7 +194,7 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->condition("$figures.color", 'red')
       ->sort('id');
     $count_query = clone $query;
-    $this->assertEquals(12, $count_query->count()->execute());
+    $this->assertSame(12, $count_query->count()->execute());
     $this->queryResults = $query->execute();
     // Now bit 0 (1, 3, 5, 7, 9, 11, 13, 15) or bit 2 (4, 5, 6, 7, 12, 13, 14,
     // 15) needs to be set.
@@ -438,7 +454,7 @@ class EntityQueryTest extends EntityKernelTestBase {
     // 13 red  tr
     // 15 red  tr
     $count_query = clone $query;
-    $this->assertEquals(15, $count_query->count()->execute());
+    $this->assertSame(15, $count_query->count()->execute());
     $this->queryResults = $query->execute();
     $this->assertResult(8, 12, 4, 2, 3, 10, 11, 14, 15, 6, 7, 1, 9, 13, 5);
 
@@ -467,7 +483,7 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->sort("$greetings.format", 'DESC')
       ->sort('id', 'DESC');
     $count_query = clone $query;
-    $this->assertEquals(15, $count_query->count()->execute());
+    $this->assertSame(15, $count_query->count()->execute());
     $this->queryResults = $query->execute();
     $this->assertResult(15, 13, 7, 5, 11, 9, 3, 1, 14, 6, 10, 2, 12, 4, 8);
   }
@@ -563,7 +579,7 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->exists("$field_name.color")
       ->count()
       ->execute();
-    $this->assertEquals(0, $count);
+    $this->assertSame(0, $count);
   }
 
   /**
@@ -608,7 +624,7 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->condition($this->figures . '.shape', 'triangle');
 
     // We added 2 conditions so count should be 2.
-    $this->assertEquals(2, $and_condition_group->count());
+    $this->assertSame(2, $and_condition_group->count());
 
     // Add an OR condition group with 2 conditions in it.
     $or_condition_group = $query->orConditionGroup()
@@ -616,7 +632,7 @@ class EntityQueryTest extends EntityKernelTestBase {
       ->condition($this->figures . '.shape', 'triangle');
 
     // We added 2 conditions so count should be 2.
-    $this->assertEquals(2, $or_condition_group->count());
+    $this->assertSame(2, $or_condition_group->count());
   }
 
   /**
@@ -1200,8 +1216,9 @@ class EntityQueryTest extends EntityKernelTestBase {
   }
 
   /**
-   * Tests against SQL inject of condition field. This covers a
-   * database driver's EntityQuery\Condition class.
+   * Tests SQL inject of condition field.
+   *
+   * This covers a database driver's EntityQuery\Condition class.
    */
   public function testInjectionInCondition() {
     $this->expectException(\Exception::class);
@@ -1358,11 +1375,13 @@ class EntityQueryTest extends EntityKernelTestBase {
 
   /**
    * Test the accessCheck method is called.
-   *
-   * @group legacy
    */
   public function testAccessCheckSpecified() {
-    $this->expectDeprecation('Relying on entity queries to check access by default is deprecated in drupal:9.2.0 and an error will be thrown from drupal:10.0.0. Call \Drupal\Core\Entity\Query\QueryInterface::accessCheck() with TRUE or FALSE to specify whether access should be checked. See https://www.drupal.org/node/3201242');
+    $this->expectException(QueryException::class);
+    $this->expectExceptionMessage('Entity queries must explicitly set whether the query should be access checked or not. See Drupal\Core\Entity\Query\QueryInterface::accessCheck().');
+    // We are purposely testing an entity query without access check, so we need
+    // to tell PHPStan to ignore this.
+    // @phpstan-ignore-next-line
     $this->storage->getQuery()->execute();
   }
 

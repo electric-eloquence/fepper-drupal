@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Theme;
 
 use Drupal\Core\Extension\ModuleExtensionList;
@@ -16,7 +18,7 @@ class RegistryTest extends UnitTestCase {
   /**
    * The mocked theme registry.
    *
-   * @var \Drupal\Core\Theme\Registry|PHPUnit\Framework\MockObject\MockObject
+   * @var \Drupal\Core\Theme\Registry|\PHPUnit\Framework\MockObject\MockObject
    */
   protected $registry;
 
@@ -56,6 +58,13 @@ class RegistryTest extends UnitTestCase {
   protected $themeInitialization;
 
   /**
+   * The mocked cache backend.
+   *
+   * @var \Drupal\Core\Cache\CacheBackendInterface|\PHPUnit\Framework\MockObject\MockObject
+   */
+  protected $runtimeCache;
+
+  /**
    * The theme manager.
    *
    * @var \Drupal\Core\Theme\ThemeManagerInterface|\PHPUnit\Framework\MockObject\MockObject
@@ -87,9 +96,11 @@ class RegistryTest extends UnitTestCase {
     $this->moduleHandler = $this->createMock('Drupal\Core\Extension\ModuleHandlerInterface');
     $this->themeHandler = $this->createMock('Drupal\Core\Extension\ThemeHandlerInterface');
     $this->themeInitialization = $this->createMock('Drupal\Core\Theme\ThemeInitializationInterface');
+    $this->runtimeCache = $this->createMock('Drupal\Core\Cache\CacheBackendInterface');
     $this->themeManager = $this->createMock('Drupal\Core\Theme\ThemeManagerInterface');
     $this->moduleList = $this->createMock(ModuleExtensionList::class);
-    $this->setupTheme();
+    $this->registry = new Registry($this->root, $this->cache, $this->lock, $this->moduleHandler, $this->themeHandler, $this->themeInitialization, $this->runtimeCache, $this->moduleList);
+    $this->registry->setThemeManager($this->themeManager);
   }
 
   /**
@@ -109,7 +120,6 @@ class RegistryTest extends UnitTestCase {
       'path' => 'core/modules/system/tests/themes/test_theme/test_theme.info.yml',
       'engine' => 'twig',
       'owner' => 'twig',
-      'stylesheets_remove' => [],
       'libraries_override' => [],
       'libraries_extend' => [],
       'libraries' => [],
@@ -122,7 +132,6 @@ class RegistryTest extends UnitTestCase {
       'path' => 'core/tests/fixtures/test_stable/test_stable.info.yml',
       'engine' => 'twig',
       'owner' => 'twig',
-      'stylesheets_remove' => [],
       'libraries_override' => [],
       'libraries_extend' => [],
       'libraries' => [],
@@ -201,7 +210,6 @@ class RegistryTest extends UnitTestCase {
 
     $class = new \ReflectionClass(Registry::class);
     $reflection_method = $class->getMethod('postProcessExtension');
-    $reflection_method->setAccessible(TRUE);
     $reflection_method->invokeArgs($this->registry, [&$hooks, $theme->reveal()]);
 
     $this->assertEquals($expected, $hooks);
@@ -482,21 +490,6 @@ class RegistryTest extends UnitTestCase {
     ];
 
     return $data;
-  }
-
-  protected function setupTheme() {
-    $this->registry = $this->getMockBuilder(Registry::class)
-      ->onlyMethods(['getPath'])
-      ->setConstructorArgs([$this->root, $this->cache, $this->lock, $this->moduleHandler, $this->themeHandler, $this->themeInitialization, NULL, NULL, $this->moduleList])
-      ->getMock();
-    $this->registry->expects($this->any())
-      ->method('getPath')
-      ->willReturnCallback(function ($module) {
-        if ($module == 'theme_test') {
-          return 'core/modules/system/tests/modules/theme_test';
-        }
-      });
-    $this->registry->setThemeManager($this->themeManager);
   }
 
 }

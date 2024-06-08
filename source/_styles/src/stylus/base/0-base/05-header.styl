@@ -17,11 +17,7 @@ header.header
     float: left
     margin: 0
 // Need to lower specificity with an attribute match so these don't override other selections by attribute match.
-[id="region-primary-menu"]
-  @media all and (max-width: $bp-sm-max)
-    float: right
-  @media all and (min-width: $bp-med)
-    float: left
+[id="region-primary-menu"],
 [id="region-secondary-menu"]
   float: right
 #region-secondary-menu [id^="block-"][id*="-search"],

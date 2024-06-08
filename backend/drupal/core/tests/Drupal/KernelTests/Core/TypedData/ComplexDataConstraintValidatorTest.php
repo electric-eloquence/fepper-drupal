@@ -7,8 +7,7 @@ use Drupal\Core\TypedData\MapDataDefinition;
 use Drupal\KernelTests\KernelTestBase;
 
 /**
- * Tests ComplexData validation constraint with both valid and invalid values
- * for a key.
+ * Tests ComplexData validation with both valid and invalid values.
  *
  * @group Validation
  */
@@ -21,6 +20,9 @@ class ComplexDataConstraintValidatorTest extends KernelTestBase {
    */
   protected $typedData;
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->typedData = $this->container->get('typed_data_manager');

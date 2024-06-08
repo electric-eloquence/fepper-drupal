@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Entity;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Drupal\Core\Entity\EntityBase;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityTypeRepositoryInterface;
@@ -22,7 +25,7 @@ class EntityUnitTest extends UnitTestCase {
   /**
    * The entity under test.
    *
-   * @var \Drupal\Core\Entity\Entity|\PHPUnit\Framework\MockObject\MockObject
+   * @var \Drupal\Core\Entity\EntityInterface|\PHPUnit\Framework\MockObject\MockObject
    */
   protected $entity;
 
@@ -86,6 +89,8 @@ class EntityUnitTest extends UnitTestCase {
    * {@inheritdoc}
    */
   protected function setUp(): void {
+    parent::setUp();
+
     $this->values = [
       'id' => 1,
       'langcode' => 'en',
@@ -102,7 +107,7 @@ class EntityUnitTest extends UnitTestCase {
     $this->entityTypeManager->expects($this->any())
       ->method('getDefinition')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($this->entityType));
+      ->willReturn($this->entityType);
 
     $this->uuid = $this->createMock('\Drupal\Component\Uuid\UuidInterface');
 
@@ -110,7 +115,7 @@ class EntityUnitTest extends UnitTestCase {
     $this->languageManager->expects($this->any())
       ->method('getLanguage')
       ->with('en')
-      ->will($this->returnValue(new Language(['id' => 'en'])));
+      ->willReturn(new Language(['id' => 'en']));
 
     $this->cacheTagsInvalidator = $this->createMock('Drupal\Core\Cache\CacheTagsInvalidator');
 
@@ -121,7 +126,7 @@ class EntityUnitTest extends UnitTestCase {
     $container->set('cache_tags.invalidator', $this->cacheTagsInvalidator);
     \Drupal::setContainer($container);
 
-    $this->entity = $this->getMockForAbstractClass('\Drupal\Core\Entity\EntityBase', [$this->values, $this->entityTypeId]);
+    $this->entity = new EntityBaseTest($this->values, $this->entityTypeId);
   }
 
   /**
@@ -172,18 +177,18 @@ class EntityUnitTest extends UnitTestCase {
     $this->entityType->expects($this->atLeastOnce())
       ->method('getKey')
       ->with('label')
-      ->will($this->returnValue('label'));
+      ->willReturn('label');
 
     // Set a dummy property on the entity under test to test that the label can
     // be returned form a property if there is no callback.
     $this->entityTypeManager->expects($this->atLeastOnce())
       ->method('getDefinition')
       ->with($this->entityTypeId)
-      ->will($this->returnValue([
+      ->willReturn([
         'entity_keys' => [
           'label' => 'label',
         ],
-      ]));
+      ]);
     $this->entity->label = $property_label;
 
     $this->assertSame($property_label, $this->entity->label());
@@ -198,13 +203,13 @@ class EntityUnitTest extends UnitTestCase {
     $access->expects($this->once())
       ->method('access')
       ->with($this->entity, $operation)
-      ->will($this->returnValue(AccessResult::allowed()));
+      ->willReturn(AccessResult::allowed());
     $access->expects($this->once())
       ->method('createAccess')
-      ->will($this->returnValue(AccessResult::allowed()));
+      ->willReturn(AccessResult::allowed());
     $this->entityTypeManager->expects($this->exactly(2))
       ->method('getAccessControlHandler')
-      ->will($this->returnValue($access));
+      ->willReturn($access);
 
     $this->assertEquals(AccessResult::allowed(), $this->entity->access($operation));
     $this->assertEquals(AccessResult::allowed(), $this->entity->access('create'));
@@ -260,12 +265,12 @@ class EntityUnitTest extends UnitTestCase {
     $storage->expects($this->once())
       ->method('load')
       ->with(1)
-      ->will($this->returnValue($this->entity));
+      ->willReturn($this->entity);
 
     $this->entityTypeManager->expects($this->once())
       ->method('getStorage')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($storage));
+      ->willReturn($storage);
 
     \Drupal::getContainer()->set('entity_type.repository', $entity_type_repository);
 
@@ -294,12 +299,12 @@ class EntityUnitTest extends UnitTestCase {
     $storage->expects($this->once())
       ->method('loadMultiple')
       ->with([1])
-      ->will($this->returnValue([1 => $this->entity]));
+      ->willReturn([1 => $this->entity]);
 
     $this->entityTypeManager->expects($this->once())
       ->method('getStorage')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($storage));
+      ->willReturn($storage);
 
     \Drupal::getContainer()->set('entity_type.repository', $entity_type_repository);
 
@@ -326,12 +331,12 @@ class EntityUnitTest extends UnitTestCase {
     $storage->expects($this->once())
       ->method('create')
       ->with([])
-      ->will($this->returnValue($this->entity));
+      ->willReturn($this->entity);
 
     $this->entityTypeManager->expects($this->once())
       ->method('getStorage')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($storage));
+      ->willReturn($storage);
 
     \Drupal::getContainer()->set('entity_type.repository', $entity_type_repository);
 
@@ -352,7 +357,7 @@ class EntityUnitTest extends UnitTestCase {
     $this->entityTypeManager->expects($this->once())
       ->method('getStorage')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($storage));
+      ->willReturn($storage);
 
     $this->entity->save();
   }
@@ -370,7 +375,7 @@ class EntityUnitTest extends UnitTestCase {
     $this->entityTypeManager->expects($this->once())
       ->method('getStorage')
       ->with($this->entityTypeId)
-      ->will($this->returnValue($storage));
+      ->willReturn($storage);
 
     $this->entity->delete();
   }
@@ -616,5 +621,13 @@ class EntityUnitTest extends UnitTestCase {
     $this->entity->mergeCacheMaxAge(1800);
     $this->assertEquals(600, $this->entity->getCacheMaxAge());
   }
+
+}
+
+class EntityBaseTest extends EntityBase {
+  public $id;
+  public $langcode;
+  public $uuid;
+  public $label;
 
 }

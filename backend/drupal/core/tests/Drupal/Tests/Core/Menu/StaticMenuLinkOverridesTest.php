@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\Core\Menu;
 
 use Drupal\Core\Menu\StaticMenuLinkOverrides;
@@ -121,7 +123,7 @@ class StaticMenuLinkOverridesTest extends UnitTestCase {
     $config_factory = $this->createMock('Drupal\Core\Config\ConfigFactoryInterface');
     $config_factory->expects($this->once())
       ->method('getEditable')
-      ->will($this->returnValue($config));
+      ->willReturn($config);
 
     $static_override = new StaticMenuLinkOverrides($config_factory);
 
@@ -148,7 +150,7 @@ class StaticMenuLinkOverridesTest extends UnitTestCase {
     $config->expects($this->once())
       ->method('get')
       ->with('definitions')
-      ->will($this->returnValue($old_definitions));
+      ->willReturn($old_definitions);
 
     // Only save if the definitions changes.
     $config->expects($old_definitions != $new_definitions ? $this->once() : $this->never())
@@ -161,7 +163,7 @@ class StaticMenuLinkOverridesTest extends UnitTestCase {
     $config_factory = $this->createMock('Drupal\Core\Config\ConfigFactoryInterface');
     $config_factory->expects($this->once())
       ->method('getEditable')
-      ->will($this->returnValue($config));
+      ->willReturn($config);
 
     $static_override = new StaticMenuLinkOverrides($config_factory);
 

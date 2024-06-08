@@ -124,7 +124,7 @@ class ContentTranslationLinkTagTest extends BrowserTestBase {
     $entity_canonical = '/entity_test_mul/manage/' . $entity->id();
     $this->config('system.site')->set('page.front', $entity_canonical)->save();
 
-    // Tests hreflangs when using entities as a front page.
+    // Tests hreflang when using entities as a front page.
     foreach ($urls as $langcode => $url) {
       $this->drupalGet($url);
       foreach ($entity->getTranslationLanguages() as $language) {
@@ -154,8 +154,7 @@ class ContentTranslationLinkTagTest extends BrowserTestBase {
     $this->drupalGet($entity->toUrl('edit-form'));
 
     $this->assertSession()->statusCodeEquals(200);
-    $result = $this->xpath('//link[@rel="alternate" and @hreflang]');
-    $this->assertEmpty($result, 'No alternate link tag found.');
+    $this->assertSession()->elementNotExists('xpath', '//link[@rel="alternate" and @hreflang]');
   }
 
 }

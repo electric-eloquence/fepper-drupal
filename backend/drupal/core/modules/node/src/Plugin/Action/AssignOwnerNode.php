@@ -3,22 +3,23 @@
 namespace Drupal\node\Plugin\Action;
 
 use Drupal\Core\Action\ConfigurableActionBase;
+use Drupal\Core\Action\Attribute\Action;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Assigns ownership of a node to a user.
- *
- * @Action(
- *   id = "node_assign_owner_action",
- *   label = @Translation("Change the author of content"),
- *   type = "node"
- * )
  */
+#[Action(
+  id: 'node_assign_owner_action',
+  label: new TranslatableMarkup('Change the author of content'),
+  type: 'node'
+)]
 class AssignOwnerNode extends ConfigurableActionBase implements ContainerFactoryPluginInterface {
 
   /**
@@ -76,7 +77,7 @@ class AssignOwnerNode extends ConfigurableActionBase implements ContainerFactory
    * {@inheritdoc}
    */
   public function buildConfigurationForm(array $form, FormStateInterface $form_state) {
-    $description = t('The username of the user to which you would like to assign ownership.');
+    $description = $this->t('The username of the user to which you would like to assign ownership.');
     $count = $this->connection->query("SELECT COUNT(*) FROM {users}")->fetchField();
 
     // Use dropdown for fewer than 200 users; textbox for more than that.
@@ -88,7 +89,7 @@ class AssignOwnerNode extends ConfigurableActionBase implements ContainerFactory
       }
       $form['owner_uid'] = [
         '#type' => 'select',
-        '#title' => t('Username'),
+        '#title' => $this->t('Username'),
         '#default_value' => $this->configuration['owner_uid'],
         '#options' => $options,
         '#description' => $description,
@@ -97,7 +98,7 @@ class AssignOwnerNode extends ConfigurableActionBase implements ContainerFactory
     else {
       $form['owner_uid'] = [
         '#type' => 'entity_autocomplete',
-        '#title' => t('Username'),
+        '#title' => $this->t('Username'),
         '#target_type' => 'user',
         '#selection_settings' => [
           'include_anonymous' => FALSE,
@@ -119,7 +120,7 @@ class AssignOwnerNode extends ConfigurableActionBase implements ContainerFactory
   public function validateConfigurationForm(array &$form, FormStateInterface $form_state) {
     $exists = (bool) $this->connection->queryRange('SELECT 1 FROM {users_field_data} WHERE [uid] = :uid AND [default_langcode] = 1', 0, 1, [':uid' => $form_state->getValue('owner_uid')])->fetchField();
     if (!$exists) {
-      $form_state->setErrorByName('owner_uid', t('Enter a valid username.'));
+      $form_state->setErrorByName('owner_uid', $this->t('Enter a valid username.'));
     }
   }
 

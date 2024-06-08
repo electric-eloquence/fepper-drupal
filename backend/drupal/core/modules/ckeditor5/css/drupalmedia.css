@@ -11,8 +11,10 @@
   display: table;
   clear: both;
   min-width: 50px;
-  margin: 0.9em auto;
-  text-align: center;
+}
+
+.ck .drupal-media [data-drupal-media-preview] {
+  pointer-events: none;
 }
 
 .ck-content .drupal-media img {
@@ -96,10 +98,6 @@
   border: 0;
   border-top: 1px solid var(--ck-color-base-border);
   border-radius: 0;
-}
-
-.ck.ck-media-alternative-text-form .ck-button:last-of-type {
-  border-right: 1px solid var(--ck-color-base-border);
 }
 
 .ck.ck .ck-media-alternative-text-form__default-alt-text-label {

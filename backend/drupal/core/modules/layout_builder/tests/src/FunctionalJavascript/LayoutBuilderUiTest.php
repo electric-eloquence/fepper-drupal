@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Drupal\Tests\layout_builder\FunctionalJavascript;
 
 use Drupal\block_content\Entity\BlockContentType;
@@ -22,9 +24,13 @@ class LayoutBuilderUiTest extends WebDriverTestBase {
    */
   const FIELD_UI_PREFIX = 'admin/structure/types/manage/bundle_with_section_field';
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'layout_builder',
     'block',
+    'field_ui',
     'node',
     'block_content',
     'contextual',
@@ -34,7 +40,7 @@ class LayoutBuilderUiTest extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'classy';
+  protected $defaultTheme = 'starterkit_theme';
 
   /**
    * {@inheritdoc}
@@ -166,14 +172,14 @@ class LayoutBuilderUiTest extends WebDriverTestBase {
     $this->assertNotEmpty($assert_session->waitForElementVisible('css', '[data-layout-delta="1"]'));
     $assert_session->elementsCount('css', '.layout-builder__add-block', 3);
 
-    // Add a custom block.
+    // Add a content block.
     $page->clickLink('Add block');
-    $this->assertNotEmpty($assert_session->waitForElementVisible('css', 'a:contains("Create custom block")'));
+    $this->assertNotEmpty($assert_session->waitForElementVisible('css', 'a:contains("Create content block")'));
     $assert_session->assertWaitOnAjaxRequest();
 
     // Highlight is present with ChooseBlockController::build().
     $this->assertHighlightedElement('[data-layout-builder-highlight-id="block-0-first"]');
-    $page->clickLink('Create custom block');
+    $page->clickLink('Create content block');
     $this->assertNotEmpty($assert_session->waitForElementVisible('css', '#drupal-off-canvas input[value="Add block"]'));
     $assert_session->assertWaitOnAjaxRequest();
 

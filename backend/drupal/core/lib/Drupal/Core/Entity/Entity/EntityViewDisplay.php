@@ -12,8 +12,10 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\TypedData\TranslatableInterface as TranslatableDataInterface;
 
 /**
- * Configuration entity that contains display options for all components of a
- * rendered entity in a given view mode.
+ * Configuration entity.
+ *
+ * Contains display options for all components of a rendered entity in a given
+ * view mode.
  *
  * @ConfigEntityType(
  *   id = "entity_view_display",
@@ -32,6 +34,9 @@ use Drupal\Core\TypedData\TranslatableInterface as TranslatableDataInterface;
  *     "mode",
  *     "content",
  *     "hidden",
+ *   },
+ *   constraints = {
+ *     "ImmutableProperties" = {"id", "targetEntityType", "bundle", "mode"},
  *   }
  * )
  */

@@ -3,7 +3,7 @@
 namespace Drupal\Tests\migrate\Kernel\Plugin\id_map;
 
 use Drupal\Core\Database\Database;
-use Drupal\Core\Database\DatabaseExceptionWrapper;
+use Drupal\Core\Database\Exception\SchemaTableColumnSizeTooLargeException;
 use Drupal\Tests\migrate\Kernel\MigrateTestBase;
 use Drupal\Tests\migrate\Unit\TestSqlIdMap;
 use Drupal\migrate\MigrateException;
@@ -49,7 +49,7 @@ class SqlTest extends MigrateTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  protected function setUp(): void {
     parent::setUp();
     $this->database = \Drupal::database();
     $this->eventDispatcher = $this->prophesize(EventDispatcherInterface::class)
@@ -87,7 +87,7 @@ class SqlTest extends MigrateTestBase {
     $this->migrationDefinition['source']['ids'] = $ids;
     $migration = $this->migrationPluginManager->createStubMigration($this->migrationDefinition);
 
-    $map = new TestSqlIdMap($this->database, [], 'test', [], $migration, $this->eventDispatcher);
+    $map = new TestSqlIdMap($this->database, [], 'test', [], $migration, $this->eventDispatcher, $this->migrationPluginManager);
     $map->ensureTables();
 
     // Checks that the map table was created.
@@ -149,10 +149,9 @@ class SqlTest extends MigrateTestBase {
       ->createStubMigration($this->migrationDefinition);
 
     // Use local id map plugin to force an error.
-    $map = new SqlIdMapTest($this->database, [], 'test', [], $migration, $this->eventDispatcher);
+    $map = new SqlIdMapTest($this->database, [], 'test', [], $migration, $this->eventDispatcher, $this->migrationPluginManager);
 
-    $this->expectException(DatabaseExceptionWrapper::class);
-    $this->expectExceptionMessage("Syntax error or access violation: 1074 Column length too big for column 'sourceid1' (max = 16383); use BLOB or TEXT instead:");
+    $this->expectException(SchemaTableColumnSizeTooLargeException::class);
     $map->ensureTables();
   }
 

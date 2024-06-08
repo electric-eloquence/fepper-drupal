@@ -140,6 +140,8 @@ class Table extends StylePluginBase implements CacheableDependencyInterface {
   }
 
   /**
+   * Sanitizes the columns.
+   *
    * Normalize a list of columns based upon the fields that are
    * available. This compares the fields stored in the style handler
    * to the list of fields actually in the view, removing fields that
@@ -168,7 +170,7 @@ class Table extends StylePluginBase implements CacheableDependencyInterface {
     if ($fields === NULL) {
       $fields = $this->displayHandler->getOption('fields');
     }
-    // Preconfigure the sanitized array so that the order is retained.
+    // Pre-configure the sanitized array so that the order is retained.
     foreach ($fields as $field => $info) {
       // Set to itself so that if it isn't touched, it gets column
       // status automatically.
@@ -336,7 +338,7 @@ class Table extends StylePluginBase implements CacheableDependencyInterface {
           'views-align-left' => $this->t('Left', [], ['context' => 'Text alignment']),
           'views-align-center' => $this->t('Center', [], ['context' => 'Text alignment']),
           'views-align-right' => $this->t('Right', [], ['context' => 'Text alignment']),
-          ],
+        ],
         '#states' => [
           'visible' => [
             $column_selector => ['value' => $field],

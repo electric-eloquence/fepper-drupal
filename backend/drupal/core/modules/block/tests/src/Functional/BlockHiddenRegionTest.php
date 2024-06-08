@@ -5,8 +5,7 @@ namespace Drupal\Tests\block\Functional;
 use Drupal\Tests\BrowserTestBase;
 
 /**
- * Tests that a newly installed theme does not inherit blocks to its hidden
- * regions.
+ * Tests that blocks are not added to hidden regions on theme installation.
  *
  * @group block
  */
@@ -29,6 +28,9 @@ class BlockHiddenRegionTest extends BrowserTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
 
@@ -37,8 +39,7 @@ class BlockHiddenRegionTest extends BrowserTestBase {
       'administer blocks',
       'administer themes',
       'search content',
-      ]
-    );
+    ]);
 
     $this->drupalLogin($this->adminUser);
     $this->drupalPlaceBlock('search_form_block');

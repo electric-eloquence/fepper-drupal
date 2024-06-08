@@ -70,7 +70,7 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp(): void {
+  protected function setUp(): void {
     parent::setUp();
     $this->installConfig(static::$modules);
     $node_types = [
@@ -86,7 +86,7 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
     foreach ($node_types as $node_type => $comment_type) {
       NodeType::create([
         'type' => $node_type,
-        'label' => $this->randomString(),
+        'name' => $this->randomString(),
       ])->save();
 
       CommentType::create([
@@ -96,7 +96,7 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
       ])->save();
     }
 
-    Vocabulary::create(['vid' => 'test_vocabulary'])->save();
+    Vocabulary::create(['vid' => 'test_vocabulary', 'name' => 'Test'])->save();
     $this->executeMigrations([
       'd7_field',
       'd7_comment_type',
@@ -210,6 +210,7 @@ class FieldDiscoveryTest extends MigrateDrupal7TestBase {
                   'taxonomy_term_reference_plain' => 'entity_reference_label',
                   'taxonomy_term_reference_rss_category' => 'entity_reference_label',
                   'i18n_taxonomy_term_reference_link' => 'entity_reference_label',
+                  'i18n_taxonomy_term_reference_plain' => 'entity_reference_label',
                   'entityreference_entity_view' => 'entity_reference_entity_view',
                 ],
                 'link_field' => [
